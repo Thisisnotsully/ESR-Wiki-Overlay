@@ -29,7 +29,7 @@ constexpr D2RL::PluginInfo EsrOverlayPluginInfo {
     .abiVersion = D2RL_PLUGIN_ABI_VERSION,
     .id = "esr-wiki-overlay",
     .name = "ESR Wiki Overlay",
-    .version = "1.0.0",
+    .version = "1.1.0",
     .author = "Sully",
     .description = "Read-only ESR wiki reference overlay. Open it with the eswiki command, or a key bound in the controls.",
     .flags = D2RL::PluginFlags::Client,

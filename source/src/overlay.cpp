@@ -1818,7 +1818,6 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
             const HFONT font = lines[first + r].kind == LineKind::Header ? fontBold : fontBody;
             int rowHeight = 0;
             for (std::size_t c = 0; c < columns; ++c) {
-                COLORREF color = kBody;
                 rowHeight = std::max(rowHeight, cellHeight(r, c, std::max(S(20), colWidth[c] - 2 * pad), font));
             }
             measured.push_back(rowHeight + 2 * pad);
