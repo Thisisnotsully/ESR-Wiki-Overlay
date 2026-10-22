@@ -179,7 +179,7 @@ void TestGeneratedData(const std::string& path) {
     esrwiki::Database db;
     std::string error;
     Check(esrwiki::ParseDatabase(text, db, error), ("generated data parses: " + error).c_str());
-    Check(db.pages.size() == 14, "14 pages");
+    Check(db.pages.size() == 17, "17 pages");
     auto find = [&](const char* id) -> const esrwiki::Page* {
         for (const auto& page : db.pages)
             if (page.id == id) return &page;

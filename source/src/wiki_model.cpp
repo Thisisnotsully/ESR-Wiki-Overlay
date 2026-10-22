@@ -114,6 +114,9 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
             entry.wide = field(3) == "wide";
             entry.compact = field(3) == "compact";
             entry.sortable = field(3) == "sortable";
+            for (std::size_t flag = 3; flag < fields.size(); ++flag) {
+                if (fields[flag] == "fiveacross") entry.fiveAcross = true;
+            }
             if (entry.title.empty()) return fail("ENTRY needs a title");
             out.pages.back().entries.push_back(std::move(entry));
             continue;

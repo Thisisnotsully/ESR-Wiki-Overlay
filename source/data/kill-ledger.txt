@@ -1,0 +1,34 @@
+# Kill Ledger: text from the Eastern Sun Resurrected database page, coloured with the site's font colours.
+# ENTRY starts a list item; T is a paragraph; C is a table header; R is a table row (cells split by U+001F).
+ENTRY|Overview
+T|The ÿcOKill LedgerÿcN is a special book that keeps tracks of the amount of enemies you have killed. In addition to keeping track, the ledger can be imbued with various bonuses once you reach specific kill tresholds. The ÿcOKill LedgerÿcN can also be used to capture the souls of endgame map bosses. Killing map bosses allows you to transmute the ledger for special bonuses. The bonuses aren't as important or game changing as the ascendancy ones, but they are generally easier to obtain and are mostly symbolic, meant to track your progress. ÿcHThe kill bonusesÿcN need to be completed in order. Trying to transmute for all skills without all the previous bonuses won't work, for example. The ÿcOKill LedgerÿcN is also essential for the skills' random effects to work, so you need to ÿcRkeep it in your charm inventory at all timesÿcN . ÿcPThe boss bonusesÿcN can be completed in any order. The ÿcOKill LedgerÿcN ÿcRcannot be transferedÿcN between characters. Needless to say, each bonus is attainable only once.
+ENTRY|Kill Bonuses
+T|The kill bonuses need to be completed in order. Trying to transmute for all skills without all the previous bonuses won't work, for example.
+C|KillsGemBonus
+R|500 killsAny Flawless Gem+10% to All Resistances
+R|5000 killsAny Blemished Gem+10% to All Speeds
+R|10000 killsAny Perfect Gem+5% Bonus to All Attributes
+R|50000 killsAny Perfect Gem x2Increase Maximum Life +10% Increase Maximum Mana +10%
+R|100000 killsAny Perfect Gem x3+10% Physical Damage Leeched as Life +10% Physical Damage Leeched as Mana
+R|1000000 killsAny Perfect Gem x4+10 Fire Absorb +10 Cold Absorb +10 Lightning Absorb
+R|10000000 killsÿcYMaple LeafÿcN+1 to All Skills
+ENTRY|Boss Bonuses
+T|You have 60 seconds to transmute your ÿcOKill LedgerÿcN after you kill the boss with the appropriate ingredients to get the bonus.
+C|IngredientsBossBonus
+R|ÿcR2x Flawed Enigmatic CinnabarÿcNLucion Whisper​
+R|ÿcP2x Flawed Tainted TourmalineÿcNDiablo's Hellhound​
+R|ÿcO2x Flawed Storm AmberÿcNFallen Ancient Angel​
+R|ÿcG2x Flawed Bitter PeridotÿcNTerror in the Shadows​
+R|ÿcW2x Flawed Solid MercuryÿcNAvatar of the Night​
+R|ÿcK2x Flawed Pulsing OpalÿcNHerald of Doom​
+R|ÿcL2x Flawed Frozen SoulÿcNGlacial Behemoth​
+R|ÿcG2x Flawed Tomb JadeÿcNThe Taskmaster​
+R|ÿcN2x Flawed Shadow QuartzÿcNBaal's Disfigured Harbinger of Destruction​
+R|ÿcL2x Flawed Dark AzuriteÿcNArbiter of Souls​
+R|ÿc92x Flawed Burning SulphurÿcN ÿc9Perfect TopazÿcNMephisto the Invincible​
+R|ÿcR2x Flawed Bleeding StoneÿcN ÿcRPerfect RubyÿcNDiablo the Invincible​
+R|ÿcL2x Flawed Dark AzuriteÿcN ÿcLPerfect SapphireÿcNBaal the Invincible​
+R|ÿcYMaple LeafÿcN ÿcPFlawed TourmalineÿcNAny Eternal Ancient​
+R|ÿcYMaple LeafÿcN ÿcLFlawed Frozen SoulÿcNThe Lich King​
+R|ÿcYMaple LeafÿcN ÿcNFlawed Shadow QuartzÿcNRathma​
+R|ÿcYMaple LeafÿcN ÿcRFlawed Bleeding StoneÿcNLucion​

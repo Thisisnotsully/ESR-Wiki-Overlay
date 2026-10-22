@@ -187,8 +187,37 @@
       "id": "item-bases",
       "title": "Item Bases",
       "group": "Endgame",
+      "mode": "baseItemCards",
+      "source": "data/base-items-raw.json"
+    },
+    {
+      "id": "vessel-of-souls",
+      "title": "Vessel of Souls",
+      "group": "Endgame",
+      "mode": "endgame",
+      "source": "data/vessel-of-souls.txt"
+    },
+    {
+      "id": "kill-ledger",
+      "title": "Kill Ledger",
+      "group": "Endgame",
+      "mode": "endgame",
+      "source": "data/kill-ledger.txt"
+    },
+    {
+      "id": "merc-oskill",
+      "title": "Mercenary/O-Skill",
+      "group": "Endgame",
+      "mode": "endgame",
+      "source": "data/merc-oskill.txt"
+    },
+    {
+      "id": "item-bases-cards",
+      "title": "Item Bases (sections, backup)",
+      "group": "Endgame",
       "mode": "baseItems",
-      "source": "data/base-items.json"
+      "source": "data/base-items.json",
+      "disabled": true
     }
   ]
 }

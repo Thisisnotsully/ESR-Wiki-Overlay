@@ -64,6 +64,7 @@ struct Entry {
     bool sortable = false;  // item cards can be sorted by level, tier, family or name
     bool wide = false;     // one card per row, with its stats and notes in a column beside it
     bool compact = false;  // small cards, six per row (as on the rune library)
+    bool fiveAcross = false;  // item cards, five per row (flag "fiveacross" after "sortable")
 };
 
 struct Page {

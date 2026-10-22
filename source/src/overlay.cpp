@@ -696,7 +696,7 @@ struct OverlayState {
     int S(int value) const { return MulDiv(value, dpi, 96); }
     int RuneRowHeight(const TileStyle& style) const { return style.cell + smallLine + S(4); }
     int RuneRows(std::size_t count, const TileStyle& style) const;
-    TileStyle MakeTileStyle(int width_, bool compact) const;
+    TileStyle MakeTileStyle(int width_, bool compact, bool fiveAcross = false) const;
 
     HFONT MakeFont(int points, int weight) const;
     void CreateFonts();
@@ -773,13 +773,13 @@ int OverlayState::RuneRows(std::size_t count, const TileStyle& style) const {
 // Tiles follow the detail pane width: normal item tiles are three per row with
 // art at three quarters of the tile width; compact rune tiles are small, with
 // fixed-size art (about a quarter of the normal size) and up to six per row.
-TileStyle OverlayState::MakeTileStyle(int width_, bool compact) const {
+TileStyle OverlayState::MakeTileStyle(int width_, bool compact, bool fiveAcross) const {
     TileStyle style;
-    style.columns = compact ? (width_ >= S(560) ? 6 : 4) : 3;
-    style.gap = compact ? S(6) : S(12);
+    style.columns = fiveAcross ? 5 : compact ? (width_ >= S(560) ? 6 : 4) : 3;
+    style.gap = compact || fiveAcross ? S(6) : S(12);
     style.tileWidth = std::max(S(40), (width_ - style.gap * (style.columns - 1)) / style.columns);
     style.padding = S(6);
-    style.nameFont = compact ? fontSmall : fontBold;
+    style.nameFont = compact || fiveAcross ? fontSmall : fontBold;
     if (compact) {
         style.artBox = std::max(S(20), std::min(S(35), style.tileWidth - S(12)));
         style.cell = S(30);
@@ -1573,7 +1573,7 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
                               const std::vector<std::size_t>& order, std::size_t begin, std::size_t end, int left,
                               int width_, int y, bool compact, bool draw) {
     if (entry.wide) return RenderWideTiles(dc, graphics, entry, order, begin, end, left, width_, y, draw);
-    const TileStyle style = MakeTileStyle(width_, compact);
+    const TileStyle style = MakeTileStyle(width_, compact, entry.fiveAcross);
     const std::size_t step = static_cast<std::size_t>(style.columns);
 
     for (std::size_t first = begin; first < end; first += step) {
@@ -1747,6 +1747,64 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
         return Wide(plain);
     };
 
+    // Widen any column whose longest unbreakable word would otherwise be clipped. The extra
+    // room comes out of the wider columns in proportion to their width.
+    {
+        std::vector<int> need(columns, 0);
+        const HFONT previous = static_cast<HFONT>(SelectObject(dc, fontBody));
+        for (std::size_t r = 0; r < rows.size(); ++r) {
+            for (std::size_t c = 0; c < columns; ++c) {
+                COLORREF color = kBody;
+                const std::wstring text = cellText(r, c, color);
+                std::size_t begin = 0;
+                while (begin <= text.size()) {
+                    std::size_t end = text.find(L' ', begin);
+                    if (end == std::wstring::npos) end = text.size();
+                    if (end > begin) {
+                        SIZE size{};
+                        GetTextExtentPoint32W(dc, text.c_str() + begin, static_cast<int>(end - begin), &size);
+                        need[c] = std::max(need[c], static_cast<int>(size.cx) + 2 * pad + S(4));
+                    }
+                    begin = end + 1;
+                }
+            }
+        }
+        SelectObject(dc, previous);
+        int deficit = 0;
+        for (std::size_t c = 0; c < columns; ++c) {
+            if (colWidth[c] < need[c]) { deficit += need[c] - colWidth[c]; colWidth[c] = need[c]; }
+        }
+        int spare = 0;
+        for (std::size_t c = 0; c < columns; ++c) {
+            if (colWidth[c] > need[c]) spare += colWidth[c] - need[c];
+        }
+        if (deficit > 0 && spare > 0) {
+            for (std::size_t c = 0; c < columns; ++c) {
+                if (colWidth[c] > need[c]) {
+                    const int give = std::min(colWidth[c] - need[c], deficit * (colWidth[c] - need[c]) / spare);
+                    colWidth[c] -= give;
+                }
+            }
+            int sum = 0;
+            for (const int w : colWidth) sum += w;
+            colWidth[columns - 1] += width_ - sum;
+        }
+    }
+
+    // Raw cell text with its colour codes. Non-header cells with colour codes are laid out piece by
+    // piece, so each word can keep its own colour (as paragraphs do), not one colour per cell.
+    auto rawCell = [&](std::size_t r, std::size_t c) -> std::string {
+        return c < rows[r].size() ? rows[r][c] : std::string();
+    };
+    auto multiColour = [&](std::size_t r, std::size_t c) {
+        return lines[first + r].kind != LineKind::Header && HasColorCodes(rawCell(r, c));
+    };
+    auto cellHeight = [&](std::size_t r, std::size_t c, int w, HFONT f) -> int {
+        if (multiColour(r, c)) return LayoutPieces(dc, LinePieces(rawCell(r, c), kBody), kBody, Rect(0, 0, w, 0), f, DT_LEFT, false);
+        COLORREF color = kBody;
+        return MeasureHeight(dc, cellText(r, c, color), w, f);
+    };
+
     std::string key = std::to_string(width_);
     for (std::size_t i = first; i < last; ++i) {
         key += '|';
@@ -1761,8 +1819,7 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
             int rowHeight = 0;
             for (std::size_t c = 0; c < columns; ++c) {
                 COLORREF color = kBody;
-                rowHeight = std::max(rowHeight, MeasureHeight(dc, cellText(r, c, color),
-                                                              std::max(S(20), colWidth[c] - 2 * pad), font));
+                rowHeight = std::max(rowHeight, cellHeight(r, c, std::max(S(20), colWidth[c] - 2 * pad), font));
             }
             measured.push_back(rowHeight + 2 * pad);
         }
@@ -1781,8 +1838,9 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
                 const std::wstring text = cellText(r, c, color);
                 const RECT cell = Rect(x, y, x + colWidth[c], y + rowHeight);
                 FrameColor(dc, cell, kBorder);
-                Text(dc, text, Rect(x + pad, y + pad, x + colWidth[c] - pad, y + rowHeight - pad), color, font,
-                     DT_LEFT | DT_WORDBREAK);
+                const RECT inner = Rect(x + pad, y + pad, x + colWidth[c] - pad, y + rowHeight - pad);
+                if (multiColour(r, c)) LayoutPieces(dc, LinePieces(rawCell(r, c), kBody), kBody, inner, font, DT_LEFT, true);
+                else Text(dc, text, inner, color, font, DT_LEFT | DT_WORDBREAK);
                 x += colWidth[c];
             }
         }

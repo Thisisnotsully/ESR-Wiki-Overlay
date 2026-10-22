@@ -64,11 +64,13 @@ def strip_color(text):
 # Generic inventory icon per base item type, used when a unique has no artwork of its own
 # and neither its name nor its type matches an icon file. Stems come from the base game
 # item sprites (items/<category>/<stem>.sprite).
+ALTERNATE_LABEL = {"Mis": "Missile", "2H": "Two-Handed"}
+
 TYPE_ICON_STEM = {
     "abow": "long_bow", "bow": "short_bow", "xbow": "crossbow",
     "ajav": "javelin", "jave": "javelin", "bjav": "spear", "aspe": "spear", "spea": "spear",
     "ashd": "rondache", "shie": "kite_shield",
-    "asnx": "short_sword", "wswd": "short_sword", "swor": "long_sword", "bedg": "scimitar",
+    "asnx": "short_sword", "asns": "short_sword", "wswd": "short_sword", "circ": "circlet", "robe": "quilted_armor", "mace": "mace", "swor": "long_sword", "bedg": "scimitar",
     "mana": "blade", "knif": "dagger", "tkni": "dagger", "ndgr": "dagger", "srkn": "throwing_knife",
     "h2h1": "claws", "h2h2": "claws", "knuc": "katar",
     "axe": "axe", "taxe": "hand_axe", "hamm": "war_hammer",
@@ -420,6 +422,104 @@ class Builder:
                 current["blocks"][-1]["lines"].append((kind, text))
             else:
                 raise SystemExit(f"{spec['id']}: unknown line type {kind!r}")
+        self.pages.append({"spec": spec, "entries": entries})
+
+    # --- base item cards (armor and weapons, five per row) ------------------
+    def build_base_item_cards(self, spec):
+        """Armor and Weapons categories as item cards, five per row. Each card has its base type's
+        icon, its name and tier, and the site's stats in the tooltip (blank columns left out).
+        Armor cards are filtered by base type (Helm, Boots, ...), weapon cards by weapon family.
+        Level is the site's Qlvl."""
+        data = json.loads((PLUGIN_DIR / spec["source"]).read_text(encoding="utf-8"))
+        item_art = {}
+        art_file = PLUGIN_DIR / "data" / "base-item-art.txt"
+        if art_file.exists():
+            for line in art_file.read_text(encoding="utf-8").splitlines():
+                if line.strip() and not line.startswith("#"):
+                    code, _, sprite = line.partition("\t")
+                    item_art[code.strip()] = sprite.strip()
+        entries = []
+        for kind, title in (("armor", "Armor"), ("weapons", "Weapons")):
+            blocks = []
+            for section in data.get(kind, []):
+                headers = section["headers"]
+                qlvl_at = headers.index("Qlvl") if "Qlvl" in headers else None
+                seen = set()
+                for item in section["items"]:
+                    # The site lists some bases twice under different codes with the same name, tier and
+                    # stats; they show as one card.
+                    tier_name = self.excel.code_tier(item["code"]) if self.excel is not None else ""
+                    key = (item["name"], tier_name, tuple(
+                        tuple(cell for label, cell in zip(headers, row) if label not in ("Name", "Code"))
+                        for row in item["rows"]))
+                    if key in seen:
+                        continue
+                    seen.add(key)
+                    block = new_block(item=True, title=item["name"], section=section["title"])
+                    first = item["rows"][0]
+                    block["fields"] = [(label, value) for label, value in zip(headers, first)
+                                       if label not in ("Name", "Code") and value.strip()]
+                    for row in item["rows"][1:]:
+                        if row[2].strip():  # Missile or Two-Handed alternate: its damage
+                            label = ALTERNATE_LABEL.get(row[1], row[1] or "Alternate")
+                            block["fields"].append((label, row[2] + " (" + row[3] + ")"))
+                    if qlvl_at is not None:
+                        qlvl = first[qlvl_at]
+                        block["level"] = int(qlvl) if str(qlvl).lstrip("-").isdigit() else 0
+                    if self.excel is not None:
+                        block["tier"] = self.excel.code_tier(item["code"])
+                        block["subtitle"] = " ".join(x for x in (block["tier"], item["code"]) if x)
+                        if kind == "weapons":
+                            block["family"] = self.excel.code_family(item["code"])
+                        if kind == "armor":
+                            block["family"] = section["title"]
+                    elif kind == "armor":
+                        block["family"] = section["title"]
+                    # Each base item's own art (data/base-item-art.txt); the generic base type icon otherwise.
+                    art = item_art.get(item["code"])
+                    if art is None and self.excel is not None:
+                        stem = TYPE_ICON_STEM.get(self.excel.base_types.get(item["code"], ""), "")
+                        art = self.sprite_index.get(stem) if stem else None
+                    if art:
+                        block["images"] = [self.note_image(art)]
+                    blocks.append(block)
+            entries.append({"title": title, "subtitle": "%d items" % len(blocks), "blocks": blocks,
+                            "wide": False, "compact": False, "sortable": True, "fiveacross": True})
+        self.pages.append({"spec": spec, "entries": entries})
+
+    # --- base item tables (armor and weapons, one raw text table per item) ----
+    def build_base_item_tables(self, spec):
+        """Armor and Weapons categories laid out like the website. Each item is one block: its name
+        is the title, and its table uses the site's column headers, with one row per site row (a
+        second row for a Missile or Two-Handed alternate). Armor uses its base section (Helm, Boots,
+        ...) for the Type filter; weapons use the weapon family. Level is the site's Qlvl."""
+        data = json.loads((PLUGIN_DIR / spec["source"]).read_text(encoding="utf-8"))
+        entries = []
+        for kind, title in (("armor", "Armor"), ("weapons", "Weapons")):
+            blocks = []
+            for section in data.get(kind, []):
+                headers = section["headers"]
+                qlvl_at = headers.index("Qlvl") if "Qlvl" in headers else None
+                for item in section["items"]:
+                    block = new_block(item=False, title=item["name"], section=section["title"])
+                    if qlvl_at is not None:
+                        qlvl = item["rows"][0][qlvl_at]
+                        block["level"] = int(qlvl) if str(qlvl).lstrip("-").isdigit() else 0
+                    if self.excel is not None:
+                        block["tier"] = self.excel.code_tier(item["code"])
+                        block["subtitle"] = block["tier"]
+                    if kind == "armor":
+                        block["family"] = section["title"]
+                    elif self.excel is not None:
+                        block["family"] = self.excel.code_family(item["code"])
+                    block["lines"] = [("C", TABLE_SEPARATOR.join(headers))]
+                    # Blank cells hold a zero-width space: the writer trims whitespace at line ends, which
+                    # would otherwise shift a blank first or last cell out of its column.
+                    block["lines"] += [("R", TABLE_SEPARATOR.join(cell or "\u200b" for cell in row))
+                                       for row in item["rows"]]
+                    blocks.append(block)
+            entries.append({"title": title, "subtitle": "%d items" % len(blocks), "blocks": blocks,
+                            "wide": False, "compact": False, "sortable": True})
         self.pages.append({"spec": spec, "entries": entries})
 
     # --- base items (armor and weapons) -------------------------------------
@@ -1300,6 +1400,8 @@ def main():
             builder.mod_sets = mod_art_table(sets_json)
     builder.ui_roots = [root for root in (args.sprite_root, args.base_ui_root) if root]
     for spec in config["pages"]:
+        if spec.get("disabled"):
+            continue  # kept for reference, not built
         roots = [load_layout(PLUGIN_DIR / source) for source in spec.get("sources", [])]
         if spec["mode"] == "cubeTables":
             builder.build_cube_tables(spec)
@@ -1311,6 +1413,10 @@ def main():
             builder.build_endgame(spec)
         elif spec["mode"] == "baseItems":
             builder.build_base_items(spec)
+        elif spec["mode"] == "baseItemTables":
+            builder.build_base_item_tables(spec)
+        elif spec["mode"] == "baseItemCards":
+            builder.build_base_item_cards(spec)
         elif spec["mode"] == "cards":
             builder.build_cards(spec, roots)
         elif spec["mode"] == "runes":
@@ -1338,6 +1444,8 @@ def main():
         for entry in page["entries"]:
             flag = ("\twide" if entry.get("wide") else "\tcompact" if entry.get("compact")
                     else "\tsortable" if entry.get("sortable") else "")
+            if entry.get("fiveacross"):
+                flag += "\tfiveacross"
             out.append(f"ENTRY\t{text_out(entry['title'])}\t{text_out(entry['subtitle'])}{flag}")
             for block in entry["blocks"]:
                 out.append(f"BLOCK\t{1 if block['item'] else 0}\t{text_out(block['title'])}\t{text_out(block['subtitle'])}"

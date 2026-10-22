@@ -72,7 +72,7 @@ class ExtractionTests(unittest.TestCase):
     def test_header_and_page_order(self):
         self.assertEqual(self.text[0], "#ESRWIKI\t2")
         self.assertEqual(list(self.entries)[0], "welcome")
-        self.assertEqual(len(self.entries), 14)  # cube recipes moved to the cube overlay; Endgame Maps, Weapon Mastery and Item Bases added
+        self.assertEqual(len(self.entries), 17)  # cube recipes moved to the cube overlay; Endgame Maps, Weapon Mastery and Item Bases added
 
     def test_category_and_block_counts(self):
         expected = {
