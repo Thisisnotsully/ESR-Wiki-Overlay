@@ -1,0 +1,766 @@
+#ESRCUBE	1
+CAT	general	General	Items
+CAT	mat	Material	Items
+CAT	reroll	Item Reroll	Items
+CAT	old	Legacy Craft	Items
+CAT	for	Forging	Modify
+CAT	dst	D-Stone	Modify
+CAT	tin	Tinker	Modify
+CAT	bas	Base Upgrade	Modify
+CAT	soc	Sockets	Modify
+CAT	sec	Secret	Modify
+SEC	general	Notes
+DESC	general	Most, but not all, recipes that reroll the input don't work if the input has a Forging. If you find a recipe doesn't work, please check if the input has a Forging or not.
+DESC	general	You can buy Stockers at Gheed. Most Stockers can store up to 2 items of a kind at once.
+NOTE	general	Torso means Body Armor. Armor means all kinds of armor.
+SEC	general	Special
+REC	general	Staff of Kings | Viper amulet	Horadric Staff
+REC	general	Khalim's Brain | Khalim's Eye | Khalim's Heart | Khalim's Flail	Khalim's Will
+REC	general	Wirt's leg or Any Club Class Weapon | Tome of Town Portal	Portal to the Secret Cow Level
+REC	general	Starter's Pack	Character Augmenter | Noob's Odd Charm | Kill Ledger (see Kill Ledger Page)
+REC	general	Tome of Town Portal | Tome of Identify	Starter's Pack
+REC	general	Any Small Charm | Ancient Decipherer | 1-4 Stamina Potions	Special Small Charm | ÿc3 -(25-100)% Better Chance of Getting | Magic Item | ÿc0 (0% MF is the best for finding white items. Negative | MF also increases the chance of low-quality items)
+REC	general	Any Small Charm | Ancient Decipherer | 1-4 Any Mana Potions	Special Small Charm | ÿc3 Increases Max Mana by -(2/4/8/16)%
+SEC	general	Uber/Endgame Map Recipes
+REC	general	Any Unique Charm | (Not Upgraded Already) | Standard of Heroes	Same item | ***Upgraded*** | Applies a small bonus
+REC	general	Any Unique Charm | Diablo's Demonic Horn | Baal's Demonic Eye | Mephisto's Demonic Brain	Hellfire Torch | ***Anointed*** | Random Bonus (see Anointment Page for all possible bonuses)
+REC	general	Any Non-Unique/Runeworded Equipment | Orb of Anointment	Same Item | ***Anointed*** | Random Highest Tier Suffix | (Excluding level 96+ suffixes and auras)
+REC	general	Orb of Anointment | Key	2 Dragon Stones
+REC	general	Any Unique Charm | or | Non-Unique/Runeworded Equipment | or | Unique/Rare Quiver | Worldstone Shard	Same Item | (25% chance to brick item) | Corrupted | Random Bonus (see Corruptions Page for all possible bonuses)
+REC	general	3 Endgame Maps	Endgame Map of the Next Tier
+REC	general	Endgame Map | Key	Random Perfect Gem | Key
+REC	general	2 Endgame Maps of the Same Tier | Randomize Stone	Random Endgame Map of the Same Tier
+REC	general	Key of Terror/Hate/Destruction | Blemished Gem | Thawing Potion	Key of Destruction/Terror/Hate* | Thawing Potion
+REC	general	Key of Terror/Hate/Destruction | Blemished Gem | Stamina Potion	Key of Hate/Destruction/Terror* | Stamina Potion
+REC	general	Pandemonium Key Set	Key of Hate | Key of Terror | Key of Destruction
+REC	general	Key of Hate | Key of Terror | Key of Destruction | Key	Pandemonium Key Set | Key
+REC	general	Vessel of Souls | 5 organs	Vessel of Souls | Added Bonus**
+NOTE	general	*Each key has the respective output
+NOTE	general	**Vessel of Souls is a special mythical unique that can consume organs to gain various bonuses. Check the Vessel of Souls page for a complete list of bonuses.
+SEC	general	Legendary Consumables
+DESC	general	Legendary consumables are extremely rare consumables that can be used only once and the outcome cannot be reverted. They grant special bonuses.
+REC	general	Any Jewel | ÿc8Lucion's Fiery Relic	The Same Item | ÿc8Sanctified
+REC	general	Any Weapon with Durability | ÿc8Tyrael's Eternal Feather	The Same Item | Added Ethereality*
+REC	general	Any Weapon | ÿc8Lilith's Crystallized Tear	The Same Item | +1 to Spell Mastery**
+REC	general	Any Item | ÿc8Astrogha's Petrified Heart	The Same Item | Removed Corruption Status***
+REC	general	Any Equippable Item | ÿc8Inarius' Everburning Halo	The Same Item | The Same Item with Branded modifier added
+NOTE	general	*The feather works on ethereal items as well due to an engine bug, so be careful not to waste it. It doesn't work on missile weapons.
+NOTE	general	**Spell Mastery is a passive that increases total spell damage by 4% per level and stacks with all other masteries.
+NOTE	general	***Astrogha's Petrified Heart can be used on any item to remove the corruption status in order to be able to corrupt that item again. If used on a Triune Harbinger of Apocalypse staff, it will allow it to receive an additional corruption (it will not reset the entire count to 0). Doing so, the item will also count 1 less corruption for every heart used when providing the bonus damage to Triumvirate Orb (as if the corruption never happened).
+NOTE	general	****Branded items cannot be modified in any way. Cloning an item also clones the socketables inside it, but they cannot be removed.
+SEC	general	Misc/Repair
+REC	general	4 Dragon Stones	Token of Absolution | (respecs your skills)
+REC	general	3 Any Healing Potions | 3 Any Mana potions | Chipped Gem	Rejuvenation Potion
+REC	general	3 Any Healing Potions | 3 Any Mana potions | Normal Gem	Full Rejuvenation Potion
+REC	general	3 Rejuvenation Potions	Full Rejuvenation Potion
+REC	general	Heart | Soul	Rejuvenation Potion
+REC	general	2 Hearts | 2 Souls	2 Rejuvenation Potions
+REC	general	3 Hearts | 3 Souls	Full Rejuvenation Potion
+REC	general	3 Minor Healing Poitons	Light Healing Potion | (And so for other Healing/Mana Potions)
+REC	general	9 Minor Healing Poitons | (A Light Potion counts as 3 Minor Potions)	Healing Potion | (And so for other Healing/Mana Potions)
+SEC	mat	Cubing Materials
+DESC	mat	Organs include Hearts, Souls, Brains, Eyes, Scalps, Horns, Fangs, Jawbones, Spleens, Quills and Tails. Steaks, Cookbooks and Flags are not Organs.
+REC	mat	8 Ancient Decipherers	Dragon Stone
+REC	mat	Wild Card | Key	3 Ancient Decipherers
+REC	mat	6 Hearts	Ancient Decipherer
+REC	mat	6 Souls	Ancient Decipherer
+REC	mat	2 Same Organs (except Hearts and Souls)	Ancient Decipherer
+REC	mat	2 Flags	Ancient Decipherer
+REC	mat	2 Steaks	3 Ancient Decipherers
+REC	mat	Organ/Flag (except Hearts and Souls) | 3 Hearts	2 Organs/Flags
+REC	mat	Organ/Flag (except Hearts and Souls) | 3 Souls	2 Organs/Flags
+REC	mat	Wirt's Leg | Scroll of Identify | 1 Dragon Stones	Steak
+REC	mat	Wirt's Leg | Scroll of Town Portal | 7 Dragon Stones	Cookbook
+REC	mat	Unique Charm | Any Rejuvenation Potion | Key	Maple Leaf | Key
+REC	mat	4 Dragon Stones | Perfect Gem	Anvil Stone
+REC	mat	Chipped Skull | Key	Randomize Stone | Key
+REC	mat	Multistocker | Unique Weapons/Armor (Mythical)	Multistocker | Adds 50 Ancient Decipherer points
+REC	mat	Multistocker | Set/Unique Weapons/Armor (Elite)	Multistocker | Adds 4 Ancient Decipherer points | (8 points for an Ethereal one)
+REC	mat	Multistocker | Set/Unique Weapons/Armor (Exceptional)	Multistocker | Adds 2 Ancient Decipherer point | (4 points for an Ethereal one)
+REC	mat	Multistocker | Set/Unique Weapons/Armor (Normal)	Multistocker | Adds 1 Ancient Decipherer point | (2 point for an Ethereal one)
+REC	mat	Multistocker | Unique Quiver	Multistocker | Adds 1 Ancient Decipherer point
+REC	mat	Multi Stocker | Unique Charm | Any Rejuvenation Potion | Key | (Charms need to be unforged first) | (Will attempt to pull rejuvenation points from the stocker if no rejuvenation is provided)	Multi Stocker | Adds 1 Maple Leaf point | Key
+REC	mat	Multi Stocker | Perfect Gem | Key	Multi Stocker | Converts 32 Decipherer points | into an Anvil Stone point | Key
+REC	mat	Multi Stocker | (with wildcard or any organ selected) | Scroll of Identify	Multi Stocker | Scroll of Identify | Converts selected item's point(s) | into Decipherer point(s)
+REC	mat	Multi Stocker | (with any organ or flag selected) | Any Healing Potion	Multi Stocker | Minor Healing Potion | Converts 3 Heart points | into selected material's point
+REC	mat	Multi Stocker | (with any organ or flag selected) | Any Mana Potion	Multi Stocker | Minor Mana Potion | Converts 3 Soul points | into selected material's point
+REC	mat	Rerolling Orb | Unique Ring/Amulet	Rerolling Orb | Adds 1-7 Devil's Food points
+REC	mat	Rerolling Orb | (Devil's Food selected) | Key	Rerolling Orb | Reduces 5 Devil's Food point | Devil's Food | (Sell to venders to cause Diablo Clone to spawn)
+SEC	mat	Gems/Crystals
+REC	mat	3 Gems of the Same Color and Grade	Gem of One Higher Grade (up to Perfect)
+REC	mat	2 Flawless Gems of the Same Color | Wild Card	Blemished Gem
+REC	mat	2 Blemished Gems of the Same Color | 3 Wild Cards	Perfect Gem
+REC	mat	5 Crystals of the Same Type and Grade	Crystal of One Higher Grade (up to Normal)
+REC	mat	Perfect Gem | Flag | Chipped Gem	Perfect Gem of Chipped Gem's Color
+SEC	mat	Runes
+REC	mat	2 Runes/Decals of the Same Grade	Rune/Decal of One Higher Grade (up to Wo or Zod)
+REC	mat	Rune	Rune of One Lower Grade
+REC	mat	Blackmoor | Crushed Gem	Mi Rune
+REC	mat	Ancient | Decal | ES Rune	LoD Rune
+REC	mat	LoD Rune	Ancient Decal | ES Rune
+REC	mat	Wo Rune | Full Rejuvenation Potion	Null Rune
+REC	mat	Null Rune | Full Rejuvenation Potion	Wo Rune
+REC	mat	Rune/Decal Stocker | Scroll of Identify	Rune/Decal Stocker | Scroll of Identify | Converts 2 points of the selected Rune/Decal | into 1 point of the next grade.
+SEC	mat	Kanji Runes
+REC	mat	Null Rune | Frozen Soul	Moon Rune
+REC	mat	Null Rune | Bleeding Stone	Fire Rune
+REC	mat	Null Rune | Dark Azurite	Water Rune
+REC	mat	Null Rune | Tomb Jade	Wood Rune
+REC	mat	Null Rune | Solid Mercury	Metal Rune
+REC	mat	Null Rune | Bitter Peridot	Earth Rune
+REC	mat	Null Rune | Enigmatic Cinnabar	Sun Rune
+REC	mat	Null Rune | Burning Surphur	Thunder Rune
+REC	mat	Null Rune | Tainted Tourmarine	Wind Rune
+REC	mat	Null Rune | Storm Amber	Dragon Rune
+REC	mat	Null Rune | Pulsing Opal	Life Rune
+REC	mat	Null Rune | Shadow Quartz	Death Rune
+REC	mat	Null Rune | Bleeding Stone | Dark Azurite | Bitter Peridot | Tainted Tourmarine	Heaven Rune
+REC	mat	Null Rune | Frozen Soul | Enigmatic Cinnabar | Pulsing Opal | Shadow Quartz	God Rune
+SEC	mat	Ancient Relics
+REC	mat	Unidentified Ancient Scroll | Ancient Decipherer	Identified Ancient Scroll
+REC	mat	2 Ancient Scrolls of the Same Number	Ancient Scroll of One Higher Number
+REC	mat	Ancient Scroll	Ancient Scroll of One Lower Number
+REC	mat	2 Ancient Scrolls (1-25) | Randomize Stone	Ancient Scroll (1-30)
+REC	mat	2 Ancient Scrolls (26-50) | Randomize Stone	Ancient Scroll (21-50)
+REC	mat	Ancient Scroll | Key	Dragon Stone | Key
+REC	mat	3 Same Ancient Coupons	LoD Unique Item*
+REC	mat	2 Same Ancient Coupons (Normal) | Wild Card	LoD Unique Item*
+REC	mat	2 Same Ancient Coupons (Exceptional) | 2 Wild Cards	LoD Unique Item*
+REC	mat	2 Same Ancient Coupons (Elite) | 4 Wild Cards	LoD Unique Item*
+NOTE	mat	LoD uniques are reworked in ESR and are significantly more powerful than their vanilla counterparts. LoD uniques are generally more powerful than ESR uniques as well due to being harder to get.
+REC	mat	8 Ancient Coupons (Normal)	Wild Card
+REC	mat	4 Ancient Coupons (Exceptional)	Wild Card
+REC	mat	2 Ancient Coupons (Elite)	Wild Card
+REC	mat	3 Ancient Coupons (Normal) | Randomize Stone	Ancient Coupon (Normal)
+REC	mat	5 Ancient Coupons (Normal) | Randomize Stone	Ancient Coupon (Exceptional)
+REC	mat	2 Ancient Coupons (Exceptional) | Ancient Coupon (Normal) | Randomize Stone	Ancient Coupon (Exceptional)
+REC	mat	5 Ancient Coupons (Exceptional) | Randomize Stone	Ancient Coupon (Elite)
+REC	mat	2 Ancient Coupons (Elite) | Ancient Coupon (Exceptional) | Randomize Stone	Ancient Coupon (Elite)
+REC	mat	Multi Stocker | (with normal coupon selected) | Antidote Potion	Multi Stocker | Antidote Potion | Converts 5 normal coupon points | to 1 exceptional coupon point
+REC	mat	Multi Stocker | (with exceptional coupon selected) | Antidote Potion	Multi Stocker | Antidote Potion | Converts 5 exceptional coupon points | to 1 elite coupon point
+REC	mat	Multi Stocker | (with any coupon selected) | Scroll of Identify	Multi Stocker | Scroll of Identify | Converts selected coupon's points | into a Wildcard Point.
+SEC	reroll	Normal Items
+REC	reroll	Low Quality/Cracked/Crude/Damaged Weapon | U Rune | Chipped Gem	Normal Weapon of the Same Type | (ilvl=previous ilvl)
+REC	reroll	Low Quality/Cracked/Crude/Damaged Armor | I Rune | Chipped Gem	Normal Armor of the Same Type | (ilvl=previous ilvl)
+REC	reroll	3 Ancient Decipherers | Chipped Amethyst	Normal Great Helm | ÿc3 Gem Socket (3)
+REC	reroll	3 Ancient Decipherers | Chipped Skull	Normal Mask | ÿc3 Gem Socket (3)
+REC	reroll	3 Ancient Decipherers | Chipped Diamond	Normal Crown | ÿc3 Gem Socket (3)
+REC	reroll	3 Ancient Decipherers | Chipped Topaz	Normal Circlet | ÿc3 Gem Socket (3)
+REC	reroll	2 Any Arrows	Normal Bolt
+REC	reroll	2 Any Bolts	Normal Arrow
+SEC	reroll	Magic Reroll
+REC	reroll	Magic Weapon/Armor | Normal Gem	Magic Item of the Same Type | (ilvl = 30) | ÿc3 Gem Socket (2) | ÿc0 (This recipe is an ES version of LoD | 3 C-Gem reroll. A poor man's special)
+REC	reroll	Magic Weapon/Armor | Blemished Gem	Magic Item of the Same Type | (ilvl = character lvl)
+REC	reroll	Rare Weapon/Armor | Blemished Gem	Rare Item of the Same Type | (ilvl = item level x 90%)* | ÿc3 Gem Socket (1)
+REC	reroll	Rare Weapon/Armor | 2 Blemished Gems	Rare Item of the Same Type | (ilvl = character lvl)
+REC	reroll	Ethereal Magic Weapon/Armor | (Crystal Sword/Crystal Boots family excluded) | 2 Perfect Gems	Ethereal Magic Item of the Same Type | (ilvl = previous ilvl)
+REC	reroll	Ethereal Rare Weapon/Armor | (Crystal Sword/Crystal Boots family excluded) | 4 Perfect Gems	Ethereal Rare Item of the Same Type | (ilvl = previous ilvl)
+REC	reroll	Ethereal Normal Unique Weapon/Armor | (Crystal Sword/Crystal Boots family excluded) | 2 Perfect Gems	Ethereal Unique Item of the Same Type | (ilvl = 99)
+REC	reroll	Ethereal Exceptional Unique Weapon/Armor | (Crystal Sword/Crystal Boots family excluded) | 3 Perfect Gems	Ethereal Unique Item of the Same Type | (ilvl = 99)
+REC	reroll	Ethereal Elite Unique Weapon/Armor | (Crystal Sword/Crystal Boots family excluded) | 4 Perfect Gems	Ethereal Unique Item of the Same Type | (ilvl = 99)
+NOTE	reroll	*This recipe is cheaper than the traditional 2 Blemished Gems recipe, but the item level goes down by a bit with every use and those items cannot roll more than 1 socket. This is to encourage players to pick up rare items from the ground as they find them and reroll them a few times.
+SEC	reroll	Starter's Weapon
+REC	reroll	Magic Bow | Emerald | Chipped Ruby | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +100% Enhanced Damage | 15-20% Increased Attack Speed | +1-2 To Bow & Crossbow (Amazon Only) | Gem Socket (1-2)
+REC	reroll	Magic Spear/Javelin | Emerald | Chipped Topaz | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +100% Enhanced Damage | 15-20% Increased Attack Speed | +1-2 To Spear & Javelin (Amazon Only) | Gem Socket (1-2)
+REC	reroll	Magic Claws/Katana | Ruby | Chipped Ruby | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +100% Enhanced Damage | 15-20% Increased Attack Speed | +1-2 To Martial Arts (Assassin Only) | Gem Socket (1-2)
+REC	reroll	Magic Throwing Knife | Ruby | Chipped Topaz | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Assassin Skills | +1-2 To Traps (Assassin Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Axe/Throwing Axe | Amethyst | Chipped Sapphire | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +100% Enhanced Damage | 15-20% Increased Attack Speed | +1-2 To Combat Skills (Barbarian Only) | Gem Socket (1-2)
+REC	reroll	Magic Polearm | Topaz | Chipped Diamond | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +100% Enhanced Damage | 15-20% Increased Attack Speed | +1-2 To Shapeshifting (Druid Only) | Gem Socket (1-2)
+REC	reroll	Magic Oak Branch | Topaz | Chipped Ruby | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Druid Skills | +1-2 To Elemental Skills (Druid Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Oak Branch | Topaz | Chipped Topaz | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Druid Skills | +1-2 To Summoning Skills (Druid Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Wand | Skull | Chipped Skull | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Necromancer Skills | +1-2 To Summoning Skills (Necromancer Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Wand | Skull | Chipped Emerald | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Necromancer Skills | +1-2 To Poison and Bone Skills (Necromancer Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Scepter | Diamond | Chipped Obsidian | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +100% Enhanced Damage | 15-20% Increased Attack Speed | +1-2 To Combat Skills (Paladin Only) | Gem Socket (1-2)
+REC	reroll	Magic Scepter | Diamond | Chipped Amethyst | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Paladin Skills | +1-2 To Offensive Auras (Paladin Only) | +20-40 To Mana | +4-6 Mana After Each Kill
+REC	reroll	Magic Orb | Sapphire | Chipped Ruby | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Sorceress Skills | +1-2 To Fire Skills (Sorceress Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Orb | Sapphire | Chipped Sapphire | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Sorceress Skills | +1-2 To Cold Skills (Sorceress Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+REC	reroll	Magic Orb | Sapphire | Chipped Topaz | Magic Jewel | Ancient Decipherer	Magic Item of the Same Type | (ilvl = 35) | ÿc3 +1 To Sorceress Skills | +1-2 To Lightning Skills (Sorceress Only) | +20-40 To Mana | +4-6 Mana After Each Kill | Gem Socket (1-2)
+SEC	reroll	CtC Skill Armor
+REC	reroll	Magic Torso | 2 Emeralds | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 25% CtC Level 12 Inner Sight When Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Rubies | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 20% CtC Level 6 Fade When Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Amethysts | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 30% CtC Level 6 Battle Orders When Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Topazes | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 13% CtC Level 1 Shock Wave When Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Skulls | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 25% CtC Level 6 Dim Vision When Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Diamonds | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 33% CtC Level 6 Blessed Hammer When | Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Sapphires | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 20% CtC Level 6 Static Field When Struck | Gem Socket (2)
+REC	reroll	Magic Torso | 2 Obsidians | Ancient Decipherer	Magic Item of the Same Type | (ilvl = previous ilvl) | ÿc3 20% CtC Level 6 Sigil: Lethargy When Struck | Gem Socket (2)
+SEC	reroll	Unique Items
+REC	reroll	3 Set Weapons/Armor of the Same Base Item | (ex. 2 Autolycus Belts and 1 Arctic Belt)	Unique Item of the Same Base Item
+DESC	reroll	Unique Reroll Base upgraded uniques can't be rerolled. Please reroll before upgrade. Items that had sockets added before reroll will lose their sockets upon rerolling. Level 92 unique jewels and quivers cannot be rerolled.
+REC	reroll	Normal Unique Item | Perfect Gem	Unique Item of the Same Name
+REC	reroll	Exceptional Unique Item | 2 Perfect Gems	Unique Item of the Same Name
+REC	reroll	Elite Unique Item | 3 Perfect Gems	Unique Item of the Same Name
+REC	reroll	Unique Ring/Amulet/Charm/Jewel/Quiver | (Required Level 1-39) | Perfect Gem	Unique Item of the Same Name
+REC	reroll	Unique Ring/Amulet/Charm/Jewel/Quiver | (Required Level 40-59) | 2 Perfect Gems	Unique Item of the Same Name
+REC	reroll	Unique Ring/Amulet/Charm/Jewel/Quiver | (except lvl 92+ Unique Jewelry and Quivers) | (Required Level 60+) | 3 Perfect Gems	Unique Item of the Same Name
+SEC	reroll	Set Items
+REC	reroll	3 Unique Weapons/Armor of the Same Base Item	Set Item of the Same Base Item | (If the base item has 2 set pieces, | You can convert unwanted one to the other. | ex. Arctic Belt -> Autolycus Belt. See below.)
+DESC	reroll	Mercenary Set Upgrade Kashya's Survival Kit and Kashya's Survival Kit N are different sets, for example. If you partially upgrade some of a full set, you lose the full set bonus.
+REC	reroll	Normal Mercenary Set Weapon | Mi Rune | Ya Rune | Perfect Gem	Nightmare Mercenary Set Weapon
+REC	reroll	Normal Mercenary Set Armor | Ri Rune | A Rune | Perfect Gem	Nightmare Mercenary Set Armor
+REC	reroll	Nightmare Mercenary Set Weapon | Ra Rune | Ho Rune | 3 Perfect Gems	Hell Mercenary Set Weapon
+REC	reroll	Nightmare Mercenary Set Armor | Ko Rune | Me Rune | 3 Perfect Gems	Hell Mercenary Set Armor
+SEC	reroll	Set Conversion
+REC	reroll	Infernal Cranium (Set Cap) | Thawing Potion	Berserker's Headgear (Set Cap)
+REC	reroll	Berserker's Headgear (Set Cap) | Thawing Potion	Infernal Cranium (Set Cap)
+REC	reroll	Autolycus' Thieving Tools (Set Light Belt) | Thawing Potion	Arctic Binding (Set Light Belt)
+REC	reroll	Arctic Binding (Set Light Belt) | Thawing Potion	Autolycus' Thieving Tools (Set Light Belt)
+REC	reroll	Boots of Sneaking (Set Boots) | Thawing Potion	Hsarus' Iron Heel (Set Boots)
+REC	reroll	Hsarus' Iron Heel (Set Boots) | Thawing Potion	Boots of Sneaking (Set Boots)
+DESC	reroll	Set Base Conversion Forging, D-Stoning and other ehnancements are inherited. You need to convert the base item back to the original before rerolling. All normal throwing weapons are given Piercing Attack 10%. All exceptional throwing weapons are given Piercing Attack 15%.
+REC	reroll	Crook of the Valley (Set Petrified Staff) | Thawing Potion	Converts the base item | (Petrified Staff <-> Ancient Maul)
+REC	reroll	Arctic Horn (Set Hunter Bow) | Thawing Potion	Converts the base item | (Hunter Bow <-> Spear)
+REC	reroll	Gabrielle's Pointed Staff (Set Maiden Spear) | Thawing Potion	Converts the base item | (Maiden Spear <-> Stag Bow)
+REC	reroll	Lixo's Harp (Set Gothic Bow) | Thawing Potion	Converts the base item | (Gothic Bow <-> Simbilan)
+REC	reroll	Aanna's Touch (Set Lance) | Thawing Potion	Converts the base item | (Lance -> Rock Buster -> Ballista)
+REC	reroll	Death's Touch (Set Throwing Knife) | Thawing Potion	Converts the base item | (Throwing Knife <-> Katar)
+REC	reroll	Motoko's Power (Set Ninja To) | Thawing Potion	Converts the base item | (Ninja To -> Battering Arm -> Repeating Crosbow)
+REC	reroll	Alora's Silent Assault (Set Hand Scythe) | Thawing Potion	Converts the base item | (Hand Scythe <-> Tekko)
+REC	reroll	Borik's Nightblade (Set Katana) | Thawing Potion	Converts the base item | (Katana -> Wrecking Arm -> Scissors Suwayyah)
+REC	reroll	Messerschmidt's Reaver (Set Battle Axe) | Thawing Potion	Converts the base item | (Battle Axe <-> Flamberge)
+REC	reroll	Blood Baron (Set Great Sword) | Thawing Potion	Converts the base item | (Great Sword <-> Balanced Axe)
+REC	reroll	Krakerag's Point (Set Tulwar) | Thawing Potion	Converts the base item | (Tulwar <-> Twin Axe)
+REC	reroll	Krakerag's Slay (Set Tusk Sword) | Thawing Potion	Converts the base item | (Tusk Sword <-> Cleaver)
+REC	reroll	Darkshade's Skewer (Set Jagged Star) | Thawing Potion	Converts the base item | (Jagged Star <-> Francisca)
+REC	reroll	Darkshade's Evisceration (Set Knout) | Thawing Potion	Converts the base item | (Knout <-> Hurlbat)
+REC	reroll	Sarevok's Master (Set Death Blade) | Thawing Potion	Converts the base item | (Slayer Axe -> Balanced Hatchet -> Death Blade)
+REC	reroll	Blackwing's Force (Set Giant Sword) | Thawing Potion	Converts the base item | (Giant Sword <-> Scythe)
+REC	reroll	Branch of the Ents (Set Mystic Staff) | Thawing Potion	Converts the base item | (Mystic Staff -> Urgrosh -> Titan's Maul)
+REC	reroll	Rathol's Touch (Set Wretched Scythe) | Thawing Potion	Converts the base item | (Wretched Scythe <-> Light Crossbow)
+REC	reroll	Wrathamon's Scythe of Doom (Set Soul Hunter) | Thawing Potion	Converts the base item | (Soul Hunter <-> Ritualistic Dagger)
+REC	reroll	Anduin's Vanquisher (Set War Hammer) | Thawing Potion	Converts the base item | (War Hammer <-> Heavy Crossbow)
+REC	reroll	Anduin's Protector (Set Aerin Shield) | (No socket is allowed) | Thawing Potion	Converts the base item | (Aerin Shield -> Ring, can't be converted back)
+REC	reroll	Griffith's Parry (Set Rapier) | Thawing Potion	Converts the base item | (Rapier -> Seraphic Scepter -> Assassin Crossbow)
+REC	reroll	Divada's Focus (Set Mana Blade) | Thawing Potion	Converts the base item | (Mana Blade <-> Brass Knuckle)
+REC	reroll	The Staff of the Magi (Set Rune Staff) | Thawing Potion	Converts the base item | (Rune Staff -> Grim Scythe -> Ballista)
+REC	reroll	Bane's Oathmaker (Set Kris) | Thawing Potion	Converts the base item | (Kris -> Two-Handed Sword)
+REC	reroll	The Dark One's Slicer (Set Blade) | Thawing Potion	Converts the base item | (Blade -> Double Axe)
+REC	reroll	Blade of the Kingslayer (Set Nether Sword) | Thawing Potion	Converts the base item | (Nether Sword -> Chu-Ko-Nu -> Bill)
+REC	reroll	Rathma's Command (Set Cedar Staff) | Thawing Potion	Converts the base item | (Cedar Staff -> Battle Scythe)
+REC	reroll	Power of the Void (Set Petrified Wand) | Thawing Potion	Converts the base item | (Petrified Wand -> Partizan -> Gothic Bow)
+REC	reroll	Harbinger of Ruin's Merciless Rule (Set Abyssal Blade) | Thawing Potion	Converts the base item | (Abyssal Blade -> Mithral Knife -> Mystic Staff)
+SEC	reroll	Set Reroll
+REC	reroll	Normar Set Item | 2 Flawless Gems	Set Item of the Same Name
+REC	reroll	Exceptional Set Item | 2 Blemished Gems	Set Item of the Same Name
+REC	reroll	Elite Set Item | 2 Perfect Gems	Set Item of the Same Name
+REC	reroll	Set Ring/Amulet | Normal Gem	Set Item of the Same Name
+SEC	old	Legacy Craft (LoD Craft)
+DESC	old	LoD crafting recipes have been drastically improved (and made more expensive as well). No limitation for the base item. Blood Glove recipe accepts all gloves, for example. (ilvl = char lvl x 60% + previous ilvl x 60%)
+SEC	old	Hit Power Craft
+REC	old	Magic Helm | Ku Rune | Perfect Amethyst | Any Jewel	Hit Power Helm | ÿc3+(20 to 40)% Bonus to Attack Rating | ÿc3+(100 to 150)% Damage to Demons | ÿc3 +(30 to 45) to Dexterity | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Boots | Ki Rune | Perfect Amethyst | Any Jewel	Hit Power Boots | ÿc3+(20 to 30)% Faster Run/Walk | ÿc3+(15 to 25)% Bonus to Attack Rating | ÿc3+(20 to 30) to Dexterity | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Gloves | Ri Rune | Perfect Amethyst | Any Jewel	Hit Power Gloves | ÿc3 Knockback | ÿc3+(15 to 25)% Bonus to Attack Rating | ÿc3+(20 to 30) to Dexterity | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Belt | Yo Rune | Perfect Amethyst | Any Jewel	Hit Power Belt | ÿc3+(20 to 30)% Faster Hit Recovery | ÿc3+(15 to 25)% Bonus to Attack Rating | ÿc3+(20 to 30) to Dexterity | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Shield | N Rune | Perfect Amethyst | Any Jewel	Hit Power Shield | ÿc3+(3 to 5)% Increased Chance of Blocking | ÿc3+(20 to 40)% Bonus to Attack Rating | ÿc3+(30 to 45) to Dexterity | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Torso | Ka Rune | Perfect Amethyst | Any Jewel	Hit Power Body | ÿc3+(20 to 40)% Bonus to Attack Rating | ÿc3+(100 to 150)% Damage to Undead | ÿc3+(30 to 45) to Dexterity | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Amulet | Mi Rune | Perfect Amethyst | Any Jewel	Hit Power Amulet | ÿc3+(20 to 30)% Increased Attack Speed | ÿc3+(15 to 25)% Bonus to Attack Rating | ÿc3+(20 to 30) to Dexterity | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Ring | Ya Rune | Perfect Amethyst | Any Jewel	Hit Power Ring | ÿc3+(15 to 25) to Maximum Damage to Attacks | ÿc3+(15 to 25)% Bonus to Attack Rating | ÿc3+(20 to 30) to Dexterity | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Weapon | Shi Rune | Perfect Amethyst | Any Jewel	Hit Power Weapon | ÿc3+1% Enhanced Maximum Damage (Based on Character Level) | ÿc3+(45 to 75)% Bonus to Attack Rating | ÿc3+(60 to 90) to Dexterity | Gem Socket (2) | ÿc3 1-4 Random Affixes
+SEC	old	Blood Craft
+REC	old	Magic Helm | Ki Rune | Perfect Ruby | Any Jewel	Blood Helm | ÿc3+(6 to 9)% Physical Damage Leeched as Life | ÿc3+(15 to 25)% Deadly Strike | ÿc3+(60 to 90) to Life | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Boots | N Rune | Perfect Ruby | Any Jewel	Blood Boots | ÿc3+(20 to 30)% Faster Run/Walk | ÿc3+(4 to 6)% Physical Damage Leeched as Life | ÿc3+(40 to 60) to Life | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Gloves | Ka Rune | Perfect Ruby | Any Jewel	Blood Gloves | ÿc3+(15 to 25)% Chance of Crushing Blow | ÿc3+(4 to 6)% Physical Damage Leeched as Life | ÿc3+(40 to 60) to Life | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Belt | Yo Rune | Perfect Ruby | Any Jewel	Blood Belt | ÿc3+(4 to 6)% Physical Damage Leeched as Life | ÿc3Physical Resist: +(10 to 15)% | ÿc3+(40 to 60) to Life | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Shield | Ku Rune | Perfect Ruby | Any Jewel	Blood Shield | ÿc3+(6 to 9)% Physical Damage Leeched as Life | ÿc3Attacker Takes Damage of 10 (Based on Character Level) | ÿc3+(60 to 90) to Life | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Torso | Mi Rune | Perfect Ruby | Any Jewel	Blood Body | ÿc3+(6 to 9)% Physical Damage Leeched as Life | ÿc3+(30 to 50) Life after each Kill | ÿc3+(60 to 90) to Life | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Amulet | Ya Rune | Perfect Ruby | Any Jewel	Blood Amulet | ÿc3+(4 to 6)% Physical Damage Leeched as Life | ÿc3+(4 to 6)% Physical Damage Leeched as Mana | ÿc3+(40 to 60) to Life | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Ring | A Rune | Perfect Ruby | Any Jewel	Blood Ring | ÿc3+(15 to 25) to Minimum Damage to Attacks | ÿc3+(4 to 6)% Physical Damage Leeched as Life | ÿc3+(40 to 60) to Life | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Weapon | Ri Rune | Perfect Ruby | Any Jewel	Blood Weapon | ÿc3+(100 to 150)% Enhanced Damage | ÿc3+(12 to 18)% Physical Damage Leeched as Life | ÿc3+(120 to 180) to Life | Gem Socket (2) | ÿc3 1-4 Random Affixes
+SEC	old	Caster Craft
+REC	old	Magic Helm | Ka Rune | Perfect Sapphire | Any Jewel	Caster Helm | ÿc3+(10 to 15)% Bonus to Energy | ÿc3Regenerate Mana +(30 to 45)% | ÿc3+(60 to 90) to Mana | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Boots | Mi Rune | Perfect Sapphire | Any Jewel	Caster Boots | ÿc3+(20 to 30)% Faster Run/Walk | ÿc3Regenerate Mana +(20 to 30)% | ÿc3+(40 to 60) to Mana | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Gloves | Ri Rune | Perfect Sapphire | Any Jewel	Caster Gloves | ÿc3-(10 to 15)% to Enemy Elemental and Poison Resistances | ÿc3Regenerate Mana +(20 to 30)% | ÿc3+(40 to 60) to Mana | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Belt | Ku Rune | Perfect Sapphire | Any Jewel	Caster Belt | ÿc3Magic Damage Reduced by (20 to 30) | ÿc3Regenerate Mana +(20 to 30)% | ÿc3+(40 to 60) to Mana | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Shield | N Rune | Perfect Sapphire | Any Jewel	Caster Shield | ÿc3+(100 to 150)% Damage Taken Goes To Mana | ÿc3Regenerate Mana +(30 to 45)% | ÿc3+(60 to 90) to Mana | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Torso | Yo Rune | Perfect Sapphire | Any Jewel	Caster Body | ÿc3+(20 to 30) to Mana after each Kill | ÿc3Regenerate Mana +(30 to 45)% | ÿc3+(60 to 90) to Mana | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Amulet | Ki Rune | Perfect Sapphire | Any Jewel	Caster Amulet | ÿc3+(20 to 30)% Faster Cast Rate | ÿc3Regenerate Mana +(20 to 30)% | ÿc3+(40 to 60) to Mana | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Ring | Ya Rune | Perfect Sapphire | Any Jewel	Caster Ring | ÿc3+(20 to 30) to Energy | ÿc3Regenerate Mana +(20 to 30)% | ÿc3+(40 to 60) to Mana | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Weapon | Shi Rune | Perfect Sapphire | Any Jewel	Caster Weapon | ÿc3+(20 to 30)% to Spell Damage | ÿc3Regenerate Mana +(60 to 90)% | ÿc3+(120 to 180) to Mana | Gem Socket (2) | ÿc3 1-4 Random Affixes
+SEC	old	Safety Craft
+REC	old	Magic Helm | Ku Rune | Perfect Emerald | Any Jewel	Safety Helm | ÿc3Poison Resist +(30 to 50)% | ÿc3Damage Reduced by (9 to 18) | ÿc3Magic Damage Reduced by (9 to 18) | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Boots | Ri Rune | Perfect Emerald | Any Jewel	Safety Boots | ÿc3Lightning Resist +(30 to 50)% | ÿc3Damage Reduced by (6 to 12) | ÿc3Magic Damage Reduced by (6 to 12) | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Gloves | Ki Rune | Perfect Emerald | Any Jewel	Safety Gloves | ÿc3Fire Resist +(30 to 50)% | ÿc3Damage Reduced by (6 to 12) | ÿc3Magic Damage Reduced by (6 to 12) | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Belt | Yo Rune | Perfect Emerald | Any Jewel	Safety Belt | ÿc3Cold Resist +(30 to 50)% | ÿc3Damage Reduced by (6 to 12) | ÿc3Magic Damage Reduced by (6 to 12) | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Shield | Ka Rune | Perfect Emerald | Any Jewel	Safety Shield | ÿc3Magic Resist +(15 to 30)% | ÿc3Damage Reduced by (9 to 18) | ÿc3Magic Damage Reduced by (9 to 18) | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Torso | N Rune | Perfect Emerald | Any Jewel	Safety Body | ÿc3Cannot Be Frozen | ÿc3Damage Reduced by (6 to 12) | ÿc3Magic Damage Reduced by (6 to 12) | Gem Socket (2) | ÿc3 1-4 Random Affixes
+REC	old	Magic Amulet | Mi Rune | Perfect Emerald | Any Jewel	Safety Amulet | ÿc3+(3 to 5)% Increased Chance of Blocking | ÿc3Damage Reduced by (6 to 12) | ÿc3Magic Damage Reduced by (6 to 12) | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Ring | Ya Rune | Perfect Emerald | Any Jewel	Safety Ring | ÿc3+(15 to 25) to Vitality | ÿc3Damage Reduced by (6 to 12) | ÿc3Magic Damage Reduced by (6 to 12) | Gem Socket (1) | ÿc3 1-4 Random Affixes
+REC	old	Magic Weapon | A Rune | Perfect Emerald | Any Jewel	Safety Weapon | ÿc3Physical Resist: +(20 to 30)% | ÿc3Damage Reduced by (18 to 36) | ÿc3Magic Damage Reduced by (18 to 36) | Gem Socket (2) | ÿc3 1-4 Random Affixes
+SEC	reroll	Rings/Amulets
+DESC	reroll	When you reroll multiple Amulets or Rings, the last one put in the Cube determines the type. For example, if you put a Ring, an Amazon Ring and a Sorc Ring in this order, you'll get a new Sorc Ring. If the output ilvl is lower than the level of the spawned Unique, it turns into a rare.
+SEC	reroll	Standard Reroll
+REC	reroll	3 Magic Rings	Magic Ring | (ilvl = char level)
+REC	reroll	3 Magic Amulets	Magic Amulet | (ilvl = char level)
+REC	reroll	7 Magic Rings	Rare Ring | (ilvl = char level)
+REC	reroll	7 Magic Amulets	Rare Amulet | (ilvl = char level)
+REC	reroll	3 Rare Rings	Rare Ring | (ilvl = char level)
+REC	reroll	3 Rare Amulets	Rare Amulet | (ilvl = char level)
+REC	reroll	7 Rare Rings	Unique Ring | (ilvl = char level x 80%) | To roll a non-class Unique Ring, | your clvl must be higer than 15. | To roll a class specific Unique Ring, | your clvl must be higher than 57.
+REC	reroll	7 Rare Amulets	Unique Amulet | (ilvl = char level x 80%) | To roll a non-class Unique Amulet, | your clvl must be higer than 15. | To roll a class specific Unique Ring, | your clvl must be higher than 57.
+REC	reroll	3 Set Rings	Set Ring | (ilvl = char level x 80%)
+REC	reroll	3 Set Amulets	Set Amulet | (ilvl = char level x 80%)
+REC	reroll	3 Unique Rings | (Optionally add dragon Stone form for class jewelry)	Unique Ring | (ilvl = char level x 80%) | To roll a non-class Unique Ring, | your clvl must be higer than 15. | To roll a class specific Unique Ring, | your clvl must be higher than 57.
+REC	reroll	3 Unique Amulets | (Optionally add dragon Stone form for class jewelry)	Unique Amulet | (ilvl = char level x 80%) | To roll a non-class Unique Amulet, | your clvl must be higer than 15. | To roll a class specific Unique Amulet, | your clvl must be higher than 57.
+REC	reroll	3 Brains | Key	Rare Amulet | (ilvl=char level) | Key
+REC	reroll	3 Eyes | Key	Rare Ring | (ilvl=char level) | Key
+SEC	reroll	Custom Reroll
+REC	reroll	3 Magic Amulets | (or Rerolling Orb with 3 Magic Amulet pts) | Ruby | Sapphire | Topaz | Emerald	Magic Amulet | (ilvl = char level) | ÿc3 All Resistances +22-28
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Rubies	Magic Ring | (ilvl = char level) | ÿc3 Fire Resist 44-56%
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Sapphires	Magic Ring | (ilvl = char level) | ÿc3 Cold Resist 44-56%
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Topazes	Magic Ring | (ilvl = char level) | ÿc3 Lightning Resist 44-56%
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Emeralds	Magic Ring | (ilvl = char level) | ÿc3 Posion Resist 44-56%
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Diamonds	Magic Ring | (ilvl = char level) | ÿc3 Magic Resist 22-28%
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Obsidians	Magic Ring | (ilvl = char level) | ÿc3 Damage Reduced By 6-8%
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Skulls	Magic Ring | (ilvl = char level) | ÿc3 8-12% Physical Damage Leeched as Life
+REC	reroll	3 Magic Rings | (or Rerolling Orb with 3 Magic Ring pts) | 2 Amethysts	Magic Ring | (ilvl = char level) | ÿc3 8-12% Physical Damage Leeched as Mana
+REC	reroll	3 Rare Amulets | (or Rerolling Orb with 7 Magic Amulet pts) | Flawless Ruby | Flawless Sapphire | Flawless Topaz | Flawless Emerald	Rare Amulet | (ilvl = char level) | ÿc3 All Resistances +11-14
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Rubies	Rare Ring | (ilvl = char level) | ÿc3 Fire Resist 22-28%
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Sapphires	Rare Ring | (ilvl = char level) | ÿc3 Cold Resist 22-28%
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Topazes	Rare Ring | (ilvl = char level) | ÿc3 Lightning Resist 22-28%
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Emeralds	Rare Ring | (ilvl = char level) | ÿc3 Posion Resist 22-28%
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Diamonds	Rare Ring | (ilvl = char level) | ÿc3 Magic Resist 11-14%
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Obsidians	Rare Ring | (ilvl = char level) | ÿc3 Damage Reduced By 3-4%
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Skulls	Rare Ring | (ilvl = char level) | ÿc3 4-6% Physical Damage Leeched as Life
+REC	reroll	3 Rare Rings | (or Rerolling Orb with 7 Magic Ring pts) | 2 Flawless Amethysts	Rare Ring | (ilvl = char level) | ÿc3 4-6% Physical Damage Leeched as Mana
+SEC	reroll	Skill Tab Reroll
+REC	reroll	Magic Amazon Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Ruby	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Bow & Crossbow (Amazon Only)
+REC	reroll	Magic Amazon Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Emerald	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Passive & Magic (Amazon | Only)
+REC	reroll	Magic Amazon Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Topaz	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Spear & Javelin (Amazon | Only)
+REC	reroll	Magic Assassin Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Topaz	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Traps (Assassin Only)
+REC	reroll	Magic Assassin Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Obsidian	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Shadow Disciplines (Assassin | Only)
+REC	reroll	Magic Assassin Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Ruby	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Martial Arts (Assassin Only)
+REC	reroll	Magic Barbarian Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Sapphire	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Combat Skills (Barbarian Only)
+REC	reroll	Magic Barbarian Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Diamond	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Combat Masteries (Barbarian | Only)
+REC	reroll	Magic Barbarian Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Amethyst	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Warcries (Barbarian Only)
+REC	reroll	Magic Druid Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Topaz	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Summoning (Druid Only)
+REC	reroll	Magic Druid Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Diamond	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Shapeshifting (Druid Only)
+REC	reroll	Magic Druid Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Ruby	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Elemental Skills (Druid Only)
+REC	reroll	Magic Necromancer Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Obsidian	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Curses (Necromancer Only)
+REC	reroll	Magic Necromancer Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Emerald	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Poison & Bone (Necromancer | Only)
+REC	reroll	Magic Necromancer Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Skull	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Summoning (Necromancer Only)
+REC	reroll	Magic Paladin Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Obsidian	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Combat Skills (Paladin Only)
+REC	reroll	Magic Paladin Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Amethyst	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Offensive Auras (Paladin Only)
+REC	reroll	Magic Paladin Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Diamond	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Defensive Auras (Paladin Only)
+REC	reroll	Magic Sorceress Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Ruby	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Fire Spells (Sorceress Only)
+REC	reroll	Magic Sorceress Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Topaz	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Lightning Spells (Sorceress | Only)
+REC	reroll	Magic Sorceress Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Sapphire	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Cold Spells (Sorceress Only)
+REC	reroll	Magic Warlock Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Topaz	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Demon Skills (Warlock Only)
+REC	reroll	Magic Warlock Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Onyx	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Eldritch Skills (Warlock Only)
+REC	reroll	Magic Warlock Amulet/Ring | 3 Ancient Decipherers | Magic Jewel | Ruby	Magic Item of the Same Type | (ilvl = char level) | ÿc3 +1-3 To Chaos Skills (Warlock Only)
+SEC	reroll	Charms
+REC	reroll	Magic Charm | Perfect Gem	Magic Charm of the Same Type | (ilvl = char level, any socket remains)
+REC	reroll	3 Magic Charms of the Same Type	Magic Charm of the Same Type | (ilvl = char level)
+REC	reroll	3 Rare Charms of the Same Type	Rare Charm of the Same Type | (ilvl = char level)
+SEC	reroll	Jewels
+REC	reroll	Magic Jewel | Perfect Gem	Magic Jewel | (ilvl = char level)
+REC	reroll	Rare Jewel | 2 Perfect Gems	Rare Jewel | (ilvl = char level)
+REC	reroll	3 Magic Jewels	Magic Jewel | (ilvl = char level)
+REC	reroll	Rare Jewel | Scroll of Town Portal	Magic Jewel | (ilvl = char level)
+REC	reroll	7 Magic Jewels	Rare Jewel | (ilvl = char level)
+REC	reroll	3 Rare Jewels	Rare Jewel | (ilvl = char level)
+REC	reroll	7 Rare Jewels	Unique Jewel | (ilvl = char level x 80%)
+REC	reroll	Unique Jewel | Scroll of Town Portal	Rare Jewel | (ilvl = char level)
+REC	reroll	3 Unique Jewels	Unique Jewel | (ilvl = char level x 80%)
+REC	reroll	Unique Jewel | 3 Perfect Gems | Key	Unique Jewel | (ilvl = char level x 80%) | Key
+REC	reroll	Rerolling Orb | 1-6 Set Rings	Rerolling Orb | Adds 1-6 Jewel Points
+REC	reroll	Rerolling Orb | 1-6 Set Amulets	Rerolling Orb | Adds 1-6 Jewel Points
+SEC	reroll	Arrow/Bolt Quivers
+REC	reroll	Magic Arrow/Bolt | Blemished Gem	Magic Arrow/Bolt | (ilvl = char level, any socket remains)
+REC	reroll	Rare Arrow/Bolt | 2 Blemished Gem	Rare Arrow/Bolt | (ilvl = char level)
+REC	reroll	3 Magic Arrows/Bolts	Magic Arrow/Bolt | (ilvl = char level)
+REC	reroll	7 Magic Arrows/Bolts	Rare Arrow/Bolt | (ilvl = char level)
+REC	reroll	3 Rare Arrows/Bolts	Rare Arrow/Bolt | (ilvl = char level)
+REC	reroll	7 Rare Arrows/Bolts	Unique Arrow/Bolt | (ilvl = char level x 80%)
+REC	reroll	3 Unique Arrows/Bolts	Unique Arrow/Bolt | (ilvl = char level x 80%)
+REC	reroll	Unique Arrow/Bolt | Scroll of Town Portal	Rare Arrow/Bolt | (ilvl = char level)
+REC	reroll	Rerolling Orb | 1-6 Unique Arrow/Bolt	Rerolling Orb | Adds 1-6 Rare Quiver Points
+SEC	for	Forging
+DESC	for	Forging enhances an item for no penalty, but an item may have only one Forging mod at a time. You can remove any unwanted Forging (except Wo Forging) to apply another Forging. Wo Forging can't be removed because there is no way to remove "Indestructible" property.
+SEC	for	Remove Forging
+REC	for	Forged Item | 3 Thawing Potion	The Same Item | ÿc3 Removes Forging | ÿc0 Underlined Material(s)
+REC	for	Aurastone Forged Amulet | 3 Thawing Potion	The Same Item | ÿc3 Removes Forging | ÿc1Destroys Aurastone
+REC	for	Aurastone Forged Amulet | 2 Perfect Gem (6 pack) | Maple Leaf	The Same Item | ÿc3 Removes Forging | ÿc0 Underlined Aurastone
+DESC	for	Skill Forging Target Item includes: Any Rarity Equipment (Weapons, Armor, Rings and Amulets) No Runewords (white/socketed items work) Unique Jewels/Charms
+REC	for	Target Item | 2 Anvil Stones | Chipped Emerald	The Same Item | ÿc3 +1 To Amazon Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Ruby	The Same Item | ÿc3 +1 To Assassin Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Amethyst	The Same Item | ÿc3 +1 To Barbarian Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Topaz	The Same Item | ÿc3 +1 To Druid Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Skull	The Same Item | ÿc3 +1 To Necromancer Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Diamond	The Same Item | ÿc3 +1 To Paladin Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Sapphire	The Same Item | ÿc3 +1 To Sorceress Skill Levels
+REC	for	Target Item | 2 Anvil Stones | Chipped Obsidian	The Same Item | ÿc3 +1 To Warlock Skill Levels
+DESC	for	All Skill Forging Target Item includes: Any Rarity Equipment (Weapons, Armor, Rings and Amulets) No Runewords (white/socketed items work)
+REC	for	Target Item | Maple Leaf | Anvil Stone | Chipped Gem	The Same Item | ÿc3 +1 To All Skills
+DESC	for	Stat Forging Target Item includes: Any Rarity Equipment (Weapons, Armor, Rings and Amulets) No Runewords (white/socketed items work) Unique Jewels/Charms
+REC	for	Target Item | Anvil Stone | Chipped Emerald	The Same Item | ÿc3 48% Bonus To Attack Rating | ÿc0 (for Weapons) | ÿc3 40% Better Chance of Getting Magic Item | ÿc0 (for Other Items)
+REC	for	Target Item | Anvil Stone | Chipped Ruby	The Same Item | ÿc3 20% Increased Attack Speed
+REC	for	Target Item | Anvil Stone | Chipped Amethyst	The Same Item | ÿc3 +48% Enhanced Damage | ÿc0 (for Weapons) | ÿc3 +48% Enhanced Defense | ÿc0 (for Armor) | ÿc3 12% Chance of Crushing Blow | ÿc0 (for Other Items)
+REC	for	Target Item | Anvil Stone | Chipped Topaz	The Same Item | ÿc3 Increase Max Life 16%
+REC	for	Target Item | Anvil Stone | Chipped Skull	The Same Item | ÿc3 20% Faster Cast Rate
+REC	for	Target Item | Anvil Stone | Chipped Diamond	The Same Item | ÿc3 +48% Damage To Undead | +48% Damage To Demons | ÿc0 (for Weapons) | ÿc3 All Resistances +16 | ÿc0 (for Other Items)
+REC	for	Target Item | Anvil Stone | Chipped Sapphire	The Same Item | ÿc3 Increase Max Mana 16%
+DESC	for	Rune Forging Target Item includes: Any Rarity Equipment (Weapons, Armor, Rings and Amulets) No Runewords (white/socketed items work) You can also use kanji runes.
+REC	for	Target Item | 2 Same Runes | Chipped Gem	The Same Item | ÿc3 Adds bonus of the Rune
+DESC	for	Aura Forging ÿc1NOTE: Removing Aura Forging does NOT return the Aura Stone, it is destroyed upon unforging.
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Green Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 10 Blessed Aim Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Red Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 15 Concentration Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Violet Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 20 Defiance Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Yellow Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 10 Vigor Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Black Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 30 Thorns Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | White Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 21 Conviction Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Blue Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 15 Meditation Aura When Equipped
+REC	for	Magic/Rare/Crafted/Set/Unique Amulet | Orange Aura Stone | Chipped Gem	The Same Item | ÿc3 Lvl 25 Sanctuary Aura When Equipped
+SEC	for	Stat Forging (Jewel)
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Emerald	The Same Item | ÿc3 15% Better Chance of Getting Magic Item
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Ruby	The Same Item | ÿc3 15% Increased Attack Speed
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Amethyst	The Same Item | ÿc3 9% Chance of Crushing Blow
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Topaz	The Same Item | ÿc3 Increase Max Life 12%
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Skull	The Same Item | ÿc3 15% Faster Cast Rate
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Diamond	The Same Item | ÿc3 All Resistances +12
+REC	for	Magic/Rare Jewel | Anvil Stone | Chipped Sapphire	The Same Item | ÿc3 Increase Max Mana 12%
+SEC	for	Rune Forging (Jewel)
+REC	for	Magic/Rare Jewel | 2 Same Runes (up to O rune) | Chipped Gem | Scroll of Town Portal	The Same Item | ÿc3 Adds Weapon Mods of the Rune | ÿc0 Scroll of Town Portal
+REC	for	Magic/Rare Jewel | 2 Same Runes (up to O rune) | Chipped Gem | Scroll of Identify	The Same Item | ÿc3 Adds Helm Mods of the Rune | ÿc0 Scroll of Identify
+DESC	for	Merc Only Conversion This recipe is added to encourage players to use other items than Mercenary Sets. It stacks with Forgings.
+REC	for	Any Weapon/Armor | with no (merc only) property | Anvil Stone | Perfect Obsidian	The Same Item | ÿc3 +1 To All Skills | +30% Deadly Strike | Physical Resist: +15% | ÿc0 Adds (merc only) property
+REC	for	Any Weapon/Armor | with no (merc only) property | Anvil Stone | Perfect Ruby	The Same Item | ÿc3 +1 To All Skills | +20% To Fire Spell Damage | +20% To Cold Spell Damage | +20% To Lightning Spell Damage | Elemental Absorb 5% | ÿc0 Adds (merc only) property
+REC	for	Any Weapon/Armor | with no (merc only) property | Anvil Stone | Perfect Sapphire	Any Weapon/Armor | ÿc3 +1 To All Skills | +20% To Poison Spell Damage | +20% To Magic Spell Damage | +20% To Physical Spell Damage | Magic Damage Reduced by 75 | ÿc0 Adds (merc only) property
+REC	for	Any Weapon/Armor | with no (merc only) property | Anvil Stone | Perfect Topaz	The Same Item | ÿc3 +1 To All Skills | +15% To Spell Damage | All Resistances +50 | ÿc0 Adds (merc only) property
+REC	for	Any Weapon/Armor | with no (merc only) property | Anvil Stone | Perfect Emerald	The Same Item | ÿc3 +1 To All Skills | +30% to All Speeds | Piercing Attack 100% | ÿc0 Adds (merc only) property
+REC	for	Any Weapon/Armor | with no (merc only) property | Anvil Stone | Perfect Diamond	The Same Item | ÿc3 +1 To Molten Focus | +1 To Glacial Focus | +1 To Static Focus | ÿc0 Adds (merc only) property
+REC	for	Converted Item | 3 Antidote Potions	The Same Item | ÿc3 Removes Merc Only Converison | ÿc0 Underlined Material(s)
+DESC	dst	D-Stoning D-Stoning can also be applied to unforgeable items like Runeworded items. D-Stoning can't be removed, so please apply it carefully. D-Stoning Caps Every cap listed in the d-stoning section is a standalone cap specific for the purpose of dragon stoning. For example, if an item has 190% fire spell damage from affixes and the dragon stone cap is 200%, you can go above 200% as long as the dragon stone cap is respected (in this particular case, you can go as high as 390% fire spell damage, 190% from base and 200% from the d-stoning cap). The only exception to this rule is enhanced damage and enhanced defense that cannot go above 500% on any item. D-Stoning Runeworded Items D-Stoning applied to a white item ÿc1after making a Runeword is lostÿc0 when you remove the Runes. D-Stoning applied to a white item ÿc1before making a Runeword remainsÿc0 when you remove the Runes. (Please also see the caution of Secret Recipe 50.) Fail-Safe Features D-Stoning doesn't work if the target is elite and has +58 level req penalty or more. D-Stoning doesn't work if the target is exceptional and has +79 level req penalty or more. D-Stoning doesn't work if the target is normal or jewelry and has +99 level req penalty or more.
+DESC	dst	Dragon Stone Cycling Dragon Stones can be transmuted to obtain its different forms that can be used for crafting.
+REC	dst	Dragon Stone	Holy Symbol
+REC	dst	Holy Symbol	Blackmoor
+REC	dst	Blackmoor	Forging Hammer
+REC	dst	Forging Hammer	Crushed Gem
+REC	dst	Crushed Gem	Spider's Silk
+REC	dst	Spider's Silk	Tyranium Ore
+REC	dst	Tyranium Ore	Void Shard
+REC	dst	Void Shard	Dragon Stone
+SEC	dst	D-Stoning Weapon
+REC	dst	Any Weapon | Spider's Silk	The Same Item | ÿc3 12% Bonus To Attack Rating | Level Requirement +2 | ÿc0 (Capped at 500%)
+REC	dst	Any Weapon | Spider's Silk | Key	The Same Item | ÿc3 +2-5% To Poison Spell Damage* | Level Requirement +2 | ÿc0 (Capped at 300%) | Key
+REC	dst	Any Weapon | Spider's Silk | Stamina Potion	The Same Item | ÿc3 3% Piercing Attack | Level Requirement +2 | ÿc0 (Capped at 100%) | Stamina Potion
+REC	dst	Any Weapon | Dragon Stone	The Same Item | ÿc3 5% Increased Attack Speed | Level Requirement +2 | ÿc0 (Capped at 120%)
+REC	dst	Any Weapon | Dragon Stone | Key	The Same Item | ÿc3 +2-5% To Fire Spell Damage* | Level Requirement +2 | ÿc0 (Capped at 300%) | Key
+REC	dst	Any Weapon | Forging Hammer	The Same Item | ÿc3 +12% Enhanced Damage | Level Requirement +2 | ÿc0 (Capped at 500%)
+REC	dst	Any Weapon | Forging Hammer | Key	The Same Item | ÿc3 3% Chance of Crushing Blow | Level Requirement +2 | ÿc0 (Capped at 100%) | Key
+REC	dst	Any Weapon | Forging Hammer | Stamina Potion	The Same Item | ÿc3 +2-5% To Physical Spell Damage* | Level Requirement +2 | ÿc0 (Capped at 300) | Stamina Potion
+REC	dst	Any Weapon | Tyranium Ore	The Same Item | ÿc3 Increase Max Life 4% | Level Requirement +2 | ÿc0 (Capped at 60%)
+REC	dst	Any Weapon | Tyranium Ore | Key	The Same Item | ÿc3 +2-5% To Lightning Spell Damage* | Level Requirement +2 | ÿc0 (Capped at 300%) | Key
+REC	dst	Any Weapon | Tyranium Ore | Stamina Potion	The Same Item | ÿc3 2% Physical Damage Leeched as Life | Level Requirement +2 | ÿc0 (Capped at 60%) | Stamina Potion
+REC	dst	Any Weapon | Blackmoor	The Same Item | ÿc3 5% Faster Cast Rate | Level Requirement +2 | ÿc0 (Capped at 120%)
+REC	dst	Any Weapon | Blackmoor | Key	The Same Item | ÿc3 +3 Mana After Each Kill | Level Requirement +2 | ÿc0 (Capped at 150) | Key
+REC	dst	Any Weapon | Blackmoor | Stamina Potion	The Same Item | ÿc3 +2-5% Magic Spell Damage* | Level Requirement +2 | ÿc0 (Capped at 300%) | Stamina Potion
+REC	dst	Any Weapon | Forging Hammer | Antidote Potion	The Same Item | ÿc3 +2-5% Summon Damage* | Level Requirement +2 | ÿc0 (Capped at 300%) | Antidote Potion
+REC	dst	Any Weapon | Holy Symbol	The Same Item | ÿc3 +12% Damage To Undead | +12% Damage To Demons | Level Requirement +2 | ÿc0 (Capped at 500%)
+REC	dst	Any Weapon | Holy Symbol | Key	The Same Item | ÿc3 3% Deadly Strike | Level Requirement +2 | ÿc0 (Capped at 100%) | Key
+REC	dst	Any Weapon | Crushed Gem	The Same Item | ÿc3 Increase Max Mana 4% | Level Requirement +2 | ÿc0 (Capped at 60%)
+REC	dst	Any Weapon | Crushed Gem | Key	The Same Item | ÿc3 +2-5% To Cold Spell Damage* | Level Requirement +2 | ÿc0 (Capped at 300%) | Key
+REC	dst	Any Weapon | Crushed Gem | Stamina Potion	The Same Item | ÿc3 2% Physical Damage Leeched as Mana | Level Requirement +2 | ÿc0 (Capped at 60%) | Stamina Potion
+REC	dst	Any Weapon | Void Shard	The Same Item | ÿc3 1% Skill Cooldown Reduction | Level Requirement +2 | ÿc0 (Capped at 25%)
+REC	dst	Any Weapon | Void Shard | Stamina Potion	The Same Item | ÿc3 +1-2.5% Fire/Cold/Lightning Spell Damage | Level Requirement +2 | ÿc0 (Capped at 300%)* | *This cap is shared with the individual fire, cold and spell damage caps. | The half | point does not work, but it is remembered for the next craft.
+SEC	dst	*Spell Damage per D-Stoning
+SEC	dst	D-Stoning Torso/Helm/Shield
+REC	dst	Any Torso/Helm/Shield | Spider's Silk	The Same Item | ÿc3 10% Better Chance of Getting Magic Item | Level Requirement +3 | ÿc0 (Capped at 300%)
+REC	dst	Any Torso/Helm/Shield | Spider's Silk | Key	The Same Item | ÿc3 +4 To Dexterity | Level Requirement +3 | ÿc0 (Capped at 200) | Key
+REC	dst	Any Torso/Helm/Shield | Dragon Stone	The Same Item | ÿc3 5% Increased Attack Speed | Level Requirement +3 | ÿc0 (Capped at 120%)
+REC	dst	Any Torso/Helm/Shield | Dragon Stone | Key	The Same Item | ÿc3 5% Faster Hit Recovery | Level Requirement +3 | ÿc0 (Capped at 120%) | Key
+REC	dst	Any Torso/Helm/Shield | Forging Hammer	The Same Item | ÿc3 +8% Enhanced Defense | Level Requirement +3 | ÿc0 (Capped at 500%)
+REC	dst	Any Torso/Helm/Shield | Forging Hammer | Key	The Same Item | ÿc3 +4 To Strength | Level Requirement +3 | ÿc0 (Capped at 200) | Key
+REC	dst	Any Torso/Helm/Shield | Tyranium Ore	The Same Item | ÿc3 Increase Max Life 4% | Level Requirement +3 | ÿc0 (Capped at 60%)
+REC	dst	Any Torso/Helm/Shield | Tyranium Ore | Key	The Same Item | ÿc3 +16 To Life | Level Requirement +3 | ÿc0 (Capped at 256) | Key
+REC	dst	Any Torso/Helm/Shield | Blackmoor	The Same Item | ÿc3 5% Faster Cast Rate | Level Requirement +3 | ÿc0 (Capped at 120%)
+REC	dst	Any Torso/Helm/Shield | Blackmoor | Key	The Same Item | ÿc3 +2 to Strength, Dexterity and Energy | Level Requirement +3 | ÿc0 (Capped at 200%) | Key | *This cap is shared with the individual strength, dexterity and energy caps.
+REC	dst	Any Torso/Helm/Shield | Blackmoor | Stamina Potion	The Same Item | ÿc3 -2 To Light Radius | Level Requirement +3 | Stamina Potion
+REC	dst	Any Torso/Helm/Shield | Holy Symbol	The Same Item | ÿc3 All Resistances +4 | Level Requirement +3 | ÿc0 (Capped at 150)
+REC	dst	Any Torso/Helm/Shield | Holy Symbol | Stamina Potion	The Same Item | ÿc3 +2 To Light Radius | Level Requirement +3 | ÿc0 (Capped at 10) | Stamina Potion
+REC	dst	Any Torso/Helm/Shield | Crushed Gem	The Same Item | ÿc3 Increase Max Mana 4% | Level Requirement +3 | ÿc0 (Capped at 60%)
+REC	dst	Any Torso/Helm/Shield | Crushed Gem | Key	The Same Item | ÿc3 +16 To Mana | Level Requirement +3 | ÿc0 (Capped at 256) | Key
+REC	dst	Any Torso/Helm/Shield | Crushed Gem | Stamina Potion	The Same Item | ÿc3 +4 To Energy | Level Requirement +3 | ÿc0 (Capped at 200) | Stamina Potion
+REC	dst	Any Torso/Helm/Shield | Void Shard	The Same Item | ÿc3 +2% To Summon All Resists | Level Requirement +3 | ÿc0 (Capped at 30)
+SEC	dst	D-Stoning Gloves/Belt/Boots
+REC	dst	Any Gloves/Belt/Boots | Spider's Silk	The Same Item | ÿc3 10% Better Chance of Getting Magic Item | Level Requirement +4 | ÿc0 (Capped at 300%)
+REC	dst	Any Gloves/Belt/Boots | Spider's Silk | Key	The Same Item | ÿc3 +4 To Dexterity | Level Requirement +4 | ÿc0 (Capped at 200) | Key
+REC	dst	Any Gloves/Belt/Boots | Dragon Stone	The Same Item | ÿc3 5% Increased Attack Speed | Level Requirement +4 | ÿc0 (Capped at 120%)
+REC	dst	Any Gloves/Belt/Boots | Dragon Stone | Key	The Same Item | ÿc3 5% Faster Hit Recovery | Level Requirement +4 | ÿc0 (Capped at 120%) | Key
+REC	dst	Any Gloves/Belt/Boots | Forging Hammer	The Same Item | ÿc3 +8% Enhanced Defense | Level Requirement +4 | ÿc0 (Capped at 500%)
+REC	dst	Any Gloves/Belt/Boots | Forging Hammer | Key	The Same Item | ÿc3 +4 To Strength | Level Requirement +4 | ÿc0 (Capped at 200) | Key
+REC	dst	Any Gloves/Belt/Boots | Tyranium Ore	The Same Item | ÿc3 Increase Max Life 4% | Level Requirement +4 | ÿc0 (Capped at 60%)
+REC	dst	Any Gloves/Belt/Boots | Tyranium Ore | Key	The Same Item | ÿc3 +16 To Life | Level Requirement +4 | ÿc0 (Capped at 256) | Key
+REC	dst	Any Gloves/Belt/Boots | Blackmoor	The Same Item | ÿc3 5% Faster Cast Rate | Level Requirement +4 | ÿc0 (Capped at 120%)
+REC	dst	Any Gloves/Belt/Boots | Blackmoor | Key	The Same Item | ÿc3 +2 to Strength, Dexterity and Energy | Level Requirement +4 | ÿc0 (Capped at 200%) | Key | *This cap is shared with the individual strength, dexterity and energy caps.
+REC	dst	Any Gloves/Belt/Boots | Blackmoor | Stamina Potion	The Same Item | ÿc3 -2 To Light Radius | Level Requirement +4 | Stamina Potion
+REC	dst	Any Gloves/Belt/Boots | Holy Symbol	The Same Item | ÿc3 All Resistances +4 | Level Requirement +4 | ÿc0 (Capped at 150)
+REC	dst	Any Gloves/Belt/Boots | Holy Symbol | Stamina Potion	The Same Item | ÿc3 +2 To Light Radius | Level Requirement +4 | ÿc0 (Capped at 10) | Stamina Potion
+REC	dst	Any Gloves/Belt/Boots | Crushed Gem	The Same Item | ÿc3 Increase Max Mana 4% | Level Requirement +4 | ÿc0 (Capped at 60%)
+REC	dst	Any Gloves/Belt/Boots | Crushed Gem | Key	The Same Item | ÿc3 +16 To Mana | Level Requirement +4 | ÿc0 (Capped at 256) | Key
+REC	dst	Any Gloves/Belt/Boots | Crushed Gem | Stamina Potion	The Same Item | ÿc3 +4 To Energy | Level Requirement +4 | ÿc0 (Capped at 200) | Stamina Potion
+REC	dst	Any Gloves/Belt/Boots | Void Shard	The Same Item | ÿc3 +1% To Summon Physical and Magic Resists | Level Requirement +4 | ÿc0 (Capped at 15)
+SEC	dst	D-Stoning Ring/Amulet
+REC	dst	Any Ring/Amulet | Spider's Silk	The Same Item | ÿc3 3% Piercing Attack | Level Requirement +4 | ÿc0 (Capped at 100%)
+REC	dst	Any Ring/Amulet | Spider's Silk | Key	The Same Item | ÿc3 30 To Attack Rating | Level Requirement +4 | ÿc0 (Capped at 1000) | Key
+REC	dst	Any Ring/Amulet | Spider's Silk | Stamina Potion	The Same Item | ÿc3 10% Better Chance of Getting Magic Item | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 300%)
+REC	dst	Any Ring/Amulet | Dragon Stone	The Same Item | ÿc3 3% Deadly Strike | Level Requirement +4 | ÿc0 (Capped at 100%)
+REC	dst	Any Ring/Amulet | Dragon Stone | Key	The Same Item | ÿc3 5% Increased Attack Speed | Level Requirement +4 | ÿc0 (Capped at 120%) | Key
+REC	dst	Any Ring/Amulet | Dragon Stone | Stamina Potion	The Same Item | ÿc3 Magic Damage Reduced By 3 | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 45)
+REC	dst	Any Ring/Amulet | Forging Hammer	The Same Item | ÿc3 3% Chance of Crushing Blow | Level Requirement +4 | ÿc0 (Capped at 100%)
+REC	dst	Any Ring/Amulet | Forging Hammer | Key	The Same Item | ÿc3 5% Faster Run/Walk | Level Requirement +4 | ÿc0 (Capped at 120%) | Key
+REC	dst	Any Ring/Amulet | Forging Hammer | Stamina Potion	The Same Item | ÿc3 10% Extra Gold From Monsters | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 400%)
+REC	dst	Any Ring/Amulet | Tyranium Ore	The Same Item | ÿc3 2% Physical Damage Leeched as Life | Level Requirement +4 | ÿc0 (Capped at 60%)
+REC	dst	Any Ring/Amulet | Tyranium Ore | Key	The Same Item | ÿc3 Increase Max Life 4% | Level Requirement +4 | ÿc0 (Capped at 60%) | Key
+REC	dst	Any Ring/Amulet | Tyranium Ore | Stamina Potion	The Same Item | ÿc3 Replenish Life +20 | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 1000)
+REC	dst	Any Ring/Amulet | Blackmoor	The Same Item | ÿc3 5% Faster Cast Rate | Level Requirement +4 | ÿc0 (Capped at 120%)
+REC	dst	Any Ring/Amulet | Blackmoor | Key	The Same Item | ÿc3 3 Mana After Each Kill | Level Requirement +4 | ÿc0 (Capped at 60) | Key
+REC	dst	Any Ring/Amulet | Blackmoor | Stamina Potion	The Same Item | ÿc3 +2% to Summon Life | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 30)
+REC	dst	Any Ring/Amulet | Holy Symbol	The Same Item | ÿc3 All Resistances +4 | Level Requirement +4 | ÿc0 (Capped at 100)
+REC	dst	Any Ring/Amulet | Holy Symbol | Key	The Same Item | ÿc3 5% Faster Hit Recovery | Level Requirement +4 | ÿc0 (Capped at 120%) | Key
+REC	dst	Any Ring/Amulet | Holy Symbol | Stamina Potion	The Same Item | ÿc3 Damage Reduced By 3 | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 45)
+REC	dst	Any Ring/Amulet | Crushed Gem	The Same Item | ÿc3 2% Physical Damage Leeched as Mana | Level Requirement +4 | ÿc0 (Capped at 60%)
+REC	dst	Any Ring/Amulet | Crushed Gem | Key	The Same Item | ÿc3 Increase Max Mana 4% | Level Requirement +4 | ÿc0 (Capped at 60%) | Key
+REC	dst	Any Ring/Amulet | Crushed Gem | Stamina Potion	The Same Item | ÿc3 Regenerate Mana +9% | Level Requirement +4 | Stamina Potion | ÿc0 (Capped at 400%)
+SEC	dst	Gem Melding
+DESC	dst	Gem melding can be applied up to 20 times on weapons and up to 10 times on other equipment.
+REC	dst	Any Wand/Staff/Orb | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Helm Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +2
+REC	dst	Any Other Weapon | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Weapon Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +2
+REC	dst	Any Gloves | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Weapon Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +4
+REC	dst	Any Torso/Shield | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Armor Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +3
+REC	dst	Any Belt | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Armor Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +4
+REC	dst	Any Helm | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Helm Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +3
+REC	dst	Any Boots | Perfect Gem | 3 Ancient Decipherers	The Same Item | ÿc3 Adds Chipped Gem's Helm Bonus | ÿc0 (P-Gem determines the color) | ÿc3 Level Requirement +4
+DESC	tin	Tinkering All items are generated with 25-35 invisible Tinkering points as an inherit property. Each Tinkering recipe consumes some Tinkering point(s). If an item cannot be tinkered anymore, it means the points have been depleted. See also Supercharged Tinkering (Secret Recipe 22).
+REC	tin	Any Weapon/Armor | 3 Hearts | (2 Tinkering points)	The Same Item | ÿc3 +5 To Life
+REC	tin	Any Weapon/Armor | 3 Souls | (2 Tinkering points)	The Same Item | ÿc3 +5 To Mana
+REC	tin	Any Weapon/Armor | Fang | (2 Tinkering points)	The Same Item | ÿc3 Adds 5-10 Fire Damage
+REC	tin	Any Weapon/Armor | Horn | (2 Tinkering points)	The Same Item | ÿc3 Adds 5-10 Lightning Damage
+REC	tin	Any Weapon/Armor | Spleen | (2 Tinkering points)	The Same Item | ÿc3 Adds 5-10 Cold Damage 0.2 Sec Duration
+REC	tin	Any Weapon/Armor | Tail | (2 Tinkering points)	The Same Item | ÿc3 Adds 5-10 Magic Damage
+REC	tin	Any Weapon/Armor | Jawbone | (2 Tinkering points)	The Same Item | ÿc3 Replenish Life +20
+REC	tin	Any Weapon/Armor | Scalp | (2 Tinkering points)	The Same Item | ÿc3 Regenerate Mana 2% | ÿc0 (Capped at 400)
+REC	tin	Any Weapon/Armor | Quill | (3 Tinkering points)	The Same Item | ÿc3+2 to Max Damage
+DESC	bas	Base Upgrades/Changes You can't reroll Unique/Set Items after base upgrade. You can't convert Convertible Set Items after base upgrade. Because Base Upgrade hardly increases the defense of Ethereal Armor due to the bug of LoD, Base Upgrade recipe no longer accepts Ethereal Armor to avoid spoiling the target item. Use Special Upgrade Recipes for Mercenary Sets, which are cheaper and better.
+REC	bas	Normal Unique/Set Weapon | Ki Rune | A Rune | 3 Blemished Gems	Upgraded To Exceptional
+REC	bas	Normal Unique/Set Torso | Yo Rune | Tsu Rune | 3 Blemished Gems	Upgraded To Exceptional
+REC	bas	Normal Unique/Set Helm/Shield | Yo Rune | Tsu Rune | 2 Blemished Gems	Upgraded To Exceptional
+REC	bas	Normal Unique/Set Gloves/Belt/Boots | Yo Rune | Tsu Rune | Blemished Gem	Upgraded To Exceptional
+REC	bas	Exceptional Set/Unique Weapon | O Rune | Me Rune | 3 Perfect Gems	Upgraded To Elite
+REC	bas	Exceptional Unique/Set Torso | Ra Rune | Ru Rune | 3 Perfect Gems	Upgraded To Elite
+REC	bas	Exceptional Unique/Set Helm/Shield | Ra Rune | Ru Rune | 2 Perfect Gems	Upgraded To Elite
+REC	bas	Exceptional Unique/Set Gloves/Belt/Boots | Ra Rune | Ru Rune | Perfect Gem	Upgraded To Elite
+REC	bas	Normal Crafted/Rare/Magic Weapon | Ri Rune | Ya Rune | 3 Flawless Gems	Upgraded To Exceptional
+REC	bas	Normal Crafted/Rare/Magic Torso | Ki Rune | Mi Rune | 3 Flawless Gems	Upgraded To Exceptional
+REC	bas	Normal Crafted/Rare/Magic Helm/Shield | Ki Rune | Mi Rune | 2 Flawless Gems	Upgraded To Exceptional
+REC	bas	Normal Crafted/Rare/Magic Gloves/Belt/Boots | Ki Rune | Mi Rune | Flawless Gem	Upgraded To Exceptional
+REC	bas	Exceptional Crafted/Rare/Magic Weapon | Ko Rune | Ho Rune | 3 Blemished Gems	Upgraded To Elite
+REC	bas	Exceptional Crafted/Rare/Magic Torso | E Rune | O Rune | 3 Blemished Gems	Upgraded To Elite
+REC	bas	Exceptional Crafted/Rare/Magic Helm/Shield | E Rune | O Rune | 2 Blemished Gems	Upgraded To Elite
+REC	bas	Exceptional Crafted/Rare/Magic Gloves/Belt/Boots | E Rune | O Rune | Blemished Gem	Upgraded To Elite
+REC	bas	Any Sash | Stamina Potion	Upgraded To Belt
+REC	bas	Any Light Belt | Stamina Potion	Upgraded To Belt
+REC	bas	Non-White Cap Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family
+REC	bas	Non-White Skull Cap Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +100%
+REC	bas	Non-White Helm Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +140%
+REC	bas	Non-White Full Helm Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +170%
+REC	bas	Non-White Great Helm Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +200%
+REC	bas	Non-White Mask Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +150%
+REC	bas	Non-White Crown Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +200%
+REC	bas	Non-White Bone Helm Family | Ancient Decipherer | Magic Ring	Converted To Hachigane Family | ÿc3 Requirement +170%
+SEC	soc	Socket Recipes
+DESC	soc	The number of sockets can't exceed the max sockets of the base item. The items dropped in Normal and NM Act 1 can't have the max sockets in some cases. You can't change the number of existing sockets.
+REC	soc	Yegg's Firedagger* | Any Healing Potion | (*Unique Dagger. You can get ones by | gambling with a low level character)	Socket Donut
+REC	soc	Normal/Superior Weapon/Armor (Normal) | 1-6 Normal Gems | Socket Donut	Normal Item of the Same Type* | (ilvl = previous ilvl) | ÿc3 Gem Socket (1-6, the # of Gems) | ÿc0 (*Ethereality and Superiority are lost. | Please also see Secret Recipe 16 and 17)
+REC	soc	Normal/Superior Weapon/Armor (Exceptional) | 1-6 Flawless Gems | Socket Donut	Normal Item of the Same Type* | (ilvl = previous ilvl) | ÿc3 Gem Socket (1-6, the # of Gems) | ÿc0 (*Ethereality and Superiority are lost. | Please also see Secret Recipe 16 and 17)
+REC	soc	Normal/Superior Weapon/Armor (Elite) | 1-6 Blemished Gems | Socket Donut	Normal Item of the Same Type* | (ilvl = previous ilvl) | ÿc3 Gem Socket (1-6, the # of Gems) | ÿc0 (*Ethereality and Superiority are lost. | Please also see Secret Recipe 16 and 17)
+REC	soc	Magic Weapon/Armor (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (3)
+REC	soc	Magic Weapon/Armor (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (3)
+REC	soc	Magic Weapon/Armor (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (3)
+REC	soc	Rare Weapon/Torso/Helm/Shield (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (2)
+REC	soc	Rare Weapon/Torso/Helm/Shield (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (2)
+REC	soc	Rare Weapon/Torso/Helm/Shield (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (2)
+REC	soc	Rare Gloves/Belt/Boots (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Rare Gloves/Belt/Boots (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Rare Gloves/Belt/Boots (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Craft Weapon/Torso/Helm/Shield (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (2)
+REC	soc	Craft Weapon/Torso/Helm/Shield (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (2)
+REC	soc	Craft Weapon/Torso/Helm/Shield (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (2)
+REC	soc	Craft Gloves/Belt/Boots (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Craft Gloves/Belt/Boots (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Craft Gloves/Belt/Boots (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Set Weapon/Armor (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1-2)
+REC	soc	Set Weapon/Armor (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1-2)
+REC	soc	Set Weapon/Armor (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1-2)
+REC	soc	Unique Weapon/Armor (Normal) | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Unique Weapon/Armor (Exceptional) | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Unique Weapon/Armor (Elite) | Perfect Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)
+REC	soc	Veteran's Odd Charm | 1 Perfect Gem | Socket Donut	The Same Item | Adds ÿc3 Gem Socket (1)* | ÿc0 (*Max Socket is 3. Gem type is Helm. | Runewords must be unsocketed first)
+REC	soc	3 Socket Veteran's Odd Charm | Thawing Potion	Resets the socket number and skill bonus | 2 Perfect Gems | (Socketables must be unsocketed first)
+REC	soc	2 Socket Veteran's Odd Charm | Thawing Potion	Resets the socket number and skill bonus | Perfect Gem | (Socketables must be unsocketed first)
+REC	soc	Normal Arrow/Bolt | Flawless Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)* | ÿc0 Socket Donut | (*Gem type is Weapon. Socketed quivers | don't show the quantity due to a bug of D2)
+REC	soc	Magic Arrow/Bolt | Blemished Gem | Socket Donut	The Same Item | ÿc3 Gem Socket (1)* | ÿc0 Socket Donut | (*Gem type is Weapon. Socketed quivers | don't show the quantity due to a bug of D2)
+REC	soc	Any Item with Socketable(s) | Key	The Same Item with Empty Socket(s) | All Socketable(s) | Key | (This recipe automatically identifies the target. | This isn't an intended behavior but can't be fixed)
+SEC	sec	Secret Recipes
+DESC	sec	The Secret Recipes require a specific Ancient Scroll to be performed. Ancient Scrolls are found randomly by playing the game and can be identified using an Ancient Decipherer. ÿc9The Ancient Scroll is returned after performing the recipe.
+SEC	sec	Secret Recipe 01
+REC	sec	Cookbook | Steak | ÿc9Ancient Scroll 1	Elixir
+SEC	sec	Secret Recipe 02
+REC	sec	Magic Weapon | 5 Chipped Obsidians | Forging Hammer | ÿc9Ancient Scroll 2	Normal Item of the Same Type | (ilvl=previous ilvl)
+SEC	sec	Secret Recipe 03
+REC	sec	Magic Armor | 5 Chipped Diamonds | Forging Hammer | ÿc9Ancient Scroll 3	Normal Item of the Same Type | (ilvl=previous ilvl)
+SEC	sec	Secret Recipe 04
+REC	sec	Crafted Weapon/Armor (Normal) | Perfect Gem | Dragon Stone | ÿc9Ancient Scroll 4	Unique Item of the Same Type | (ilvl = 99)
+SEC	sec	Secret Recipe 05
+REC	sec	Crafted Weapon/Armor (Normal) | Perfect Gem | Forging Hammer | ÿc9Ancient Scroll 5	Set Item of the Same Type | (ilvl = 99)
+SEC	sec	Secret Recipe 06
+REC	sec	Crafted Ring/Amulet | 2 Perfect Gems | Dragon Stone | Forging Hammer | ÿc9Ancient Scroll 6	Unique Item of the Same Type | (ilvl = char level x 80%)
+SEC	sec	Secret Recipe 07
+REC	sec	Crafted Ring/Amulet | Perfect Gem | Dragon Stone | Forging Hammer | ÿc9Ancient Scroll 7	Set Item of the Same Type | (ilvl = 99)
+SEC	sec	Secret Recipe 08
+REC	sec	Any Non-Runeword Weapon | 5 Brains | 10 Souls | ÿc9Ancient Scroll 8	The Same Item | ÿc3 +25% to Experience Gained** | ÿc0 (**Added as a Forging Mod)
+SEC	sec	Secret Recipe 09
+REC	sec	Any Non-Runeword Weapon | 5 Eyes | 10 Hearts | ÿc9Ancient Scroll 9	The Same Item | ÿc3 100% Extra Gold From Monsters** | (**Added as a Forging Mod)
+SEC	sec	Secret Recipe 10
+REC	sec	3 Brains | 2 Tails | 5 Souls | ÿc9Ancient Scroll 10	Rare Amulet | (ilvl=char level) | ÿc3 +5-10% to Experience Gained
+REC	sec	2 Jawbones | 2 Spleens | 2 Scalps | ÿc9Ancient Scroll 10	Rare Ring | (ilvl=char level) | ÿc3 Curse Duration Reduced by (5 to 10)%
+SEC	sec	Secret Recipe 11
+REC	sec	Any Ethereal Item | 2 Unique Jewels | Ho Rune | ÿc9Ancient Scroll 11	Fully Repaired item
+SEC	sec	Secret Recipe 12
+REC	sec	Magic/Rare/Crafted Ring | Any Jewel | Elixir | Eye | ÿc9Ancient Scroll 12	The Same Item | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 13
+REC	sec	Magic/Rare/Crafted Amulet | Any Jewel | Elixir | Brain | ÿc9Ancient Scroll 13	The Same Item | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 14
+REC	sec	2 Dragon Stones | ÿc9Ancient Scroll 14	Perfect Ruby
+REC	sec	2 Tyranium Ores | ÿc9Ancient Scroll 14	Perfect Topaz
+REC	sec	2 Crushed Gems | ÿc9Ancient Scroll 14	Perfect Sapphire
+REC	sec	2 Spider's Silks | ÿc9Ancient Scroll 14	Perfect Emerald
+REC	sec	2 Forging Hammers | ÿc9Ancient Scroll 14	Perfect Amethyst
+REC	sec	2 Holy Symbols | ÿc9Ancient Scroll 14	Perfect Diamond
+REC	sec	2 Blackmoors | ÿc9Ancient Scroll 14	Perfect Skull
+REC	sec	2 Void Shards | ÿc9Ancient Scroll 14	Perfect Obsidian
+SEC	sec	Secret Recipe 15
+REC	sec	Any White Weapon/Armor | 3 Unique Jewels | Wo Rune | ÿc9Ancient Scroll 15	Forces Normal Ethereal Item (May be Superior)
+SEC	sec	Secret Recipe 16
+REC	sec	Normal/Superior Weapon (Normal) | 1-6 Flawless Gems | Socket Donut | ÿc9Ancient Scroll 16	The Same Item | ÿc3 Gem Socket (1-6, the # of Gems)
+REC	sec	Normal/Superior Weapon (Exceptional) | 1-6 Blemished Gems | Socket Donut | ÿc9Ancient Scroll 16	The Same Item | ÿc3 Gem Socket (1-6, the # of Gems)
+REC	sec	Normal/Superior Weapon(Elite) | 1-6 Perfect Gems | Socket Donut | ÿc9Ancient Scroll 16	The Same Item | ÿc3 Gem Socket (1-6, the # of Gems)
+SEC	sec	Secret Recipe 17
+REC	sec	Normal/Superior Armor (Normal) | 1-6 Flawless Gems | Socket Donut | ÿc9Ancient Scroll 17	The Same Item | ÿc3 Gem Socket (1-6, the # of Gems)
+REC	sec	Normal/Superior Armor (Exceptional) | 1-6 Blemished Gems | Socket Donut | ÿc9Ancient Scroll 17	The Same Item | ÿc3 Gem Socket (1-6, the # of Gems)
+REC	sec	Normal/Superior Armor (Elite) | 1-6 Perfect Gems | Socket Donut | ÿc9Ancient Scroll 17	The Same Item | ÿc3 Gem Socket (1-6, the # of Gems)
+SEC	sec	Secret Recipe 18
+REC	sec	Magic Boots | Forging Hammer | Spider's Silk | Cookbook | ÿc9Ancient Scroll 18	The Same Item | ÿc3 10% Faster Run/Walk | ÿc0 (Capped at 120%)
+SEC	sec	Secret Recipe 19
+REC	sec	Magic Shield | Forging Hammer | Holy Symbol | Cookbook | ÿc9Ancient Scroll 19	The Same Item | ÿc3 10% Faster Block Rate | ÿc0 (Capped at 120%)
+SEC	sec	Secret Recipe 20
+REC	sec	Magic Weapon | Forging Hammer | Dragon Stone | Cookbook | ÿc9Ancient Scroll 20	The Same Item | ÿc3 10% Increased Attack Speed | ÿc0 (Capped at 120%)
+SEC	sec	Secret Recipe 21
+REC	sec	Magic Gloves | Forging Hammer | Blackmoor | Cookbook | ÿc9Ancient Scroll 21	The Same Item | ÿc3 10% Faster Cast Rate | ÿc0 (Capped at 120%)
+SEC	sec	Secret Recipe 22
+REC	sec	Any Weapon | 3 Hearts | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Increase Max Life 10% | Level Requirement +2
+REC	sec	Any Weapon | 3 Souls | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Increase Max Mana 10% | Level Requirement +2
+REC	sec	Any Weapon | Fang | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 -5% to Enemy Fire Resistance | Level Requirement +2
+REC	sec	Any Weapon | Horn | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 -5% to Enemy Lightning Resistance | Level Requirement +2
+REC	sec	Any Weapon | Spleen | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 -5% to Enemy Cold Resistance | Level Requirement +2
+REC	sec	Any Weapon | Tail | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Requirements -25% | Level Requirement +2
+REC	sec	Any Weapon | Jawbone | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 +1 Life on Striking | Level Requirement +2
+REC	sec	Any Weapon | Scalp | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 +1 Mana on Striking | Level Requirement +2
+REC	sec	Any Weapon | Quill | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3+10 to Max Damage | Level Requirement +2
+REC	sec	Any Armor | 3 Hearts | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Increase Max Life 6% | Level Requirement +2
+REC	sec	Any Armor | 3 Souls | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Increase Max Mana 6% | Level Requirement +2
+REC	sec	Any Armor | Fang | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Fire Resist +10% | Level Requirement +2
+REC	sec	Any Armor | Horn | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Cold Resist +10% | Level Requirement +2
+REC	sec	Any Armor | Spleen | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Lightning Resist +10% | Level Requirement +2
+REC	sec	Any Armor | Tail | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 Magic Resist +2% | Level Requirement +2
+REC	sec	Any Armor | Jawbone | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 3% Physical Damage Leeched as Life | Level Requirement +2
+REC	sec	Any Armor | Scalp | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3 3% Physical Damage Leeched as Mana | Level Requirement +2
+REC	sec	Any Armor | Quill | (10 Tinkering points) | ÿc9Ancient Scroll 22	The Same Item | ÿc3Physical Resist +2% | Level Requirement +2
+SEC	sec	Secret Recipe 23
+REC	sec	Crafted Weapon/Armor (Exceptional) | Elixir | Anvil Stone | Dragon Stone | ÿc9Ancient Scroll 23	Unique Item of the Same Type | (ilvl = 99)
+SEC	sec	Secret Recipe 24
+REC	sec	Crafted Weapon/Armor (Exceptional) | Elixir | Anvil Stone | Forging Hammer | ÿc9Ancient Scroll 24	Set Item of the Same Type | (ilvl = 99)
+SEC	sec	Secret Recipe 25
+REC	sec	Any Ore | ÿc9Ancient Scroll 25	30% Chance for a Chipped Crystal | 20% Chance for a Flawed Crystal | 50% Chance for Ore Shards | *Ore Shards are only worth 5000 gold.
+REC	sec	Any Crafted Item | ÿc9Ancient Scroll 25	2 Random Flawless Gems
+SEC	sec	Secret Recipe 26
+REC	sec	16 Dragon Stones | 16 Perfect Gems | ÿc9Ancient Scroll 26	Maple Leaf
+SEC	sec	Secret Recipe 27
+REC	sec	7 Magic Charms of the Same Type | (You can use a Rerolling Orb instead) | ÿc9Ancient Scroll 27	Rare Charm of the Same Type | (ilvl = char level)
+SEC	sec	Secret Recipe 28
+REC	sec	Rare Charm | 4 Perfect Gems | ÿc9Ancient Scroll 28	Rare Charm of the Same Type | (ilvl = char level)
+SEC	sec	Secret Recipe 29
+REC	sec	2 Unique Rings/Amulets* | (*Can be mixed) | ÿc9Ancient Scroll 29	Rare Jewel | (ilvl = char level)
+SEC	sec	Secret Recipe 30
+REC	sec	7 Unique Jewels | ÿc9Ancient Scroll 30	Unique Jewel | (ilvl = char level)
+REC	sec	7 Unique Quivers | ÿc9Ancient Scroll 30	Unique Quiver | (ilvl = char level)
+SEC	sec	Secret Recipe 31
+REC	sec	Rare/Set/Crafted Belt* | (*With no level requirement penalty) | 2 Elixirs | Chipped Ruby | ÿc9Ancient Scroll 31	Rare/Set/Crafted Gloves of the Same Mods
+REC	sec	Unique Belt* | (*With no level requirement penalty) | 2 Elixirs | 2 Maple Leaves | Chipped Ruby | ÿc9Ancient Scroll 31	Unique Gloves of the Same Mods
+SEC	sec	Secret Recipe 32
+REC	sec	Rare/Set/Crafted Boots* | (*With no level requirement penalty) | 2 Elixirs | Chipped Emerald | ÿc9Ancient Scroll 32	Rare/Set/Crafted Gloves of the Same Mods
+REC	sec	Unique Boots* | (*With no level requirement penalty) | 2 Elixirs | 2 Maple Leaves | Chipped Emerald | ÿc9Ancient Scroll 32	Unique Gloves of the Same Mods
+SEC	sec	Secret Recipe 33
+REC	sec	Rare/Set/Crafted Gloves* | (*With no level requirement penalty) | 2 Elixirs | Chipped Topaz | ÿc9Ancient Scroll 33	Rare/Set/Crafted Belt of the Same Mods
+REC	sec	Unique Gloves* | (*With no level requirement penalty) | 2 Elixirs | 2 Maple Leaves | Chipped Topaz | ÿc9Ancient Scroll 33	Unique Belt of the Same Mods
+SEC	sec	Secret Recipe 34
+REC	sec	Rare/Set/Crafted Boots* | (*With no level requirement penalty) | 2 Elixirs | Chipped Sapphire | ÿc9Ancient Scroll 34	Rare/Set/Crafted Belt of the Same Mods
+REC	sec	Unique Boots* | (*With no level requirement penalty) | 2 Elixirs | 2 Maple Leaves | Chipped Sapphire | ÿc9Ancient Scroll 34	Unique Belt of the Same Mods
+SEC	sec	Secret Recipe 35
+REC	sec	Rare/Set/Crafted Gloves* | (*With no level requirement penalty) | 2 Elixirs | Chipped Amethyst | ÿc9Ancient Scroll 35	Rare/Set/Crafted Boots of the Same Mods
+REC	sec	Unique Gloves* | (*With no level requirement penalty) | 2 Elixirs | 2 Maple Leaves | Chipped Amethyst | ÿc9Ancient Scroll 35	Unique Boots of the Same Mods
+SEC	sec	Secret Recipe 36
+REC	sec	Rare/Set/Crafted Belt* | (*With no level requirement penalty) | 2 Elixirs | Chipped Diamond | ÿc9Ancient Scroll 36	Rare/Set/Crafted Boots of the Same Mods
+REC	sec	Unique Belt* | (*With no level requirement penalty) | 2 Elixirs | 2 Maple Leaves | Chipped Diamond | ÿc9Ancient Scroll 36	Unique Boots of the Same Mods
+SEC	sec	Secret Recipe 37
+REC	sec	Any Non Ethereal Weapon/Armor | Tyranium Ore | Elixir | ÿc9Ancient Scroll 37	The Same Item | ÿc3 Repairs 1 Durability In 20 Sec
+SEC	sec	Secret Recipe 38
+REC	sec	Any Weapon (excluding runewords) | Holy Symbol | Elixir | ÿc9Ancient Scroll 38	The Same Item | ÿc3 Slain Monsters Rest In Peace
+REC	sec	Any Weapon/Armor (excluding runewords) | Holy Symbol | I Rune | ÿc9Ancient Scroll 38	The Same Item | ÿc3Removes Slain Monsters Rest In Peace
+REC	sec	Any Weapon/Armor (excluding runewords) | Forging Hammer | U Rune | ÿc9Ancient Scroll 38	The Same Item | ÿc3Removes Knockback
+SEC	sec	Secret Recipe 39
+REC	sec	Plague's Last Arrowhead | (Unique Amazon Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Green Aura Stone | (Blessed Aim)
+REC	sec	Dweia's Revenge | (Unique Assassin Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Red Aura Stone | (Concentration)
+REC	sec	Smaqdoun's Painful Pride | (Unique Barbarian Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Violet Aura Stone | (Defiance)
+REC	sec	Yagul's Bloody Rage | (Unique Druid Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Yellow Aura Stone | (Vigor)
+REC	sec	The Cursed Donut | (Unique Necromancer Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Black Aura Stone | (Thorns)
+REC	sec	BlackKnight's Holy Signet | (Unique Paladin Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	White Aura Stone | (Conviction)
+REC	sec	The Mistress' Leather Collar | (Unique Sorceress Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Blue Aura Stone | (Meditation)
+REC	sec	Morgoth's Unbound Madness | (Unique Warlock Amulet) | 3 Holy Symbols | ÿc9Ancient Scroll 39	Orange Aura Stone | (Sanctuary)
+SEC	sec	Secret Recipe 40
+REC	sec	5 Devil's Foods | (You can use a Rerolling Orb instead. | 25 Devil's Food points are used) | ÿc9Ancient Scroll 40	Maple Leaf
+SEC	sec	Secret Recipe 41
+REC	sec	Set Ring | Rare Jewel | Elixir | Eye | ÿc9Ancient Scroll 41	The Same Item | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 42
+REC	sec	Set Amulet | Rare Jewel | Elixir | Brain | ÿc9Ancient Scroll 42	The Same Item | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 43
+REC	sec	Unique Ring | Unique Jewel | Elixir | Eye | ÿc9Ancient Scroll 43	The Same Item | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 44
+REC	sec	Unique Amulet | Unique Jewel | Elixir | Brain | ÿc9Ancient Scroll 44	The Same Item | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 45
+REC	sec	Magic Small Charm | 2 Magic Jewels | 2 Elixirs | 2 Steaks | ÿc9Ancient Scroll 45	Magic Square Charm of the Same Mods | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 46
+REC	sec	Magic Grand Charm | 2 Magic Jewels | 2 Elixirs | 2 Steaks | ÿc9Ancient Scroll 46	Magic Odd Charm of the Same Mods | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 47
+REC	sec	Unique Small Charm | 2 Unique Jewels | 2 Elixirs | 2 Steaks | ÿc9Ancient Scroll 47	Unique Square Charm of the Same Mods | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 48
+REC	sec	Unique Grand/Odd Charm | 2 Unique Jewels | 2 Elixirs | 2 Steaks | ÿc9Ancient Scroll 48	Unique Odd Charm of the Same Mods | ÿc3 Gem Socket (1)
+SEC	sec	Secret Recipe 49
+REC	sec	Noob's Odd Charm | 7 Rare Charms | Elixir | Maple Leaf | ÿc9Ancient Scroll 49	Veteran's Odd Charm | ÿc3 Gem Socket (1) | Veteran's Odd Charm that can have up to 3 sockets | You can carry only one of Noob's or Veteran's Odd Charm
+SEC	sec	Secret Recipe 50
+REC	sec	Any Weapon with Level Req Penalty | Maple Leaf | Perfect Gem | ÿc9Ancient Scroll 50	The Same Item | ÿc3 Removes Level Req Penalty by 1 | ÿc9Ancient Scroll 50
+REC	sec	Any Armor/Ring/Amulet with Level Req Penalty | Maple Leaf | Sa Rune | ÿc9Ancient Scroll 50	The Same Item | ÿc3 Removes Level Req Penalty by 2 | ÿc9Ancient Scroll 50
+NOTE	sec	CAUTION If you applied D-Stoning before making a Runeword, you need to remove the runes before removing the penalty added by such D-Stoning, or you'll lose the materials for nothing. If you applied D-Stoning after making a Runeword, you don't need to remove the runes. D-Stoning applied after making a Runeword is lost when you remove the runes. The penalty added by that D-Stoning is also removed at that time.
+SEC	general	Tyrael's Might Extra Boon
+DESC	general	Tyrael's Might can receive additional bonuses through a unique one time recipe.
+REC	general	Tyrael's Might | Forging Hammer | Perfect Obsidian | Perfect Emerald	The Same Item | ÿc8You get dexterity bonuses from strength instead of dexterity | ÿc3+(1 to 50)% Deadly Strike
+REC	general	Tyrael's Might | Forging Hammer | Perfect Obsidian | Perfect Ruby	The Same Item | ÿc8You get vitality bonuses from strength instead of vitality | ÿc3+(1 to 50)% Crushing Blow
+REC	general	Tyrael's Might | Forging Hammer | Perfect Obsidian | Perfect Sapphire	The Same Item | ÿc8You get energy bonuses from strength instead of energy | ÿc3+(1 to 500) Maximum Magic Damage to Attacks
+REC	general	Tyrael's Might | Dragon Stone | Perfect Emerald | Perfect Obsidian	The Same Item | ÿc8You get strength bonuses from dexterity instead of strength | ÿc3-(1 to 25)% Target Defense
+REC	general	Tyrael's Might | Dragon Stone | Perfect Emerald | Perfect Ruby	The Same Item | ÿc8You get vitality bonuses from dexterity instead of vitality | ÿc3+(1 to 500) To Attack Rating
+REC	general	Tyrael's Might | Dragon Stone | Perfect Emerald | Perfect Sapphire	The Same Item | ÿc8You get energy bonuses from dexterity instead of energy | ÿc3Curse Duration Reduced by (1 to 35)%
+REC	general	Tyrael's Might | Tyranium Ore | Perfect Ruby | Perfect Obsidian	The Same Item | ÿc8You get strength bonuses from vitality instead of strength | ÿc3Physical Resist: +(1 to 15)%
+REC	general	Tyrael's Might | Tyranium Ore | Perfect Ruby | Perfect Emeral	The Same Item | ÿc8You get dexterity bonuses from vitality instead of dexterity | ÿc3+(1 to 10)% Dodge Chance
+REC	general	Tyrael's Might | Tyranium Ore | Perfect Ruby | Perfect Sapphire	The Same Item | ÿc8You get energy bonuses from vitality instead of energy | ÿc3 All Resistances +(1 to 50)
+REC	general	Tyrael's Might | Crushed Gem | Perfect Sapphire | Perfect Obsidian	The Same Item | ÿc8You get strength bonuses from energy instead of strength | ÿc3-(1 to 20)% to Enemy Elemental and Poison Resistances
+REC	general	Tyrael's Might | Crushed Gem | Perfect Sapphire | Perfect Emerald	The Same Item | ÿc8You get dexterity bonuses from energy instead of dexterity | ÿc3+(1 to 15)% Skill Cooldown Reduction
+REC	general	Tyrael's Might | Crushed Gem | Perfect Sapphire | Perfect Ruby	The Same Item | ÿc8You get vitality bonuses from energy instead of vitality | ÿc3+(1 to 25)% Summon Damage

@@ -1,6 +1,6 @@
 #ESRWIKI	2
-PAGE	special	Special	Core
-ENTRY	Special	
+PAGE	general	General	Items
+ENTRY	Notes	
 BLOCK	0			
 LINE	T	Most, but not all, recipes that reroll the input don't work if the input has a Forging. If you find a recipe doesn't work, please check if the input has a Forging or not.
 LINE	T	You can buy Stockers at Gheed. Most Stockers can store up to 2 items of a kind at once.
@@ -15,7 +15,6 @@ LINE	R	Starter's Packÿc3Character Augmenter + Noob's Odd Charm + Kill Ledger (
 LINE	R	Tome of Town Portal + Tome of Identifyÿc3Starter's Pack
 LINE	R	Any Small Charm + Ancient Decipherer + 1-4 Stamina Potionsÿc3Special Small Charm + -(25-100)% Better Chance of Getting + Magic Item + (0% MF is the best for finding white items. Negative + MF also increases the chance of low-quality items)
 LINE	R	Any Small Charm + Ancient Decipherer + 1-4 Any Mana Potionsÿc3Special Small Charm + Increases Max Mana by -(2/4/8/16)%
-PAGE	uber	Uber/Endgame Map Recipes	Core
 ENTRY	Uber/Endgame Map Recipes	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -35,7 +34,6 @@ LINE	R	Vessel of Souls + 5 organsÿc3Vessel of Souls + Added Bonus**
 BLOCK	0			
 LINE	T	*Each key has the respective output
 LINE	T	**Vessel of Souls is a special mythical unique that can consume organs to gain various bonuses. Check the Vessel of Souls page for a complete list of bonuses.
-PAGE	legendary	Legendary Consumables	Core
 ENTRY	Legendary Consumables	
 BLOCK	0			
 LINE	T	Legendary consumables are extremely rare consumables that can be used only once and the outcome cannot be reverted. They grant special bonuses.
@@ -50,7 +48,6 @@ LINE	T	*The feather works on ethereal items as well due to an engine bug, so be 
 LINE	T	**Spell Mastery is a passive that increases total spell damage by 4% per level and stacks with all other masteries.
 LINE	T	***Astrogha's Petrified Heart can be used on any item to remove the corruption status in order to be able to corrupt that item again. If used on a Triune Harbinger of Apocalypse staff, it will allow it to receive an additional corruption (it will not reset the entire count to 0). Doing so, the item will also count 1 less corruption for every heart used when providing the bonus damage to Triumvirate Orb (as if the corruption never happened).
 LINE	T	****Branded items cannot be modified in any way. Cloning an item also clones the socketables inside it, but they cannot be removed.
-PAGE	mis	Misc	Core
 ENTRY	Misc/Repair	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -63,7 +60,53 @@ LINE	R	2 Hearts + 2 Soulsÿc32 Rejuvenation Potions
 LINE	R	3 Hearts + 3 Soulsÿc3Full Rejuvenation Potion
 LINE	R	3 Minor Healing Poitonsÿc3Light Healing Potion + (And so for other Healing/Mana Potions)
 LINE	R	9 Minor Healing Poitons + (A Light Potion counts as 3 Minor Potions)ÿc3Healing Potion + (And so for other Healing/Mana Potions)
-PAGE	gem	Gem/Rune	Items
+ENTRY	Tyrael's Might Extra Boon	
+BLOCK	0			
+LINE	T	Tyrael's Might can receive additional bonuses through a unique one time recipe.
+LINE	C	IngredientsResult
+LINE	R	Tyrael's Might + Forging Hammer + Perfect Obsidian + Perfect Emeraldÿc3The Same Item + You get dexterity bonuses from strength instead of dexterity +(1 to 50)% Deadly Strike
+LINE	R	Tyrael's Might + Forging Hammer + Perfect Obsidian + Perfect Rubyÿc3The Same Item + You get vitality bonuses from strength instead of vitality +(1 to 50)% Crushing Blow
+LINE	R	Tyrael's Might + Forging Hammer + Perfect Obsidian + Perfect Sapphireÿc3The Same Item + You get energy bonuses from strength instead of energy +(1 to 500) Maximum Magic Damage to Attacks
+LINE	R	Tyrael's Might + Dragon Stone + Perfect Emerald + Perfect Obsidianÿc3The Same Item + You get strength bonuses from dexterity instead of strength + -(1 to 25)% Target Defense
+LINE	R	Tyrael's Might + Dragon Stone + Perfect Emerald + Perfect Rubyÿc3The Same Item + You get vitality bonuses from dexterity instead of vitality +(1 to 500) To Attack Rating
+LINE	R	Tyrael's Might + Dragon Stone + Perfect Emerald + Perfect Sapphireÿc3The Same Item + You get energy bonuses from dexterity instead of energy + Curse Duration Reduced by (1 to 35)%
+LINE	R	Tyrael's Might + Tyranium Ore + Perfect Ruby + Perfect Obsidianÿc3The Same Item + You get strength bonuses from vitality instead of strength + Physical Resist: +(1 to 15)%
+LINE	R	Tyrael's Might + Tyranium Ore + Perfect Ruby + Perfect Emeralÿc3The Same Item + You get dexterity bonuses from vitality instead of dexterity +(1 to 10)% Dodge Chance
+LINE	R	Tyrael's Might + Tyranium Ore + Perfect Ruby + Perfect Sapphireÿc3The Same Item + You get energy bonuses from vitality instead of energy + All Resistances +(1 to 50)
+LINE	R	Tyrael's Might + Crushed Gem + Perfect Sapphire + Perfect Obsidianÿc3The Same Item + You get strength bonuses from energy instead of strength + -(1 to 20)% to Enemy Elemental and Poison Resistances
+LINE	R	Tyrael's Might + Crushed Gem + Perfect Sapphire + Perfect Emeraldÿc3The Same Item + You get dexterity bonuses from energy instead of dexterity +(1 to 15)% Skill Cooldown Reduction
+LINE	R	Tyrael's Might + Crushed Gem + Perfect Sapphire + Perfect Rubyÿc3The Same Item + You get vitality bonuses from energy instead of vitality +(1 to 25)% Summon Damage
+PAGE	mat	Material	Items
+ENTRY	Cubing Materials	
+BLOCK	0			
+LINE	T	Organs include Hearts, Souls, Brains, Eyes, Scalps, Horns, Fangs, Jawbones, Spleens, Quills and Tails. Steaks, Cookbooks and Flags are not Organs.
+LINE	C	IngredientsResult
+LINE	R	8 Ancient Decipherersÿc3Dragon Stone
+LINE	R	Wild Card + Keyÿc33 Ancient Decipherers
+LINE	R	6 Heartsÿc3Ancient Decipherer
+LINE	R	6 Soulsÿc3Ancient Decipherer
+LINE	R	2 Same Organs (except Hearts and Souls)ÿc3Ancient Decipherer
+LINE	R	2 Flagsÿc3Ancient Decipherer
+LINE	R	2 Steaksÿc33 Ancient Decipherers
+LINE	R	Organ/Flag (except Hearts and Souls) + 3 Heartsÿc32 Organs/Flags
+LINE	R	Organ/Flag (except Hearts and Souls) + 3 Soulsÿc32 Organs/Flags
+LINE	R	Wirt's Leg + Scroll of Identify + 1 Dragon Stonesÿc3Steak
+LINE	R	Wirt's Leg + Scroll of Town Portal + 7 Dragon Stonesÿc3Cookbook
+LINE	R	Unique Charm + Any Rejuvenation Potion + Keyÿc3Maple Leaf + Key
+LINE	R	4 Dragon Stones + Perfect Gemÿc3Anvil Stone
+LINE	R	Chipped Skull + Keyÿc3Randomize Stone + Key
+LINE	R	Multistocker + Unique Weapons/Armor (Mythical)ÿc3Multistocker + Adds 50 Ancient Decipherer points
+LINE	R	Multistocker + Set/Unique Weapons/Armor (Elite)ÿc3Multistocker + Adds 4 Ancient Decipherer points + (8 points for an Ethereal one)
+LINE	R	Multistocker + Set/Unique Weapons/Armor (Exceptional)ÿc3Multistocker + Adds 2 Ancient Decipherer point + (4 points for an Ethereal one)
+LINE	R	Multistocker + Set/Unique Weapons/Armor (Normal)ÿc3Multistocker + Adds 1 Ancient Decipherer point + (2 point for an Ethereal one)
+LINE	R	Multistocker + Unique Quiverÿc3Multistocker + Adds 1 Ancient Decipherer point
+LINE	R	Multi Stocker + Unique Charm + Any Rejuvenation Potion + Key + (Charms need to be unforged first) + (Will attempt to pull rejuvenation points from the stocker if no rejuvenation is provided)ÿc3Multi Stocker + Adds 1 Maple Leaf point + Key
+LINE	R	Multi Stocker + Perfect Gem + Keyÿc3Multi Stocker + Converts 32 Decipherer points + into an Anvil Stone point + Key
+LINE	R	Multi Stocker + (with wildcard or any organ selected) + Scroll of Identifyÿc3Multi Stocker + Scroll of Identify + Converts selected item's point(s) + into Decipherer point(s)
+LINE	R	Multi Stocker + (with any organ or flag selected) + Any Healing Potionÿc3Multi Stocker + Minor Healing Potion + Converts 3 Heart points + into selected material's point
+LINE	R	Multi Stocker + (with any organ or flag selected) + Any Mana Potionÿc3Multi Stocker + Minor Mana Potion + Converts 3 Soul points + into selected material's point
+LINE	R	Rerolling Orb + Unique Ring/Amuletÿc3Rerolling Orb + Adds 1-7 Devil's Food points
+LINE	R	Rerolling Orb + (Devil's Food selected) + Keyÿc3Rerolling Orb + Reduces 5 Devil's Food point + Devil's Food + (Sell to venders to cause Diablo Clone to spawn)
 ENTRY	Gems/Crystals	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -100,7 +143,6 @@ LINE	R	Null Rune + Pulsing Opalÿc3Life Rune
 LINE	R	Null Rune + Shadow Quartzÿc3Death Rune
 LINE	R	Null Rune + Bleeding Stone + Dark Azurite + Bitter Peridot + Tainted Tourmarineÿc3Heaven Rune
 LINE	R	Null Rune + Frozen Soul + Enigmatic Cinnabar + Pulsing Opal + Shadow Quartzÿc3God Rune
-PAGE	rel	Relic	Items
 ENTRY	Ancient Relics	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -128,38 +170,7 @@ LINE	R	2 Ancient Coupons (Elite) + Ancient Coupon (Exceptional) + Randomize Ston
 LINE	R	Multi Stocker + (with normal coupon selected) + Antidote Potionÿc3Multi Stocker + Antidote Potion + Converts 5 normal coupon points + to 1 exceptional coupon point
 LINE	R	Multi Stocker + (with exceptional coupon selected) + Antidote Potionÿc3Multi Stocker + Antidote Potion + Converts 5 exceptional coupon points + to 1 elite coupon point
 LINE	R	Multi Stocker + (with any coupon selected) + Scroll of Identifyÿc3Multi Stocker + Scroll of Identify + Converts selected coupon's points + into a Wildcard Point.
-PAGE	mat	Material	Items
-ENTRY	Cubing Materials	
-BLOCK	0			
-LINE	T	Organs include Hearts, Souls, Brains, Eyes, Scalps, Horns, Fangs, Jawbones, Spleens, Quills and Tails. Steaks, Cookbooks and Flags are not Organs.
-LINE	C	IngredientsResult
-LINE	R	8 Ancient Decipherersÿc3Dragon Stone
-LINE	R	Wild Card + Keyÿc33 Ancient Decipherers
-LINE	R	6 Heartsÿc3Ancient Decipherer
-LINE	R	6 Soulsÿc3Ancient Decipherer
-LINE	R	2 Same Organs (except Hearts and Souls)ÿc3Ancient Decipherer
-LINE	R	2 Flagsÿc3Ancient Decipherer
-LINE	R	2 Steaksÿc33 Ancient Decipherers
-LINE	R	Organ/Flag (except Hearts and Souls) + 3 Heartsÿc32 Organs/Flags
-LINE	R	Organ/Flag (except Hearts and Souls) + 3 Soulsÿc32 Organs/Flags
-LINE	R	Wirt's Leg + Scroll of Identify + 1 Dragon Stonesÿc3Steak
-LINE	R	Wirt's Leg + Scroll of Town Portal + 7 Dragon Stonesÿc3Cookbook
-LINE	R	Unique Charm + Any Rejuvenation Potion + Keyÿc3Maple Leaf + Key
-LINE	R	4 Dragon Stones + Perfect Gemÿc3Anvil Stone
-LINE	R	Chipped Skull + Keyÿc3Randomize Stone + Key
-LINE	R	Multistocker + Unique Weapons/Armor (Mythical)ÿc3Multistocker + Adds 50 Ancient Decipherer points
-LINE	R	Multistocker + Set/Unique Weapons/Armor (Elite)ÿc3Multistocker + Adds 4 Ancient Decipherer points + (8 points for an Ethereal one)
-LINE	R	Multistocker + Set/Unique Weapons/Armor (Exceptional)ÿc3Multistocker + Adds 2 Ancient Decipherer point + (4 points for an Ethereal one)
-LINE	R	Multistocker + Set/Unique Weapons/Armor (Normal)ÿc3Multistocker + Adds 1 Ancient Decipherer point + (2 point for an Ethereal one)
-LINE	R	Multistocker + Unique Quiverÿc3Multistocker + Adds 1 Ancient Decipherer point
-LINE	R	Multi Stocker + Unique Charm + Any Rejuvenation Potion + Key + (Charms need to be unforged first) + (Will attempt to pull rejuvenation points from the stocker if no rejuvenation is provided)ÿc3Multi Stocker + Adds 1 Maple Leaf point + Key
-LINE	R	Multi Stocker + Perfect Gem + Keyÿc3Multi Stocker + Converts 32 Decipherer points + into an Anvil Stone point + Key
-LINE	R	Multi Stocker + (with wildcard or any organ selected) + Scroll of Identifyÿc3Multi Stocker + Scroll of Identify + Converts selected item's point(s) + into Decipherer point(s)
-LINE	R	Multi Stocker + (with any organ or flag selected) + Any Healing Potionÿc3Multi Stocker + Minor Healing Potion + Converts 3 Heart points + into selected material's point
-LINE	R	Multi Stocker + (with any organ or flag selected) + Any Mana Potionÿc3Multi Stocker + Minor Mana Potion + Converts 3 Soul points + into selected material's point
-LINE	R	Rerolling Orb + Unique Ring/Amuletÿc3Rerolling Orb + Adds 1-7 Devil's Food points
-LINE	R	Rerolling Orb + (Devil's Food selected) + Keyÿc3Rerolling Orb + Reduces 5 Devil's Food point + Devil's Food + (Sell to venders to cause Diablo Clone to spawn)
-PAGE	nor	Normal	Items
+PAGE	reroll	Item Reroll	Items
 ENTRY	Normal Items	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -171,8 +182,7 @@ LINE	R	3 Ancient Decipherers + Chipped Diamondÿc3Normal Crown + Gem Socket (3)
 LINE	R	3 Ancient Decipherers + Chipped Topazÿc3Normal Circlet + Gem Socket (3)
 LINE	R	2 Any Arrowsÿc3Normal Bolt
 LINE	R	2 Any Boltsÿc3Normal Arrow
-PAGE	mag	Magic Craft	Items
-ENTRY	Standard Reroll	
+ENTRY	Magic Reroll	
 BLOCK	0			
 LINE	C	IngredientsResult
 LINE	R	Magic Weapon/Armor + Normal Gemÿc3Magic Item of the Same Type + (ilvl = 30) + Gem Socket (2) + (This recipe is an ES version of LoD + 3 C-Gem reroll. A poor man's special)
@@ -215,7 +225,6 @@ LINE	R	Magic Torso + 2 Skulls + Ancient Deciphererÿc3Magic Item of the Same Ty
 LINE	R	Magic Torso + 2 Diamonds + Ancient Deciphererÿc3Magic Item of the Same Type + (ilvl = previous ilvl) + 33% CtC Level 6 Blessed Hammer When + Struck + Gem Socket (2)
 LINE	R	Magic Torso + 2 Sapphires + Ancient Deciphererÿc3Magic Item of the Same Type + (ilvl = previous ilvl) + 20% CtC Level 6 Static Field When Struck + Gem Socket (2)
 LINE	R	Magic Torso + 2 Obsidians + Ancient Deciphererÿc3Magic Item of the Same Type + (ilvl = previous ilvl) + 20% CtC Level 6 Sigil: Lethargy When Struck + Gem Socket (2)
-PAGE	uni	Unique	Items
 ENTRY	Unique Items	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -229,7 +238,6 @@ LINE	R	Elite Unique Item + 3 Perfect Gemsÿc3Unique Item of the Same Name
 LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver + (Required Level 1-39) + Perfect Gemÿc3Unique Item of the Same Name
 LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver + (Required Level 40-59) + 2 Perfect Gemsÿc3Unique Item of the Same Name
 LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver + (except lvl 92+ Unique Jewelry and Quivers) + (Required Level 60+) + 3 Perfect Gemsÿc3Unique Item of the Same Name
-PAGE	set	Set	Items
 ENTRY	Set Items	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -291,59 +299,6 @@ LINE	R	Normar Set Item + 2 Flawless Gemsÿc3Set Item of the Same Name
 LINE	R	Exceptional Set Item + 2 Blemished Gemsÿc3Set Item of the Same Name
 LINE	R	Elite Set Item + 2 Perfect Gemsÿc3Set Item of the Same Name
 LINE	R	Set Ring/Amulet + Normal Gemÿc3Set Item of the Same Name
-PAGE	old	Legacy Craft	Items
-ENTRY	Legacy Craft (LoD Craft)	
-BLOCK	0			
-LINE	T	LoD crafting recipes have been drastically improved (and made more expensive as well). No limitation for the base item. Blood Glove recipe accepts all gloves, for example. (ilvl = char lvl x 60% + previous ilvl x 60%)
-ENTRY	Hit Power Craft	
-BLOCK	0			
-LINE	C	IngredientsResult
-LINE	R	Magic Helm + Ku Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Helm +(20 to 40)% Bonus to Attack Rating +(100 to 150)% Damage to Demons +(30 to 45) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Boots + Ki Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Boots +(20 to 30)% Faster Run/Walk +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Gloves + Ri Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Gloves + Knockback +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Belt + Yo Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Belt +(20 to 30)% Faster Hit Recovery +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Shield + N Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Shield +(3 to 5)% Increased Chance of Blocking +(20 to 40)% Bonus to Attack Rating +(30 to 45) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Torso + Ka Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Body +(20 to 40)% Bonus to Attack Rating +(100 to 150)% Damage to Undead +(30 to 45) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Amulet + Mi Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Amulet +(20 to 30)% Increased Attack Speed +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Ring + Ya Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Ring +(15 to 25) to Maximum Damage to Attacks +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Weapon + Shi Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Weapon +1% Enhanced Maximum Damage (Based on Character Level) +(45 to 75)% Bonus to Attack Rating +(60 to 90) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
-ENTRY	Blood Craft	
-BLOCK	0			
-LINE	C	IngredientsResult
-LINE	R	Magic Helm + Ki Rune + Perfect Ruby + Any Jewelÿc3Blood Helm +(6 to 9)% Physical Damage Leeched as Life +(15 to 25)% Deadly Strike +(60 to 90) to Life + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Boots + N Rune + Perfect Ruby + Any Jewelÿc3Blood Boots +(20 to 30)% Faster Run/Walk +(4 to 6)% Physical Damage Leeched as Life +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Gloves + Ka Rune + Perfect Ruby + Any Jewelÿc3Blood Gloves +(15 to 25)% Chance of Crushing Blow +(4 to 6)% Physical Damage Leeched as Life +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Belt + Yo Rune + Perfect Ruby + Any Jewelÿc3Blood Belt +(4 to 6)% Physical Damage Leeched as Life + Physical Resist: +(10 to 15)% +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Shield + Ku Rune + Perfect Ruby + Any Jewelÿc3Blood Shield +(6 to 9)% Physical Damage Leeched as Life + Attacker Takes Damage of 10 (Based on Character Level) +(60 to 90) to Life + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Torso + Mi Rune + Perfect Ruby + Any Jewelÿc3Blood Body +(6 to 9)% Physical Damage Leeched as Life +(30 to 50) Life after each Kill +(60 to 90) to Life + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Amulet + Ya Rune + Perfect Ruby + Any Jewelÿc3Blood Amulet +(4 to 6)% Physical Damage Leeched as Life +(4 to 6)% Physical Damage Leeched as Mana +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Ring + A Rune + Perfect Ruby + Any Jewelÿc3Blood Ring +(15 to 25) to Minimum Damage to Attacks +(4 to 6)% Physical Damage Leeched as Life +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Weapon + Ri Rune + Perfect Ruby + Any Jewelÿc3Blood Weapon +(100 to 150)% Enhanced Damage +(12 to 18)% Physical Damage Leeched as Life +(120 to 180) to Life + Gem Socket (2) + 1-4 Random Affixes
-ENTRY	Caster Craft	
-BLOCK	0			
-LINE	C	IngredientsResult
-LINE	R	Magic Helm + Ka Rune + Perfect Sapphire + Any Jewelÿc3Caster Helm +(10 to 15)% Bonus to Energy + Regenerate Mana +(30 to 45)% +(60 to 90) to Mana + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Boots + Mi Rune + Perfect Sapphire + Any Jewelÿc3Caster Boots +(20 to 30)% Faster Run/Walk + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Gloves + Ri Rune + Perfect Sapphire + Any Jewelÿc3Caster Gloves + -(10 to 15)% to Enemy Elemental and Poison Resistances + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Belt + Ku Rune + Perfect Sapphire + Any Jewelÿc3Caster Belt + Magic Damage Reduced by (20 to 30) + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Shield + N Rune + Perfect Sapphire + Any Jewelÿc3Caster Shield +(100 to 150)% Damage Taken Goes To Mana + Regenerate Mana +(30 to 45)% +(60 to 90) to Mana + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Torso + Yo Rune + Perfect Sapphire + Any Jewelÿc3Caster Body +(20 to 30) to Mana after each Kill + Regenerate Mana +(30 to 45)% +(60 to 90) to Mana + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Amulet + Ki Rune + Perfect Sapphire + Any Jewelÿc3Caster Amulet +(20 to 30)% Faster Cast Rate + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Ring + Ya Rune + Perfect Sapphire + Any Jewelÿc3Caster Ring +(20 to 30) to Energy + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Weapon + Shi Rune + Perfect Sapphire + Any Jewelÿc3Caster Weapon +(20 to 30)% to Spell Damage + Regenerate Mana +(60 to 90)% +(120 to 180) to Mana + Gem Socket (2) + 1-4 Random Affixes
-ENTRY	Safety Craft	
-BLOCK	0			
-LINE	C	IngredientsResult
-LINE	R	Magic Helm + Ku Rune + Perfect Emerald + Any Jewelÿc3Safety Helm + Poison Resist +(30 to 50)% + Damage Reduced by (9 to 18) + Magic Damage Reduced by (9 to 18) + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Boots + Ri Rune + Perfect Emerald + Any Jewelÿc3Safety Boots + Lightning Resist +(30 to 50)% + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Gloves + Ki Rune + Perfect Emerald + Any Jewelÿc3Safety Gloves + Fire Resist +(30 to 50)% + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Belt + Yo Rune + Perfect Emerald + Any Jewelÿc3Safety Belt + Cold Resist +(30 to 50)% + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Shield + Ka Rune + Perfect Emerald + Any Jewelÿc3Safety Shield + Magic Resist +(15 to 30)% + Damage Reduced by (9 to 18) + Magic Damage Reduced by (9 to 18) + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Torso + N Rune + Perfect Emerald + Any Jewelÿc3Safety Body + Cannot Be Frozen + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (2) + 1-4 Random Affixes
-LINE	R	Magic Amulet + Mi Rune + Perfect Emerald + Any Jewelÿc3Safety Amulet +(3 to 5)% Increased Chance of Blocking + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Ring + Ya Rune + Perfect Emerald + Any Jewelÿc3Safety Ring +(15 to 25) to Vitality + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
-LINE	R	Magic Weapon + A Rune + Perfect Emerald + Any Jewelÿc3Safety Weapon + Physical Resist: +(20 to 30)% + Damage Reduced by (18 to 36) + Magic Damage Reduced by (18 to 36) + Gem Socket (2) + 1-4 Random Affixes
-PAGE	rin	Ring/Amu	Items
 ENTRY	Rings/Amulets	
 BLOCK	0			
 LINE	T	When you reroll multiple Amulets or Rings, the last one put in the Cube determines the type. For example, if you put a Ring, an Amazon Ring and a Sorc Ring in this order, you'll get a new Sorc Ring. If the output ilvl is lower than the level of the spawned Unique, it turns into a rare.
@@ -412,14 +367,12 @@ LINE	R	Magic Sorceress Amulet/Ring + 3 Ancient Decipherers + Magic Jewel + Sapph
 LINE	R	Magic Warlock Amulet/Ring + 3 Ancient Decipherers + Magic Jewel + Topazÿc3Magic Item of the Same Type + (ilvl = char level) +1-3 To Demon Skills (Warlock Only)
 LINE	R	Magic Warlock Amulet/Ring + 3 Ancient Decipherers + Magic Jewel + Onyxÿc3Magic Item of the Same Type + (ilvl = char level) +1-3 To Eldritch Skills (Warlock Only)
 LINE	R	Magic Warlock Amulet/Ring + 3 Ancient Decipherers + Magic Jewel + Rubyÿc3Magic Item of the Same Type + (ilvl = char level) +1-3 To Chaos Skills (Warlock Only)
-PAGE	cha	Charm	Items
 ENTRY	Charms	
 BLOCK	0			
 LINE	C	IngredientsResult
 LINE	R	Magic Charm + Perfect Gemÿc3Magic Charm of the Same Type + (ilvl = char level, any socket remains)
 LINE	R	3 Magic Charms of the Same Typeÿc3Magic Charm of the Same Type + (ilvl = char level)
 LINE	R	3 Rare Charms of the Same Typeÿc3Rare Charm of the Same Type + (ilvl = char level)
-PAGE	jew	Jewel	Items
 ENTRY	Jewels	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -435,7 +388,6 @@ LINE	R	3 Unique Jewelsÿc3Unique Jewel + (ilvl = char level x 80%)
 LINE	R	Unique Jewel + 3 Perfect Gems + Keyÿc3Unique Jewel + (ilvl = char level x 80%) + Key
 LINE	R	Rerolling Orb + 1-6 Set Ringsÿc3Rerolling Orb + Adds 1-6 Jewel Points
 LINE	R	Rerolling Orb + 1-6 Set Amuletsÿc3Rerolling Orb + Adds 1-6 Jewel Points
-PAGE	qui	Quiver	Items
 ENTRY	Arrow/Bolt Quivers	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -448,6 +400,58 @@ LINE	R	7 Rare Arrows/Boltsÿc3Unique Arrow/Bolt + (ilvl = char level x 80%)
 LINE	R	3 Unique Arrows/Boltsÿc3Unique Arrow/Bolt + (ilvl = char level x 80%)
 LINE	R	Unique Arrow/Bolt + Scroll of Town Portalÿc3Rare Arrow/Bolt + (ilvl = char level)
 LINE	R	Rerolling Orb + 1-6 Unique Arrow/Boltÿc3Rerolling Orb + Adds 1-6 Rare Quiver Points
+PAGE	old	Legacy Craft	Items
+ENTRY	Legacy Craft (LoD Craft)	
+BLOCK	0			
+LINE	T	LoD crafting recipes have been drastically improved (and made more expensive as well). No limitation for the base item. Blood Glove recipe accepts all gloves, for example. (ilvl = char lvl x 60% + previous ilvl x 60%)
+ENTRY	Hit Power Craft	
+BLOCK	0			
+LINE	C	IngredientsResult
+LINE	R	Magic Helm + Ku Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Helm +(20 to 40)% Bonus to Attack Rating +(100 to 150)% Damage to Demons +(30 to 45) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Boots + Ki Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Boots +(20 to 30)% Faster Run/Walk +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Gloves + Ri Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Gloves + Knockback +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Belt + Yo Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Belt +(20 to 30)% Faster Hit Recovery +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Shield + N Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Shield +(3 to 5)% Increased Chance of Blocking +(20 to 40)% Bonus to Attack Rating +(30 to 45) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Torso + Ka Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Body +(20 to 40)% Bonus to Attack Rating +(100 to 150)% Damage to Undead +(30 to 45) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Amulet + Mi Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Amulet +(20 to 30)% Increased Attack Speed +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Ring + Ya Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Ring +(15 to 25) to Maximum Damage to Attacks +(15 to 25)% Bonus to Attack Rating +(20 to 30) to Dexterity + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Weapon + Shi Rune + Perfect Amethyst + Any Jewelÿc3Hit Power Weapon +1% Enhanced Maximum Damage (Based on Character Level) +(45 to 75)% Bonus to Attack Rating +(60 to 90) to Dexterity + Gem Socket (2) + 1-4 Random Affixes
+ENTRY	Blood Craft	
+BLOCK	0			
+LINE	C	IngredientsResult
+LINE	R	Magic Helm + Ki Rune + Perfect Ruby + Any Jewelÿc3Blood Helm +(6 to 9)% Physical Damage Leeched as Life +(15 to 25)% Deadly Strike +(60 to 90) to Life + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Boots + N Rune + Perfect Ruby + Any Jewelÿc3Blood Boots +(20 to 30)% Faster Run/Walk +(4 to 6)% Physical Damage Leeched as Life +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Gloves + Ka Rune + Perfect Ruby + Any Jewelÿc3Blood Gloves +(15 to 25)% Chance of Crushing Blow +(4 to 6)% Physical Damage Leeched as Life +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Belt + Yo Rune + Perfect Ruby + Any Jewelÿc3Blood Belt +(4 to 6)% Physical Damage Leeched as Life + Physical Resist: +(10 to 15)% +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Shield + Ku Rune + Perfect Ruby + Any Jewelÿc3Blood Shield +(6 to 9)% Physical Damage Leeched as Life + Attacker Takes Damage of 10 (Based on Character Level) +(60 to 90) to Life + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Torso + Mi Rune + Perfect Ruby + Any Jewelÿc3Blood Body +(6 to 9)% Physical Damage Leeched as Life +(30 to 50) Life after each Kill +(60 to 90) to Life + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Amulet + Ya Rune + Perfect Ruby + Any Jewelÿc3Blood Amulet +(4 to 6)% Physical Damage Leeched as Life +(4 to 6)% Physical Damage Leeched as Mana +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Ring + A Rune + Perfect Ruby + Any Jewelÿc3Blood Ring +(15 to 25) to Minimum Damage to Attacks +(4 to 6)% Physical Damage Leeched as Life +(40 to 60) to Life + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Weapon + Ri Rune + Perfect Ruby + Any Jewelÿc3Blood Weapon +(100 to 150)% Enhanced Damage +(12 to 18)% Physical Damage Leeched as Life +(120 to 180) to Life + Gem Socket (2) + 1-4 Random Affixes
+ENTRY	Caster Craft	
+BLOCK	0			
+LINE	C	IngredientsResult
+LINE	R	Magic Helm + Ka Rune + Perfect Sapphire + Any Jewelÿc3Caster Helm +(10 to 15)% Bonus to Energy + Regenerate Mana +(30 to 45)% +(60 to 90) to Mana + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Boots + Mi Rune + Perfect Sapphire + Any Jewelÿc3Caster Boots +(20 to 30)% Faster Run/Walk + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Gloves + Ri Rune + Perfect Sapphire + Any Jewelÿc3Caster Gloves + -(10 to 15)% to Enemy Elemental and Poison Resistances + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Belt + Ku Rune + Perfect Sapphire + Any Jewelÿc3Caster Belt + Magic Damage Reduced by (20 to 30) + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Shield + N Rune + Perfect Sapphire + Any Jewelÿc3Caster Shield +(100 to 150)% Damage Taken Goes To Mana + Regenerate Mana +(30 to 45)% +(60 to 90) to Mana + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Torso + Yo Rune + Perfect Sapphire + Any Jewelÿc3Caster Body +(20 to 30) to Mana after each Kill + Regenerate Mana +(30 to 45)% +(60 to 90) to Mana + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Amulet + Ki Rune + Perfect Sapphire + Any Jewelÿc3Caster Amulet +(20 to 30)% Faster Cast Rate + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Ring + Ya Rune + Perfect Sapphire + Any Jewelÿc3Caster Ring +(20 to 30) to Energy + Regenerate Mana +(20 to 30)% +(40 to 60) to Mana + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Weapon + Shi Rune + Perfect Sapphire + Any Jewelÿc3Caster Weapon +(20 to 30)% to Spell Damage + Regenerate Mana +(60 to 90)% +(120 to 180) to Mana + Gem Socket (2) + 1-4 Random Affixes
+ENTRY	Safety Craft	
+BLOCK	0			
+LINE	C	IngredientsResult
+LINE	R	Magic Helm + Ku Rune + Perfect Emerald + Any Jewelÿc3Safety Helm + Poison Resist +(30 to 50)% + Damage Reduced by (9 to 18) + Magic Damage Reduced by (9 to 18) + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Boots + Ri Rune + Perfect Emerald + Any Jewelÿc3Safety Boots + Lightning Resist +(30 to 50)% + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Gloves + Ki Rune + Perfect Emerald + Any Jewelÿc3Safety Gloves + Fire Resist +(30 to 50)% + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Belt + Yo Rune + Perfect Emerald + Any Jewelÿc3Safety Belt + Cold Resist +(30 to 50)% + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Shield + Ka Rune + Perfect Emerald + Any Jewelÿc3Safety Shield + Magic Resist +(15 to 30)% + Damage Reduced by (9 to 18) + Magic Damage Reduced by (9 to 18) + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Torso + N Rune + Perfect Emerald + Any Jewelÿc3Safety Body + Cannot Be Frozen + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (2) + 1-4 Random Affixes
+LINE	R	Magic Amulet + Mi Rune + Perfect Emerald + Any Jewelÿc3Safety Amulet +(3 to 5)% Increased Chance of Blocking + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Ring + Ya Rune + Perfect Emerald + Any Jewelÿc3Safety Ring +(15 to 25) to Vitality + Damage Reduced by (6 to 12) + Magic Damage Reduced by (6 to 12) + Gem Socket (1) + 1-4 Random Affixes
+LINE	R	Magic Weapon + A Rune + Perfect Emerald + Any Jewelÿc3Safety Weapon + Physical Resist: +(20 to 30)% + Damage Reduced by (18 to 36) + Magic Damage Reduced by (18 to 36) + Gem Socket (2) + 1-4 Random Affixes
 PAGE	for	Forging	Modify
 ENTRY	Forging	
 BLOCK	0			
@@ -980,20 +984,3 @@ LINE	R	Any Weapon with Level Req Penalty + Maple Leaf + Perfect Gem + Ancient Sc
 LINE	R	Any Armor/Ring/Amulet with Level Req Penalty + Maple Leaf + Sa Rune + Ancient Scroll 50ÿc3The Same Item + Removes Level Req Penalty by 2 + Ancient Scroll 50
 BLOCK	0			
 LINE	T	CAUTION If you applied D-Stoning before making a Runeword, you need to remove the runes before removing the penalty added by such D-Stoning, or you'll lose the materials for nothing. If you applied D-Stoning after making a Runeword, you don't need to remove the runes. D-Stoning applied after making a Runeword is lost when you remove the runes. The penalty added by that D-Stoning is also removed at that time.
-PAGE	tyrael	Tyrael's Might Extra Boon	Core
-ENTRY	Tyrael's Might Extra Boon	
-BLOCK	0			
-LINE	T	Tyrael's Might can receive additional bonuses through a unique one time recipe.
-LINE	C	IngredientsResult
-LINE	R	Tyrael's Might + Forging Hammer + Perfect Obsidian + Perfect Emeraldÿc3The Same Item + You get dexterity bonuses from strength instead of dexterity +(1 to 50)% Deadly Strike
-LINE	R	Tyrael's Might + Forging Hammer + Perfect Obsidian + Perfect Rubyÿc3The Same Item + You get vitality bonuses from strength instead of vitality +(1 to 50)% Crushing Blow
-LINE	R	Tyrael's Might + Forging Hammer + Perfect Obsidian + Perfect Sapphireÿc3The Same Item + You get energy bonuses from strength instead of energy +(1 to 500) Maximum Magic Damage to Attacks
-LINE	R	Tyrael's Might + Dragon Stone + Perfect Emerald + Perfect Obsidianÿc3The Same Item + You get strength bonuses from dexterity instead of strength + -(1 to 25)% Target Defense
-LINE	R	Tyrael's Might + Dragon Stone + Perfect Emerald + Perfect Rubyÿc3The Same Item + You get vitality bonuses from dexterity instead of vitality +(1 to 500) To Attack Rating
-LINE	R	Tyrael's Might + Dragon Stone + Perfect Emerald + Perfect Sapphireÿc3The Same Item + You get energy bonuses from dexterity instead of energy + Curse Duration Reduced by (1 to 35)%
-LINE	R	Tyrael's Might + Tyranium Ore + Perfect Ruby + Perfect Obsidianÿc3The Same Item + You get strength bonuses from vitality instead of strength + Physical Resist: +(1 to 15)%
-LINE	R	Tyrael's Might + Tyranium Ore + Perfect Ruby + Perfect Emeralÿc3The Same Item + You get dexterity bonuses from vitality instead of dexterity +(1 to 10)% Dodge Chance
-LINE	R	Tyrael's Might + Tyranium Ore + Perfect Ruby + Perfect Sapphireÿc3The Same Item + You get energy bonuses from vitality instead of energy + All Resistances +(1 to 50)
-LINE	R	Tyrael's Might + Crushed Gem + Perfect Sapphire + Perfect Obsidianÿc3The Same Item + You get strength bonuses from energy instead of strength + -(1 to 20)% to Enemy Elemental and Poison Resistances
-LINE	R	Tyrael's Might + Crushed Gem + Perfect Sapphire + Perfect Emeraldÿc3The Same Item + You get dexterity bonuses from energy instead of dexterity +(1 to 15)% Skill Cooldown Reduction
-LINE	R	Tyrael's Might + Crushed Gem + Perfect Sapphire + Perfect Rubyÿc3The Same Item + You get vitality bonuses from energy instead of vitality +(1 to 25)% Summon Damage
