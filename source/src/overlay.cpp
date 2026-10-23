@@ -129,6 +129,8 @@ struct Layout {
     RECT close{};
     RECT search{};
     RECT clearQuery{};  // the X beside the search box; clears the query
+    RECT matchPrev{};   // steps the selection back to the previous match
+    RECT matchNext{};   // steps the selection forward to the next match
     RECT count{};
     std::vector<RECT> rows;
     RECT prev{};
@@ -260,7 +262,49 @@ COLORREF KanjiLabelColor(const std::wstring& label, COLORREF fallback) {
 }
 
 // One piece of a line: plain text in the line's colour, or a rune name in its own colour.
-struct RunePiece { std::wstring text; COLORREF color; bool named; bool colored = false; };
+struct RunePiece { std::wstring text; COLORREF color; bool named; bool colored = false; bool highlight = false; bool continues = false; };
+
+// The search text being highlighted, lower-case; empty when nothing is searched.
+std::wstring gHighlight;
+constexpr COLORREF kHighlightFill = RGB(96, 74, 18);
+
+std::wstring LowerWide(std::wstring s) {
+    for (wchar_t& c : s) {
+        if (c >= L'A' && c <= L'Z') c = static_cast<wchar_t>(c + 32);
+    }
+    return s;
+}
+
+// Splits pieces at each search match so the matched part is drawn on a highlight. Rune-name
+// pieces are kept whole.
+std::vector<RunePiece> HighlightPieces(const std::vector<RunePiece>& input) {
+    if (gHighlight.empty()) return input;
+    std::vector<RunePiece> out;
+    for (const RunePiece& piece : input) {
+        if (piece.named) {
+            out.push_back(piece);
+            continue;
+        }
+        const std::wstring lower = LowerWide(piece.text);
+        // A part that starts right after a letter continues that word, so it cannot start a new line.
+        auto add = [&](std::size_t start, std::size_t length, bool mark) {
+            const bool continues = start == 0 ? piece.continues : piece.text[start - 1] != L' ';
+            out.push_back({piece.text.substr(start, length), piece.color, false, piece.colored, mark, continues});
+        };
+        std::size_t pos = 0;
+        while (pos < piece.text.size()) {
+            const std::size_t hit = lower.find(gHighlight, pos);
+            if (hit == std::wstring::npos) {
+                add(pos, piece.text.size() - pos, false);
+                break;
+            }
+            if (hit > pos) add(pos, hit - pos, false);
+            add(hit, gHighlight.size(), true);
+            pos = hit + gHighlight.size();
+        }
+    }
+    return out;
+}
 
 bool IsWordChar(wchar_t c) {
     return (c >= L'0' && c <= L'9') || (c >= L'A' && c <= L'Z') || (c >= L'a' && c <= L'z');
@@ -317,20 +361,43 @@ bool FindRuneNames(const std::wstring& text, std::vector<RunePiece>& pieces) {
 
 // Lays the pieces out wrapped to the rectangle's width, as DrawText does for words, and draws them
 // when `draw` is set. Returns the height used.
-int LayoutPieces(HDC dc, const std::vector<RunePiece>& pieces, COLORREF base, RECT rect, HFONT font,
+int LayoutPieces(HDC dc, const std::vector<RunePiece>& source, COLORREF base, RECT rect, HFONT font,
                  UINT format, bool draw) {
+    const std::vector<RunePiece> pieces = HighlightPieces(source);
     const HFONT previous = static_cast<HFONT>(SelectObject(dc, font));
     TEXTMETRICW metrics = {};
     GetTextMetricsW(dc, &metrics);
     const int lineHeight = std::max(1, static_cast<int>(metrics.tmHeight));
     const int maxWidth = std::max(1, static_cast<int>(rect.right - rect.left));
 
-    struct Placed { int x; int line; int width; std::wstring text; COLORREF color; };
+    struct Placed { int x; int line; int width; std::wstring text; COLORREF color; bool highlight = false; };
     std::vector<Placed> placed;
     std::vector<int> lineWidths;
     int x = 0;
     int line = 0;
+    bool wordStart = true;
+    std::vector<Placed> word;  // the current word; pieces that continue a word join it
+    bool wordIsSpace = false;
+    // Places the buffered word, moving the whole word to a new line first when it does not fit.
+    auto flush = [&]() {
+        if (word.empty()) return;
+        int total = 0;
+        for (const Placed& p : word) total += p.width;
+        if (!wordIsSpace && x > 0 && x + total > maxWidth) {
+            lineWidths.push_back(x);
+            x = 0;
+            ++line;
+        }
+        for (Placed& p : word) {
+            p.x = x;
+            p.line = line;
+            x += p.width;
+            placed.push_back(p);
+        }
+        word.clear();
+    };
     for (const RunePiece& piece : pieces) {
+        wordStart = !piece.continues;  // a continuation joins the word before it
         const COLORREF color = (piece.named || piece.colored) ? piece.color : base;
         std::size_t start = 0;
         while (start < piece.text.size()) {
@@ -348,27 +415,40 @@ int LayoutPieces(HDC dc, const std::vector<RunePiece>& pieces, COLORREF base, RE
             const std::wstring token = piece.text.substr(start, end - start);
             start = end;
             if (token == L"\n") {
+                flush();
                 lineWidths.push_back(x);
                 x = 0;
                 ++line;
+                wordStart = true;
                 continue;
             }
             const bool isSpace = !piece.named && token[0] == L' ';
-            if (isSpace && x == 0) continue;  // no leading spaces on a wrapped line
             SIZE size = {};
             GetTextExtentPoint32W(dc, token.c_str(), static_cast<int>(token.size()), &size);
-            if (!isSpace && x > 0 && x + size.cx > maxWidth) {
-                lineWidths.push_back(x);
-                x = 0;
-                ++line;
+            if (isSpace) {
+                flush();
+                if (x == 0) {  // no leading spaces on a wrapped line
+                    wordStart = true;
+                    continue;
+                }
+                wordIsSpace = true;
+                word.push_back({0, line, static_cast<int>(size.cx), token, color, piece.highlight});
+                flush();
+            } else {
+                if (wordStart) {
+                    flush();
+                    wordIsSpace = false;
+                }
+                word.push_back({0, line, static_cast<int>(size.cx), token, color, piece.highlight});
             }
-            placed.push_back({x, line, static_cast<int>(size.cx), token, color});
-            x += static_cast<int>(size.cx);
+            wordStart = isSpace;
         }
     }
+    flush();
     lineWidths.push_back(x);
     const int height = placed.empty() ? 0 : (line + 1) * lineHeight;
 
+    HBRUSH highlightBrush = CreateSolidBrush(kHighlightFill);
     if (draw && !placed.empty()) {
         int top = rect.top;
         if (format & DT_VCENTER) top += (static_cast<int>(rect.bottom - rect.top) - height) / 2;
@@ -378,11 +458,18 @@ int LayoutPieces(HDC dc, const std::vector<RunePiece>& pieces, COLORREF base, RE
             const int used = lineWidths[static_cast<std::size_t>(item.line)];
             if (format & DT_CENTER) offset = (maxWidth - used) / 2;
             else if (format & DT_RIGHT) offset = maxWidth - used;
+            if (item.highlight) {
+                const int boxLeft = rect.left + offset + item.x;
+                const int boxTop = top + item.line * lineHeight;
+                RECT box = {boxLeft, boxTop, boxLeft + item.width, boxTop + lineHeight};
+                FillRect(dc, &box, highlightBrush);
+            }
             SetTextColor(dc, item.color);
             TextOutW(dc, rect.left + offset + item.x, top + item.line * lineHeight, item.text.c_str(),
                      static_cast<int>(item.text.size()));
         }
     }
+    DeleteObject(highlightBrush);
     SelectObject(dc, previous);
     return height;
 }
@@ -412,7 +499,13 @@ std::vector<RunePiece> LinePieces(const std::string& text, COLORREF base) {
 
 void Text(HDC dc, const std::wstring& text, RECT rect, COLORREF color, HFONT font, UINT format) {
     std::vector<RunePiece> pieces;
-    if (FindRuneNames(text, pieces)) {
+    const bool runes = FindRuneNames(text, pieces);
+    if (runes || (!gHighlight.empty() && LowerWide(text).find(gHighlight) != std::wstring::npos)) {
+        if (!runes) {
+            // FindRuneNames may leave its own plain pieces behind when it finds no rune names.
+            pieces.clear();
+            pieces.push_back({text, color, false, false, false});
+        }
         LayoutPieces(dc, pieces, color, rect, font, format, true);
         return;
     }
@@ -664,6 +757,11 @@ struct OverlayState {
     std::vector<PageView> views;
     std::string query;
     std::vector<std::size_t> filtered;
+    std::vector<std::size_t> tabMatches;  // matching entries on each page, for the tab highlights
+    std::size_t totalMatches = 0;         // matching entries across all pages
+    bool hasPendingSelect = false;        // after clearing a search: keep this entry selected on this tab
+    std::size_t pendingPage = 0;
+    std::size_t pendingSelect = 0;
     std::map<std::string, std::unique_ptr<Gdiplus::Bitmap>> images;
     Layout layout;
     bool started = false;
@@ -707,6 +805,7 @@ struct OverlayState {
     void SetPage(std::size_t index);
     void SelectFiltered(std::size_t index);
     void MovePage(int direction);
+    void StepMatch(int direction);
     void Show();
     void Hide();
     void Toggle();
@@ -883,7 +982,10 @@ Layout OverlayState::ComputeLayout() {
     computed.switchButton = Rect(tabsRight - S(182), S(14), tabsRight - S(42), S(42));
     computed.search = Rect(margin, contentTop, margin + listWidth, contentTop + S(26));
     computed.clearQuery = Rect(margin + listWidth - S(26), contentTop, margin + listWidth, contentTop + S(26));
-    computed.count = Rect(margin, contentTop + S(30), margin + listWidth, contentTop + S(50));
+    // The count row leaves room on its right for the previous and next match buttons.
+    computed.count = Rect(margin, contentTop + S(30), margin + listWidth - S(50), contentTop + S(50));
+    computed.matchPrev = Rect(margin + listWidth - S(44), contentTop + S(30), margin + listWidth - S(22), contentTop + S(50));
+    computed.matchNext = Rect(margin + listWidth - S(20), contentTop + S(30), margin + listWidth, contentTop + S(50));
     for (int i = 0; i < rowsPerPage; ++i) {
         const int top = listTop + i * rowHeight;
         computed.rows.push_back(Rect(margin, top, margin + listWidth, top + rowHeight - rowGap));
@@ -1016,15 +1118,79 @@ void OverlayState::DrawImageKey(Gdiplus::Graphics& graphics, const std::string& 
     graphics.DrawImage(bitmap, left, top, drawWidth, drawHeight);
 }
 
+// Moves the selection to the next or previous matching entry, wrapping at either end.
+void OverlayState::StepMatch(int direction) {
+    if (query.empty() || totalMatches == 0) return;
+    PageView& view = CurrentView();
+    if (direction > 0 && view.selected + 1 < filtered.size()) {
+        SelectFiltered(view.selected + 1);
+    } else if (direction < 0 && view.selected > 0) {
+        SelectFiltered(view.selected - 1);
+    } else {
+        // Past the end of this tab: go to the next tab with matches, wrapping around the panel.
+        const std::size_t pages = database->pages.size();
+        for (std::size_t step = 1; step <= pages; ++step) {
+            const std::size_t index = direction > 0 ? (pageIndex + step) % pages : (pageIndex + pages - step) % pages;
+            if (tabMatches[index] == 0) continue;
+            if (index == pageIndex) {
+                SelectFiltered(direction > 0 ? 0 : filtered.size() - 1);
+            } else {
+                SetPage(index);  // Refilter selects the first match on the new tab
+                if (direction < 0) SelectFiltered(filtered.size() - 1);
+            }
+            break;
+        }
+    }
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+// The search box passes Enter to the overlay as the next match, and Shift+Enter as the previous.
+WNDPROC gSearchProc = nullptr;
+
+LRESULT CALLBACK SearchEditProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
+    if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_RETURN) {
+        if (message == WM_KEYDOWN) {
+            auto* self = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
+            if (self) self->StepMatch((GetKeyState(VK_SHIFT) & 0x8000) ? -1 : 1);
+        }
+        return 0;
+    }
+    return CallWindowProcW(gSearchProc, hwnd, message, wParam, lParam);
+}
+
 void OverlayState::Refilter() {
     wchar_t buffer[256] = {};
     GetWindowTextW(search, buffer, 255);
+    const bool wasSearching = !query.empty();
+    const PageView& before = CurrentView();
+    const std::size_t selectedEntry = before.selected < filtered.size() ? filtered[before.selected] : 0;
     query = Narrow(buffer);
+    if (!query.empty()) {
+        hasPendingSelect = false;
+    } else if (wasSearching) {
+        // Clearing the search keeps the tab and the entry being viewed in the search results.
+        hasPendingSelect = true;
+        pendingPage = pageIndex;
+        pendingSelect = selectedEntry;
+    }
+    gHighlight = LowerWide(Wide(query));
     filtered = FilterEntries(CurrentPage(), query);
+    tabMatches.assign(database->pages.size(), 0);
+    totalMatches = 0;
+    for (std::size_t i = 0; i < database->pages.size(); ++i) {
+        tabMatches[i] = i == pageIndex ? filtered.size() : FilterEntries(database->pages[i], query).size();
+        totalMatches += tabMatches[i];
+    }
     PageView& view = CurrentView();
     view.selected = 0;
     view.listPage = 0;
     view.detailScroll = 0;
+    // Keeps the viewed entry selected once the search is cleared. Applied on every refilter until
+    // the search is typed in again, so a second refilter cannot reset it.
+    if (query.empty() && hasPendingSelect && pendingPage == pageIndex && !filtered.empty()) {
+        view.selected = std::min(pendingSelect, filtered.size() - 1);
+        view.listPage = view.selected / rowsPerPage;
+    }
 }
 
 void OverlayState::SetPage(std::size_t index) {
@@ -1286,6 +1452,14 @@ void OverlayState::HandleClick(int x, int y) {
         SetFocus(search);
         return;
     }
+    if (!query.empty() && Inside(layout.matchPrev, x, y)) {
+        StepMatch(-1);
+        return;
+    }
+    if (!query.empty() && Inside(layout.matchNext, x, y)) {
+        StepMatch(1);
+        return;
+    }
     if (layout.scrollable && Inside(layout.scrollTrack, x, y)) {
         if (Inside(layout.scrollThumb, x, y)) {
             dragging = true;
@@ -1378,9 +1552,22 @@ void OverlayState::PaintList(HDC dc) {
     const std::size_t pages = PageCount(filtered.size(), rowsPerPage);
     view.listPage = std::min(view.listPage, pages - 1);
 
-    const std::wstring countText = std::to_wstring(filtered.size()) + L" of " + std::to_wstring(page.entries.size()) +
-                                   L" entries";
+    std::wstring countText = std::to_wstring(filtered.size()) + L" of " + std::to_wstring(page.entries.size()) +
+                             L" entries";
+    if (!query.empty()) {
+        const std::wstring position = filtered.empty() ? L"0" : std::to_wstring(view.selected + 1);
+        countText = position + L" of " + std::to_wstring(filtered.size()) + L" here | " +
+                    std::to_wstring(totalMatches) + L" total";
+    }
     Text(dc, countText, layout.count, kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+    if (!query.empty()) {
+        FillPanel(dc, layout.matchPrev, kPanel, 200);
+        FrameColor(dc, layout.matchPrev, kBorder);
+        Text(dc, L"<", layout.matchPrev, totalMatches == 0 ? kDim : kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+        FillPanel(dc, layout.matchNext, kPanel, 200);
+        FrameColor(dc, layout.matchNext, kBorder);
+        Text(dc, L">", layout.matchNext, totalMatches == 0 ? kDim : kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+    }
 
     if (filtered.empty()) {
         Text(dc, L"No matches", layout.rows[0], kDim, fontBody, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
@@ -2070,8 +2257,9 @@ void OverlayState::Paint(HDC target) {
 
     for (std::size_t i = 0; i < layout.tabs.size(); ++i) {
         const bool active = i == pageIndex;
-        FillPanel(dc, layout.tabs[i], active ? kSelected : kPanel, 200);
-        FrameColor(dc, layout.tabs[i], active ? kGold : kBorder);
+        const bool matched = !query.empty() && !active && i < tabMatches.size() && tabMatches[i] > 0;
+        FillPanel(dc, layout.tabs[i], active ? kSelected : (matched ? kHighlightFill : kPanel), 200);
+        FrameColor(dc, layout.tabs[i], active || matched ? kGold : kBorder);
         Text(dc, Wide(database->pages[i].title), layout.tabs[i], active ? kGold : kText, fontBody,
              DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }
@@ -2291,6 +2479,8 @@ DWORD WINAPI UiThread(LPVOID parameter) {
                                    reinterpret_cast<HMENU>(static_cast<INT_PTR>(kIdSearch)),
                                    windowClass.hInstance, nullptr);
     SendMessageW(self->search, WM_SETFONT, reinterpret_cast<WPARAM>(self->fontBody), TRUE);
+    gSearchProc = reinterpret_cast<WNDPROC>(SetWindowLongPtrW(self->search, GWLP_WNDPROC,
+                                                               reinterpret_cast<LONG_PTR>(SearchEditProc)));
     self->Refilter();
     self->started = true;
     SetEvent(self->ready);

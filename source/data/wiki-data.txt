@@ -19741,7 +19741,7 @@ FIELD	Required Level	50
 IMG	items_armor_armor_mage_robe
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+1-2 to Sorceress Skill Levels
-LINE	S	ÿc3+453-487 to 15 (Class only)
+LINE	S	ÿc3+15 to Random Sorceress Skill Levels (Class only)
 LINE	S	ÿc3+100-150% Enhanced Defense
 LINE	S	ÿc3Damage Reduced by 1-50
 LINE	S	ÿc3Magic Damage Reduced by 1-50
@@ -20043,9 +20043,7 @@ LINE	S	ÿc3Increase Maximum Life 1-50%
 LINE	S	ÿc3+1-200 to Life
 LINE	S	ÿc3+1333 Defense
 LINE	S	ÿc3+1 to Teleport
-LINE	S	ÿc3+418-697 to 20 (Class only)
-LINE	S	ÿc3+418-697 to 20 (Class only)
-LINE	S	ÿc3+418-697 to 20 (Class only)
+LINE	S	ÿc3+20 to Random Skill Levels (Class only)
 BLOCK	1	Deflective Spikes			Elite		71
 FIELD	Base	Spiked Armor
 FIELD	Required Level	71
@@ -20451,7 +20449,7 @@ LINE	S	ÿc3+120% Enhanced Defense
 LINE	S	ÿc3All Resistances +40-50
 LINE	S	ÿc3+30-50% Faster Cast Rate
 LINE	S	ÿc3+1 to All Skills
-LINE	S	ÿc3+418-697 to 15 (Class only)
+LINE	S	ÿc3+15 to Random Skill Levels (Class only)
 LINE	S	ÿc3+10-20% to Experience Gained
 BLOCK	1	Skin of the Flayerd One			Exceptional		25
 TAG	(Coupon only)
@@ -20706,7 +20704,7 @@ TAG	(Coupon only)
 FIELD	Base	dusk shroud
 FIELD	Required Level	60
 IMG	items_armor_armor_quilted_armor
-LINE	S	ÿc3+418-697 to 50 (Class only)
+LINE	S	ÿc3+50 to Random Skill Levels (Class only)
 LINE	S	ÿc3+100-150% Enhanced Defense
 LINE	S	ÿc3Replenish Life +600-800
 LINE	S	ÿc3Regenerate Mana 100-150%
@@ -23000,7 +22998,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_necro_ring
 LINE	S	ÿc4BlackMage's Knucklebone
 LINE	S	ÿc3+2 to Necromancer Skill Levels
-LINE	S	ÿc3+488-523 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Necromancer Skill Levels (Class only)
 LINE	S	ÿc3+40 Defense (Based on Character Level)
 LINE	S	ÿc3+8 to Energy (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23009,7 +23007,6 @@ LINE	S	ÿc310% Chance to Cast Level 60 Bone Armor when you Kill an Enemy
 LINE	S	ÿc3+5-15 to Energy Shield
 LINE	S	ÿc3+200 to Mana
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+488-522 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Bone Mastery (Class only)
 BLOCK	1	Cactus Petal					45
 FIELD	Base	Ring
@@ -23047,7 +23044,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_ama_ring
 LINE	S	ÿc4Dfuzzz's Fingerguard
 LINE	S	ÿc3+2 to Amazon Skill Levels
-LINE	S	ÿc3+418-452 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Amazon Skill Levels (Class only)
 LINE	S	ÿc3+50-100% Enhanced Damage
 LINE	S	ÿc3+8 to Dexterity (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23056,7 +23053,6 @@ LINE	S	ÿc31% Chance to Cast Level 60 Time Stop on striking
 LINE	S	ÿc3+5-15 to Burst of Speed
 LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+418-452 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Wisdom of Athulua (Class only)
 BLOCK	1	Elven Blessing					60
 FIELD	Base	Ring
@@ -23125,7 +23121,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_sorceress_ring
 LINE	S	ÿc4Killashandra Ree's Black C
 LINE	S	ÿc3+2 to Sorceress Skill Levels
-LINE	S	ÿc3+453-487 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Sorceress Skill Levels (Class only)
 LINE	S	ÿc3+40 Defense (Based on Character Level)
 LINE	S	ÿc3+8 to Energy (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23134,7 +23130,6 @@ LINE	S	ÿc35% Chance to Cast Level 60 Time Stop when you Kill an Enemy
 LINE	S	ÿc3Regenerate Mana 100-200%
 LINE	S	ÿc3+30% Faster Cast Rate
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+453-487 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Omnipotence (Class only)
 BLOCK	1	Killjoy's Attitude					75
 FIELD	Base	Ring
@@ -23142,7 +23137,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_assassin_ring
 LINE	S	ÿc4Killjoy's Attitude
 LINE	S	ÿc3+2 to Assassin Skill Levels
-LINE	S	ÿc3+628-662 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Assassin Skill Levels (Class only)
 LINE	S	ÿc3+50-100% Enhanced Damage
 LINE	S	ÿc3+8 to Vitality (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23151,7 +23146,6 @@ LINE	S	ÿc310% Chance to Cast Level 60 Cold Blast when you Kill an Enemy
 LINE	S	ÿc3+5-15 to Critical Strike
 LINE	S	ÿc3-20% to Enemy Cold Resistance
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+628-662 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Shadow Master (Class only)
 BLOCK	1	Lilith's Heart					60
 FIELD	Base	Ring
@@ -23234,7 +23228,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_barb_ring
 LINE	S	ÿc4The Mad Celt's Shining Sparkly
 LINE	S	ÿc3+2  to Barbarian Skill Levels
-LINE	S	ÿc3+558-592 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Barbarian Skill Levels (Class only)
 LINE	S	ÿc3+50-100% Enhanced Damage
 LINE	S	ÿc3+8 to Strength (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23243,7 +23237,6 @@ LINE	S	ÿc35% Chance to Cast Level 60 Plasma Rain when you Kill an Enemy
 LINE	S	ÿc3+5-15 to Wisdom of Athulua
 LINE	S	ÿc330% Chance of Crushing Blow
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+558-592 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Natural Resistance (Class only)
 BLOCK	1	The Tipsy Donut					75
 FIELD	Base	Ring
@@ -23251,7 +23244,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_pala_ring
 LINE	S	ÿc4The Tipsy Donut
 LINE	S	ÿc3+2 to Paladin Skill Levels
-LINE	S	ÿc3+524-557 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Paladin Skill Levels (Class only)
 LINE	S	ÿc3+50-100% Enhanced Damage
 LINE	S	ÿc3+8 to Strength (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23259,7 +23252,6 @@ LINE	S	ÿc330-35% Better Chance of Getting Magic Items
 LINE	S	ÿc310% Chance to Cast Level 60 Fist of the Heavens when you Kill an Enemy
 LINE	S	ÿc3+5-15 to Summon Grizzly
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+523-557 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Fanaticism (Class only)
 BLOCK	1	Violet Petal					45
 FIELD	Base	Ring
@@ -23297,7 +23289,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_warlock_ring
 LINE	S	ÿc4Wanderer's Omen
 LINE	S	ÿc3+2 to Warlock Skill Levels
-LINE	S	ÿc3+663-697 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Warlock Skill Levels (Class only)
 LINE	S	ÿc3+50-100% Enhanced Damage
 LINE	S	ÿc3+8 to Vitality (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23305,7 +23297,6 @@ LINE	S	ÿc330-35% Better Chance of Getting Magic Items
 LINE	S	ÿc310% Chance to Cast Level 60 Psychic Ward when you Kill an Enemy
 LINE	S	ÿc3+5-15 to Spirit of Nature
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+663-697 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Black Magic (Class only)
 BLOCK	1	White Rose Petal					45
 FIELD	Base	Ring
@@ -23343,7 +23334,7 @@ FIELD	Required Level	75
 IMG	items_misc_ring_druid_ring
 LINE	S	ÿc4Yagul's Wrath
 LINE	S	ÿc3+2 to Druid Skill Levels
-LINE	S	ÿc3+593-627 to 5 (Class only)
+LINE	S	ÿc3+5 to Random Druid Skill Levels (Class only)
 LINE	S	ÿc3+50-100% Enhanced Damage
 LINE	S	ÿc3+8 to Vitality (Based on Character Level)
 LINE	S	ÿc3All Resistances +20-25
@@ -23352,7 +23343,6 @@ LINE	S	ÿc35% Chance to Cast Level 60 Monsoon when you Kill an Enemy
 LINE	S	ÿc3+5-15 to Battle Command
 LINE	S	ÿc330% Deadly Strike
 LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+593-627 to 5 (Class only)
 LINE	S	ÿc3+5-15 to Fury (Class only)
 BLOCK	1	Fallen Star					5
 FIELD	Base	Ring
@@ -23464,7 +23454,7 @@ LINE	S	ÿc3Increase Maximum Mana 30-50%
 LINE	S	ÿc3Socketed (1)
 LINE	S	ÿc3+20-30% Faster Cast Rate
 LINE	S	ÿc3+1 to Teleport
-LINE	S	ÿc3+418-697 to 30 (Class only)
+LINE	S	ÿc3+30 to Random Skill Levels (Class only)
 BLOCK	1	Constricting Ring					95
 TAG	(Coupon only)
 FIELD	Base	Ring
@@ -45042,9 +45032,6 @@ LINE	R	Maple LeafFlawed Frozen SoulCannot be Frozen
 LINE	R	Maple LeafFlawed Shadow QuartzCurse Duration Reduced by 15%
 LINE	R	Maple LeafFlawed Bleeding Stone+100 to Life
 PAGE	merc-oskill	Mercenary/O-Skill	Endgame
-ENTRY	Overview	
-BLOCK	0						0
-LINE	T	Here you can find information about mercenaries and various oskills. If you think there's something that can be added here, please contact me on discord and I'll add it.
 ENTRY	Mercenaries	
 BLOCK	0						0
 LINE	C	HirelingSubtypeSkills
