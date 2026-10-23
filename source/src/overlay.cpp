@@ -1517,8 +1517,11 @@ void OverlayState::HandleWheel(int x, int y, int delta) {
     const int steps = delta / WHEEL_DELTA;
     if (Inside(layout.detail, x, y)) {
         view.detailScroll = std::max(0, view.detailScroll - steps * S(40));
-    } else if (x < layout.detail.left && y >= layout.search.top) {
-        MovePage(steps < 0 ? 1 : -1);
+    } else if (x < layout.detail.left && y >= layout.search.top && !filtered.empty()) {
+        // Wheel down selects the next entry, wheel up the previous one.
+        const long long target = static_cast<long long>(view.selected) - steps;
+        const std::size_t last = filtered.size() - 1;
+        SelectFiltered(static_cast<std::size_t>(std::clamp(target, 0LL, static_cast<long long>(last))));
     }
     InvalidateRect(window, nullptr, FALSE);
 }
