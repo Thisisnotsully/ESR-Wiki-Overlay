@@ -18,11 +18,8 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
     images/*.png
 ```
 
-If you previously used the native ESR wiki plugin, remove its files
-(`d2rl-esr-wiki.dll` and `d2rl-esr-wiki.mpq`) from the same folder so the two do not both load.
-
 ## Open it
-
+- Press pause or escape and press the ESR Wiki button, or in the Horadric Cube there is a recipe button.
 - Type `eswiki` in the in-game console, or
 - Bind a key to "Open ESR Wiki" in the game's controls (no key is bound by default).
 
