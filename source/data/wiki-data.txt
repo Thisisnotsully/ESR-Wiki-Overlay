@@ -1130,7 +1130,7 @@ LINE	R	Shadow Quartz + Null RuneDeath Rune
 LINE	R	Bleeding Stone + Dark Azurite + Bitter Peridot + Tainted Tourmaline + Null RuneHeaven Rune
 LINE	R	Frozen Soul + Enigmatic Cinnabar + Pulsing Opal + Shadow Quartz + Null RuneGod Rune
 PAGE	runewords	Runewords	Wiki
-ENTRY	Weapons	182 items	sortable
+ENTRY	Weapons	183 items	sortable
 BLOCK	1	Boar		1 Socket			2
 FIELD	Sockets	1
 FIELD	Base types	Weapon, Missile
@@ -1299,7 +1299,7 @@ LINE	S	ÿc5Required Level: 19
 LINE	S	ÿc0Melee Weapon
 BLOCK	1	Millenium		2 Sockets			20
 FIELD	Sockets	2
-FIELD	Base types	Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Orb, Sorceress Mana Blade
 IMG	items_weapon_orb_eagle_orb
 RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_yo_rune	Yo
@@ -1316,7 +1316,7 @@ LINE	S	ÿc5Required Level: 20
 LINE	S	ÿc0Orb, Sorceress Mana Blade
 BLOCK	1	Millenium		2 Sockets			20
 FIELD	Sockets	2
-FIELD	Base types	Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Staff
 IMG	items_weapon_staff_short_staff
 RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_yo_rune	Yo
@@ -1365,6 +1365,7 @@ LINE	S	ÿc5Required Level: 23
 LINE	S	ÿc0Missile Weapon
 BLOCK	1	Strenght		2 Sockets			25
 FIELD	Sockets	2
+FIELD	Base types	Melee Weapon
 IMG	items_weapon_spear_maiden_spear
 RUNE	items_misc_rune_amn_rune	Amn
 RUNE	items_misc_rune_tir_rune	Tir
@@ -1380,7 +1381,7 @@ LINE	S	ÿc5Required Level: 25
 LINE	S	ÿc0Melee Weapon
 BLOCK	1	Rain		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Gloves, Boots, Belt, Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Wand, Knife
 IMG	items_weapon_knife_decoy_dagger
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
@@ -1397,7 +1398,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Wand, Knife
 BLOCK	1	Rain		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Gloves, Boots, Belt, Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Orb, Sorceress Mana Blade
 IMG	items_weapon_orb_clasped_orb
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
@@ -1414,7 +1415,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Orb, Sorceress Mana Blade
 BLOCK	1	Rain		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Gloves, Boots, Belt, Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Staff
 IMG	items_weapon_staff_battle_staff
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
@@ -1508,7 +1509,7 @@ LINE	S	ÿc5Required Level: 36
 LINE	S	ÿc0Weapon
 BLOCK	1	Summer		2 Sockets			40
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Orb, Sorceress Mana Blade, Boots, Charm
+FIELD	Base types	Wand, Knife, Orb, Sorceress Mana Blade
 IMG	items_weapon_orb_clasped_orb
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
@@ -1525,7 +1526,7 @@ LINE	S	ÿc5Required Level: 40
 LINE	S	ÿc0Wand, Knife, Orb, Sorceress Mana Blade
 BLOCK	1	Authority		2 Sockets			42
 FIELD	Sockets	2
-FIELD	Base types	Melee Weapon, Gloves
+FIELD	Base types	Melee Weapon
 IMG	items_weapon_axe_war_axe
 RUNE	items_misc_rune_ke_rune	Ke
 RUNE	items_misc_rune_ni_rune	Ni
@@ -1556,7 +1557,7 @@ LINE	S	ÿc5Required Level: 44
 LINE	S	ÿc0Sword, Knife, Axe, Hand to Hand
 BLOCK	1	Winter		2 Sockets			44
 FIELD	Sockets	2
-FIELD	Base types	Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Orb, Sorceress Mana Blade
 IMG	items_weapon_orb_eagle_orb
 RUNE	items_misc_rune_fu_rune	Fu
 RUNE	items_misc_rune_yu_rune	Yu
@@ -1572,7 +1573,7 @@ LINE	S	ÿc5Required Level: 44
 LINE	S	ÿc0Orb, Sorceress Mana Blade
 BLOCK	1	Winter		2 Sockets			44
 FIELD	Sockets	2
-FIELD	Base types	Orb, Sorceress Mana Blade, Staff
+FIELD	Base types	Staff
 IMG	items_weapon_staff_long_staff
 RUNE	items_misc_rune_fu_rune	Fu
 RUNE	items_misc_rune_yu_rune	Yu
@@ -1635,14 +1636,18 @@ LINE	S	ÿc350% Life stolen per hit
 LINE	S	ÿc3Increase Maximum Life 20%
 LINE	S	ÿc5Required Level: 60
 LINE	S	ÿc0Weapon
-BLOCK	1	Shinigami		2 Sockets			60
-FIELD	Sockets	2
-FIELD	Base types	Two-Handed Melee Weapon, Melee Weapon
+BLOCK	1	Shinigami		6 Sockets			60
+FIELD	Sockets	6
+FIELD	Base types	Two-Handed Melee Weapon
 IMG	items_weapon_mace_bloodrise
+RUNE	items_misc_gem_celestial_shard	Any Jewel
+RUNE	items_misc_gem_celestial_shard	Any Jewel
+RUNE	items_misc_gem_celestial_shard	Any Jewel
+RUNE	items_misc_gem_celestial_shard	Any Jewel
 RUNE	items_misc_rune_death_rune	Death
 RUNE	items_misc_rune_god_rune	God
 LINE	S	ÿc4Shinigami
-LINE	S	ÿc7Death Rune + God Rune
+LINE	S	ÿc7Jewel + Jewel + Jewel + Jewel + Death Rune + God Rune
 LINE	S	ÿc350% Chance to Cast Level 1 Wind Brand on striking
 LINE	S	ÿc3+3 to All Skills
 LINE	S	ÿc3+30% Increased Attack Speed
@@ -1651,14 +1656,18 @@ LINE	S	ÿc3+% Enhanced Maximum Damage (Based on Character Level)
 LINE	S	ÿc3Indestructible
 LINE	S	ÿc5Required Level: 60
 LINE	S	ÿc0Two-Handed Melee Weapon
-BLOCK	1	Shinigami		2 Sockets			60
-FIELD	Sockets	2
-FIELD	Base types	Two-Handed Melee Weapon, Melee Weapon
+BLOCK	1	Shinigami		6 Sockets			60
+FIELD	Sockets	6
+FIELD	Base types	Melee Weapon
 IMG	items_weapon_h2h_scissors_katar
+RUNE	items_misc_gem_celestial_shard	Any Jewel
+RUNE	items_misc_gem_celestial_shard	Any Jewel
+RUNE	items_misc_gem_celestial_shard	Any Jewel
+RUNE	items_misc_gem_celestial_shard	Any Jewel
 RUNE	items_misc_rune_death_rune	Death
 RUNE	items_misc_rune_god_rune	God
 LINE	S	ÿc4Shinigami
-LINE	S	ÿc7Death Rune + God Rune
+LINE	S	ÿc7Jewel + Jewel + Jewel + Jewel + Death Rune + God Rune
 LINE	S	ÿc350% Chance to Cast Level 1 Wind Brand on striking
 LINE	S	ÿc3+2 to All Skills
 LINE	S	ÿc3+30% Increased Attack Speed
@@ -1955,7 +1964,7 @@ LINE	S	ÿc5Required Level: 28
 LINE	S	ÿc0Scepter, Paladin Sword
 BLOCK	1	Memory		3 Sockets			30
 FIELD	Sockets	3
-FIELD	Base types	Sorceress Mana Blade, Orb, Charm, Staff
+FIELD	Base types	Sorceress Mana Blade, Orb, Charm
 IMG	items_weapon_orb_dragon_stone
 RUNE	items_misc_rune_ki_rune	Ki
 RUNE	items_misc_rune_o_rune	O
@@ -1991,7 +2000,7 @@ LINE	S	ÿc5Required Level: 30
 LINE	S	ÿc0Weapon
 BLOCK	1	Memory		3 Sockets			30
 FIELD	Sockets	3
-FIELD	Base types	Sorceress Mana Blade, Orb, Charm, Staff
+FIELD	Base types	Staff
 IMG	items_weapon_orb_dragon_stone
 RUNE	items_misc_rune_ki_rune	Ki
 RUNE	items_misc_rune_o_rune	O
@@ -2075,7 +2084,7 @@ LINE	S	ÿc5Required Level: 35
 LINE	S	ÿc0Missile Weapon
 BLOCK	1	Dragon		3 Sockets			35
 FIELD	Sockets	3
-FIELD	Base types	Armor, Any Shield
+FIELD	Base types	Armor
 IMG	items_armor_armor_goldskin
 RUNE	items_misc_rune_sur_rune	Sur
 RUNE	items_misc_rune_lo_rune	Lo
@@ -2093,8 +2102,8 @@ LINE	S	ÿc5Required Level: 35
 LINE	S	ÿc0Armor
 BLOCK	1	Dragon		3 Sockets			35
 FIELD	Sockets	3
-FIELD	Base types	Armor, Any Shield
-IMG	items_armor_armor_goldskin
+FIELD	Base types	Any Shield
+IMG	items_armor_shield_small_shield
 RUNE	items_misc_rune_sur_rune	Sur
 RUNE	items_misc_rune_lo_rune	Lo
 RUNE	items_misc_rune_sol_rune	Sol
@@ -2800,7 +2809,7 @@ LINE	S	ÿc5Required Level: 26
 LINE	S	ÿc0Sword, Axe
 BLOCK	1	Fortune		4 Sockets			27
 FIELD	Sockets	4
-FIELD	Base types	Weapon, Armor
+FIELD	Base types	Weapon
 IMG	items_weapon_mace_mace
 RUNE	items_misc_rune_ko_rune	Ko
 RUNE	items_misc_rune_u_rune	U
@@ -2817,8 +2826,8 @@ LINE	S	ÿc5Required Level: 27
 LINE	S	ÿc0Weapon
 BLOCK	1	Fortune		4 Sockets			27
 FIELD	Sockets	4
-FIELD	Base types	Weapon, Armor
-IMG	items_weapon_bow_whichwild_string
+FIELD	Base types	Armor
+IMG	items_armor_armor_goldskin
 RUNE	items_misc_rune_ko_rune	Ko
 RUNE	items_misc_rune_u_rune	U
 RUNE	items_misc_rune_u_rune	U
@@ -2834,7 +2843,7 @@ LINE	S	ÿc5Required Level: 27
 LINE	S	ÿc0Armor
 BLOCK	1	Trust		4 Sockets			28
 FIELD	Sockets	4
-FIELD	Base types	Weapon, Armor
+FIELD	Base types	Weapon
 IMG	items_weapon_spear_soulfeast_tine
 RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_n_rune	N
@@ -2853,8 +2862,8 @@ LINE	S	ÿc5Required Level: 28
 LINE	S	ÿc0Weapon
 BLOCK	1	Trust		4 Sockets			28
 FIELD	Sockets	4
-FIELD	Base types	Weapon, Armor
-IMG	items_weapon_knife_blade
+FIELD	Base types	Armor
+IMG	items_armor_armor_goldskin
 RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ra_rune	Ra
@@ -3195,6 +3204,7 @@ LINE	S	ÿc5Required Level: 43
 LINE	S	ÿc0Sword, Mace
 BLOCK	1	Hunger		4 Sockets			44
 FIELD	Sockets	4
+FIELD	Base types	Sword, Spear, Axe
 IMG	items_weapon_sword_plague_bearer
 RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_u_rune	U
@@ -3322,7 +3332,7 @@ LINE	S	ÿc5Required Level: 48
 LINE	S	ÿc0Two-Handed Melee Weapon
 BLOCK	1	Feminine		4 Sockets			50
 FIELD	Sockets	4
-FIELD	Base types	Staff, Missile Weapon, Assassin 2H Katana, Spear
+FIELD	Base types	Staff
 IMG	items_weapon_staff_staff_of_the_kings
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_te_rune	Te
@@ -3339,7 +3349,7 @@ LINE	S	ÿc5Required Level: 50
 LINE	S	ÿc0Staff
 BLOCK	1	Feminine		4 Sockets			50
 FIELD	Sockets	4
-FIELD	Base types	Staff, Missile Weapon, Assassin 2H Katana, Spear
+FIELD	Base types	Missile Weapon
 IMG	items_weapon_staff_battle_staff
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_te_rune	Te
@@ -3357,7 +3367,7 @@ LINE	S	ÿc5Required Level: 50
 LINE	S	ÿc0Missile Weapon
 BLOCK	1	Feminine		4 Sockets			50
 FIELD	Sockets	4
-FIELD	Base types	Staff, Missile Weapon, Assassin 2H Katana, Spear
+FIELD	Base types	Assassin 2H Katana, Spear
 IMG	items_weapon_staff_war_staff
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_te_rune	Te
@@ -3603,6 +3613,25 @@ LINE	S	ÿc3+30 to all Attributes
 LINE	S	ÿc3+10 to Strafe
 LINE	S	ÿc5Required Level: 43
 LINE	S	ÿc0Missile Weapon
+BLOCK	1	Spirit		4 Sockets			51
+FIELD	Sockets	4
+FIELD	Base types	Sword
+IMG	items_weapon_sword_war_sword
+RUNE	items_misc_rune_tal_rune	Tal
+RUNE	items_misc_rune_thul_rune	Thul
+RUNE	items_misc_rune_ort_rune	Ort
+RUNE	items_misc_rune_amn_rune	Amn
+LINE	S	ÿc4Spirit
+LINE	S	ÿc7Tal Rune + Thul Rune + Ort Rune + Amn Rune
+LINE	S	ÿc3+3 to All Skills
+LINE	S	ÿc3+50% Faster Cast Rate
+LINE	S	ÿc3Increase Maximum Mana 50%
+LINE	S	ÿc3Regenerate Mana 200%
+LINE	S	ÿc3+60% Faster Hit Recovery
+LINE	S	ÿc3+75 to Energy
+LINE	S	ÿc3+75 to Strength
+LINE	S	ÿc5Required Level: 51
+LINE	S	ÿc0Sword
 BLOCK	1	Faith		4 Sockets			27
 FIELD	Sockets	4
 FIELD	Base types	Missile Weapon
@@ -4310,14 +4339,16 @@ LINE	S	ÿc325% Chance to Cast Level 60 Elemental Surge when you Kill an Enemy
 LINE	S	ÿc3+100% Faster Cast Rate
 LINE	S	ÿc5Required Level: 69
 LINE	S	ÿc0Staff
-ENTRY	Helms	53 items	sortable
+ENTRY	Helms	52 items	sortable
 BLOCK	1	Richesdotcom		3 Sockets			34
 FIELD	Sockets	3
 FIELD	Base types	Helm
 IMG	items_armor_helmet_great_helm
+RUNE	items_misc_gem_flawless_diamond	Any Gem
 RUNE	items_misc_rune_ru_rune	Ru
+RUNE	items_misc_gem_flawless_diamond	Any Gem
 LINE	S	ÿc4Richesdotcom
-LINE	S	ÿc7Ru Rune
+LINE	S	ÿc7Gem + Ru Rune + Gem
 LINE	S	ÿc316% Better Chance of Getting Magic Items (Based on Character Level)
 LINE	S	ÿc324% Extra Gold from Monsters (Based on Character Level)
 LINE	S	ÿc3Reduces all Vendor Prices 5%
@@ -4450,7 +4481,7 @@ LINE	S	ÿc5Required Level: 27
 LINE	S	ÿc0Helm
 BLOCK	1	Dream		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Helm, Gloves, Belt, Charm
+FIELD	Base types	Helm
 IMG	items_armor_helmet_fanged_helm
 RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
@@ -4563,7 +4594,7 @@ LINE	S	ÿc5Required Level: 26
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Psychic		3 Sockets			28
 FIELD	Sockets	3
-FIELD	Base types	Helm, Charm
+FIELD	Base types	Helm
 IMG	items_armor_helmet_wormskull
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_ki_rune	Ki
@@ -4597,7 +4628,7 @@ LINE	S	ÿc5Required Level: 28
 LINE	S	ÿc0Helm
 BLOCK	1	Psychic		3 Sockets			28
 FIELD	Sockets	3
-FIELD	Base types	Helm, Charm
+FIELD	Base types	Charm
 IMG	items_armor_helmet_great_helm
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_ki_rune	Ki
@@ -4614,7 +4645,7 @@ LINE	S	ÿc5Required Level: 28
 LINE	S	ÿc0Charm
 BLOCK	1	Dream		3 Sockets			32
 FIELD	Sockets	3
-FIELD	Base types	Helm, Any Shield
+FIELD	Base types	Helm
 IMG	items_armor_circlet_circlet
 RUNE	items_misc_rune_io_rune	Io
 RUNE	items_misc_rune_jah_rune	Jah
@@ -4630,7 +4661,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Helm
 BLOCK	1	Dream		3 Sockets			32
 FIELD	Sockets	3
-FIELD	Base types	Helm, Any Shield
+FIELD	Base types	Any Shield
 IMG	items_armor_helmet_unique_warlock_helm
 RUNE	items_misc_rune_io_rune	Io
 RUNE	items_misc_rune_jah_rune	Jah
@@ -4680,6 +4711,7 @@ LINE	S	ÿc5Required Level: 35
 LINE	S	ÿc0Helm
 BLOCK	1	Earth		3 Sockets			35
 FIELD	Sockets	3
+FIELD	Base types	Helm
 IMG	items_armor_circlet_tiara
 RUNE	items_misc_rune_shael_rune	Shael
 RUNE	items_misc_rune_io_rune	Io
@@ -4828,7 +4860,7 @@ LINE	S	ÿc5Required Level: 47
 LINE	S	ÿc0Armor
 BLOCK	1	Spirit		3 Sockets			51
 FIELD	Sockets	3
-FIELD	Base types	Helm, Charm
+FIELD	Base types	Helm
 IMG	items_armor_helmet_wormskull
 RUNE	items_misc_rune_ko_rune	Ko
 RUNE	items_misc_rune_ko_rune	Ko
@@ -4863,7 +4895,7 @@ LINE	S	ÿc5Required Level: 51
 LINE	S	ÿc0Helm
 BLOCK	1	Spirit		3 Sockets			51
 FIELD	Sockets	3
-FIELD	Base types	Helm, Charm
+FIELD	Base types	Charm
 IMG	items_armor_helmet_assault_helmet
 RUNE	items_misc_rune_ko_rune	Ko
 RUNE	items_misc_rune_ko_rune	Ko
@@ -4912,7 +4944,7 @@ LINE	S	ÿc5Required Level: 55
 LINE	S	ÿc0Helm
 BLOCK	1	Abandon		3 Sockets			57
 FIELD	Sockets	3
-FIELD	Base types	Helm, Any Shield, Charm
+FIELD	Base types	Helm, Any Shield
 IMG	items_armor_helmet_crown_of_thieves
 RUNE	items_misc_rune_su_rune	Su
 RUNE	items_misc_rune_te_rune	Te
@@ -4929,7 +4961,7 @@ LINE	S	ÿc5Required Level: 57
 LINE	S	ÿc0Helm, Any Shield
 BLOCK	1	Abandon		3 Sockets			57
 FIELD	Sockets	3
-FIELD	Base types	Helm, Any Shield, Charm
+FIELD	Base types	Charm
 IMG	items_armor_helmet_crown_of_thieves
 RUNE	items_misc_rune_su_rune	Su
 RUNE	items_misc_rune_te_rune	Te
@@ -5027,7 +5059,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Helm
 BLOCK	1	Animal Friend		4 Sockets			40
 FIELD	Sockets	4
-FIELD	Base types	Helm, Armor
+FIELD	Base types	Helm
 IMG	items_armor_helmet_jawbone_cap
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_u_rune	U
@@ -5043,7 +5075,7 @@ LINE	S	ÿc5Required Level: 40
 LINE	S	ÿc0Helm
 BLOCK	1	Animal Friend		4 Sockets			40
 FIELD	Sockets	4
-FIELD	Base types	Helm, Armor
+FIELD	Base types	Armor
 IMG	items_armor_helmet_horned_helm
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_u_rune	U
@@ -5110,25 +5142,6 @@ LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3+10 to Vigor of the Ancients
 LINE	S	ÿc5Required Level: 51
 LINE	S	ÿc0Helm
-BLOCK	1	Spirit		4 Sockets			51
-FIELD	Sockets	4
-FIELD	Base types	Sword, Any Shield
-IMG	items_weapon_sword_war_sword
-RUNE	items_misc_rune_tal_rune	Tal
-RUNE	items_misc_rune_thul_rune	Thul
-RUNE	items_misc_rune_ort_rune	Ort
-RUNE	items_misc_rune_amn_rune	Amn
-LINE	S	ÿc4Spirit
-LINE	S	ÿc7Tal Rune + Thul Rune + Ort Rune + Amn Rune
-LINE	S	ÿc3+3 to All Skills
-LINE	S	ÿc3+50% Faster Cast Rate
-LINE	S	ÿc3Increase Maximum Mana 50%
-LINE	S	ÿc3Regenerate Mana 200%
-LINE	S	ÿc3+60% Faster Hit Recovery
-LINE	S	ÿc3+75 to Energy
-LINE	S	ÿc3+75 to Strength
-LINE	S	ÿc5Required Level: 51
-LINE	S	ÿc0Sword, Any Shield
 BLOCK	1	Placidity		4 Sockets			59
 FIELD	Sockets	4
 FIELD	Base types	Pelt
@@ -5329,7 +5342,7 @@ LINE	S	ÿc5Required Level: 19
 LINE	S	ÿc0Any Armor
 BLOCK	1	Wealth		2 Sockets			36
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Belt, Charm
+FIELD	Base types	Armor
 IMG	items_armor_armor_corpsemourn
 RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
@@ -5359,7 +5372,7 @@ LINE	S	ÿc5Required Level: 37
 LINE	S	ÿc0Armor
 BLOCK	1	Deception		2 Sockets			38
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves
+FIELD	Base types	Armor
 IMG	items_armor_armor_light_plate
 RUNE	items_misc_rune_sa_rune	Sa
 RUNE	items_misc_rune_wa_rune	Wa
@@ -5375,7 +5388,7 @@ LINE	S	ÿc5Required Level: 38
 LINE	S	ÿc0Armor
 BLOCK	1	Mist		2 Sockets			47
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Boots, Belt, Charm
+FIELD	Base types	Armor
 IMG	items_armor_armor_plate_mail
 RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
@@ -5406,7 +5419,7 @@ LINE	S	ÿc5Required Level: 49
 LINE	S	ÿc0Armor
 BLOCK	1	Hot		2 Sockets			55
 FIELD	Sockets	2
-FIELD	Base types	Any Armor, Armor
+FIELD	Base types	Any Armor
 IMG	items_armor_armor_corpsemourn
 RUNE	items_misc_rune_ne_rune	Ne
 RUNE	items_misc_rune_tsu_rune	Tsu
@@ -5423,7 +5436,7 @@ LINE	S	ÿc5Required Level: 55
 LINE	S	ÿc0Any Armor
 BLOCK	1	Hot		2 Sockets			55
 FIELD	Sockets	2
-FIELD	Base types	Any Armor, Armor
+FIELD	Base types	Armor
 IMG	items_armor_armor_victors_silk
 RUNE	items_misc_rune_ne_rune	Ne
 RUNE	items_misc_rune_tsu_rune	Tsu
@@ -5544,6 +5557,7 @@ LINE	S	ÿc5Required Level: 23
 LINE	S	ÿc0Any Armor
 BLOCK	1	Hustle		3 Sockets			29
 FIELD	Sockets	3
+FIELD	Base types	Armor
 IMG	items_armor_armor_splint_mail
 RUNE	items_misc_rune_shael_rune	Shael
 RUNE	items_misc_rune_ral_rune	Ral
@@ -5560,7 +5574,8 @@ LINE	S	ÿc5Required Level: 29
 LINE	S	ÿc0Armor
 BLOCK	1	Hustle		3 Sockets			29
 FIELD	Sockets	3
-IMG	items_armor_armor_corpsemourn
+FIELD	Base types	Weapon
+IMG	items_weapon_sword_war_sword
 RUNE	items_misc_rune_shael_rune	Shael
 RUNE	items_misc_rune_ral_rune	Ral
 RUNE	items_misc_rune_eld_rune	Eld
@@ -5576,7 +5591,7 @@ LINE	S	ÿc5Required Level: 29
 LINE	S	ÿc0Armor
 BLOCK	1	Captive		3 Sockets			31
 FIELD	Sockets	3
-FIELD	Base types	Armor, Charm
+FIELD	Base types	Armor
 IMG	items_armor_armor_haemosus_adament
 RUNE	items_misc_rune_ho_rune	Ho
 RUNE	items_misc_rune_ri_rune	Ri
@@ -5593,7 +5608,7 @@ LINE	S	ÿc5Required Level: 31
 LINE	S	ÿc0Armor
 BLOCK	1	Captive		3 Sockets			31
 FIELD	Sockets	3
-FIELD	Base types	Armor, Charm
+FIELD	Base types	Charm
 IMG	items_armor_armor_ring_mail
 RUNE	items_misc_rune_ho_rune	Ho
 RUNE	items_misc_rune_ri_rune	Ri
@@ -5678,7 +5693,7 @@ LINE	S	ÿc5Required Level: 36
 LINE	S	ÿc0Armor
 BLOCK	1	Youth		3 Sockets			38
 FIELD	Sockets	3
-FIELD	Base types	Armor, Charm
+FIELD	Base types	Armor
 IMG	items_armor_armor_victors_silk
 RUNE	items_misc_rune_wa_rune	Wa
 RUNE	items_misc_rune_ka_rune	Ka
@@ -5694,7 +5709,7 @@ LINE	S	ÿc5Required Level: 38
 LINE	S	ÿc0Armor
 BLOCK	1	Youth		3 Sockets			38
 FIELD	Sockets	3
-FIELD	Base types	Armor, Charm
+FIELD	Base types	Charm
 IMG	items_armor_armor_haemosus_adament
 RUNE	items_misc_rune_wa_rune	Wa
 RUNE	items_misc_rune_ka_rune	Ka
@@ -5743,7 +5758,7 @@ LINE	S	ÿc5Required Level: 43
 LINE	S	ÿc0Armor
 BLOCK	1	Harmony		3 Sockets			43
 FIELD	Sockets	3
-FIELD	Base types	Armor, Charm
+FIELD	Base types	Armor
 IMG	items_armor_armor_gothic_plate
 RUNE	items_misc_rune_wa_rune	Wa
 RUNE	items_misc_rune_se_rune	Se
@@ -5778,7 +5793,7 @@ LINE	S	ÿc5Required Level: 43
 LINE	S	ÿc0Armor
 BLOCK	1	Harmony		3 Sockets			43
 FIELD	Sockets	3
-FIELD	Base types	Armor, Charm
+FIELD	Base types	Charm
 IMG	items_armor_armor_goldskin
 RUNE	items_misc_rune_wa_rune	Wa
 RUNE	items_misc_rune_se_rune	Se
@@ -5831,7 +5846,7 @@ LINE	S	ÿc5Required Level: 45
 LINE	S	ÿc0Armor
 BLOCK	1	Daylight		3 Sockets			46
 FIELD	Sockets	3
-FIELD	Base types	Armor, Any Shield, Charm
+FIELD	Base types	Armor, Any Shield
 IMG	items_armor_armor_quilted_armor
 RUNE	items_misc_rune_hi_rune	Hi
 RUNE	items_misc_rune_ru_rune	Ru
@@ -5849,7 +5864,7 @@ LINE	S	ÿc5Required Level: 46
 LINE	S	ÿc0Armor, Any Shield
 BLOCK	1	Daylight		3 Sockets			46
 FIELD	Sockets	3
-FIELD	Base types	Armor, Any Shield, Charm
+FIELD	Base types	Charm
 IMG	items_armor_armor_studded_leather
 RUNE	items_misc_rune_hi_rune	Hi
 RUNE	items_misc_rune_ru_rune	Ru
@@ -6165,7 +6180,7 @@ LINE	S	ÿc5Required Level: 38
 LINE	S	ÿc0Armor
 BLOCK	1	Sorrow		4 Sockets			40
 FIELD	Sockets	4
-FIELD	Base types	Armor, Polearm
+FIELD	Base types	Armor
 IMG	items_armor_armor_ancient_armor
 RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_na_rune	Na
@@ -6184,8 +6199,8 @@ LINE	S	ÿc5Required Level: 40
 LINE	S	ÿc0Armor
 BLOCK	1	Sorrow		4 Sockets			40
 FIELD	Sockets	4
-FIELD	Base types	Armor, Polearm
-IMG	items_armor_armor_plate_mail
+FIELD	Base types	Polearm
+IMG	items_weapon_polearm_athenas_wrath
 RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_shi_rune	Shi
@@ -6222,8 +6237,8 @@ LINE	S	ÿc5Required Level: 44
 LINE	S	ÿc0Armor
 BLOCK	1	Phoenix		4 Sockets			44
 FIELD	Sockets	4
-FIELD	Base types	Weapon, Any Shield
-IMG	items_armor_armor_hard_leather_armor
+FIELD	Base types	Weapon
+IMG	items_weapon_sword_war_sword
 RUNE	items_misc_rune_vex_rune	Vex
 RUNE	items_misc_rune_vex_rune	Vex
 RUNE	items_misc_rune_lo_rune	Lo
@@ -6241,7 +6256,7 @@ LINE	S	ÿc5Required Level: 44
 LINE	S	ÿc0Weapon
 BLOCK	1	Phoenix		4 Sockets			44
 FIELD	Sockets	4
-FIELD	Base types	Weapon, Any Shield
+FIELD	Base types	Any Shield
 IMG	items_armor_armor_ancient_armor
 RUNE	items_misc_rune_vex_rune	Vex
 RUNE	items_misc_rune_vex_rune	Vex
@@ -6259,7 +6274,7 @@ LINE	S	ÿc5Required Level: 44
 LINE	S	ÿc0Any Shield
 BLOCK	1	Question		4 Sockets			47
 FIELD	Sockets	4
-FIELD	Base types	Armor, Helm
+FIELD	Base types	Armor
 IMG	items_armor_armor_hard_leather_armor
 RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_tsu_rune	Tsu
@@ -6278,7 +6293,7 @@ LINE	S	ÿc5Required Level: 47
 LINE	S	ÿc0Armor
 BLOCK	1	Question		4 Sockets			47
 FIELD	Sockets	4
-FIELD	Base types	Armor, Helm
+FIELD	Base types	Helm
 IMG	items_armor_armor_goldskin
 RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_tsu_rune	Tsu
@@ -6369,7 +6384,7 @@ LINE	S	ÿc0Armor
 BLOCK	1	Fortitude		4 Sockets			59
 FIELD	Sockets	4
 FIELD	Base types	Weapon, Armor
-IMG	items_armor_armor_scale_mail
+IMG	items_weapon_sword_war_sword
 RUNE	items_misc_rune_el_rune	El
 RUNE	items_misc_rune_sol_rune	Sol
 RUNE	items_misc_rune_dol_rune	Dol
@@ -6703,7 +6718,7 @@ LINE	S	ÿc3Damage Reduced by 50
 LINE	S	ÿc3Magic Damage Reduced by 50
 LINE	S	ÿc5Required Level: 60
 LINE	S	ÿc0Armor
-ENTRY	Shields	28 items	sortable
+ENTRY	Shields	29 items	sortable
 BLOCK	1	Luck		2 Sockets			6
 FIELD	Sockets	2
 FIELD	Base types	Any Shield
@@ -6889,7 +6904,7 @@ LINE	S	ÿc5Required Level: 42
 LINE	S	ÿc0Any Shield
 BLOCK	1	Daylight		3 Sockets			46
 FIELD	Sockets	3
-FIELD	Base types	Armor, Any Shield, Charm
+FIELD	Base types	Armor, Any Shield
 IMG	items_armor_shield_kite_shield
 RUNE	items_misc_rune_hi_rune	Hi
 RUNE	items_misc_rune_ru_rune	Ru
@@ -6907,7 +6922,7 @@ LINE	S	ÿc5Required Level: 46
 LINE	S	ÿc0Armor, Any Shield
 BLOCK	1	Daylight		3 Sockets			46
 FIELD	Sockets	3
-FIELD	Base types	Armor, Any Shield, Charm
+FIELD	Base types	Charm
 IMG	items_armor_shield_bverrit_keep
 RUNE	items_misc_rune_hi_rune	Hi
 RUNE	items_misc_rune_ru_rune	Ru
@@ -6970,7 +6985,7 @@ LINE	S	ÿc5Required Level: 57
 LINE	S	ÿc0Any Shield
 BLOCK	1	Abandon		3 Sockets			57
 FIELD	Sockets	3
-FIELD	Base types	Helm, Any Shield, Charm
+FIELD	Base types	Helm, Any Shield
 IMG	items_armor_shield_steelclash
 RUNE	items_misc_rune_su_rune	Su
 RUNE	items_misc_rune_te_rune	Te
@@ -6987,7 +7002,7 @@ LINE	S	ÿc5Required Level: 57
 LINE	S	ÿc0Helm, Any Shield
 BLOCK	1	Abandon		3 Sockets			57
 FIELD	Sockets	3
-FIELD	Base types	Helm, Any Shield, Charm
+FIELD	Base types	Charm
 IMG	items_armor_shield_mosers_blessed_circle
 RUNE	items_misc_rune_su_rune	Su
 RUNE	items_misc_rune_te_rune	Te
@@ -7002,6 +7017,25 @@ LINE	S	ÿc315% Chance to Cast Level 1 Time Lapse when struck
 LINE	S	ÿc3+10 to Battle Command
 LINE	S	ÿc5Required Level: 57
 LINE	S	ÿc0Charm
+BLOCK	1	Spirit		4 Sockets			51
+FIELD	Sockets	4
+FIELD	Base types	Any Shield
+IMG	items_armor_shield_small_shield
+RUNE	items_misc_rune_tal_rune	Tal
+RUNE	items_misc_rune_thul_rune	Thul
+RUNE	items_misc_rune_ort_rune	Ort
+RUNE	items_misc_rune_amn_rune	Amn
+LINE	S	ÿc4Spirit
+LINE	S	ÿc7Tal Rune + Thul Rune + Ort Rune + Amn Rune
+LINE	S	ÿc3+3 to All Skills
+LINE	S	ÿc3+50% Faster Cast Rate
+LINE	S	ÿc3Increase Maximum Mana 50%
+LINE	S	ÿc3Regenerate Mana 200%
+LINE	S	ÿc3+60% Faster Hit Recovery
+LINE	S	ÿc3+75 to Energy
+LINE	S	ÿc3+75 to Strength
+LINE	S	ÿc5Required Level: 51
+LINE	S	ÿc0Any Shield
 BLOCK	1	Beauty		4 Sockets			19
 FIELD	Sockets	4
 FIELD	Base types	Armor, Any Shield
@@ -7220,8 +7254,8 @@ LINE	S	ÿc5Required Level: 17
 LINE	S	ÿc0Belt, Boots
 BLOCK	1	Rain		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Gloves, Boots, Belt, Orb, Sorceress Mana Blade, Staff
-IMG	items_weapon_wand_blackhand_key
+FIELD	Base types	Gloves, Boots, Belt
+IMG	items_armor_belt_belt_m
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
@@ -7237,7 +7271,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Gloves, Boots, Belt
 BLOCK	1	Dream		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Helm, Gloves, Belt, Charm
+FIELD	Base types	Belt, Charm
 IMG	items_armor_belt_belt_m
 RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
@@ -7254,7 +7288,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Belt, Charm
 BLOCK	1	Wealth		2 Sockets			36
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Belt, Charm
+FIELD	Base types	Gloves, Belt
 IMG	items_armor_belt_belt_m
 RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
@@ -7301,7 +7335,7 @@ LINE	S	ÿc5Required Level: 45
 LINE	S	ÿc0Gloves, Boots, Belt
 BLOCK	1	Mist		2 Sockets			47
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Boots, Belt, Charm
+FIELD	Base types	Boots, Belt, Charm
 IMG	items_armor_belt_light_belt
 RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
@@ -7369,8 +7403,8 @@ LINE	S	ÿc5Required Level: 24
 LINE	S	ÿc0Boots
 BLOCK	1	Rain		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Gloves, Boots, Belt, Orb, Sorceress Mana Blade, Staff
-IMG	items_weapon_wand_blackhand_key
+FIELD	Base types	Gloves, Boots, Belt
+IMG	items_armor_boot_leather_boots
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
@@ -7401,8 +7435,8 @@ LINE	S	ÿc5Required Level: 39
 LINE	S	ÿc0Gloves, Belt, Boots, Charm
 BLOCK	1	Summer		2 Sockets			40
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Orb, Sorceress Mana Blade, Boots, Charm
-IMG	items_weapon_wand_blackhand_key
+FIELD	Base types	Boots, Charm
+IMG	items_armor_boot_chain_boots
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4Summer
@@ -7451,7 +7485,7 @@ LINE	S	ÿc5Required Level: 46
 LINE	S	ÿc0Boots
 BLOCK	1	Mist		2 Sockets			47
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Boots, Belt, Charm
+FIELD	Base types	Boots, Belt, Charm
 IMG	items_armor_boot_plate_boots
 RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
@@ -7485,8 +7519,8 @@ LINE	S	ÿc0Boots
 ENTRY	Gloves	9 items	sortable
 BLOCK	1	Rain		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Gloves, Boots, Belt, Orb, Sorceress Mana Blade, Staff
-IMG	items_weapon_wand_blackhand_key
+FIELD	Base types	Gloves, Boots, Belt
+IMG	items_armor_glove_bracers_m
 RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
@@ -7502,7 +7536,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Gloves, Boots, Belt
 BLOCK	1	Dream		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Helm, Gloves, Belt, Charm
+FIELD	Base types	Gloves
 IMG	items_armor_glove_light_gauntlets
 RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
@@ -7519,7 +7553,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Gloves
 BLOCK	1	Wealth		2 Sockets			36
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Belt, Charm
+FIELD	Base types	Gloves, Belt
 IMG	items_armor_glove_gaunlets_h
 RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
@@ -7535,7 +7569,7 @@ LINE	S	ÿc5Required Level: 36
 LINE	S	ÿc0Gloves, Belt
 BLOCK	1	Deception		2 Sockets			38
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves
+FIELD	Base types	Gloves
 IMG	items_armor_glove_light_gauntlets
 RUNE	items_misc_rune_sa_rune	Sa
 RUNE	items_misc_rune_wa_rune	Wa
@@ -7566,8 +7600,8 @@ LINE	S	ÿc5Required Level: 39
 LINE	S	ÿc0Gloves, Belt, Boots, Charm
 BLOCK	1	Authority		2 Sockets			42
 FIELD	Sockets	2
-FIELD	Base types	Melee Weapon, Gloves
-IMG	items_weapon_sword_war_sword
+FIELD	Base types	Gloves
+IMG	items_armor_glove_bracers_m
 RUNE	items_misc_rune_ke_rune	Ke
 RUNE	items_misc_rune_ni_rune	Ni
 LINE	S	ÿc4Authority
@@ -7597,7 +7631,7 @@ LINE	S	ÿc5Required Level: 45
 LINE	S	ÿc0Gloves, Boots, Belt
 BLOCK	1	Mist		2 Sockets			47
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Boots, Belt, Charm
+FIELD	Base types	Gloves
 IMG	items_armor_glove_gaunlets_h
 RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
@@ -7675,7 +7709,7 @@ LINE	S	ÿc5Required Level: 26
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Dream		2 Sockets			32
 FIELD	Sockets	2
-FIELD	Base types	Helm, Gloves, Belt, Charm
+FIELD	Base types	Belt, Charm
 IMG	items_misc_charm_odd_charm
 RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
@@ -7692,7 +7726,7 @@ LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Belt, Charm
 BLOCK	1	Wealth		2 Sockets			36
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Belt, Charm
+FIELD	Base types	Charm
 IMG	items_misc_charm_odd_charm
 RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
@@ -7723,7 +7757,7 @@ LINE	S	ÿc5Required Level: 39
 LINE	S	ÿc0Gloves, Belt, Boots, Charm
 BLOCK	1	Summer		2 Sockets			40
 FIELD	Sockets	2
-FIELD	Base types	Wand, Knife, Orb, Sorceress Mana Blade, Boots, Charm
+FIELD	Base types	Boots, Charm
 IMG	items_misc_charm_odd_charm
 RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
@@ -7740,7 +7774,7 @@ LINE	S	ÿc5Required Level: 40
 LINE	S	ÿc0Boots, Charm
 BLOCK	1	Mist		2 Sockets			47
 FIELD	Sockets	2
-FIELD	Base types	Armor, Gloves, Boots, Belt, Charm
+FIELD	Base types	Boots, Belt, Charm
 IMG	items_misc_charm_odd_charm
 RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
@@ -7936,7 +7970,7 @@ LINE	S	ÿc5Required Level: 26
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Memory		3 Sockets			30
 FIELD	Sockets	3
-FIELD	Base types	Sorceress Mana Blade, Orb, Charm, Staff
+FIELD	Base types	Sorceress Mana Blade, Orb, Charm
 IMG	items_misc_charm_odd_charm
 RUNE	items_misc_rune_ki_rune	Ki
 RUNE	items_misc_rune_o_rune	O
@@ -7954,7 +7988,7 @@ LINE	S	ÿc5Required Level: 30
 LINE	S	ÿc0Sorceress Mana Blade, Orb, Charm
 BLOCK	1	Memory		3 Sockets			30
 FIELD	Sockets	3
-FIELD	Base types	Sorceress Mana Blade, Orb, Charm, Staff
+FIELD	Base types	Staff
 IMG	items_misc_charm_odd_charm
 RUNE	items_misc_rune_ki_rune	Ki
 RUNE	items_misc_rune_o_rune	O

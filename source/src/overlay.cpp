@@ -1366,9 +1366,15 @@ void OverlayState::DrawTooltip(HDC dc) {
     struct TipRow { std::wstring text; COLORREF color; HFONT font; };
     std::vector<TipRow> rows;
     if (hover.rune >= 0 && static_cast<std::size_t>(hover.rune) < block.runes.size()) {
-        rows.push_back({Wide(block.runes[hover.rune].label) + L" Rune", kGold, fontBold});
-        rows.push_back({L"Socketed in " + Wide(block.title.empty() ? hover.entry->title : block.title), kBody,
-                        fontBody});
+        // Gem and jewel sockets show only "Any Gem" or "Any Jewel". Other runes show their name.
+        const std::wstring socket = Wide(block.runes[hover.rune].label);
+        if (socket.rfind(L"Any ", 0) == 0) {
+            rows.push_back({socket, kGold, fontBold});
+        } else {
+            rows.push_back({socket + L" Rune", kGold, fontBold});
+            rows.push_back({L"Socketed in " + Wide(block.title.empty() ? hover.entry->title : block.title), kBody,
+                            fontBody});
+        }
     } else {
         const std::string heading = block.title.empty() ? hover.entry->title : block.title;
         // Mythicals (the wide cards) are purple, set items green; the rest follow the page's name colour.
@@ -1824,8 +1830,11 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
                         detailHits.push_back(DetailHit{iconBox, &entry, &block, r});
                         DrawImageKey(*graphics, block.runes[r].imageKey, iconBox);
                         const std::wstring label = Wide(block.runes[r].label);
-                        Text(dc, label, Rect(x, rowTop + icon, x + style.cell, rowTop + icon + smallLine),
-                             KanjiLabelColor(label, kGold), fontSmall, DT_CENTER | DT_SINGLELINE);
+                        // Jewel and gem sockets show their name in the tooltip only.
+                        if (label.rfind(L"Any ", 0) != 0) {
+                            Text(dc, label, Rect(x, rowTop + icon, x + style.cell, rowTop + icon + smallLine),
+                                 KanjiLabelColor(label, kGold), fontSmall, DT_CENTER | DT_SINGLELINE);
+                        }
                     }
                 }
             }

@@ -146,6 +146,7 @@ class Tables:
                 continue
             key = norm(row.get("*Rune Name") or row.get("Name", ""))
             self.runewords.setdefault(key, []).append(row)
+        self.runewords_by_id = {row["Name"]: row for rows in self.runewords.values() for row in rows}
 
     @staticmethod
     def _item_type_names(rows):
@@ -271,8 +272,15 @@ class Tables:
         full = [prop for prop in (read("FCode%d" % i) for i in range(1, 9)) if prop]
         return {"partial": partial, "full": full}
 
-    def runeword_fields(self, title, rune_codes):
-        rows = self.runewords.get(norm(title), [])
+    def keyed_rows(self, title, key):
+        """Runeword rows named title. A card's own row (its Runeword ID) is used when there is one,
+        so cards that share runes (Rain) each keep their own base types."""
+        if key and key in self.runewords_by_id:
+            return [self.runewords_by_id[key]]
+        return self.runewords.get(norm(title), [])
+
+    def runeword_fields(self, title, rune_codes, key=None):
+        rows = self.keyed_rows(title, key)
         wanted = list(rune_codes)
         match = [r for r in rows if [r.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if r.get("Rune%d" % i, "")] == wanted]
         if not match:
@@ -296,10 +304,44 @@ class Tables:
                     bases[self.item_types.get(code, code)] = True
         return [("Base types", ", ".join(bases))] if bases else []
 
-    def runeword_socket_count(self, title, rune_codes):
+    def runeword_row_types(self, title, rune_codes, key=None):
+        """Item type names of the runeword row that matches the card's runes (for a card that lists
+        more than one base, such as Spirit's sword and shield)."""
+        rows = self.keyed_rows(title, key)
+        if not rows:
+            return []
+        wanted = sorted(rune_codes)
+        def runes(row):
+            return sorted(row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, ""))
+        row = next((r for r in rows if runes(r) == wanted), None)
+        if row is None:
+            def shared(r):
+                return len(set(wanted) & {r.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1)})
+            row = max(rows, key=shared)
+        names = []
+        for i in range(1, RUNE_COUNT + 1):
+            code = row.get("itype%d" % i, "")
+            if code:
+                name = self.item_types.get(code, code)
+                if name not in names:
+                    names.append(name)
+        return names
+
+    def runeword_cells(self, title, rune_codes, key=None):
+        """Socket codes of the card's row in order: rune codes (r..), jewel (jew, mjw) and gem codes."""
+        rows = self.keyed_rows(title, key)
+        if not rows:
+            return []
+        wanted = sorted(rune_codes)
+        def runes(row):
+            return sorted(row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, ""))
+        row = next((r for r in rows if runes(r) == wanted), rows[0])
+        return [row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, "")]
+
+    def runeword_socket_count(self, title, rune_codes, key=None):
         """Number of runes the runeword takes, from runes.txt. The card art can show fewer icons
         when a rune repeats (Conquest uses Shi Shi O, so three sockets)."""
-        rows = self.runewords.get(norm(title), [])
+        rows = self.keyed_rows(title, key)
         wanted = sorted(rune_codes)
         def count(row):
             return sum(1 for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, ""))

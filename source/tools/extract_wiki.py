@@ -27,6 +27,7 @@ Output format, tab separated, UTF-8, one record per line:
 Tabs and newlines inside text are replaced so each record stays on one line.
 """
 import argparse
+import copy
 import json
 import re
 import shutil
@@ -78,7 +79,29 @@ RUNEWORD_FALLBACK_IMAGE = {
     "Sword": "items_weapon_sword_war_sword",
     "Scepter": "items_weapon_scepter_war_scepter",
     "Wand": "items_weapon_wand_blackhand_key",
+    "Gloves": "items_armor_glove_heavy_gloves",
+    "Boots": "items_armor_boot_light_plate_boots",
+    "Belt": "items_armor_belt_belt_m",
+    "Helm": "items_armor_helmet_great_helm",
+    "Any Shield": "items_armor_shield_small_shield",
+    "Weapon": "items_weapon_sword_war_sword",
 }
+# Sockets that take a jewel or a gem rather than a rune. Icons are generic; labels say what fits.
+JEWEL_CODES = {"jew": "Any Jewel", "mjw": "Any Jewel"}
+GEM_ICON = "items\\misc\\gem\\flawless_diamond"
+JEWEL_ICON = "items\\misc\\gem\\celestial_shard"
+
+
+def socket_label(code):
+    """"Any Jewel" or "Any Gem" for a socket code that is not a rune, else None."""
+    if code in JEWEL_CODES:
+        return JEWEL_CODES[code]
+    if re.fullmatch(r"g[a-z]{2}", code or ""):
+        return "Any Gem"
+    return None
+
+
+SHIELD_RUNEWORD_IMAGE = "items_armor_shield_small_shield"
 ARMOR_BASE = re.compile(r"Armor|Helm|Shield|Charm|Boots|Gloves|Belt")
 WEAPON_BASE = re.compile(r"Weapon|Sword|Axe|Mace|Hammer|Club|Staff|Polearm|Spear|Wand|Knife|Scepter|Orb|Blade|Bow|Crossbow|Javelin|Hand to Hand|Blunt|Katana|Shuriken|Claw")
 
@@ -620,8 +643,59 @@ class Builder:
             return self.excel.set_fields(block["title"])
         if kind == "runeword":
             codes = [code for _, _, code in block["runes"]]
-            return self.excel.runeword_fields(block["title"], codes)
+            return self.excel.runeword_fields(block["title"], codes, block.get("rwkey"))
         return None
+
+    def add_socket_cells(self, block, spec):
+        """Lists a runeword's sockets in order. Rune sockets keep their card icon; jewel and gem sockets
+        get a generic icon with the label "Any Jewel" or "Any Gem"."""
+        if spec.get("excel") != "runeword" or self.excel is None:
+            return
+        codes = [code for _, _, code in block["runes"]]
+        cells = self.excel.runeword_cells(block["title"], codes, block.get("rwkey"))
+        if not any(socket_label(cell) for cell in cells):
+            return
+        queues = {}
+        for image, label, code in block["runes"]:
+            queues.setdefault(code, []).append((image, label, code))
+        ordered = []
+        for cell in cells:
+            label = socket_label(cell)
+            if label:
+                icon = JEWEL_ICON if label == "Any Jewel" else GEM_ICON
+                ordered.append((self.note_image(icon), label, cell))
+            elif queues.get(cell):
+                ordered.append(queues[cell].pop(0))
+        block["runes"] = ordered
+
+    def split_shield_runeword(self, block, spec, by_group, group):
+        """A runeword whose row lists a shield and a weapon (Spirit: Sword and Any Shield) gets one
+        card under each: the weapon card with its weapon picture, and a shield card with a shield."""
+        if spec.get("excel") != "runeword" or self.excel is None:
+            return
+        codes = [code for _, _, code in block["runes"]]
+        types = self.excel.runeword_row_types(block["title"], codes, block.get("rwkey"))
+        armor_like = ARMOR_BASE
+        weapons = [name for name in types if name != "Any Shield" and not armor_like.search(name)]
+        if "Any Shield" not in types or not weapons:
+            return
+        weapon_label = ", ".join(weapons)
+
+        def set_type_line(target, label):
+            target["lines"] = [(kind, ("\u00ffc0" + label) if kind == "S" and text.startswith("\u00ffc0") else text)
+                               for kind, text in target["lines"]]
+            target["fields"] = [(name, label if name == "Base types" else value) for name, value in target["fields"]]
+
+        shield = copy.deepcopy(block)
+        shield["images"] = [self.note_image(SHIELD_RUNEWORD_IMAGE)]
+        set_type_line(shield, "Any Shield")
+        by_group.setdefault("Shield", []).append(shield)
+
+        block["images"] = [self.note_image(RUNEWORD_FALLBACK_IMAGE[weapons[0]])] if weapons[0] in RUNEWORD_FALLBACK_IMAGE else block["images"]
+        set_type_line(block, weapon_label)
+        if group != "Weapon":
+            by_group[group].remove(block)
+            by_group.setdefault("Weapon", []).append(block)
 
     def group_hireling_sets(self, blocks):
         """Hireling sets come in Normal, Nightmare and Hell versions with the same name. Each set
@@ -691,6 +765,9 @@ class Builder:
                 if node.get("type") != "Widget" or not pattern.search(node.get("name", "")):
                     continue
                 group, block = self.read_card(node)
+                rw = re.search(r"EsrWikiRuneword_(Runeword\d+)", json.dumps(node))
+                if rw:
+                    block["rwkey"] = rw.group(1)
                 if spec["id"] == "gemwords" and group == "Named":
                     block["images"] = [self.note_image(MISSING_GEM_ART[key]) if key in MISSING_GEM_ART
                                        else key for key in block["images"]]
@@ -730,9 +807,11 @@ class Builder:
                 if spec.get("excel") == "runeword":
                     count = len(block["runes"])
                     if self.excel is not None:
-                        count = self.excel.runeword_socket_count(block["title"], [c for _, _, c in block["runes"]]) or count
+                        count = self.excel.runeword_socket_count(block["title"], [c for _, _, c in block["runes"]], block.get("rwkey")) or count
                     block["fields"].insert(0, ("Sockets", str(count)))
                     block["section"] = "%d Socket%s" % (count, "" if count == 1 else "s")
+                    self.split_shield_runeword(block, spec, by_group, group)
+                    self.add_socket_cells(block, spec)
                 if spec.get("excel") == "set":
                     for label, value in block["fields"]:
                         if label == "Set":

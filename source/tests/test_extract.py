@@ -77,7 +77,7 @@ class ExtractionTests(unittest.TestCase):
     def test_category_and_block_counts(self):
         expected = {
             "runes": (4, 95),
-            "runewords": (8, 407),
+            "runewords": (8, 408),
             "set-items": (10, 342),
             "uniques": (13, 1104),
             "gemwords": (4, 157),
