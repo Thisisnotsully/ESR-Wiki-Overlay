@@ -1917,7 +1917,7 @@ LINE	S	ÿc3All Resistances +60
 LINE	S	ÿc3+50% to Fire Skill Damage
 LINE	S	ÿc3+50% to Lightning Skill Damage
 LINE	S	ÿc5Required Level: 23
-LINE	S	ÿc0Polearm, Spear, Blunt
+LINE	S	ÿc0Armor
 BLOCK	1	King's Grace		3 Sockets			25
 FIELD	Sockets	3
 FIELD	Base types	Sword, Scepter
@@ -2006,7 +2006,7 @@ LINE	S	ÿc3Increase Maximum Mana 20%
 LINE	S	ÿc3+20% Faster Cast Rate
 LINE	S	ÿc3+100 to Mana
 LINE	S	ÿc5Required Level: 30
-LINE	S	ÿc0Sorceress Mana Blade, Orb, Charm
+LINE	S	ÿc0Staff
 BLOCK	1	Honor		3 Sockets			32
 FIELD	Sockets	3
 FIELD	Base types	Melee Weapon
@@ -2037,7 +2037,7 @@ LINE	S	ÿc3+4 to Druid Skill Levels
 LINE	S	ÿc3Level 20 Holy Freeze Aura When Equipped
 LINE	S	ÿc3Increase Maximum Life 35%
 LINE	S	ÿc5Required Level: 32
-LINE	S	ÿc0Wand, Knife
+LINE	S	ÿc0Armor
 BLOCK	1	Painful		3 Sockets			35
 FIELD	Sockets	3
 FIELD	Base types	Melee Weapon
@@ -2090,7 +2090,7 @@ LINE	S	ÿc3-40% to Enemy Fire Resistance
 LINE	S	ÿc3+350% Enhanced Defense
 LINE	S	ÿc3Replenish Life +1000
 LINE	S	ÿc5Required Level: 35
-LINE	S	ÿc0Hand to Hand
+LINE	S	ÿc0Armor
 BLOCK	1	Dragon		3 Sockets			35
 FIELD	Sockets	3
 FIELD	Base types	Armor, Any Shield
@@ -2108,7 +2108,7 @@ LINE	S	ÿc3-30% to Enemy Fire Resistance
 LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3Replenish Life +800
 LINE	S	ÿc5Required Level: 35
-LINE	S	ÿc0Hand to Hand
+LINE	S	ÿc0Any Shield
 BLOCK	1	Opposing Destiny		3 Sockets			36
 FIELD	Sockets	3
 FIELD	Base types	Mace, Hammer, Club, Sword
@@ -2156,7 +2156,7 @@ LINE	S	ÿc7Fal Rune + Ohm Rune + Um Rune
 LINE	S	ÿc3+50% Increased Attack Speed
 LINE	S	ÿc3+4 to Assassin Skill Levels
 LINE	S	ÿc5Required Level: 36
-LINE	S	ÿc0Weapon
+LINE	S	ÿc0Hand to Hand
 BLOCK	1	Myth		3 Sockets			38
 FIELD	Sockets	3
 FIELD	Base types	Crossbow
@@ -2189,7 +2189,7 @@ LINE	S	ÿc3Damage Reduced by 15%
 LINE	S	ÿc3Adds 30-40 Damage
 LINE	S	ÿc35% Chance to Cast Level 40 Taunt when struck
 LINE	S	ÿc5Required Level: 38
-LINE	S	ÿc0Crossbow
+LINE	S	ÿc0Armor
 BLOCK	1	Abolish		3 Sockets			39
 FIELD	Sockets	3
 FIELD	Base types	Mace, Hammer, Club
@@ -2238,7 +2238,7 @@ LINE	S	ÿc350% Chance of Crushing Blow
 LINE	S	ÿc3Adds 20-30 Damage
 LINE	S	ÿc3Damage Reduced by 20%
 LINE	S	ÿc5Required Level: 39
-LINE	S	ÿc0Spear, Polearm
+LINE	S	ÿc0Armor
 BLOCK	1	Jurai		3 Sockets			40
 FIELD	Sockets	3
 FIELD	Base types	Spear, Polearm
@@ -2305,7 +2305,7 @@ LINE	S	ÿc3+150 to Maximum Damage
 LINE	S	ÿc33% Chance to Cast Level 45 Iron Maiden on striking
 LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc5Required Level: 44
-LINE	S	ÿc0Sword, Knife, Axe, Hand to Hand
+LINE	S	ÿc0Missile Weapon
 BLOCK	1	Sheep		3 Sockets			46
 FIELD	Sockets	3
 FIELD	Base types	Weapon
@@ -2391,7 +2391,7 @@ LINE	S	ÿc3+100% Enhanced Damage
 LINE	S	ÿc350% Chance to Cast Level 1 Stun when you Kill an Enemy
 LINE	S	ÿc333% Chance of Crushing Blow
 LINE	S	ÿc5Required Level: 47
-LINE	S	ÿc0Mace, Hammer, Club
+LINE	S	ÿc0Hand to Hand
 BLOCK	1	Prayer		3 Sockets			48
 FIELD	Sockets	3
 FIELD	Base types	Weapon
@@ -2577,7 +2577,7 @@ LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3+200 to Mana
 LINE	S	ÿc3+50% Faster Cast Rate
 LINE	S	ÿc5Required Level: 55
-LINE	S	ÿc0Wand, Knife
+LINE	S	ÿc0Armor
 BLOCK	1	Burn		3 Sockets			57
 FIELD	Sockets	3
 FIELD	Base types	Melee Weapon
@@ -2665,7 +2665,7 @@ LINE	S	ÿc320% Chance to Cast Level 30 Fire Brand on striking
 LINE	S	ÿc320% Chance to Cast Level 30 Fire Enhanced Arrow on striking
 LINE	S	ÿc3+500% Enhanced Damage
 LINE	S	ÿc5Required Level: 12
-LINE	S	ÿc0Mace, Hammer, Club
+LINE	S	ÿc0Missile Weapon
 BLOCK	1	Hercules		4 Sockets			12
 FIELD	Sockets	4
 FIELD	Base types	Melee Weapon
@@ -2831,7 +2831,7 @@ LINE	S	ÿc3+75 to Maximum Damage
 LINE	S	ÿc3+16 to Maximum Damage (Based on Character Level)
 LINE	S	ÿc31% Chance to Cast Level 10 Time Lapse on striking
 LINE	S	ÿc5Required Level: 27
-LINE	S	ÿc0Weapon
+LINE	S	ÿc0Armor
 BLOCK	1	Trust		4 Sockets			28
 FIELD	Sockets	4
 FIELD	Base types	Weapon, Armor
@@ -2867,7 +2867,7 @@ LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+50 to Vitality
 LINE	S	ÿc3+100 to Mana
 LINE	S	ÿc5Required Level: 28
-LINE	S	ÿc0Weapon
+LINE	S	ÿc0Armor
 BLOCK	1	Memory		4 Sockets			30
 FIELD	Sockets	4
 FIELD	Base types	Staff
@@ -2885,7 +2885,7 @@ LINE	S	ÿc3Increase Maximum Mana 50%
 LINE	S	ÿc3+100 to Energy
 LINE	S	ÿc3100% Chance to Cast Level 5 Time Lapse on cast
 LINE	S	ÿc5Required Level: 30
-LINE	S	ÿc0Sorceress Mana Blade, Orb, Charm
+LINE	S	ÿc0Staff
 BLOCK	1	Ice		4 Sockets			30
 FIELD	Sockets	4
 FIELD	Base types	Missile Weapon
@@ -2902,7 +2902,7 @@ LINE	S	ÿc3+5 to All Skills
 LINE	S	ÿc3+10 to Cold Mastery
 LINE	S	ÿc3-60% to Enemy Cold Resistance
 LINE	S	ÿc5Required Level: 30
-LINE	S	ÿc0Weapon
+LINE	S	ÿc0Missile Weapon
 BLOCK	1	Radioactive		4 Sockets			31
 FIELD	Sockets	4
 FIELD	Base types	Weapon
@@ -3354,7 +3354,7 @@ LINE	S	ÿc31% Chance to Cast Level 60 Inner Sight on striking
 LINE	S	ÿc325% Chance to Cast Level 40 Arrow Hit Skill on striking
 LINE	S	ÿc3+400% Enhanced Damage
 LINE	S	ÿc5Required Level: 50
-LINE	S	ÿc0Staff
+LINE	S	ÿc0Missile Weapon
 BLOCK	1	Feminine		4 Sockets			50
 FIELD	Sockets	4
 FIELD	Base types	Staff, Missile Weapon, Assassin 2H Katana, Spear
@@ -3372,7 +3372,7 @@ LINE	S	ÿc31% Chance to Cast Level 60 Amplify Damage on striking
 LINE	S	ÿc340% Chance to Cast Level 40 Axe Proc on striking
 LINE	S	ÿc3+400% Enhanced Damage
 LINE	S	ÿc5Required Level: 50
-LINE	S	ÿc0Staff
+LINE	S	ÿc0Assassin 2H Katana, Spear
 BLOCK	1	Fury		4 Sockets			52
 FIELD	Sockets	4
 FIELD	Base types	Melee Weapon
@@ -3602,7 +3602,7 @@ LINE	S	ÿc3+20 to Valkyrie Mastery
 LINE	S	ÿc3+30 to all Attributes
 LINE	S	ÿc3+10 to Strafe
 LINE	S	ÿc5Required Level: 43
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Missile Weapon
 BLOCK	1	Faith		4 Sockets			27
 FIELD	Sockets	4
 FIELD	Base types	Missile Weapon
@@ -3635,7 +3635,7 @@ LINE	S	ÿc3Slain Monsters Rest in Peace
 LINE	S	ÿc3+10 Life after each Kill
 LINE	S	ÿc3+80% Enhanced Damage
 LINE	S	ÿc5Required Level: 4
-LINE	S	ÿc0Weapon, Missile
+LINE	S	ÿc0Sword, Axe
 BLOCK	1	Honor		5 Sockets			32
 FIELD	Sockets	5
 FIELD	Base types	Melee Weapon
@@ -3787,7 +3787,7 @@ LINE	S	ÿc3+4 to All Skills
 LINE	S	ÿc350% Chance to Cast Level 60 Elemental Nova on attack
 LINE	S	ÿc3-200% Target Defense
 LINE	S	ÿc5Required Level: 39
-LINE	S	ÿc0Mace, Hammer, Club
+LINE	S	ÿc0Polearm, Sword
 BLOCK	1	Vengeance		5 Sockets			44
 FIELD	Sockets	5
 FIELD	Base types	Weapon
@@ -3960,7 +3960,7 @@ LINE	S	ÿc3+400% Enhanced Damage
 LINE	S	ÿc3+20 to Battle Orders
 LINE	S	ÿc3+10 to Summon Holy Defender
 LINE	S	ÿc5Required Level: 56
-LINE	S	ÿc0Weapon
+LINE	S	ÿc0Polearm
 BLOCK	1	Call to Arms		5 Sockets			57
 FIELD	Sockets	5
 FIELD	Base types	Weapon
@@ -4093,7 +4093,7 @@ LINE	S	ÿc333% Chance to Cast Level 50 Whirlpool Proc when struck
 LINE	S	ÿc333% Chance to Cast Level 50 Sandstorm when struck
 LINE	S	ÿc3Replenish Life +1000
 LINE	S	ÿc5Required Level: 47
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Missile Weapon
 BLOCK	1	Sincerity		6 Sockets			38
 FIELD	Sockets	6
 FIELD	Base types	Weapon
@@ -4611,7 +4611,7 @@ LINE	S	ÿc3+150% Enhanced Defense
 LINE	S	ÿc33% Chance to Cast Level 45 Psychic Hammer on striking
 LINE	S	ÿc33% Chance to Cast Level 40 Cloak of Shadows on striking
 LINE	S	ÿc5Required Level: 28
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Charm
 BLOCK	1	Dream		3 Sockets			32
 FIELD	Sockets	3
 FIELD	Base types	Helm, Any Shield
@@ -4643,7 +4643,7 @@ LINE	S	ÿc3+200 to Mana
 LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3Regenerate Mana 200%
 LINE	S	ÿc5Required Level: 32
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Any Shield
 BLOCK	1	Ground		3 Sockets			35
 FIELD	Sockets	3
 FIELD	Base types	Helm
@@ -4825,7 +4825,7 @@ LINE	S	ÿc3+4 to Sorceress Skill Levels
 LINE	S	ÿc3+50% Faster Cast Rate
 LINE	S	ÿc3Regenerate Mana 150%
 LINE	S	ÿc5Required Level: 47
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Armor
 BLOCK	1	Spirit		3 Sockets			51
 FIELD	Sockets	3
 FIELD	Base types	Helm, Charm
@@ -4876,7 +4876,7 @@ LINE	S	ÿc3+150 to Life
 LINE	S	ÿc3+10 to Battle Orders
 LINE	S	ÿc3All Resistances +50
 LINE	S	ÿc5Required Level: 51
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Charm
 BLOCK	1	Thought		3 Sockets			52
 FIELD	Sockets	3
 FIELD	Base types	Helm
@@ -4943,7 +4943,7 @@ LINE	S	ÿc3+200 Defense
 LINE	S	ÿc315% Chance to Cast Level 1 Time Lapse when struck
 LINE	S	ÿc3+10 to Battle Command
 LINE	S	ÿc5Required Level: 57
-LINE	S	ÿc0Helm, Any Shield
+LINE	S	ÿc0Charm
 BLOCK	1	Peace		3 Sockets			59
 FIELD	Sockets	3
 FIELD	Base types	Helm
@@ -4992,7 +4992,7 @@ LINE	S	ÿc3Replenish Life +1000
 LINE	S	ÿc3Regenerate Mana 300%
 LINE	S	ÿc3+20% Bonus to all Attributes
 LINE	S	ÿc5Required Level: 59
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Armor
 BLOCK	1	Metamorphosis		3 Sockets			67
 FIELD	Sockets	3
 FIELD	Base types	Helm
@@ -5056,7 +5056,7 @@ LINE	S	ÿc3Level 8 Defiance Aura When Equipped
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+6 to Feral Mastery (Class only)
 LINE	S	ÿc5Required Level: 40
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Armor
 BLOCK	1	Learned One		4 Sockets			43
 FIELD	Sockets	4
 FIELD	Base types	Helm
@@ -5128,7 +5128,7 @@ LINE	S	ÿc3+60% Faster Hit Recovery
 LINE	S	ÿc3+75 to Energy
 LINE	S	ÿc3+75 to Strength
 LINE	S	ÿc5Required Level: 51
-LINE	S	ÿc0Helm
+LINE	S	ÿc0Sword, Any Shield
 BLOCK	1	Placidity		4 Sockets			59
 FIELD	Sockets	4
 FIELD	Base types	Pelt
@@ -5607,7 +5607,7 @@ LINE	S	ÿc3-15% to Enemy Fire Resistance
 LINE	S	ÿc3-15% to Enemy Cold Resistance
 LINE	S	ÿc3-15% to Enemy Lightning Resistance
 LINE	S	ÿc5Required Level: 31
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Charm
 BLOCK	1	Praise		3 Sockets			34
 FIELD	Sockets	3
 FIELD	Base types	Armor
@@ -5707,7 +5707,7 @@ LINE	S	ÿc3100% Bonus to Attack Rating
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+50% Faster Hit Recovery
 LINE	S	ÿc5Required Level: 38
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Charm
 BLOCK	1	Lionheart		3 Sockets			40
 FIELD	Sockets	3
 FIELD	Base types	Armor
@@ -5793,7 +5793,7 @@ LINE	S	ÿc3+30% Faster Run/Walk
 LINE	S	ÿc3+30% Faster Cast Rate
 LINE	S	ÿc3Damage Reduced by 20%
 LINE	S	ÿc5Required Level: 43
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Charm
 BLOCK	1	Abundant		3 Sockets			44
 FIELD	Sockets	3
 FIELD	Base types	Armor
@@ -5864,7 +5864,7 @@ LINE	S	ÿc3All Resistances +35
 LINE	S	ÿc3+150 Defense
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc5Required Level: 46
-LINE	S	ÿc0Armor, Any Shield
+LINE	S	ÿc0Charm
 BLOCK	1	Principle		3 Sockets			53
 FIELD	Sockets	3
 FIELD	Base types	Armor
@@ -5964,7 +5964,7 @@ LINE	S	ÿc3Damage Reduced by 30%
 LINE	S	ÿc3+500% Enhanced Defense
 LINE	S	ÿc3+200 to Life
 LINE	S	ÿc5Required Level: 4
-LINE	S	ÿc0Any Armor
+LINE	S	ÿc0Armor
 BLOCK	1	Insanity		4 Sockets			10
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -5996,7 +5996,7 @@ LINE	S	ÿc3Adds 2000-2500 Fire Damage
 LINE	S	ÿc3Adds 1-4500 Lightning Damage
 LINE	S	ÿc3Level 50 Weaken Aura Aura When Equipped
 LINE	S	ÿc5Required Level: 10
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Axe, Hammer
 BLOCK	1	Victory		4 Sockets			12
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -6052,7 +6052,7 @@ LINE	S	ÿc3Adds 500-750 Magic Damage
 LINE	S	ÿc3+50% Increased Attack Speed
 LINE	S	ÿc3Damage Reduced by 50
 LINE	S	ÿc5Required Level: 20
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Sword, Axe, Mace
 BLOCK	1	Eternity		4 Sockets			26
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -6144,7 +6144,7 @@ LINE	S	ÿc3+400% Enhanced Defense
 LINE	S	ÿc3Damage Reduced by 40
 LINE	S	ÿc3Magic Damage Reduced by 40
 LINE	S	ÿc5Required Level: 31
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Polearm
 BLOCK	1	Illustrious		4 Sockets			38
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -6200,7 +6200,7 @@ LINE	S	ÿc3Attacker Takes Damage of 160 (Based on Character Level)
 LINE	S	ÿc3All Resistances +30
 LINE	S	ÿc3Attacker Takes Damage of 500
 LINE	S	ÿc5Required Level: 40
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Polearm
 BLOCK	1	Stomach Ache		4 Sockets			44
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -6238,7 +6238,7 @@ LINE	S	ÿc3Damage Reduced by 10%
 LINE	S	ÿc3+2 to Fire Skills
 LINE	S	ÿc3Replenish Life +800
 LINE	S	ÿc5Required Level: 44
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Weapon
 BLOCK	1	Phoenix		4 Sockets			44
 FIELD	Sockets	4
 FIELD	Base types	Weapon, Any Shield
@@ -6256,7 +6256,7 @@ LINE	S	ÿc3+400% Enhanced Defense
 LINE	S	ÿc3+7 Fire Absorb
 LINE	S	ÿc3+300 to Life
 LINE	S	ÿc5Required Level: 44
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Any Shield
 BLOCK	1	Question		4 Sockets			47
 FIELD	Sockets	4
 FIELD	Base types	Armor, Helm
@@ -6294,7 +6294,7 @@ LINE	S	ÿc3Adds 1-1000 Lightning Damage
 LINE	S	ÿc35% Chance to Cast Level 35 Poison Surge when you Kill an Enemy
 LINE	S	ÿc3Magic Resist +15%
 LINE	S	ÿc5Required Level: 47
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Helm
 BLOCK	1	Able		4 Sockets			48
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -6403,7 +6403,7 @@ LINE	S	ÿc3+400% Enhanced Damage
 LINE	S	ÿc3+25 to Critical Strike
 LINE	S	ÿc3+50 to all Attributes
 LINE	S	ÿc5Required Level: 60
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Polearm, Staff, Missile Weapon
 BLOCK	1	Bramble		4 Sockets			61
 FIELD	Sockets	4
 FIELD	Base types	Armor
@@ -6452,7 +6452,7 @@ LINE	S	ÿc3+4 to All Skills
 LINE	S	ÿc3+50% Faster Cast Rate
 LINE	S	ÿc3+1 to Glacial Focus
 LINE	S	ÿc5Required Level: 26
-LINE	S	ÿc0Armor
+LINE	S	ÿc0Melee Weapon
 BLOCK	1	Pride		5 Sockets			31
 FIELD	Sockets	5
 FIELD	Base types	Armor
@@ -6922,7 +6922,7 @@ LINE	S	ÿc3All Resistances +35
 LINE	S	ÿc3+150 Defense
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc5Required Level: 46
-LINE	S	ÿc0Armor, Any Shield
+LINE	S	ÿc0Charm
 BLOCK	1	Sanctuary		3 Sockets			49
 FIELD	Sockets	3
 FIELD	Base types	Any Shield
@@ -7001,7 +7001,7 @@ LINE	S	ÿc3+200 Defense
 LINE	S	ÿc315% Chance to Cast Level 1 Time Lapse when struck
 LINE	S	ÿc3+10 to Battle Command
 LINE	S	ÿc5Required Level: 57
-LINE	S	ÿc0Helm, Any Shield
+LINE	S	ÿc0Charm
 BLOCK	1	Beauty		4 Sockets			19
 FIELD	Sockets	4
 FIELD	Base types	Armor, Any Shield
@@ -7182,7 +7182,7 @@ LINE	S	ÿc33% Chance to Cast Level 45 Incinerate on striking
 LINE	S	ÿc3+50% Increased Attack Speed
 LINE	S	ÿc3-75% Target Defense
 LINE	S	ÿc5Required Level: 56
-LINE	S	ÿc0Any Shield
+LINE	S	ÿc0Polearm, Scepter
 ENTRY	Belts	9 items	sortable
 BLOCK	1	Gold		2 Sockets			10
 FIELD	Sockets	2
@@ -7969,7 +7969,7 @@ LINE	S	ÿc3Increase Maximum Mana 20%
 LINE	S	ÿc3+20% Faster Cast Rate
 LINE	S	ÿc3+100 to Mana
 LINE	S	ÿc5Required Level: 30
-LINE	S	ÿc0Sorceress Mana Blade, Orb, Charm
+LINE	S	ÿc0Staff
 BLOCK	1	Diablo		3 Sockets			48
 FIELD	Sockets	3
 FIELD	Base types	Charm
@@ -8124,7 +8124,7 @@ LINE	S	ÿc3Increase Maximum Mana 50%
 LINE	S	ÿc3+100 to Energy
 LINE	S	ÿc3100% Chance to Cast Level 5 Time Lapse on cast
 LINE	S	ÿc5Required Level: 30
-LINE	S	ÿc0Sorceress Mana Blade, Orb, Charm
+LINE	S	ÿc0Staff
 PAGE	gemwords	Gemwords	Wiki
 ENTRY	Weapons	48 items	compact
 BLOCK	1	Holy (Chipped)	Holy Chipped				0
