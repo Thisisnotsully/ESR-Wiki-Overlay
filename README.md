@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.1.0
+# ESR Wiki Overlay 1.1.1
 
 A read-only in-game wiki overlay for Eastern Sun Resurrected (ESR) on Diablo II
 Resurrected, loaded by D2RLoader. It has two windows: the ESR Wiki and Horadric Cube Recipes.

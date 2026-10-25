@@ -45,6 +45,7 @@ constexpr BYTE kBlockerAlpha = 110;  // how strongly the game is dimmed while th
 
 constexpr COLORREF kBackground = RGB(14, 14, 14);
 constexpr COLORREF kPanel = RGB(26, 26, 26);
+constexpr COLORREF kSwitchGreen = RGB(22, 62, 32);  // the Main Wiki / Cube Recipes switch button
 constexpr COLORREF kTile = RGB(22, 22, 22);
 constexpr COLORREF kSearchFill = RGB(42, 42, 42);
 constexpr COLORREF kSelected = RGB(62, 62, 62);
@@ -2254,7 +2255,7 @@ void OverlayState::Paint(HDC target) {
 
     Text(dc, title, Rect(S(16), S(14), S(300), S(42)), kGold, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     if (!switchLabel.empty()) {
-        FillPanel(dc, layout.switchButton, kPanel, 200);
+        FillPanel(dc, layout.switchButton, kSwitchGreen, 200);
         FrameColor(dc, layout.switchButton, kGold);
         Text(dc, switchLabel, layout.switchButton, kGold, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }

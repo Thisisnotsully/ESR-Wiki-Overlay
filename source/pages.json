@@ -80,6 +80,13 @@
       ]
     },
     {
+      "id": "item-bases",
+      "title": "Item Bases",
+      "group": "Wiki",
+      "mode": "baseItemCards",
+      "source": "data/base-items-raw.json"
+    },
+    {
       "id": "uniques",
       "title": "Uniques",
       "group": "Wiki",
@@ -155,14 +162,6 @@
       "cubePage": "for"
     },
     {
-      "id": "corruption",
-      "title": "Special Craft",
-      "group": "Wiki",
-      "mode": "dataTables",
-      "source": "data/special-crafting-outcomes.json",
-      "groupByItem": true
-    },
-    {
       "id": "d-stones",
       "title": "D-Stones",
       "group": "Wiki",
@@ -184,11 +183,12 @@
       "source": "data/weapon-mastery.txt"
     },
     {
-      "id": "item-bases",
-      "title": "Item Bases",
+      "id": "corruption",
+      "title": "Special Craft",
       "group": "Endgame",
-      "mode": "baseItemCards",
-      "source": "data/base-items-raw.json"
+      "mode": "dataTables",
+      "source": "data/special-crafting-outcomes.json",
+      "groupByItem": true
     },
     {
       "id": "vessel-of-souls",

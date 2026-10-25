@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.1.0 (source)
+# ESR Wiki Overlay 1.1.1 (source)
 
 Source for the ESR Wiki overlay plugin for Diablo II Resurrected (Eastern Sun Resurrected),
 loaded by D2RLoader. It contains the C++ overlay, the Python tools that generate its data,
