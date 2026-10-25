@@ -79,7 +79,7 @@ class ExtractionTests(unittest.TestCase):
             "runes": (4, 95),
             "runewords": (8, 402),
             "set-items": (10, 342),
-            "uniques": (13, 1104),
+            "uniques": (13, 1159),
             "gemwords": (4, 157),
         }
         for page, (categories, blocks) in expected.items():

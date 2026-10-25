@@ -9,6 +9,7 @@ also lists its rune codes (r01 = I Rune), which tell apart runewords that
 share a name across the LoD and ESR rune families.
 """
 import csv
+import json
 import re
 from collections import Counter, OrderedDict
 from pathlib import Path
@@ -27,7 +28,7 @@ for _group, _types in {
     "Boots": "boot",
     "Gloves": "glov",
     "Amulet": "amul",
-    "Ring": "ring",
+    "Ring": "ring srin",
     "Jewel": "jewl",
 }.items():
     for _type in _types.split():
@@ -78,7 +79,7 @@ def read_table(path):
 
 
 class Tables:
-    def __init__(self, folder):
+    def __init__(self, folder, item_names=None):
         folder = Path(folder)
         self.item_types = self._item_type_names(read_table(folder / "itemtypes.txt"))
 
@@ -87,6 +88,18 @@ class Tables:
             key = norm(row.get("index", ""))
             if key and key not in self.uniques:
                 self.uniques[key] = row
+
+        # Display names (what the wiki and the in-game tooltip show) differ from the
+        # internal index names in uniqueitems.txt ("Biggin's Bonnet" is "War Bonnet").
+        # item-names.json maps internal Key -> display enUS; use it as an alias.
+        self.unique_alias = {}
+        if item_names and Path(item_names).exists():
+            for entry in json.loads(Path(item_names).read_text(encoding="utf-8")):
+                row = self.uniques.get(norm(entry.get("Key", "")))
+                display = norm(entry.get("enUS", ""))
+                if row is None or not display or display in self.uniques:
+                    continue
+                self.unique_alias.setdefault(display, row)
 
         # Uniques that a Horadric Cube recipe makes from a Coupon item (cubemain.txt).
         self.coupon_uniques = set()
@@ -165,29 +178,30 @@ class Tables:
 
     def coupon_only(self, title):
         """True when a Horadric Cube recipe makes this unique from a Coupon item."""
-        return norm(title) in self.coupon_uniques
+        row = self.unique_row(title)
+        return row is not None and norm(row.get("index", "")) in self.coupon_uniques
 
     def unique_fields(self, title):
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         if row is None:
             return None
         return [("Base", row.get("*ItemName", "")), ("Required Level", row.get("lvl req", ""))]
 
     def code(self, title):
         """Base item code of a unique, or ""."""
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         return row.get("code", "").strip() if row is not None else ""
 
     def tier(self, title):
         """Normal, Exceptional or Elite, from the base item the unique is made on."""
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         if row is None:
             return ""
         return self.code_tiers.get(row.get("code", "").strip(), "")
 
     def level(self, title):
         """Required level of a unique, for sorting (0 when unknown)."""
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         if row is None:
             return 0
         try:
@@ -211,21 +225,31 @@ class Tables:
 
     def base_name(self, title):
         """Name of the base item a unique is made from (for example "Ring"), or ""."""
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         if row is None:
             return ""
         return self.base_names.get(row.get("code", "").strip(), "")
 
+    def unique_row(self, title):
+        """uniqueitems.txt row for a unique, matched by index name or display name."""
+        key = norm(title)
+        return self.uniques.get(key) or self.unique_alias.get(key)
+
+    def unique_index_name(self, title):
+        """Internal index name of a unique (for example "War Bonnet"), or ""."""
+        row = self.unique_row(title)
+        return row.get("index", "").strip() if row else ""
+
     def base_type(self, title):
         """Base type code of a unique's base item (for example "axe"), or ""."""
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         if row is None:
             return ""
         return self.base_types.get(row.get("code", "").strip(), "")
 
     def unique_group(self, title):
         """Display group for a unique, from its base item: Weapon, Helm, ... or Other."""
-        row = self.uniques.get(norm(title))
+        row = self.unique_row(title)
         if row is None:
             return "Other"
         code = row.get("code", "").strip()

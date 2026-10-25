@@ -1003,6 +1003,13 @@ class Builder:
         art = self.sprite_index.get(stem.lower())
         if art:
             return art
+        # Display names differ from the internal names uniques.json and the art use.
+        index_name = self.excel.unique_index_name(title) if self.excel else ""
+        if index_name and unique_key(index_name) != key:
+            stem = self.unique_paths.get(unique_key(index_name)) or unique_key(index_name)
+            art = self.sprite_index.get(stem.lower())
+            if art:
+                return art
         # No artwork of its own: use the base item's inventory icon (Ring, Amulet, ...).
         base = self.excel.base_name(title)
         if not base:
@@ -1027,6 +1034,7 @@ class Builder:
     def add_mythicals(self, by_group, spec):
         """Mythical uniques from data/mythical-uniques.txt: one card each, stats and notes beside it."""
         path = OVERLAY_DIR / spec["mythicals"]
+        tooltips = self.mythical_tooltips()
         for raw in path.read_text(encoding="utf-8").splitlines():
             if not raw.strip() or raw.startswith("#"):
                 continue
@@ -1040,8 +1048,13 @@ class Builder:
             block["small"] = base in SMALL_ART_BASES
             # Tooltip: the website's property lines, in the same wording as the ESR site.
             block["fields"].append(("Required Level", required))
-            for text in filter(None, (part.strip() for part in stats.split("~"))):
-                block["lines"].append(("S", "\u00ffc3" + text))
+            if name in tooltips:
+                # Website wording: orange description lines, then blue stats (data/mythical-tooltips.txt).
+                for colour, text in tooltips[name]:
+                    block["lines"].append(("S", ("\u00ffc8" if colour == "D" else "\u00ffc3") + text))
+            else:
+                for text in filter(None, (part.strip() for part in stats.split("~"))):
+                    block["lines"].append(("S", "\u00ffc3" + text))
             block["note"] = note
             art_key = self.mythical_art_key(title)
             if art_key:
@@ -1051,6 +1064,18 @@ class Builder:
                 if art:
                     self.add_unique(block["images"], self.note_image(art))
             by_group.setdefault(spec["mythicalGroup"], []).append(block)
+
+    def mythical_tooltips(self):
+        """name -> [(colour, text)] with colour "D" (orange description) or "S" (blue stat)."""
+        tooltips = {}
+        path = OVERLAY_DIR / "data" / "mythical-tooltips.txt"
+        if not path.exists():
+            return tooltips
+        for raw in path.read_text(encoding="utf-8").splitlines():
+            parts = raw.split("\t")
+            if len(parts) == 3:
+                tooltips.setdefault(parts[0], []).append((parts[1], parts[2]))
+        return tooltips
 
     def mythical_art_key(self, title):
         """The mythical's own art from the website (data/mythical-art/<name>.png), or None."""
@@ -1600,7 +1625,11 @@ def main():
 
     excel = None
     if args.excel:
-        excel = excel_items.Tables(args.excel)
+        item_names = None
+        if args.uniques_json:
+            # <mod>/data/hd/items/uniques.json -> <mod>/data/local/lng/strings/item-names.json
+            item_names = Path(args.uniques_json).parents[2] / "local" / "lng" / "strings" / "item-names.json"
+        excel = excel_items.Tables(args.excel, item_names)
     else:
         print("note: no --excel folder given; item fields (base, level, bases) are skipped")
 

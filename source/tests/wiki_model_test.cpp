@@ -188,7 +188,7 @@ void TestGeneratedData(const std::string& path) {
     struct Expect { const char* id; std::size_t entries; std::size_t blocks; };
     const Expect expected[] = {
         {"runes", 4, 95},      {"runewords", 8, 402}, {"set-items", 10, 342},
-        {"uniques", 13, 1104}, {"gemwords", 4, 157},
+        {"uniques", 13, 1159}, {"gemwords", 4, 157},
     };
     for (const Expect& e : expected) {
         const esrwiki::Page* page = find(e.id);
