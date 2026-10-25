@@ -593,7 +593,9 @@ class Builder:
             if child.get("type") == "ImageWidget" and is_content_image(cfields.get("filename")):
                 self.add_unique(block["images"], self.note_image(cfields["filename"]))
             tkey = tooltip_key(child)
-            if tkey and tkey not in seen_keys:
+            # A runeword repeats a rune in its card (Conquest is Shi Shi O), so rune icons are not
+            # de-duplicated. Other tooltips still are.
+            if tkey and (tkey not in seen_keys or tkey.startswith(RUNE_PREFIX)):
                 seen_keys.add(tkey)
                 if tkey.startswith(RUNE_PREFIX):
                     label = self.string_lines(tkey)

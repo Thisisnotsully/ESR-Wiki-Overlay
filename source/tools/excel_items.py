@@ -306,4 +306,10 @@ class Tables:
         for row in rows:
             if sorted(row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, "")) == wanted:
                 return count(row)
-        return max((count(r) for r in rows), default=0)
+        if not rows:
+            return 0
+        # No exact match: the recipe sharing the most runes with the card.
+        def shared(row):
+            return len(set(wanted) & {row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1)})
+        best = max(rows, key=shared)
+        return count(best)
