@@ -66,6 +66,33 @@ def strip_color(text):
 # item sprites (items/<category>/<stem>.sprite).
 ALTERNATE_LABEL = {"Mis": "Missile", "2H": "Two-Handed"}
 
+# A runeword card whose art is from the other family (a shield on a missile runeword, chain mail on
+# a polearm) gets one of these pictures instead. Keys are the first base type from runes.txt.
+RUNEWORD_FALLBACK_IMAGE = {
+    "Armor": "items_armor_armor_goldskin",
+    "Missile Weapon": "items_weapon_bow_long_battle_bow",
+    "Polearm": "items_weapon_polearm_athenas_wrath",
+    "Staff": "items_weapon_staff_long_staff",
+    "Melee Weapon": "items_weapon_sword_war_sword",
+    "Axe": "items_weapon_axe_the_gnasher",
+    "Sword": "items_weapon_sword_war_sword",
+    "Scepter": "items_weapon_scepter_war_scepter",
+    "Wand": "items_weapon_wand_blackhand_key",
+}
+ARMOR_BASE = re.compile(r"Armor|Helm|Shield|Charm|Boots|Gloves|Belt")
+WEAPON_BASE = re.compile(r"Weapon|Sword|Axe|Mace|Hammer|Club|Staff|Polearm|Spear|Wand|Knife|Scepter|Orb|Blade|Bow|Crossbow|Javelin|Hand to Hand|Blunt|Katana|Shuriken|Claw")
+
+
+def base_family(first):
+    """"armor" or "weapon" for a base type, or None when it cannot be told."""
+    if first in RUNEWORD_FALLBACK_IMAGE:
+        return "armor" if RUNEWORD_FALLBACK_IMAGE[first].startswith("items_armor") else "weapon"
+    if ARMOR_BASE.search(first):
+        return "armor"
+    if WEAPON_BASE.search(first):
+        return "weapon"
+    return None
+
 TYPE_ICON_STEM = {
     "abow": "long_bow", "bow": "short_bow", "xbow": "crossbow",
     "ajav": "javelin", "jave": "javelin", "bjav": "spear", "aspe": "spear", "spea": "spear",
@@ -681,9 +708,28 @@ class Builder:
                         self.unmatched.append((spec["id"], block["title"]))
                     else:
                         block["fields"].extend(matched)
+                        # A runeword's section follows its base type in runes.txt. The layout can
+                        # place a missile runeword in a shield slot, so move it to the Weapon group.
+                        base_types = [value for label, value in matched if label == "Base types"]
+                        if spec.get("excel") == "runeword" and base_types == ["Missile Weapon"] and group != "Weapon":
+                            by_group[group].remove(block)
+                            group = "Weapon"
+                            by_group.setdefault(group, []).append(block)
+                        for label, value in matched:
+                            if label != "Base types" or not value:
+                                continue
+                            first = value.split(",")[0].strip()
+                            family = base_family(first)
+                            shown = block["images"][0] if block["images"] else ""
+                            shown_family = "armor" if shown.startswith("items_armor") else "weapon" if shown.startswith("items_weapon") else None
+                            if family and shown_family and family != shown_family and first in RUNEWORD_FALLBACK_IMAGE:
+                                block["images"] = [self.note_image(RUNEWORD_FALLBACK_IMAGE[first])]
+                            break
                 if spec.get("excel") == "runeword":
-                    block["fields"].insert(0, ("Sockets", str(len(block["runes"]))))
                     count = len(block["runes"])
+                    if self.excel is not None:
+                        count = self.excel.runeword_socket_count(block["title"], [c for _, _, c in block["runes"]]) or count
+                    block["fields"].insert(0, ("Sockets", str(count)))
                     block["section"] = "%d Socket%s" % (count, "" if count == 1 else "s")
                 if spec.get("excel") == "set":
                     for label, value in block["fields"]:

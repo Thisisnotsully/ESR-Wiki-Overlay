@@ -150,13 +150,12 @@ class Tables:
     @staticmethod
     def _item_type_names(rows):
         names = {}
-        for row in rows:
-            name = row.get("ItemType", "")
-            if not name:
-                continue
-            for column in ("Code", "Equiv1", "Equiv2"):
+        # A row's own Code wins over another row's Equiv column (Bow lists "miss" as an equivalent).
+        for column in ("Code", "Equiv1", "Equiv2"):
+            for row in rows:
+                name = row.get("ItemType", "")
                 code = row.get(column, "")
-                if code and code not in names:
+                if name and code and code not in names:
                     names[code] = name
         return names
 
@@ -278,10 +277,13 @@ class Tables:
         match = [r for r in rows if [r.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if r.get("Rune%d" % i, "")] == wanted]
         if not match:
             match = [r for r in rows if sorted(r.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if r.get("Rune%d" % i, "")) == sorted(wanted)]
-        if not match:
-            # Same name, different rune family: the card's codes do not match any row,
-            # so report the base types of every row with this name.
-            match = rows
+        if not match and rows:
+            # The card's codes do not match any row exactly (a layout card can show a different
+            # rune of the same name, such as the second Ko). Use the row sharing the most runes.
+            def shared(row):
+                return len(set(wanted) & {row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1)})
+            best = max(shared(r) for r in rows)
+            match = [r for r in rows if shared(r) == best] if best else rows
         if not match:
             return None
         bases = OrderedDict()
@@ -289,5 +291,19 @@ class Tables:
             for i in range(1, RUNE_COUNT + 1):
                 code = row.get("itype%d" % i, "")
                 if code:
-                    bases[self.base_type(code)] = True
+                    # Item type names come from itemtypes.txt. base_type() is for uniques and
+                    # would return "" here.
+                    bases[self.item_types.get(code, code)] = True
         return [("Base types", ", ".join(bases))] if bases else []
+
+    def runeword_socket_count(self, title, rune_codes):
+        """Number of runes the runeword takes, from runes.txt. The card art can show fewer icons
+        when a rune repeats (Conquest uses Shi Shi O, so three sockets)."""
+        rows = self.runewords.get(norm(title), [])
+        wanted = sorted(rune_codes)
+        def count(row):
+            return sum(1 for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, ""))
+        for row in rows:
+            if sorted(row.get("Rune%d" % i, "") for i in range(1, RUNE_COUNT + 1) if row.get("Rune%d" % i, "")) == wanted:
+                return count(row)
+        return max((count(r) for r in rows), default=0)
