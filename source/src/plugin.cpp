@@ -29,7 +29,7 @@ constexpr D2RL::PluginInfo EsrOverlayPluginInfo {
     .abiVersion = D2RL_PLUGIN_ABI_VERSION,
     .id = "esr-wiki-overlay",
     .name = "ESR Wiki Overlay",
-    .version = "1.1.1",
+    .version = "1.1.2",
     .author = "Sully",
     .description = "Read-only ESR wiki reference overlay. Open it with the eswiki command, or a key bound in the controls.",
     .flags = D2RL::PluginFlags::Client,
@@ -42,6 +42,7 @@ std::unique_ptr<esrwiki::Database> database;
 std::unique_ptr<esrwiki::Overlay> overlay;
 std::unique_ptr<esrwiki::Database> cubeDatabase;   // Horadric Cube recipes (cube-wiki-data.txt)
 std::unique_ptr<esrwiki::Overlay> cubeOverlay;
+bool lastOpenedCube = false;  // which panel was opened most recently; the wiki key reopens it
 
 // Folder that holds this DLL. The wiki data sits in a folder next to it.
 std::wstring PluginDirectory() {
@@ -60,6 +61,16 @@ std::string ReadWholeFile(const std::wstring& path) {
     return content.str();
 }
 
+// Toggles the panel that was opened most recently (the main wiki unless cube recipes was last).
+void toggleLastPanel() {
+    if (lastOpenedCube && cubeOverlay != nullptr) {
+        cubeOverlay->Toggle();
+    } else if (overlay != nullptr) {
+        lastOpenedCube = false;
+        overlay->Toggle();
+    }
+}
+
 D2RL::Input::ActionResult __cdecl onOpenAction(const D2RL::PluginContext* plugin,
                                                 const D2RL::Input::ActionEvent* event,
                                                 void*) noexcept {
@@ -68,7 +79,7 @@ D2RL::Input::ActionResult __cdecl onOpenAction(const D2RL::PluginContext* plugin
         event->kind != D2RL::Input::ActionEventKind::Pressed) {
         return D2RL::Input::ActionResult::Ignored;
     }
-    overlay->Toggle();
+    toggleLastPanel();
     return D2RL::Input::ActionResult::Handled;
 }
 
@@ -96,7 +107,7 @@ bool matchesOpenKey(unsigned int virtualKey) {
 D2RL::ConsoleCommandResult toggleCommand(D2R::Game::Client*, const D2RL::ConsoleCommandContext* command, void*) noexcept {
     if (command == nullptr || command->plugin == nullptr || overlay == nullptr)
         return D2RL::ConsoleCommandResult::Failed;
-    overlay->Toggle();
+    toggleLastPanel();
     return D2RL::ConsoleCommandResult::Handled;
 }
 
@@ -258,6 +269,7 @@ SharedEvents::UiMessageAction __cdecl OnUiMessage(const PluginContext* plugin, c
     if (std::strcmp(command, "OpenPanel") == 0 && std::strcmp(text, kOpenSelectorPanel) == 0) {
         if (threads->runOnUiThread(plugin, DoCloseOpenSelector, nullptr) != Threads::Result::Success)
             plugin->LogError("ESR Wiki: failed to queue closing the selector panel.");
+        lastOpenedCube = false;
         if (overlay != nullptr) overlay->Open();
         return SharedEvents::UiMessageAction::Continue;
     }
@@ -265,6 +277,7 @@ SharedEvents::UiMessageAction __cdecl OnUiMessage(const PluginContext* plugin, c
     if (std::strcmp(command, "OpenPanel") == 0 && std::strcmp(text, kOpenCubeSelectorPanel) == 0) {
         if (threads->runOnUiThread(plugin, DoCloseCubeSelector, nullptr) != Threads::Result::Success)
             plugin->LogError("ESR Wiki: failed to queue closing the cube selector panel.");
+        lastOpenedCube = true;
         if (cubeOverlay != nullptr) cubeOverlay->Open();
         return SharedEvents::UiMessageAction::Continue;
     }
@@ -397,6 +410,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         overlay = std::make_unique<esrwiki::Overlay>();
         overlay->SetCloseKey(matchesOpenKey);
         if (!overlay->Start(*database, dataDir, L"ESR Wiki", L"main", L"Cube Recipes", [] {
+                lastOpenedCube = true;
                 if (cubeOverlay != nullptr) cubeOverlay->Open();
             })) {
             plugin->LogError("ESR Wiki overlay window could not be created");
@@ -414,8 +428,10 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             std::string cubeError;
             if (esrwiki::ParseDatabase(ReadWholeFile(dataDir + L"\\cube-wiki-data.txt"), *cubeDatabase, cubeError)) {
                 cubeOverlay = std::make_unique<esrwiki::Overlay>();
+                cubeOverlay->SetCloseKey(matchesOpenKey);
                 const bool started = cubeOverlay->Start(*cubeDatabase, dataDir, L"Horadric Cube Recipes", L"cube",
                                                         L"Main Wiki", [] {
+                                                            lastOpenedCube = false;
                                                             if (overlay != nullptr) overlay->Open();
                                                         });
                 if (!started) {

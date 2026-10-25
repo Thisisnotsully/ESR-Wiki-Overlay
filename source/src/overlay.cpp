@@ -51,6 +51,7 @@ constexpr COLORREF kSearchFill = RGB(42, 42, 42);
 constexpr COLORREF kSelected = RGB(62, 62, 62);
 constexpr COLORREF kBorder = RGB(84, 84, 84);
 constexpr COLORREF kGold = RGB(212, 212, 212);  // headers and accents: light grey
+constexpr COLORREF kHeaderGold = RGB(220, 198, 132);  // tab titles, category titles and section headings
 constexpr COLORREF kText = RGB(238, 238, 238);
 constexpr COLORREF kDim = RGB(150, 150, 150);
 constexpr COLORREF kBody = RGB(216, 216, 216);
@@ -1592,7 +1593,7 @@ void OverlayState::PaintList(HDC dc) {
         FillPanel(dc, row, selected ? kSelected : kPanel, 185);
         if (selected) FrameColor(dc, row, kGold);
         const RECT titleRect = Rect(row.left + S(10), row.top + S(5), row.right - S(10), row.bottom - S(2));
-        Text(dc, Wide(entry.title), titleRect, selected ? kGold : kText, fontBold, DT_LEFT | DT_WORDBREAK);
+        Text(dc, Wide(entry.title), titleRect, kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK);
     }
 
     const std::wstring pageText = L"Page " + std::to_wstring(view.listPage + 1) + L" of " + std::to_wstring(pages);
@@ -2123,7 +2124,7 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
         }
         const bool heading = line.kind == LineKind::Heading;
         if (heading) y += S(6);
-        const COLORREF base = heading ? kGold : kBody;
+        const COLORREF base = heading ? kHeaderGold : kBody;
         const HFONT font = heading ? fontBold : fontBody;
         std::string plain;
         COLORREF unused = base;
@@ -2164,7 +2165,7 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
     }
 
     const int titleHeight = titleLine + S(8);
-    if (draw) Text(dc, Wide(entry.title), Rect(left, y, left + width_, y + titleHeight), kGold, fontTitle,
+    if (draw) Text(dc, Wide(entry.title), Rect(left, y, left + width_, y + titleHeight), kHeaderGold, fontTitle,
                    DT_LEFT | DT_SINGLELINE);
     y += titleHeight + S(2);
     if (!entry.subtitle.empty()) {
@@ -2200,7 +2201,7 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
         if (headers && !first.section.empty()) {
             const std::wstring header = Wide(first.section);
             const int h = MeasureHeight(dc, header, width_, fontBold);
-            if (draw) Text(dc, header, Rect(left, y, left + width_, y + h), greenNames ? CodeColor('2') : kGold, fontBold, DT_LEFT | DT_WORDBREAK);
+            if (draw) Text(dc, header, Rect(left, y, left + width_, y + h), greenNames ? CodeColor('2') : kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK);
             y += h + S(2);
             if (draw) FillColor(dc, Rect(left, y, left + width_, y + 1), kBorder);
             y += S(8);
@@ -2254,7 +2255,7 @@ void OverlayState::Paint(HDC target) {
                   : goldItems ? CodeColor('4') : kGold;
     tooltipNameColor = goldItems || page.id == "class-crafting" ? itemNameColor : kGold;
 
-    Text(dc, title, Rect(S(16), S(14), S(300), S(42)), kGold, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+    Text(dc, title, Rect(S(16), S(14), S(300), S(42)), kHeaderGold, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     if (!switchLabel.empty()) {
         FillPanel(dc, layout.switchButton, kSwitchGreen, 200);
         FrameColor(dc, layout.switchButton, kGold);
@@ -2274,7 +2275,7 @@ void OverlayState::Paint(HDC target) {
         const bool matched = !query.empty() && !active && i < tabMatches.size() && tabMatches[i] > 0;
         FillPanel(dc, layout.tabs[i], active ? kSelected : (matched ? kHighlightFill : kPanel), 200);
         FrameColor(dc, layout.tabs[i], active || matched ? kGold : kBorder);
-        Text(dc, Wide(database->pages[i].title), layout.tabs[i], active ? kGold : kText, fontBody,
+        Text(dc, Wide(database->pages[i].title), layout.tabs[i], kHeaderGold, fontBody,
              DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }
 
