@@ -31,6 +31,9 @@ public:
     void Stop();
     void Toggle();  // show or hide; safe to call from any thread
     void Open();    // show without toggling; safe to call from any thread
+    // Key that closes the overlay while its own window has keyboard focus (the game's actions
+    // do not fire then). Call before Start.
+    void SetCloseKey(std::function<bool(unsigned int virtualKey)> isCloseKey);
 
 private:
     std::unique_ptr<OverlayState> impl_;

@@ -72,6 +72,27 @@ D2RL::Input::ActionResult __cdecl onOpenAction(const D2RL::PluginContext* plugin
     return D2RL::Input::ActionResult::Handled;
 }
 
+// The key bound to the open action, read from the game's controls. Game actions do not fire while
+// the overlay's search box has focus, so the overlay closes itself on the same key.
+bool matchesOpenKey(unsigned int virtualKey) {
+    if (pluginContext == nullptr || input == nullptr || openAction == D2RL::Input::InvalidHandle) return false;
+    const bool shift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
+    const bool control = (GetKeyState(VK_CONTROL) & 0x8000) != 0;
+    const bool alt = (GetKeyState(VK_MENU) & 0x8000) != 0;
+    for (auto slot : {D2RL::Input::BindingSlot::Primary, D2RL::Input::BindingSlot::Secondary}) {
+        D2RL::Input::Binding binding{};
+        if (input->getBinding(pluginContext, openAction, slot, &binding) != D2RL::Input::Result::Success) continue;
+        if (static_cast<unsigned int>(binding.key) != virtualKey) continue;
+        switch (binding.modifier) {
+            case D2RL::Input::Modifier::None: if (!shift && !control && !alt) return true; break;
+            case D2RL::Input::Modifier::Shift: if (shift && !control && !alt) return true; break;
+            case D2RL::Input::Modifier::Control: if (control && !shift && !alt) return true; break;
+            case D2RL::Input::Modifier::Alt: if (alt && !shift && !control) return true; break;
+        }
+    }
+    return false;
+}
+
 D2RL::ConsoleCommandResult toggleCommand(D2R::Game::Client*, const D2RL::ConsoleCommandContext* command, void*) noexcept {
     if (command == nullptr || command->plugin == nullptr || overlay == nullptr)
         return D2RL::ConsoleCommandResult::Failed;
@@ -374,6 +395,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         }
 
         overlay = std::make_unique<esrwiki::Overlay>();
+        overlay->SetCloseKey(matchesOpenKey);
         if (!overlay->Start(*database, dataDir, L"ESR Wiki", L"main", L"Cube Recipes", [] {
                 if (cubeOverlay != nullptr) cubeOverlay->Open();
             })) {

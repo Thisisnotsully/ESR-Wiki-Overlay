@@ -85,7 +85,11 @@ RUNEWORD_FALLBACK_IMAGE = {
     "Helm": "items_armor_helmet_great_helm",
     "Any Shield": "items_armor_shield_small_shield",
     "Weapon": "items_weapon_sword_war_sword",
+    "Charm": "items_misc_charm_odd_charm",
 }
+# Default picture for each card category when no base type of it has one.
+RUNEWORD_GROUP_DEFAULT = {"Weapon": "Weapon", "Torso": "Armor", "Helms": "Helm", "Shields": "Any Shield",
+                          "Charms": "Charm", "Belts": "Belt", "Boots": "Boots", "Gloves": "Gloves"}
 # Sockets that take a jewel or a gem rather than a rune. Icons are generic; labels say what fits.
 JEWEL_CODES = {"jew": "Any Jewel", "mjw": "Any Jewel"}
 GEM_ICON = "items\\misc\\gem\\flawless_diamond"
@@ -104,6 +108,31 @@ def socket_label(code):
 SHIELD_RUNEWORD_IMAGE = "items_armor_shield_small_shield"
 ARMOR_BASE = re.compile(r"Armor|Helm|Shield|Charm|Boots|Gloves|Belt")
 WEAPON_BASE = re.compile(r"Weapon|Sword|Axe|Mace|Hammer|Club|Staff|Polearm|Spear|Wand|Knife|Scepter|Orb|Blade|Bow|Crossbow|Javelin|Hand to Hand|Blunt|Katana|Shuriken|Claw")
+
+
+def runeword_category(name):
+    """The card category (group) a runeword base type belongs in."""
+    if name in ("Helm", "Pelt"):
+        return "Helms"
+    if name in ("Armor", "Any Armor"):
+        return "Torso"
+    if name in ("Any Shield", "Shield"):
+        return "Shields"
+    if name == "Charm":
+        return "Charms"
+    if name == "Belt":
+        return "Belts"
+    if name == "Boots":
+        return "Boots"
+    if name == "Gloves":
+        return "Gloves"
+    return "Weapon"
+
+
+def set_card_type_line(block, label):
+    block["lines"] = [(kind, ("\u00ffc0" + label) if kind == "S" and text.startswith("\u00ffc0") else text)
+                      for kind, text in block["lines"]]
+    block["fields"] = [(name, label if name == "Base types" else value) for name, value in block["fields"]]
 
 
 def base_family(first):
@@ -668,6 +697,62 @@ class Builder:
                 ordered.append(queues[cell].pop(0))
         block["runes"] = ordered
 
+    def ensure_category_cards(self, by_group):
+        """A runeword with base types in several categories gets one card in each category, with that
+        category's picture and only its own base types. Missing cards are copied from a sibling card;
+        extra cards in a category are dropped."""
+        if self.excel is None:
+            return
+        pairs_by_key = OrderedDict()
+        for group, blocks in by_group.items():
+            for block in blocks:
+                if block.get("rwkey"):
+                    pairs_by_key.setdefault(block["rwkey"], []).append((group, block))
+        for key, pairs in pairs_by_key.items():
+            row = self.excel.runewords_by_id.get(key)
+            if row is None:
+                continue
+            names = []
+            for i in range(1, 7):
+                code = row.get("itype%d" % i, "")
+                if code:
+                    name = self.excel.item_types.get(code, code)
+                    if name not in names:
+                        names.append(name)
+            wanted = []
+            for name in names:
+                if runeword_category(name) not in wanted:
+                    wanted.append(runeword_category(name))
+            if not wanted:
+                continue
+            for group, block in pairs:
+                by_group[group] = [b for b in by_group[group] if b is not block]
+            claimed = OrderedDict()
+            surplus = []
+            for group, block in pairs:
+                if group in wanted and group not in claimed:
+                    claimed[group] = block
+                else:
+                    surplus.append(block)
+            for group in wanted:
+                label = ", ".join(n for n in names if runeword_category(n) == group)
+                group_names = [n for n in names if runeword_category(n) == group]
+                if group in claimed:
+                    block = claimed[group]
+                else:
+                    block = surplus.pop(0) if surplus else copy.deepcopy(pairs[0][1])
+                    block["images"] = [self.note_image(RUNEWORD_FALLBACK_IMAGE.get(
+                        next((n for n in group_names if n in RUNEWORD_FALLBACK_IMAGE), RUNEWORD_GROUP_DEFAULT[group]),
+                        RUNEWORD_FALLBACK_IMAGE[RUNEWORD_GROUP_DEFAULT[group]]))]
+                block_image = block["images"][0] if block["images"] else ""
+                is_weapon_art = block_image.startswith("items_weapon")
+                if is_weapon_art != (group == "Weapon"):
+                    block["images"] = [self.note_image(RUNEWORD_FALLBACK_IMAGE.get(
+                        next((n for n in group_names if n in RUNEWORD_FALLBACK_IMAGE), RUNEWORD_GROUP_DEFAULT[group]),
+                        RUNEWORD_FALLBACK_IMAGE[RUNEWORD_GROUP_DEFAULT[group]]))]
+                set_card_type_line(block, label)
+                by_group.setdefault(group, []).append(block)
+
     def split_shield_runeword(self, block, spec, by_group, group):
         """A runeword whose row lists a shield and a weapon (Spirit: Sword and Any Shield) gets one
         card under each: the weapon card with its weapon picture, and a shield card with a shield."""
@@ -794,6 +879,17 @@ class Builder:
                             by_group[group].remove(block)
                             group = "Weapon"
                             by_group.setdefault(group, []).append(block)
+                        # A weapon runeword the layout placed in an armor slot (Torso, Helms...) belongs
+                        # in the Weapon group. Skip it when that group already has the same runeword.
+                        base_value = base_types[0] if base_types else ""
+                        if (spec.get("excel") == "runeword" and base_value and group != "Weapon"
+                                and "Any Shield" not in base_value
+                                and base_family(base_value.split(",")[0].strip()) == "weapon"):
+                            weapon_cards = by_group.setdefault("Weapon", [])
+                            by_group[group].remove(block)
+                            if not any(other.get("rwkey") == block.get("rwkey") for other in weapon_cards):
+                                weapon_cards.append(block)
+                            group = "Weapon"
                         for label, value in matched:
                             if label != "Base types" or not value:
                                 continue
@@ -817,6 +913,8 @@ class Builder:
                         if label == "Set":
                             block["section"] = value
 
+        if spec.get("excel") == "runeword":
+            self.ensure_category_cards(by_group)
         if spec.get("difficultyGroup") in by_group:
             by_group[spec["difficultyGroup"]] = self.group_hireling_sets(by_group[spec["difficultyGroup"]])
         if spec.get("mythicals"):

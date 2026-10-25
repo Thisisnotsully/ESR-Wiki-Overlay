@@ -723,6 +723,7 @@ LRESULT CALLBACK BlockerProc(HWND window, UINT message, WPARAM wParam, LPARAM lP
 }  // namespace
 
 struct OverlayState {
+    std::function<bool(unsigned int)> isCloseKey;  // see Overlay::SetCloseKey
     const Database* database = nullptr;
     std::wstring dataDir;
     HANDLE thread = nullptr;
@@ -2500,6 +2501,13 @@ DWORD WINAPI UiThread(LPVOID parameter) {
 
     MSG message{};
     while (GetMessageW(&message, nullptr, 0, 0) > 0) {
+        // The wiki key toggles: pressing it again closes the overlay. Alt combinations arrive as
+        // WM_SYSKEYDOWN. continue skips TranslateMessage, so the key does not also type into the search box.
+        if ((message.message == WM_KEYDOWN || message.message == WM_SYSKEYDOWN) && IsWindowVisible(self->window) &&
+            self->isCloseKey && self->isCloseKey(static_cast<unsigned int>(message.wParam))) {
+            self->Hide();
+            continue;
+        }
         if (message.message == WM_KEYDOWN && IsWindowVisible(self->window)) {
             if (message.wParam == VK_ESCAPE) {
                 self->Hide();
@@ -2584,6 +2592,10 @@ void Overlay::Stop() {
 
 void Overlay::Toggle() {
     if (impl_->window != nullptr) PostMessageW(impl_->window, kMsgToggle, 0, 0);
+}
+
+void Overlay::SetCloseKey(std::function<bool(unsigned int)> isCloseKey) {
+    impl_->isCloseKey = std::move(isCloseKey);
 }
 
 void Overlay::Open() {
