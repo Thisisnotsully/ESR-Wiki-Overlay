@@ -188,13 +188,14 @@ class Generator:
                 return None
             span = fmt(seconds / 25)
             amount = ("%s%%" % lo) if lo == hi else ("%s%%-%s%%" % (lo, hi))
-            return [BLUE + "Adds %s Bleed Damage over %s seconds" % (amount, span)]
+            return [BLUE + "Adds %s Bleed Damage over %s %s" % (amount, span, "second" if span == "1" else "seconds")]
         if code == "dmg-pois":
             duration, low, high = num(param), num(lo), num(hi)
             if duration is None or low is None or high is None:
                 return None
             a, b = int(low * duration / 256), int(high * duration / 256)
-            return [BLUE + "Adds %s Poison Damage over %s seconds" % (rng(str(a), str(b)), fmt(duration / 25))]
+            span = fmt(duration / 25)
+            return [BLUE + "Adds %s Poison Damage over %s %s" % (rng(str(a), str(b)), span, "second" if span == "1" else "seconds")]
         if code.endswith("/lvl"):
             return self.per_level(code, param)
         if code == "skilltab":

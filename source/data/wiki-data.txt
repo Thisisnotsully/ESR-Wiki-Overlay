@@ -40888,7 +40888,7 @@ FIELD	Base	Jewel
 FIELD	Required Level	45
 IMG	items_misc_gem_bohemian_stone	tiny
 LINE	S	ÿc4Bohemian Stone
-LINE	S	ÿc3Adds 10240-7680 Poison Damage Over 7680 Seconds
+LINE	S	ÿc3Adds 750-1000 Poison Damage over 1 second
 LINE	S	ÿc3Damage Reduced by 1-3%
 LINE	S	ÿc3-4-5% to Enemy Poison Resistance
 LINE	S	ÿc32% Chance to Cast Level 40 Poison Surge when you Kill an Enemy
@@ -40953,7 +40953,7 @@ LINE	S	ÿc4Ideal Craft
 LINE	S	ÿc3+15-30% Increased Attack Speed
 LINE	S	ÿc3+40-80% Enhanced Damage
 LINE	S	ÿc325-50% Bonus to Attack Rating
-LINE	S	ÿc3Requirements --25--15%
+LINE	S	ÿc3Requirements -25-15%
 BLOCK	1	Infernal Gemstone					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
@@ -41002,6 +41002,10 @@ FIELD	Base	Jewel
 FIELD	Required Level	55
 IMG	items_misc_gem_larias_licentious_lament	tiny
 LINE	S	ÿc4Larias' Licentious Lament
+LINE	S	ÿc3+1-3% Bonus to Strength
+LINE	S	ÿc3+1-3% Bonus to Dexterity
+LINE	S	ÿc3+1-3% Bonus to Vitality
+LINE	S	ÿc3+1-3% Bonus to Energy
 LINE	S	ÿc3+1-20 to Strength
 LINE	S	ÿc3+1-20 to Dexterity
 LINE	S	ÿc3+1-20 to Vitality
@@ -41012,6 +41016,12 @@ FIELD	Required Level	45
 IMG	items_misc_gem_perfect_diamond	tiny
 LINE	S	ÿc4Nexus Star
 LINE	S	ÿc3All Resistances +10-30
+LINE	S	ÿc3+1% to Maximum Fire Resist
+LINE	S	ÿc3+1% to Maximum Lightning Resist
+LINE	S	ÿc3+1% to Maximum Cold Resist
+LINE	S	ÿc3+1% to Maximum Poison Resist
+LINE	S	ÿc3+1% to Maximum Magic Resist
+LINE	S	ÿc3+5-10% to Magic Spell Damage
 LINE	S	ÿc3Adds 100-200 Magic Damage
 LINE	S	ÿc32% Chance to Cast Level 40 Magic Surge when you Kill an Enemy
 BLOCK	1	Salamander Stone					50
@@ -41046,7 +41056,7 @@ LINE	S	ÿc3+0-1 to Necromancer Skill Levels
 LINE	S	ÿc3+0-1 to Sorceress Skill Levels
 LINE	S	ÿc3+0-1 to Paladin Skill Levels
 LINE	S	ÿc3+0-1 to Warlock Skill Levels
-LINE	S	ÿc3Requirements --10--5%
+LINE	S	ÿc3Requirements -10-5%
 ENTRY	Charms	10 items	sortable
 BLOCK	1	Annihilus					85
 FIELD	Base	charm
@@ -41670,7 +41680,7 @@ LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc3+30 to Strength
 LINE	S	ÿc3+25% Enhanced Damage
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+3 to Blood Golem
+LINE	S	ÿcC+3 to Dark Golem
 LINE	S	ÿcC30% Bonus to Attack Rating
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+25% Enhanced Defense
@@ -41689,7 +41699,7 @@ LINE	S	ÿc3+30 to Energy
 LINE	S	ÿc3+20 Life after each Kill
 LINE	S	ÿc3+20 to Mana after each Kill
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+5 to Blood Golem (Necromancer only)
+LINE	S	ÿcC+5 to Dark Golem (Necromancer only)
 LINE	S	ÿcC50% Deadly Strike
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcCAttacker Takes Damage of 300
@@ -41708,7 +41718,7 @@ LINE	S	ÿc38% Life stolen per hit
 LINE	S	ÿc38% Mana stolen per hit
 LINE	S	ÿc3100% Extra Gold from Monsters
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+5 to Blood Golem (Necromancer only)
+LINE	S	ÿcC+5 to Dark Golem (Necromancer only)
 LINE	S	ÿcCAdds 250-500 Poison Damage over 10 seconds
 LINE	S	ÿcC(4 Items)
 LINE	S	ÿcC+5 to Golem Mastery (Necromancer only)
@@ -41725,7 +41735,7 @@ LINE	S	ÿc3Adds 250-500 Poison Damage over 10 seconds
 LINE	S	ÿc325% Chance of Crushing Blow
 LINE	S	ÿc3Poison Length Reduced by 100%
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+5 to Blood Golem (Necromancer only)
+LINE	S	ÿcC+5 to Dark Golem (Necromancer only)
 LINE	S	ÿcC30% Chance of Crushing Blow
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+10% to Maximum Poison Resist
@@ -41751,7 +41761,7 @@ LINE	S	ÿc35% Chance to Cast Level 30 Bone Wave on striking
 LINE	S	ÿc3+15 to all Attributes
 LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc3+1 to Reap Souls
-LINE	S	ÿc333% Chance to Cast Level 15 Reap Souls Proc on attack
+LINE	S	ÿc333% Chance to Cast Level 15 Reap Souls on attack
 BLOCK	1	Crook of the Darkest Valley		Shepherd's Delight			60
 FIELD	Set	Shepherd's Delight
 FIELD	Base	Petrified Staff
@@ -41784,7 +41794,7 @@ LINE	S	ÿc3+25% Faster Hit Recovery
 LINE	S	ÿc3+1 to Maximum Damage (Based on Character Level)
 LINE	S	ÿc3Socketed (1)
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+6 to Raise Skeletal Mage
+LINE	S	ÿcC+6 to Raise Undead Mage
 LINE	S	ÿcC+5 to Summon Spirit Wolf
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+4 to Feral Mastery
@@ -41802,10 +41812,10 @@ LINE	S	ÿc3+200% Enhanced Defense
 LINE	S	ÿc3+1 to Strength (Based on Character Level)
 LINE	S	ÿc3Replenish Life +30
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+6 to Raise Skeleton
+LINE	S	ÿcC+6 to Raise Undead
 LINE	S	ÿcC+5 to Summon Dire Wolf
 LINE	S	ÿcC(3 Items)
-LINE	S	ÿcC+4 to Skeleton Mastery
+LINE	S	ÿcC+4 to Undead Mastery
 LINE	S	ÿcCLevel 10 Salvation Aura When Equipped
 LINE	S	ÿc5Required Level: 60
 BLOCK	1	Shepherd's Delight		Shepherd's Delight			0
@@ -41837,7 +41847,7 @@ LINE	S	ÿc3+30 to Vitality
 LINE	S	ÿc3+150% Enhanced Defense
 LINE	S	ÿc3+150% Enhanced Damage
 LINE	S	ÿc35% Chance to Cast Level 30 Cyclone Armor when struck
-LINE	S	ÿc35% Chance to Cast Level 30 Bone Armor when struck
+LINE	S	ÿc35% Chance to Cast Level 30 Spike Armor when struck
 LINE	S	ÿc35% Chance to Cast Level 30 Psychic Ward when struck
 LINE	S	ÿcC(2 Items)
 LINE	S	ÿcC75% Better Chance of Getting Magic Items
@@ -41966,10 +41976,10 @@ LINE	S	ÿc33% Chance to Cast Level 40 Inner Sight on striking
 LINE	S	ÿc3+80 to Strength
 LINE	S	ÿc3400% Extra Gold from Monsters
 LINE	S	ÿc3400% Better Chance of Getting Magic Items
-LINE	S	ÿc32% Chance to Cast Level 45 Super Nova when struck
+LINE	S	ÿc32% Chance to Cast Level 45 Supernova when struck
 LINE	S	ÿc3+120% Increased Attack Speed
 LINE	S	ÿc3+6 to All Skills
-LINE	S	ÿc325% Chance to Cast Level 40 Judgement Proc on attack
+LINE	S	ÿc325% Chance to Cast Level 40 Judgement on attack
 ENTRY	Amazon	32 items
 BLOCK	1	Arctic Horn		Arctic Gear			1
 FIELD	Set	Arctic Gear
@@ -42189,7 +42199,7 @@ LINE	S	ÿc3100% Better Chance of Getting Magic Items
 LINE	S	ÿc3+20 to all Attributes
 LINE	S	ÿc3+40 to Minimum Damage
 LINE	S	ÿc3-40% to Enemy Lightning Resistance
-LINE	S	ÿc32% Chance to Cast Level 30 Super Nova when you Kill an Enemy
+LINE	S	ÿc32% Chance to Cast Level 30 Supernova when you Kill an Enemy
 BLOCK	1	Aanna's Touch		Aanna's Battle Dress			45
 FIELD	Set	Aanna's Battle Dress
 FIELD	Base	Lance
@@ -42654,7 +42664,7 @@ LINE	S	ÿc3+3  to Barbarian Skill Levels
 LINE	S	ÿc3+10 to Enchant
 LINE	S	ÿc3All Resistances +30
 LINE	S	ÿc3+40% Increased Attack Speed
-LINE	S	ÿc333% Chance to Cast Level 1 Reap Souls Proc on attack
+LINE	S	ÿc333% Chance to Cast Level 1 Reap Souls on attack
 LINE	S	ÿc3+20% Faster Hit Recovery
 LINE	S	ÿc3+10 to all Attributes
 LINE	S	ÿc375% Better Chance of Getting Magic Items
@@ -43057,7 +43067,7 @@ FIELD	Set pieces	3
 IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCWorldstone Shard
 LINE	S	ÿc3+30% Increased Attack Speed
-LINE	S	ÿc35% Chance to Cast Level 35 Axe Proc on striking
+LINE	S	ÿc35% Chance to Cast Level 35 Thrown Axe on striking
 LINE	S	ÿc3+3 Life on Striking
 LINE	S	ÿcC(2 Items)
 LINE	S	ÿcCIncrease Maximum Life 10%
@@ -43320,7 +43330,7 @@ LINE	S	ÿc3All Resistances +50
 LINE	S	ÿc3100% Better Chance of Getting Magic Items
 LINE	S	ÿc3+27 to all Attributes
 LINE	S	ÿc3+3 to Attack Rating (Based on Character Level)
-LINE	S	ÿc333% Chance to Cast Level 40 Freezing Claws Proc on attack
+LINE	S	ÿc333% Chance to Cast Level 40 Freezing Claws on attack
 LINE	S	ÿc3Level 25 Cold Pierce Aura When Equipped
 LINE	S	ÿc3+50 Life after each Kill
 BLOCK	1	The Lich's Pate		The Lich's Form			45
@@ -43467,7 +43477,7 @@ LINE	S	ÿc3+15 to Poison Weapon (Necromancer only)
 LINE	S	ÿc3Socketed (1-3)
 LINE	S	ÿcC(2 Items)
 LINE	S	ÿcCIgnore Target's Defense
-LINE	S	ÿcC+15 to Bone Armor (Necromancer only)
+LINE	S	ÿcC+15 to Spike Armor (Necromancer only)
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC-50% to Enemy Poison Resistance
 LINE	S	ÿc5Required Level: 55
@@ -43567,7 +43577,7 @@ FIELD	Set pieces	4
 IMG	items_armor_boot_chain_boots
 LINE	S	ÿcCLim Dul's Oath
 LINE	S	ÿc3+1 to Summoning Skills (Necromancer Only)
-LINE	S	ÿc3+5 to Skeleton Mastery (Necromancer only)
+LINE	S	ÿc3+5 to Undead Mastery (Necromancer only)
 LINE	S	ÿc3+5 to Golem Mastery (Necromancer only)
 LINE	S	ÿc3Socketed (1-2)
 LINE	S	ÿcC(2 Items)
@@ -43639,7 +43649,7 @@ FIELD	Required Level	70
 FIELD	Set pieces	3
 IMG	items_weapon_polearm_soul_harvest
 LINE	S	ÿcCReaver of the Angel of Annihilation
-LINE	S	ÿc3+5 to Bone Armor (Necromancer only)
+LINE	S	ÿc3+5 to Spike Armor (Necromancer only)
 LINE	S	ÿc3+3 Fire Absorb
 LINE	S	ÿc3+50% Increased Attack Speed
 LINE	S	ÿc3+300% Enhanced Damage
@@ -43819,7 +43829,7 @@ LINE	S	ÿcC+125% Enhanced Defense
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC3% Chance to Cast Level 25 Lightning Surge on striking
 LINE	S	ÿcC(4 Items)
-LINE	S	ÿcC5% Chance to Cast Level 30 Super Nova when you Kill an Enemy
+LINE	S	ÿcC5% Chance to Cast Level 30 Supernova when you Kill an Enemy
 LINE	S	ÿc5Required Level: 45
 BLOCK	1	Malek's Strike		Malek's Charge			45
 FIELD	Set	Malek's Charge
@@ -44436,7 +44446,7 @@ LINE	S	ÿcC(2 Items)
 LINE	S	ÿcC+75 Defense
 LINE	S	ÿcC+8 Cold Absorb
 LINE	S	ÿcC(3 Items)
-LINE	S	ÿcC15% Chance to Cast Level 25 Whirlpool Proc when you Kill an Enemy
+LINE	S	ÿcC15% Chance to Cast Level 25 Whirlpool when you Kill an Enemy
 LINE	S	ÿc5Required Level: 45
 BLOCK	1	Divada's Focus		Divada's Trickery			45
 FIELD	Set	Divada's Trickery
@@ -44520,7 +44530,7 @@ LINE	S	ÿc3-15% to Enemy Fire Resistance
 LINE	S	ÿc3+2 Defense (Based on Character Level)
 LINE	S	ÿc3Socketed (1-2)
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+1 to Wind Mastery
+LINE	S	ÿcC+1 to Physical Mastery
 LINE	S	ÿcC-15% to Enemy Cold Resistance
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+1 to Amplify Damage
@@ -44763,7 +44773,7 @@ LINE	S	ÿc3All Resistances +50
 LINE	S	ÿc3+2 to Lightning Skills
 LINE	S	ÿc3+25 to all Attributes
 LINE	S	ÿc3125% Better Chance of Getting Magic Items
-LINE	S	ÿc3+20 to Bind Demon
+LINE	S	ÿc3+20 to Bind Monster
 LINE	S	ÿc3+20 to Consume
 ENTRY	Assassin	32 items
 BLOCK	1	Death's Touch		Death's Disguise			1
@@ -45071,7 +45081,7 @@ LINE	S	ÿc3Damage Reduced by 16
 LINE	S	ÿc3All Resistances +50
 LINE	S	ÿc318% Mana stolen per hit
 LINE	S	ÿc318% Life stolen per hit
-LINE	S	ÿc3100% Chance to Cast Level 20 Whirlpool Proc when struck
+LINE	S	ÿc3100% Chance to Cast Level 20 Whirlpool when struck
 LINE	S	ÿc3+15 to all Attributes
 LINE	S	ÿc3+10% to Experience Gained
 BLOCK	1	Sascha's Deadly Point		Sascha's Jaded Kiss			55
@@ -45329,7 +45339,7 @@ LINE	S	ÿc3+1000 Defense
 LINE	S	ÿc3+150% Enhanced Damage
 LINE	S	ÿc3+20 to all Attributes
 LINE	S	ÿc3+1.5 to Maximum Damage (Based on Character Level)
-LINE	S	ÿc333% Chance to Cast Level 60 Freezing Claws Proc on attack
+LINE	S	ÿc333% Chance to Cast Level 60 Freezing Claws on attack
 ENTRY	Druid	32 items
 BLOCK	1	Hsaru's Iron Arm		Hsarus' Defense			1
 FIELD	Set	Hsarus' Defense
@@ -45460,7 +45470,7 @@ LINE	S	ÿc3Cold Resist +30%
 LINE	S	ÿc3+5% to Maximum Cold Resist
 LINE	S	ÿcC(2 Items)
 LINE	S	ÿcC3% Chance to Cast Level 10 Cold Enhanced Axe on striking
-LINE	S	ÿcC17% Chance to Cast Level 15 Spike Nova Cold when struck
+LINE	S	ÿcC17% Chance to Cast Level 15 Cold Enhanced Spike Nova when struck
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+20% Faster Hit Recovery
 LINE	S	ÿcC+1 to Maximum Cold Damage (Based on Character Level)
@@ -46088,7 +46098,7 @@ FIELD	Required Level	30
 FIELD	Set pieces	3
 IMG	items_armor_glove_bracers_m
 LINE	S	ÿcCThe Future Undone
-LINE	S	ÿc310% Chance to Cast Level 10 Axe Proc on striking
+LINE	S	ÿc310% Chance to Cast Level 10 Thrown Axe on striking
 LINE	S	ÿc310% Life stolen per hit
 LINE	S	ÿc3+80 Defense
 LINE	S	ÿcC(2 Items)
@@ -46127,7 +46137,7 @@ LINE	S	ÿc3+100% Enhanced Defense
 LINE	S	ÿc3All Resistances +25
 LINE	S	ÿc3Socketed (1-2)
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+5 to Bind Demon (Warlock only)
+LINE	S	ÿcC+5 to Bind Monster (Warlock only)
 LINE	S	ÿcC+10% to Summon Life
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+5 to Black Magic (Warlock only)
@@ -46188,10 +46198,10 @@ IMG	items_misc_shard_bulkathos_nightmare
 LINE	H	Set bonus
 LINE	S	ÿcCSecrets of the Black Magic
 LINE	S	ÿc4Partial Set Bonus
-LINE	S	ÿc3+10 to Hex Bane (Warlock only)
-LINE	S	ÿc3+10 to Hex Purge (Warlock only)
+LINE	S	ÿc3+10 to Hex: Bane (Warlock only)
+LINE	S	ÿc3+10 to Hex: Purge (Warlock only)
 LINE	S	ÿc4(2 items)
-LINE	S	ÿc3+10 to Hex Siphon (Warlock only)
+LINE	S	ÿc3+10 to Hex: Siphon (Warlock only)
 LINE	S	ÿc3+10 to Eldritch Blast (Warlock only)
 LINE	S	ÿc4(3 items)
 LINE	S	ÿc4Full Set Bonus
@@ -46218,9 +46228,9 @@ LINE	S	ÿc3Regenerate Mana 150%
 LINE	S	ÿc3Socketed (1-3)
 LINE	S	ÿcC(2 Items)
 LINE	S	ÿcC+25% Faster Cast Rate
-LINE	S	ÿcC+5 to Pierce Flesh and Bone
+LINE	S	ÿcC+5 to Pierce Flesh & Bone
 LINE	S	ÿcC(3 Items)
-LINE	S	ÿcC25% Chance to Cast Level 40 Sigil Rancor on cast
+LINE	S	ÿcC25% Chance to Cast Level 40 Sigil: Rancor on cast
 LINE	S	ÿcC+25% Faster Cast Rate
 LINE	S	ÿcC(4 Items)
 LINE	S	ÿcC+15% to Magic Spell Damage
@@ -46313,7 +46323,7 @@ FIELD	Set pieces	3
 IMG	items_armor_grimoires_compendium
 LINE	S	ÿcCBible of the Abyssal Dominion
 LINE	S	ÿc3+2 to Warlock Skill Levels
-LINE	S	ÿc3+3 to Bind Demon (Warlock only)
+LINE	S	ÿc3+3 to Bind Monster (Warlock only)
 LINE	S	ÿc3+10% to Summon Life
 LINE	S	ÿc3Socketed (1-2)
 LINE	S	ÿcC(2 Items)
@@ -46406,7 +46416,7 @@ LINE	S	ÿc3+5 Fire Absorb
 LINE	S	ÿc3Replenish Life +750
 LINE	S	ÿc3Socketed (1)
 LINE	S	ÿcC(2 Items)
-LINE	S	ÿcC+5 to Sigil Rancor (Warlock only)
+LINE	S	ÿcC+5 to Sigil: Rancor (Warlock only)
 LINE	S	ÿcCRegenerate Mana 150%
 LINE	S	ÿcC(3 Items)
 LINE	S	ÿcC+20 to Light Radius
@@ -46447,7 +46457,7 @@ LINE	S	ÿcCFire Resist +30%
 LINE	S	ÿcCLightning Resist +30%
 LINE	S	ÿcCCold Resist +30%
 LINE	S	ÿcC(3 Items)
-LINE	S	ÿcC5% Chance to Cast Level 25 Bone Armor when you Kill an Enemy
+LINE	S	ÿcC5% Chance to Cast Level 25 Spike Armor when you Kill an Enemy
 LINE	S	ÿcCDamage Reduced by 30
 LINE	S	ÿc5Required Level: 70
 BLOCK	1	Harbinger of Ruin		Harbinger of Ruin			0

@@ -856,7 +856,7 @@ class Builder:
             text = ("%g" % value)
             return ["%sc3%s Resist +%s%% (Based on Character Level)" % ("\u00ff", self.RESIST_NAMES[code], text)]
         if self.line_generator is None:
-            self.line_generator = runeword_gen.Generator(self.excel.folder, None)
+            self.line_generator = runeword_gen.Generator(self.excel.folder, getattr(self, "strings_folder", None))
         lines = self.line_generator.lines(code, param, low, high)
         if lines is None:
             self.unmatched_bonus.add(code)
@@ -957,7 +957,7 @@ class Builder:
         if code in self.RESIST_NAMES:
             return self.hireling_lines(code, par, low, high)
         if self.line_generator is None:
-            self.line_generator = runeword_gen.Generator(self.excel.folder, None)
+            self.line_generator = runeword_gen.Generator(self.excel.folder, getattr(self, "strings_folder", None))
         if code in ("tinkerflag2", "vit-h2"):
             return []
         if code in runeword_gen.DESCRIPTION_CODES:
@@ -1116,6 +1116,35 @@ class Builder:
         for section_blocks in sections.values():
             out += section_blocks
         return out
+
+    def rebuild_unique_lines(self, blocks, report):
+        """Stat lines of unique cards, written from uniqueitems.txt (the mod's own properties) instead of
+        the layout's text. A card with a property the generator cannot write keeps its old lines."""
+        self.line_generator = getattr(self, "line_generator", None)
+        for block in blocks:
+            row = self.excel.unique_row(strip_color(block["title"]))
+            if row is None:
+                report.append("no row: %s" % block["title"])
+                continue
+            new = []
+            for i in range(1, 13):
+                code = (row.get("prop%d" % i) or "").strip()
+                if not code:
+                    continue
+                got = self.set_gen(code, (row.get("par%d" % i) or "").strip(), (row.get("min%d" % i) or "").strip(),
+                                   (row.get("max%d" % i) or "").strip())
+                if got is None:
+                    new = None
+                    break
+                new += [("S", text) for text in got]
+            if new is None:
+                report.append("kept old lines (unsupported code): %s" % block["title"])
+                continue
+            head = [line for line in block["lines"][:1] if line[0] == "S"]
+            lines = head + new
+            if [t for _, t in lines] != [t for _, t in block["lines"]]:
+                report.append("changed: %s" % block["title"])
+            block["lines"] = lines
 
     def shard_cards_for(self, title, sources, tiers):
         """One set bonus card per difficulty. The card art comes from the source card for that
@@ -1312,6 +1341,11 @@ class Builder:
                         if info and info[0]:
                             # "\\n" is a line break inside the TAG field (the file is one line per record).
                             block["tag"] = "Gamble Item:\\n%s - ilvl: %s" % info
+        if spec.get("excel") == "unique" and self.excel is not None:
+            self.unique_report = []
+            for group in ("Jewel",):
+                if group in by_group:
+                    self.rebuild_unique_lines(by_group[group], self.unique_report)
         if spec.get("excel") in ("unique", "set") and self.excel is not None:
             self.apply_mod_inventory_art(spec["excel"], by_group, spec.get("mythicalGroup"))
             self.mark_tiny_art(spec["excel"], by_group, spec.get("mythicalGroup"))
@@ -2031,6 +2065,8 @@ def arrange_ascendancy_page(page):
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--excel", help="the mod's data/global/excel folder (adds item fields)")
+    parser.add_argument("--mod-strings", help="the mod's data/local/lng/strings folder (skill display names for item lines;"
+                                              " found from --sprite-root when omitted)")
     parser.add_argument("--sprite-root", help="the mod's data/hd/global/ui folder (adds unique artwork)")
     parser.add_argument("--base-ui-root", help="the base game's data/hd/global/ui folder (fallback artwork)")
     parser.add_argument("--uniques-json", help="the mod's data/hd/items/uniques.json (names artwork per unique)")
@@ -2053,6 +2089,9 @@ def main():
                                   object_pairs_hook=OrderedDict)
     if args.sprite_root:
         builder.sprite_index = load_sprite_index(args.sprite_root)
+        # The mod's string tables (skill display names) sit beside hd/: data/local/lng/strings.
+        guess = Path(args.sprite_root).resolve().parents[2] / "local" / "lng" / "strings"
+        builder.strings_folder = args.mod_strings or (str(guess) if guess.is_dir() else None)
     if args.base_ui_root:
         # The mod's files win; the base game supplies art the mod does not override.
         for stem, rel in load_sprite_index(args.base_ui_root).items():
@@ -2152,6 +2191,8 @@ def main():
           f"missing strings={len(builder.missing_strings)} excel unmatched={len(builder.unmatched)}")
     for line in getattr(builder, "set_report", []):
         print("  set: " + line)
+    for line in getattr(builder, "unique_report", []):
+        print("  unique: " + line)
     if builder.unmatched:
         for page_id, title in builder.unmatched[:20]:
             print(f"  unmatched: {page_id}: {title}")
