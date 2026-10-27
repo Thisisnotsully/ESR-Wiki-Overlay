@@ -1537,8 +1537,6 @@ RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
 LINE	S	ÿc7A Rune + Me Rune
-LINE	S	ÿc8Double the effectiveness of Cyclone armor, but adds a 10 seconds
-LINE	S	ÿc8cooldown and sets the duration to 5 seconds
 LINE	S	ÿc35% Chance to Cast Level 33 Rain of Fire on cast
 LINE	S	ÿc35% Chance to Cast Level 33 Plasma Rain on cast
 LINE	S	ÿc3-15% to Enemy Fire Resistance
@@ -1559,8 +1557,6 @@ RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
 LINE	S	ÿc7A Rune + Me Rune
-LINE	S	ÿc8Double the effectiveness of Cyclone armor, but adds a 10 seconds
-LINE	S	ÿc8cooldown and sets the duration to 5 seconds
 LINE	S	ÿc35% Chance to Cast Level 33 Rain of Fire when you Kill an Enemy
 LINE	S	ÿc3+2 to All Skills
 LINE	S	ÿc3+25 to Energy
@@ -1581,8 +1577,6 @@ RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
 LINE	S	ÿc7A Rune + Me Rune
-LINE	S	ÿc8Double the effectiveness of Cyclone armor, but adds a 10 seconds
-LINE	S	ÿc8cooldown and sets the duration to 5 seconds
 LINE	S	ÿc35% Chance to Cast Level 45 Rain of Fire when you Kill an Enemy
 LINE	S	ÿc3+3 to All Skills
 LINE	S	ÿc3+40 to Energy
@@ -1732,7 +1726,6 @@ LINE	S	ÿc3Requirements -300%
 LINE	S	ÿc3+3 to All Skills
 LINE	S	ÿc3+16% Bonus to all Attributes
 LINE	S	ÿc3+500% Damage to Demons
-LINE	S	ÿc8Attacks Ignore All Resists of Demons
 LINE	S	ÿc4Rune Bonuses:
 LINE	S	ÿc3+50 to Energy
 LINE	S	ÿc3+25% Chance of Crushing Blow
@@ -1827,8 +1820,6 @@ RUNE	items_misc_rune_ho_rune	Ho
 RUNE	items_misc_rune_ne_rune	Ne
 LINE	S	ÿc4Bone
 LINE	S	ÿc7Ho Rune + Ne Rune
-LINE	S	ÿc8You exhude a permanent bone armor aura for all nearby allies
-LINE	S	ÿc8Bonuses are based on your current Bone Armor level
 LINE	S	ÿc325% Chance to Cast Level 60 Bone Spear on cast
 LINE	S	ÿc3+1 to Magic Mastery
 LINE	S	ÿc325% Chance to Cast Level 60 Magic Surge when you Kill an Enemy
@@ -2296,7 +2287,6 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4Ice
 LINE	S	ÿc7Ko Rune + O Rune + Ri Rune
-LINE	S	ÿc8Gain 1-2 cold damage to attacks per 10 maximum mana
 LINE	S	ÿc3-15% to Enemy Cold Resistance
 LINE	S	ÿc35% Chance to Cast Level 20 Orb of Winter on cast
 LINE	S	ÿc35% Chance to Cast Level 20 Monsoon on cast
@@ -2479,8 +2469,6 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_wa_rune	Wa
 LINE	S	ÿc4Myth
 LINE	S	ÿc7Shi Rune + N Rune + Wa Rune
-LINE	S	ÿc8Your Shout of the Ancients is now an aura
-LINE	S	ÿc8Bonuses are based on your current Shout of the Ancients level
 LINE	S	ÿc3100% Chance to Cast Level 15 Fire Surge when you Kill an Enemy
 LINE	S	ÿc3100% Chance to Cast Level 15 Cold Surge when you Kill an Enemy
 LINE	S	ÿc3100% Chance to Cast Level 15 Lightning Surge when you Kill an Enemy
@@ -2505,8 +2493,6 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_shi_rune	Shi
 LINE	S	ÿc4Abolish
 LINE	S	ÿc7Ha Rune + I Rune + Shi Rune
-LINE	S	ÿc8Attacks Ignore All Resists of Demons
-LINE	S	ÿc8Attacks Ignore All Resists of the Undead
 LINE	S	ÿc3+500% Enhanced Damage
 LINE	S	ÿc3-30% Increased Attack Speed
 LINE	S	ÿc3+20% Bonus to Strength
@@ -2527,8 +2513,6 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Destruction
 LINE	S	ÿc7Ha Rune + Ka Rune + I Rune
-LINE	S	ÿc8You gain a random amount of total spell damage
-LINE	S	ÿc8between 1% and 50% every 3 seconds
 LINE	S	ÿc35% Chance to Cast Level 45 Cataclysm on cast
 LINE	S	ÿc3Adds 1%-500% Bleed Damage over 2 seconds
 LINE	S	ÿc3+40% Faster Cast Rate
@@ -2639,7 +2623,6 @@ RUNE	items_misc_rune_tsu_rune	Tsu
 RUNE	items_misc_rune_shi_rune	Shi
 LINE	S	ÿc4Sheep
 LINE	S	ÿc7Hi Rune + Tsu Rune + Shi Rune
-LINE	S	ÿc8+1 to Non-Unique Summons Limit
 LINE	S	ÿc3Level 20 Shout Aura When Equipped
 LINE	S	ÿc3Increase Maximum Life -50%
 LINE	S	ÿc3+40% to Summon Damage
@@ -2956,10 +2939,6 @@ RUNE	items_misc_rune_ho_rune	Ho
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Lawless
 LINE	S	ÿc7Mu Rune + Ho Rune + U Rune
-LINE	S	ÿc8-100% Total Fire Resist
-LINE	S	ÿc8-100% Total Cold Resist
-LINE	S	ÿc8-100% Total Lightning Resist
-LINE	S	ÿc8-100% Total Poison Resist
 LINE	S	ÿc3+3 to Energy Shield
 LINE	S	ÿc3+37 to Energy Shield (Sorceress only)
 LINE	S	ÿc3Increase Maximum Mana 200%
@@ -3486,9 +3465,6 @@ RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Chaos
 LINE	S	ÿc7Ko Rune + N Rune + To Rune + N Rune
-LINE	S	ÿc8You have a 45% chance to gain either 5% Fire, Cold or Lightning Spell Damage
-LINE	S	ÿc8per each level of Fists of Fire, Blades of Ice or Claws of Thunder, respectively
-LINE	S	ÿc8This effect can stack
 LINE	S	ÿc3+250% Enhanced Damage
 LINE	S	ÿc3+2 to All Skills
 LINE	S	ÿc3+30% Increased Attack Speed
@@ -4902,8 +4878,6 @@ RUNE	items_misc_rune_se_rune	Se
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Airship
 LINE	S	ÿc7Hi Rune + Ko Rune + U Rune + Se Rune + N Rune
-LINE	S	ÿc8Enemies beyond 15 yards have a 40% chance to take
-LINE	S	ÿc8100% extra weapon damage when struck
 LINE	S	ÿc3+4 to All Skills
 LINE	S	ÿc320% Chance to Cast Level 1 Long Shot on striking
 LINE	S	ÿc3+2% Enhanced Maximum Damage (Based on Character Level)
@@ -5093,7 +5067,6 @@ LINE	S	ÿc3+300 to Maximum Damage
 LINE	S	ÿc32% Chance to Cast Level 60 Dragon Blade on striking
 LINE	S	ÿc33% Chance to Cast Level 40 Inner Sight on striking
 LINE	S	ÿc3100% Chance to Cast Level 40 Wind Surge when you Kill an Enemy
-LINE	S	ÿc8Attacks Ignore All Resists of Demons
 LINE	S	ÿc4Rune Bonuses:
 LINE	S	ÿc3+15% Enhanced Damage
 LINE	S	ÿc3+30 to All Attributes
@@ -5705,7 +5678,6 @@ RUNE	items_misc_rune_wind_rune	Wind
 LINE	S	ÿc4Tourbillion
 LINE	S	ÿc7Tsu Rune + Mu Rune + Shi Rune + Wind Rune
 LINE	S	ÿc35% Chance to Cast Level 60 Twister on striking
-LINE	S	ÿc8Increase Twister Count by +100%
 LINE	S	ÿc3+10 to Physical Mastery
 LINE	S	ÿc3+500% Enhanced Damage
 LINE	S	ÿc3Damage Reduced by 33%
@@ -5760,7 +5732,6 @@ LINE	S	ÿc3-25% to Enemy Fire Resistance
 LINE	S	ÿc3-25% to Enemy Cold Resistance
 LINE	S	ÿc3-25% to Enemy Lightning Resistance
 LINE	S	ÿc3-25% to Enemy Poison Resistance
-LINE	S	ÿc8Increase the bonuses granted by Blade Nova by 50%
 LINE	S	ÿc3Adds 1250-1500 Magic Damage
 LINE	S	ÿc325% Chance to Cast Level 60 Magic Brand on striking
 LINE	S	ÿc4Rune Bonuses:
@@ -6172,7 +6143,6 @@ LINE	S	ÿc3Level 30 Cloak of Shadows Aura When Equipped
 LINE	S	ÿc3+20% Dodge Chance
 LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3All Resistances +60
-LINE	S	ÿc8+1 to Trap Limit
 LINE	S	ÿc3+50% to Fire Skill Damage
 LINE	S	ÿc3+50% to Lightning Skill Damage
 LINE	S	ÿc4Rune Bonuses:
@@ -6357,9 +6327,6 @@ RUNE	items_misc_rune_ki_rune	Ki
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Famine
 LINE	S	ÿc7Ki Rune + Ki Rune + N Rune
-LINE	S	ÿc8Every 10 hits, gain 5% fire, cold and lightning spell damage and reduce
-LINE	S	ÿc8the enemy fire, cold and lightning resists by 2% for 2 seconds
-LINE	S	ÿc8Maximum stacks: 500
 LINE	S	ÿc3Replenish Life +400
 LINE	S	ÿc3Regenerate Mana 100%
 LINE	S	ÿc310% Life stolen per hit
@@ -6563,8 +6530,6 @@ RUNE	items_misc_rune_ko_rune	Ko	lod
 RUNE	items_misc_rune_tir_rune	Tir	lod
 LINE	S	ÿc4Wealth
 LINE	S	ÿc7Lem Rune + Ko Rune + Tir Rune
-LINE	S	ÿc8Your kills have a 10% chance to count as having
-LINE	S	ÿc8500% gold and magic find bonus
 LINE	S	ÿc3300% Extra Gold from Monsters
 LINE	S	ÿc3150% Better Chance of Getting Magic Items
 LINE	S	ÿc3+2 to All Skills
@@ -6636,7 +6601,6 @@ LINE	S	ÿc3+3 to Fire Skills
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3Fire Resist +60%
 LINE	S	ÿc3+25% Skill Cooldown Reduction
-LINE	S	ÿc8+1 to Trap Limit
 LINE	S	ÿc3100% Chance to Cast Level 35 Meteor Sentry on cast
 LINE	S	ÿc4Rune Bonuses:
 LINE	S	ÿc3+100 Defense vs. Missile
@@ -6675,8 +6639,6 @@ RUNE	items_misc_rune_thul_rune	Thul	lod
 RUNE	items_misc_rune_lem_rune	Lem	lod
 LINE	S	ÿc4Treachery
 LINE	S	ÿc7Shael Rune + Thul Rune + Lem Rune
-LINE	S	ÿc8Venom grants bleed damage instead of poison, dealing
-LINE	S	ÿc810% of its poison damage over 1 second
 LINE	S	ÿc3+4 to Assassin Skill Levels
 LINE	S	ÿc3+50% Faster Run/Walk
 LINE	S	ÿc3+13% Bonus to Dexterity
@@ -7064,9 +7026,6 @@ RUNE	items_misc_rune_e_rune	E
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Eternity
 LINE	S	ÿc7E Rune + I Rune + E Rune + N Rune
-LINE	S	ÿc8Every 10 spells cast, freeze all nearby enemies for 1 second and lower all resists
-LINE	S	ÿc8by 100%. Freeze duration scales with cooldown reduction, up to 2 seconds
-LINE	S	ÿc8This effect works on prime evils
 LINE	S	ÿc3+35% Skill Cooldown Reduction
 LINE	S	ÿc3Regenerate Mana -250%
 LINE	S	ÿc33% Chance to Cast Level 15 Orb of Winter on cast
@@ -7436,9 +7395,6 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_sa_rune	Sa
 LINE	S	ÿc4Pride
 LINE	S	ÿc7Ho Rune + Ko Rune + Ra Rune + Shi Rune + Sa Rune
-LINE	S	ÿc8You gain 1% total physical damage to attacks on striking for
-LINE	S	ÿc85 seconds, up to 100%. Getting hit resets this bonus
-LINE	S	ÿc8Your total defense is reduced by 50% during the effect
 LINE	S	ÿc3Adds 40-50 Damage
 LINE	S	ÿc3Requirements -200%
 LINE	S	ÿc3+30% Increased Attack Speed
@@ -7491,7 +7447,6 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Phoenix
 LINE	S	ÿc7Fu Rune + Shi Rune + Chi Rune + Yo Rune + U Rune
-LINE	S	ÿc8Scorch procs from this item deal 25% weapon damage as fire
 LINE	S	ÿc325% Chance to Cast Level 40 Fire Surge when struck
 LINE	S	ÿc325% Chance to Cast Level 40 Elemental Nova when struck
 LINE	S	ÿc3-20% to Enemy Fire Resistance
@@ -7994,8 +7949,6 @@ RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
 LINE	S	ÿc7A Rune + Me Rune
-LINE	S	ÿc8Double the effectiveness of Cyclone armor, but adds a 10 seconds
-LINE	S	ÿc8cooldown and sets the duration to 5 seconds
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+20% Faster Cast Rate
 LINE	S	ÿc3-10% to Enemy Fire Resistance
@@ -8077,8 +8030,6 @@ RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
 LINE	S	ÿc7A Rune + Me Rune
-LINE	S	ÿc8Double the effectiveness of Cyclone armor, but adds a 10 seconds
-LINE	S	ÿc8cooldown and sets the duration to 5 seconds
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+20% Faster Cast Rate
 LINE	S	ÿc3-10% to Enemy Fire Resistance
@@ -8099,8 +8050,6 @@ RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Wealth
 LINE	S	ÿc7To Rune + Mi Rune
-LINE	S	ÿc8Your kills have a 10% chance to count as having
-LINE	S	ÿc8500% gold and magic find bonus
 LINE	S	ÿc3100% Extra Gold from Monsters
 LINE	S	ÿc3100% Better Chance of Getting Magic Items
 LINE	S	ÿc3+5% Dodge Chance
@@ -8161,8 +8110,6 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Dream
 LINE	S	ÿc7Yu Rune + Me Rune
-LINE	S	ÿc8Holy Shock now deals 1% more total damage per 2 levels
-LINE	S	ÿc8but no longer grants lightning damage to attacks
 LINE	S	ÿc3Damage Reduced by 10%
 LINE	S	ÿc3Magic Resist +10%
 LINE	S	ÿc3+1 to All Skills
@@ -8499,8 +8446,6 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Dream
 LINE	S	ÿc7Yu Rune + Me Rune
-LINE	S	ÿc8Holy Shock now deals 1% more total damage per 2 levels
-LINE	S	ÿc8but no longer grants lightning damage to attacks
 LINE	S	ÿc3Damage Reduced by 15%
 LINE	S	ÿc3Magic Resist +15%
 LINE	S	ÿc3+2 to All Skills
@@ -8914,10 +8859,6 @@ RUNE	items_misc_rune_ist_rune	Ist	lod
 RUNE	items_misc_rune_io_rune	Io	lod
 LINE	S	ÿc4Delirium
 LINE	S	ÿc7Lem Rune + Ist Rune + Io Rune
-LINE	S	ÿc8Melee attacks have a 25% chance to make you delirious and make
-LINE	S	ÿc8you see damned skulls. Each skull picked grants 2% crit damage and 10%
-LINE	S	ÿc8magic spell damage, -3% elemental, poison resists and -1% physical and magic resists
-LINE	S	ÿc8Maximum stacks: 50
 LINE	S	ÿc320% Chance to Cast Level 40 Mind Blast when you Kill an Enemy
 LINE	S	ÿc32% Chance to Cast Level 50 Delirium on striking
 LINE	S	ÿc3+3 to All Skills
@@ -9011,8 +8952,6 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_wa_rune	Wa
 LINE	S	ÿc4Peace
 LINE	S	ÿc7He Rune + I Rune + Wa Rune
-LINE	S	ÿc8Eagle eye is now permanent and grants 20% of its physical damage
-LINE	S	ÿc8as spell damage, but no longer provides physical damage or crushing blow
 LINE	S	ÿc3Level 20 Cleansing Aura When Equipped
 LINE	S	ÿc3Cannot Be Frozen
 LINE	S	ÿc3Replenish Life +1000
@@ -9273,7 +9212,6 @@ LINE	S	ÿc7Life Rune + Ki Rune + Mo Rune + No Rune
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+15 to Battle Orders
 LINE	S	ÿc3+50% to Summon Damage
-LINE	S	ÿc8+2 to Non-Unique Summons Limit
 LINE	S	ÿc3All Resistances +50
 LINE	S	ÿc3Level 15 Vigor Aura When Equipped
 LINE	S	ÿc3Cannot Be Frozen
@@ -9800,7 +9738,6 @@ RUNE	items_misc_rune_ko_rune	Ko
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Faith
 LINE	S	ÿc7Shi Rune + N Rune + Ko Rune + U Rune
-LINE	S	ÿc8The Curses you inflict and Inner Sight are 50% more effective
 LINE	S	ÿc31% Chance to Cast Level 50 Spike Armor when struck
 LINE	S	ÿc31% Chance to Cast Level 50 Cyclone Armor when struck
 LINE	S	ÿc3+2 to Paladin Skill Levels
@@ -10034,8 +9971,6 @@ RUNE	items_misc_rune_a_rune	A
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rain
 LINE	S	ÿc7A Rune + Me Rune
-LINE	S	ÿc8Double the effectiveness of Cyclone armor, but adds a 10 seconds
-LINE	S	ÿc8cooldown and sets the duration to 5 seconds
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+20% Faster Cast Rate
 LINE	S	ÿc3-10% to Enemy Fire Resistance
@@ -10056,8 +9991,6 @@ RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Wealth
 LINE	S	ÿc7To Rune + Mi Rune
-LINE	S	ÿc8Your kills have a 10% chance to count as having
-LINE	S	ÿc8500% gold and magic find bonus
 LINE	S	ÿc3100% Extra Gold from Monsters
 LINE	S	ÿc3100% Better Chance of Getting Magic Items
 LINE	S	ÿc3+5% Dodge Chance
@@ -10138,8 +10071,6 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Dream
 LINE	S	ÿc7Yu Rune + Me Rune
-LINE	S	ÿc8Holy Shock now deals 1% more total damage per 2 levels
-LINE	S	ÿc8but no longer grants lightning damage to attacks
 LINE	S	ÿc3Damage Reduced by 10%
 LINE	S	ÿc3Magic Resist +10%
 LINE	S	ÿc3+1 to All Skills
@@ -10181,8 +10112,6 @@ RUNE	items_misc_rune_to_rune	To
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Wealth
 LINE	S	ÿc7To Rune + Mi Rune
-LINE	S	ÿc8Your kills have a 10% chance to count as having
-LINE	S	ÿc8500% gold and magic find bonus
 LINE	S	ÿc3+75% Enhanced Defense
 LINE	S	ÿc3125% Extra Gold from Monsters
 LINE	S	ÿc375% Better Chance of Getting Magic Items
@@ -10565,7 +10494,6 @@ LINE	S	ÿc3+20% to Summon Damage
 LINE	S	ÿc3+20% Faster Cast Rate
 LINE	S	ÿc3+1 to Mana (Based on Character Level)
 LINE	S	ÿc3Curse Duration Reduced by 100%
-LINE	S	ÿc8+1 to Non-Unique Summons Limit
 LINE	S	ÿc3+15% Skill Cooldown Reduction
 LINE	S	ÿc3+16% Bonus to Energy
 LINE	S	ÿc5Required Level: 60
@@ -10819,8 +10747,6 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Dream
 LINE	S	ÿc7Yu Rune + Me Rune
-LINE	S	ÿc8Holy Shock now deals 1% more total damage per 2 levels
-LINE	S	ÿc8but no longer grants lightning damage to attacks
 LINE	S	ÿc3Damage Reduced by 10%
 LINE	S	ÿc3Magic Resist +10%
 LINE	S	ÿc3+1 to All Skills
