@@ -81,7 +81,17 @@ def read_table(path):
 class Tables:
     def __init__(self, folder, item_names=None):
         folder = Path(folder)
+        self.folder = folder
         self.item_types = self._item_type_names(read_table(folder / "itemtypes.txt"))
+
+        # Rune item levels from misc.txt (code r01..r97 -> level). levelreq is empty for runes.
+        self.rune_levels = {}
+        if (folder / "misc.txt").exists():
+            for row in read_table(folder / "misc.txt"):
+                code = row.get("code", "").strip()
+                level = row.get("level", "").strip()
+                if re.fullmatch(r"r\d+", code) and level.isdigit():
+                    self.rune_levels[code] = int(level)
 
         self.uniques = {}
         for row in read_table(folder / "uniqueitems.txt"):
@@ -136,9 +146,27 @@ class Tables:
                     if code:
                         self.code_tiers.setdefault(code, tier_name)
 
+        # Gambling (gamble.txt lists Normal-tier base codes). A base of any tier counts through its
+        # Normal base. The vendor rules for quality and tier upgrades live in the game, not in the files.
+        self.gamble_codes = set()
+        if (folder / "gamble.txt").exists():
+            self.gamble_codes = {row.get("code", "").strip() for row in read_table(folder / "gamble.txt")
+                                 if row.get("code", "").strip()}
+        self.normal_codes = {}
+        for name in ("armor.txt", "weapons.txt"):
+            if (folder / name).exists():
+                for row in read_table(folder / name):
+                    norm_code = row.get("normcode", "").strip()
+                    for column in ("normcode", "ubercode", "ultracode"):
+                        code = row.get(column, "").strip()
+                        if code and norm_code:
+                            self.normal_codes.setdefault(code, norm_code)
+
         self.set_rows = {}
+        self.set_table = []  # every setitems.txt row, in file order
         set_names = []
         for row in read_table(folder / "setitems.txt"):
+            self.set_table.append(row)
             key = norm(row.get("index", ""))
             if key and key not in self.set_rows:
                 self.set_rows[key] = row
@@ -181,6 +209,22 @@ class Tables:
         row = self.unique_row(title)
         return row is not None and norm(row.get("index", "")) in self.coupon_uniques
 
+    def gamble_info(self, title):
+        """(Normal base item name, item level) when this unique can come from gambling, else None.
+        Not for Coupon uniques; a disabled, non-spawnable or skip-generation row never drops."""
+        row = self.unique_row(title)
+        if row is None or norm(row.get("index", "")) in self.coupon_uniques:
+            return None
+        if row.get("disabled", "").strip() not in ("", "0") or row.get("spawnable", "").strip() != "1":
+            return None
+        if row.get("*Skip Generation", "").strip() not in ("", "0"):
+            return None
+        code = row.get("code", "").strip()
+        normal = self.normal_codes.get(code, code)
+        if normal not in self.gamble_codes:
+            return None
+        return self.base_names.get(normal, ""), row.get("lvl", "").strip()
+
     def unique_fields(self, title):
         row = self.unique_row(title)
         if row is None:
@@ -198,6 +242,15 @@ class Tables:
         if row is None:
             return ""
         return self.code_tiers.get(row.get("code", "").strip(), "")
+
+    def is_lod_rune(self, code):
+        """True for the LoD runes (codes r51 to r83 in misc.txt), as opposed to the Kanji runes."""
+        match = re.fullmatch(r"r(\d+)", code or "")
+        return bool(match) and 51 <= int(match.group(1)) <= 83
+
+    def rune_level(self, code):
+        """Level of a rune item by its code (r19 is the Kanji Ko), or 0 when unknown."""
+        return self.rune_levels.get(code, 0)
 
     def level(self, title):
         """Required level of a unique, for sorting (0 when unknown)."""
@@ -277,6 +330,17 @@ class Tables:
             ("Required Level", row.get("lvl req", "")),
             ("Set pieces", str(self.set_sizes.get(row.get("set", ""), 0))),
         ]
+
+    def hireling_rows(self):
+        """The mercenary-only set items: setitems.txt rows whose set ends in -N, -NM or -H. Returns
+        (row, set name without the suffix, difficulty) in table order, skipping disabled rows."""
+        names = {"N": "Normal", "NM": "Nightmare", "H": "Hell"}
+        out = []
+        for row in self.set_table:
+            match = re.fullmatch(r"(.+)-(N|NM|H)", row.get("set", "").strip())
+            if match and row.get("index", "").strip() and row.get("disabled", "").strip() in ("", "0"):
+                out.append((row, match.group(1), names[match.group(2)]))
+        return out
 
     def set_bonus(self, set_name, suffix):
         """Partial and full set bonus properties of one difficulty (suffix N, NM or H), as

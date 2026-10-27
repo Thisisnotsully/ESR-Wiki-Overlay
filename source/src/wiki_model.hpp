@@ -37,6 +37,7 @@ struct Field {
 struct RuneIcon {
     std::string imageKey;  // file name without extension, under images/
     std::string label;     // rune name shown beside the icon, e.g. "Ist"
+    bool lod = false;      // an LoD rune: its label is orange, not in the Kanji colours
 };
 
 struct Block {
@@ -129,5 +130,12 @@ struct ColorRun {
 
 // Splits a string containing D2 color codes ("\xC3\xBF" 'c' code) into runs.
 std::vector<ColorRun> SplitColorCodes(const std::string& text);
+
+// The stat lines a rune gives when socketed in an item of the card category `entryTitle`
+// ("Weapons", "Helms", "Torso", "Shields", ...), taken from the Runes page: the "All Items" lines
+// plus the lines for that kind of item. `lod` picks the LoD copy of a name that exists in both
+// sets (Ko). Empty when the rune is not on the Runes page or gives nothing for that item.
+std::vector<Line> RuneBonusLines(const Database& db, const std::string& runeLabel, bool lod,
+                                 const std::string& entryTitle);
 
 }  // namespace esrwiki

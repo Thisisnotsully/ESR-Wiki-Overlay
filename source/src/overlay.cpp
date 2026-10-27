@@ -17,17 +17,22 @@
 #include <gdiplus.h>
 
 #include <algorithm>
+#include <atomic>
 #include <set>
 #include <cmath>
+#include <cstdlib>
 #include <cstdint>
+#include <cstring>
 #include <fstream>
 #include <map>
 #include <memory>
 #include <string>
 #include <unordered_map>
+#include <utility>
 #include <vector>
 
 #include "overlay.hpp"
+#include "cursor_art.hpp"
 #include "wiki_model.hpp"
 
 namespace esrwiki {
@@ -200,6 +205,11 @@ void FrameColor(HDC dc, const RECT& rect, COLORREF color) {
 // default colour. Ki through Chi red, Sa through O yellow, Ho through Ha orange, Na through Mo green,
 // No through Re gold, Su through Wo and Null purple. A name counts only as a whole word: "Ki Rune".
 struct RuneNameGroup { const wchar_t* name; char group; };
+// Off while the LoD Runes list is drawn: its "Ko Rune" is a different rune from the Kanji one.
+bool gKanjiRuneColors = true;
+// Names of the LoD runes on the card whose tooltip is being drawn ("Ko"). They are coloured orange
+// wherever they appear as "<name> Rune", and take priority over a Kanji rune with the same name.
+std::vector<std::wstring> gLodRuneNames;
 const RuneNameGroup kRuneNameGroups[] = {
     {L"Ki", 'r'},
     {L"Ri", 'r'},
@@ -257,6 +267,7 @@ COLORREF RuneGroupColor(char group) {
 
 // Colour of a bare rune label such as "Ki" (the name without " Rune"), or the fallback.
 COLORREF KanjiLabelColor(const std::wstring& label, COLORREF fallback) {
+    if (!gKanjiRuneColors) return fallback;
     for (const RuneNameGroup& rune : kRuneNameGroups) {
         if (label == rune.name) return RuneGroupColor(rune.group);
     }
@@ -330,6 +341,7 @@ bool RuneNameAt(const std::wstring& text, std::size_t i, const wchar_t* name, st
 // Returns false when the text has no rune name, so callers can use the plain DrawText path.
 bool FindRuneNames(const std::wstring& text, std::vector<RunePiece>& pieces) {
     pieces.clear();
+    if (!gKanjiRuneColors) return false;
     if (text.find(L" Rune") == std::wstring::npos) return false;  // the common case: nothing to colour
     bool any = false;
     std::wstring plain;
@@ -341,6 +353,18 @@ bool FindRuneNames(const std::wstring& text, std::vector<RunePiece>& pieces) {
     while (i < text.size()) {
         bool matched = false;
         if (i == 0 || !IsWordChar(text[i - 1])) {
+            for (const std::wstring& lodName : gLodRuneNames) {
+                std::size_t after = 0;
+                if (RuneNameAt(text, i, lodName.c_str(), after)) {
+                    flush();
+                    pieces.push_back({text.substr(i, after - i), CodeColor('8'), true});
+                    i = after;
+                    matched = any = true;
+                    break;
+                }
+            }
+        }
+        if (!matched && (i == 0 || !IsWordChar(text[i - 1]))) {
             for (const RuneNameGroup& rune : kRuneNameGroups) {
                 std::size_t after = 0;
                 if (RuneNameAt(text, i, rune.name, after)) {
@@ -635,10 +659,101 @@ struct Hover { const Entry* entry = nullptr; const Block* block = nullptr; int r
 // Clicks on the blocker must not activate it (that would move keyboard focus off
 // the panel), and closing it is ignored so Alt+F4 cannot remove the input block.
 // The game keeps hiding and showing the system cursor, which flickers. Over the wiki the system
-// cursor is hidden instead, and a drawn arrow (CursorProc) follows the pointer.
-void HideSystemCursor() {
-    SetCursor(nullptr);
+// cursor is hidden instead, and a drawn copy of the game's cursor (CursorProc) follows the pointer.
+// True while a window of this process (the game or the wiki) is in front. A screenshot tool such as
+// Win+Shift+S puts its own window in front; then the system cursor must show and the drawn one must go.
+bool OwnWindowInFront() {
+    const HWND front = GetForegroundWindow();
+    if (front == nullptr) return true;
+    DWORD process = 0;
+    GetWindowThreadProcessId(front, &process);
+    return process == GetCurrentProcessId();
 }
+
+// The game's own cursor, if the game has a system cursor to copy (null when it draws its own). It is
+// remembered while the wiki is closed; its picture is drawn by the cursor window (RenderCursorImage).
+// Showing the game's cursor handle itself does not work: the game keeps hiding it, so it flickers and
+// vanishes while the pointer is still. Set to false to always draw the built-in gauntlet instead.
+constexpr bool kUseGameCursor = true;
+std::atomic<HCURSOR> gGameCursor{nullptr};
+std::atomic<int> gCursorHotX{0};  // hot spot of the cursor image now drawn, in pixels
+std::atomic<int> gCursorHotY{0};
+
+// Over the wiki the system cursor is hidden (the drawn one replaces it); with another program in front
+// the normal arrow shows.
+void HideSystemCursor() {
+    SetCursor(OwnWindowInFront() ? nullptr : LoadCursorW(nullptr, MAKEINTRESOURCEW(32512)));  // IDC_ARROW
+}
+
+// While the wiki is closed: remembers the last cursor the game showed over its own window.
+void RememberGameCursor() {
+    if (!kUseGameCursor || !OwnWindowInFront()) return;
+    CURSORINFO info{};
+    info.cbSize = sizeof(info);
+    if (!GetCursorInfo(&info) || !(info.flags & CURSOR_SHOWING) || info.hCursor == nullptr) return;
+    const HWND under = WindowFromPoint(info.ptScreenPos);
+    DWORD process = 0;
+    if (under != nullptr) GetWindowThreadProcessId(under, &process);
+    if (process != GetCurrentProcessId()) return;  // the pointer is not over the game
+    if (info.hCursor == LoadCursorW(nullptr, MAKEINTRESOURCEW(32512))) return;  // the plain Windows arrow is not the game's
+    gGameCursor = info.hCursor;
+}
+
+// The picture of a system cursor as premultiplied 0xAARRGGBB pixels, with its hot spot. False when it
+// cannot be read (for example a black and white cursor).
+bool CursorPixels(HCURSOR cursor, std::vector<std::uint32_t>& pixels, int& width, int& height, int& hotX, int& hotY) {
+    ICONINFO icon{};
+    if (!GetIconInfo(cursor, &icon)) return false;
+    bool ok = false;
+    BITMAP color{};
+    if (icon.hbmColor != nullptr && GetObjectW(icon.hbmColor, sizeof(color), &color) != 0 && color.bmWidth > 0 &&
+        color.bmHeight > 0 && color.bmWidth <= 512 && color.bmHeight <= 512) {
+        width = color.bmWidth;
+        height = color.bmHeight;
+        BITMAPINFO info{};
+        info.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+        info.bmiHeader.biWidth = width;
+        info.bmiHeader.biHeight = -height;  // top row first
+        info.bmiHeader.biPlanes = 1;
+        info.bmiHeader.biBitCount = 32;
+        info.bmiHeader.biCompression = BI_RGB;
+        const HDC screen = GetDC(nullptr);
+        pixels.assign(static_cast<std::size_t>(width) * height, 0);
+        if (GetDIBits(screen, icon.hbmColor, 0, height, pixels.data(), &info, DIB_RGB_COLORS) == height) {
+            bool hasAlpha = false;
+            for (const std::uint32_t pixel : pixels) hasAlpha = hasAlpha || (pixel >> 24) != 0;
+            if (hasAlpha) {
+                for (std::uint32_t& pixel : pixels) {  // colours were not multiplied by alpha
+                    const std::uint32_t a = pixel >> 24;
+                    pixel = (a << 24) | ((((pixel >> 16) & 255) * a / 255) << 16) | ((((pixel >> 8) & 255) * a / 255) << 8) |
+                            ((pixel & 255) * a / 255);
+                }
+                ok = true;
+            } else if (icon.hbmMask != nullptr) {  // no alpha: the mask says which pixels are drawn
+                std::vector<std::uint32_t> mask(pixels.size(), 0);
+                if (GetDIBits(screen, icon.hbmMask, 0, height, mask.data(), &info, DIB_RGB_COLORS) == height) {
+                    for (std::size_t i = 0; i < pixels.size(); ++i)
+                        pixels[i] = (mask[i] & 0xFFFFFF) == 0 ? (pixels[i] | 0xFF000000u) : 0u;
+                    ok = true;
+                }
+            }
+        }
+        ReleaseDC(nullptr, screen);
+        hotX = static_cast<int>(icon.xHotspot);
+        hotY = static_cast<int>(icon.yHotspot);
+    }
+    if (icon.hbmColor != nullptr) DeleteObject(icon.hbmColor);
+    if (icon.hbmMask != nullptr) DeleteObject(icon.hbmMask);
+    return ok;
+}
+
+// Cursor size as a percent of kCursorWidth (before display scaling). The wiki sets it from the game
+// window's height, so the cursor grows and shrinks with the game's resolution.
+std::atomic<int> gCursorScale{100};
+int gRenderedCursorScale = 0;  // scale the cursor image was last drawn at (cursor thread only)
+
+int CursorWidth(int dpi) { return std::max(1, MulDiv(MulDiv(kCursorWidth, gCursorScale.load(), 100), dpi, 96)); }
+int CursorHeight(int dpi) { return std::max(1, MulDiv(MulDiv(kCursorHeight, gCursorScale.load(), 100), dpi, 96)); }
 
 // Moves the cursor window to the pointer, but only when the pointer has moved.
 void MoveCursorToPointer(HWND window) {
@@ -649,27 +764,127 @@ void MoveCursorToPointer(HWND window) {
         if (last->x == point.x && last->y == point.y) return;
         *last = point;
     }
-    SetWindowPos(window, HWND_TOPMOST, point.x, point.y, 0, 0, SWP_NOSIZE | SWP_NOACTIVATE);
+    // The window sits up and to the left of the pointer so the cursor's hot spot is on the pointer.
+    SetWindowPos(window, HWND_TOPMOST, point.x - gCursorHotX.load(), point.y - gCursorHotY.load(), 0, 0,
+                 SWP_NOSIZE | SWP_NOACTIVATE);
 }
 
-// Click-through window that draws the arrow at the pointer. It lives on its own thread (CursorThread),
+// Draws the cursor into the cursor window with per-pixel alpha: the game's own cursor picture when one was
+// remembered (RememberGameCursor), at its own size, otherwise the built-in gauntlet (cursor_art.hpp, made
+// by tools/make_cursor.py), sized for the dpi and the game's height. Done each time the window is shown.
+void RenderCursorImage(HWND window) {
+    const int dpi = static_cast<int>(GetDpiForWindow(window));
+    gRenderedCursorScale = gCursorScale.load();
+    std::vector<std::uint32_t> game;
+    int sourceWidth = kCursorWidth, sourceHeight = kCursorHeight;
+    const std::uint32_t* source = kCursorPixels;
+    int hotX = MulDiv(MulDiv(kCursorHotX, gCursorScale.load(), 100), dpi, 96);
+    int hotY = MulDiv(MulDiv(kCursorHotY, gCursorScale.load(), 100), dpi, 96);
+    int width = CursorWidth(dpi);
+    int height = CursorHeight(dpi);
+    const HCURSOR remembered = kUseGameCursor ? gGameCursor.load() : nullptr;
+    int gameHotX = 0, gameHotY = 0;
+    if (remembered != nullptr && CursorPixels(remembered, game, sourceWidth, sourceHeight, gameHotX, gameHotY)) {
+        source = game.data();
+        width = sourceWidth;  // the game's cursor is drawn at the size the game uses
+        height = sourceHeight;
+        hotX = gameHotX;
+        hotY = gameHotY;
+    } else {
+        sourceWidth = kCursorWidth;
+        sourceHeight = kCursorHeight;
+    }
+    gCursorHotX = hotX;
+    gCursorHotY = hotY;
+    const HDC screen = GetDC(nullptr);
+    BITMAPINFO info{};
+    info.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+    info.bmiHeader.biPlanes = 1;
+    info.bmiHeader.biBitCount = 32;
+    info.bmiHeader.biCompression = BI_RGB;
+    info.bmiHeader.biWidth = width;
+    info.bmiHeader.biHeight = -height;  // top row first
+    void* bits = nullptr;
+    const HBITMAP bitmap = CreateDIBSection(screen, &info, DIB_RGB_COLORS, &bits, nullptr, 0);
+    if (bitmap != nullptr && bits != nullptr) {
+        // Scale by averaging the source pixels under each target pixel (one to one for the game's cursor).
+        // The colours are already multiplied by alpha, so averaging every channel is correct. GDI scaling is
+        // not used because it can clear the alpha channel.
+        auto* out = static_cast<std::uint32_t*>(bits);
+        for (int y = 0; y < height; ++y) {
+            const int y0 = y * sourceHeight / height;
+            const int y1 = std::max(y0 + 1, std::min(sourceHeight, ((y + 1) * sourceHeight + height - 1) / height));
+            for (int x = 0; x < width; ++x) {
+                const int x0 = x * sourceWidth / width;
+                const int x1 = std::max(x0 + 1, std::min(sourceWidth, ((x + 1) * sourceWidth + width - 1) / width));
+                std::uint32_t sum[4] = {0, 0, 0, 0};
+                for (int sy = y0; sy < y1; ++sy) {
+                    for (int sx = x0; sx < x1; ++sx) {
+                        const std::uint32_t pixel = source[sy * sourceWidth + sx];
+                        sum[0] += pixel >> 24;
+                        sum[1] += (pixel >> 16) & 255;
+                        sum[2] += (pixel >> 8) & 255;
+                        sum[3] += pixel & 255;
+                    }
+                }
+                const std::uint32_t count = static_cast<std::uint32_t>((y1 - y0) * (x1 - x0));
+                out[y * width + x] = ((sum[0] / count) << 24) | ((sum[1] / count) << 16) | ((sum[2] / count) << 8) |
+                                     (sum[3] / count);
+            }
+        }
+        const HDC memory = CreateCompatibleDC(screen);
+        const HGDIOBJ old = SelectObject(memory, bitmap);
+        BLENDFUNCTION blend{AC_SRC_OVER, 0, 255, AC_SRC_ALPHA};
+        POINT origin{0, 0};
+        SIZE size{width, height};
+        UpdateLayeredWindow(window, screen, nullptr, &size, memory, &origin, 0, &blend, ULW_ALPHA);
+        SelectObject(memory, old);
+        DeleteDC(memory);
+    }
+    if (bitmap != nullptr) DeleteObject(bitmap);
+    ReleaseDC(nullptr, screen);
+}
+
+// Click-through window that draws the game's cursor at the pointer. It lives on its own thread (CursorThread),
 // so repaints of the wiki cannot delay it.
 LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
+    static bool wanted = false;  // the wiki is open; only this thread reads or writes it
     switch (message) {
     case kMsgCursorShow:
+        wanted = true;
+        if (!OwnWindowInFront()) return 0;  // the timer shows it once the game is back in front
         if (IsWindow(window)) {
             POINT* last = reinterpret_cast<POINT*>(GetWindowLongPtrW(window, GWLP_USERDATA));
             if (last != nullptr) *last = POINT{-1, -1};
         }
+        RenderCursorImage(window);
         ShowWindow(window, SW_SHOWNOACTIVATE);
         MoveCursorToPointer(window);
         return 0;
     case kMsgCursorHide:
+        wanted = false;
         ShowWindow(window, SW_HIDE);
         return 0;
-    case WM_TIMER:
+    case WM_TIMER: {
+        static int polls = 0;
+        if (!wanted && ++polls % 5 == 0) RememberGameCursor();  // about every 40 ms while the wiki is closed
+        const bool show = wanted && OwnWindowInFront();
+        if (show && !IsWindowVisible(window)) {
+                POINT* last = reinterpret_cast<POINT*>(GetWindowLongPtrW(window, GWLP_USERDATA));
+            if (last != nullptr) *last = POINT{-1, -1};
+            RenderCursorImage(window);
+            ShowWindow(window, SW_SHOWNOACTIVATE);
+        } else if (!show && IsWindowVisible(window)) {
+            ShowWindow(window, SW_HIDE);
+        }
+        if (IsWindowVisible(window) && gRenderedCursorScale != gCursorScale.load()) {
+            RenderCursorImage(window);  // the wiki's scale changed (window resized)
+            POINT* last = reinterpret_cast<POINT*>(GetWindowLongPtrW(window, GWLP_USERDATA));
+            if (last != nullptr) *last = POINT{-1, -1};
+        }
         if (IsWindowVisible(window)) MoveCursorToPointer(window);
         return 0;
+    }
     case WM_NCHITTEST:
         return HTTRANSPARENT;
     case WM_MOUSEACTIVATE:
@@ -677,34 +892,6 @@ LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     case WM_SETCURSOR:
         HideSystemCursor();
         return TRUE;
-    case WM_PAINT: {
-        PAINTSTRUCT paint{};
-        const HDC dc = BeginPaint(window, &paint);
-        RECT box{};
-        GetClientRect(window, &box);
-        const HBRUSH key = CreateSolidBrush(RGB(0, 0, 0));  // black is the transparent colour key
-        FillRect(dc, &box, key);
-        DeleteObject(key);
-        const int dpi = static_cast<int>(GetDpiForWindow(window));
-        // Arrow drawn in a 20 x 30 box at 96 dpi; the tip is at (0, 0).
-        const POINT units[7] = {{0, 0}, {0, 22}, {6, 17}, {10, 26}, {13, 25}, {9, 16}, {16, 16}};
-        POINT points[7]{};
-        for (int i = 0; i < 7; ++i) {
-            points[i].x = MulDiv(units[i].x, dpi, 96);
-            points[i].y = MulDiv(units[i].y, dpi, 96);
-        }
-        const HPEN pen = CreatePen(PS_SOLID, 1, RGB(10, 10, 10));
-        const HBRUSH fill = CreateSolidBrush(RGB(255, 255, 255));
-        const HGDIOBJ oldPen = SelectObject(dc, pen);
-        const HGDIOBJ oldBrush = SelectObject(dc, fill);
-        Polygon(dc, points, 7);
-        SelectObject(dc, oldPen);
-        SelectObject(dc, oldBrush);
-        DeleteObject(pen);
-        DeleteObject(fill);
-        EndPaint(window, &paint);
-        return 0;
-    }
     case WM_ERASEBKGND:
         return 1;
     }
@@ -1030,6 +1217,10 @@ void OverlayState::FitToGame() {
         uiScale = scale;
         ApplyFonts();
     }
+    // The cursor follows the game window's height, relative to the display scaling. Tuned on a 150% display:
+    // 150 px wide in a 2160 px high window and 62 px wide at 1080p, which is a little more than linear.
+    // Display scaling does not change it (the 1440 is a height in 96 dpi units).
+    gCursorScale = std::clamp(static_cast<int>(std::lround(80.0 * std::pow(static_cast<double>(h) / S(1440), 1.27))), 20, 150);
 
     width = w;
     height = h;
@@ -1374,15 +1565,22 @@ void OverlayState::DrawTooltip(HDC dc) {
         if (socket.rfind(L"Any ", 0) == 0) {
             rows.push_back({socket, kGold, fontBold});
         } else {
-            rows.push_back({socket + L" Rune", kGold, fontBold});
-            rows.push_back({L"Socketed in " + Wide(block.title.empty() ? hover.entry->title : block.title), kBody,
-                            fontBody});
+            rows.push_back({socket + L" Rune", block.runes[hover.rune].lod ? CodeColor('8') : kGold, fontBold});
+            // The rune's own stat lines for this kind of item (Runes page), instead of a "Socketed in" line.
+            const RuneIcon& rune = block.runes[hover.rune];
+            for (const Line& line : RuneBonusLines(*database, rune.label, rune.lod, hover.entry->title)) {
+                std::string plain;
+                COLORREF color = kBody;
+                PlainText(line.text, plain, color, kBody);
+                rows.push_back({Wide(plain), color, fontBody});
+            }
         }
     } else {
         const std::string heading = block.title.empty() ? hover.entry->title : block.title;
         // Mythicals (the wide cards) are purple, set items green; the rest follow the page's name colour.
         COLORREF headingColor = tooltipNameColor;
         if (hover.entry->wide) headingColor = CodeColor(';');
+        else if (hover.entry->title == "LoD Runes") headingColor = CodeColor('8');
         else if (CurrentPage().id == "set-items") headingColor = CodeColor('2');
         rows.push_back({Wide(heading), headingColor, fontBold});
         if (!block.subtitle.empty()) rows.push_back({Wide(block.subtitle), kDim, fontSmall});
@@ -1397,6 +1595,28 @@ void OverlayState::DrawTooltip(HDC dc) {
             rows.push_back({Wide(plain), isHeading ? kGold : color, isHeading ? fontBold : fontBody});
         }
     }
+
+    // A LoD rune's name must not take the Kanji rune colour ("Ko" exists in both sets), so name
+    // colouring is off while this tip is measured and drawn, and put back afterwards.
+    struct KanjiColorGuard {
+        bool previous;
+        explicit KanjiColorGuard(bool value) : previous(gKanjiRuneColors) { gKanjiRuneColors = value; }
+        ~KanjiColorGuard() { gKanjiRuneColors = previous; }
+    } kanjiGuard(!(hover.rune >= 0 && static_cast<std::size_t>(hover.rune) < block.runes.size() &&
+                   block.runes[hover.rune].lod));
+
+    struct LodNamesGuard {
+        std::vector<std::wstring> previous;
+        explicit LodNamesGuard(std::vector<std::wstring> names) : previous(std::move(gLodRuneNames)) {
+            gLodRuneNames = std::move(names);
+        }
+        ~LodNamesGuard() { gLodRuneNames = std::move(previous); }
+    };
+    std::vector<std::wstring> lodNames;
+    for (const RuneIcon& rune : block.runes) {
+        if (rune.lod && rune.label.rfind("Any ", 0) != 0) lodNames.push_back(Wide(rune.label));
+    }
+    LodNamesGuard lodGuard(std::move(lodNames));
 
     const int gap = S(4);
     RECT client{};
@@ -1771,6 +1991,7 @@ int OverlayState::TileHeight(HDC dc, const Block& block, const TileStyle& style)
 int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& entry,
                               const std::vector<std::size_t>& order, std::size_t begin, std::size_t end, int left,
                               int width_, int y, bool compact, bool draw) {
+    gKanjiRuneColors = entry.title != "LoD Runes";
     if (entry.wide) return RenderWideTiles(dc, graphics, entry, order, begin, end, left, width_, y, draw);
     const TileStyle style = MakeTileStyle(width_, compact, entry.fiveAcross);
     const std::size_t step = static_cast<std::size_t>(style.columns);
@@ -1798,7 +2019,8 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
                 Text(dc, Wide(block.title),
                      Rect(tileLeft + S(6), y + style.padding, tileLeft + style.tileWidth - S(6),
                           y + style.padding + nameHeight),
-                     itemNameColor, style.nameFont, DT_CENTER | DT_WORDBREAK);
+                     entry.title == "LoD Runes" ? CodeColor('8') : itemNameColor, style.nameFont,
+                     DT_CENTER | DT_WORDBREAK);
             }
 
             const int artTop = y + style.padding + nameHeight + style.padding;
@@ -1836,7 +2058,8 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
                         // Jewel and gem sockets show their name in the tooltip only.
                         if (label.rfind(L"Any ", 0) != 0) {
                             Text(dc, label, Rect(x, rowTop + icon, x + style.cell, rowTop + icon + smallLine),
-                                 KanjiLabelColor(label, kGold), fontSmall, DT_CENTER | DT_SINGLELINE);
+                                 block.runes[r].lod ? CodeColor('8') : KanjiLabelColor(label, kGold), fontSmall,
+                                 DT_CENTER | DT_SINGLELINE);
                         }
                     }
                 }
@@ -2415,10 +2638,9 @@ DWORD WINAPI CursorThread(LPVOID parameter) {
     RegisterClassExW(&cursorClass);
     self->cursorWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOOLWINDOW | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE |
                                              WS_EX_TOPMOST,
-                                         self->cursorClassName.c_str(), L"", WS_POPUP, 0, 0, self->S(20), self->S(30),
+                                         self->cursorClassName.c_str(), L"", WS_POPUP, 0, 0, self->S(kCursorWidth), self->S(kCursorHeight),
                                          nullptr, nullptr, instance, nullptr);
     if (self->cursorWindow != nullptr) {
-        SetLayeredWindowAttributes(self->cursorWindow, RGB(0, 0, 0), 0, LWA_COLORKEY);
         SetWindowLongPtrW(self->cursorWindow, GWLP_USERDATA, reinterpret_cast<LONG_PTR>(&self->lastCursor));
         SetTimer(self->cursorWindow, 1, 8, nullptr);  // about 120 updates a second while shown
     }

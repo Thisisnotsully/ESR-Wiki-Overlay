@@ -187,7 +187,7 @@ void TestGeneratedData(const std::string& path) {
     };
     struct Expect { const char* id; std::size_t entries; std::size_t blocks; };
     const Expect expected[] = {
-        {"runes", 4, 95},      {"runewords", 8, 402}, {"set-items", 10, 342},
+        {"runes", 4, 95},      {"runewords", 8, 415}, {"set-items", 10, 342},
         {"uniques", 13, 1159}, {"gemwords", 4, 157},
     };
     for (const Expect& e : expected) {
@@ -198,6 +198,19 @@ void TestGeneratedData(const std::string& path) {
         for (const auto& entry : page->entries) blocks += entry.blocks.size();
         Check(page->entries.size() == e.entries, (std::string(e.id) + " entry count").c_str());
         Check(blocks == e.blocks, (std::string(e.id) + " block count").c_str());
+    }
+    {
+        auto text_of = [](const std::vector<esrwiki::Line>& lines) {
+            std::string joined;
+            for (const auto& line : lines) joined += line.text + "|";
+            return joined;
+        };
+        // Ko exists in both rune sets: the LoD copy gives Dexterity, the Kanji one Strength.
+        const std::string lod = text_of(esrwiki::RuneBonusLines(db, "Ko", true, "Weapons"));
+        const std::string kanji = text_of(esrwiki::RuneBonusLines(db, "Ko", false, "Weapons"));
+        Check(lod.find("Dexterity") != std::string::npos, "LoD Ko bonus lines found");
+        Check(kanji.find("Strength") != std::string::npos, "Kanji Ko bonus lines found");
+        Check(esrwiki::RuneBonusLines(db, "Nonexistent", false, "Weapons").empty(), "unknown rune has no lines");
     }
     const esrwiki::Page* runewords = find("runewords");
     if (runewords != nullptr) Check(esrwiki::FilterEntries(*runewords, "").size() == 8, "runewords has 8 categories");

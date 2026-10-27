@@ -77,7 +77,7 @@ class ExtractionTests(unittest.TestCase):
     def test_category_and_block_counts(self):
         expected = {
             "runes": (4, 95),
-            "runewords": (8, 402),
+            "runewords": (8, 415),
             "set-items": (10, 342),
             "uniques": (13, 1159),
             "gemwords": (4, 157),
@@ -165,6 +165,65 @@ class ExtractionTests(unittest.TestCase):
             if parts[0] == "BLOCK" and len(parts) > 2 and parts[2] == title:
                 return parts[4] if len(parts) > 4 else ""
         return None
+
+    def test_class_set_cards_follow_setitems(self):
+        """Every non-hireling set card sits under its set's header, each set's bonus card follows its pieces,
+        and item lines come from setitems.txt (Naj's Light Plate: 48/8 = +6 Defense per level)."""
+        page = entry = None
+        blocks = []
+        for line in self.text:
+            parts = line.split("\t")
+            if parts[0] == "PAGE":
+                page = parts[1]
+            elif parts[0] == "ENTRY":
+                entry = parts[1]
+            elif parts[0] == "BLOCK" and page == "set-items" and entry != "Hireling":
+                blocks.append({"title": parts[2], "section": parts[4], "lines": []})
+            elif parts[0] == "LINE" and page == "set-items" and entry != "Hireling" and blocks:
+                blocks[-1]["lines"].append(parts[2])
+        self.assertTrue(blocks)
+        self.assertTrue(all(b["section"] for b in blocks))
+        sections = [b["section"] for b in blocks]
+        seen = []
+        for section in sections:
+            if not seen or seen[-1] != section:
+                self.assertNotIn(section, seen)   # a set's cards are in one run
+                seen.append(section)
+        plate = next(b for b in blocks if b["title"] == "Naj's Light Plate")
+        self.assertIn("\u00ffcC+6 Defense (Based on Character Level)", plate["lines"])
+        bonus = [b for b in blocks if "Set bonus" in b["lines"]]
+        self.assertEqual(len(bonus), len({b["section"] for b in blocks}))
+
+    def test_hireling_cards_follow_setitems_by_difficulty(self):
+        """The Hireling entry is laid out like the Warlock sets (a header per set, its pieces, then its bonus
+        card), lists Normal, then Nightmare, then Hell, and each piece carries its own base item and required
+        level from setitems.txt."""
+        blocks = []
+        page = entry = None
+        flags = []
+        for line in self.text:
+            parts = line.split("\t")
+            if parts[0] == "PAGE":
+                page = parts[1]
+            elif parts[0] == "ENTRY":
+                entry = parts
+                if page == "set-items" and parts[1] == "Hireling":
+                    flags = parts[3:]
+            elif parts[0] == "BLOCK" and page == "set-items" and entry[1] == "Hireling":
+                blocks.append({"title": parts[2], "section": parts[4], "tier": parts[5], "level": int(parts[7]), "fields": {}})
+            elif parts[0] == "FIELD" and page == "set-items" and entry[1] == "Hireling" and blocks:
+                blocks[-1]["fields"][parts[1]] = parts[2]
+        self.assertEqual(len(blocks), 51)
+        self.assertNotIn("sortable", flags)
+        self.assertEqual(blocks[0]["section"], "Kashya's Survival Kit (Normal, Lvl 10)")
+        self.assertEqual(blocks[3]["title"], "Kashya's Survival Kit")  # the set bonus card follows its pieces
+        self.assertEqual(blocks[3]["section"], blocks[0]["section"])
+        tiers = [b["tier"] for b in blocks]
+        self.assertEqual(tiers, sorted(tiers, key=["Normal", "Nightmare", "Hell"].index))
+        hell_suit = next(b for b in blocks if b["title"] == "Rogue's Suit" and b["tier"] == "Hell")
+        self.assertEqual(hell_suit["fields"]["Base"], "Viper Skin")
+        self.assertEqual(hell_suit["fields"]["Required Level"], "50")
+        self.assertEqual(hell_suit["level"], 50)
 
     def test_manifest_covers_every_referenced_image(self):
         manifest = (OVERLAY / "data" / "image-manifest.txt").read_text(encoding="utf-8").splitlines()

@@ -36,6 +36,7 @@ from pathlib import Path, PurePosixPath
 
 from wiki_layout import fields, load_layout, load_string_table, tooltip_key, walk
 import excel_items
+import runeword_gen
 
 OVERLAY_DIR = Path(__file__).resolve().parent.parent
 PLUGIN_DIR = OVERLAY_DIR.parent
@@ -127,6 +128,12 @@ def runeword_category(name):
     if name == "Gloves":
         return "Gloves"
     return "Weapon"
+
+
+def runeword_category_of_card(name):
+    """The category a carousel card name (card_<Group>_<row>_<n>) belongs to."""
+    parts = name.split("_")
+    return parts[1] if len(parts) > 1 else ""
 
 
 def set_card_type_line(block, label):
@@ -307,6 +314,16 @@ UNIQUE_PAGE_ART_OVERRIDES = {
     "Ace in the Hole": WARLOCK_BLADE_ART,
     "The Penitent": WARLOCK_BLADE_ART,
     "Delirium": WARLOCK_BLADE_ART,
+    "Wren's Reinforced Tech Boots": "items\\armor\\boot\\crystal_boots",
+}
+
+# setitems.txt cuts item names to 24 characters; these are the full names from item-names.json.
+SET_ITEM_FULL_NAMES = {
+    "Reaver of the Angel of A": "Reaver of the Angel of Annihilation",
+    "Harbinger of Ruin's Merciless": "Harbinger of Ruin's Merciless Rule",
+    "Harbinger of Ruin's Smoldering": "Harbinger of Ruin's Smoldering Gemstone",
+    "Harbinger of Ruin's Inevitable": "Harbinger of Ruin's Inevitable Conquest",
+    "Harbinger of Ruin's Soul": "Harbinger of Ruin's Soul Compendium",
 }
 
 # Gemword cards whose gem sprite is not in the mod: the Named card uses Smiiiff Stone's art instead.
@@ -329,6 +346,10 @@ def mod_art_table(path):
         for key, variants in entry.items():
             table.setdefault(re.sub(r"[^a-z0-9]", "", strip_color(key).lower()), variants)
     return table
+
+
+def norm_name(text):
+    return re.sub(r"\W+", "", text or "").lower()
 
 
 class Builder:
@@ -639,7 +660,8 @@ class Builder:
             text = cfields.get("text")
             if child.get("type") == "TextBoxWidget" and isinstance(text, str) and clean(text):
                 if not block["title"]:
-                    block["title"] = clean(text)
+                    # The overlay draws block titles as plain text, so colour codes would show.
+                    block["title"] = strip_color(clean(text))
                 else:
                     block["lines"].extend(("T", line) for line in split_lines(text))
             if child.get("type") == "ImageWidget" and is_content_image(cfields.get("filename")):
@@ -741,7 +763,8 @@ class Builder:
                     block = claimed[group]
                 else:
                     block = surplus.pop(0) if surplus else copy.deepcopy(pairs[0][1])
-                    block["images"] = [self.note_image(RUNEWORD_FALLBACK_IMAGE.get(
+                    known = getattr(self, "rw_art", {}).get((key, group))
+                    block["images"] = [self.note_image(known)] if known else [self.note_image(RUNEWORD_FALLBACK_IMAGE.get(
                         next((n for n in group_names if n in RUNEWORD_FALLBACK_IMAGE), RUNEWORD_GROUP_DEFAULT[group]),
                         RUNEWORD_FALLBACK_IMAGE[RUNEWORD_GROUP_DEFAULT[group]]))]
                 block_image = block["images"][0] if block["images"] else ""
@@ -817,6 +840,277 @@ class Builder:
                 kept.append(card)
         return kept
 
+    HIRELING_TIERS = ("Normal", "Nightmare", "Hell")
+    RESIST_NAMES = {"res-cold/lvl": "Cold", "res-fire/lvl": "Fire", "res-ltng/lvl": "Lightning", "res-pois/lvl": "Poison"}
+
+    def hireling_lines(self, code, param, low, high):
+        """Display lines for one setitems.txt property of a hireling item."""
+        if code in self.RESIST_NAMES:
+            value = int(param or 0) / 8.0
+            text = ("%g" % value)
+            return ["%sc3%s Resist +%s%% (Based on Character Level)" % ("\u00ff", self.RESIST_NAMES[code], text)]
+        if self.line_generator is None:
+            self.line_generator = runeword_gen.Generator(self.excel.folder, None)
+        lines = self.line_generator.lines(code, param, low, high)
+        if lines is None:
+            self.unmatched_bonus.add(code)
+            return []
+        return list(lines)
+
+    def build_hireling_blocks(self, old_blocks):
+        """The Hireling category, built from setitems.txt (the mercenary-only rows, set names ending -N,
+        -NM and -H) and sets.txt. Each difficulty is its own group of sets: Normal, then Nightmare, then
+        Hell. Card art comes from the mod's sets.json and
+        the set bonus cards keep the art of the layout's cards. Laid out like the Warlock sets: a header for
+        each set (with its difficulty and level), its pieces, then its set bonus card. The difficulty
+        filter is kept."""
+        self.line_generator = getattr(self, "line_generator", None)
+        shard_sources = OrderedDict()
+        for block in old_blocks:
+            if not any(label == "Set" for label, _ in block["fields"]):
+                shard_sources.setdefault(block["title"], []).append(block)
+
+        old_art = {(block["title"], block.get("tier", "")): block["images"] for block in old_blocks if block["images"]}
+        rows = self.excel.hireling_rows()
+        set_order = []
+        for _, set_name, _ in rows:
+            if set_name not in set_order:
+                set_order.append(set_name)
+        pieces = {}
+        for row, set_name, tier in rows:
+            pieces.setdefault((set_name, tier), []).append(row)
+
+        out = []
+        for tier_index, tier in enumerate(self.HIRELING_TIERS):
+            for set_index, set_name in enumerate(set_order):
+                members = pieces.get((set_name, tier), [])
+                if not members:
+                    continue
+                level = int(members[0].get("lvl req", "0") or 0)
+                # Like the Warlock sets: a header for each set, its pieces under it, then its bonus card.
+                section = "%s (%s, Lvl %d)" % (set_name, tier, level)
+                for piece_index, row in enumerate(members):
+                    block = new_block(True, re.sub(r"\s+(Normal|Night\w*|Hell)$", "", row["index"].strip()), tier,
+                                      section)
+                    block["tier"] = tier
+                    block["level"] = int(row.get("lvl req", "0") or 0)
+                    block["fields"] = [("Set", set_name), ("Base", row.get("*ItemName", "")),
+                                       ("Required Level", row.get("lvl req", "")),
+                                       ("Item Level", row.get("lvl", "")),
+                                       ("Set pieces", str(len(members)))]
+                    art = self.mod_inventory_art("set", row["index"].strip(), tier)
+                    if art:
+                        block["images"] = [self.note_image(art)]
+                    elif old_art.get((block["title"], tier)):
+                        block["images"] = list(old_art[(block["title"], tier)])
+                    else:
+                        # No art in the mod's sets.json: the base item's own inventory icon.
+                        base_type = self.excel.base_types.get(row.get("item", "").strip(), "")
+                        for stem in (unique_key(row.get("*ItemName", "")), base_type, TYPE_ICON_STEM.get(base_type, "")):
+                            base_art = self.sprite_index.get(stem.lower()) if stem else None
+                            if base_art:
+                                block["images"] = [self.note_image(base_art)]
+                                break
+                    lines = [("S", TITLE_COLOR + row["index"].strip())]
+                    for i in range(1, 10):
+                        code = row.get("prop%d" % i, "").strip()
+                        if code:
+                            lines += [("S", text) for text in self.hireling_lines(
+                                code, row.get("par%d" % i, "").strip(), row.get("min%d" % i, "").strip(),
+                                row.get("max%d" % i, "").strip())]
+                    for i in range(1, 6):
+                        bonus = []
+                        for suffix in ("a", "b"):
+                            code = row.get("aprop%d%s" % (i, suffix), "").strip()
+                            if code:
+                                bonus += self.hireling_lines(code, row.get("apar%d%s" % (i, suffix), "").strip(),
+                                                             row.get("amin%d%s" % (i, suffix), "").strip(),
+                                                             row.get("amax%d%s" % (i, suffix), "").strip())
+                        if bonus:
+                            lines.append(("S", TITLE_COLOR + "(%d Items)" % (i + 1)))
+                            lines += [("S", TITLE_COLOR + re.sub("^\u00ffc.", "", text)) for text in bonus]
+                    lines.append(("S", "%sc5Required Level: %s" % ("\u00ff", row.get("lvl req", ""))))
+                    block["lines"] = lines
+                    block["_order"] = (tier_index, set_index, 0, piece_index)
+                    out.append(block)
+                for card in self.shard_cards_for(set_name, shard_sources.get(set_name, []), (tier,)):
+                    card["level"] = level
+                    card["section"] = section
+                    card["fields"] = [("Set", set_name), ("Set pieces", str(len(members)))]
+                    card["_order"] = (tier_index, set_index, 1, 0)
+                    out.append(card)
+        out.sort(key=lambda b: b["_order"])
+        for block in out:
+            del block["_order"]
+        return out
+
+    CLASS_SUFFIX = re.compile(r"-(Ama|Ass|Bar|Dru|Nec|Pal|Sor|War)$")
+
+    def set_gen(self, code, par, low, high):
+        """Lines for one set property: [] for a hidden one, None when the text cannot be written here."""
+        if code in self.RESIST_NAMES:
+            return self.hireling_lines(code, par, low, high)
+        if self.line_generator is None:
+            self.line_generator = runeword_gen.Generator(self.excel.folder, None)
+        if code in ("tinkerflag2", "vit-h2"):
+            return []
+        if code in runeword_gen.DESCRIPTION_CODES:
+            return None
+        got = self.line_generator.lines(code, par, low, high)
+        return None if got is None else [t.replace("--", "-") for t in got]
+
+    def rebuild_set_blocks(self, blocks, report):
+        """Non-hireling set cards, rebuilt from setitems.txt and sets.txt. Same layout as before: a header
+        per set, its pieces, then its set bonus card. A card with a property the generator cannot write
+        keeps its old lines for that part."""
+        self.line_generator = getattr(self, "line_generator", None)
+        rows = [r for r in self.excel.set_table if not re.search(r"-(N|NM|H)$", r.get("set", "").strip())]
+        by_norm = {}
+        for row in rows:
+            by_norm.setdefault(norm_name(row["index"]), row)
+        keys = sorted(by_norm, key=len, reverse=True)
+        sets_by_norm = {}
+        for row in self.excel.set_bonuses.values():
+            name = row["name"].strip()
+            if not re.search(r"-(N|NM|H)$", name):
+                sets_by_norm[norm_name(self.CLASS_SUFFIX.sub("", name))] = row
+
+        def find_row(title, set_name):
+            key = norm_name(title)
+            row = by_norm.get(key)
+            if row is not None:
+                return row
+            for k in keys:   # setitems.txt cuts long names at 24 characters
+                if key.startswith(k) and by_norm[k].get("set", "").strip() == set_name:
+                    return by_norm[k]
+            return None
+
+        def item_lines(row):
+            lines = []
+            for i in range(1, 10):
+                code = row.get("prop%d" % i, "").strip()
+                if code:
+                    got = self.set_gen(code, row.get("par%d" % i, "").strip(), row.get("min%d" % i, "").strip(),
+                                       row.get("max%d" % i, "").strip())
+                    if got is None:
+                        return None
+                    lines += [("S", t) for t in got]
+            for i in range(1, 6):
+                bonus = []
+                for suffix in ("a", "b"):
+                    code = row.get("aprop%d%s" % (i, suffix), "").strip()
+                    if code:
+                        got = self.set_gen(code, row.get("apar%d%s" % (i, suffix), "").strip(),
+                                           row.get("amin%d%s" % (i, suffix), "").strip(),
+                                           row.get("amax%d%s" % (i, suffix), "").strip())
+                        if got is None:
+                            return None
+                        bonus += got
+                if bonus:
+                    lines.append(("S", TITLE_COLOR + "(%d Items)" % (i + 1)))
+                    lines += [("S", TITLE_COLOR + re.sub("^\u00ffc.", "", t)) for t in bonus]
+            return lines
+
+        def bonus_part(row, columns, param, low, high):
+            part = []
+            for column in columns:
+                code = row.get(column, "").strip()
+                if not code:
+                    continue
+                n = column[5:]
+                got = self.set_gen(code, row.get(param + n, "").strip(), row.get(low + n, "").strip(),
+                                   row.get(high + n, "").strip() or row.get(low + n, "").strip())
+                if got is None:
+                    return None
+                part += got
+            return part
+
+        items = []
+        bonus_cards = []
+        for block in blocks:
+            is_bonus = any(kind == "H" and text == "Set bonus" for kind, text in block["lines"])
+            is_item = not is_bonus and any(label == "Base" for label, _ in block["fields"]) \
+                and any(label == "Set" for label, _ in block["fields"])
+            if is_item:
+                items.append(block)
+            else:
+                bonus_cards.append(block)
+
+        sections = OrderedDict()
+        for block in items:
+            raw = next(v for l, v in block["fields"] if l == "Set")
+            row = find_row(block["title"], raw)
+            if row is None:
+                report.append("no setitems row: %s" % block["title"])
+                sections.setdefault(raw, []).append(block)
+                continue
+            new = item_lines(row)
+            if new is None:
+                report.append("kept old lines (unsupported code): %s" % block["title"])
+            else:
+                head = [line for line in block["lines"][:1] if line[0] == "S"]
+                new = head + new + [("S", "%sc5Required Level: %s" % ("\u00ff", row.get("lvl req", "")))]
+                if [t for _, t in new] != [t for _, t in block["lines"]]:
+                    report.append("changed: %s" % block["title"])
+                block["lines"] = new
+            set_name = row["set"].strip()
+            size = sum(1 for r in rows if r.get("set", "").strip() == set_name)
+            display = self.CLASS_SUFFIX.sub("", set_name)
+            block["fields"] = [("Set", display), ("Base", row.get("*ItemName", "")),
+                               ("Required Level", row.get("lvl req", "")), ("Set pieces", str(size))]
+            block["level"] = int(row.get("lvl req", "0") or 0)
+            block["section"] = display
+            sections.setdefault(display, []).append(block)
+
+        used = set()
+        for card in bonus_cards:
+            name = next((strip_color(t) for k, t in card["lines"] if k == "S" and t.startswith(TITLE_COLOR)), card["title"])
+            key = norm_name(self.CLASS_SUFFIX.sub("", name))
+            row = sets_by_norm.get(key)
+            section = next((sec for sec in sections if norm_name(sec) == key), None)
+            if section is None:
+                report.append("bonus card without pieces: %s" % card["title"])
+                continue
+            used.add(section)
+            card["fields"] = []
+            card["section"] = section
+            if row is None:
+                report.append("no sets.txt row: %s" % name)
+                sections[section].append(card)
+                continue
+            partial, ok = [], True
+            for n in range(2, 6):
+                part = bonus_part(row, ["PCode%da" % n, "PCode%db" % n], "PParam", "PMin", "PMax")
+                if part is None:
+                    ok = False
+                    break
+                if part:
+                    partial += [("S", COLOR_BONUS_LINE + re.sub("^\u00ffc.", "", t)) for t in part]
+                    partial.append(("S", COLOR_GOLD_LINE + "(%d items)" % n))
+            full = bonus_part(row, ["FCode%d" % i for i in range(1, 9)], "FParam", "FMin", "FMax")
+            old = card["lines"]
+            name_line = next((l for l in old if l[0] == "S" and l[1].startswith(TITLE_COLOR)), ("S", TITLE_COLOR + name))
+            cut = next((i for i, l in enumerate(old) if "Full Set Bonus" in l[1]), len(old))
+            if not ok or full is None:
+                report.append("bonus card kept (unsupported code): %s" % name)
+                if ok and full is None:
+                    new = [("H", "Set bonus"), name_line, ("S", COLOR_GOLD_LINE + "Partial Set Bonus")] + partial + old[cut:]
+                    card["lines"] = new
+                    if [t for _, t in new] != [t for _, t in old]:
+                        report.append("bonus card partly changed: %s" % name)
+            else:
+                new = [("H", "Set bonus"), name_line, ("S", COLOR_GOLD_LINE + "Partial Set Bonus")] + partial
+                new += [("S", COLOR_GOLD_LINE + "Full Set Bonus")]
+                new += [("S", COLOR_BONUS_LINE + re.sub("^\u00ffc.", "", t)) for t in full]
+                if [t for _, t in new] != [t for _, t in old]:
+                    report.append("bonus card changed: %s" % name)
+                card["lines"] = new
+            sections[section].append(card)
+        out = []
+        for section_blocks in sections.values():
+            out += section_blocks
+        return out
+
     def shard_cards_for(self, title, sources, tiers):
         """One set bonus card per difficulty. The card art comes from the source card for that
         difficulty when there is one. The bonus lines come from sets.txt when they are there."""
@@ -839,17 +1133,79 @@ class Builder:
                               section=title, tier=tier, subtitle=tier))
         return cards
 
+    def runeword_nodes(self, roots):
+        """One card widget per runeword that has card text in the string table and a runes.txt row.
+        The game layout is not read. Card art, titles and order come from data/runeword-art.json
+        (the art was built to vary within each item category so the cards do not all look alike);
+        rune icons come from the rune sprite files."""
+        sprites = {}
+        info = json.loads((OVERLAY_DIR / "data" / "runeword-art.json").read_text(encoding="utf-8"))
+        self.rw_art = {(key, category): filename for key, by_category in info["art"].items()
+                       for category, filename in by_category.items()}
+        order = {key: index for index, key in enumerate(info["order"])}
+        titles = info["titles"]
+        keys = [k[len("EsrWikiRuneword_"):] for k in self.strings if k.startswith("EsrWikiRuneword_")]
+        keys.sort(key=lambda k: (order.get(k, len(order)), int(re.sub(r"\D", "", k) or 0)))
+        # Gemwords share runes.txt with runewords but belong on the Gemwords page only.
+        gemwords = {norm_name(k[len("EsrWikiGemword_"):]) for k in self.strings if k.startswith("EsrWikiGemword_")}
+        nodes = []
+        for number, rwkey in enumerate(keys):
+            row = self.excel.runewords_by_id.get(rwkey)
+            if row is not None and norm_name(row.get("*Rune Name", "")) in gemwords:
+                continue
+            lines = self.string_lines("EsrWikiRuneword_" + rwkey)
+            if row is None or not lines:
+                continue
+            first = self.excel.item_types.get(row.get("itype1", ""), "")
+            category = runeword_category(first)
+            children = [
+                {"type": "TextBoxWidget", "name": "text", "fields": {"text": titles.get(rwkey, lines[0])}},
+                {"type": "ButtonWidget", "name": "button",
+                 "fields": {"tooltipString": "@esr-wiki:EsrWikiRuneword_" + rwkey}},
+            ]
+            art = self.rw_art.get((rwkey, category))
+            if art:
+                children.insert(0, {"type": "ImageWidget", "name": "image", "fields": {"filename": art}})
+            for i in range(1, 7):
+                code = (row.get("Rune%d" % i) or "").strip()
+                if code:
+                    label = self.string_lines(RUNE_PREFIX + code)
+                    stem = re.sub(r"\W+", "_", re.sub(r"\s*Rune$", "", strip_color(label[0]) if label else "")).strip("_").lower()
+                    if code not in sprites and self.sprite_index.get("%s_rune" % stem):
+                        sprites[code] = "items\\misc\\rune\\%s_rune" % stem
+                    children.append({"type": "ButtonWidget", "name": "rune_%d" % (i - 1), "fields": {
+                        "filename": sprites.get(code, DEFAULT_RUNE_SPRITE),
+                        "tooltipString": "@esr-wiki:" + RUNE_PREFIX + code}})
+            nodes.append({"type": "Widget", "name": "card_%s_9_%d" % (category, number),
+                          "synthetic": rwkey, "children": children})
+        return nodes
+
     def build_cards(self, spec, roots):
         pattern = re.compile(spec["cardPattern"])
         self.subtitle_from_name = bool(spec.get("subtitleFromNameParts"))
         categories = spec.get("categories") or {}
         # Groups in pages.json order first, then any others in the order they appear.
         by_group = OrderedDict((group, []) for group in categories)
-        for root in roots:
-            for node, _ in walk(root):
+        def card_nodes():
+            if spec.get("excel") == "runeword" and self.excel is not None:
+                # The page is built from runes.txt and the string table. The layout only gives art.
+                for node in self.runeword_nodes(roots):
+                    yield node
+                return
+            for root in roots:
+                for node, _ in walk(root):
+                    yield node
+
+        if True:
+            for node in card_nodes():
                 if node.get("type") != "Widget" or not pattern.search(node.get("name", "")):
                     continue
                 group, block = self.read_card(node)
+                if node.get("synthetic") and not block["images"]:
+                    row = self.excel.runewords_by_id.get(node["synthetic"]) if self.excel is not None else None
+                    first = self.excel.item_types.get(row.get("itype1", ""), "") if row else ""
+                    block["images"] = [self.note_image(RUNEWORD_FALLBACK_IMAGE.get(
+                        first, RUNEWORD_FALLBACK_IMAGE[RUNEWORD_GROUP_DEFAULT.get(group, "Weapon")]))]
                 rw = re.search(r"EsrWikiRuneword_(Runeword\d+)", json.dumps(node))
                 if rw:
                     block["rwkey"] = rw.group(1)
@@ -913,10 +1269,22 @@ class Builder:
                         if label == "Set":
                             block["section"] = value
 
+        if spec.get("excel") == "set":
+            for blocks in by_group.values():
+                for block in blocks:
+                    block["title"] = SET_ITEM_FULL_NAMES.get(block["title"], block["title"])
         if spec.get("excel") == "runeword":
             self.ensure_category_cards(by_group)
+        if spec.get("excel") == "set" and self.excel is not None and self.excel.hireling_rows():
+            self.set_report = []
+            for group in list(by_group):
+                if group != spec.get("difficultyGroup"):
+                    by_group[group] = self.rebuild_set_blocks(by_group[group], self.set_report)
         if spec.get("difficultyGroup") in by_group:
-            by_group[spec["difficultyGroup"]] = self.group_hireling_sets(by_group[spec["difficultyGroup"]])
+            if self.excel is not None and self.excel.hireling_rows():
+                by_group[spec["difficultyGroup"]] = self.build_hireling_blocks(by_group[spec["difficultyGroup"]])
+            else:
+                by_group[spec["difficultyGroup"]] = self.group_hireling_sets(by_group[spec["difficultyGroup"]])
         if spec.get("mythicals"):
             self.add_mythicals(by_group, spec)
         if spec.get("stringUniques") and self.excel is not None:
@@ -929,10 +1297,15 @@ class Builder:
                     if page_art:
                         block["images"] = [self.note_image(page_art)]
         if spec.get("excel") == "unique" and self.excel is not None:
-            for blocks in by_group.values():
+            for group, blocks in by_group.items():
                 for block in blocks:
                     if self.excel.coupon_only(strip_color(block["title"])):
                         block["tag"] = "(Coupon only)"
+                    elif group != spec.get("mythicalGroup"):
+                        info = self.excel.gamble_info(strip_color(block["title"]))
+                        if info and info[0]:
+                            # "\\n" is a line break inside the TAG field (the file is one line per record).
+                            block["tag"] = "Gamble Item:\\n%s - ilvl: %s" % info
         if spec.get("excel") in ("unique", "set") and self.excel is not None:
             self.apply_mod_inventory_art(spec["excel"], by_group, spec.get("mythicalGroup"))
 
@@ -942,7 +1315,15 @@ class Builder:
                     continue
                 for block in blocks:
                     if spec.get("excel") == "runeword":
-                        block["level"] = required_level(block["lines"])
+                        # A runeword needs the highest level of its runes (misc.txt), so its
+                        # "Required Level" line follows its runes rather than the authored text.
+                        rune_levels = [self.excel.rune_level(code) for _, _, code in block["runes"]]
+                        level = max(rune_levels, default=0) or required_level(block["lines"])
+                        block["level"] = level
+                        block["lines"] = [
+                            (kind, REQUIRED_LEVEL.sub("Required Level: %d" % level, text)
+                             if REQUIRED_LEVEL.search(strip_color(text)) else text)
+                            for kind, text in block["lines"]]
                         continue
                     class_name = CLASS_BY_AMULET_CODE.get(self.excel.code(block["title"]))
                     if class_name:
@@ -960,7 +1341,7 @@ class Builder:
             compact = group in (spec.get("compactCategories") or [])
             entries.append({"title": title, "subtitle": "%d items" % len(blocks), "blocks": blocks,
                             "wide": wide, "compact": compact,
-                            "sortable": bool(spec.get("sortable")) and not wide})
+                            "sortable": (bool(spec.get("sortable")) or group in (spec.get("sortableGroups") or [])) and not wide})
         self.pages.append({"spec": spec, "entries": entries})
 
     # --- rune families ------------------------------------------------------
@@ -1158,6 +1539,9 @@ class Builder:
                     filename = fields(node).get("filename") or DEFAULT_RUNE_SPRITE
                     block["images"].append(self.note_image(filename))
                     block["lines"].extend(("S", line) for line in lines[1:])
+                    rune_level = self.excel.rune_level(key[len(RUNE_PREFIX):]) if self.excel is not None else 0
+                    if rune_level:
+                        block["fields"].append(("Required Level", str(rune_level)))
                     category["blocks"].append(block)
         for guide_entry, fragments in pending.values():
             guide_entry["blocks"] = [guide_block(fragments)]
@@ -1712,8 +2096,9 @@ def main():
                 flag = "\tsmall" if block.get("small") else "\toriginal" if block.get("original") else ""
                 for key in block["images"]:
                     out.append(f"IMG\t{key}{flag}")
-                for key, label, _code in block["runes"]:
-                    out.append(f"RUNE\t{key}\t{text_out(label)}")
+                for key, label, code in block["runes"]:
+                    lod = "\tlod" if excel is not None and excel.is_lod_rune(code) else ""
+                    out.append(f"RUNE\t{key}\t{text_out(label)}{lod}")
                 for kind, text in block["lines"]:
                     out.append(f"LINE\t{kind}\t{text_out(text)}")
                 if block.get("note"):
@@ -1735,6 +2120,8 @@ def main():
         print(f"{spec['id']:20s} categories/sections={len(page['entries']):4d} items/blocks={blocks:5d}")
     print(f"total blocks={total_blocks} images={len(builder.images)} "
           f"missing strings={len(builder.missing_strings)} excel unmatched={len(builder.unmatched)}")
+    for line in getattr(builder, "set_report", []):
+        print("  set: " + line)
     if builder.unmatched:
         for page_id, title in builder.unmatched[:20]:
             print(f"  unmatched: {page_id}: {title}")

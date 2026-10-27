@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.1.2 (source)
+# ESR Wiki Overlay 1.2.0 (source)
 
 Source for the ESR Wiki overlay plugin for Diablo II Resurrected (Eastern Sun Resurrected),
 loaded by D2RLoader. It contains the C++ overlay, the Python tools that generate its data,
@@ -19,6 +19,7 @@ pages.json            page list and tab order; add categories here
 src/
   wiki_model.*        portable parser, search, paging and color codes (no Win32)
   overlay.*           Win32 window and GDI+ art rendering
+  cursor_art.hpp      generated cursor image used by overlay.cpp
   plugin.cpp          D2RLoader entry points, the eswiki command and bindable action
 tests/
   wiki_model_test.cpp portable model tests
@@ -27,10 +28,15 @@ tools/
   extract_wiki.py      builds data/wiki-data.txt from the mod's layout JSON and Excel tables
   build_cube.py        builds data/cube-data.txt from the cube recipe source
   build_cube_wiki.py   builds data/cube-wiki-data.txt from cube-data.txt
+  runeword_gen.py, runeword_desc.py   stat and description lines for runeword and gemword cards (from runes.txt, gems.txt)
+  make_cursor.py       builds src/cursor_art.hpp (the fallback gauntlet cursor, from ohand; the overlay uses the game's own cursor when it can)
+  make_runeword_art.py one-time export of the runeword card art to data/runeword-art.json
   sprites_to_png.py    converts D2R .sprite files to PNG art
   excel_items.py, wiki_layout.py, _probe_util.py   helpers used by the tools
 data/
   wiki-data.txt, cube-wiki-data.txt, cube-data.txt   generated data files
+  runeword-art.json    card art, titles and order for the Runewords page (the art varies within each item
+                       category so the cards do not all look alike); the extractor reads it
 ```
 
 ## Inputs the tools need
@@ -39,7 +45,7 @@ The generators read files from the Eastern Sun Resurrected mod and the base game
 are not included here. Point the tools at your own copies:
 
 - the mod's layout JSON files (`*hd.json`) and string table
-- the mod's Excel tables (uniqueitems, setitems, runes, itemtypes)
+- the mod's Excel tables (uniqueitems, setitems, runes, gems, gamble, armor, weapons, misc, itemtypes, cubemain)
 - the mod's `hd/items/uniques.json` for unique artwork
 - the mod's and the base game's `hd/global/ui` sprite folders for art
 
@@ -83,6 +89,18 @@ python -m unittest discover -s tests -p "test_*.py"
 2. Add an entry to `pages.json`. `"mode": "guide"` makes each heading an entry;
    `"mode": "cards"` makes each matching node a card.
 3. Run the generators, then rebuild. No C++ change is needed for a new page.
+
+## Where card data comes from
+
+Runeword, unique and set cards take their orange description lines and stat lines from the mod's
+own Excel tables and string files, not from the website. The Runewords page is built from
+`runes.txt`; gemwords are kept on the Gemwords page only. Unique cards show a "Gamble Item" line
+(the Normal base item and the unique's item level) when `gamble.txt` lists its base; Coupon,
+Mythical and non-spawnable uniques never get it.
+
+The Hireling category of the Set Items page is built from setitems.txt and sets.txt (the rows whose set
+ends in -N, -NM or -H), laid out like the Warlock sets: a header for each set and difficulty, its pieces,
+then its set bonus card, in Normal, Nightmare, Hell order. It can be filtered by difficulty.
 
 ## Known limits
 

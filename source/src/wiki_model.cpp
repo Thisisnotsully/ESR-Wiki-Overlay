@@ -154,11 +154,14 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
             if (fields.size() > 2 && fields[2] == "original") block.originalSize = true;
         } else if (tag == "TAG") {
             block.tag = fields.size() > 1 ? fields[1] : std::string();
+            // A two-character "\\n" in the file is a line break in the tag.
+            for (std::size_t at = block.tag.find("\\n"); at != std::string::npos; at = block.tag.find("\\n", at + 1))
+                block.tag.replace(at, 2, "\n");
         } else if (tag == "NOTE") {
             block.note = fields.size() > 1 ? fields[1] : std::string();
         } else if (tag == "RUNE") {
             if (fields.size() < 3) return fail("RUNE needs a key and label");
-            block.runes.push_back(RuneIcon{fields[1], fields[2]});
+            block.runes.push_back(RuneIcon{fields[1], fields[2], fields.size() > 3 && fields[3] == "lod"});
         } else if (tag == "LINE") {
             if (fields.size() < 3) return fail("LINE needs a kind and text");
             const std::string& kind = fields[1];
@@ -321,6 +324,41 @@ std::vector<ColorRun> SplitColorCodes(const std::string& text) {
     }
     if (!current.text.empty() || runs.empty()) runs.push_back(current);
     return runs;
+}
+
+std::vector<Line> RuneBonusLines(const Database& db, const std::string& runeLabel, bool lod,
+                                 const std::string& entryTitle) {
+    std::vector<Line> out;
+    const std::string wanted = runeLabel + " Rune";
+    const bool weapon = entryTitle.find("Weapon") != std::string::npos;
+    const bool helm = entryTitle.find("Helm") != std::string::npos;
+    auto keep = [&](const std::string& heading) {
+        if (heading == "All Items") return true;
+        if (weapon) return heading == "Weapon";
+        if (helm) return heading == "Helm" || heading == "Armor/Helm/Shield";
+        return heading == "Shield" || heading == "Armor/Helm/Shield";
+    };
+    for (const Page& page : db.pages) {
+        if (page.id != "runes") continue;
+        for (const Entry& entry : page.entries) {
+            if ((entry.title == "LoD Runes") != lod) continue;
+            for (const Block& block : entry.blocks) {
+                if (block.title != wanted) continue;
+                bool include = true;
+                for (const Line& line : block.lines) {
+                    std::string plain;
+                    for (const ColorRun& run : SplitColorCodes(line.text)) plain += run.text;
+                    if (!plain.empty() && plain.back() == ':' && line.text.compare(0, 4, "\xC3\xBF" "c0") == 0) {
+                        include = keep(plain.substr(0, plain.size() - 1));
+                        continue;
+                    }
+                    if (include) out.push_back(line);
+                }
+                return out;
+            }
+        }
+    }
+    return out;
 }
 
 }  // namespace esrwiki
