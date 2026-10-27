@@ -21,8 +21,8 @@ UNIQUE_GROUP_BY_TYPE = {}
 for _group, _types in {
     "Weapon": "swor axe bow pole spea staf knif xbow wand scep hamm jave mace orb club taxe abow "
               "h2h1 h2h2 npol boqm tkni aspe knuc ajav bjav asnx wswd",
-    "Helm": "helm phlm circ",
-    "Torso": "tors pelt",
+    "Helm": "helm phlm circ pelt",   # druid pelts are helms
+    "Torso": "tors",
     "Shield": "shie ashd grim head",  # warlock offhands (grim) and necromancer voodoo heads (head)
     "Belt": "belt",
     "Boots": "boot",

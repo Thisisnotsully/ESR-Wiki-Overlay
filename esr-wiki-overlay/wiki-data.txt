@@ -26813,7 +26813,7 @@ LINE	S	ÿc3+1 All Skills
 LINE	S	ÿc3+20 Undead Frenzy (All Classes)
 LINE	S	ÿc3Curse Duration Reduced by (20 to 30)%
 NOTE	Obtained by killing Rathma. Can be upgraded by killing Rathma and Kor'nac within one minute of each other on /players 8 and transmuting the charm with itself, adding +(10 to 20) Raise Kor'nac.
-ENTRY	Weapons	577 items	sortable
+ENTRY	Weapons	545 items	sortable
 BLOCK	1	Krok's Basher			Normal	Axes	5
 TAG	Gamble Item:\nHand Axe - ilvl: 4
 FIELD	Base	Hand Axe
@@ -27407,20 +27407,6 @@ LINE	S	ÿc3Piercing Attack
 LINE	S	ÿc350% Chance of Crushing Blow
 LINE	S	ÿc3+3% Enhanced Maximum Damage (Based on Character Level)
 LINE	S	ÿc3+2 to Maximum Damage (Based on Character Level)
-BLOCK	1	Karaniis' Bow of Incandesence			Elite	Bows	59
-TAG	Gamble Item:\nShort Bow - ilvl: 52
-FIELD	Base	Spiderwoven Bow
-FIELD	Required Level	59
-IMG	items_weapon_bow_short_bow
-LINE	S	ÿc35% Chance to Cast Level 50 Lightning Surge on striking
-LINE	S	ÿc325% Chance to Cast Level 50 Fire Surge when you Kill an Enemy
-LINE	S	ÿc3-10-20% to Enemy Fire Resistance
-LINE	S	ÿc3-10-20% to Enemy Lightning Resistance
-LINE	S	ÿc32% Chance to Cast Level 40 Death Sentry on striking
-LINE	S	ÿc3-50-100% Target Defense
-LINE	S	ÿc3+1-5 to Lightning Mastery
-LINE	S	ÿc3Level 5-10 Fire Damage Aura Aura When Equipped
-LINE	S	ÿc3+30-50% Increased Attack Speed
 BLOCK	1	Gnat Sting			Elite	Bows	61
 TAG	Gamble Item:\nHunter's Bow - ilvl: 55
 FIELD	Base	Sharp Bow
@@ -28517,19 +28503,6 @@ LINE	S	ÿc3+1-5 to Magic Mastery
 LINE	S	ÿc30.5% Chance of Crushing Blow (Based on Character Level)
 LINE	S	ÿc30.75% Deadly Strike (Based on Character Level)
 LINE	S	ÿc3+220-260% Enhanced Damage
-BLOCK	1	Almraizer			Elite	Polearms	70
-TAG	Gamble Item:\nHalberd - ilvl: 73
-FIELD	Base	Guardian
-FIELD	Required Level	70
-IMG	items_weapon_polearm_poleaxe
-LINE	S	ÿc35% Chance to Cast Level 60 Whirlpool Proc on striking
-LINE	S	ÿc3Level 10-30 Cold Pierce Aura Aura When Equipped
-LINE	S	ÿc3-10-20% to Enemy Cold Resistance
-LINE	S	ÿc3+10-25 to Energy Shield
-LINE	S	ÿc320% Chance to Cast Level 60 Cold Surge when you Kill an Enemy
-LINE	S	ÿc3+200-300% Enhanced Damage
-LINE	S	ÿc3+3% Enhanced Maximum Damage (Based on Character Level)
-LINE	S	ÿc3Magic Damage Reduced by 15-50
 BLOCK	1	Eternal Reign			Elite	Polearms	71
 TAG	Gamble Item:\nWar Scythe - ilvl: 75
 FIELD	Base	Death Reaper
@@ -29072,20 +29045,6 @@ LINE	S	ÿc3+1 to Lightning Mastery
 LINE	S	ÿc3+400-500 to Attack Rating
 LINE	S	ÿc3-40-50% Target Defense
 LINE	S	ÿc3+10-20 to Whirlwind
-BLOCK	1	Vizjeris' Knowledge			Elite	Staves	75
-TAG	Gamble Item:\nWar Staff - ilvl: 80
-FIELD	Base	Arcane Staff
-FIELD	Required Level	75
-IMG	items_weapon_staff_skullcollector
-LINE	S	ÿc3+7 to Sorceress Skill Levels
-LINE	S	ÿc3Regenerate Mana 200-250%
-LINE	S	ÿc3+20-30 to Wisdom of Athulua
-LINE	S	ÿc3+60% Faster Cast Rate
-LINE	S	ÿc3+2000 Defense
-LINE	S	ÿc3+200-250 to Energy
-LINE	S	ÿc3+200-250 to Vitality
-LINE	S	ÿc3Replenish Life +500-1000
-LINE	S	ÿc3100% Chance to Cast Level 1 Vizjeris Knowledge Buff when you Kill an Enemy
 BLOCK	1	Umbar's Blade			Normal	Swords	2
 TAG	Gamble Item:\nShort Sword - ilvl: 2
 FIELD	Base	Short Sword
@@ -29623,6 +29582,7 @@ FIELD	Required Level	80
 IMG	items_weapon_sword_the_patriarch
 LINE	S	ÿc8Increases your total physical attack damage by 50%
 LINE	S	ÿc8Increased attack speed no longer applies
+LINE	S	ÿc8Increased attack speed no longer applies
 LINE	S	ÿc3+500% Enhanced Damage
 LINE	S	ÿc333% Chance to Cast Level 15 Overwhelm on Melee Attack
 LINE	S	ÿc3Level 10-20 Might Aura When Equipped
@@ -30067,6 +30027,7 @@ IMG	items_weapon_bow_long_bow
 LINE	S	ÿc8Every attack grants you 3% fire, cold or lightning spell damage
 LINE	S	ÿc8per level. Element attunement cycles with every attack
 LINE	S	ÿc8Increased attack speed no longer applies
+LINE	S	ÿc8Increased attack speed no longer applies
 LINE	S	ÿc8Weapon Mastery Applied
 LINE	S	ÿc3+1-3 to Bow and Crossbow Skills (Amazon Only)
 LINE	S	ÿc3+100% Piercing Attack
@@ -30496,18 +30457,6 @@ LINE	S	ÿc3-10 to -20% to Enemy Lightning Resist
 LINE	S	ÿc3+15-25% to Fire Spell Damage
 LINE	S	ÿc3+15-25% to Lightning Spell Damage
 LINE	S	ÿc3Regenerate Mana +100-200%
-BLOCK	1	Slight of Hand			Elite	Claws	68
-TAG	Gamble Item:\nScissors Katar - ilvl: 82
-FIELD	Base	Scissors Suwayyah
-FIELD	Required Level	68
-IMG	items_weapon_h2h_claws
-LINE	S	ÿc3+1 to Whirlwind
-LINE	S	ÿc36% Chance to Cast Level 60 Fists of Fire Discharge on attack
-LINE	S	ÿc36% Chance to Cast Level 60 Claws of Thunder Discharge on attack
-LINE	S	ÿc36% Chance to Cast Level 60 Blades of Ice Discharge on attack
-LINE	S	ÿc33% Chance to Cast Level 60 Phoenix Strike Discharge on attack
-LINE	S	ÿc3Adds 100-125 Damage
-LINE	S	ÿc3Damage Reduced by 10-20%
 BLOCK	1	Muramasa Sword			Elite	Swords	80
 FIELD	Base	Katana
 FIELD	Required Level	80
@@ -30554,6 +30503,7 @@ IMG	items_weapon_sword_warlock_blade
 LINE	S	ÿc8Melee attacks have a 25% chance to make you delirious and make
 LINE	S	ÿc8you see damned skulls. Each skull picked grants 2% crit damage and 10%
 LINE	S	ÿc8magic spell damage, -3% elemental, poison resists and -1% physical and magic resists
+LINE	S	ÿc8Maximum stacks: 50
 LINE	S	ÿc8Maximum stacks: 50
 LINE	S	ÿc3+20% Base Run/Walk Speed
 LINE	S	ÿc3+20% Base Attack Speed
@@ -30996,7 +30946,7 @@ FIELD	Base	Eldritch Orb
 FIELD	Required Level	57
 IMG	items_weapon_orb_clasped_orb
 LINE	S	ÿc8Every kill grants you 1% fire spell damage. On reaching 50 stacks,
-LINE	S	ÿc8you release a level 60 fully charged Conflagrate and the stacks reset.
+LINE	S	ÿc8you release a level 60 fully charged Conflagrate and the stacks reset
 LINE	S	ÿc3100% Chance to Cast Level 30 Fire Surge when you Kill an Enemy
 LINE	S	ÿc3+2-3 to All Skills
 LINE	S	ÿc3-20 to -30% to Enemy Fire Resist
@@ -31035,19 +30985,6 @@ LINE	S	ÿc3+1-3 to All Skills
 LINE	S	ÿc3Regenerate Mana 100-150%
 LINE	S	ÿc3+50-75 Life after each Kill
 LINE	S	ÿc3+20-40 to all Attributes
-BLOCK	1	Spacial Distortion			Elite	Orbs	70
-TAG	Gamble Item:\nDragon Stone - ilvl: 84
-FIELD	Base	Dimensional Shard
-FIELD	Required Level	70
-IMG	items_weapon_orb_clasped_orb
-LINE	S	ÿc3+1 to All Skills
-LINE	S	ÿc3+2-4 to Sorceress Skill Levels
-LINE	S	ÿc3Increase Maximum Mana 50%
-LINE	S	ÿc3+50% Faster Cast Rate
-LINE	S	ÿc3+15-30 to Shadow Master
-LINE	S	ÿc3-15-30% to Enemy Lightning Resistance
-LINE	S	ÿc3+15-30% to Lightning Skill Damage
-LINE	S	ÿc3+15-30 to Command Mastery
 BLOCK	1	Blade of the Fallen Angel			Elite	Swords	71
 TAG	Gamble Item:\nMana Blade - ilvl: 84
 FIELD	Base	Magic Blade
@@ -31181,16 +31118,6 @@ LINE	S	ÿc3+400-500 to Attack Rating against Demons
 LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc3+30% Faster Run/Walk
 LINE	S	ÿc3Adds 20-30 Damage
-BLOCK	1	Mindrend			Normal	Axes	14
-TAG	(Coupon only)
-FIELD	Base	Military Pick
-FIELD	Required Level	14
-IMG	items_weapon_axe_mindrend
-LINE	S	ÿc3100% Chance of Crushing Blow
-LINE	S	ÿc3-20% Increased Attack Speed
-LINE	S	ÿc3+30-50 to Minimum Damage
-LINE	S	ÿc3Ignore Target's Defense
-LINE	S	ÿc3+100% Enhanced Damage
 BLOCK	1	Rakescar			Normal	Axes	18
 TAG	(Coupon only)
 FIELD	Base	War Axe
@@ -31200,17 +31127,6 @@ LINE	S	ÿc3+100-150% Enhanced Damage
 LINE	S	ÿc3+1 to Maximum Damage (Based on Character Level)
 LINE	S	ÿc3Replenish Life +100-150
 LINE	S	ÿc3+80-120 to Attack Rating
-BLOCK	1	Fechmars Axe			Normal	Axes	5
-TAG	(Coupon only)
-FIELD	Base	Large Axe
-FIELD	Required Level	5
-IMG	items_weapon_axe_large_axe
-LINE	S	ÿc3+100-125% Enhanced Damage
-LINE	S	ÿc350% Chance to Cast Level 10 Freezing Claws on attack
-LINE	S	ÿc3Freezes Target +1
-LINE	S	ÿc3Adds 100-125 Cold Damage
-LINE	S	ÿc3All Resistances +20-40
-LINE	S	ÿc3Replenish Life +150
 BLOCK	1	Goreshovel			Normal	Axes	9
 TAG	(Coupon only)
 FIELD	Base	Broad Axe
@@ -31220,17 +31136,6 @@ LINE	S	ÿc3Adds 50-75 Damage
 LINE	S	ÿc31% Deadly Strike (Based on Character Level)
 LINE	S	ÿc3100% Chance to Cast Level 1 Concentrate on attack
 LINE	S	ÿc35-10% Life stolen per hit
-BLOCK	1	The Chieftan			Normal	Axes	13
-TAG	(Coupon only)
-FIELD	Base	Battle Axe
-FIELD	Required Level	13
-IMG	items_weapon_axe_the_chieftan
-LINE	S	ÿc3Level 5-10 Might Aura When Equipped
-LINE	S	ÿc3+100% Enhanced Damage
-LINE	S	ÿc3Adds 10-20 Damage
-LINE	S	ÿc3All Resistances +50
-LINE	S	ÿc3+3 to Summon Holy Defender
-LINE	S	ÿc310% Chance to Cast Level 10 Battle Orders when you Kill an Enemy
 BLOCK	1	Brainhew			Normal	Axes	17
 TAG	(Coupon only)
 FIELD	Base	Great Axe
@@ -31244,39 +31149,6 @@ LINE	S	ÿc3+20-30% Increased Attack Speed
 LINE	S	ÿc3-5-15% to Enemy Fire Resistance
 LINE	S	ÿc3-5-15% to Enemy Cold Resistance
 LINE	S	ÿc3-5-15% to Enemy Lightning Resistance
-BLOCK	1	The Humongous			Normal	Axes	20
-TAG	(Coupon only)
-FIELD	Base	Giant Axe
-FIELD	Required Level	20
-IMG	items_weapon_axe_giant_axe
-LINE	S	ÿc3+80-100 to Strength
-LINE	S	ÿc3+40-80 to Minimum Damage
-LINE	S	ÿc3+50-100 to Maximum Damage
-LINE	S	ÿc333% Chance of Crushing Blow
-LINE	S	ÿc3Requirements -300%
-LINE	S	ÿc333% Deadly Strike
-BLOCK	1	Iros Torch			Normal	Wands and scepters	3
-TAG	(Coupon only)
-FIELD	Base	Wand
-FIELD	Required Level	3
-IMG	items_weapon_wand_iros_torch
-LINE	S	ÿc3100% Chance to Cast Level 1 Fire Surge when you Kill an Enemy
-LINE	S	ÿc3+1-2 to Fire Skills
-LINE	S	ÿc3100% Chance to Cast Level 3 Blaze when you Kill an Enemy
-LINE	S	ÿc3Regenerate Mana 50-100%
-LINE	S	ÿc3+10-20% to Fire Skill Damage
-LINE	S	ÿc3+10-20 Life after each Kill
-BLOCK	1	Maelstromwrath			Normal	Wands and scepters	9
-TAG	(Coupon only)
-FIELD	Base	Yew Wand
-FIELD	Required Level	9
-IMG	items_weapon_wand_yew_wand
-LINE	S	ÿc3100% Chance to Cast Level 5 Lightning Surge when you Kill an Enemy
-LINE	S	ÿc3-1-15% to Enemy Lightning Resistance
-LINE	S	ÿc3+50% Increased Attack Speed
-LINE	S	ÿc3100% Chance to Cast Level 15 Zap on attack
-LINE	S	ÿc3+1-100 to Life
-LINE	S	ÿc3Damage Reduced by 1-20
 BLOCK	1	Gravenspine			Normal	Wands and scepters	14
 TAG	(Coupon only)
 FIELD	Base	Bone Wand
@@ -31397,17 +31269,6 @@ LINE	S	ÿc3+80-100 to Strength
 LINE	S	ÿc3+40-50% Faster Hit Recovery
 LINE	S	ÿc3-10% Faster Run/Walk
 LINE	S	ÿc3100% Chance to Cast Level 1 Stun when you Kill an Enemy
-BLOCK	1	Bonesob			Normal	Maces and hammers	16
-TAG	(Coupon only)
-FIELD	Base	Maul
-FIELD	Required Level	16
-IMG	items_weapon_hammer_bonesob
-LINE	S	ÿc3+200-300% Enhanced Damage
-LINE	S	ÿc340% Chance of Crushing Blow
-LINE	S	ÿc3Fire Resist +75%
-LINE	S	ÿc3Cold Resist +75%
-LINE	S	ÿc350% Chance to Cast Level 1 Berserk on attack
-LINE	S	ÿc3Freezes Target +3
 BLOCK	1	Steeldriver			Normal	Maces and hammers	20
 TAG	(Coupon only)
 FIELD	Base	Great Maul
@@ -31442,17 +31303,6 @@ LINE	S	ÿc3+50-100 to Life
 LINE	S	ÿc333% Deadly Strike
 LINE	S	ÿc3+20-30% Increased Attack Speed
 LINE	S	ÿc350% Life stolen per hit
-BLOCK	1	Krintizs Skewer			Normal	Swords	7
-TAG	(Coupon only)
-FIELD	Base	Saber
-FIELD	Required Level	7
-IMG	items_weapon_sword_krintizs_skewer
-LINE	S	ÿc3Ignore Target's Defense
-LINE	S	ÿc3+20-30 to all Attributes
-LINE	S	ÿc3+6-13% Bonus to all Attributes
-LINE	S	ÿc3+100-150% Enhanced Damage
-LINE	S	ÿc3Adds 10-20 Damage
-LINE	S	ÿc3+20-30% Increased Attack Speed
 BLOCK	1	Gleamscythe			Normal	Swords	9
 TAG	(Coupon only)
 FIELD	Base	Falchion
@@ -31609,18 +31459,6 @@ LINE	S	ÿc3Cannot Be Frozen
 LINE	S	ÿc3Poison Resist +95%
 LINE	S	ÿc3+5% to Maximum Poison Resist
 LINE	S	ÿc3+10-20 to all Attributes
-BLOCK	1	Irices Shard			Normal	Daggers	17
-TAG	(Coupon only)
-FIELD	Base	Blade
-FIELD	Required Level	17
-IMG	items_weapon_knife_blade
-LINE	S	ÿc3+50% Faster Cast Rate
-LINE	S	ÿc3+50 to Mana
-LINE	S	ÿc3All Resistances +40-50
-LINE	S	ÿc3Regenerate Mana 100-200%
-LINE	S	ÿc3Replenish Life +400-500
-LINE	S	ÿc3Damage Reduced by 10-15
-LINE	S	ÿc3Magic Damage Reduced by 10-15
 BLOCK	1	The Dragon Chang			Normal	Spears	5
 TAG	(Coupon only)
 FIELD	Base	Spear
@@ -31765,18 +31603,6 @@ LINE	S	ÿc3100% Mana stolen per hit
 LINE	S	ÿc3-15-20% to Enemy Poison Resistance
 LINE	S	ÿc3Poison Resist +50%
 LINE	S	ÿc3100% Chance to Cast Level 5 Poison Surge when you Kill an Enemy
-BLOCK	1	Lazarus Spire			Normal	Staves	12
-TAG	(Coupon only)
-FIELD	Base	Gnarled Staff
-FIELD	Required Level	12
-IMG	items_weapon_staff_lazarus_spire
-LINE	S	ÿc3+5-10 to Conduit (Class only)
-LINE	S	ÿc3+5-10 to Storm Nexus (Class only)
-LINE	S	ÿc3+20-30 to Mana after each Kill
-LINE	S	ÿc3100% Chance to Cast Level 10 Lightning Surge when you Kill an Enemy
-LINE	S	ÿc31% Chance to Cast Level 25 Time Lapse when struck
-LINE	S	ÿc3+5% to Maximum Lightning Resist
-LINE	S	ÿc3Lightning Resist +75%
 BLOCK	1	The Salamander			Normal	Staves	14
 TAG	(Coupon only)
 FIELD	Base	Battle Staff
@@ -31821,39 +31647,6 @@ LINE	S	ÿc3--25 to Monster Defense Per Hit
 LINE	S	ÿc3+20-30 to Minimum Damage
 LINE	S	ÿc3+20% Faster Run/Walk
 LINE	S	ÿc3+100-200 to Attack Rating
-BLOCK	1	Rimeraven			Normal	Bows	10
-TAG	(Coupon only)
-FIELD	Base	Long Bow
-FIELD	Required Level	10
-IMG	items_weapon_bow_long_bow
-LINE	S	ÿc3Reanimate As: 4
-LINE	S	ÿc3+2-3 to Bow and Crossbow Skills
-LINE	S	ÿc3Adds 100-150 Fire Damage
-LINE	S	ÿc3+100-200% Enhanced Damage
-LINE	S	ÿc3+20-30% Increased Attack Speed
-LINE	S	ÿc3+10-20 Life after each Kill
-LINE	S	ÿc33-5% Mana stolen per hit
-BLOCK	1	Piercerib			Normal	Bows	14
-TAG	(Coupon only)
-FIELD	Base	Composite Bow
-FIELD	Required Level	14
-IMG	items_weapon_bow_piercerib
-LINE	S	ÿc3Piercing Attack
-LINE	S	ÿc340-50% Deadly Strike
-LINE	S	ÿc340-50% Chance of Crushing Blow
-LINE	S	ÿc3+50% Increased Attack Speed
-LINE	S	ÿc3+5-10 to Multiple Shot
-LINE	S	ÿc35-10% Mana stolen per hit
-BLOCK	1	Pullspite			Normal	Bows	17
-TAG	(Coupon only)
-FIELD	Base	Short Battle Bow
-FIELD	Required Level	17
-IMG	items_weapon_bow_pullspite
-LINE	S	ÿc3-10-15% to Enemy Lightning Resistance
-LINE	S	ÿc3100% Chance to Cast Level 3 Lightning Surge on striking
-LINE	S	ÿc3+30-50% Increased Attack Speed
-LINE	S	ÿc3+20-30 to all Attributes
-LINE	S	ÿc3100% Bonus to Attack Rating
 BLOCK	1	Wizendraw			Normal	Bows	18
 TAG	(Coupon only)
 FIELD	Base	Long Battle Bow
@@ -31924,17 +31717,6 @@ LINE	S	ÿc3+150-250% Enhanced Damage
 LINE	S	ÿc315% Chance to Cast Level 15 Fire Surge on striking
 LINE	S	ÿc3+40-50 to Dexterity
 LINE	S	ÿc35-8% Mana stolen per hit
-BLOCK	1	Doomspittle			Normal	Crossbows	19
-TAG	(Coupon only)
-FIELD	Base	Repeating Crossbow
-FIELD	Required Level	19
-IMG	items_weapon_bow_doomspittle
-LINE	S	ÿc32% Chance to Cast Level 15 Rain of Fire on striking
-LINE	S	ÿc32% Chance to Cast Level 15 Orb of Winter on striking
-LINE	S	ÿc32% Chance to Cast Level 15 Storm Nexus on striking
-LINE	S	ÿc3+15-20 to all Attributes
-LINE	S	ÿc3+40-50% Increased Attack Speed
-LINE	S	ÿc3+1-5 to Elemental Fury
 BLOCK	1	Coldkill			Exceptional	Axes	25
 TAG	(Coupon only)
 FIELD	Base	Hatchet
@@ -31970,17 +31752,6 @@ LINE	S	ÿc31% Chance to Cast Level 40 Firestorm on striking
 LINE	S	ÿc3-20-30% to Enemy Cold Resistance
 LINE	S	ÿc3-20-30% to Enemy Fire Resistance
 LINE	S	ÿc3+200-300% Enhanced Damage
-LINE	S	ÿc3+20-30% Increased Attack Speed
-BLOCK	1	Pompe's Wrath			Exceptional	Axes	31
-TAG	(Coupon only)
-FIELD	Base	Crowbill
-FIELD	Required Level	31
-IMG	items_weapon_axe_mindrend
-LINE	S	ÿc32% Chance to Cast Level 40 Concentrate on striking
-LINE	S	ÿc3+1-250 to Maximum Damage
-LINE	S	ÿc3+100-200% Enhanced Damage
-LINE	S	ÿc3Knockback
-LINE	S	ÿc3+25-50 Life after each Kill
 LINE	S	ÿc3+20-30% Increased Attack Speed
 BLOCK	1	Guardian Naga			Exceptional	Axes	33
 TAG	(Coupon only)
@@ -32048,19 +31819,6 @@ LINE	S	ÿc3Level 10-20 Sanctuary Aura When Equipped
 LINE	S	ÿc3Magic Resist +20-30%
 LINE	S	ÿc3Damage Reduced by 20-30%
 LINE	S	ÿc3+100-500% Damage to Demons
-BLOCK	1	The Minataur			Exceptional	Axes	31
-TAG	(Coupon only)
-FIELD	Base	Ancient Axe
-FIELD	Required Level	31
-IMG	items_weapon_axe_the_minataur
-LINE	S	ÿc3Requirements -300%
-LINE	S	ÿc3+150-200 to Strength
-LINE	S	ÿc3Slows Target by 50%
-LINE	S	ÿc3100% Chance of Crushing Blow
-LINE	S	ÿc3Adds 40-50 Damage
-LINE	S	ÿc3+200-400% Enhanced Damage
-LINE	S	ÿc3+5-10 to Overwhelm
-LINE	S	ÿc3100-150% Bonus to Attack Rating
 BLOCK	1	Suicide Branch			Exceptional	Wands and scepters	23
 TAG	(Coupon only)
 FIELD	Base	Burnt Wand
@@ -32334,18 +32092,6 @@ LINE	S	ÿc35% Chance to Cast Level 5 Poison Surge on Striking
 LINE	S	ÿc317% Chance to Cast Level 5 Pierce Flesh & Bone when you Kill an Enemy
 LINE	S	ÿc3+20-30% Increased Attack Speed
 LINE	S	ÿc3+5-10% Physical Damage Leeched as Mana
-BLOCK	1	The Atlantian			Exceptional	Swords	29
-TAG	(Coupon only)
-FIELD	Base	Ancient Sword
-FIELD	Required Level	29
-IMG	items_weapon_sword_war_sword
-LINE	S	ÿc3+15-20 to Judgement (Class only)
-LINE	S	ÿc3+80-100 to Maximum Damage
-LINE	S	ÿc3+40-50 to Dexterity
-LINE	S	ÿc3+40-50 to Vitality
-LINE	S	ÿc3+2 to All Skills
-LINE	S	ÿc3+40-50% Increased Attack Speed
-LINE	S	ÿc3+50-125% Enhanced Damage
 BLOCK	1	Crainte Vomir			Exceptional	Swords	29
 TAG	(Coupon only)
 FIELD	Base	Espadon
@@ -32703,18 +32449,6 @@ LINE	S	ÿc3Adds 40-50 Damage
 LINE	S	ÿc3+30% Faster Hit Recovery
 LINE	S	ÿc3+2 to All Skills
 LINE	S	ÿc3+50-100% Enhanced Damage
-BLOCK	1	Whichwild String			Exceptional	Bows	33
-TAG	(Coupon only)
-FIELD	Base	Short Siege Bow
-FIELD	Required Level	33
-IMG	items_weapon_bow_whichwild_string
-LINE	S	ÿc31% Chance to Cast Level 30 Magic Arrow on striking
-LINE	S	ÿc31% Chance to Cast Level 35 Pierce Flesh and Bone on striking
-LINE	S	ÿc31% Deadly Strike (Based on Character Level)
-LINE	S	ÿc3+150-250% Enhanced Damage
-LINE	S	ÿc3Socketed (1-2)
-LINE	S	ÿc3Adds 350-500 Magic Damage
-LINE	S	ÿc3All Resistances +40-50
 BLOCK	1	Cliffkiller			Exceptional	Bows	28
 TAG	(Coupon only)
 FIELD	Base	Long Siege Bow
@@ -32742,17 +32476,6 @@ LINE	S	ÿc3+1-20 to Energy Shield
 LINE	S	ÿc3+20-30 to all Attributes
 LINE	S	ÿc3All Resistances +20-30
 LINE	S	ÿc3+1-2 to All Skills
-BLOCK	1	Godstrike Arch			Exceptional	Bows	32
-TAG	(Coupon only)
-FIELD	Base	Gothic Bow
-FIELD	Required Level	32
-IMG	items_weapon_bow_long_war_bow
-LINE	S	ÿc333% Chance to Cast Level 60 Lightning Enhanced Arrow on striking
-LINE	S	ÿc3-20-30% to Enemy Lightning Resistance
-LINE	S	ÿc3Adds 1-500 Lightning Damage
-LINE	S	ÿc3+100-200 to Attack Rating
-LINE	S	ÿc3+30% Faster Run/Walk
-LINE	S	ÿc3+20-40 to Dexterity
 BLOCK	1	Langer Briser			Exceptional	Crossbows	22
 TAG	(Coupon only)
 FIELD	Base	Arbalest
@@ -32764,18 +32487,6 @@ LINE	S	ÿc3+50-100 to Maximum Damage
 LINE	S	ÿc3+300-400% Enhanced Damage
 LINE	S	ÿc3-30% Increased Attack Speed
 LINE	S	ÿc3Knockback
-BLOCK	1	Pus Spiter			Exceptional	Crossbows	25
-TAG	(Coupon only)
-FIELD	Base	Siege Crossbow
-FIELD	Required Level	25
-IMG	items_weapon_bow_pus_spiter
-LINE	S	ÿc33% Chance to Cast Level 30 Poison Weapon on striking
-LINE	S	ÿc3-20-30% to Enemy Poison Resistance
-LINE	S	ÿc3Requirements --50%
-LINE	S	ÿc33% Chance to Cast Level 30 Pierce Flesh and Bone on striking
-LINE	S	ÿc3-100% Target Defense
-LINE	S	ÿc333% Deadly Strike
-LINE	S	ÿc3+40% Increased Attack Speed
 BLOCK	1	Demon Machine			Exceptional	Crossbows	34
 TAG	(Coupon only)
 FIELD	Base	Chu-Ko-Nu
@@ -32893,9 +32604,8 @@ TAG	(Coupon only)
 FIELD	Base	Colossus Blade
 FIELD	Required Level	72
 IMG	items_weapon_sword_long_sword
-LINE	S	ÿc8You have a 2% chance to deal 10 times more total physical attack damage
-LINE	S	ÿc8Total physical minimum attack damage is reduced by 100%
-LINE	S	ÿc8Gain 1 maximum damage per 10 strength
+LINE	S	ÿc8Increases your total physical attack damage by 50%
+LINE	S	ÿc8Increased attack speed no longer applies
 LINE	S	ÿc3+2% Enhanced Maximum Damage (Based on Character Level)
 LINE	S	ÿc3+1-100 to Maximum Damage
 LINE	S	ÿc3+2 to Maximum Damage (Based on Character Level)
@@ -33009,19 +32719,6 @@ LINE	S	ÿc3Increase Maximum Mana 50-100%
 LINE	S	ÿc3-10-20% to Enemy Lightning Resistance
 LINE	S	ÿc3+1-3 to All Skills
 LINE	S	ÿc3Replenish Life +200-400
-BLOCK	1	Cutthroat1			Exceptional	Claws	42
-TAG	(Coupon only)
-FIELD	Base	Greater Talons
-FIELD	Required Level	42
-IMG	items_weapon_h2h_claws
-LINE	S	ÿc3+200-400% Damage to Demons
-LINE	S	ÿc3100% Chance to Cast Level 1 Cut Throat when you Kill an Enemy
-LINE	S	ÿc3+200-300% Enhanced Damage
-LINE	S	ÿc3+20-30% Increased Attack Speed
-LINE	S	ÿc3+20-30% Faster Run/Walk
-LINE	S	ÿc3+1-2 to Assassin Skill Levels
-LINE	S	ÿc315-20% Life stolen per hit
-LINE	S	ÿc3+200-400% Damage to Undead
 BLOCK	1	The Scalper			Exceptional	Axes	45
 TAG	(Coupon only)
 FIELD	Base	Francisca
@@ -33095,18 +32792,6 @@ LINE	S	ÿc3+100-200% Enhanced Damage
 LINE	S	ÿc32% Chance to Cast Level 25 Shuriken Trap on Striking
 LINE	S	ÿc3+80-120 to Minimum Damage to Attacks
 LINE	S	ÿc3+120-180 to Maximum Damage to Attacks
-BLOCK	1	Razoredge			Elite	Axes	53
-TAG	(Coupon only)
-FIELD	Base	Tomahawk
-FIELD	Required Level	53
-IMG	items_weapon_axe_the_gnasher
-LINE	S	ÿc325% Chance to Cast Level 30 Spike Nova Proc when struck
-LINE	S	ÿc350-100% Deadly Strike
-LINE	S	ÿc3+100-200 to Minimum Damage
-LINE	S	ÿc3+100-200% Enhanced Damage
-LINE	S	ÿc3Attacker Takes Damage of 20 (Based on Character Level)
-LINE	S	ÿc3Level 10-30 Thorns Aura When Equipped
-LINE	S	ÿc310% Chance to Cast Level 20 Axe Proc on striking
 BLOCK	1	Demon Limb			Elite	Maces and hammers	50
 TAG	(Coupon only)
 FIELD	Base	tyrant club
@@ -33136,18 +32821,6 @@ LINE	S	ÿc317% Chance to Cast Level 45 Reap Souls when you Kill an Enemy
 LINE	S	ÿc3+100-200 Life after each Kill
 LINE	S	ÿc3+1-300% Better Chance of Getting Magic Items
 LINE	S	ÿc3Socketed 1-6
-BLOCK	1	Deaths's Web			Elite	Wands and scepters	72
-TAG	(Coupon only)
-FIELD	Base	unearthed wand
-FIELD	Required Level	72
-IMG	items_weapon_wand_grim_wand
-LINE	S	ÿc325% Chance to Cast Level 1 Death Web when you Kill an Enemy
-LINE	S	ÿc3+1-10 to Poison Mastery
-LINE	S	ÿc3100% Chance to Cast Level 60 Poison Surge when you Kill an Enemy
-LINE	S	ÿc3+2-4 to All Skills
-LINE	S	ÿc3+10-20 to Poison Explosion (Class only)
-LINE	S	ÿc3+100-200 Life after each Kill
-LINE	S	ÿc3+50-100 to Mana after each Kill
 BLOCK	1	Azurewrath			Elite	Swords	76
 TAG	(Coupon only)
 FIELD	Base	phase blade
@@ -33265,9 +32938,8 @@ TAG	(Coupon only)
 FIELD	Base	glorious axe
 FIELD	Required Level	60
 IMG	items_weapon_axe_giant_axe
-LINE	S	ÿc8You have a 33% chance on kill to stun all nearby enemies,
-LINE	S	ÿc8dealing 150% weapon damage and applying a 100% physical resist debuff
-LINE	S	ÿc8Enemies you hit that are below 15% life die instantly
+LINE	S	ÿc8Hits apply a 100% physical resist debuff for 1 second on enemies
+LINE	S	ÿc8below 25% life. Attacks have a 3% chance to deal 5 times more damage
 LINE	S	ÿc3Adds 400%-500% Bleed Damage over 4 seconds
 LINE	S	ÿc3+3% Enhanced Maximum Damage (Based on Character Level)
 LINE	S	ÿc3+3 to Maximum Damage to Attacks (Based on Character Level)
@@ -33370,11 +33042,11 @@ TAG	(Coupon only)
 FIELD	Base	thresher
 FIELD	Required Level	67
 IMG	items_weapon_polearm_scythe
+LINE	S	ÿc8Gain a soul stack on kill. At 100 stacks, you have a 25% chance
+LINE	S	ÿc8to crit for 2% bonus total damage per 1% deadly strike
 LINE	S	ÿc8At maximum stacks, unleash a barrage of souls on melee attacks
 LINE	S	ÿc8dealing 25% weapon damage, half converted to magic
 LINE	S	ÿc8Stacks reset after 5 seconds
-LINE	S	ÿc8Gain a soul stack on kill. At 100 stacks, you have a 25% chance
-LINE	S	ÿc8to crit for 2% bonus total damage per 1% deadly strike
 LINE	S	ÿc3+4% Enhanced Maximum Damage (Based on Character Level)
 LINE	S	ÿc3+4 to Maximum Damage to Attacks (Based on Character Level)
 LINE	S	ÿc3+50-100% Deadly Strike
@@ -33568,18 +33240,6 @@ LINE	S	ÿc3Replenish Life +800-1000
 LINE	S	ÿc3+5-10 Life on Striking
 LINE	S	ÿc3+4-5% to Maximum Fire Resist
 LINE	S	ÿc3Fire Absorb +4-5%
-BLOCK	1	Fathom			Elite	Orbs	65
-TAG	(Coupon only)
-FIELD	Base	dimensional shard
-FIELD	Required Level	65
-IMG	items_weapon_orb_dragon_stone
-LINE	S	ÿc3+5-10 to Cold Mastery
-LINE	S	ÿc35% Chance to Cast Level 60 Permafrost when you Kill an Enemy
-LINE	S	ÿc3+10-20 to Vengeful Spirit
-LINE	S	ÿc3Regenerate Mana 200-300%
-LINE	S	ÿc3-30-50% to Enemy Cold Resistance
-LINE	S	ÿc3Cold Resist +1-200%
-LINE	S	ÿc3+6-13% Bonus to all Attributes
 BLOCK	1	Stormlash			Elite	Maces and hammers	73
 TAG	(Coupon only)
 FIELD	Base	scourge
@@ -33618,6 +33278,9 @@ TAG	(Coupon only)
 FIELD	Base	eldritch orb
 FIELD	Required Level	57
 IMG	items_weapon_orb_sacred_globe
+LINE	S	ÿc8Zap skill tree now gains synergy bonuses from fire bolt skill tree
+LINE	S	ÿc8and fire bolt skill tree gains synergy bonuses from zap skill tree
+LINE	S	ÿc8Rain of Fire now enables zap lightning novas
 LINE	S	ÿc3100% Chance to Cast Level 60 Fire Bolt on cast
 LINE	S	ÿc3+10-20 to Zap (Class only)
 LINE	S	ÿc3+1-3 to Sorceress Skill Levels
@@ -33658,17 +33321,6 @@ LINE	S	ÿc3+10-15% Skill Cooldown Reduction
 LINE	S	ÿc3+13-26% Bonus to Energy
 LINE	S	ÿc3Regenerate Mana +100-150%
 LINE	S	ÿc3+5-15% to Experience Gained
-BLOCK	1	Ironward			Elite	Wands and scepters	54
-TAG	(Coupon only)
-FIELD	Base	caduceus
-FIELD	Required Level	54
-IMG	items_weapon_scepter_war_scepter
-LINE	S	ÿc3+3 to Thorns
-LINE	S	ÿc3+17-37 to Thorns (Class only)
-LINE	S	ÿc3Adds 125-175 Damage
-LINE	S	ÿc3+4% Enhanced Maximum Damage (Based on Character Level)
-LINE	S	ÿc33% Chance to Cast Level 60 Iron Maiden on striking
-LINE	S	ÿc3Attacker Takes Damage of 1000-2500
 BLOCK	1	Arioc's Needle			Elite	Spears	64
 TAG	(Coupon only)
 FIELD	Base	hyperion spear
@@ -33780,19 +33432,6 @@ LINE	S	ÿc3+500-1000 Defense
 LINE	S	ÿc3+50-150 to Energy
 LINE	S	ÿc3+13-20% Bonus to Energy
 LINE	S	ÿc3Magic Damage Reduced by 30-40
-BLOCK	1	The Reedeemer			Elite	Wands and scepters	64
-TAG	(Coupon only)
-FIELD	Base	mighty scepter
-FIELD	Required Level	64
-IMG	items_weapon_scepter_scepter
-LINE	S	ÿc3+400-500% Damage to Undead
-LINE	S	ÿc3+400-500% Damage to Demons
-LINE	S	ÿc3Adds 125-150 Damage
-LINE	S	ÿc3+3 to Maximum Damage (Based on Character Level)
-LINE	S	ÿc315% Chance to Cast Level 30 Magic Enhanced Axe on striking
-LINE	S	ÿc3+30-50 to all Attributes
-LINE	S	ÿc3+100-120 Life after each Kill
-LINE	S	ÿc3Magic Resist +20-30%
 BLOCK	1	Quick Death			Normal	Daggers	7
 TAG	Gamble Item:\nShuriken - ilvl: 9
 FIELD	Base	Shuriken
@@ -33817,18 +33456,6 @@ LINE	S	ÿc3+50-75 to Dexterity
 LINE	S	ÿc3+50-75 to Energy
 LINE	S	ÿc3+5-10 to Ice Blink
 LINE	S	ÿc3+100-150% Enhanced Damage
-BLOCK	1	Death Game			Elite	Daggers	73
-TAG	Gamble Item:\nShuriken - ilvl: 60
-FIELD	Base	Kagekiri
-FIELD	Required Level	73
-IMG	items_weapon_knife_throwing_knife
-LINE	S	ÿc3+200-300% Enhanced Damage
-LINE	S	ÿc3+75-150 to Minimum Damage
-LINE	S	ÿc3+20-40% Increased Attack Speed
-LINE	S	ÿc3+20-40% Faster Cast Rate
-LINE	S	ÿc330-50% Chance of Crushing Blow
-LINE	S	ÿc3+250-500 to Attack Rating
-LINE	S	ÿc3Damage Reduced by 10-20%
 BLOCK	1	Dreadfang			Elite	Swords	61
 TAG	(Coupon only)
 FIELD	Base	Legend Sword
@@ -34292,7 +33919,7 @@ LINE	S	ÿc3+75-150 to Minimum Damage to Attacks
 LINE	S	ÿc3+250-500 to Attack Rating
 LINE	S	ÿc3+30-50% Chance of Crushing Blow
 LINE	S	ÿc3Physical Resist: +10-20%
-ENTRY	Helms	84 items	sortable
+ENTRY	Helms	100 items	sortable
 BLOCK	1	Hijikata's Heart-blood			Normal		12
 TAG	Gamble Item:\nHachigane - ilvl: 10
 FIELD	Base	Hachigane
@@ -34943,6 +34570,202 @@ LINE	S	ÿc3+40-50% to Summon Damage
 LINE	S	ÿc3+10-20 To Summon Holy Defender
 LINE	S	ÿc3+20-40% Life and Mana Potion Effectiveness
 LINE	S	ÿc3Requirements +100-200%
+BLOCK	1	Fang's Valor			Normal		7
+TAG	Gamble Item:\nWolf Head - ilvl: 4
+FIELD	Base	Wolf Head
+FIELD	Required Level	7
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc36-12% Life stolen per hit
+LINE	S	ÿc3+25-75% Enhanced Defense
+LINE	S	ÿc3+20-30 to Life
+LINE	S	ÿc3+2 to Shape Shifting Skills
+LINE	S	ÿc3+30% Increased Attack Speed
+LINE	S	ÿc3+20-30 to Mana
+LINE	S	ÿc3+3-5 to Mana after each Kill
+BLOCK	1	Shadow Crow			Normal		10
+TAG	Gamble Item:\nHawk Helm - ilvl: 8
+FIELD	Base	Hawk Helm
+FIELD	Required Level	10
+IMG	items_armor_pelt_hawk_helm
+LINE	S	ÿc3-4 to Light Radius
+LINE	S	ÿc3+4-8 to Raven (Class only)
+LINE	S	ÿc3+20-50 to Mana
+LINE	S	ÿc3+20-50 to Life
+LINE	S	ÿc3+2-4 to Thunderclaws (Class only)
+LINE	S	ÿc3All Resistances +10-15
+BLOCK	1	Alizee's Flaming Horns			Normal		16
+TAG	Gamble Item:\nAntlers - ilvl: 16
+FIELD	Base	Antlers
+FIELD	Required Level	16
+IMG	items_armor_pelt_antlers
+LINE	S	ÿc35% Chance to Cast Level 1 Incinerate Proc on striking
+LINE	S	ÿc3Adds 25-50 Fire Damage
+LINE	S	ÿc3+30% Increased Attack Speed
+LINE	S	ÿc3Replenish Life +50-100
+LINE	S	ÿc3Fire Resist +40-50%
+LINE	S	ÿc3+10% Faster Run/Walk
+LINE	S	ÿc3+50-100% Enhanced Defense
+BLOCK	1	Razor Beak			Normal		19
+TAG	Gamble Item:\nFalcon Mask - ilvl: 20
+FIELD	Base	Falcon Mask
+FIELD	Required Level	19
+IMG	items_armor_pelt_falcon_mask
+LINE	S	ÿc3+10-20 to Strength
+LINE	S	ÿc3+2-4 to Mana after each Kill
+LINE	S	ÿc33-6% Mana stolen per hit
+LINE	S	ÿc3All Resistances +15
+LINE	S	ÿc31% Bonus to Attack Rating (Based on Character Level)
+LINE	S	ÿc3+10-20 to Dexterity
+LINE	S	ÿc330% Deadly Strike
+LINE	S	ÿc3+20% Increased Attack Speed
+LINE	S	ÿc3+50-75 Defense
+BLOCK	1	Starwolf's Facade			Normal		24
+TAG	Gamble Item:\nSpirit Mask - ilvl: 22
+FIELD	Base	Spirit Mask
+FIELD	Required Level	24
+IMG	items_armor_pelt_spirit_mask
+LINE	S	ÿc35% Chance to Cast Level 1 Magic Arrow on striking
+LINE	S	ÿc3+5-10 to Feral Rage (Class only)
+LINE	S	ÿc3+5-10 to Werewolf (Class only)
+LINE	S	ÿc33% Chance to Cast Level 20 Petrify on striking
+LINE	S	ÿc3+1 to Dexterity (Based on Character Level)
+LINE	S	ÿc3+100-120% Enhanced Defense
+LINE	S	ÿc3Magic Resist +10-15%
+BLOCK	1	Con Dar Warpaint			Exceptional		30
+TAG	Gamble Item:\nWolf Head - ilvl: 35
+FIELD	Base	Alpha Helm
+FIELD	Required Level	30
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc3100% Chance to Cast Level 30 Axe Proc on attack
+LINE	S	ÿc3+50-100 to Life
+LINE	S	ÿc3+1 to Dodge
+LINE	S	ÿc3+150% Enhanced Defense
+LINE	S	ÿc315-30% Life stolen per hit
+LINE	S	ÿc3Replenish Life -100
+LINE	S	ÿc3Adds 15-30 Damage
+BLOCK	1	Ravenlord			Exceptional		34
+TAG	Gamble Item:\nHawk Helm - ilvl: 40
+FIELD	Base	Griffon Headress
+FIELD	Required Level	34
+IMG	items_armor_helmet_ravenlord
+LINE	S	ÿc3+10-15 to Raven (Class only)
+LINE	S	ÿc3+10-15 to Thunderclaws (Class only)
+LINE	S	ÿc3+20 to Vitality
+LINE	S	ÿc3+20 to Energy
+LINE	S	ÿc3+30% Faster Run/Walk
+LINE	S	ÿc3All Resistances +25-30
+LINE	S	ÿc3+1 to Druid Skill Levels
+LINE	S	ÿc3-10-15% to Enemy Lightning Resistance
+BLOCK	1	Horns of Allesthir			Exceptional		33
+TAG	Gamble Item:\nAntlers - ilvl: 46
+FIELD	Base	Hunter's Guise
+FIELD	Required Level	33
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc35% Chance to Cast Level 20 Absolute Zero when you Kill an Enemy
+LINE	S	ÿc3-10-15% to Enemy Cold Resistance
+LINE	S	ÿc3Cannot Be Frozen
+LINE	S	ÿc3+1-5 to Glacial Focus
+LINE	S	ÿc3+150-200 Defense
+LINE	S	ÿc3Regenerate Mana 50-100%
+LINE	S	ÿc3Replenish Life +200-300
+LINE	S	ÿc3+25-50 to Energy
+LINE	S	ÿc3+5-10 to Monsoon (Class only)
+BLOCK	1	Phoenix Tail			Exceptional		40
+TAG	Gamble Item:\nFalcon Mask - ilvl: 50
+FIELD	Base	Sacred Feathers
+FIELD	Required Level	40
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc3+1-3 to Fire Skills
+LINE	S	ÿc3-10-15% to Enemy Fire Resistance
+LINE	S	ÿc310% Chance to Cast Level 60 Blaze when struck
+LINE	S	ÿc3+2 to Life (Based on Character Level)
+LINE	S	ÿc3Replenish Life +500
+LINE	S	ÿc310% Chance to Cast Level 30 Firestorm when you Kill an Enemy
+LINE	S	ÿc3+100-150% Enhanced Defense
+BLOCK	1	Jalal's Mane			Exceptional		42
+TAG	Gamble Item:\nSpirit Mask - ilvl: 50
+FIELD	Base	Totemic Mask
+FIELD	Required Level	42
+IMG	items_armor_pelt_spirit_mask
+LINE	S	ÿc3+200-300% Enhanced Defense
+LINE	S	ÿc3+1-2 to Druid Skill Levels
+LINE	S	ÿc3100-150% Bonus to Attack Rating
+LINE	S	ÿc3+150-200 to Attack Rating
+LINE	S	ÿc3Damage Reduced by 10-20%
+LINE	S	ÿc3All Resistances +40-50
+LINE	S	ÿc3+30-50 to Strength
+LINE	S	ÿc3+30-50 to Dexterity
+LINE	S	ÿc3+30% Increased Attack Speed
+LINE	S	ÿc3+50-100% Enhanced Damage
+BLOCK	1	Necromancer's Essense			Elite		46
+TAG	Gamble Item:\nWolf Head - ilvl: 55
+FIELD	Base	Blood Spirt
+FIELD	Required Level	46
+IMG	items_armor_helmet_necromancers_essence
+LINE	S	ÿc3Level 10-30 Lower Resist Aura Aura When Equipped
+LINE	S	ÿc3+10-30 to Raise Skeletal Mage
+LINE	S	ÿc3+10 to Skeleton Mastery
+LINE	S	ÿc3+1 to Summon Skeleton King
+LINE	S	ÿc3+1-2 to All Skills
+LINE	S	ÿc35% Chance to Cast Level 40 Bone Armor when struck
+LINE	S	ÿc3+150-200% Enhanced Defense
+BLOCK	1	Mojabi's Face			Elite		55
+TAG	Gamble Item:\nHawk Helm - ilvl: 69
+FIELD	Base	Sun Spirit
+FIELD	Required Level	55
+IMG	items_armor_helmet_mojabi_face
+LINE	S	ÿc8Frozen Blast now also deals lightning damage
+LINE	S	ÿc8equal to 25% of the cold damage and stuns for 0.6 seconds.
+LINE	S	ÿc3+1-3 to Elemental Skills (Druid Only)
+LINE	S	ÿc3-10 to -20% to Enemy Lightning Resist
+LINE	S	ÿc3+400% Enhanced Defense
+LINE	S	ÿc3+1-50 to Energy
+LINE	S	ÿc3+1-13% Bonus to Energy
+LINE	S	ÿc3+1-200 to Life
+LINE	S	ÿc3+1-200 to Mana
+LINE	S	ÿc3+3-5% to Maximum Cold Resist
+LINE	S	ÿc3Lightning Absorb +3-5%
+BLOCK	1	Tetonic Horns			Elite		61
+TAG	Gamble Item:\nAntlers - ilvl: 76
+FIELD	Base	Earth Spirit
+FIELD	Required Level	61
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc8Increase Cataclysm's total damage and cooldown by 50%
+LINE	S	ÿc3Adds 200%-300% Bleed Damage over 6 seconds
+LINE	S	ÿc317% Chance to Cast Level 60 Wind Surge when you Kill an Enemy
+LINE	S	ÿc3+1-2 to All Skills
+LINE	S	ÿc3+10-30% to Physical Spell Damage
+LINE	S	ÿc3+100% Chance of Crushing Blow
+LINE	S	ÿc3+400-500 Defense
+LINE	S	ÿc3+50-100 to Life
+LINE	S	ÿc3Physical Resist: +10-20%
+BLOCK	1	Aire Libre			Elite		66
+TAG	Gamble Item:\nFalcon Mask - ilvl: 83
+FIELD	Base	Sky Spirit
+FIELD	Required Level	66
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc8Monsoon now releases 10 icy novas over 3 seconds instead of icy winds
+LINE	S	ÿc3100% Chance to Cast Level 25 Cold Surge when you Kill an Enemy
+LINE	S	ÿc3+30% Faster Run/Walk
+LINE	S	ÿc3-10 to -20% to Enemy Cold Resist
+LINE	S	ÿc3+10-15% Skill Cooldown Reduction
+LINE	S	ÿc3+200% Enhanced Defense
+LINE	S	ÿc3+25-50 to Vitality
+LINE	S	ÿc3+6-20% Bonus to Energy
+LINE	S	ÿc3Cannot Be Frozen
+BLOCK	1	Beast of the Night			Elite		70
+TAG	Gamble Item:\nSpirit Mask - ilvl: 84
+FIELD	Base	Dream Spirit
+FIELD	Required Level	70
+IMG	items_armor_helmet_beast_of_the_night
+LINE	S	ÿc31% Chance to Cast Level 50 Firestorm on striking
+LINE	S	ÿc35% Chance to Cast Level 50 Whirlpool Proc on striking
+LINE	S	ÿc31% Chance to Cast Level 50 Sandstorm on striking
+LINE	S	ÿc3+50% Faster Run/Walk
+LINE	S	ÿc3+120-170% Enhanced Defense
+LINE	S	ÿc3Damage Reduced by 35-50
+LINE	S	ÿc3Magic Resist +10-20%
+LINE	S	ÿc3+1-2 to Druid Skill Levels
 BLOCK	1	Sightless Archer			Exceptional		35
 TAG	Gamble Item:\nHachigane - ilvl: 30
 FIELD	Base	Faceguard
@@ -34956,17 +34779,6 @@ LINE	S	ÿc30.5% Deadly Strike (Based on Character Level)
 LINE	S	ÿc3+50-150 Defense
 LINE	S	ÿc3+20% Increased Attack Speed
 LINE	S	ÿc3+20% Faster Run/Walk
-BLOCK	1	War Bonnet			Normal		2
-TAG	(Coupon only)
-FIELD	Base	Cap
-FIELD	Required Level	2
-IMG	items_armor_helmet_war_bonnet
-LINE	S	ÿc3+50-100 to Life
-LINE	S	ÿc3+50-100 to Mana
-LINE	S	ÿc3All Resistances +20-30
-LINE	S	ÿc3+10-20% Faster Run/Walk
-LINE	S	ÿc3+10-20% Increased Attack Speed
-LINE	S	ÿc3+10-20% Faster Cast Rate
 BLOCK	1	Tarnhelm			Normal		13
 TAG	(Coupon only)
 FIELD	Base	Skull Cap
@@ -35042,17 +34854,6 @@ LINE	S	ÿc3+200-400% Damage to Undead
 LINE	S	ÿc3+200-400% Damage to Demons
 LINE	S	ÿc3+50-100 Defense
 LINE	S	ÿc310-15% Life stolen per hit
-BLOCK	1	Peasent Crown			Exceptional		22
-TAG	(Coupon only)
-FIELD	Base	War Hat
-FIELD	Required Level	22
-IMG	items_armor_helmet_cap_hat
-LINE	S	ÿc3+20-40 to all Attributes
-LINE	S	ÿc3Increase Maximum Life 15-25%
-LINE	S	ÿc3Increase Maximum Mana 15-25%
-LINE	S	ÿc3+1 to All Skills
-LINE	S	ÿc3+200 Defense
-LINE	S	ÿc3100-200% Extra Gold from Monsters
 BLOCK	1	Rockstopper			Exceptional		25
 TAG	(Coupon only)
 FIELD	Base	Sallet
@@ -35087,17 +34888,6 @@ LINE	S	ÿc3Cold Resist +40-50%
 LINE	S	ÿc3Poison Resist +40-50%
 LINE	S	ÿc3+100-300 Defense
 LINE	S	ÿc3+20% to All Speeds
-BLOCK	1	Valkiry Wing			Exceptional		30
-TAG	(Coupon only)
-FIELD	Base	Winged Helm
-FIELD	Required Level	30
-IMG	items_armor_helmet_great_helm
-LINE	S	ÿc3Socketed (4)
-LINE	S	ÿc3+30% Faster Run/Walk
-LINE	S	ÿc3-100 Defense
-LINE	S	ÿc3+30% Faster Hit Recovery
-LINE	S	ÿc3+40-50 Life after each Kill
-LINE	S	ÿc3+20-30 to Mana after each Kill
 BLOCK	1	Crown of Thieves			Exceptional		34
 TAG	(Coupon only)
 FIELD	Base	Grand Crown
@@ -35171,6 +34961,20 @@ LINE	S	ÿc3+10-20 to Stun (Class only)
 LINE	S	ÿc3+40% Increased Attack Speed
 LINE	S	ÿc310-20% Life stolen per hit
 LINE	S	ÿc3+100-200 to Life
+BLOCK	1	Jalal's Mane			Exceptional		42
+TAG	(Coupon only)
+FIELD	Base	Totemic Mask
+FIELD	Required Level	42
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc8Cyclone Armor's bonuses are halved but now grants
+LINE	S	ÿc8a regenerate mana bonus equal to replenish life
+LINE	S	ÿc3+5-10 to Cyclone Armor (Class only)
+LINE	S	ÿc3+1-2 to Druid Skill Levels
+LINE	S	ÿc3All Resistances +40
+LINE	S	ÿc31% Chance to Cast Level 60 Fire Surge when you Kill an Enemy
+LINE	S	ÿc31% Chance to Cast Level 60 Wind Surge when you Kill an Enemy
+LINE	S	ÿc31% Chance to Cast Level 60 Cold Surge when you Kill an Enemy
+LINE	S	ÿc3+200-300% Enhanced Defense
 BLOCK	1	Steel Shade			Elite		49
 TAG	(Coupon only)
 FIELD	Base	armet
@@ -35203,6 +35007,22 @@ LINE	S	ÿc3+40-60 to Strength
 LINE	S	ÿc3+40-60 to Dexterity
 LINE	S	ÿc3+1-2 Life on Striking
 LINE	S	ÿc3Fire Absorb +5-10%
+BLOCK	1	Spirit Keeper			Elite		53
+TAG	(Coupon only)
+FIELD	Base	earth spirit
+FIELD	Required Level	53
+IMG	items_armor_pelt_antlers
+LINE	S	ÿc8All of your summons grant 1% total damage per 250 of their
+LINE	S	ÿc8maximum life on death to nearby allies
+LINE	S	ÿc8-2 to -1 to Non-Unique Summons Limit
+LINE	S	ÿc3+1-2 to Druid Skill Levels
+LINE	S	ÿc3+40-50% Faster Cast Rate
+LINE	S	ÿc3+20-30% to Summon Life
+LINE	S	ÿc3+10-20% to Summon Damage
+LINE	S	ÿc3+5-10% Dodge Chance
+LINE	S	ÿc3+5-15 To Call of the Wild (Druid Only)
+LINE	S	ÿc3+300% Enhanced Defense
+LINE	S	ÿc3Increase Maximum Mana +25-35%
 BLOCK	1	Griffon's Eye			Elite		68
 TAG	(Coupon only)
 FIELD	Base	diadem
@@ -35266,6 +35086,23 @@ LINE	S	ÿc3+5-10% to Maximum Poison Resist
 LINE	S	ÿc3Fire Resist -50 to -30%
 LINE	S	ÿc3Poison Resist +100-150%
 LINE	S	ÿc3Poison Length Reduced by +100%
+BLOCK	1	Ravenlore			Elite		59
+TAG	(Coupon only)
+FIELD	Base	sky spirit
+FIELD	Required Level	59
+IMG	items_armor_pelt_falcon_mask
+LINE	S	ÿc8Your ravens gain 5% lightning damage, but lose 1% maximum life per second
+LINE	S	ÿc8Maximum number of wolves is 1
+LINE	S	ÿc8Maximum stacks: 500
+LINE	S	ÿc3+1-2 to All Skills
+LINE	S	ÿc3+30% Faster Cast Rate
+LINE	S	ÿc3+10-20% to Summon All Resists
+LINE	S	ÿc3+10-20% to Summon Physical and Magic Resists
+LINE	S	ÿc3-20 to -30% to Enemy Lightning Resist
+LINE	S	ÿc3+5-15 To Thunderclaws (Druid Only)
+LINE	S	ÿc3+5-15 To Raven (Druid Only)
+LINE	S	ÿc3+200% Enhanced Defense
+LINE	S	ÿc3+5-15% to Experience Gained
 BLOCK	1	Wolfhowl			Elite		63
 TAG	(Coupon only)
 FIELD	Base	fury visor
@@ -35368,7 +35205,21 @@ LINE	S	ÿc3-100 Defense
 LINE	S	ÿc3+40-50 Life after each Kill
 LINE	S	ÿc3+20-30 to Mana after each Kill
 LINE	S	ÿc3Socketed (4)
-ENTRY	Torso	119 items	sortable
+BLOCK	1	Cerebus' Bite			Elite		50
+TAG	(Coupon only)
+FIELD	Base	blood spirit
+FIELD	Required Level	50
+IMG	items_armor_pelt_wolf_head
+LINE	S	ÿc8Gain 3%-5% Bleed Damage over 1 second for every 1% life steal you have
+LINE	S	ÿc8and 1% total physical attack damage for every 4% missing life
+LINE	S	ÿc3+20-30% Increased Attack Speed
+LINE	S	ÿc3+30-50 to Maximum Damage to Attacks
+LINE	S	ÿc3+20-40% Physical Damage Leeched as Life
+LINE	S	ÿc3+10-15% Skill Cooldown Reduction
+LINE	S	ÿc3+20-40% Chance of Crushing Blow
+LINE	S	ÿc3+10-20 To Primal Savagery (Druid Only)
+LINE	S	ÿc3+350% Enhanced Defense
+ENTRY	Torso	94 items	sortable
 BLOCK	1	The Rainbow Cloak			Normal		2
 TAG	Gamble Item:\nCloak - ilvl: 7
 FIELD	Base	Cloak
@@ -36150,202 +36001,6 @@ LINE	S	ÿc3+100-200% Enhanced Defense
 LINE	S	ÿc3Slows Target by 10-30%
 LINE	S	ÿc3Freezes Target +0-1
 LINE	S	ÿc3Cannot Be Frozen
-BLOCK	1	Fang's Valor			Normal		7
-TAG	Gamble Item:\nWolf Head - ilvl: 4
-FIELD	Base	Wolf Head
-FIELD	Required Level	7
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc36-12% Life stolen per hit
-LINE	S	ÿc3+25-75% Enhanced Defense
-LINE	S	ÿc3+20-30 to Life
-LINE	S	ÿc3+2 to Shape Shifting Skills
-LINE	S	ÿc3+30% Increased Attack Speed
-LINE	S	ÿc3+20-30 to Mana
-LINE	S	ÿc3+3-5 to Mana after each Kill
-BLOCK	1	Shadow Crow			Normal		10
-TAG	Gamble Item:\nHawk Helm - ilvl: 8
-FIELD	Base	Hawk Helm
-FIELD	Required Level	10
-IMG	items_armor_pelt_hawk_helm
-LINE	S	ÿc3-4 to Light Radius
-LINE	S	ÿc3+4-8 to Raven (Class only)
-LINE	S	ÿc3+20-50 to Mana
-LINE	S	ÿc3+20-50 to Life
-LINE	S	ÿc3+2-4 to Thunderclaws (Class only)
-LINE	S	ÿc3All Resistances +10-15
-BLOCK	1	Alizee's Flaming Horns			Normal		16
-TAG	Gamble Item:\nAntlers - ilvl: 16
-FIELD	Base	Antlers
-FIELD	Required Level	16
-IMG	items_armor_pelt_antlers
-LINE	S	ÿc35% Chance to Cast Level 1 Incinerate Proc on striking
-LINE	S	ÿc3Adds 25-50 Fire Damage
-LINE	S	ÿc3+30% Increased Attack Speed
-LINE	S	ÿc3Replenish Life +50-100
-LINE	S	ÿc3Fire Resist +40-50%
-LINE	S	ÿc3+10% Faster Run/Walk
-LINE	S	ÿc3+50-100% Enhanced Defense
-BLOCK	1	Razor Beak			Normal		19
-TAG	Gamble Item:\nFalcon Mask - ilvl: 20
-FIELD	Base	Falcon Mask
-FIELD	Required Level	19
-IMG	items_armor_pelt_falcon_mask
-LINE	S	ÿc3+10-20 to Strength
-LINE	S	ÿc3+2-4 to Mana after each Kill
-LINE	S	ÿc33-6% Mana stolen per hit
-LINE	S	ÿc3All Resistances +15
-LINE	S	ÿc31% Bonus to Attack Rating (Based on Character Level)
-LINE	S	ÿc3+10-20 to Dexterity
-LINE	S	ÿc330% Deadly Strike
-LINE	S	ÿc3+20% Increased Attack Speed
-LINE	S	ÿc3+50-75 Defense
-BLOCK	1	Starwolf's Facade			Normal		24
-TAG	Gamble Item:\nSpirit Mask - ilvl: 22
-FIELD	Base	Spirit Mask
-FIELD	Required Level	24
-IMG	items_armor_pelt_spirit_mask
-LINE	S	ÿc35% Chance to Cast Level 1 Magic Arrow on striking
-LINE	S	ÿc3+5-10 to Feral Rage (Class only)
-LINE	S	ÿc3+5-10 to Werewolf (Class only)
-LINE	S	ÿc33% Chance to Cast Level 20 Petrify on striking
-LINE	S	ÿc3+1 to Dexterity (Based on Character Level)
-LINE	S	ÿc3+100-120% Enhanced Defense
-LINE	S	ÿc3Magic Resist +10-15%
-BLOCK	1	Con Dar Warpaint			Exceptional		30
-TAG	Gamble Item:\nWolf Head - ilvl: 35
-FIELD	Base	Alpha Helm
-FIELD	Required Level	30
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc3100% Chance to Cast Level 30 Axe Proc on attack
-LINE	S	ÿc3+50-100 to Life
-LINE	S	ÿc3+1 to Dodge
-LINE	S	ÿc3+150% Enhanced Defense
-LINE	S	ÿc315-30% Life stolen per hit
-LINE	S	ÿc3Replenish Life -100
-LINE	S	ÿc3Adds 15-30 Damage
-BLOCK	1	Ravenlord			Exceptional		34
-TAG	Gamble Item:\nHawk Helm - ilvl: 40
-FIELD	Base	Griffon Headress
-FIELD	Required Level	34
-IMG	items_armor_helmet_ravenlord
-LINE	S	ÿc3+10-15 to Raven (Class only)
-LINE	S	ÿc3+10-15 to Thunderclaws (Class only)
-LINE	S	ÿc3+20 to Vitality
-LINE	S	ÿc3+20 to Energy
-LINE	S	ÿc3+30% Faster Run/Walk
-LINE	S	ÿc3All Resistances +25-30
-LINE	S	ÿc3+1 to Druid Skill Levels
-LINE	S	ÿc3-10-15% to Enemy Lightning Resistance
-BLOCK	1	Horns of Allesthir			Exceptional		33
-TAG	Gamble Item:\nAntlers - ilvl: 46
-FIELD	Base	Hunter's Guise
-FIELD	Required Level	33
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc35% Chance to Cast Level 20 Absolute Zero when you Kill an Enemy
-LINE	S	ÿc3-10-15% to Enemy Cold Resistance
-LINE	S	ÿc3Cannot Be Frozen
-LINE	S	ÿc3+1-5 to Glacial Focus
-LINE	S	ÿc3+150-200 Defense
-LINE	S	ÿc3Regenerate Mana 50-100%
-LINE	S	ÿc3Replenish Life +200-300
-LINE	S	ÿc3+25-50 to Energy
-LINE	S	ÿc3+5-10 to Monsoon (Class only)
-BLOCK	1	Phoenix Tail			Exceptional		40
-TAG	Gamble Item:\nFalcon Mask - ilvl: 50
-FIELD	Base	Sacred Feathers
-FIELD	Required Level	40
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc3+1-3 to Fire Skills
-LINE	S	ÿc3-10-15% to Enemy Fire Resistance
-LINE	S	ÿc310% Chance to Cast Level 60 Blaze when struck
-LINE	S	ÿc3+2 to Life (Based on Character Level)
-LINE	S	ÿc3Replenish Life +500
-LINE	S	ÿc310% Chance to Cast Level 30 Firestorm when you Kill an Enemy
-LINE	S	ÿc3+100-150% Enhanced Defense
-BLOCK	1	Jalal's Mane			Exceptional		42
-TAG	Gamble Item:\nSpirit Mask - ilvl: 50
-FIELD	Base	Totemic Mask
-FIELD	Required Level	42
-IMG	items_armor_pelt_spirit_mask
-LINE	S	ÿc3+200-300% Enhanced Defense
-LINE	S	ÿc3+1-2 to Druid Skill Levels
-LINE	S	ÿc3100-150% Bonus to Attack Rating
-LINE	S	ÿc3+150-200 to Attack Rating
-LINE	S	ÿc3Damage Reduced by 10-20%
-LINE	S	ÿc3All Resistances +40-50
-LINE	S	ÿc3+30-50 to Strength
-LINE	S	ÿc3+30-50 to Dexterity
-LINE	S	ÿc3+30% Increased Attack Speed
-LINE	S	ÿc3+50-100% Enhanced Damage
-BLOCK	1	Necromancer's Essense			Elite		46
-TAG	Gamble Item:\nWolf Head - ilvl: 55
-FIELD	Base	Blood Spirt
-FIELD	Required Level	46
-IMG	items_armor_helmet_necromancers_essence
-LINE	S	ÿc3Level 10-30 Lower Resist Aura Aura When Equipped
-LINE	S	ÿc3+10-30 to Raise Skeletal Mage
-LINE	S	ÿc3+10 to Skeleton Mastery
-LINE	S	ÿc3+1 to Summon Skeleton King
-LINE	S	ÿc3+1-2 to All Skills
-LINE	S	ÿc35% Chance to Cast Level 40 Bone Armor when struck
-LINE	S	ÿc3+150-200% Enhanced Defense
-BLOCK	1	Mojabi's Face			Elite		55
-TAG	Gamble Item:\nHawk Helm - ilvl: 69
-FIELD	Base	Sun Spirit
-FIELD	Required Level	55
-IMG	items_armor_helmet_mojabi_face
-LINE	S	ÿc8Frozen Blast now also deals lightning damage
-LINE	S	ÿc8equal to 25% of the cold damage and stuns for 0.6 seconds.
-LINE	S	ÿc3+1-3 to Elemental Skills (Druid Only)
-LINE	S	ÿc3-10 to -20% to Enemy Lightning Resist
-LINE	S	ÿc3+400% Enhanced Defense
-LINE	S	ÿc3+1-50 to Energy
-LINE	S	ÿc3+1-13% Bonus to Energy
-LINE	S	ÿc3+1-200 to Life
-LINE	S	ÿc3+1-200 to Mana
-LINE	S	ÿc3+3-5% to Maximum Cold Resist
-LINE	S	ÿc3Lightning Absorb +3-5%
-BLOCK	1	Tetonic Horns			Elite		61
-TAG	Gamble Item:\nAntlers - ilvl: 76
-FIELD	Base	Earth Spirit
-FIELD	Required Level	61
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc8Increase Cataclysm's total damage and cooldown by 50%
-LINE	S	ÿc3Adds 200%-300% Bleed Damage over 6 seconds
-LINE	S	ÿc317% Chance to Cast Level 60 Wind Surge when you Kill an Enemy
-LINE	S	ÿc3+1-2 to All Skills
-LINE	S	ÿc3+10-30% to Physical Spell Damage
-LINE	S	ÿc3+100% Chance of Crushing Blow
-LINE	S	ÿc3+400-500 Defense
-LINE	S	ÿc3+50-100 to Life
-LINE	S	ÿc3Physical Resist: +10-20%
-BLOCK	1	Aire Libre			Elite		66
-TAG	Gamble Item:\nFalcon Mask - ilvl: 83
-FIELD	Base	Sky Spirit
-FIELD	Required Level	66
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc8Monsoon now releases 10 icy novas over 3 seconds instead of icy winds
-LINE	S	ÿc3100% Chance to Cast Level 25 Cold Surge when you Kill an Enemy
-LINE	S	ÿc3+30% Faster Run/Walk
-LINE	S	ÿc3-10 to -20% to Enemy Cold Resist
-LINE	S	ÿc3+10-15% Skill Cooldown Reduction
-LINE	S	ÿc3+200% Enhanced Defense
-LINE	S	ÿc3+25-50 to Vitality
-LINE	S	ÿc3+6-20% Bonus to Energy
-LINE	S	ÿc3Cannot Be Frozen
-BLOCK	1	Beast of the Night			Elite		70
-TAG	Gamble Item:\nSpirit Mask - ilvl: 84
-FIELD	Base	Dream Spirit
-FIELD	Required Level	70
-IMG	items_armor_helmet_beast_of_the_night
-LINE	S	ÿc31% Chance to Cast Level 50 Firestorm on striking
-LINE	S	ÿc35% Chance to Cast Level 50 Whirlpool Proc on striking
-LINE	S	ÿc31% Chance to Cast Level 50 Sandstorm on striking
-LINE	S	ÿc3+50% Faster Run/Walk
-LINE	S	ÿc3+120-170% Enhanced Defense
-LINE	S	ÿc3Damage Reduced by 35-50
-LINE	S	ÿc3Magic Resist +10-20%
-LINE	S	ÿc3+1-2 to Druid Skill Levels
 BLOCK	1	Greyform			Normal		4
 TAG	(Coupon only)
 FIELD	Base	Quilted Armor
@@ -36427,18 +36082,6 @@ LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc335% Chance to Cast Level 20 Conduit Proc on attack
 LINE	S	ÿc3+1-200% Enhanced Defense
 LINE	S	ÿc33% Chance to Cast Level 40 Lightning Surge when you Kill an Enemy
-BLOCK	1	Venomsward			Normal		14
-TAG	(Coupon only)
-FIELD	Base	Breast Plate
-FIELD	Required Level	14
-IMG	items_armor_armor_breast_plate
-LINE	S	ÿc3+3-5% to Maximum Poison Resist
-LINE	S	ÿc3Poison Resist +90%
-LINE	S	ÿc3+50% Faster Hit Recovery
-LINE	S	ÿc3+20-30 to Life
-LINE	S	ÿc3+20-30 to Mana
-LINE	S	ÿc3Poison Length Reduced by 50-75%
-LINE	S	ÿc3+5-15 to Mana after each Kill
 BLOCK	1	Iceblink			Normal		15
 TAG	(Coupon only)
 FIELD	Base	Splint Mail
@@ -36490,16 +36133,6 @@ LINE	S	ÿc3All Resistances +30-50
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+10-15 to Light Radius
 LINE	S	ÿc31-500% Extra Gold from Monsters
-BLOCK	1	Victors Silk			Normal		24
-TAG	(Coupon only)
-FIELD	Base	AncientArmor
-FIELD	Required Level	24
-IMG	items_armor_armor_victors_silk
-LINE	S	ÿc310-20% Mana stolen per hit
-LINE	S	ÿc3+2 to All Skills
-LINE	S	ÿc310-20% Life stolen per hit
-LINE	S	ÿc3Socketed (2)
-LINE	S	ÿc3+30-50 to all Attributes
 BLOCK	1	Heavenly Garb			Normal		20
 TAG	(Coupon only)
 FIELD	Base	Light Plate
@@ -36532,16 +36165,6 @@ LINE	S	ÿc3+30-50% Faster Cast Rate
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+15 to Random Skill Levels (Class only)
 LINE	S	ÿc3+10-20% to Experience Gained
-BLOCK	1	Skin of the Flayerd One			Exceptional		25
-TAG	(Coupon only)
-FIELD	Base	Demonhide Armor
-FIELD	Required Level	25
-IMG	items_armor_armor_hard_leather_armor
-LINE	S	ÿc3Damage Reduced by 10-20%
-LINE	S	ÿc310-15% Life stolen per hit
-LINE	S	ÿc3Damage Reduced by 20-40
-LINE	S	ÿc3+150-200% Enhanced Defense
-LINE	S	ÿc333% Chance to Cast Level 20 Warm Up when struck
 BLOCK	1	Iron Pelt			Exceptional		25
 TAG	(Coupon only)
 FIELD	Base	Tresllised Armor
@@ -36667,18 +36290,6 @@ LINE	S	ÿc3Cold Resist +50-60%
 LINE	S	ÿc3Poison Resist +50-60%
 LINE	S	ÿc3+20-26% Bonus to all Attributes
 LINE	S	ÿc3+150-200 Life after each Kill
-BLOCK	1	Que-Hegan's Wisdon			Exceptional		35
-TAG	(Coupon only)
-FIELD	Base	Mage Plate
-FIELD	Required Level	35
-IMG	items_armor_armor_light_plate
-LINE	S	ÿc3+1-3 to All Skills
-LINE	S	ÿc3-100--50 to Life
-LINE	S	ÿc3Requirements --100%
-LINE	S	ÿc3+40-60 to Mana after each Kill
-LINE	S	ÿc3+50-200 to Mana
-LINE	S	ÿc3+50-100 to Energy
-LINE	S	ÿc3+10-30% to Experience Gained
 BLOCK	1	The Gladiator's Bane			Elite		68
 TAG	(Coupon only)
 FIELD	Base	Wire Fleece
@@ -36706,39 +36317,14 @@ LINE	S	ÿc3+40-50% Faster Hit Recovery
 LINE	S	ÿc3+400-500% Enhanced Defense
 LINE	S	ÿc3Damage Reduced by 10-20%
 LINE	S	ÿc3+50-100 to all Attributes
-BLOCK	1	Jalal's Mane			Exceptional		42
-TAG	(Coupon only)
-FIELD	Base	Totemic Mask
-FIELD	Required Level	42
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc8Cyclone Armor's bonuses are halved but now grants
-LINE	S	ÿc8a regenerate mana bonus equal to replenish life
-LINE	S	ÿc3+5-10 to Cyclone Armor (Class only)
-LINE	S	ÿc3+1-2 to Druid Skill Levels
-LINE	S	ÿc3All Resistances +40
-LINE	S	ÿc31% Chance to Cast Level 60 Fire Surge when you Kill an Enemy
-LINE	S	ÿc31% Chance to Cast Level 60 Wind Surge when you Kill an Enemy
-LINE	S	ÿc31% Chance to Cast Level 60 Cold Surge when you Kill an Enemy
-LINE	S	ÿc3+200-300% Enhanced Defense
-BLOCK	1	Cerebus			Elite		50
-TAG	(Coupon only)
-FIELD	Base	blood spirit
-FIELD	Required Level	50
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc320-40% Life stolen per hit
-LINE	S	ÿc3+30-50 to Maximum Damage
-LINE	S	ÿc3+300-350% Enhanced Defense
-LINE	S	ÿc320-40% Chance of Crushing Blow
-LINE	S	ÿc3+10-20 to Primal Savagery (Class only)
-LINE	S	ÿc3+20-30% Increased Attack Speed
 BLOCK	1	Tyrael's Might			Elite		67
 TAG	(Coupon only)
 FIELD	Base	sacred armor
 FIELD	Required Level	67
 IMG	items_armor_armor_victors_silk
+LINE	S	ÿc8You gain total damage bonus based on your total attributes, up to 30% at 10000
 LINE	S	ÿc8Tyrael's Armor emanates power that cannot be contained
 LINE	S	ÿc8Certain recipes can unlock that power
-LINE	S	ÿc8You gain total damage bonus based on your total attributes, up to 30% at 10000
 LINE	S	ÿc3Level 25-30 Redemption Aura When Equipped
 LINE	S	ÿc3+800-1000% Damage to Demons
 LINE	S	ÿc3+500% Enhanced Defense
@@ -36762,53 +36348,6 @@ LINE	S	ÿc3+500% Enhanced Defense
 LINE	S	ÿc3+400-500 Defense
 LINE	S	ÿc3Replenish Life +1500-2000
 LINE	S	ÿc3Physical Resist: +20-30%
-BLOCK	1	Spirit Keeper			Elite		53
-TAG	(Coupon only)
-FIELD	Base	earth spirit
-FIELD	Required Level	53
-IMG	items_armor_pelt_antlers
-LINE	S	ÿc8All of your summons grant 1% total damage per 250 of their
-LINE	S	ÿc8maximum life on death to nearby allies
-LINE	S	ÿc8-2 to -1 to Non-Unique Summons Limit
-LINE	S	ÿc3+1-2 to Druid Skill Levels
-LINE	S	ÿc3+40-50% Faster Cast Rate
-LINE	S	ÿc3+20-30% to Summon Life
-LINE	S	ÿc3+10-20% to Summon Damage
-LINE	S	ÿc3+5-10% Dodge Chance
-LINE	S	ÿc3+5-15 To Call of the Wild (Druid Only)
-LINE	S	ÿc3+300% Enhanced Defense
-LINE	S	ÿc3Increase Maximum Mana +25-35%
-BLOCK	1	Steel Carapice			Elite		72
-TAG	(Coupon only)
-FIELD	Base	shadow plate
-FIELD	Required Level	72
-IMG	items_armor_armor_full_plate_mail
-LINE	S	ÿc3100% Chance to Cast Level 60 Steel Carapace Nova on cast
-LINE	S	ÿc3-10-20% to Enemy Lightning Resistance
-LINE	S	ÿc3Regenerate Mana 100-200%
-LINE	S	ÿc3Replenish Life +1000-2000
-LINE	S	ÿc3+400-500% Enhanced Defense
-LINE	S	ÿc3+1-2 to All Skills
-LINE	S	ÿc3Magic Resist +10-30%
-LINE	S	ÿc3Damage Reduced by 40-60
-LINE	S	ÿc3Socketed (1-2)
-BLOCK	1	Ravenlore			Elite		59
-TAG	(Coupon only)
-FIELD	Base	sky spirit
-FIELD	Required Level	59
-IMG	items_armor_pelt_falcon_mask
-LINE	S	ÿc8Your ravens gain 5% lightning damage, but lose 1% maximum life per second
-LINE	S	ÿc8Maximum number of wolves is 1
-LINE	S	ÿc8Maximum stacks: 500
-LINE	S	ÿc3+1-2 to All Skills
-LINE	S	ÿc3+30% Faster Cast Rate
-LINE	S	ÿc3+10-20% to Summon All Resists
-LINE	S	ÿc3+10-20% to Summon Physical and Magic Resists
-LINE	S	ÿc3-20 to -30% to Enemy Lightning Resist
-LINE	S	ÿc3+5-15 To Thunderclaws (Druid Only)
-LINE	S	ÿc3+5-15 To Raven (Druid Only)
-LINE	S	ÿc3+200% Enhanced Defense
-LINE	S	ÿc3+5-15% to Experience Gained
 BLOCK	1	Ormus' Robes			Elite		60
 TAG	(Coupon only)
 FIELD	Base	dusk shroud
@@ -36905,21 +36444,7 @@ LINE	S	ÿc3Regenerate Mana +100-200%
 LINE	S	ÿc3Magic Resist +10-30%
 LINE	S	ÿc3Damage Reduced by 40-60
 LINE	S	ÿc3Socketed 1-2
-BLOCK	1	Cerebus' Bite			Elite		50
-TAG	(Coupon only)
-FIELD	Base	blood spirit
-FIELD	Required Level	50
-IMG	items_armor_pelt_wolf_head
-LINE	S	ÿc8Gain 3%-5% Bleed Damage over 1 second for every 1% life steal you have
-LINE	S	ÿc8and 1% total physical attack damage for every 4% missing life
-LINE	S	ÿc3+20-30% Increased Attack Speed
-LINE	S	ÿc3+30-50 to Maximum Damage to Attacks
-LINE	S	ÿc3+20-40% Physical Damage Leeched as Life
-LINE	S	ÿc3+10-15% Skill Cooldown Reduction
-LINE	S	ÿc3+20-40% Chance of Crushing Blow
-LINE	S	ÿc3+10-20 To Primal Savagery (Druid Only)
-LINE	S	ÿc3+350% Enhanced Defense
-ENTRY	Shields	109 items	sortable
+ENTRY	Shields	105 items	sortable
 BLOCK	1	Romanary Pelt			Normal		2
 TAG	Gamble Item:\nBuckler - ilvl: 3
 FIELD	Base	Buckler
@@ -37189,6 +36714,7 @@ FIELD	Required Level	66
 IMG	items_armor_shield_swordback_hold
 LINE	S	ÿc8Your hits reduce enemies' physical resist by 1% and makes them take 5 additional unscalable
 LINE	S	ÿc8damage per hit but their base movement and attack speed is increased by 1% for 2 seconds
+LINE	S	ÿc8Maximum stacks: 50
 LINE	S	ÿc8Maximum stacks: 50
 LINE	S	ÿc33% Chance to Cast Level 50 Taunt when you Kill an Enemy
 LINE	S	ÿc3+30% Faster Run/Walk
@@ -37994,29 +37520,6 @@ LINE	S	ÿc3All Resistances +20-30
 LINE	S	ÿc3+80-100 to Strength
 LINE	S	ÿc3+50% Faster Block Rate
 LINE	S	ÿc3Socketed (1)
-BLOCK	1	Kerke's Sanctuary			Exceptional		30
-TAG	(Coupon only)
-FIELD	Base	Pavise
-FIELD	Required Level	30
-IMG	items_armor_shield_bverrit_keep
-LINE	S	ÿc3Damage Reduced by 10-15%
-LINE	S	ÿc3Damage Reduced by 20-30
-LINE	S	ÿc3+1 to All Skills
-LINE	S	ÿc3+150-200% Enhanced Defense
-LINE	S	ÿc3Replenish Life +400-500
-LINE	S	ÿc3+5-10% to Experience Gained
-BLOCK	1	Radimant's Sphere			Exceptional		35
-TAG	(Coupon only)
-FIELD	Base	Ancient Shield
-FIELD	Required Level	35
-IMG	items_armor_shield_the_ward
-LINE	S	ÿc3+50-100% Enhanced Defense
-LINE	S	ÿc3+80-100 to Life
-LINE	S	ÿc3+20-40 Life after each Kill
-LINE	S	ÿc3Poison Length Reduced by 50%
-LINE	S	ÿc3Magic Resist +10-20%
-LINE	S	ÿc3Increase Maximum Mana 15-25%
-LINE	S	ÿc3100% Chance to Cast Level 1 Radament Sphere Reset when you Kill an Enemy
 BLOCK	1	Lidless Wall			Exceptional		28
 TAG	(Coupon only)
 FIELD	Base	Grim Shield
@@ -38115,20 +37618,6 @@ LINE	S	ÿc3+2-4 Life on Striking
 LINE	S	ÿc3Magic Resist +10-15%
 LINE	S	ÿc3All Resists +40-50
 LINE	S	ÿc3Socketed (2)
-BLOCK	1	Darkforge Spawn			Elite		51
-TAG	(Coupon only)
-FIELD	Base	bloodlord skull
-FIELD	Required Level	51
-IMG	items_armor_voodoo_head_demon_head
-LINE	S	ÿc3Increase Maximum Mana 20-40%
-LINE	S	ÿc3+300-400% Enhanced Defense
-LINE	S	ÿc3+1-15 to Soul Shiver
-LINE	S	ÿc3Regenerate Mana 100-150%
-LINE	S	ÿc3+15-35 to Umbral Flight
-LINE	S	ÿc3+20-30% Faster Cast Rate
-LINE	S	ÿc3+100-150 to Life
-LINE	S	ÿc3+1 to All Skills
-LINE	S	ÿc3Socketed (0-2)
 BLOCK	1	Boneflame			Elite		57
 TAG	(Coupon only)
 FIELD	Base	succubae skull
@@ -38250,18 +37739,6 @@ LINE	S	ÿc3-10 to -15% to Enemy Magic Resist
 LINE	S	ÿc3-10 to -15% to Enemy Elemental And Poison Resists
 LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3Socketed 1-2
-BLOCK	1	Ars Al'Diablolos			Elite		80
-TAG	(Coupon only)
-FIELD	Base	Blasphemous Grimoire
-FIELD	Required Level	80
-IMG	items_armor_grimoires_ars_aldiablolos
-LINE	S	ÿc3+1 to Fire Mastery
-LINE	S	ÿc3Replenish Life +800-1200
-LINE	S	ÿc3100% Chance to Cast Level 60 Fire Surge when you Kill an Enemy
-LINE	S	ÿc3+1-2 to All Skills
-LINE	S	ÿc3+200-300% Enhanced Defense
-LINE	S	ÿc3+10-20 to Light Radius
-LINE	S	ÿc3+50% Faster Run/Walk
 BLOCK	1	Ars Tor'Baalos			Elite		73
 TAG	(Coupon only)
 FIELD	Base	Blasphemous Compendium
@@ -38355,7 +37832,7 @@ LINE	S	ÿc3+1 To Fire Mastery
 LINE	S	ÿc3+300% Enhanced Defense
 LINE	S	ÿc3Replenish Life +800-1200
 LINE	S	ÿc3+10-20 to Light Radius
-ENTRY	Belts	35 items	sortable
+ENTRY	Belts	32 items	sortable
 BLOCK	1	Imperial Sash			Normal		7
 TAG	Gamble Item:\nSash(L) - ilvl: 10
 FIELD	Base	Sash
@@ -38589,18 +38066,6 @@ LINE	S	ÿc3+10-15 To Lightning Warp
 LINE	S	ÿc3+250% Enhanced Defense
 LINE	S	ÿc3+6-20% Bonus to Strength
 LINE	S	ÿc3+6-20% Bonus to Vitality
-BLOCK	1	Lenyms Cord			Normal		4
-TAG	(Coupon only)
-FIELD	Base	Sash
-FIELD	Required Level	4
-IMG	items_armor_belt_sash_l
-LINE	S	ÿc3+50-100 to Mana
-LINE	S	ÿc3+50-100 to Life
-LINE	S	ÿc3All Resistances +20-30
-LINE	S	ÿc3+4-5 to Light Radius
-LINE	S	ÿc3Regenerate Mana 50-100%
-LINE	S	ÿc3Magic Resist +10-15%
-LINE	S	ÿc3+4 Defense (Based on Character Level)
 BLOCK	1	Snakecord			Normal		8
 TAG	(Coupon only)
 FIELD	Base	Light Belt
@@ -38695,17 +38160,6 @@ LINE	S	ÿc3Cold Resist +60-75%
 LINE	S	ÿc3+3-5% to Maximum Cold Resist
 LINE	S	ÿc3+3-5 Cold Absorb
 LINE	S	ÿc3+10-20 to Blizzard (Class only)
-BLOCK	1	Thudergod's Vigor			Exceptional		39
-TAG	(Coupon only)
-FIELD	Base	War Belt
-FIELD	Required Level	39
-IMG	items_armor_belt_girdle_h
-LINE	S	ÿc3+1 to Lightning Mastery
-LINE	S	ÿc3-15-20% to Enemy Lightning Resistance
-LINE	S	ÿc3+200-250% Enhanced Defense
-LINE	S	ÿc3+40-50 to Strength
-LINE	S	ÿc3+40-50 to Dexterity
-LINE	S	ÿc3Lightning Absorb 20-30%
 BLOCK	1	Arachnid Mesh			Elite		64
 TAG	(Coupon only)
 FIELD	Base	spiderweb sash
@@ -38735,18 +38189,6 @@ LINE	S	ÿc3+200% Enhanced Defense
 LINE	S	ÿc3+150-250 Defense
 LINE	S	ÿc3+1-2 Mana on Striking
 LINE	S	ÿc3+2-4 Life on Striking
-BLOCK	1	Verdugo's Hearty Cord			Elite		50
-TAG	(Coupon only)
-FIELD	Base	mithril coil
-FIELD	Required Level	50
-IMG	items_armor_belt_belt_m
-LINE	S	ÿc3+200-250% Enhanced Defense
-LINE	S	ÿc3Replenish Life +800-1500
-LINE	S	ÿc3+80-150 to Vitality
-LINE	S	ÿc3Damage Reduced by 10-20%
-LINE	S	ÿc3Magic Resist +10-20%
-LINE	S	ÿc3+30-40% Faster Run/Walk
-LINE	S	ÿc3+30-40% Faster Hit Recovery
 BLOCK	1	Gheed's Wager			Elite		71
 TAG	(Coupon only)
 FIELD	Base	Troll Belt
@@ -39215,7 +38657,7 @@ LINE	S	ÿc3+20-30% Faster Run/Walk
 LINE	S	ÿc3+20-40% to Magic Spell Damage
 LINE	S	ÿc3+80-100 Life after each Kill
 LINE	S	ÿc3+80-100 to Mana after each Kill
-ENTRY	Gloves	32 items	sortable
+ENTRY	Gloves	31 items	sortable
 BLOCK	1	Leather of Luck			Normal		5
 TAG	Gamble Item:\nGloves(L) - ilvl: 7
 FIELD	Base	Gloves
@@ -39544,15 +38986,6 @@ LINE	S	ÿc31% Chance to Cast Level 40 Fire Ball on striking
 LINE	S	ÿc31% Chance to Cast Level 40 Fire Bolt on striking
 LINE	S	ÿc3Increase Maximum Life 20-40%
 LINE	S	ÿc3-10-25% to Enemy Fire Resistance
-BLOCK	1	Souldrain			Elite		59
-TAG	(Coupon only)
-FIELD	Base	vambraces
-FIELD	Required Level	59
-IMG	items_armor_glove_bracers_m
-LINE	S	ÿc3+150-200% Enhanced Defense
-LINE	S	ÿc315-20% Mana stolen per hit
-LINE	S	ÿc315-20% Life stolen per hit
-LINE	S	ÿc3--100 to Monster Defense Per Hit
 BLOCK	1	Dracul's Grasp			Elite		60
 TAG	(Coupon only)
 FIELD	Base	vampirebone gloves
@@ -39596,7 +39029,7 @@ LINE	S	ÿc3-100 to Monster Defense Per Hit
 LINE	S	ÿc3+200% Enhanced Defense
 LINE	S	ÿc3+1-2 Mana on Striking
 LINE	S	ÿc3+3-5 Life on Striking
-ENTRY	Rings	45 items	sortable
+ENTRY	Rings	43 items	sortable
 BLOCK	1	Alakashar Rahl					60
 TAG	Gamble Item:\nDru Ring - ilvl: 60
 FIELD	Base	Ring
@@ -39744,23 +39177,6 @@ LINE	S	ÿc3+20-25% Faster Cast Rate
 LINE	S	ÿc3+1-8 to Lower Resist
 LINE	S	ÿc3+8 to Teleport (Class only)
 LINE	S	ÿc3+8 to Time Stop (Class only)
-BLOCK	1	Killashandra Ree's Black C					75
-TAG	Gamble Item:\nSor Ring - ilvl: 75
-FIELD	Base	Ring
-FIELD	Required Level	75
-IMG	items_misc_ring_sorceress_ring	tiny
-LINE	S	ÿc4Killashandra Ree's Black C
-LINE	S	ÿc3+2 to Sorceress Skill Levels
-LINE	S	ÿc3+5 to Random Sorceress Skill Levels (Class only)
-LINE	S	ÿc3+5 Defense (Based on Character Level)
-LINE	S	ÿc3+1 to Energy (Based on Character Level)
-LINE	S	ÿc3All Resistances +20-25
-LINE	S	ÿc330-35% Better Chance of Getting Magic Items
-LINE	S	ÿc35% Chance to Cast Level 60 Time Stop when you Kill an Enemy
-LINE	S	ÿc3Regenerate Mana 100-200%
-LINE	S	ÿc3+30% Faster Cast Rate
-LINE	S	ÿc3+3% to Experience Gained
-LINE	S	ÿc3+5-15 to Omnipotence (Class only)
 BLOCK	1	Killjoy's Attitude					75
 TAG	Gamble Item:\nAss Ring - ilvl: 75
 FIELD	Base	Ring
@@ -40156,18 +39572,6 @@ LINE	S	ÿc3+10-20 to Summon Grizzly
 LINE	S	ÿc3Magic Absorb 1-3%
 LINE	S	ÿc3Level 10-20 Redemption Aura When Equipped
 LINE	S	ÿc3+50-150% Enhanced Damage
-LINE	S	ÿc3+5-10% to Experience Gained
-BLOCK	1	Wisp					76
-TAG	(Coupon only)
-FIELD	Base	ring
-FIELD	Required Level	76
-IMG	items_misc_ring_wisp	tiny
-LINE	S	ÿc3+3-5 Lightning Absorb
-LINE	S	ÿc3+1 to Teleport
-LINE	S	ÿc3Magic Resist +5-10%
-LINE	S	ÿc3Reanimate As: 935
-LINE	S	ÿc3Level 1-10 Lightning Damage Aura Aura When Equipped
-LINE	S	ÿc3-10-15% to Enemy Lightning Resistance
 LINE	S	ÿc3+5-10% to Experience Gained
 BLOCK	1	Carrion Wind					60
 TAG	(Coupon only)

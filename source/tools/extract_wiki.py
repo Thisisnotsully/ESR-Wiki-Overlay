@@ -1117,6 +1117,180 @@ class Builder:
             out += section_blocks
         return out
 
+    # Uniques whose card carries the mod's spelling of the name while the website card (with the orange
+    # description from the client's mythicaldesc) uses another: mod name -> website name.
+    DESCRIPTION_TWINS = {
+        "Vizjeris' Knowledge": "Vizjereis' Knowledge", "Godstrike Arch": "Goldstrike Arch",
+        "The Reedeemer": "The Redeemer", "Death Game": "Death's Game", "Peasent Crown": "Peasant Crown",
+        "Cerebus": "Cerebus' Bite", "Steel Carapice": "Steel Carapace", "Kerke's Sanctuary": "Gerke's Sanctuary",
+        "Radimant's Sphere": "Radament's Sphere", "Darkforge Spawn": "Darkforce Spawn",
+        "Ars Al'Diablolos": "Ars Al'Diabolos", "Thudergod's Vigor": "Thundergod's Vigor",
+        "Verdugo's Hearty Cord": "Verdungo's Hearty Cord", "Guardian Angel": "Guardian Angel",
+        # Cards still titled with uniqueitems.txt's index name; item-names.json gives the name shown in game.
+        "Cutthroat1": "Bartuc's Cut-Throat", "Fathom": "Death's Fathom", "Eschuta's temper": "Eschuta's Temper",
+        "Ironward": "Astreon's Iron Ward", "Souldrain": "Soul Drainer",
+    }
+
+    def item_display_names(self):
+        """item-names.json: the name a unique is shown with in game, by its uniqueitems.txt index."""
+        display = {}
+        folder = getattr(self, "strings_folder", None)
+        if folder and (Path(folder) / "item-names.json").exists():
+            for entry in json.loads((Path(folder) / "item-names.json").read_text(encoding="utf-8-sig")):
+                display[str(entry.get("Key", ""))] = str(entry.get("enUS", ""))
+        return display
+
+    def drop_index_named_duplicates(self, by_group, mythical_group=None):
+        """A unique can have two cards: one titled with its uniqueitems.txt index name ("Cutthroat1") and one with
+        the name shown in game ("Bartuc's Cut-Throat"). The card with the in-game name stays. Only cards in the
+        same group with the same base item count as twins."""
+        display = self.item_display_names()
+        self.duplicate_report = []
+        for group, blocks in by_group.items():
+            if group == mythical_group:
+                continue
+            by_title = {}
+            for block in blocks:
+                by_title.setdefault(excel_items.norm(strip_color(block["title"])), []).append(block)
+            drop = set()
+            for block in blocks:
+                title = strip_color(block["title"]).strip()
+                row = self.excel.unique_row(title)
+                index = (row.get("index") or "").strip() if row else ""
+                if index.lower().endswith("_lod"):
+                    continue   # the Lord of Destruction version of a unique is its own card
+                shown = display.get(index) if row else None
+                if not shown or excel_items.norm(shown) == excel_items.norm(title):
+                    continue
+                base = next((v for l, v in block["fields"] if l == "Base"), "").lower()
+                for twin in by_title.get(excel_items.norm(shown), []):
+                    twin_base = next((v for l, v in twin["fields"] if l == "Base"), "").lower()
+                    if twin is not block and (not base or not twin_base or base == twin_base):
+                        drop.add(id(block))
+                        self.duplicate_report.append("%s -> %s" % (title, shown))
+                        break
+            by_group[group] = [block for block in blocks if id(block) not in drop]
+
+    def mod_descriptions(self):
+        """The mod's own orange description strings: <name>desc keys of item-modifiers.json and skills.json,
+        stored in reverse line order, "ÿc@" being orange. Returns {key without "desc": [lines top to bottom]}."""
+        found = {}
+        folder = getattr(self, "strings_folder", None)
+        if not folder:
+            return found
+        for name in ("item-modifiers.json", "skills.json"):
+            path = Path(folder) / name
+            if not path.exists():
+                continue
+            for entry in json.loads(path.read_text(encoding="utf-8-sig")):
+                key = str(entry.get("Key", ""))
+                if key.lower().endswith("desc") and not key.lower().endswith("loddesc"):
+                    lines = [re.sub("\u00ffc.", "", re.sub("\u00ffc6[^\u00ff]*", "", ln)).replace("%%", "%").strip()
+                             for ln in str(entry.get("enUS", "")).split("\n")]
+                    found[re.sub(r"[^a-z0-9]", "", key.lower())[:-4]] = [ln for ln in reversed(lines) if ln]
+        return found
+
+    def stat_literals(self):
+        """Orange lines that are stat texts, not descriptions: the mod's non-description strings, word for word."""
+        found = set()
+        folder = getattr(self, "strings_folder", None)
+        if not folder:
+            return found
+        for name in ("item-modifiers.json", "skills.json"):
+            path = Path(folder) / name
+            if not path.exists():
+                continue
+            for entry in json.loads(path.read_text(encoding="utf-8-sig")):
+                if str(entry.get("Key", "")).lower().endswith("desc"):
+                    continue
+                for line in str(entry.get("enUS", "")).split("\n"):
+                    found.add(re.sub("\u00ffc.", "", line).strip())
+        return found
+
+    @staticmethod
+    def description_stems(text):
+        dropped = re.sub(r"(?i)['\u2019]s\b|s['\u2019](?=\s|$)", "", text)
+        out = []
+        for variant in (text, dropped):
+            plain = re.sub(r"[^a-z0-9]", "", variant.lower())
+            for stem in (plain, plain[3:] if plain.startswith("the") else plain):
+                if stem and stem not in out:
+                    out.append(stem)
+        return out
+
+    def find_description(self, descriptions, names):
+        """Key of the mod's description string for a unique: by name (with and without possessives), by a
+        key that is the start of the name, then by a close spelling (the mod's keys have typos)."""
+        for name in names:
+            for stem in self.description_stems(name):
+                if stem in descriptions:
+                    return stem
+        for name in names:
+            for stem in self.description_stems(name):
+                hits = [key for key in descriptions if len(key) >= 6 and stem.startswith(key)]
+                if hits:
+                    return max(hits, key=len)
+        import difflib
+        for name in names:
+            close = difflib.get_close_matches(self.description_stems(name)[-1], list(descriptions), n=1, cutoff=0.88)
+            if close:
+                return close[0]
+        return None
+
+    def add_unique_descriptions(self, by_group):
+        """Orange description lines of a unique whose row has mythicaldesc. The text is the mod's own
+        (<name>desc in item-modifiers.json). Cards the mod has no string for keep their existing orange lines,
+        or take them from their website twin by name."""
+        descriptions = self.mod_descriptions()
+        display = {}
+        folder = getattr(self, "strings_folder", None)
+        if folder and (Path(folder) / "item-names.json").exists():
+            for entry in json.loads((Path(folder) / "item-names.json").read_text(encoding="utf-8-sig")):
+                display[str(entry.get("Key", ""))] = str(entry.get("enUS", ""))
+        orange = {}
+        for key in self.strings:
+            if key.startswith("EsrWikiUnique_"):
+                lines = self.string_lines(key)
+                if lines:
+                    found = [line for line in lines[1:] if line.startswith("\u00ffc8")]
+                    if found:
+                        orange[excel_items.norm(strip_color(lines[0]).strip())] = found
+        literals = self.stat_literals()
+
+        def is_stat(text):
+            plain = re.sub("\u00ffc.", "", text).strip()
+            return bool(re.match(r"[+-]\d", plain)) or plain in literals
+
+        self.description_report = []
+        for group, blocks in by_group.items():
+            for block in blocks:
+                title = strip_color(block["title"]).strip()
+                row = self.excel.unique_row(title)
+                if row is None or not any((row.get("prop%d" % i) or "") == "mythicaldesc" for i in range(1, 13)):
+                    continue
+                index = (row.get("index") or "").strip()
+                key = self.find_description(descriptions, [title, index, display.get(index, "")])
+                head = 1 if block["lines"] and block["lines"][0][0] == "S" and block["lines"][0][1].startswith("\u00ffc4") else 0
+                # The description is the run of orange lines under the name; orange stat lines further down stay.
+                run = 0
+                while head + run < len(block["lines"]) and block["lines"][head + run][1].startswith("\u00ffc8"):
+                    run += 1
+                kept = [line for line in block["lines"][head:head + run] if is_stat(line[1])]
+                twin = self.DESCRIPTION_TWINS.get(title)
+                twin_lines = orange.get(excel_items.norm(twin)) if twin else None
+                # A card built from the string table lacks the website's orange stat lines (Total Resist and the like).
+                kept += [("S", line) for line in (twin_lines or []) if is_stat(line)
+                         and ("S", line) not in kept and ("S", line) not in block["lines"]]
+                rest = kept + block["lines"][head + run:]
+                if key:
+                    new = [("S", "\u00ffc8" + text) for text in descriptions[key]]
+                else:
+                    existing = [line for line in block["lines"][head:head + run] if not is_stat(line[1])]
+                    new = existing or [("S", line) for line in (twin_lines or []) if not is_stat(line)]
+                    if not new:
+                        self.description_report.append("no description text: %s" % title)
+                block["lines"] = block["lines"][:head] + new + rest
+
     def rebuild_unique_lines(self, blocks, report):
         """Stat lines of unique cards, written from uniqueitems.txt (the mod's own properties) instead of
         the layout's text. A card with a property the generator cannot write keeps its old lines."""
@@ -1324,6 +1498,8 @@ class Builder:
             self.add_mythicals(by_group, spec)
         if spec.get("stringUniques") and self.excel is not None:
             self.add_string_uniques(by_group)
+        if spec.get("excel") == "unique" and self.excel is not None:
+            self.drop_index_named_duplicates(by_group, spec.get("mythicalGroup"))
         if spec.get("excel") == "unique":
             # Runs after the string-table uniques are added, which take a generic icon otherwise.
             for blocks in by_group.values():
@@ -1341,6 +1517,8 @@ class Builder:
                         if info and info[0]:
                             # "\\n" is a line break inside the TAG field (the file is one line per record).
                             block["tag"] = "Gamble Item:\\n%s - ilvl: %s" % info
+        if spec.get("excel") == "unique" and self.excel is not None:
+            self.add_unique_descriptions(by_group)
         if spec.get("excel") == "unique" and self.excel is not None:
             self.unique_report = []
             for group in ("Jewel",):
@@ -2193,6 +2371,10 @@ def main():
         print("  set: " + line)
     for line in getattr(builder, "unique_report", []):
         print("  unique: " + line)
+    for line in getattr(builder, "duplicate_report", []):
+        print("  dup: " + line)
+    for line in getattr(builder, "description_report", []):
+        print("  desc: " + line)
     if builder.unmatched:
         for page_id, title in builder.unmatched[:20]:
             print(f"  unmatched: {page_id}: {title}")
