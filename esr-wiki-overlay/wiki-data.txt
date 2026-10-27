@@ -39675,7 +39675,7 @@ BLOCK	1	Alakashar Rahl					60
 TAG	Gamble Item:\nDru Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_druid_ring
+IMG	items_misc_ring_druid_ring	tiny
 LINE	S	ÿc4Alakashar Rahl
 LINE	S	ÿc3+2 to Druid Skill Levels
 LINE	S	ÿc3+0.5 to Maximum Damage (Based on Character Level)
@@ -39691,7 +39691,7 @@ BLOCK	1	BlackMage's Knucklebone					75
 TAG	Gamble Item:\nNec Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_necro_ring
+IMG	items_misc_ring_necro_ring	tiny
 LINE	S	ÿc4BlackMage's Knucklebone
 LINE	S	ÿc3+2 to Necromancer Skill Levels
 LINE	S	ÿc3+5 to Random Necromancer Skill Levels (Class only)
@@ -39708,7 +39708,7 @@ BLOCK	1	Cactus Petal					45
 TAG	Gamble Item:\nNec Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_necro_ring
+IMG	items_misc_ring_necro_ring	tiny
 LINE	S	ÿc4Cactus Petal
 LINE	S	ÿc3+1 to Necromancer Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -39724,7 +39724,7 @@ BLOCK	1	Dandelion Petal					45
 TAG	Gamble Item:\nDru Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_druid_ring
+IMG	items_misc_ring_druid_ring	tiny
 LINE	S	ÿc4Dandelion Petal
 LINE	S	ÿc3+1 to Druid Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -39740,7 +39740,7 @@ BLOCK	1	Dfuzzz's Fingerguard					75
 TAG	Gamble Item:\nAma Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_ama_ring
+IMG	items_misc_ring_ama_ring	tiny
 LINE	S	ÿc4Dfuzzz's Fingerguard
 LINE	S	ÿc3+2 to Amazon Skill Levels
 LINE	S	ÿc3+5 to Random Amazon Skill Levels (Class only)
@@ -39757,7 +39757,7 @@ BLOCK	1	Elven Blessing					60
 TAG	Gamble Item:\nAma Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_ama_ring
+IMG	items_misc_ring_ama_ring	tiny
 LINE	S	ÿc4Elven Blessing
 LINE	S	ÿc3+2 to Amazon Skill Levels
 LINE	S	ÿc3All Resistances +15-20
@@ -39774,7 +39774,7 @@ BLOCK	1	Fellstone					60
 TAG	Gamble Item:\nWar Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_warlock_ring
+IMG	items_misc_ring_warlock_ring	tiny
 LINE	S	ÿc4Fellstone
 LINE	S	ÿc3+2 to Warlock Skill Levels
 LINE	S	ÿc3All Resistances +15-20
@@ -39790,7 +39790,7 @@ BLOCK	1	Forget-Me-Not Petal					45
 TAG	Gamble Item:\nSor Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_sorceress_ring
+IMG	items_misc_ring_sorceress_ring	tiny
 LINE	S	ÿc4Forget-Me-Not Petal
 LINE	S	ÿc3+1 to Sorceress Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -39806,7 +39806,7 @@ BLOCK	1	Khelek's Crystal Band					60
 TAG	Gamble Item:\nSor Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_khelek_ring
+IMG	items_misc_ring_khelek_ring	tiny
 LINE	S	ÿc4Khelek's Crystal Band
 LINE	S	ÿc3+2 to Sorceress Skill Levels
 LINE	S	ÿc3All Resistances +15-20
@@ -39822,7 +39822,7 @@ BLOCK	1	Killashandra Ree's Black C					75
 TAG	Gamble Item:\nSor Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_sorceress_ring
+IMG	items_misc_ring_sorceress_ring	tiny
 LINE	S	ÿc4Killashandra Ree's Black C
 LINE	S	ÿc3+2 to Sorceress Skill Levels
 LINE	S	ÿc3+5 to Random Sorceress Skill Levels (Class only)
@@ -39839,7 +39839,7 @@ BLOCK	1	Killjoy's Attitude					75
 TAG	Gamble Item:\nAss Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_assassin_ring
+IMG	items_misc_ring_assassin_ring	tiny
 LINE	S	ÿc4Killjoy's Attitude
 LINE	S	ÿc3+2 to Assassin Skill Levels
 LINE	S	ÿc3+5 to Random Assassin Skill Levels (Class only)
@@ -39856,7 +39856,7 @@ BLOCK	1	Lilith's Heart					60
 TAG	Gamble Item:\nAss Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_assassin_ring
+IMG	items_misc_ring_assassin_ring	tiny
 LINE	S	ÿc4Lilith's Heart
 LINE	S	ÿc3+2 to Assassin Skill Levels
 LINE	S	ÿc3All Resistances +15-20
@@ -39871,7 +39871,7 @@ BLOCK	1	Lily Petal					45
 TAG	Gamble Item:\nAma Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_ama_ring
+IMG	items_misc_ring_ama_ring	tiny
 LINE	S	ÿc4Lily Petal
 LINE	S	ÿc3+1 to Amazon Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -39887,7 +39887,7 @@ BLOCK	1	Madawc's Frenzy					60
 TAG	Gamble Item:\nBar Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_barb_ring
+IMG	items_misc_ring_barb_ring	tiny
 LINE	S	ÿc4Madawc's Frenzy
 LINE	S	ÿc3+2  to Barbarian Skill Levels
 LINE	S	ÿc3+30% Faster Run/Walk
@@ -39903,7 +39903,7 @@ BLOCK	1	Red Rose Petal					45
 TAG	Gamble Item:\nAss Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_assassin_ring
+IMG	items_misc_ring_assassin_ring	tiny
 LINE	S	ÿc4Red Rose Petal
 LINE	S	ÿc3+1 to Assassin Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -39919,7 +39919,7 @@ BLOCK	1	Rock of Aadeyen					60
 TAG	Gamble Item:\nPal Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_pala_ring
+IMG	items_misc_ring_pala_ring	tiny
 LINE	S	ÿc4Rock of Aadeyen
 LINE	S	ÿc3+2 to Paladin Skill Levels
 LINE	S	ÿc3All Resistances +15-30
@@ -39936,7 +39936,7 @@ BLOCK	1	The Mad Celt's Shining Sparkly					75
 TAG	Gamble Item:\nBar Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_barb_ring
+IMG	items_misc_ring_barb_ring	tiny
 LINE	S	ÿc4The Mad Celt's Shining Sparkly
 LINE	S	ÿc3+2  to Barbarian Skill Levels
 LINE	S	ÿc3+5 to Random Barbarian Skill Levels (Class only)
@@ -39953,7 +39953,7 @@ BLOCK	1	The Tipsy Donut					75
 TAG	Gamble Item:\nPal Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_pala_ring
+IMG	items_misc_ring_pala_ring	tiny
 LINE	S	ÿc4The Tipsy Donut
 LINE	S	ÿc3+2 to Paladin Skill Levels
 LINE	S	ÿc3+5 to Random Paladin Skill Levels (Class only)
@@ -39969,7 +39969,7 @@ BLOCK	1	Violet Petal					45
 TAG	Gamble Item:\nBar Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_barb_ring
+IMG	items_misc_ring_barb_ring	tiny
 LINE	S	ÿc4Violet Petal
 LINE	S	ÿc3+1  to Barbarian Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -39985,7 +39985,7 @@ BLOCK	1	Vorador's Essence					60
 TAG	Gamble Item:\nNec Ring - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_necro_ring
+IMG	items_misc_ring_necro_ring	tiny
 LINE	S	ÿc4Vorador's Essence
 LINE	S	ÿc3+2 to Necromancer Skill Levels
 LINE	S	ÿc3Damage Reduced by 10-15%
@@ -40001,7 +40001,7 @@ BLOCK	1	Wanderer's Omen					75
 TAG	Gamble Item:\nWar Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_warlock_ring
+IMG	items_misc_ring_warlock_ring	tiny
 LINE	S	ÿc4Wanderer's Omen
 LINE	S	ÿc3+2 to Warlock Skill Levels
 LINE	S	ÿc3+5 to Random Warlock Skill Levels (Class only)
@@ -40017,7 +40017,7 @@ BLOCK	1	White Rose Petal					45
 TAG	Gamble Item:\nPal Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_pala_ring
+IMG	items_misc_ring_pala_ring	tiny
 LINE	S	ÿc4White Rose Petal
 LINE	S	ÿc3+1 to Paladin Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -40033,7 +40033,7 @@ BLOCK	1	Wilting Petal					45
 TAG	Gamble Item:\nWar Ring - ilvl: 45
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_warlock_ring
+IMG	items_misc_ring_warlock_ring	tiny
 LINE	S	ÿc4Wilting Petal
 LINE	S	ÿc3+1 to Warlock Skill Levels
 LINE	S	ÿc3Fire Resist +0.5% (Based on Character Level)
@@ -40049,7 +40049,7 @@ BLOCK	1	Yagul's Wrath					75
 TAG	Gamble Item:\nDru Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_druid_ring
+IMG	items_misc_ring_druid_ring	tiny
 LINE	S	ÿc4Yagul's Wrath
 LINE	S	ÿc3+2 to Druid Skill Levels
 LINE	S	ÿc3+5 to Random Druid Skill Levels (Class only)
@@ -40066,7 +40066,7 @@ BLOCK	1	Fallen Star					5
 TAG	Gamble Item:\nRing - ilvl: 10
 FIELD	Base	Ring
 FIELD	Required Level	5
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿc3+15-30 to Mana
 LINE	S	ÿc3+25-50 to Life
 LINE	S	ÿc335-50% Better Chance of Getting Magic Items
@@ -40077,7 +40077,7 @@ BLOCK	1	Dragon Eye					10
 TAG	Gamble Item:\nRing - ilvl: 20
 FIELD	Base	Ring
 FIELD	Required Level	10
-IMG	items_misc_ring_dragon_eye
+IMG	items_misc_ring_dragon_eye	tiny
 LINE	S	ÿc32% Chance to Cast Level 5 Fire Surge on striking
 LINE	S	ÿc32% Chance to Cast Level 5 Cold Surge on striking
 LINE	S	ÿc32% Chance to Cast Level 5 Lightning Surge on striking
@@ -40090,7 +40090,7 @@ BLOCK	1	Ring of Vengeance					20
 TAG	Gamble Item:\nRing - ilvl: 30
 FIELD	Base	Ring
 FIELD	Required Level	20
-IMG	items_misc_ring_ring_of_vengeance
+IMG	items_misc_ring_ring_of_vengeance	tiny
 LINE	S	ÿc315-30% Bonus to Attack Rating
 LINE	S	ÿc3+1 to Life (Based on Character Level)
 LINE	S	ÿc3+0.5 to Maximum Damage (Based on Character Level)
@@ -40102,7 +40102,7 @@ BLOCK	1	Elemental Jewel					30
 TAG	Gamble Item:\nRing - ilvl: 40
 FIELD	Base	Ring
 FIELD	Required Level	30
-IMG	items_misc_ring_elemental_jewel
+IMG	items_misc_ring_elemental_jewel	tiny
 LINE	S	ÿc3All Resistances +30-40
 LINE	S	ÿc350% Extra Gold from Monsters
 LINE	S	ÿc3Adds 200-300 Fire Damage
@@ -40113,7 +40113,7 @@ BLOCK	1	Iron Thimble					40
 TAG	Gamble Item:\nRing - ilvl: 50
 FIELD	Base	Ring
 FIELD	Required Level	40
-IMG	items_misc_ring_iron_thimble
+IMG	items_misc_ring_iron_thimble	tiny
 LINE	S	ÿc3+20-40 to Life
 LINE	S	ÿc3Damage Reduced by 10-20%
 LINE	S	ÿc34% Chance to Cast Level 20 Axe Proc on striking
@@ -40127,7 +40127,7 @@ BLOCK	1	Zodiac Band					50
 TAG	Gamble Item:\nRing - ilvl: 60
 FIELD	Base	Ring
 FIELD	Required Level	50
-IMG	items_misc_ring_zodiac_band
+IMG	items_misc_ring_zodiac_band	tiny
 LINE	S	ÿc3+1-3 to All Skills
 LINE	S	ÿc3+20-40 to all Attributes
 LINE	S	ÿc3+20% Increased Attack Speed
@@ -40138,7 +40138,7 @@ BLOCK	1	The One Ring					60
 TAG	Gamble Item:\nRing - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	60
-IMG	items_misc_ring_the_one_ring
+IMG	items_misc_ring_the_one_ring	tiny
 LINE	S	ÿc3+1-3 to All Skills
 LINE	S	ÿc3Replenish Life -1--250
 LINE	S	ÿc3All Resistances +1-40
@@ -40153,7 +40153,7 @@ BLOCK	1	Nagelring					7
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	7
-IMG	items_misc_ring_nagelring
+IMG	items_misc_ring_nagelring	tiny
 LINE	S	ÿc3Magic Damage Reduced by 20
 LINE	S	ÿc3Damage Reduced by 20
 LINE	S	ÿc3100-150% Better Chance of Getting Magic Items
@@ -40163,7 +40163,7 @@ BLOCK	1	Manald Heal					15
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	15
-IMG	items_misc_ring_manald_heal
+IMG	items_misc_ring_manald_heal	tiny
 LINE	S	ÿc3Replenish Life +500-1000
 LINE	S	ÿc3Regenerate Mana 200-300%
 LINE	S	ÿc3+50-100 to Life
@@ -40172,7 +40172,7 @@ BLOCK	1	The Stone of Jordan					45
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_stone_of_jordan
+IMG	items_misc_ring_stone_of_jordan	tiny
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+50-100 to Mana
 LINE	S	ÿc3Increase Maximum Mana 30-50%
@@ -40184,7 +40184,7 @@ BLOCK	1	Constricting Ring					95
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	95
-IMG	items_misc_ring_constricting_ring
+IMG	items_misc_ring_constricting_ring	tiny
 LINE	S	ÿc3All Resistances +100
 LINE	S	ÿc3Replenish Life -30
 LINE	S	ÿc3200% Better Chance of Getting Magic Items
@@ -40194,7 +40194,7 @@ BLOCK	1	Bul-Kathos' Wedding Band					58
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	58
-IMG	items_misc_ring_bul_kathos_wedding_band
+IMG	items_misc_ring_bul_kathos_wedding_band	tiny
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+20% Physical Damage Leeched as Life
 LINE	S	ÿc3+10-20 To Strength of the Ancients
@@ -40207,7 +40207,7 @@ BLOCK	1	Dwarf Star					45
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_dwarf_star
+IMG	items_misc_ring_dwarf_star	tiny
 LINE	S	ÿc8Your fire damage to attacks can crit
 LINE	S	ÿc3Adds 400-500 Fire Damage to Attacks
 LINE	S	ÿc3+100-125 to Strength
@@ -40216,7 +40216,7 @@ BLOCK	1	Raven Frost					45
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	45
-IMG	items_misc_ring_raven_frost
+IMG	items_misc_ring_raven_frost	tiny
 LINE	S	ÿc8Your cold damage to attacks can crit
 LINE	S	ÿc3Adds 400-500 Cold Damage to Attacks over 5 Seconds
 LINE	S	ÿc3+100-125 to Dexterity
@@ -40225,7 +40225,7 @@ BLOCK	1	Nature's Peace					69
 TAG	(Coupon only)
 FIELD	Base	ring
 FIELD	Required Level	69
-IMG	items_misc_ring_natures_peace
+IMG	items_misc_ring_natures_peace	tiny
 LINE	S	ÿc3+10-20 to Summon Grizzly
 LINE	S	ÿc3Magic Absorb 1-3%
 LINE	S	ÿc3Level 10-20 Redemption Aura When Equipped
@@ -40235,7 +40235,7 @@ BLOCK	1	Wisp					76
 TAG	(Coupon only)
 FIELD	Base	ring
 FIELD	Required Level	76
-IMG	items_misc_ring_wisp
+IMG	items_misc_ring_wisp	tiny
 LINE	S	ÿc3+3-5 Lightning Absorb
 LINE	S	ÿc3+1 to Teleport
 LINE	S	ÿc3Magic Resist +5-10%
@@ -40247,7 +40247,7 @@ BLOCK	1	Carrion Wind					60
 TAG	(Coupon only)
 FIELD	Base	ring
 FIELD	Required Level	60
-IMG	items_misc_ring_carrion_wind
+IMG	items_misc_ring_carrion_wind	tiny
 LINE	S	ÿc3-15-25% to Enemy Poison Resistance
 LINE	S	ÿc3Poison Resist +40-60%
 LINE	S	ÿc3Poison Length Reduced by 50-75%
@@ -40257,7 +40257,7 @@ BLOCK	1	Sling					57
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	57
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿc8You have a 15% chance to gain 100% base movement speed
 LINE	S	ÿc8and phasing for 2 seconds when struck
 LINE	S	ÿc3+4-8% Total Spell Damage
@@ -40272,7 +40272,7 @@ BLOCK	1	Opalvein					57
 TAG	(Coupon only)
 FIELD	Base	Ring
 FIELD	Required Level	57
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿc3Socketed (1)
 LINE	S	ÿc3+1-2 to All Skills
 LINE	S	ÿc3Damage Reduced by 40-50
@@ -40281,7 +40281,7 @@ BLOCK	1	Killashandra Ree's Black Crystal					75
 TAG	Gamble Item:\nSor Ring - ilvl: 75
 FIELD	Base	Ring
 FIELD	Required Level	75
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿc35% Chance to Cast Level 60 Time Stop when you Kill an Enemy
 LINE	S	ÿc3+2 to Sorceress Skill Levels
 LINE	S	ÿc3+30% Faster Cast Rate
@@ -40298,7 +40298,7 @@ BLOCK	1	Wisp Projector					76
 TAG	(Coupon only)
 FIELD	Base	ring
 FIELD	Required Level	76
-IMG	items_misc_ring_wisp
+IMG	items_misc_ring_wisp	tiny
 LINE	S	ÿc3Level 1-10 Lightning Damage Aura Aura When Equipped
 LINE	S	ÿc3+0-3 to Lightning Skills
 LINE	S	ÿc3-10 to -15% to Enemy Lightning Resist
@@ -40312,7 +40312,7 @@ BLOCK	1	Atma's Scarab					60
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_atma_scarab
+IMG	items_misc_amulet_atma_scarab	tiny
 LINE	S	ÿc4Atma's Scarab
 LINE	S	ÿc33% Chance to Cast Level 60 Amplify Damage on striking
 LINE	S	ÿc3Slows Target by 20-40%
@@ -40325,7 +40325,7 @@ BLOCK	1	Beads of the Guardian					30
 TAG	Gamble Item:\nAmulet - ilvl: 40
 FIELD	Base	Amulet
 FIELD	Required Level	30
-IMG	items_misc_amulet_amulet4
+IMG	items_misc_amulet_amulet4	tiny
 LINE	S	ÿc4Beads of the Guardian
 LINE	S	ÿc3+3 to Energy Shield
 LINE	S	ÿc3+17-22 to Energy Shield (Class only)
@@ -40338,7 +40338,7 @@ BLOCK	1	Black Lotus					60
 TAG	Gamble Item:\nWar Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_warlock_amulet
+IMG	items_misc_amulet_warlock_amulet	tiny
 LINE	S	ÿc4Black Lotus
 LINE	S	ÿc3+2 to Warlock Skill Levels
 LINE	S	ÿc3+50-100% Enhanced Damage
@@ -40354,7 +40354,7 @@ BLOCK	1	BlackKnight's Holy Signet					75
 TAG	Gamble Item:\nPal Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_pala_amulet
+IMG	items_misc_amulet_pala_amulet	tiny
 LINE	S	ÿc4BlackKnight's Holy Signet
 LINE	S	ÿc3+1 to Paladin Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40369,7 +40369,7 @@ BLOCK	1	Collar of the Minotaur					20
 TAG	Gamble Item:\nAmulet - ilvl: 30
 FIELD	Base	Amulet
 FIELD	Required Level	20
-IMG	items_misc_amulet_amulet3
+IMG	items_misc_amulet_amulet3	tiny
 LINE	S	ÿc4Collar of the Minotaur
 LINE	S	ÿc3Damage Reduced by 10-20%
 LINE	S	ÿc3+10-15 to Charge
@@ -40383,7 +40383,7 @@ BLOCK	1	Crescent Moon					50
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	50
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿc4Crescent Moon
 LINE	S	ÿc3100-150% Damage Taken Goes To Mana
 LINE	S	ÿc320% Chance to Cast Level 40 Fist of the Heavens when you Kill an Enemy
@@ -40394,7 +40394,7 @@ BLOCK	1	Daeveran's Stone					60
 TAG	Gamble Item:\nNec Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_necro_amulet
+IMG	items_misc_amulet_necro_amulet	tiny
 LINE	S	ÿc4Daeveran's Stone
 LINE	S	ÿc3+2 to Necromancer Skill Levels
 LINE	S	ÿc3Increase Maximum Life 15%
@@ -40411,7 +40411,7 @@ BLOCK	1	Dweia's Revenge					75
 TAG	Gamble Item:\nAss Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_assassin_amulet
+IMG	items_misc_amulet_assassin_amulet	tiny
 LINE	S	ÿc4Dweia's Revenge
 LINE	S	ÿc3+1 to Assassin Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40427,7 +40427,7 @@ BLOCK	1	Entropy Locket					54
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	54
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿc4Entropy Locket
 LINE	S	ÿc8You have a 10% chance to deal double spell damage
 LINE	S	ÿc325% Chance to Cast Level 60 Miasma Chain on Casting a Skill
@@ -40439,7 +40439,7 @@ BLOCK	1	Eye of the Beholder					50
 TAG	Gamble Item:\nAmulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	50
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿc4Eye of the Beholder
 LINE	S	ÿc8If your elemental resists are equal, gain elemental
 LINE	S	ÿc8spell damage equal to 15% of that shared value
@@ -40454,7 +40454,7 @@ BLOCK	1	Eye of the Witch					10
 TAG	Gamble Item:\nAmulet - ilvl: 20
 FIELD	Base	Amulet
 FIELD	Required Level	10
-IMG	items_misc_amulet_amulet2
+IMG	items_misc_amulet_amulet2	tiny
 LINE	S	ÿc4Eye of the Witch
 LINE	S	ÿc3+1-2 to All Skills
 LINE	S	ÿc3+50-100 to Mana
@@ -40471,7 +40471,7 @@ BLOCK	1	Grim Creaper					60
 TAG	Gamble Item:\nDru Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_druid_amulet
+IMG	items_misc_amulet_druid_amulet	tiny
 LINE	S	ÿc4Grim Creaper
 LINE	S	ÿc3+2 to Druid Skill Levels
 LINE	S	ÿc3+7 to Raven (Class only)
@@ -40487,7 +40487,7 @@ BLOCK	1	Highlord's Wrath					65
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	65
-IMG	items_misc_amulet_highlords_wrath
+IMG	items_misc_amulet_highlords_wrath	tiny
 LINE	S	ÿc4Highlord's Wrath
 LINE	S	ÿc8You have 10% chance to deal three times more total damage
 LINE	S	ÿc3+1-2 to All Skills
@@ -40500,7 +40500,7 @@ BLOCK	1	Holy Deviant					60
 TAG	Gamble Item:\nPal Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_pala_amulet
+IMG	items_misc_amulet_pala_amulet	tiny
 LINE	S	ÿc4Holy Deviant
 LINE	S	ÿc3+2 to Paladin Skill Levels
 LINE	S	ÿc3+1-7 to Poison Mastery
@@ -40517,7 +40517,7 @@ BLOCK	1	Jade's Locket					60
 TAG	Gamble Item:\nSor Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_sorceress_amulet
+IMG	items_misc_amulet_sorceress_amulet	tiny
 LINE	S	ÿc4Jade's Locket
 LINE	S	ÿc3+2 to Sorceress Skill Levels
 LINE	S	ÿc3+30% Faster Cast Rate
@@ -40535,7 +40535,7 @@ BLOCK	1	Khisanth					60
 TAG	Gamble Item:\nBar Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_barb_amulet
+IMG	items_misc_amulet_barb_amulet	tiny
 LINE	S	ÿc4Khisanth
 LINE	S	ÿc3+2  to Barbarian Skill Levels
 LINE	S	ÿc3Damage Reduced by 10-20%
@@ -40551,7 +40551,7 @@ BLOCK	1	Lovers' Pendant					5
 TAG	Gamble Item:\nAmulet - ilvl: 10
 FIELD	Base	Amulet
 FIELD	Required Level	5
-IMG	items_misc_amulet_amulet1
+IMG	items_misc_amulet_amulet1	tiny
 LINE	S	ÿc4Lovers' Pendant
 LINE	S	ÿc3Replenish Life +50-100
 LINE	S	ÿc3Regenerate Mana 40-80%
@@ -40563,7 +40563,7 @@ BLOCK	1	Mara's Kaleidoscope					67
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	67
-IMG	items_misc_amulet_maras_kaleidoscope
+IMG	items_misc_amulet_maras_kaleidoscope	tiny
 LINE	S	ÿc4Mara's Kaleidoscope
 LINE	S	ÿc3+2 to All Skills
 LINE	S	ÿc3+16-23% Bonus to all Attributes
@@ -40573,7 +40573,7 @@ BLOCK	1	Metalgrid					81
 TAG	(Coupon only)
 FIELD	Base	amulet
 FIELD	Required Level	81
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿc4Metalgrid
 LINE	S	ÿc3+1-3 to All Skills
 LINE	S	ÿc3+1 to Slow Teleport
@@ -40584,7 +40584,7 @@ BLOCK	1	Morgoth's Unbound Madness					75
 TAG	Gamble Item:\nWar Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_warlock_amulet
+IMG	items_misc_amulet_warlock_amulet	tiny
 LINE	S	ÿc4Morgoth's Unbound Madness
 LINE	S	ÿc3+1 to Warlock Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40599,7 +40599,7 @@ BLOCK	1	Nokozan Relic					10
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	10
-IMG	items_misc_amulet_nokozan_relic
+IMG	items_misc_amulet_nokozan_relic	tiny
 LINE	S	ÿc4Nokozan Relic
 LINE	S	ÿc3Adds 40-60 Fire Damage
 LINE	S	ÿc3+5-10% to Maximum Fire Resist
@@ -40611,7 +40611,7 @@ BLOCK	1	Plague's Last Arrowhead					75
 TAG	Gamble Item:\nAma Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_ama_amulet
+IMG	items_misc_amulet_ama_amulet	tiny
 LINE	S	ÿc4Plague's Last Arrowhead
 LINE	S	ÿc3+1 to Amazon Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40626,7 +40626,7 @@ BLOCK	1	Roaring Thunder					40
 TAG	Gamble Item:\nAmulet - ilvl: 50
 FIELD	Base	Amulet
 FIELD	Required Level	40
-IMG	items_misc_amulet_roaring_thunder
+IMG	items_misc_amulet_roaring_thunder	tiny
 LINE	S	ÿc4Roaring Thunder
 LINE	S	ÿc3+1 to Lightning Mastery
 LINE	S	ÿc3+5-10% to Maximum Lightning Resist
@@ -40640,7 +40640,7 @@ BLOCK	1	Saracen's Chance					47
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	47
-IMG	items_misc_amulet_saracens_chance
+IMG	items_misc_amulet_saracens_chance	tiny
 LINE	S	ÿc4Saracen's Chance
 LINE	S	ÿc8You have a small chance to be favored by fortune
 LINE	S	ÿc3+1-10% Dodge Chance
@@ -40652,7 +40652,7 @@ BLOCK	1	Seraph's Hymn					65
 TAG	(Coupon only)
 FIELD	Base	amulet
 FIELD	Required Level	65
-IMG	items_misc_amulet_seraphs_hymn
+IMG	items_misc_amulet_seraphs_hymn	tiny
 LINE	S	ÿc4Seraph's Hymn
 LINE	S	ÿc3+1-3 to All Skills
 LINE	S	ÿc35% Chance to Cast Level 40 Battle Orders when you Kill an Enemy
@@ -40667,7 +40667,7 @@ BLOCK	1	Smaqdoun's Painful Pride					75
 TAG	Gamble Item:\nBar Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_barb_amulet
+IMG	items_misc_amulet_barb_amulet	tiny
 LINE	S	ÿc4Smaqdoun's Painful Pride
 LINE	S	ÿc3+1  to Barbarian Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40683,7 +40683,7 @@ BLOCK	1	Spellcasters Aide					60
 TAG	Gamble Item:\nAmulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_spellcasters_aide
+IMG	items_misc_amulet_spellcasters_aide	tiny
 LINE	S	ÿc4Spellcasters Aide
 LINE	S	ÿc8While casting or channeling, nearby enemies' base run/walk speed
 LINE	S	ÿc8and physical damage are reduced by 100% and you regenerate 2% of maximum
@@ -40698,7 +40698,7 @@ BLOCK	1	Sub Sanity					60
 TAG	Gamble Item:\nAss Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_assassin_amulet
+IMG	items_misc_amulet_assassin_amulet	tiny
 LINE	S	ÿc4Sub Sanity
 LINE	S	ÿc3+2 to Assassin Skill Levels
 LINE	S	ÿc3+50-100% Enhanced Damage
@@ -40714,7 +40714,7 @@ BLOCK	1	Talisman of Benzaiten					45
 TAG	Gamble Item:\nAma Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_ama_amulet
+IMG	items_misc_amulet_ama_amulet	tiny
 LINE	S	ÿc4Talisman of Benzaiten
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Bow and Crossbow Skills (Amazon Only)
@@ -40730,7 +40730,7 @@ BLOCK	1	Talisman of Bishamonten					45
 TAG	Gamble Item:\nBar Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_barb_amulet
+IMG	items_misc_amulet_barb_amulet	tiny
 LINE	S	ÿc4Talisman of Bishamonten
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Combat Skills (Barbarian Only)
@@ -40746,7 +40746,7 @@ BLOCK	1	Talisman of Daikokuten					45
 TAG	Gamble Item:\nPal Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_pala_amulet
+IMG	items_misc_amulet_pala_amulet	tiny
 LINE	S	ÿc4Talisman of Daikokuten
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Combat Skills (Paladin Only)
@@ -40762,7 +40762,7 @@ BLOCK	1	Talisman of Ebisu					45
 TAG	Gamble Item:\nNec Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_necro_amulet
+IMG	items_misc_amulet_necro_amulet	tiny
 LINE	S	ÿc4Talisman of Ebisu
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Curses
@@ -40778,7 +40778,7 @@ BLOCK	1	Talisman of Fukurokuju					45
 TAG	Gamble Item:\nSor Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_talisman_fukurokuju
+IMG	items_misc_amulet_talisman_fukurokuju	tiny
 LINE	S	ÿc4Talisman of Fukurokuju
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Fire Skills (Sorceress Only)
@@ -40794,7 +40794,7 @@ BLOCK	1	Talisman of Hotei					45
 TAG	Gamble Item:\nDru Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_druid_amulet
+IMG	items_misc_amulet_druid_amulet	tiny
 LINE	S	ÿc4Talisman of Hotei
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Summoning Skills (Druid Only)
@@ -40810,7 +40810,7 @@ BLOCK	1	Talisman of Izanami					45
 TAG	Gamble Item:\nWar Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_warlock_amulet
+IMG	items_misc_amulet_warlock_amulet	tiny
 LINE	S	ÿc4Talisman of Izanami
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Demon Skills (Warlock Only)
@@ -40826,7 +40826,7 @@ BLOCK	1	Talisman of Kisshoten					45
 TAG	Gamble Item:\nAss Amulet - ilvl: 45
 FIELD	Base	Amulet
 FIELD	Required Level	45
-IMG	items_misc_amulet_assassin_amulet
+IMG	items_misc_amulet_assassin_amulet	tiny
 LINE	S	ÿc4Talisman of Kisshoten
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+0-1 to Traps
@@ -40842,7 +40842,7 @@ BLOCK	1	The Cat's Eye					50
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	50
-IMG	items_misc_amulet_the_cats_eye
+IMG	items_misc_amulet_the_cats_eye	tiny
 LINE	S	ÿc4The Cat's Eye
 LINE	S	ÿc3+50% Faster Run/Walk
 LINE	S	ÿc3+30% Increased Attack Speed
@@ -40853,7 +40853,7 @@ BLOCK	1	The Cursed Donut					75
 TAG	Gamble Item:\nNec Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_cursed_donut
+IMG	items_misc_amulet_cursed_donut	tiny
 LINE	S	ÿc4The Cursed Donut
 LINE	S	ÿc3+1 to Necromancer Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40869,7 +40869,7 @@ BLOCK	1	The Eye of Etlich					15
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	15
-IMG	items_misc_amulet_the_eye_of_etlich
+IMG	items_misc_amulet_the_eye_of_etlich	tiny
 LINE	S	ÿc4The Eye of Etlich
 LINE	S	ÿc3+2 to All Skills
 LINE	S	ÿc3+5-10 to Light Radius
@@ -40879,7 +40879,7 @@ BLOCK	1	The Mahim-Oak Curio					25
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	25
-IMG	items_misc_amulet_the_mahim_oak_curio
+IMG	items_misc_amulet_the_mahim_oak_curio	tiny
 LINE	S	ÿc4The Mahim-Oak Curio
 LINE	S	ÿc3+40-50 to all Attributes
 LINE	S	ÿc3+6-13% Bonus to all Attributes
@@ -40888,7 +40888,7 @@ BLOCK	1	The Mistress' Leather Collar					75
 TAG	Gamble Item:\nSor Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_leather_collar
+IMG	items_misc_amulet_leather_collar	tiny
 LINE	S	ÿc4The Mistress' Leather Collar
 LINE	S	ÿc3+1 to Sorceress Skill Levels
 LINE	S	ÿc3All Resistances +30-50
@@ -40904,7 +40904,7 @@ BLOCK	1	The Rising Sun					65
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	65
-IMG	items_misc_amulet_the_rising_sun
+IMG	items_misc_amulet_the_rising_sun	tiny
 LINE	S	ÿc4The Rising Sun
 LINE	S	ÿc3+2-4 to Fire Skills
 LINE	S	ÿc3Adds 400-500 Fire Damage
@@ -40916,7 +40916,7 @@ BLOCK	1	Valhalla's Pendant					60
 TAG	Gamble Item:\nAma Amulet - ilvl: 60
 FIELD	Base	Amulet
 FIELD	Required Level	60
-IMG	items_misc_amulet_ama_amulet
+IMG	items_misc_amulet_ama_amulet	tiny
 LINE	S	ÿc4Valhalla's Pendant
 LINE	S	ÿc3+2 to Amazon Skill Levels
 LINE	S	ÿc3+5-10 to Valkyrie (Class only)
@@ -40932,7 +40932,7 @@ BLOCK	1	Yagul's Bloody Rage					75
 TAG	Gamble Item:\nDru Amulet - ilvl: 75
 FIELD	Base	Amulet
 FIELD	Required Level	75
-IMG	items_misc_amulet_druid_amulet
+IMG	items_misc_amulet_druid_amulet	tiny
 LINE	S	ÿc4Yagul's Bloody Rage
 LINE	S	ÿc8Doubles Primal Savagery bonuses but reduces duration to 1 second
 LINE	S	ÿc38% Chance to Cast Level 45 Primal Savagery when you Kill an Enemy
@@ -40949,7 +40949,7 @@ BLOCK	1	The Rising Sun					65
 TAG	(Coupon only)
 FIELD	Base	Amulet
 FIELD	Required Level	65
-IMG	items_misc_amulet_the_rising_sun
+IMG	items_misc_amulet_the_rising_sun	tiny
 LINE	S	ÿc3Adds 40-60 Fire Damage to Attacks
 LINE	S	ÿc325% Chance to Cast Level 3 Fire Bolt on Melee Attack
 LINE	S	ÿc35% Chance to Cast Level 3 Fire Ball on Melee Attack
@@ -40960,7 +40960,7 @@ ENTRY	Jewels	16 items	sortable
 BLOCK	1	Bohemian Stone					45
 FIELD	Base	Jewel
 FIELD	Required Level	45
-IMG	items_misc_gem_bohemian_stone
+IMG	items_misc_gem_bohemian_stone	tiny
 LINE	S	ÿc4Bohemian Stone
 LINE	S	ÿc3Adds 10240-7680 Poison Damage Over 7680 Seconds
 LINE	S	ÿc3Damage Reduced by 1-3%
@@ -40969,7 +40969,7 @@ LINE	S	ÿc32% Chance to Cast Level 40 Poison Surge when you Kill an Enemy
 BLOCK	1	Celestial Shard					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_celestial_shard
+IMG	items_misc_gem_celestial_shard	tiny
 LINE	S	ÿc4Celestial Shard
 LINE	S	ÿc3+1 to Magic Mastery
 LINE	S	ÿc3+1 to All Skills
@@ -40980,7 +40980,7 @@ LINE	S	ÿc3Required Level: 20
 BLOCK	1	Demonic Voidstone					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_demonic_voidstone
+IMG	items_misc_gem_demonic_voidstone	tiny
 LINE	S	ÿc4Demonic Voidstone
 LINE	S	ÿc3+1-10 to Weapon Mastery
 LINE	S	ÿc3+1 to All Skills
@@ -40991,7 +40991,7 @@ LINE	S	ÿc3+1 to Physical Mastery
 BLOCK	1	Electrifying Vortex					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_electrifying_vortex
+IMG	items_misc_gem_electrifying_vortex	tiny
 LINE	S	ÿc4Electrifying Vortex
 LINE	S	ÿc3+1 to Lightning Mastery
 LINE	S	ÿc3+1 to All Skills
@@ -41002,7 +41002,7 @@ LINE	S	ÿc3Required Level: 20
 BLOCK	1	Frozen Apocalypse					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_frozen_apocalypse
+IMG	items_misc_gem_frozen_apocalypse	tiny
 LINE	S	ÿc4Frozen Apocalypse
 LINE	S	ÿc3+1 to Cold Mastery
 LINE	S	ÿc3+1 to All Skills
@@ -41013,7 +41013,7 @@ LINE	S	ÿc3Required Level: 20
 BLOCK	1	Icestorm Shard					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_icestorm_shard
+IMG	items_misc_gem_icestorm_shard	tiny
 LINE	S	ÿc4Icestorm Shard
 LINE	S	ÿc3Adds 150-225 Cold Damage
 LINE	S	ÿc32% Chance to Cast Level 40 Cold Surge when you Kill an Enemy
@@ -41022,7 +41022,7 @@ LINE	S	ÿc3Regenerate Mana 20-30%
 BLOCK	1	Ideal Craft					40
 FIELD	Base	Jewel
 FIELD	Required Level	40
-IMG	items_misc_gem_ideal_craft
+IMG	items_misc_gem_ideal_craft	tiny
 LINE	S	ÿc4Ideal Craft
 LINE	S	ÿc3+15-30% Increased Attack Speed
 LINE	S	ÿc3+40-80% Enhanced Damage
@@ -41031,7 +41031,7 @@ LINE	S	ÿc3Requirements --25--15%
 BLOCK	1	Infernal Gemstone					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_infernal_gemstone
+IMG	items_misc_gem_infernal_gemstone	tiny
 LINE	S	ÿc4Infernal Gemstone
 LINE	S	ÿc3+1 to Fire Mastery
 LINE	S	ÿc3+1 to All Skills
@@ -41042,7 +41042,7 @@ LINE	S	ÿc3Required Level: 20
 BLOCK	1	Intoxicating Crystal					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_intoxicating_crystal
+IMG	items_misc_gem_intoxicating_crystal	tiny
 LINE	S	ÿc4Intoxicating Crystal
 LINE	S	ÿc3+1 to Poison Mastery
 LINE	S	ÿc3+1 to All Skills
@@ -41054,7 +41054,7 @@ LINE	S	ÿc3Required Level: 20
 BLOCK	1	Jindujun					40
 FIELD	Base	Jewel
 FIELD	Required Level	40
-IMG	items_misc_gem_jindujun
+IMG	items_misc_gem_jindujun	tiny
 LINE	S	ÿc4Jindujun
 LINE	S	ÿc3+30% Faster Run/Walk
 LINE	S	ÿc3+25-30 to Dexterity
@@ -41064,7 +41064,7 @@ LINE	S	ÿc3+30% Faster Cast Rate
 BLOCK	1	Lady Eboshi's Greed					45
 FIELD	Base	Jewel
 FIELD	Required Level	45
-IMG	items_misc_gem_lady_eboshis_greed
+IMG	items_misc_gem_lady_eboshis_greed	tiny
 LINE	S	ÿc4Lady Eboshi's Greed
 LINE	S	ÿc31-100% Extra Gold from Monsters
 LINE	S	ÿc31-100% Better Chance of Getting Magic Items
@@ -41074,7 +41074,7 @@ LINE	S	ÿc3All Resistances +1-20
 BLOCK	1	Larias' Licentious Lament					55
 FIELD	Base	Jewel
 FIELD	Required Level	55
-IMG	items_misc_gem_larias_licentious_lament
+IMG	items_misc_gem_larias_licentious_lament	tiny
 LINE	S	ÿc4Larias' Licentious Lament
 LINE	S	ÿc3+1-20 to Strength
 LINE	S	ÿc3+1-20 to Dexterity
@@ -41083,7 +41083,7 @@ LINE	S	ÿc3+1-20 to Energy
 BLOCK	1	Nexus Star					45
 FIELD	Base	Jewel
 FIELD	Required Level	45
-IMG	items_misc_gem_perfect_diamond
+IMG	items_misc_gem_perfect_diamond	tiny
 LINE	S	ÿc4Nexus Star
 LINE	S	ÿc3All Resistances +10-30
 LINE	S	ÿc3Adds 100-200 Magic Damage
@@ -41091,7 +41091,7 @@ LINE	S	ÿc32% Chance to Cast Level 40 Magic Surge when you Kill an Enemy
 BLOCK	1	Salamander Stone					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_salamander_stone
+IMG	items_misc_gem_salamander_stone	tiny
 LINE	S	ÿc4Salamander Stone
 LINE	S	ÿc3Replenish Life +25-50
 LINE	S	ÿc3Adds 175-225 Fire Damage
@@ -41100,7 +41100,7 @@ LINE	S	ÿc3-4-5% to Enemy Fire Resistance
 BLOCK	1	Sescheronya's Spark					50
 FIELD	Base	Jewel
 FIELD	Required Level	50
-IMG	items_misc_gem_sescheronyas_spark
+IMG	items_misc_gem_sescheronyas_spark	tiny
 LINE	S	ÿc4Sescheronya's Spark
 LINE	S	ÿc3Adds 1-400 Lightning Damage
 LINE	S	ÿc32% Chance to Cast Level 40 Lightning Surge when you Kill an Enemy
@@ -41110,7 +41110,7 @@ LINE	S	ÿc3+5-20 to Mana
 BLOCK	1	Smiiiff Stone					55
 FIELD	Base	Jewel
 FIELD	Required Level	55
-IMG	items_misc_gem_smiiiff_stone
+IMG	items_misc_gem_smiiiff_stone	tiny
 LINE	S	ÿc4Smiiiff Stone
 LINE	S	ÿc3+0-1 to Amazon Skill Levels
 LINE	S	ÿc3+0-1 to Assassin Skill Levels
@@ -41125,7 +41125,7 @@ ENTRY	Charms	10 items	sortable
 BLOCK	1	Annihilus					85
 FIELD	Base	charm
 FIELD	Required Level	85
-IMG	items_misc_charm_annihilus
+IMG	items_misc_charm_annihilus	tiny
 LINE	S	ÿc4Annihilus
 LINE	S	ÿc3+1 to All Skills
 LINE	S	ÿc3+10-20 to all Attributes
@@ -41164,7 +41164,7 @@ LINE	S	ÿc3+1 to All Skills
 BLOCK	1	Something Wicked					80
 FIELD	Base	Large Charm
 FIELD	Required Level	80
-IMG	items_misc_charm_charm_medium3
+IMG	items_misc_charm_charm_medium3	tiny
 LINE	S	ÿc4Something Wicked
 LINE	S	ÿc3+0-1 to Amazon Skill Levels
 LINE	S	ÿc3+0-1 to Assassin Skill Levels
@@ -41178,7 +41178,7 @@ LINE	S	ÿc3+1 to Mana (Based on Character Level)
 BLOCK	1	The Perfect Cell					40
 FIELD	Base	Small Charm
 FIELD	Required Level	40
-IMG	items_misc_charm_charm_small3
+IMG	items_misc_charm_charm_small3	tiny
 LINE	S	ÿc4The Perfect Cell
 LINE	S	ÿc3Replenish Life +150-200
 LINE	S	ÿc3Regenerate Mana 50-100%
@@ -41202,7 +41202,7 @@ LINE	S	ÿc3+10-20% Faster Cast Rate
 BLOCK	1	Vlad Tepe's Sustenance					80
 FIELD	Base	Small Charm
 FIELD	Required Level	80
-IMG	items_misc_charm_charm_small
+IMG	items_misc_charm_charm_small	tiny
 LINE	S	ÿc4Vlad Tepe's Sustenance
 LINE	S	ÿc330-50% Better Chance of Getting Magic Items
 LINE	S	ÿc3All Resistances +20-30
@@ -41211,7 +41211,7 @@ LINE	S	ÿc3Poison Length Reduced by 50%
 BLOCK	1	Yello Jello					40
 FIELD	Base	Large Charm
 FIELD	Required Level	40
-IMG	items_misc_charm_charm_medium3
+IMG	items_misc_charm_charm_medium3	tiny
 LINE	S	ÿc4Yello Jello
 LINE	S	ÿc3+5-10% Increased Attack Speed
 LINE	S	ÿc3+12-24 to Minimum Lightning Damage
@@ -41223,7 +41223,7 @@ LINE	S	ÿc3+5-10% Faster Cast Rate
 BLOCK	1	Hellfire Torch					85
 FIELD	Base	charm
 FIELD	Required Level	85
-IMG	items_misc_torch_torch
+IMG	items_misc_torch_torch	tiny
 LINE	S	ÿc3+3 to Class Skill Levels
 LINE	S	ÿc3+20-30 to all Attributes
 LINE	S	ÿc3All Resistances +20-30
@@ -41561,7 +41561,7 @@ FIELD	Set	Diablo's End
 FIELD	Base	Amulet
 FIELD	Required Level	25
 FIELD	Set pieces	4
-IMG	items_misc_amulet_optic_amulet
+IMG	items_misc_amulet_optic_amulet	tiny
 LINE	S	ÿcCOptic Amulet
 LINE	S	ÿc3Increase Maximum Mana 15-20%
 LINE	S	ÿc3Lightning Resist +40%
@@ -41666,7 +41666,7 @@ FIELD	Set	Planet's Veneration
 FIELD	Base	Ring
 FIELD	Required Level	35
 FIELD	Set pieces	5
-IMG	items_misc_ring_ring5
+IMG	items_misc_ring_ring5	tiny
 LINE	S	ÿcCThe Acolyte's Spirit
 LINE	S	ÿc37% Life stolen per hit
 LINE	S	ÿc37% Mana stolen per hit
@@ -41737,7 +41737,7 @@ FIELD	Set	Waves of Ascension
 FIELD	Base	Amulet
 FIELD	Required Level	45
 FIELD	Set pieces	4
-IMG	items_misc_amulet_amulet4
+IMG	items_misc_amulet_amulet4	tiny
 LINE	S	ÿcCBand of War
 LINE	S	ÿc32% Chance to Cast Level 25 Cataclysm on striking
 LINE	S	ÿc3+30% Increased Attack Speed
@@ -41756,7 +41756,7 @@ FIELD	Set	Waves of Ascension
 FIELD	Base	Ring
 FIELD	Required Level	45
 FIELD	Set pieces	4
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCBand of Death
 LINE	S	ÿc35% Chance to Cast Level 30 Bone Spirit on striking
 LINE	S	ÿc3+30 to Energy
@@ -41792,7 +41792,7 @@ FIELD	Set	Waves of Ascension
 FIELD	Base	Ring
 FIELD	Required Level	45
 FIELD	Set pieces	4
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCBand of Pestilence
 LINE	S	ÿc35% Chance to Cast Level 30 Twister on striking
 LINE	S	ÿc3Adds 250-500 Poison Damage over 10 seconds
@@ -42235,7 +42235,7 @@ FIELD	Set	Lixo's Feathers
 FIELD	Base	Ring
 FIELD	Required Level	30
 FIELD	Set pieces	4
-IMG	items_misc_ring_ring4
+IMG	items_misc_ring_ring4	tiny
 LINE	S	ÿcCLixo's Jewel
 LINE	S	ÿc34% Life stolen per hit
 LINE	S	ÿc34% Mana stolen per hit
@@ -42811,7 +42811,7 @@ FIELD	Set	Kain's Means of Destruction
 FIELD	Base	Ring
 FIELD	Required Level	30
 FIELD	Set pieces	5
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCKain's Life
 LINE	S	ÿc3Replenish Life +15
 LINE	S	ÿc3+25 to Life
@@ -43128,7 +43128,7 @@ FIELD	Set	Hurja's Harmonic Rage
 FIELD	Base	Barbaric Hoop
 FIELD	Required Level	70
 FIELD	Set pieces	3
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCWorldstone Shard
 LINE	S	ÿc3+30% Increased Attack Speed
 LINE	S	ÿc35% Chance to Cast Level 35 Axe Proc on striking
@@ -43310,7 +43310,7 @@ FIELD	Set	Wrathamon's Omens
 FIELD	Base	Amulet
 FIELD	Required Level	30
 FIELD	Set pieces	5
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿcCEbola
 LINE	S	ÿc3+1 to Necromancer Skill Levels
 LINE	S	ÿc3Increase Maximum Mana 15%
@@ -44063,7 +44063,7 @@ FIELD	Set	Griffith's Cunning
 FIELD	Base	Paladic Halo
 FIELD	Required Level	60
 FIELD	Set pieces	4
-IMG	items_misc_amulet_behelit
+IMG	items_misc_amulet_behelit	tiny
 LINE	S	ÿcCGriffith's Charm
 LINE	S	ÿc3+1 to Paladin Skill Levels
 LINE	S	ÿc3Replenish Life +1000
@@ -44282,7 +44282,7 @@ FIELD	Set	Arcanna's Tricks
 FIELD	Base	Amulet
 FIELD	Required Level	1
 FIELD	Set pieces	3
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿcCArcanna's Sign
 LINE	S	ÿc3+15 to Mana
 LINE	S	ÿc3+15% Faster Cast Rate
@@ -44605,7 +44605,7 @@ FIELD	Set	Raistlin's Salvation
 FIELD	Base	Amulet
 FIELD	Required Level	55
 FIELD	Set pieces	4
-IMG	items_misc_amulet_amulet4
+IMG	items_misc_amulet_amulet4	tiny
 LINE	S	ÿcCRaistlin's Mark
 LINE	S	ÿc3+1 to Sorceress Skill Levels
 LINE	S	ÿc3Regenerate Mana 100%
@@ -44680,7 +44680,7 @@ FIELD	Set	Jade Accoutrement
 FIELD	Base	Socererer's Talisman
 FIELD	Required Level	60
 FIELD	Set pieces	4
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿcCJade Star
 LINE	S	ÿc3+1 to Sorceress Skill Levels
 LINE	S	ÿc3Magic Resist +25%
@@ -44719,7 +44719,7 @@ FIELD	Set	Jade Accoutrement
 FIELD	Base	Sorcerer's Band
 FIELD	Required Level	60
 FIELD	Set pieces	4
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCJade Crest
 LINE	S	ÿc3+1 to Sorceress Skill Levels
 LINE	S	ÿc3+25 to Energy
@@ -45031,7 +45031,7 @@ FIELD	Set	Motoko's Captivation
 FIELD	Base	Amulet
 FIELD	Required Level	30
 FIELD	Set pieces	3
-IMG	items_misc_amulet_amulet4
+IMG	items_misc_amulet_amulet4	tiny
 LINE	S	ÿcCMotoko's Charm
 LINE	S	ÿc3+150% Damage to Demons
 LINE	S	ÿc3+200 to Attack Rating against Demons
@@ -45808,7 +45808,7 @@ FIELD	Set	Jaheira's Tenacity
 FIELD	Base	Druidic Necklace
 FIELD	Required Level	60
 FIELD	Set pieces	4
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿcCJaheira's Force
 LINE	S	ÿc3+50% Enhanced Damage
 LINE	S	ÿc3+25 to Strength
@@ -46143,7 +46143,7 @@ FIELD	Set	Regalia of Endless Despair
 FIELD	Base	Ring
 FIELD	Required Level	30
 FIELD	Set pieces	3
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCThe Secret of Grief
 LINE	S	ÿc3+2 Life on Striking
 LINE	S	ÿc3+2 Mana on Striking
@@ -46212,7 +46212,7 @@ FIELD	Set	Secrets of the Black Magic
 FIELD	Base	Amulet
 FIELD	Required Level	45
 FIELD	Set pieces	4
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿcCPhylactery
 LINE	S	ÿc3-15% to Enemy Fire Resistance
 LINE	S	ÿc3-15% to Enemy Cold Resistance
@@ -46402,7 +46402,7 @@ FIELD	Set	Abyssal Dominion
 FIELD	Base	Warlock's Signet
 FIELD	Required Level	60
 FIELD	Set pieces	3
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿcCEye of the Abyssal Dominion
 LINE	S	ÿc3+1 to Demon Skills
 LINE	S	ÿc3Increase Maximum Life 15%
@@ -46473,7 +46473,7 @@ FIELD	Set	Harbinger of Ruin
 FIELD	Base	Warlock's Pendant
 FIELD	Required Level	70
 FIELD	Set pieces	4
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿcCHarbinger of Ruin's Smoldering Gemstone
 LINE	S	ÿc3Cannot Be Frozen
 LINE	S	ÿc3+5 Fire Absorb
@@ -47480,14 +47480,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Amazon Crafted Amulet		Amazon			0
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿc3+(1 to 2) To Amazon Skill Levels
 LINE	S	ÿc3+(20 to 30) to Dexterity
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Amazon Crafted Ring		Amazon			0
-IMG	items_misc_ring_ring5
+IMG	items_misc_ring_ring5	tiny
 LINE	S	ÿc3+1-2 To Amazon Skill Levels
 LINE	S	ÿc3+(30 to 45) to Dexterity
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
@@ -47551,14 +47551,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Assassin Crafted Amulet		Assassin			0
-IMG	items_misc_amulet_amulet2
+IMG	items_misc_amulet_amulet2	tiny
 LINE	S	ÿc3+(1 to 2) To Assassin Skill Levels
 LINE	S	ÿc3+(20 to 30) to Dexterity
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Assassin Crafted Ring		Assassin			0
-IMG	items_misc_ring_ring4
+IMG	items_misc_ring_ring4	tiny
 LINE	S	ÿc3+(1 to 2) To Assassin Skill Levels
 LINE	S	ÿc3+(30 to 45) to Dexterity
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
@@ -47623,14 +47623,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Barbarian Crafted Amulet		Barbarian			0
-IMG	items_misc_amulet_amulet3
+IMG	items_misc_amulet_amulet3	tiny
 LINE	S	ÿc3+(1 to 2) To Barbarian Skill Levels
 LINE	S	ÿc3+(20 to 30) to Strength
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Barbarian Crafted Ring		Barbarian			0
-IMG	items_misc_ring_ring3
+IMG	items_misc_ring_ring3	tiny
 LINE	S	ÿc3+(1 to 2) To Barbarian Skill Levels
 LINE	S	ÿc3+(20 to 30) to Strength
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
@@ -47695,14 +47695,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Druid Crafted Amulet		Druid			0
-IMG	items_misc_amulet_amulet1
+IMG	items_misc_amulet_amulet1	tiny
 LINE	S	ÿc3+(1 to 2) To Druid Skill Levels
 LINE	S	ÿc3+(20 to 30) to Vitality
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Druid Crafted Ring		Druid			0
-IMG	items_misc_ring_ring4
+IMG	items_misc_ring_ring4	tiny
 LINE	S	ÿc3+(1 to 2) To Druid Skill Levels
 LINE	S	ÿc3+(20 to 30) to Vitality
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
@@ -47766,14 +47766,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Necromancer Crafted Amulet		Necromancer			0
-IMG	items_misc_amulet_amulet
+IMG	items_misc_amulet_amulet	tiny
 LINE	S	ÿc3+(1 to 2) To Necromancer Skill Levels
 LINE	S	ÿc3+(20 to 30) to Energy
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Necromancer Crafted Ring		Necromancer			0
-IMG	items_misc_ring_ring3
+IMG	items_misc_ring_ring3	tiny
 LINE	S	ÿc3+(1 to 2) To Necromancer Skill Levels
 LINE	S	ÿc3+(30-45) To Energy
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
@@ -47837,14 +47837,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Paladin Crafted Amulet		Paladin			0
-IMG	items_misc_amulet_amulet2
+IMG	items_misc_amulet_amulet2	tiny
 LINE	S	ÿc3+(1 to 2) To Paladin Skill Levels
 LINE	S	ÿc3+(20 to 30) to Strength
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Paladin Crafted Ring		Paladin			0
-IMG	items_misc_ring_ring2
+IMG	items_misc_ring_ring2	tiny
 LINE	S	ÿc3+(1 to 2) To Paladin Skill Levels
 LINE	S	ÿc3+(20 to 30) to Strength
 LINE	S	ÿc3Increase Maximum Life +(10 to 15)%
@@ -47910,14 +47910,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Sorceress Crafted Amulet		Sorceress			0
-IMG	items_misc_amulet_amulet3
+IMG	items_misc_amulet_amulet3	tiny
 LINE	S	ÿc3+(1 to 2) To Sorceress Skill Levels
 LINE	S	ÿc3+(20 to 30) to Energy
 LINE	S	ÿc3Increase Maximum Mana +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Sorceress Crafted Ring		Sorceress			0
-IMG	items_misc_ring_ring1
+IMG	items_misc_ring_ring1	tiny
 LINE	S	ÿc3+(1 to 2) To Sorceress Skill Levels
 LINE	S	ÿc3+(20-30) To Energy
 LINE	S	ÿc3-(8 to 12)% to Enemy Elemental and Poison Resistances
@@ -47981,14 +47981,14 @@ LINE	S	ÿc3+(15 to 25) to all Attributes
 LINE	S	ÿc3Physical Resist: +(10 to 15)%
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Warlock Crafted Amulet		Warlock			0
-IMG	items_misc_amulet_amulet1
+IMG	items_misc_amulet_amulet1	tiny
 LINE	S	ÿc3+(1 to 2) To Warlock Skill Levels
 LINE	S	ÿc3+(20 to 30) to Energy
 LINE	S	ÿc3Increase Maximum Mana +(10 to 15)%
 LINE	S	ÿc3All Resistances +(15 to 25)
 LINE	S	ÿc31-4 Random Affixes
 BLOCK	1	Warlock Crafted Ring		Warlock			0
-IMG	items_misc_ring_ring
+IMG	items_misc_ring_ring	tiny
 LINE	S	ÿc3+(1 to 2) To Warlock Skill Levels
 LINE	S	ÿc3+(20-30) To Energy
 LINE	S	ÿc3-(8 to 12)% to Enemy Elemental and Poison Resistances

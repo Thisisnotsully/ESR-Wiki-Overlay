@@ -151,6 +151,7 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
             if (fields.size() < 2) return fail("IMG needs a key");
             block.images.push_back(fields[1]);
             if (fields.size() > 2 && fields[2] == "small") block.smallArt = true;
+            if (fields.size() > 2 && fields[2] == "tiny") block.tinyArt = true;
             if (fields.size() > 2 && fields[2] == "original") block.originalSize = true;
         } else if (tag == "TAG") {
             block.tag = fields.size() > 1 ? fields[1] : std::string();

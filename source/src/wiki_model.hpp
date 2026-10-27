@@ -47,6 +47,7 @@ struct Block {
     std::string section;        // group header shared by neighbouring items, e.g. a set name or "3 Sockets"
     std::vector<Field> fields;
     std::vector<std::string> images;  // image keys for item art
+    bool tinyArt = false;             // art and its space shrunk to 50% (IMG ... tiny): rings, amulets, charms
     bool smallArt = false;            // art drawn at half size (IMG ... small)
     bool originalSize = false;        // art drawn at the picture's own pixel size (IMG ... original)
     std::vector<RuneIcon> runes;      // rune sequence, in order

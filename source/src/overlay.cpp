@@ -654,7 +654,7 @@ void PlainText(const std::string& text, std::string& plain, COLORREF& color, COL
 struct DetailHit { RECT rect; const Entry* entry; const Block* block; int rune; };
 
 // What the pointer is over; only item blocks and their runes ever get a hover.
-struct Hover { const Entry* entry = nullptr; const Block* block = nullptr; int rune = -1; POINT at{0, 0}; };
+struct Hover { const Entry* entry = nullptr; const Block* block = nullptr; int rune = -1; POINT at{0, 0}; RECT target{0, 0, 0, 0}; };
 
 // Clicks on the blocker must not activate it (that would move keyboard focus off
 // the panel), and closing it is ignored so Alt+F4 cannot remove the input block.
@@ -678,6 +678,8 @@ constexpr bool kUseGameCursor = true;
 std::atomic<HCURSOR> gGameCursor{nullptr};
 std::atomic<int> gCursorHotX{0};  // hot spot of the cursor image now drawn, in pixels
 std::atomic<int> gCursorHotY{0};
+std::atomic<int> gCursorDrawWidth{0};   // size of the cursor image now drawn, so tooltips can keep clear of it
+std::atomic<int> gCursorDrawHeight{0};
 
 // Over the wiki the system cursor is hidden (the drawn one replaces it); with another program in front
 // the normal arrow shows.
@@ -796,6 +798,8 @@ void RenderCursorImage(HWND window) {
     }
     gCursorHotX = hotX;
     gCursorHotY = hotY;
+    gCursorDrawWidth = width;
+    gCursorDrawHeight = height;
     const HDC screen = GetDC(nullptr);
     BITMAPINFO info{};
     info.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
@@ -1540,6 +1544,7 @@ void OverlayState::HandleMove(int x, int y) {
         hover.block = hit.block;
         hover.rune = hit.rune;
         hover.at = POINT{x, y};
+        hover.target = hit.rect;
         InvalidateRect(window, nullptr, FALSE);
         return;
     }
@@ -1644,10 +1649,18 @@ void OverlayState::DrawTooltip(HDC dc) {
         if (totalHeight <= availableHeight) break;
     }
 
-    int left = hover.at.x + S(18);
-    int top = hover.at.y + S(18);
-    if (left + tipWidth > client.right - S(8)) left = hover.at.x - tipWidth - S(8);
-    left = std::max(S(8), left);
+    // The tooltip sits beside the thing hovered, not at the pointer, and clear of the drawn cursor: the
+    // cursor reaches right and down from its hot spot, so the tip starts past the target's edge plus the
+    // cursor's width. A pointer anywhere on the target can then never cover the tooltip.
+    const RECT& target = hover.target;
+    const int cursorRight = std::max(gCursorDrawWidth.load() - gCursorHotX.load(), 0) + S(6);
+    const int cursorLeft = gCursorHotX.load() + S(6);
+    int left = target.right + cursorRight;
+    if (left + tipWidth > client.right - S(8)) {
+        const int leftSide = target.left - cursorLeft - tipWidth;
+        left = leftSide >= S(8) ? leftSide : std::max(S(8), static_cast<int>(client.right) - S(8) - tipWidth);
+    }
+    int top = target.top;
     if (top + totalHeight > client.bottom - S(8)) top = client.bottom - totalHeight - S(8);
     top = std::max(S(8), top);
 
@@ -1977,10 +1990,15 @@ int OverlayState::TagRowHeight(HDC dc, const Block& block, const TileStyle& styl
     return MeasureHeight(dc, Wide(block.tag), style.tileWidth - S(12), fontSmall) + S(4);
 }
 
+// Height of the picture area of a tile: rings, amulets, jewels and small and medium charms use 50% of it.
+static int ArtBoxFor(const Block& block, const TileStyle& style) {
+    return block.tinyArt ? std::max(1, style.artBox * 50 / 100) : style.artBox;
+}
+
 int OverlayState::TileHeight(HDC dc, const Block& block, const TileStyle& style) {
     const int nameHeight = MeasureHeight(dc, Wide(block.title), style.tileWidth - S(12), style.nameFont);
     const int runeRows = RuneRows(block.runes.size(), style);
-    return style.padding + nameHeight + style.padding + style.artBox + TagRowHeight(dc, block, style) +
+    return style.padding + nameHeight + style.padding + ArtBoxFor(block, style) + TagRowHeight(dc, block, style) +
            (runeRows > 0 ? S(8) + runeRows * RuneRowHeight(style) : 0) + S(10);
 }
 
@@ -2015,26 +2033,29 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
             }
 
             const int nameHeight = MeasureHeight(dc, Wide(block.title), style.tileWidth - S(12), style.nameFont);
+            // Rings and amulets are shorter than the tallest tile in their row, so their contents sit in the middle.
+            const int cy = y + (block.tinyArt ? (rowHeight - TileHeight(dc, block, style)) / 2 : 0);
             if (draw && onScreen && nameHeight > 0) {
                 Text(dc, Wide(block.title),
-                     Rect(tileLeft + S(6), y + style.padding, tileLeft + style.tileWidth - S(6),
-                          y + style.padding + nameHeight),
+                     Rect(tileLeft + S(6), cy + style.padding, tileLeft + style.tileWidth - S(6),
+                          cy + style.padding + nameHeight),
                      entry.title == "LoD Runes" ? CodeColor('8') : itemNameColor, style.nameFont,
                      DT_CENTER | DT_WORDBREAK);
             }
 
-            const int artTop = y + style.padding + nameHeight + style.padding;
-            const int artSize = block.smallArt ? style.artBox / 2 : style.artBox;
+            const int artTop = cy + style.padding + nameHeight + style.padding;
+            const int box = ArtBoxFor(block, style);
+            const int artSize = block.smallArt ? box / 2 : box;
             const int artLeft = tileLeft + (style.tileWidth - artSize) / 2;
-            const int artDrawTop = artTop + (style.artBox - artSize) / 2;
+            const int artDrawTop = artTop + (box - artSize) / 2;
             const RECT art = Rect(artLeft, artDrawTop, artLeft + artSize, artDrawTop + artSize);
             if (draw && onScreen) {
                 for (const std::string& key : block.images) DrawImageKey(*graphics, key, art);
             }
             const int tagRow = TagRowHeight(dc, block, style);
             if (draw && onScreen && !block.tag.empty()) {
-                const RECT tagBox = Rect(tileLeft + S(6), artTop + style.artBox + S(4),
-                                         tileLeft + style.tileWidth - S(6), artTop + style.artBox + tagRow);
+                const RECT tagBox = Rect(tileLeft + S(6), artTop + box + S(4),
+                                         tileLeft + style.tileWidth - S(6), artTop + box + tagRow);
                 Text(dc, Wide(block.tag), tagBox, kGold, fontSmall, DT_CENTER | DT_WORDBREAK);
             }
 
@@ -2042,7 +2063,7 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
                 const int inner = style.tileWidth - S(12);
                 const int perRow = std::max(1, inner / style.cell);
                 const int icon = style.cell - S(4);
-                const int runeTop = artTop + style.artBox + S(8) + tagRow;
+                const int runeTop = artTop + box + S(8) + tagRow;
                 const int total = static_cast<int>(block.runes.size());
                 for (int r = 0; r < total; ++r) {
                     const int row = r / perRow;
@@ -2066,7 +2087,7 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
             }
 
             if (draw && tile.bottom > clipTop && tile.top < clipBottom) {
-                detailHits.push_back(DetailHit{tile, &entry, &block, -1});
+                detailHits.push_back(DetailHit{art, &entry, &block, -1});  // the picture itself, not the whole tile
             }
         }
         y += rowHeight + style.gap;
@@ -2118,7 +2139,12 @@ int OverlayState::RenderWideTiles(HDC dc, Gdiplus::Graphics* graphics, const Ent
             for (const std::string& key : block.images) DrawImageKey(*graphics, key, art);
             RenderGuideBlock(dc, graphics, side, sideLeft + pad, sideWidth - 2 * pad, sideTop, true);
         }
-        if (draw && onScreen) detailHits.push_back(DetailHit{tile, &entry, &block, -1});
+        if (draw && onScreen) {
+            const int artSize = block.smallArt ? artBox / 2 : artBox;
+            const int artLeft = left + (tileWidth - artSize) / 2;
+            const int artTop = y + pad + nameHeight + pad + (artBox - artSize) / 2;
+            detailHits.push_back(DetailHit{Rect(artLeft, artTop, artLeft + artSize, artTop + artSize), &entry, &block, -1});
+        }
         y += rowHeight + gap;
     }
     return y;

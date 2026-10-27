@@ -496,6 +496,12 @@ class Builder:
                             item_block = None
                         else:
                             self.add_unique(section()["images"], self.note_image(filename))
+        if spec.get("id") == "class-crafting":
+            # Crafted rings and amulets are drawn at 50% like the other jewelry.
+            for entry in entries:
+                for block in entry["blocks"]:
+                    if re.search(r"Crafted (Ring|Amulet)$", block["title"]):
+                        block["tiny"] = True
         self.pages.append({"spec": spec, "entries": entries})
 
     # --- plain-text pages ----------------------------------------------------
@@ -1308,6 +1314,7 @@ class Builder:
                             block["tag"] = "Gamble Item:\\n%s - ilvl: %s" % info
         if spec.get("excel") in ("unique", "set") and self.excel is not None:
             self.apply_mod_inventory_art(spec["excel"], by_group, spec.get("mythicalGroup"))
+            self.mark_tiny_art(spec["excel"], by_group, spec.get("mythicalGroup"))
 
         if spec.get("sortable") and self.excel is not None:
             for group, blocks in by_group.items():
@@ -1345,6 +1352,28 @@ class Builder:
         self.pages.append({"spec": spec, "entries": entries})
 
     # --- rune families ------------------------------------------------------
+    TINY_ART_TYPES = {"ring", "amul", "scha", "mcha", "jewl"}   # rings, amulets, small and medium charms, jewels
+
+    def mark_tiny_art(self, kind, by_group, mythical_group=None):
+        """Rings, amulets, jewels and small and medium charms are drawn at 50% of the usual art size (not the mythicals)."""
+        names = {}
+        for code, name in self.excel.base_names.items():
+            if self.excel.base_types.get(code) in self.TINY_ART_TYPES:
+                names.setdefault(name.lower(), code)
+        for group, blocks in by_group.items():
+            if group == mythical_group:
+                continue
+            for block in blocks:
+                if kind == "unique":
+                    base_type = self.excel.base_type(strip_color(block["title"]))
+                else:
+                    base = next((v for l, v in block["fields"] if l == "Base"), "")
+                    base_type = self.excel.base_types.get(names.get(base.lower(), ""), "")
+                # Cards whose item is not in uniques.txt (string-table uniques) are told by their picture.
+                class_jewelry = any(key.startswith(("items_misc_ring_", "items_misc_amulet_")) for key in block["images"])
+                if base_type in self.TINY_ART_TYPES or class_jewelry:
+                    block["tiny"] = True
+
     def apply_mod_inventory_art(self, kind, by_group, mythical_group=None):
         """Each unique or set card shows the inventory art that the mod's uniques.json / sets.json
         names for the item at its tier. Items the JSON does not name keep the layout's art.
@@ -2093,7 +2122,8 @@ def main():
                     out.append(f"TAG\t{text_out(block['tag'])}")
                 for label, value in block["fields"]:
                     out.append(f"FIELD\t{text_out(label)}\t{text_out(value)}")
-                flag = "\tsmall" if block.get("small") else "\toriginal" if block.get("original") else ""
+                flag = ("\tsmall" if block.get("small") else "\ttiny" if block.get("tiny")
+                        else "\toriginal" if block.get("original") else "")
                 for key in block["images"]:
                     out.append(f"IMG\t{key}{flag}")
                 for key, label, code in block["runes"]:
