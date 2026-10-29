@@ -2,18 +2,24 @@ import sys, re
 from html.parser import HTMLParser
 
 COLOR = {"4850b8": "3", "yellow": "9", "orange": "8", "red": "1", "cyan": "3"}
-CATS = [  # id, title, group  (document order, TOC order)
- ("special","Special","Core"),("uber","Uber/Endgame Map Recipes","Core"),
- ("legendary","Legendary Consumables","Core"),("mis","Misc","Core"),
- ("gem","Gem/Rune","Items"),("rel","Relic","Items"),("mat","Material","Items"),
- ("nor","Normal","Items"),("mag","Magic/Rare","Items"),("uni","Unique","Items"),
- ("set","Set","Items"),("old","Legacy Craft","Items"),
- ("rin","Ring/Amu","Items"),("cha","Charm","Items"),("jew","Jewel","Items"),
- ("qui","Quiver","Items"),("for","Forging","Modify"),("dst","D-Stone","Modify"),
+# The site's tabs, as the overlay shows them: several site tabs are merged into one page.
+CATS = [  # id, title, group  (page order)
+ ("general","General","Items"),("mat","Material","Items"),("reroll","Item Reroll","Items"),
+ ("old","Legacy Craft","Items"),("for","Forging","Modify"),("dst","D-Stone","Modify"),
  ("tin","Tinker","Modify"),("bas","Base Upgrade","Modify"),("soc","Sockets","Modify"),
- ("sec","Secret","Modify"),("tyrael","Tyrael's Might Extra Boon","Core"),
+ ("sec","Secret","Modify"),
 ]
-CAT_IDS = {c[0] for c in CATS}
+# Site anchor (tab) -> overlay page. The "new" tab (NewCraft) is not shown.
+SITE_TABS = {
+ "special":"general","uber":"general","legendary":"general","mis":"general","tyrael":"general",
+ "gem":"mat","rel":"mat","mat":"mat",
+ "nor":"reroll","mag":"reroll","uni":"reroll","set":"reroll","rin":"reroll","cha":"reroll","jew":"reroll","qui":"reroll",
+ "old":"old","for":"for","dst":"dst","tin":"tin","bas":"bas","soc":"soc","sec":"sec",
+}
+# Class crafting has its own page in the main wiki, so its sections are left out of Legacy Craft.
+CLASS_CRAFT_HEADINGS = {"Class Craft"} | {c + " Craft" for c in (
+    "Amazon", "Assassin", "Barbarian", "Druid", "Necromancer", "Paladin", "Sorceress", "Warlock")}
+CAT_IDS = set(SITE_TABS) | {"new"}
 
 class P(HTMLParser):
     def __init__(self):
@@ -74,31 +80,49 @@ def main(src, out):
         lines.append("\t".join(["CAT", cid, title, group]))
     counts = {"REC":0,"SEC":0,"DESC":0,"NOTE":0}
     skipped = []
+    has_section = set()     # overlay pages that already have a section heading
+    in_class_craft = False  # inside the class crafting sections of Legacy Craft
+    def emit(kind, cat, *fields):
+        nonlocal in_class_craft
+        if cat == "old":
+            if kind == "SEC":
+                in_class_craft = fields[0] in CLASS_CRAFT_HEADINGS
+            if in_class_craft:
+                return
+        if kind == "SEC":
+            has_section.add(cat)
+        elif cat == "general" and cat not in has_section:
+            # Notes before the first heading of the General page get a heading of their own.
+            lines.append("\t".join(["SEC", cat, "Notes"])); counts["SEC"] += 1
+            has_section.add(cat)
+        lines.append("\t".join([kind, cat, *fields])); counts[kind] += 1
     for t in p.tables:
-        cat = t["cat"] or "special"
-        if cat == "new":  # NewCraft tab was removed
+        site_tab = t["cat"] or "special"
+        if site_tab == "new":  # NewCraft tab was removed
             continue
+        cat = SITE_TABS[site_tab]
         for r in t["rows"]:
             if not r: continue
             texts = [c["lines"] for c in r]
             if len(r) == 1 and r[0]["bg"] == "#300000":
                 txt = " ".join(r[0]["lines"])
                 if txt in ("Input","Output"): continue
-                kind = "SEC" if len(txt) <= 60 else "DESC"
-                lines.append("\t".join([kind, cat, txt])); counts[kind]+=1
+                # A short line is a heading, unless it is a sentence; a long one is a description.
+                kind = "SEC" if len(txt) <= 60 and not txt.endswith(".") else "NOTE" if len(txt) <= 60 else "DESC"
+                emit(kind, cat, txt)
             elif len(r) == 2 and r[0]["bg"] == "#300000" and r[1]["bg"] == "#300000":
                 if cell_text(r[0]) in ("Input","Output") and cell_text(r[1]) in ("Input","Output"): continue
                 # sub-heading with a description pair
                 txt = " ".join(r[0]["lines"]) if r[0]["lines"] else ""
-                lines.append("\t".join(["SEC", cat, txt])); counts["SEC"]+=1
+                emit("SEC", cat, txt)
                 if r[1]["lines"]:
-                    lines.append("\t".join(["DESC", cat, " ".join(r[1]["lines"])])); counts["DESC"]+=1
+                    emit("DESC", cat, " ".join(r[1]["lines"]))
             elif len(r) == 2 and r[0]["bg"] in ("#181818","") and r[1]["bg"] in ("#181818",""):
                 a, b = cell_text(r[0]), cell_text(r[1])
                 if not a and not b: continue
-                lines.append("\t".join(["REC", cat, a, b])); counts["REC"]+=1
+                emit("REC", cat, a, b)
             elif len(r) == 1 and r[0]["bg"] in ("#181818",""):
-                lines.append("\t".join(["NOTE", cat, " ".join(r[0]["lines"])])); counts["NOTE"]+=1
+                emit("NOTE", cat, " ".join(r[0]["lines"]))
             else:
                 skipped.append((cat, [ (c["bg"], c["lines"][:2]) for c in r ]))
     text = "\n".join(lines) + "\n"

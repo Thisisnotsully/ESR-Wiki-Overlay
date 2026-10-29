@@ -1,3 +1,4 @@
+import re
 """Tests for the wiki extractor and sprite naming. Run from esr-wiki-plugin/overlay:
     python3 -m unittest discover -s tests -p "test_*.py"
 """
@@ -79,7 +80,7 @@ class ExtractionTests(unittest.TestCase):
             "runes": (4, 95),
             "runewords": (8, 415),
             "set-items": (10, 342),
-            "uniques": (13, 1108),
+            "uniques": (13, 1106),   # built from the website pages
             "gemwords": (4, 157),
         }
         for page, (categories, blocks) in expected.items():
@@ -117,7 +118,7 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(robes.get("Required Level"), "3")
         self.assertEqual(robes.get("Set pieces"), "3")
         ring = dict(self.fields.get("Alakashar Rahl", []))
-        self.assertEqual(ring.get("Base"), "Ring")
+        self.assertEqual(ring.get("Base"), "Druid's Seal")
         self.assertEqual(ring.get("Required Level"), "60")
 
     def _block_images(self, title):
@@ -238,5 +239,106 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(referenced - keys - art, set())
 
 
+class CubePageTests(unittest.TestCase):
+    """The cube recipes page is read by two programs, Python for the shipped data and C++ in game.
+    Both must give exactly tests/cube_live/cube-wiki-data.expected.txt for the saved page."""
+
+    def test_python_pipeline_matches_expected_output(self):
+        import subprocess
+        import tempfile
+        tools = OVERLAY / "tools"
+        fixtures = OVERLAY / "tests" / "cube_live"
+        with tempfile.TemporaryDirectory() as folder:
+            cube = Path(folder) / "cube-data.txt"
+            wiki = Path(folder) / "cube-wiki-data.txt"
+            subprocess.run([sys.executable, "-I", str(tools / "build_cube.py"),
+                            str(fixtures / "cube-recipes-page.html"), str(cube)], check=True, capture_output=True)
+            subprocess.run([sys.executable, "-I", str(tools / "build_cube_wiki.py"), str(cube), str(wiki)],
+                           check=True, capture_output=True)
+            self.assertEqual(wiki.read_text(encoding="utf-8"),
+                             (fixtures / "cube-wiki-data.expected.txt").read_text(encoding="utf-8"))
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class ModOnlyUniqueTests(unittest.TestCase):
+    """The Uniques page is written from the mod's tables only (uniqueitems.txt, itemstatcost.txt, strings)."""
+
+    @classmethod
+    def setUpClass(cls):
+        # The mod-built Uniques page is kept beside the shipped data as a check of the mod's own tables.
+        path = OVERLAY / "data" / "wiki-data.mod-uniques.txt"
+        if not path.exists():
+            raise unittest.SkipTest("no mod-built uniques page")
+        lines = path.read_text(encoding="utf-8").split("\n")
+        start = next(i for i, l in enumerate(lines) if l.startswith("PAGE\tuniques"))
+        end = next(i for i, l in enumerate(lines) if l.startswith("PAGE\t") and i > start)
+        cls.cards = {}
+        current = None
+        for line in lines[start:end]:
+            parts = line.split("\t")
+            if parts[0] == "BLOCK":
+                current = cls.cards.setdefault(parts[2], [])
+            elif parts[0] == "LINE" and current is not None:
+                current.append(re.sub("\u00ffc.", "", parts[2]))
+
+    def test_no_doubled_signs_or_unfilled_holes(self):
+        for title, lines in self.cards.items():
+            for line in lines:
+                self.assertNotIn("--", line, title)
+                self.assertNotRegex(line, r"%[+]?[dis]", title)
+
+    def test_values_come_from_the_tables(self):
+        self.assertIn("+400-500% Enhanced Defense", self.cards["Stoneraven"])
+        self.assertIn("Adds 19200-38400 Poison Damage to Attacks over 3 seconds", self.cards["Viperfork"])
+        self.assertIn("+50% Piercing Attack", self.cards["Ancient Piercer"])
+        self.assertIn("Requirements -100%", self.cards["Free Lance"])
+
+    def test_description_lines_use_the_mods_strings(self):
+        self.assertTrue(any(l.startswith("Your cold damage to attacks can crit") for l in self.cards["Raven Frost"]))
+
+    def test_website_uniques_page(self):
+        text = [l.split("\t") for l in (OVERLAY / "data" / "wiki-data.txt").read_text(encoding="utf-8").split("\n")]
+        start = next(i for i, p in enumerate(text) if p[0] == "PAGE" and p[1] == "uniques")
+        end = next(i for i in range(start + 1, len(text)) if text[i][0] == "PAGE")
+        page = text[start:end]
+        self.assertEqual(page[0][2], "Uniques")
+        lines = {}
+        title = None
+        for p in page:
+            if p[0] == "BLOCK":
+                title = p[2]
+                lines[title] = []
+            elif p[0] == "LINE" and title:
+                lines[title].append(p[2])
+        self.assertIn("\u00ffc01 of the following:", lines["Opalvein"])
+        self.assertIn("\u00ffc8if you wear a spell damage opalvein", lines["Opalvein"])      # orange from the page
+        self.assertIn("\u00ffc3+2-4 to All Skills", lines["Viperfork"])                       # "(2 to 4)" written as a range
+        self.assertFalse(any("Tinkering" in l for ls in lines.values() for l in ls))
+        self.assertTrue(any(p[0] == "IMG" for p in page))
+        # Charms carry no gamble or coupon tag.
+        charms = [i for i, p in enumerate(page) if p[0] == "ENTRY" and p[1] == "Charms"][0]
+        after = next((i for i in range(charms + 1, len(page)) if page[i][0] == "ENTRY"), len(page))
+        self.assertFalse(any(p[0] == "TAG" for p in page[charms:after]))
+        # An orange run that starts after a blank gap is orange from its first line.
+        art = (OVERLAY / "data" / "web-unique-art.txt").read_text(encoding="utf-8").split("\n")
+        self.assertTrue(any(l.startswith("BASE\t7br\t") and l.endswith("Elite\tSpears") for l in art))
+        self.assertTrue(any(l.startswith("UNIQUE\tViperfork\t") for l in art))
+        blocks = {p[2]: p for p in page if p[0] == "BLOCK"}
+        self.assertEqual(blocks["Viperfork"][5], "Elite")                   # the tier of its base item
+        self.assertEqual({p[5] for p in blocks.values()} - {""}, {"Normal", "Exceptional", "Elite"})
+        self.assertEqual(blocks["Viperfork"][6], "Spear")                    # the website's own weapon category
+        self.assertGreaterEqual(len({p[6] for p in blocks.values() if p[6]}), 30)
+        self.assertEqual(blocks["Veil of Steel"][6], "Helm")
+        self.assertEqual(lines["Aegis of Corruption"][0][:3], "\u00ffc8")
+        self.assertEqual(lines["Aegis of Corruption"][1][:3], "\u00ffc8")
+
+    def test_opalvein_shows_both_blocks_under_the_mods_header(self):
+        lines = self.cards["Opalvein"]
+        self.assertIn("1 of the following:", lines)
+        self.assertIn("if you wear a spell damage opalvein", lines)
+        self.assertIn("if you wear an enhanced damage opalvein", lines)
+        self.assertIn("Socketed (1)", lines)
+        self.assertTrue(any(l.startswith("You can bind Baal") for l in self.cards["Ars Tor'Baalos"]))

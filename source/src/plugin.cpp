@@ -16,6 +16,8 @@
 #include <stdexcept>
 #include <string>
 
+#include "cube_updater.hpp"
+#include "web_uniques_updater.hpp"
 #include "overlay.hpp"
 #include "wiki_model.hpp"
 
@@ -29,7 +31,7 @@ constexpr D2RL::PluginInfo EsrOverlayPluginInfo {
     .abiVersion = D2RL_PLUGIN_ABI_VERSION,
     .id = "esr-wiki-overlay",
     .name = "ESR Wiki Overlay",
-    .version = "1.2.0",
+    .version = "1.3.0",
     .author = "Sully",
     .description = "Read-only ESR wiki reference overlay. Open it with the eswiki command, or a key bound in the controls.",
     .flags = D2RL::PluginFlags::Client,
@@ -42,7 +44,34 @@ std::unique_ptr<esrwiki::Database> database;
 std::unique_ptr<esrwiki::Overlay> overlay;
 std::unique_ptr<esrwiki::Database> cubeDatabase;   // Horadric Cube recipes (cube-wiki-data.txt)
 std::unique_ptr<esrwiki::Overlay> cubeOverlay;
+esrwiki::CubeUpdater cubeUpdater;                  // keeps the cube recipes in step with the website
+esrwiki::WebUniquesUpdater webUniquesUpdater;      // keeps the Uniques (Website) page in step with the website
 bool lastOpenedCube = false;  // which panel was opened most recently; the wiki key reopens it
+
+// The cube recipes page on the ESR website, which the Horadric Cube panel follows.
+// The ESR website, whose unique item pages the "Uniques (Website)" page follows.
+constexpr wchar_t kSiteUrl[] = L"https://easternsunresurrected.com/";
+
+constexpr wchar_t kCubePageUrl[] = L"https://easternsunresurrected.com/Eastern%20Sun%20Resurrected%20Cube%20Recipes.html";
+
+// Item cards on the page with this id (0 when there is no such page).
+std::size_t CountPageBlocks(const esrwiki::Database& data, const char* pageId) {
+    std::size_t count = 0;
+    for (const auto& page : data.pages)
+        if (page.id == pageId)
+            for (const auto& entry : page.entries) count += entry.blocks.size();
+    return count;
+}
+
+std::size_t CountRecipes(const esrwiki::Database& data) {
+    std::size_t count = 0;
+    for (const auto& page : data.pages)
+        for (const auto& entry : page.entries)
+            for (const auto& block : entry.blocks)
+                for (const auto& line : block.lines)
+                    if (line.kind == esrwiki::LineKind::Row) ++count;
+    return count;
+}
 
 // Folder that holds this DLL. The wiki data sits in a folder next to it.
 std::wstring PluginDirectory() {
@@ -380,6 +409,8 @@ bool SetupPauseButton(const PluginContext* plugin) {
 }
 
 void Release() noexcept {
+    cubeUpdater.Stop();
+    webUniquesUpdater.Stop();
     if (cubeOverlay) cubeOverlay->Stop();
     cubeOverlay.reset();
     cubeDatabase.reset();
@@ -400,7 +431,9 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         const std::wstring dataDir = PluginDirectory() + L"\\esr-wiki-overlay";
         database = std::make_unique<esrwiki::Database>();
         std::string error;
-        if (!esrwiki::ParseDatabase(ReadWholeFile(dataDir + L"\\wiki-data.txt"), *database, error)) {
+        const std::string shippedWikiData = ReadWholeFile(dataDir + L"\\wiki-data.txt");
+        const std::string webArtTable = ReadWholeFile(dataDir + L"\\web-unique-art.txt");
+        if (!esrwiki::ParseDatabase(shippedWikiData, *database, error)) {
             const std::string message = "ESR Wiki data rejected: " + error;
             plugin->LogError(message.c_str());
             database.reset();
@@ -422,6 +455,36 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
                                    " pages, " + std::to_string(database->entryCount()) + " entries";
         plugin->LogInfo(loaded.c_str());
 
+        // The Uniques page shipped with the plugin shows at once; the website's current pages replace
+        // it as soon as they have been read. Pages that give far fewer items than the shipped page are treated
+        // as broken and ignored.
+        try {
+            const std::size_t shippedCards = CountPageBlocks(*database, "uniques");
+            webUniquesUpdater.Start(
+                dataDir, kSiteUrl, shippedWikiData, webArtTable,
+                [shippedCards](const std::string& wikiData) {
+                    auto next = std::make_unique<esrwiki::Database>();
+                    std::string parseError;
+                    if (!esrwiki::ParseDatabase(wikiData, *next, parseError)) {
+                        if (pluginContext != nullptr)
+                            pluginContext->LogError(("ESR Wiki website uniques: website data rejected: " + parseError).c_str());
+                        return;
+                    }
+                    if (CountPageBlocks(*next, "uniques") * 10 < shippedCards * 6) {
+                        if (pluginContext != nullptr)
+                            pluginContext->LogError("ESR Wiki website uniques: website pages have far fewer items than expected, ignored");
+                        return;
+                    }
+                    if (overlay != nullptr) overlay->ReplaceDatabase(std::move(next));
+                },
+                [](const std::string& message) {
+                    if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+                });
+        } catch (const std::exception& error) {
+            const std::string message = std::string("ESR Wiki website uniques unavailable: ") + error.what();
+            plugin->LogError(message.c_str());
+        }
+
         // Horadric Cube recipes: a second overlay with its own data. Optional, so failures only log.
         try {
             cubeDatabase = std::make_unique<esrwiki::Database>();
@@ -437,6 +500,31 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
                 if (!started) {
                     plugin->LogError("ESR Wiki cube recipes window could not be created");
                     cubeOverlay.reset();
+                } else {
+                    // The recipes shipped with the plugin show at once; the website's current page replaces
+                    // them as soon as it has been read. A page with far fewer recipes than the shipped data
+                    // is treated as a broken page and ignored.
+                    const std::size_t shipped = CountRecipes(*cubeDatabase);
+                    cubeUpdater.Start(
+                        dataDir, kCubePageUrl,
+                        [shipped](const std::string& wikiData) {
+                            auto next = std::make_unique<esrwiki::Database>();
+                            std::string parseError;
+                            if (!esrwiki::ParseDatabase(wikiData, *next, parseError)) {
+                                if (pluginContext != nullptr)
+                                    pluginContext->LogError(("ESR Wiki cube recipes: website data rejected: " + parseError).c_str());
+                                return;
+                            }
+                            if (CountRecipes(*next) * 10 < shipped * 6) {
+                                if (pluginContext != nullptr)
+                                    pluginContext->LogError("ESR Wiki cube recipes: website page has far fewer recipes than expected, ignored");
+                                return;
+                            }
+                            if (cubeOverlay != nullptr) cubeOverlay->ReplaceDatabase(std::move(next));
+                        },
+                        [](const std::string& message) {
+                            if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+                        });
                 }
             } else {
                 const std::string message = "ESR Wiki cube recipes data rejected: " + cubeError;

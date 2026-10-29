@@ -34,6 +34,12 @@ if(NOT _result EQUAL 0)
   message(WARNING "ESR Wiki overlay: could not copy cube-wiki-data.txt to ${_dest_data}.")
 endif()
 
+file(COPY_FILE "${SRC_DATA}/web-unique-art.txt" "${_dest_data}/web-unique-art.txt"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy web-unique-art.txt to ${_dest_data}.")
+endif()
+
 file(GLOB _pngs "${SRC_DATA}/images/*.png")
 set(_copied 0)
 foreach(_png IN LISTS _pngs)

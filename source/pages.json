@@ -90,9 +90,7 @@
       "mode": "cards",
       "cardPattern": "^card_",
       "excel": "unique",
-      "stringUniques": true,
       "sortable": true,
-      "mythicals": "data/mythical-uniques.txt",
       "mythicalGroup": "Mythical",
       "wideCategories": [
         "Mythical"
@@ -115,7 +113,8 @@
       },
       "sources": [
         "data/uniquescarouselhd.json"
-      ]
+      ],
+      "modOnly": true
     },
     {
       "id": "set-items",

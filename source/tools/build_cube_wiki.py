@@ -104,8 +104,11 @@ def main(src, out):
                 if recipes:
                     lines.append("\t".join(["LINE", "C", TABLE_SEPARATOR.join(["Ingredients", "Result"])]))
                     for recipe_in, recipe_out in recipes:
+                        # One ingredient and one result per line (U+001E is a line break inside a cell).
+                        ins = [p.strip() for p in tidy_recipe(recipe_in).split(" + ") if p.strip()]
+                        outs = [p.strip() for p in tidy_recipe(recipe_out).split(" + ") if p.strip()]
                         lines.append("\t".join(["LINE", "R", TABLE_SEPARATOR.join(
-                            [tidy_recipe(recipe_in), COLOR_BLUE + tidy_recipe(recipe_out)])]))
+                            ["\x1e".join(ins), COLOR_BLUE + "\x1e".join(outs)])]))
     pathlib.Path(out).write_text("\n".join(lines) + "\n", encoding="utf-8")
     total = sum(len(e[2]) for es in entries.values() for e in es)
     print(f"pages={len(pages)} lines={total} -> {out}")

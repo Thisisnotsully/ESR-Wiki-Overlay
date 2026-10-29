@@ -94,6 +94,7 @@ class Tables:
                     self.rune_levels[code] = int(level)
 
         self.uniques = {}
+        self._unique_rows = [r for r in read_table(folder / "uniqueitems.txt") if (r.get("index") or "").strip()]
         for row in read_table(folder / "uniqueitems.txt"):
             key = norm(row.get("index", ""))
             if key and key not in self.uniques:
@@ -299,6 +300,74 @@ class Tables:
         if row is None:
             return ""
         return self.base_types.get(row.get("code", "").strip(), "")
+
+    def unique_rows_in_order(self):
+        return list(self._unique_rows)
+
+    def coupon_only_row(self, row):
+        return norm(row.get("index", "")) in self.coupon_uniques
+
+    def gamble_info_row(self, row):
+        """gamble_info for one uniqueitems.txt row (a name can have several rows)."""
+        if norm(row.get("index", "")) in self.coupon_uniques:
+            return None
+        if row.get("disabled", "").strip() not in ("", "0") or row.get("spawnable", "").strip() != "1":
+            return None
+        if row.get("*Skip Generation", "").strip() not in ("", "0"):
+            return None
+        code = row.get("code", "").strip()
+        normal = self.normal_codes.get(code, code)
+        if normal not in self.gamble_codes:
+            return None
+        return self.base_names.get(normal, ""), row.get("lvl", "").strip()
+
+    def class_of_code(self, code):
+        """Class code ("nec", "pal"...) of a class-specific base item, from itemtypes.txt, or ""."""
+        if not hasattr(self, "_type_class"):
+            self._type_class = {}
+            self._type_parents = getattr(self, "_type_parents", {})
+            for row in read_table(self.folder / "itemtypes.txt"):
+                key = (row.get("Code") or "").strip()
+                if key:
+                    self._type_class[key] = (row.get("Class") or "").strip()
+                    self._type_parents[key] = [(row.get("Equiv1") or "").strip(), (row.get("Equiv2") or "").strip()]
+        todo, seen = [self.base_types.get((code or "").strip(), "")], set()
+        while todo:
+            current = todo.pop(0)
+            if not current or current in seen:
+                continue
+            seen.add(current)
+            if self._type_class.get(current):
+                return self._type_class[current]
+            todo.extend(self._type_parents.get(current, []))
+        return ""
+
+    def group_of_code(self, code):
+        code = (code or "").strip()
+        if code.startswith("cm"):
+            return "Charm"
+        if code.startswith(("aq", "cq")):
+            return "Quiver"
+        item_type = self.base_types.get(code, "")
+        if item_type in UNIQUE_GROUP_BY_TYPE:
+            return UNIQUE_GROUP_BY_TYPE[item_type]
+        # Class rings and amulets and the like are types of a parent type in itemtypes.txt.
+        if not hasattr(self, "_type_parents"):
+            self._type_parents = {}
+            for row in read_table(self.folder / "itemtypes.txt"):
+                key = (row.get("Code") or "").strip()
+                if key:
+                    self._type_parents[key] = [(row.get("Equiv1") or "").strip(), (row.get("Equiv2") or "").strip()]
+        todo, seen = [item_type], set()
+        while todo:
+            current = todo.pop(0)
+            if not current or current in seen:
+                continue
+            seen.add(current)
+            if current in UNIQUE_GROUP_BY_TYPE:
+                return UNIQUE_GROUP_BY_TYPE[current]
+            todo.extend(self._type_parents.get(current, []))
+        return "Other"
 
     def unique_group(self, title):
         """Display group for a unique, from its base item: Weapon, Helm, ... or Other."""

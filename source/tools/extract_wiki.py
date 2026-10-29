@@ -37,6 +37,7 @@ from pathlib import Path, PurePosixPath
 from wiki_layout import fields, load_layout, load_string_table, tooltip_key, walk
 import excel_items
 import runeword_gen
+import mod_tooltip
 
 OVERLAY_DIR = Path(__file__).resolve().parent.parent
 PLUGIN_DIR = OVERLAY_DIR.parent
@@ -1248,7 +1249,7 @@ class Builder:
             for entry in json.loads((Path(folder) / "item-names.json").read_text(encoding="utf-8-sig")):
                 display[str(entry.get("Key", ""))] = str(entry.get("enUS", ""))
         orange = {}
-        for key in self.strings:
+        for key in ([] if getattr(self, "mod_only_uniques", False) else self.strings):
             if key.startswith("EsrWikiUnique_"):
                 lines = self.string_lines(key)
                 if lines:
@@ -1265,7 +1266,7 @@ class Builder:
         for group, blocks in by_group.items():
             for block in blocks:
                 title = strip_color(block["title"]).strip()
-                row = self.excel.unique_row(title)
+                row = block.get("row") or self.excel.unique_row(title)
                 if row is None or not any((row.get("prop%d" % i) or "") == "mythicaldesc" for i in range(1, 13)):
                     continue
                 index = (row.get("index") or "").strip()
@@ -1276,7 +1277,7 @@ class Builder:
                 while head + run < len(block["lines"]) and block["lines"][head + run][1].startswith("\u00ffc8"):
                     run += 1
                 kept = [line for line in block["lines"][head:head + run] if is_stat(line[1])]
-                twin = self.DESCRIPTION_TWINS.get(title)
+                twin = None if getattr(self, "mod_only_uniques", False) else self.DESCRIPTION_TWINS.get(title)
                 twin_lines = orange.get(excel_items.norm(twin)) if twin else None
                 # A card built from the string table lacks the website's orange stat lines (Total Resist and the like).
                 kept += [("S", line) for line in (twin_lines or []) if is_stat(line)
@@ -1290,6 +1291,75 @@ class Builder:
                     if not new:
                         self.description_report.append("no description text: %s" % title)
                 block["lines"] = block["lines"][:head] + new + rest
+
+    ADD_FAMILIES = ((r"Life on Striking", "life on striking"), (r"Mana on Striking", "mana on striking"),
+                    (r"Bonus to (Strength|Dexterity|Energy|Vitality)", ""), (r"Skill Cooldown Reduction", "cooldown reduction"),
+                    (r"to Summon Damage", "summon damage"), (r"not Consume Quantity", "not consume quantity"),
+                    (r"Bleed Damage", "bleed damage"))
+    FIX_CLASSES = (re.compile(r"Poison Damage [Oo]ver"), re.compile(r"Piercing Attack$"),
+                   re.compile(r"Enhanced Defense$"))
+
+    def fix_unique_lines(self, by_group, report):
+        """Repairs known faults in the layout's stat text of unique cards, using the mod's own
+        uniqueitems.txt properties: doubled minus signs, poison damage written in game frames, a
+        Piercing Attack line without its value, and an Enhanced Defense line that shows only the top
+        of its range. Only a line of those kinds is replaced, and only when the card and the mod have
+        the same number of them; all other card text is left as it is."""
+        self.line_generator = getattr(self, "line_generator", None)
+        for blocks in by_group.values():
+            for block in blocks:
+                title = strip_color(block["title"])
+                row = self.excel.unique_row(title)
+                generated = []
+                if row is not None:
+                    for i in range(1, 13):
+                        code = (row.get("prop%d" % i) or "").strip()
+                        if not code or code in runeword_gen.DESCRIPTION_CODES:
+                            continue
+                        got = self.set_gen(code, (row.get("par%d" % i) or "").strip(), (row.get("min%d" % i) or "").strip(),
+                                           (row.get("max%d" % i) or "").strip())
+                        if got:
+                            generated += [re.sub(r"\s+", " ", strip_color(t)).strip() for t in got]
+                lines = [[kind, text] for kind, text in block["lines"]]
+                changed = False
+                for kind_re in self.FIX_CLASSES:
+                    idx = [n for n, (k, t) in enumerate(lines) if k == "S" and not t.startswith("\u00ffc8")
+                           and kind_re.search(strip_color(t))]
+                    gen = [g for g in generated if kind_re.search(g)]
+                    if not idx:
+                        continue
+                    if len(idx) != len(gen):
+                        report.append("fix skipped (%d card, %d mod lines): %s: %s" % (len(idx), len(gen), title, kind_re.pattern))
+                        continue
+                    for n, g in zip(idx, gen):
+                        match = re.match(r"^(\u00ffc.)?", lines[n][1])
+                        new = (match.group(1) or "") + g
+                        if new != lines[n][1]:
+                            lines[n][1] = new
+                            changed = True
+                # Properties the card leaves out altogether. Only these kinds are added, and only when
+                # no line of the card mentions the same stat, so lines the card words differently stay.
+                card_text = " ".join(strip_color(t).lower() for k, t in lines if k == "S")
+                for g in generated:
+                    for pattern, keyword in self.ADD_FAMILIES:
+                        found = re.search(pattern, g)
+                        if not found:
+                            continue
+                        word = (found.group(1) if found.groups() else keyword).lower()
+                        if word in card_text:
+                            continue
+                        at = next((n for n, (k, t) in enumerate(lines) if k == "S" and t.startswith("\u00ffc8")), len(lines))
+                        lines.insert(at, ["S", "\u00ffc3" + g])
+                        card_text += " " + g.lower()
+                        changed = True
+                        break
+                for entry in lines:
+                    if entry[0] == "S" and "--" in entry[1]:
+                        entry[1] = entry[1].replace("--", "-")
+                        changed = True
+                if changed:
+                    report.append("fixed: %s" % title)
+                    block["lines"] = [(k, t) for k, t in lines]
 
     def rebuild_unique_lines(self, blocks, report):
         """Stat lines of unique cards, written from uniqueitems.txt (the mod's own properties) instead of
@@ -1319,6 +1389,75 @@ class Builder:
             if [t for _, t in lines] != [t for _, t in block["lines"]]:
                 report.append("changed: %s" % block["title"])
             block["lines"] = lines
+
+    def audit_unique_lines(self, by_group, path):
+        """Writes a report of how each unique card's stat lines differ from the ones the mod's own
+        uniqueitems.txt properties give. Nothing on the cards is changed. Orange description lines are
+        left out on both sides; a line the card words differently is listed as a pair."""
+        import difflib
+        self.line_generator = getattr(self, "line_generator", None)
+
+        def plain(text):
+            return re.sub(r"\s+", " ", strip_color(text)).strip()
+        out = []
+        counts = {}
+        for group, blocks in by_group.items():
+            for block in blocks:
+                title = strip_color(block["title"])
+                row = self.excel.unique_row(title)
+                if row is None:
+                    counts["no uniqueitems.txt row"] = counts.get("no uniqueitems.txt row", 0) + 1
+                    out.append("NO ROW\t%s\t%s" % (group, title))
+                    continue
+                generated = []
+                unsupported = []
+                for i in range(1, 13):
+                    code = (row.get("prop%d" % i) or "").strip()
+                    if not code or code in runeword_gen.DESCRIPTION_CODES:
+                        continue
+                    got = self.set_gen(code, (row.get("par%d" % i) or "").strip(), (row.get("min%d" % i) or "").strip(),
+                                       (row.get("max%d" % i) or "").strip())
+                    if got is None:
+                        unsupported.append(code)
+                        continue
+                    generated += [plain(text) for text in got if plain(text)]
+                existing = [plain(text) for kind, text in block["lines"]
+                            if kind == "S" and not text.startswith("\u00ffc8") and not text.startswith("\u00ffc4")
+                            and plain(text)]
+                extra = [t for t in existing if t not in generated]
+                missing = [t for t in generated if t not in existing]
+                pairs = []
+                for line in list(extra):
+                    best = max(missing, key=lambda m: difflib.SequenceMatcher(None, line, m).ratio(), default=None)
+                    if best is not None and difflib.SequenceMatcher(None, line, best).ratio() >= 0.6:
+                        pairs.append((line, best))
+                        extra.remove(line)
+                        missing.remove(best)
+                if unsupported:
+                    # Lines of unsupported properties cannot be judged, so only the others are compared.
+                    note = "partial (cannot write: %s)" % ",".join(sorted(set(unsupported)))
+                    missing = []  # a property we cannot write might be the very line the card has
+                else:
+                    note = ""
+                if not extra and not missing and not pairs:
+                    key = "same (some properties not checked)" if unsupported else "same"
+                    counts[key] = counts.get(key, 0) + 1
+                    continue
+                if pairs:
+                    counts["wording differs"] = counts.get("wording differs", 0) + 1
+                if missing:
+                    counts["mod line missing on card"] = counts.get("mod line missing on card", 0) + 1
+                if extra:
+                    counts["card line not in mod"] = counts.get("card line not in mod", 0) + 1
+                out.append("%s\t%s\t%s%s" % ("DIFF", group, title, ("\t" + note) if note else ""))
+                for card, mod in pairs:
+                    out.append("    wording   card: %s   |   mod: %s" % (card, mod))
+                for text in missing:
+                    out.append("    missing on card: %s" % text)
+                for text in extra:
+                    out.append("    on card only:    %s" % text)
+        header = ["# %s: %d" % (k, v) for k, v in sorted(counts.items())]
+        Path(path).write_text("\n".join(header + out) + "\n", encoding="utf-8")
 
     def shard_cards_for(self, title, sources, tiers):
         """One set bonus card per difficulty. The card art comes from the source card for that
@@ -1389,13 +1528,196 @@ class Builder:
                           "synthetic": rwkey, "children": children})
         return nodes
 
+    # --- uniques written from the mod's tables only -----------------------------------------------
+    NOT_UNIQUE_CODES = {"ore", "ast", "led", "rnd"}   # ores, ascendancy stones, kill ledger, randomizing stone
+
+    def tooltip_engine(self):
+        if getattr(self, "_tooltip", None) is None:
+            self._tooltip = mod_tooltip.ModTooltip(self.excel.folder, self.strings_folder)
+        return self._tooltip
+
+    @staticmethod
+    def colored(text):
+        """A line from a mod string: its own colour code when it has one ("ÿc@" is orange here), else blue."""
+        if text.startswith("\u00ffc"):
+            return ("\u00ffc8" + text[3:]) if text[2:3] == "@" else text
+        return "\u00ffc3" + text
+
+    OPALVEIN_CODES = ("opalvein-variant", "opalvein-oskill")
+
+    def control_descriptions(self, engine, codes):
+        """Orange description of control properties, from the mod's own <name>desc strings (stored in
+        reverse line order). Opalvein shows both of its blocks under the mod's "%s of the following:"."""
+        def block(key):
+            text = engine.strings.get(key)
+            if text is None:
+                return None
+            parts = [re.sub("\u00ffc.", "", ln).replace("%%", "%").strip() for ln in text.split("\n")]
+            return ["\u00ffc8" + ln for ln in reversed(parts) if ln]
+
+        out = []
+        if any(c in self.OPALVEIN_CODES for c in codes):
+            header = engine.strings.get("ChroniclePropertyGroupListHeader")
+            first, second = block("opalveineddesc"), block("opalveinspelldesc")
+            if header and first and second:
+                out += ["\u00ffc3" + header.replace("%s", "1")] + first + second
+            else:
+                engine.problems.add("no opalvein description strings")
+        for code in codes:
+            if "mythicaldesc" in codes:      # those cards take their description from add_unique_descriptions
+                break
+            if code in self.OPALVEIN_CODES or code not in engine.props:
+                continue
+            names = [code.replace("-", "")] + [s.name.replace("control", "") for s in (engine.stats_of(code, "", "", "") or [])]
+            for name in names:
+                got = block(name + "desc")
+                if got:
+                    out += got
+                    break
+        return out
+
+    def mod_unique_blocks(self, spec):
+        """Every unique card, from uniqueitems.txt: name from item-names.json, base and level from the row,
+        stat lines from its properties through the mod's own string tables. The website, the layout JSON and
+        the wiki string table are not used."""
+        engine = self.tooltip_engine()
+        display = self.item_display_names()
+        excel = self.excel
+        mythical_group = spec.get("mythicalGroup")
+        by_group = OrderedDict((group, []) for group in (spec.get("categories") or {}))
+        rows = excel.unique_rows_in_order()
+        by_index = OrderedDict()
+        for row in rows:
+            by_index.setdefault(row["index"].strip(), []).append(row)
+        self.mod_unique_report = []
+
+        def props_of(row):
+            return [((row.get("prop%d" % i) or "").strip(), (row.get("par%d" % i) or "").strip(),
+                     (row.get("min%d" % i) or "").strip(), (row.get("max%d" % i) or "").strip())
+                    for i in range(1, 13) if (row.get("prop%d" % i) or "").strip()]
+
+        def stat_lines(row):
+            props = [p for p in props_of(row) if p[0] not in ("mythicaldesc", "tinkerflag2")
+                     and p[0] in engine.props]
+            skipped = [p[0] for p in props_of(row) if p[0] not in ("mythicaldesc", "tinkerflag2")
+                       and p[0] not in engine.props]
+            if skipped:
+                self.mod_unique_report.append("no property row (not shown): %s: %s" % (row["index"], ", ".join(skipped)))
+            got = engine.item_lines(props)
+            if got is None:
+                self.mod_unique_report.append("cannot write: %s" % row["index"])
+                return []
+            return got + self.control_descriptions(engine, [p[0] for p in props_of(row)])
+
+        for index, group_rows in by_index.items():
+            first = group_rows[0]
+            code = (first.get("code") or "").strip()
+            base_name = (first.get("*ItemName") or "").strip()
+            mythical = base_name.startswith("Mythical")
+            if (first.get("disabled") or "").strip() == "1" or code in self.NOT_UNIQUE_CODES or index.endswith("_old"):
+                continue
+            if (first.get("*Skip Generation") or "").strip() == "1" and not mythical:
+                # Skip Generation keeps an item out of random drops. The unique charms that come from a boss or
+                # a recipe are still uniques; stones, ores and coloured pseudo items (shown with a colour
+                # code in item-names.json) are not.
+                if not code.startswith("cm") or "\u00ffc" in (display.get(index) or ""):
+                    continue
+            title = strip_color(display.get(index) or index).strip() or index
+            lines_by_row = [stat_lines(r) for r in group_rows]
+            if len(group_rows) > 5:
+                # A run of rows that differ by one random pick: rows the tables cannot describe are left out.
+                self.mod_unique_report[:] = [m for m in self.mod_unique_report if m != "cannot write: %s" % index]
+                keep = [n for n, lines in enumerate(lines_by_row) if lines]
+                group_rows = [group_rows[n] for n in keep]
+                lines_by_row = [lines_by_row[n] for n in keep]
+            chosen = list(zip(group_rows, lines_by_row))
+            labels = [""] * len(chosen)
+            if len(chosen) > 1:
+                common = set(lines_by_row[0]).intersection(*map(set, lines_by_row[1:]))
+                if all(set(l) == set(lines_by_row[0]) for l in lines_by_row):
+                    chosen = chosen[:1]
+                elif len(chosen) > 5:
+                    # Many rows that differ in one line (a different random skill each): one card, the
+                    # varying lines shown once as "random".
+                    row, lines = chosen[0]
+                    lines = [l if l in common else self.RANDOM_SKILL_LINE for l in lines]
+                    seen = []
+                    chosen = [(row, [l for l in lines if not (l in seen or seen.append(l))])]
+                else:
+                    labels = []
+                    for _, lines in chosen:
+                        extra = [l for l in lines if l not in common]
+                        word = re.sub(r"^[+-]?[\d.\-]+%?\s*(to\s+)?", "", extra[0]).split(" ")[0] if extra else ""
+                        labels.append(word)
+            for number, (row, lines) in enumerate(chosen):
+                group = mythical_group if mythical else excel.group_of_code(code)
+                shown_base = strip_color(display.get(code) or base_name).strip() or base_name
+                block = new_block(item=True, title=title)
+                block["row"] = row
+                label = labels[number] if number < len(labels) else ""
+                if mythical:
+                    block["subtitle"] = "%s (%s Variant)" % (base_name, label) if label else base_name
+                    block["small"] = base_name in SMALL_ART_BASES or excel.base_types.get(code) in self.TINY_ART_TYPES or excel.group_of_code(code) in ("Amulet", "Ring")
+                    block["fields"].append(("Required Level", (row.get("lvl req") or "").strip()))
+                elif group == "Jewel":
+                    block["subtitle"] = shown_base
+                    block["fields"].append(("Required Level", (row.get("lvl req") or "").strip()))
+                else:
+                    block["fields"].append(("Base", shown_base))
+                    block["fields"].append(("Required Level", (row.get("lvl req") or "").strip()))
+                # A mod string can hold several lines ("\\n"); each shows on its own line in the string's colour.
+                block["lines"] = []
+                for text in lines:
+                    parts = text.split("\n")
+                    color = self.colored(parts[0])[:3]
+                    block["lines"] += [("S", self.colored(parts[0]))] + [("S", color + part.lstrip("\u00ffc0123456789@")) for part in parts[1:]]
+                if mythical:
+                    art_key = self.mythical_art_key(title)
+                    art = None if art_key else (self.unique_art(title) or self.mythical_icon(base_name))
+                    if art_key:
+                        self.add_unique(block["images"], art_key)
+                    elif art:
+                        self.add_unique(block["images"], self.note_image(art))
+                else:
+                    art_key = self.mythical_art_key(title)
+                    art = None if art_key else ((self.base_art(group, code, shown_base) if excel.class_of_code(code) else None)
+                                                or self.unique_art(title) or self.base_art(group, code, shown_base))
+                    if art_key:
+                        self.add_unique(block["images"], art_key)
+                        block["small"] = group == "Jewel"
+                    elif art:
+                        self.add_unique(block["images"], self.note_image(art))
+                by_group.setdefault(group, []).append(block)
+        return by_group
+
+    RANDOM_SKILL_LINE = "+1 to Random Skill"
+    CHARM_ART = {"small charm": "charm_small", "large charm": "charm_medium", "grand charm": "charm_large"}
+
+    def base_art(self, group, code, base_name):
+        """Art of the base item when a unique has none of its own: class amulets and rings by their class,
+        charms by their size."""
+        if group in ("Amulet", "Ring"):
+            cls = self.excel.class_of_code(code)[:3].lower()
+            tail = "_amulet" if group == "Amulet" else "_ring"
+            if cls:
+                for stem, path in sorted(self.sprite_index.items()):
+                    if stem.endswith(tail) and stem.startswith(cls):
+                        return path
+        if group == "Charm":
+            stem = self.CHARM_ART.get(base_name.lower())
+            return self.sprite_index.get(stem) if stem else None
+        return None
+
     def build_cards(self, spec, roots):
         pattern = re.compile(spec["cardPattern"])
+        self.mod_only_uniques = bool(spec.get("modOnly"))
         self.subtitle_from_name = bool(spec.get("subtitleFromNameParts"))
         categories = spec.get("categories") or {}
         # Groups in pages.json order first, then any others in the order they appear.
         by_group = OrderedDict((group, []) for group in categories)
         def card_nodes():
+            if spec.get("modOnly") and self.excel is not None:
+                return
             if spec.get("excel") == "runeword" and self.excel is not None:
                 # The page is built from runes.txt and the string table. The layout only gives art.
                 for node in self.runeword_nodes(roots):
@@ -1478,6 +1800,8 @@ class Builder:
                         if label == "Set":
                             block["section"] = value
 
+        if spec.get("modOnly") and self.excel is not None:
+            by_group = self.mod_unique_blocks(spec)
         if spec.get("excel") == "set":
             for blocks in by_group.values():
                 for block in blocks:
@@ -1494,11 +1818,11 @@ class Builder:
                 by_group[spec["difficultyGroup"]] = self.build_hireling_blocks(by_group[spec["difficultyGroup"]])
             else:
                 by_group[spec["difficultyGroup"]] = self.group_hireling_sets(by_group[spec["difficultyGroup"]])
-        if spec.get("mythicals"):
+        if spec.get("mythicals") and not spec.get("modOnly"):
             self.add_mythicals(by_group, spec)
-        if spec.get("stringUniques") and self.excel is not None:
+        if spec.get("stringUniques") and self.excel is not None and not spec.get("modOnly"):
             self.add_string_uniques(by_group)
-        if spec.get("excel") == "unique" and self.excel is not None:
+        if spec.get("excel") == "unique" and self.excel is not None and not spec.get("modOnly"):
             self.drop_index_named_duplicates(by_group, spec.get("mythicalGroup"))
         if spec.get("excel") == "unique":
             # Runs after the string-table uniques are added, which take a generic icon otherwise.
@@ -1510,20 +1834,27 @@ class Builder:
         if spec.get("excel") == "unique" and self.excel is not None:
             for group, blocks in by_group.items():
                 for block in blocks:
-                    if self.excel.coupon_only(strip_color(block["title"])):
+                    row = block.get("row")
+                    coupon = self.excel.coupon_only_row(row) if row is not None else self.excel.coupon_only(strip_color(block["title"]))
+                    if coupon:
                         block["tag"] = "(Coupon only)"
                     elif group != spec.get("mythicalGroup"):
-                        info = self.excel.gamble_info(strip_color(block["title"]))
+                        info = self.excel.gamble_info_row(row) if row is not None else self.excel.gamble_info(strip_color(block["title"]))
                         if info and info[0]:
                             # "\\n" is a line break inside the TAG field (the file is one line per record).
                             block["tag"] = "Gamble Item:\\n%s - ilvl: %s" % info
         if spec.get("excel") == "unique" and self.excel is not None:
             self.add_unique_descriptions(by_group)
-        if spec.get("excel") == "unique" and self.excel is not None:
+        if spec.get("excel") == "unique" and self.excel is not None and getattr(self, "audit_path", None) and not spec.get("modOnly"):
+            self.audit_unique_lines(by_group, self.audit_path)
+        if spec.get("modOnly") and self.excel is not None:
+            self.unique_report = list(getattr(self, "mod_unique_report", []))
+        elif spec.get("excel") == "unique" and self.excel is not None:
             self.unique_report = []
             for group in ("Jewel",):
                 if group in by_group:
                     self.rebuild_unique_lines(by_group[group], self.unique_report)
+            self.fix_unique_lines({g: b for g, b in by_group.items() if g != "Jewel"}, self.unique_report)
         if spec.get("excel") in ("unique", "set") and self.excel is not None:
             self.apply_mod_inventory_art(spec["excel"], by_group, spec.get("mythicalGroup"))
             self.mark_tiny_art(spec["excel"], by_group, spec.get("mythicalGroup"))
@@ -1544,12 +1875,25 @@ class Builder:
                              if REQUIRED_LEVEL.search(strip_color(text)) else text)
                             for kind, text in block["lines"]]
                         continue
+                    row = block.get("row")
+                    if row is not None:
+                        code = (row.get("code") or "").strip()
+                        block["tier"] = self.excel.code_tier(code)
+                        block["family"] = self.excel.code_family(code) if group == "Weapon" else ""
+                        try:
+                            block["level"] = int((row.get("lvl req") or "0").strip() or 0)
+                        except ValueError:
+                            block["level"] = 0
+                        continue
                     class_name = CLASS_BY_AMULET_CODE.get(self.excel.code(block["title"]))
                     if class_name:
                         block["lines"] = [(kind, tag_class_skill(text, class_name)) for kind, text in block["lines"]]
                     block["tier"] = self.excel.tier(block["title"])
                     block["family"] = self.excel.family(block["title"]) if group == "Weapon" else ""
                     block["level"] = self.excel.level(block["title"])
+
+        if spec.get("modOnly") and spec.get("excel") == "unique" and self.excel is not None:
+            self.write_web_art_table(by_group)
 
         entries = []
         for group, blocks in by_group.items():
@@ -1562,6 +1906,40 @@ class Builder:
                             "wide": wide, "compact": compact,
                             "sortable": (bool(spec.get("sortable")) or group in (spec.get("sortableGroups") or [])) and not wide})
         self.pages.append({"spec": spec, "entries": entries})
+
+    def write_web_art_table(self, by_group):
+        """data/web-unique-art.txt: what the Uniques (Website) page needs that the website does not give, from
+        the mod's own tables. UNIQUE rows are the art of each unique by its name; BASE rows are the art, tier and
+        weapon family of each base item by its code (the code the website shows beside the base name).
+            UNIQUE <name> <image key> <size flag> <tier> <family>
+            BASE   <code> <image key> <size flag> <tier> <family>"""
+        excel = self.excel
+        unique, base = {}, {}
+        for group, blocks in by_group.items():
+            for block in blocks:
+                row = block.get("row")
+                if row is None:
+                    continue
+                title = strip_color(block["title"]).strip()
+                flag = "small" if block.get("small") else "tiny" if block.get("tiny") else "original" if block.get("original") else ""
+                if block["images"]:
+                    unique.setdefault(title, (block["images"][0], flag, block.get("tier", ""), block.get("family", "")))
+                code = (row.get("code") or "").strip()
+                if code and code not in base:
+                    kind = excel.group_of_code(code)
+                    name = excel.base_names.get(code, "")
+                    base_type = excel.base_types.get(code, "")
+                    art = (self.base_art(kind, code, name) if excel.class_of_code(code) else None) \
+                        or (self.base_icon_art(name, base_type) if name else None) or self.base_art(kind, code, name)
+                    base[code] = (self.note_image(art) if art else "", "tiny" if base_type in self.TINY_ART_TYPES else "",
+                                  excel.code_tier(code), excel.code_family(code) if kind == "Weapon" else "")
+        lines = ["#ESRWEBART\t1"]
+        for title, values in sorted(unique.items()):
+            lines.append("UNIQUE\t%s\t%s" % (title, "\t".join(values)))
+        for code, values in sorted(base.items()):
+            lines.append("BASE\t%s\t%s" % (code, "\t".join(values)))
+        DATA_OUT.mkdir(parents=True, exist_ok=True)
+        (DATA_OUT / "web-unique-art.txt").write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
     # --- rune families ------------------------------------------------------
     TINY_ART_TYPES = {"ring", "amul", "scha", "mcha", "jewl"}   # rings, amulets, small and medium charms, jewels
@@ -1636,6 +2014,10 @@ class Builder:
         base = self.excel.base_name(title)
         if not base:
             return None
+        return self.base_icon_art(base, self.excel.base_type(title))
+
+    def base_icon_art(self, base, base_type):
+        """Inventory icon of a base item, found by its name, its type, or the generic icon of its category."""
         stems = []
         if base.endswith(" Ring"):          # class rings (Nec Ring, Pal Ring, ...) share the ring icon
             stems.append("ring")
@@ -1644,7 +2026,6 @@ class Builder:
         if base == "Magic Bolts":
             stems.append("bolts")
         stems.append(unique_key(base))
-        base_type = self.excel.base_type(title)
         stems.append(base_type)                    # icon named after the base type, e.g. "axe"
         stems.append(TYPE_ICON_STEM.get(base_type, ""))  # generic icon for the category
         for stem in stems:
@@ -1969,6 +2350,9 @@ def load_cube_page(page_id):
         elif tag == "LINE" and len(fields) >= 3 and fields[1] == "R" and entries:
             # Recipe tables: back to the "input  ->  output" text the wiki pages were built from.
             recipe_in, _, recipe_out = fields[2].partition(TABLE_SEPARATOR)
+            # Cells hold one ingredient or result per line (U+001E); the wiki pages want them joined with " + ".
+            recipe_in = recipe_in.replace("\x1e", " + ")
+            recipe_out = recipe_out.replace("\x1e", " + ")
             entries[-1][1].append(f"{recipe_in}  ->  {recipe_out}")
     return entries
 
@@ -2242,6 +2626,7 @@ def arrange_ascendancy_page(page):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    parser.add_argument("--audit-uniques", help="write a report of how unique stat lines differ from uniqueitems.txt")
     parser.add_argument("--excel", help="the mod's data/global/excel folder (adds item fields)")
     parser.add_argument("--mod-strings", help="the mod's data/local/lng/strings folder (skill display names for item lines;"
                                               " found from --sprite-root when omitted)")
@@ -2270,6 +2655,7 @@ def main():
         # The mod's string tables (skill display names) sit beside hd/: data/local/lng/strings.
         guess = Path(args.sprite_root).resolve().parents[2] / "local" / "lng" / "strings"
         builder.strings_folder = args.mod_strings or (str(guess) if guess.is_dir() else None)
+        builder.audit_path = args.audit_uniques
     if args.base_ui_root:
         # The mod's files win; the base game supplies art the mod does not override.
         for stem, rel in load_sprite_index(args.base_ui_root).items():
@@ -2347,10 +2733,21 @@ def main():
                     lod = "\tlod" if excel is not None and excel.is_lod_rune(code) else ""
                     out.append(f"RUNE\t{key}\t{text_out(label)}{lod}")
                 for kind, text in block["lines"]:
-                    out.append(f"LINE\t{kind}\t{text_out(text)}")
+                    # A long run of spaces is the mod's way of pushing text onto a new line; start one.
+                    for part in (re.split(r" {5,}", text) if kind == "T" else [text]):
+                        if part.strip():
+                            out.append(f"LINE\t{kind}\t{text_out(part.strip()).replace(chr(45) * 2, chr(45)) if kind == 'S' else text_out(part.strip())}")
                 if block.get("note"):
                     out.append(f"NOTE\t{text_out(block['note'])}")
     (DATA_OUT / "wiki-data.txt").write_text("\n".join(out) + "\n", encoding="utf-8", newline="\n")
+    # The Uniques page shown is the one built from the saved website pages. The mod-built page (a check of the mod's
+    # own tables, not shipped) is kept beside it as wiki-data.mod-uniques.txt.
+    web_pages = DATA_OUT / "website-uniques"
+    if web_pages.is_dir():
+        import web_uniques
+        shutil.copyfile(DATA_OUT / "wiki-data.txt", DATA_OUT / "wiki-data.mod-uniques.txt")
+        if web_uniques.main(["web_uniques.py", str(web_pages), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website uniques: not used, the mod-built Uniques page stays")
 
     for key, path in sorted(builder.custom_art.items()):
         (DATA_OUT / "images").mkdir(exist_ok=True)

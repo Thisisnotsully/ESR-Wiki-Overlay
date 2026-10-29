@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.2.0 (source)
+# ESR Wiki Overlay 1.3.0 (source)
 
 Source for the ESR Wiki overlay plugin for Diablo II Resurrected (Eastern Sun Resurrected),
 loaded by D2RLoader. It contains the C++ overlay, the Python tools that generate its data,
@@ -23,11 +23,14 @@ src/
   plugin.cpp          D2RLoader entry points, the eswiki command and bindable action
 tests/
   wiki_model_test.cpp portable model tests
+  cube_live_test.cpp  checks the C++ cube page reader against tests/cube_live/ (a saved copy of the page and the
+                      output the Python tools give for it)
   test_extract.py      extractor tests (unittest)
 tools/
   extract_wiki.py      builds data/wiki-data.txt from the mod's layout JSON and Excel tables
-  build_cube.py        builds data/cube-data.txt from the cube recipe source
+  build_cube.py        builds data/cube-data.txt from the cube recipes web page (saved HTML, or the live page)
   build_cube_wiki.py   builds data/cube-wiki-data.txt from cube-data.txt
+  web_uniques.py       builds the Uniques page from the website pages in data/website-uniques/ (the C++ twin is src/web_uniques_live.cpp)
   runeword_gen.py, runeword_desc.py   stat and description lines for runeword and gemword cards (from runes.txt, gems.txt)
   make_cursor.py       builds src/cursor_art.hpp (the fallback gauntlet cursor, from ohand; the overlay uses the game's own cursor when it can)
   make_runeword_art.py one-time export of the runeword card art to data/runeword-art.json
@@ -101,6 +104,22 @@ Mythical and non-spawnable uniques never get it.
 The Hireling category of the Set Items page is built from setitems.txt and sets.txt (the rows whose set
 ends in -N, -NM or -H), laid out like the Warlock sets: a header for each set and difficulty, its pieces,
 then its set bonus card, in Normal, Nightmare, Hell order. It can be filtered by difficulty.
+
+## Cube recipes from the website
+`src/cube_live.cpp` reads the cube recipes page (HTML) and writes the same data as `tools/build_cube.py` plus
+`tools/build_cube_wiki.py`; `src/cube_updater.cpp` downloads it (WinHTTP, conditional request, cached next to the data,
+rechecked every six hours) and the plugin swaps the result into the Horadric Cube window. The grouping rules (which site
+tabs make which page, class crafting left out of Legacy Craft) exist in both places; if the page changes, update both and
+refresh `tests/cube_live/` (save the page there as cube-recipes-page.html and rerun the Python tools to rewrite
+cube-wiki-data.expected.txt). `scripts/publish-overlay.ps1` rebuilds the shipped cube data from the live page
+(skip with -SkipCubeRefresh). A file named `cube-live-disabled.txt` in the data folder turns the in-game check off.
+
+## Uniques from the website
+The Uniques page is built from unique_others/weapons/armors/mythicals.htm. `tools/web_uniques.py` does it at publish time
+(`scripts/publish-overlay.ps1` downloads the pages into data/website-uniques/; skip with -SkipWebsiteUniques), and
+`src/web_uniques_live.cpp` with `src/web_uniques_updater.cpp` redo it in the game (rechecked every six hours, cached next to
+the data). Art, tier and weapon family come from data/web-unique-art.txt. A file named `uniques-live-disabled.txt` in the
+data folder turns the in-game check off. Both parsers must agree; `web_uniques_live_test` checks that.
 
 ## Known limits
 

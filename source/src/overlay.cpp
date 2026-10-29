@@ -18,6 +18,7 @@
 
 #include <algorithm>
 #include <atomic>
+#include <mutex>
 #include <set>
 #include <cmath>
 #include <cstdlib>
@@ -42,24 +43,48 @@ constexpr int kIdSearch = 1001;
 constexpr UINT kMsgToggle = WM_APP + 1;
 constexpr UINT kMsgShutdown = WM_APP + 2;
 constexpr UINT kMsgOpen = WM_APP + 3;
+constexpr UINT kMsgReload = WM_APP + 4;  // swap in a new database (see Overlay::ReplaceDatabase)
 constexpr UINT_PTR kTimerFocus = 1;
+constexpr UINT_PTR kTimerHandoff = 2;
+constexpr UINT kHandoffPollMs = 8;
+constexpr ULONGLONG kHandoffTimeoutMs = 600;
+// Foreground window to return to, handed from one overlay to the other when switching panels.
+HWND gHandoffForeground = nullptr;
+// While a panel switch is in progress the incoming panel's backdrop starts invisible and is raised
+// only when the outgoing one goes, so the two never dim the game twice over.
+std::atomic<bool> gHandoffActive{false};
+// Set by the incoming panel once it is visible and painted; the outgoing panel hides only after that.
+std::atomic<bool> gHandoffReady{false};
+std::atomic<HWND> gHandoffBlocker{nullptr};
 constexpr UINT kMsgCursorShow = WM_APP + 10;  // to the cursor thread
 constexpr UINT kMsgCursorHide = WM_APP + 11;
 constexpr UINT kTimerInterval = 150;
-constexpr BYTE kBlockerAlpha = 110;  // how strongly the game is dimmed while the overlay is open
+// The background picture has its own frame. These are the sizes of its parts, in the picture's own pixels:
+// the frame on the left, right and bottom, and the header band on top, whose last row is a light line.
+constexpr int kFrameSlice = 22;
+constexpr int kHeaderSlice = 128;
 
-constexpr COLORREF kBackground = RGB(14, 14, 14);
-constexpr COLORREF kPanel = RGB(26, 26, 26);
-constexpr COLORREF kSwitchGreen = RGB(22, 62, 32);  // the Main Wiki / Cube Recipes switch button
-constexpr COLORREF kTile = RGB(22, 22, 22);
-constexpr COLORREF kSearchFill = RGB(42, 42, 42);
-constexpr COLORREF kSelected = RGB(62, 62, 62);
-constexpr COLORREF kBorder = RGB(84, 84, 84);
-constexpr COLORREF kGold = RGB(212, 212, 212);  // headers and accents: light grey
-constexpr COLORREF kHeaderGold = RGB(220, 198, 132);  // tab titles, category titles and section headings
-constexpr COLORREF kText = RGB(238, 238, 238);
-constexpr COLORREF kDim = RGB(150, 150, 150);
-constexpr COLORREF kBody = RGB(216, 216, 216);
+constexpr BYTE kBlockerAlpha = 1;  // practically clear; keep above 0 so the layer still catches clicks meant for the game
+
+void ReleaseHandoffBlocker() {
+    gHandoffActive = false;
+    const HWND next = gHandoffBlocker.exchange(nullptr);
+    if (next != nullptr && IsWindow(next)) SetLayeredWindowAttributes(next, 0, kBlockerAlpha, LWA_ALPHA);
+}
+
+// Palette taken from the Eastern Sun Resurrected launcher: near-black warm brown panels, thin bronze borders,
+// gold headings, cream text and a muted tan for labels.
+constexpr COLORREF kBackground = RGB(12, 8, 5);
+constexpr COLORREF kPanel = RGB(24, 17, 11);
+constexpr COLORREF kTile = RGB(20, 14, 9);
+constexpr COLORREF kSearchFill = RGB(38, 28, 18);
+constexpr COLORREF kSelected = RGB(64, 46, 22);
+constexpr COLORREF kBorder = RGB(122, 92, 48);
+constexpr COLORREF kGold = RGB(224, 182, 96);  // headers and accents: launcher gold
+constexpr COLORREF kHeaderGold = RGB(208, 166, 82);  // tab titles, category titles and section headings
+constexpr COLORREF kText = RGB(244, 236, 220);
+constexpr COLORREF kDim = RGB(168, 152, 124);
+constexpr COLORREF kBody = RGB(228, 218, 198);
 
 std::wstring Wide(const std::string& utf8) {
     if (utf8.empty()) return std::wstring();
@@ -133,6 +158,8 @@ struct Chip {
 
 struct Layout {
     std::vector<RECT> tabs;  // one per page, in database order
+    RECT title{};      // the window title, in the header band
+    int separatorY = 0;  // where the background picture's header line is drawn
     RECT close{};
     RECT search{};
     RECT clearQuery{};  // the X beside the search box; clears the query
@@ -169,6 +196,19 @@ bool Inside(const RECT& rect, int x, int y) {
 RECT Rect(int left, int top, int right, int bottom) {
     RECT rect{left, top, right, bottom};
     return rect;
+}
+
+// The frame drawn for the search box: from the left edge to the clear button.
+RECT SearchBoxRect(const Layout& layout) {
+    return Rect(layout.search.left, layout.search.top, layout.clearQuery.left, layout.search.bottom);
+}
+
+// The edit control sits inside that frame, one text line tall and centred vertically, because a
+// single-line edit control always draws its text and caret at the top of its client area.
+RECT SearchEditRect(const Layout& layout, int lineHeight, int pad) {
+    const RECT box = SearchBoxRect(layout);
+    const int top = box.top + (box.bottom - box.top - lineHeight) / 2;
+    return Rect(box.left + 1 + pad, top, box.right - 1 - pad, top + lineHeight);
 }
 
 int Bounded(int value, int low, int high) { return value < low ? low : (value > high ? high : value); }
@@ -279,7 +319,7 @@ struct RunePiece { std::wstring text; COLORREF color; bool named; bool colored =
 
 // The search text being highlighted, lower-case; empty when nothing is searched.
 std::wstring gHighlight;
-constexpr COLORREF kHighlightFill = RGB(96, 74, 18);
+constexpr COLORREF kHighlightFill = RGB(104, 74, 20);
 
 std::wstring LowerWide(std::wstring s) {
     for (wchar_t& c : s) {
@@ -852,7 +892,7 @@ void RenderCursorImage(HWND window) {
 // Click-through window that draws the game's cursor at the pointer. It lives on its own thread (CursorThread),
 // so repaints of the wiki cannot delay it.
 LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
-    static bool wanted = false;  // the wiki is open; only this thread reads or writes it
+    thread_local bool wanted = false;  // the wiki is open; only this thread reads or writes it
     switch (message) {
     case kMsgCursorShow:
         wanted = true;
@@ -870,7 +910,7 @@ LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         ShowWindow(window, SW_HIDE);
         return 0;
     case WM_TIMER: {
-        static int polls = 0;
+        thread_local int polls = 0;
         if (!wanted && ++polls % 5 == 0) RememberGameCursor();  // about every 40 ms while the wiki is closed
         const bool show = wanted && OwnWindowInFront();
         if (show && !IsWindowVisible(window)) {
@@ -917,6 +957,9 @@ LRESULT CALLBACK BlockerProc(HWND window, UINT message, WPARAM wParam, LPARAM lP
 struct OverlayState {
     std::function<bool(unsigned int)> isCloseKey;  // see Overlay::SetCloseKey
     const Database* database = nullptr;
+    std::mutex pendingLock;                  // guards pendingDb
+    std::unique_ptr<Database> pendingDb;     // handed over by ReplaceDatabase, taken on the UI thread
+    std::unique_ptr<Database> ownedDb;       // the database now shown, when it came from ReplaceDatabase
     std::wstring dataDir;
     HANDLE thread = nullptr;
     HANDLE ready = nullptr;
@@ -928,6 +971,7 @@ struct OverlayState {
     HGDIOBJ backgroundPrevious = nullptr;
     int backgroundWidth = 0;
     int backgroundHeight = 0;
+    int backgroundSplit = 0;  // header line position the cached background was built for
     POINT lastCursor{-1, -1};
     HANDLE cursorThread = nullptr;
     DWORD cursorThreadId = 0;
@@ -939,6 +983,11 @@ struct OverlayState {
     HFONT fontBold = nullptr;
     HFONT fontTitle = nullptr;
     HBRUSH searchBrush = nullptr;
+    HBRUSH backgroundBrush = nullptr;
+    bool firstPainted = false;   // false until the current show has painted once
+    ULONGLONG handoffStarted = 0;
+    bool handoffSettled = false;
+    bool handingOff = false;     // the other panel is taking over; this one is waiting to hide
     int dpi = 96;
     double uiScale = 1.0;  // font and text scale from the window size, on top of DPI
     int bodyLine = 16;     // line heights in pixels for the current fonts
@@ -1002,6 +1051,9 @@ struct OverlayState {
     void StepMatch(int direction);
     void Show();
     void Hide();
+    void ApplyPendingDatabase();
+    void FinishHandoff();
+    void HandoffTick();
     void Toggle();
     void SyncVisibility();
     void ShowBlocker(bool show);
@@ -1051,7 +1103,7 @@ struct OverlayState {
     int RenderDetail(HDC dc, const Entry& entry, const std::vector<std::size_t>& order, bool headers, int top,
                      int scroll, bool compact, bool draw);
     void DrawImageKey(Gdiplus::Graphics& graphics, const std::string& key, RECT box);
-    void DrawBackground(Gdiplus::Graphics& graphics, RECT client);
+    void DrawBackground(Gdiplus::Graphics& graphics, RECT client, int headerLineY);
     void EnsureBackgroundCache(HDC target, int width, int height);
     void ReleaseBackgroundCache();
     void DrawTooltip(HDC dc);
@@ -1127,7 +1179,8 @@ void OverlayState::ApplyFonts() {
 Layout OverlayState::ComputeLayout() {
     Layout computed;
     const auto& pages = database->pages;
-    const int margin = S(16);
+    // Content sits inside the background picture's frame, with room to breathe.
+    const int margin = kFrameSlice + S(10);
 
     // Pages are grouped into tab rows by their group name, in order of appearance.
     std::vector<std::string> rowNames;
@@ -1144,51 +1197,71 @@ Layout OverlayState::ComputeLayout() {
     std::vector<int> pagesInRow(rowNames.size(), 0);
     for (int row : rowOfPage) ++pagesInRow[static_cast<std::size_t>(row)];
 
+    // One spacing scale: 16 outer margin, 8 between neighbouring blocks, 4 between rows inside a block.
+    const int gap = S(8);
+    const int tight = S(4);
+    const int right = width - margin;
+
+    // Header: the switch and close buttons share one band, right-aligned with the tabs.
+    const int headerTop = kFrameSlice + S(8);  // clear of the picture's top frame, which grows with the window
+    const int headerHeight = S(28);
+    computed.close = Rect(right - S(32), headerTop, right, headerTop + headerHeight);
+    computed.switchButton = Rect(computed.close.left - gap - S(140), headerTop, computed.close.left - gap, headerTop + headerHeight);
+    computed.title = Rect(margin, headerTop, computed.switchButton.left - gap, headerTop + headerHeight);
+
+    // Tabs: full width between the margins, equal gaps across and down.
     const int tabRowHeight = std::max(S(30), bodyLine + S(10));
-    const int tabRowGap = S(4);
-    const int tabTop = S(44);
+    const int tabGap = gap;
+    const int tabTop = headerTop + headerHeight + gap;
     computed.tabs.resize(pages.size());
     std::vector<int> seenInRow(rowNames.size(), 0);
     for (std::size_t i = 0; i < pages.size(); ++i) {
         const auto row = static_cast<std::size_t>(rowOfPage[i]);
         const int count = pagesInRow[row];
         const int column = seenInRow[row]++;
-        const int tabWidth = (width - 2 * margin - S(5) - (count - 1) * S(6)) / count;  // right edge 5px in
-        const int top = tabTop + static_cast<int>(row) * (tabRowHeight + tabRowGap);
-        const int left = margin + column * (tabWidth + S(6));
-        computed.tabs[i] = Rect(left, top, left + tabWidth, top + tabRowHeight);
+        const int span = right - margin - (count - 1) * tabGap;
+        const int left = margin + span * column / count + column * tabGap;
+        const int tabRight = margin + span * (column + 1) / count + column * tabGap;
+        const int top = tabTop + static_cast<int>(row) * (tabRowHeight + tabGap);
+        computed.tabs[i] = Rect(left, top, tabRight, top + tabRowHeight);
     }
 
-    const int contentTop = tabTop + static_cast<int>(rowNames.size()) * (tabRowHeight + tabRowGap) + S(8);
-    // The category list is 15% narrower than before; the detail panel takes the space and starts 5px further left.
+    const int contentTop = tabTop + static_cast<int>(rowNames.size()) * (tabRowHeight + tabGap);
+    computed.separatorY = contentTop - tabGap / 2;  // the picture's header line sits between the tabs and the content
+    const int bottom = height - margin;
     const int listWidth = Bounded(static_cast<int>(S(340) * uiScale), S(260), std::max(S(260), width * 38 / 100)) * 85 / 100 * 70 / 100;
-    const int rowHeight = std::max(S(48), boldLine * 2 + S(10));
-    const int rowGap = S(2);
-    const int pagingHeight = std::max(S(30), bodyLine + S(10));
-    const int pagingGap = S(6);
-    const int listTop = contentTop + S(56);
-    const int bottom = height - S(12);
-    rowsPerPage = std::max(3, (bottom - pagingGap - pagingHeight - listTop) / rowHeight);
+    const int listRight = margin + listWidth;
 
-    // Close lines up with the right edge of the tabs; the switch button sits beside it.
-    const int tabsRight = width - margin - S(5);
-    computed.close = Rect(tabsRight - S(32), S(14), tabsRight, S(42));
-    computed.switchButton = Rect(tabsRight - S(182), S(14), tabsRight - S(42), S(42));
-    computed.search = Rect(margin, contentTop, margin + listWidth, contentTop + S(26));
-    computed.clearQuery = Rect(margin + listWidth - S(26), contentTop, margin + listWidth, contentTop + S(26));
-    // The count row leaves room on its right for the previous and next match buttons.
-    computed.count = Rect(margin, contentTop + S(30), margin + listWidth - S(50), contentTop + S(50));
-    computed.matchPrev = Rect(margin + listWidth - S(44), contentTop + S(30), margin + listWidth - S(22), contentTop + S(50));
-    computed.matchNext = Rect(margin + listWidth - S(20), contentTop + S(30), margin + listWidth, contentTop + S(50));
+    // List column: search, match count and buttons, rows, then paging pinned to the bottom edge.
+    // Tall enough for the body font plus the control border, so the text caret fits inside the box.
+    const int searchHeight = std::max(S(28), bodyLine + S(10));
+    const int countHeight = S(22);
+    const int buttonWidth = S(24);
+    const int countTop = contentTop + searchHeight + tight;
+    computed.search = Rect(margin, contentTop, listRight, contentTop + searchHeight);
+    computed.clearQuery = Rect(listRight - searchHeight, contentTop, listRight, contentTop + searchHeight);
+    computed.matchNext = Rect(listRight - buttonWidth, countTop, listRight, countTop + countHeight);
+    computed.matchPrev = Rect(computed.matchNext.left - tight - buttonWidth, countTop,
+                              computed.matchNext.left - tight, countTop + countHeight);
+    computed.count = Rect(margin, countTop, computed.matchPrev.left - tight, countTop + countHeight);
+
+    const int rowHeight = std::max(S(48), boldLine * 2 + S(10));
+    const int rowGap = tight;
+    const int pagingHeight = std::max(S(30), bodyLine + S(10));
+    const int listTop = countTop + countHeight + gap;
+    const int pagingTop = bottom - pagingHeight;
+    rowsPerPage = std::max(3, (pagingTop - gap - listTop + rowGap) / (rowHeight + rowGap));
     for (int i = 0; i < rowsPerPage; ++i) {
-        const int top = listTop + i * rowHeight;
-        computed.rows.push_back(Rect(margin, top, margin + listWidth, top + rowHeight - rowGap));
+        const int top = listTop + i * (rowHeight + rowGap);
+        computed.rows.push_back(Rect(margin, top, listRight, top + rowHeight));
     }
-    const int pagingTop = listTop + rowsPerPage * rowHeight + pagingGap;
-    computed.prev = Rect(margin, pagingTop, margin + S(80), pagingTop + pagingHeight);
-    computed.pageLabel = Rect(margin + S(84), pagingTop, margin + listWidth - S(84), pagingTop + pagingHeight);
-    computed.next = Rect(margin + listWidth - S(80), pagingTop, margin + listWidth, pagingTop + pagingHeight);
-    computed.detail = Rect(margin + listWidth + S(24) - S(5), contentTop, width - margin - S(5), height - margin);
+    const int pagingButton = S(80);
+    computed.prev = Rect(margin, pagingTop, margin + pagingButton, bottom);
+    computed.next = Rect(listRight - pagingButton, pagingTop, listRight, bottom);
+    computed.pageLabel = Rect(computed.prev.right + gap, pagingTop, computed.next.left - gap, bottom);
+
+    // Detail pane: one margin right of the list, same top and bottom edges as the list column.
+    computed.detail = Rect(listRight + margin, contentTop, right, bottom);
     return computed;
 }
 
@@ -1236,8 +1309,8 @@ void OverlayState::FitToGame() {
     }
     layout = ComputeLayout();
     if (IsWindow(search)) {
-        MoveWindow(search, layout.search.left, layout.search.top, layout.search.right - layout.search.left - S(26),
-                   layout.search.bottom - layout.search.top, TRUE);
+        const RECT edit = SearchEditRect(layout, bodyLine, S(6));
+        MoveWindow(search, edit.left, edit.top, edit.right - edit.left, edit.bottom - edit.top, TRUE);
     }
 }
 
@@ -1252,26 +1325,48 @@ Gdiplus::Bitmap* OverlayState::FindImage(const std::string& key) {
     return raw;
 }
 
-// Background art: cover-fit to the window and centred, with a dark tint so text stays readable.
-void OverlayState::DrawBackground(Gdiplus::Graphics& graphics, RECT client) {
+// Background art: the picture's frame is drawn at its own pixel size and only the middle is stretched, so the
+// frame stays thin at any window size. The picture's header band is stretched so its bottom line lands at
+// `headerLineY`, between the tabs and the content. A dark tint keeps the text readable.
+void OverlayState::DrawBackground(Gdiplus::Graphics& graphics, RECT client, int headerLineY) {
     Gdiplus::Bitmap* bitmap = FindImage("background");
     const int areaWidth = client.right - client.left;
     const int areaHeight = client.bottom - client.top;
     if (bitmap == nullptr || areaWidth <= 0 || areaHeight <= 0) return;
-    const double imageWidth = bitmap->GetWidth();
-    const double imageHeight = bitmap->GetHeight();
-    if (imageWidth <= 0 || imageHeight <= 0) return;
-    const double scale = std::max(areaWidth / imageWidth, areaHeight / imageHeight);
-    const int drawWidth = static_cast<int>(imageWidth * scale);
-    const int drawHeight = static_cast<int>(imageHeight * scale);
-    graphics.DrawImage(bitmap, (areaWidth - drawWidth) / 2, (areaHeight - drawHeight) / 2, drawWidth, drawHeight);
+    const int sourceWidth = static_cast<int>(bitmap->GetWidth());
+    const int sourceHeight = static_cast<int>(bitmap->GetHeight());
+    const int side = std::min(kFrameSlice, sourceWidth / 4);
+    const int headerSource = std::min(kHeaderSlice, sourceHeight / 2);
+    const int footer = side;
+    if (sourceWidth <= 0 || sourceHeight <= 0 || areaWidth < 4 * side || areaHeight < headerSource / 2 + 3 * side) return;
+    const int headerDest = std::clamp(headerLineY + 1, side, areaHeight - footer - side);
+
+    const int sourceX[4] = {0, side, sourceWidth - side, sourceWidth};
+    const int sourceY[4] = {0, headerSource, sourceHeight - footer, sourceHeight};
+    const int destX[4] = {0, side, areaWidth - side, areaWidth};
+    const int destY[4] = {0, headerDest, areaHeight - footer, areaHeight};
+
+    Gdiplus::ImageAttributes attributes;
+    attributes.SetWrapMode(Gdiplus::WrapModeTileFlipXY);  // no seams where the pieces meet
+    graphics.SetPixelOffsetMode(Gdiplus::PixelOffsetModeHalf);
+    graphics.SetInterpolationMode(Gdiplus::InterpolationModeHighQualityBicubic);
+    for (int row = 0; row < 3; ++row) {
+        for (int column = 0; column < 3; ++column) {
+            graphics.DrawImage(bitmap,
+                               Gdiplus::Rect(destX[column], destY[row], destX[column + 1] - destX[column],
+                                             destY[row + 1] - destY[row]),
+                               sourceX[column], sourceY[row], sourceX[column + 1] - sourceX[column],
+                               sourceY[row + 1] - sourceY[row], Gdiplus::UnitPixel, &attributes);
+        }
+    }
     Gdiplus::SolidBrush tint(Gdiplus::Color(150, 14, 14, 14));
     graphics.FillRectangle(&tint, 0, 0, areaWidth, areaHeight);
 }
 
 // Builds the background once for the current window size, so repaints only copy it.
 void OverlayState::EnsureBackgroundCache(HDC target, int areaWidth, int areaHeight) {
-    if (backgroundBitmap != nullptr && areaWidth == backgroundWidth && areaHeight == backgroundHeight) return;
+    if (backgroundBitmap != nullptr && areaWidth == backgroundWidth && areaHeight == backgroundHeight &&
+        layout.separatorY == backgroundSplit) return;
     ReleaseBackgroundCache();
     backgroundDc = CreateCompatibleDC(target);
     backgroundBitmap = CreateCompatibleBitmap(target, areaWidth, areaHeight);
@@ -1280,8 +1375,9 @@ void OverlayState::EnsureBackgroundCache(HDC target, int areaWidth, int areaHeig
     FillColor(backgroundDc, rect, kBackground);
     {
         Gdiplus::Graphics graphics(backgroundDc);
-        DrawBackground(graphics, rect);
+        DrawBackground(graphics, rect, layout.separatorY);
     }
+    backgroundSplit = layout.separatorY;
     backgroundWidth = areaWidth;
     backgroundHeight = areaHeight;
 }
@@ -1418,8 +1514,18 @@ void OverlayState::MovePage(int direction) {
 }
 
 void OverlayState::Show() {
+    if (handingOff) {  // switched back before the handoff finished
+        KillTimer(window, kTimerHandoff);
+        handingOff = false;
+        ReleaseHandoffBlocker();
+    }
     open = true;
-    previousForeground = GetForegroundWindow();
+    if (gHandoffForeground != nullptr) {
+        previousForeground = gHandoffForeground;
+        gHandoffForeground = nullptr;
+    } else {
+        previousForeground = GetForegroundWindow();
+    }
     FitToGame();
     SyncVisibility();
     if (IsWindowVisible(window)) {
@@ -1427,10 +1533,49 @@ void OverlayState::Show() {
         SetFocus(search);
     }
     InvalidateRect(window, nullptr, FALSE);
+    if (IsWindowVisible(window)) {
+        UpdateWindow(window);  // painted before the outgoing panel is allowed to hide
+        gHandoffReady = true;
+    }
+}
+
+// Called after the other panel has had time to appear: hides this panel and its blocker.
+// Polls until the incoming panel reports it is painted, waits one more tick so the compositor has
+// presented it, then lets this panel go. A timeout keeps a failed handoff from leaving a stuck panel.
+void OverlayState::HandoffTick() {
+    if (!handingOff) {
+        KillTimer(window, kTimerHandoff);
+        return;
+    }
+    const bool timedOut = GetTickCount64() - handoffStarted > kHandoffTimeoutMs;
+    if (!timedOut) {
+        if (!gHandoffReady.load()) return;
+        if (!handoffSettled) {
+            handoffSettled = true;
+            return;
+        }
+    }
+    FinishHandoff();
+}
+
+void OverlayState::FinishHandoff() {
+    KillTimer(window, kTimerHandoff);
+    if (!handingOff) return;
+    handingOff = false;
+    ReleaseHandoffBlocker();
+    ShowBlocker(false);
+    ShowWindow(window, SW_HIDE);
+    firstPainted = false;
 }
 
 void OverlayState::Hide() {
+    if (handingOff) {
+        KillTimer(window, kTimerHandoff);
+        handingOff = false;
+        ReleaseHandoffBlocker();
+    }
     open = false;
+    firstPainted = false;
     EndDrag();
     ClearHover();
     ShowBlocker(false);
@@ -1438,6 +1583,30 @@ void OverlayState::Hide() {
     if (previousForeground != nullptr && previousForeground != window && IsWindow(previousForeground)) {
         SetForegroundWindow(previousForeground);
     }
+}
+
+// Swaps in the database handed over by Overlay::ReplaceDatabase. Runs on the UI thread only, so nothing
+// is drawing while the pointers change. Everything that points into the old data is dropped.
+void OverlayState::ApplyPendingDatabase() {
+    std::unique_ptr<Database> next;
+    {
+        std::lock_guard<std::mutex> guard(pendingLock);
+        next = std::move(pendingDb);
+    }
+    if (!next || next->pages.empty()) return;
+    EndDrag();
+    ClearHover();
+    detailHits.clear();
+    tableHeightCache.clear();
+    arrangeKey = ArrangeKey{};
+    ownedDb = std::move(next);
+    database = ownedDb.get();
+    views.assign(database->pages.size(), PageView{});
+    if (pageIndex >= database->pages.size()) pageIndex = 0;
+    hasPendingSelect = false;
+    FitToGame();  // the tab layout depends on the pages
+    Refilter();
+    InvalidateRect(window, nullptr, FALSE);
 }
 
 void OverlayState::Toggle() {
@@ -1458,7 +1627,11 @@ void OverlayState::ShowBlocker(bool show) {
     }
     if (IsWindow(gameWindow) && GetWindow(blocker, GW_OWNER) != gameWindow)
         SetWindowLongPtrW(blocker, GWLP_HWNDPARENT, reinterpret_cast<LONG_PTR>(gameWindow));
+    // Shown fully transparent and then faded to its strength, so the first frame is never opaque black.
+    SetLayeredWindowAttributes(blocker, 0, 0, LWA_ALPHA);
     SetWindowPos(blocker, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_SHOWWINDOW);
+    if (gHandoffActive) gHandoffBlocker = blocker;  // raised when the outgoing panel lets go
+    else SetLayeredWindowAttributes(blocker, 0, kBlockerAlpha, LWA_ALPHA);
 }
 
 // Runs on a timer. The overlay is owned by the game window, so it stays above the
@@ -1476,6 +1649,7 @@ void OverlayState::SyncVisibility() {
         if (GetWindow(window, GW_OWNER) != gameWindow)
             SetWindowLongPtrW(window, GWLP_HWNDPARENT, reinterpret_cast<LONG_PTR>(gameWindow));
     }
+    if (handingOff) return;  // the other panel is taking over; FinishHandoff hides this one
     const bool shouldShow = open && gameActive;
     const bool shown = IsWindowVisible(window) != FALSE;
     if (!shouldShow) {
@@ -1484,13 +1658,19 @@ void OverlayState::SyncVisibility() {
             ClearHover();
             ShowBlocker(false);
             ShowWindow(window, SW_HIDE);
+            firstPainted = false;
         }
         return;
     }
     if (!shown) {
         FitToGame();
         ShowBlocker(true);
+        // Shown fully transparent, painted once, then made opaque: no unpainted frame is ever visible.
+        SetLayeredWindowAttributes(window, 0, 0, LWA_ALPHA);
         SetWindowPos(window, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_SHOWWINDOW);
+        InvalidateRect(window, nullptr, FALSE);
+        UpdateWindow(window);
+        SetLayeredWindowAttributes(window, 0, 255, LWA_ALPHA);
     } else if (IsWindow(gameWindow)) {
         const RECT game = GameScreenRect(gameWindow);
         if (game.left != fittedGameRect.left || game.top != fittedGameRect.top ||
@@ -1668,14 +1848,14 @@ void OverlayState::DrawTooltip(HDC dc) {
     const int visibleHeight = std::min(totalHeight, static_cast<int>(client.bottom) - top - S(8));
     const RECT box = Rect(left, top, left + tipWidth, top + visibleHeight);
     // Tooltips sit on a see-through black so the wiki behind them still shows.
-    FillPanel(dc, box, RGB(0, 0, 0), 204);
+    FillPanel(dc, box, RGB(10, 7, 4), 214);
     FrameColor(dc, box, kGold);
     const int saved = SaveDC(dc);
     IntersectClipRect(dc, box.left, box.top, box.right, box.bottom);
     int y = top + S(8);
     for (std::size_t i = 0; i < rows.size(); ++i) {
-        const RECT target = Rect(left + S(12), y, left + tipWidth - S(12), y + heights[i]);
-        Text(dc, rows[i].text, target, rows[i].color, rows[i].font, DT_LEFT | DT_WORDBREAK | DT_NOPREFIX);
+        const RECT lineRect = Rect(left + S(12), y, left + tipWidth - S(12), y + heights[i]);
+        Text(dc, rows[i].text, lineRect, rows[i].color, rows[i].font, DT_LEFT | DT_WORDBREAK | DT_NOPREFIX);
         y += heights[i] + gap;
     }
     RestoreDC(dc, saved);
@@ -1728,9 +1908,23 @@ void OverlayState::HandleClick(int x, int y) {
         return;
     }
     if (!switchLabel.empty() && Inside(layout.switchButton, x, y)) {
-        // Hide this overlay first so the other one takes over cleanly.
-        Hide();
-        if (onSwitch) onSwitch();
+        // The other panel opens while this one stays up, and this one hides once the other has
+        // painted, so the dimmed backdrop and the cursor never drop out in between.
+        open = false;
+        EndDrag();
+        ClearHover();
+        if (onSwitch) {
+            handingOff = true;
+            gHandoffActive = true;
+            gHandoffReady = false;
+            handoffStarted = GetTickCount64();
+            handoffSettled = false;
+            gHandoffForeground = previousForeground;
+            onSwitch();
+            SetTimer(window, kTimerHandoff, kHandoffPollMs, nullptr);
+        } else {
+            Hide();
+        }
         return;
     }
     if (Inside(layout.close, x, y)) {
@@ -1825,8 +2019,8 @@ void OverlayState::PaintList(HDC dc) {
         const bool selected = position == view.selected;
         FillPanel(dc, row, selected ? kSelected : kPanel, 185);
         if (selected) FrameColor(dc, row, kGold);
-        const RECT titleRect = Rect(row.left + S(10), row.top + S(5), row.right - S(10), row.bottom - S(2));
-        Text(dc, Wide(entry.title), titleRect, kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK);
+        const RECT titleRect = Rect(row.left + S(12), row.top + S(4), row.right - S(12), row.bottom - S(4));
+        Text(dc, Wide(entry.title), titleRect, kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK | DT_VCENTER);
     }
 
     const std::wstring pageText = L"Page " + std::to_wstring(view.listPage + 1) + L" of " + std::to_wstring(pages);
@@ -1875,7 +2069,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
                                       [](const Block& block) { return !block.tier.empty(); });
     const bool hasFamilies = std::any_of(entry.blocks.begin(), entry.blocks.end(),
                                          [](const Block& block) { return !block.family.empty(); });
-    if (!runes && !entry.sortable && !hasTiers && !hasFamilies) return layout.detail.top + S(12);
+    if (!runes && !entry.sortable && !hasTiers && !hasFamilies) return layout.detail.top + S(16);
 
     const BlockSort active = ResolveBlockSort(entry, view.sort);
     const std::string tierNow = ActiveFilter(entry, &Block::tier, view.tierFilter);
@@ -1883,7 +2077,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     const std::vector<std::string> families = DistinctFamilies(entry);
 
     const int left = layout.detail.left + S(16);
-    const int top = layout.detail.top + S(10);
+    const int top = layout.detail.top + S(16);
     const int rowHeight = std::max(S(26), smallLine + S(10));
     const int right = layout.detail.right - S(22);
     int labelWidth = 0;
@@ -1971,7 +2165,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
 // so mouse input can drag or page through the content.
 void OverlayState::DrawScrollbar(HDC dc, int top, int visible, int total, int scroll) {
     layout.scrollable = total > visible && visible > 0;
-    layout.scrollTrack = Rect(layout.detail.right - S(14), top, layout.detail.right - S(6), layout.detail.bottom - S(8));
+    layout.scrollTrack = Rect(layout.detail.right - S(16), top, layout.detail.right - S(8), layout.detail.bottom - S(8));
     if (!layout.scrollable) return;
     const RECT track = layout.scrollTrack;
     const int trackHeight = track.bottom - track.top;
@@ -2151,11 +2345,12 @@ int OverlayState::RenderWideTiles(HDC dc, Gdiplus::Graphics* graphics, const Ent
 }
 
 // Non-item guide block: its title, subtitle, images, fields and text lines.
-// Splits a table row into its cells (U+001F separates them).
+// Splits a table row into its cells (U+001F separates them; U+001E inside a cell is a line break).
 std::vector<std::string> SplitCells(const std::string& text) {
     std::vector<std::string> cells(1);
     for (const char c : text) {
         if (c == '\x1f') cells.emplace_back();
+        else if (c == '\x1e') cells.back().push_back('\n');
         else cells.back().push_back(c);
     }
     return cells;
@@ -2175,7 +2370,15 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
 
     std::vector<std::size_t> weight(columns, 1);
     for (const auto& row : rows) {
-        for (std::size_t c = 0; c < row.size(); ++c) weight[c] = std::max(weight[c], row[c].size());
+        for (std::size_t c = 0; c < row.size(); ++c) {
+            // Weighted by the longest line of the cell, since line breaks stack text vertically.
+            std::size_t longest = 0, current = 0;
+            for (const char ch : row[c]) {
+                if (ch == '\n') current = 0;
+                else longest = std::max(longest, ++current);
+            }
+            weight[c] = std::max(weight[c], longest);
+        }
     }
     std::size_t total = 0;
     for (const std::size_t w : weight) total += w;
@@ -2493,10 +2696,10 @@ void OverlayState::Paint(HDC target) {
     const HDC dc = CreateCompatibleDC(target);
     const HBITMAP bitmap = CreateCompatibleBitmap(target, clientWidth, clientHeight);
     const HGDIOBJ previousBitmap = SelectObject(dc, bitmap);
+    layout = ComputeLayout();
     EnsureBackgroundCache(target, clientWidth, clientHeight);
     BitBlt(dc, 0, 0, clientWidth, clientHeight, backgroundDc, 0, 0, SRCCOPY);
 
-    layout = ComputeLayout();
     const Page& page = CurrentPage();
     greenNames = (page.id == "set-items");
     const bool goldItems = page.id == "uniques" || page.id == "runewords" || page.id == "gemwords";
@@ -2504,15 +2707,25 @@ void OverlayState::Paint(HDC target) {
                   : goldItems ? CodeColor('4') : kGold;
     tooltipNameColor = goldItems || page.id == "class-crafting" ? itemNameColor : kGold;
 
-    Text(dc, title, Rect(S(16), S(14), S(300), S(42)), kHeaderGold, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+    Text(dc, title, layout.title, kHeaderGold, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     if (!switchLabel.empty()) {
-        FillPanel(dc, layout.switchButton, kSwitchGreen, 200);
-        FrameColor(dc, layout.switchButton, kGold);
-        Text(dc, switchLabel, layout.switchButton, kGold, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+        // Like the launcher's gold PLAY button: a gold fill with dark lettering.
+        FillPanel(dc, layout.switchButton, RGB(196, 152, 66), 235);
+        // A light outer edge and a dark line just inside it, so the button reads against its own gold fill.
+        FrameColor(dc, layout.switchButton, RGB(250, 226, 160));
+        const RECT inner = Rect(layout.switchButton.left + 1, layout.switchButton.top + 1,
+                                layout.switchButton.right - 1, layout.switchButton.bottom - 1);
+        FrameColor(dc, inner, RGB(122, 88, 28));
+        Text(dc, switchLabel, layout.switchButton, RGB(58, 40, 14), fontBold, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }
     FillPanel(dc, layout.close, kPanel, 200);
     FrameColor(dc, layout.close, kBorder);
     Text(dc, L"X", layout.close, kText, fontBold, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+    {
+        const RECT box = SearchBoxRect(layout);
+        FillColor(dc, box, kSearchFill);
+        FrameColor(dc, box, kBorder);
+    }
     if (!query.empty()) {
         FillPanel(dc, layout.clearQuery, kPanel, 200);
         FrameColor(dc, layout.clearQuery, kBorder);
@@ -2526,6 +2739,10 @@ void OverlayState::Paint(HDC target) {
         FrameColor(dc, layout.tabs[i], active || matched ? kGold : kBorder);
         Text(dc, Wide(database->pages[i].title), layout.tabs[i], kHeaderGold, fontBody,
              DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+        if (active) {  // the launcher marks the open tab with a gold underline
+            FillColor(dc, Rect(layout.tabs[i].left + S(6), layout.tabs[i].bottom - S(4), layout.tabs[i].right - S(6),
+                               layout.tabs[i].bottom - S(2)), kGold);
+        }
     }
 
     PaintList(dc);
@@ -2591,6 +2808,9 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     case kMsgOpen:
         self->Show();
         return 0;
+    case kMsgReload:
+        self->ApplyPendingDatabase();
+        return 0;
     case kMsgShutdown:
         if (IsWindow(self->blocker)) DestroyWindow(self->blocker);
         self->blocker = nullptr;
@@ -2607,16 +2827,23 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         HideSystemCursor();
         return TRUE;
     case WM_ERASEBKGND:
+        if (!self->firstPainted && self->backgroundBrush != nullptr) {
+            RECT area{};
+            GetClientRect(window, &area);
+            FillRect(reinterpret_cast<HDC>(wParam), &area, self->backgroundBrush);
+        }
         return 1;
     case WM_PAINT: {
         PAINTSTRUCT paint{};
         const HDC dc = BeginPaint(window, &paint);
         self->Paint(dc);
         EndPaint(window, &paint);
+        self->firstPainted = true;
         return 0;
     }
     case WM_TIMER:
         if (wParam == kTimerFocus) self->SyncVisibility();
+        else if (wParam == kTimerHandoff) self->HandoffTick();
         return 0;
     case WM_MOUSEMOVE:
         self->HandleMove(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
@@ -2696,6 +2923,7 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     windowClass.lpfnWndProc = WindowProc;
     windowClass.hInstance = GetModuleHandleW(nullptr);
     windowClass.hCursor = LoadCursorW(nullptr, MAKEINTRESOURCEW(32512));  // IDC_ARROW
+    windowClass.hbrBackground = CreateSolidBrush(kBackground);
     windowClass.lpszClassName = self->windowClassName.c_str();
     RegisterClassExW(&windowClass);
 
@@ -2709,10 +2937,11 @@ DWORD WINAPI UiThread(LPVOID parameter) {
 
     self->CreateFonts();
     self->searchBrush = CreateSolidBrush(kSearchFill);
+    self->backgroundBrush = CreateSolidBrush(kBackground);
     self->views.assign(self->database->pages.size(), PageView{});
 
-    self->window = CreateWindowExW(WS_EX_TOOLWINDOW, self->windowClassName.c_str(), self->title.c_str(),
-                                   WS_POPUP | WS_CLIPCHILDREN | WS_BORDER, 0, 0, self->S(960), self->S(620),
+    self->window = CreateWindowExW(WS_EX_TOOLWINDOW | WS_EX_LAYERED, self->windowClassName.c_str(), self->title.c_str(),
+                                   WS_POPUP | WS_CLIPCHILDREN, 0, 0, self->S(960), self->S(620),
                                    nullptr, nullptr, windowClass.hInstance, self);
     if (self->window == nullptr) {
         UnregisterClassW(self->blockerClassName.c_str(), blockerClass.hInstance);
@@ -2721,6 +2950,8 @@ DWORD WINAPI UiThread(LPVOID parameter) {
         SetEvent(self->ready);
         return 1;
     }
+
+    SetLayeredWindowAttributes(self->window, 0, 255, LWA_ALPHA);
 
     // Covers every monitor. Hidden until the overlay opens; a missing blocker only
     // loses the input capture, the overlay still works.
@@ -2735,13 +2966,14 @@ DWORD WINAPI UiThread(LPVOID parameter) {
 
     SetTimer(self->window, kTimerFocus, kTimerInterval, nullptr);
     self->FitToGame();
-    self->search = CreateWindowExW(0, L"EDIT", L"", WS_CHILD | WS_VISIBLE | WS_BORDER | ES_AUTOHSCROLL,
-                                   self->layout.search.left, self->layout.search.top,
-                                   self->layout.search.right - self->layout.search.left - self->S(26),
-                                   self->layout.search.bottom - self->layout.search.top, self->window,
+    const RECT editRect = SearchEditRect(self->layout, self->bodyLine, self->S(6));
+    self->search = CreateWindowExW(0, L"EDIT", L"", WS_CHILD | WS_VISIBLE | ES_AUTOHSCROLL,
+                                   editRect.left, editRect.top, editRect.right - editRect.left,
+                                   editRect.bottom - editRect.top, self->window,
                                    reinterpret_cast<HMENU>(static_cast<INT_PTR>(kIdSearch)),
                                    windowClass.hInstance, nullptr);
     SendMessageW(self->search, WM_SETFONT, reinterpret_cast<WPARAM>(self->fontBody), TRUE);
+    SendMessageW(self->search, EM_SETMARGINS, EC_LEFTMARGIN | EC_RIGHTMARGIN, MAKELPARAM(0, 0));
     gSearchProc = reinterpret_cast<WNDPROC>(SetWindowLongPtrW(self->search, GWLP_WNDPROC,
                                                                reinterpret_cast<LONG_PTR>(SearchEditProc)));
     self->Refilter();
@@ -2775,6 +3007,7 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     self->ReleaseBackgroundCache();
     self->images.clear();
     if (self->searchBrush) DeleteObject(self->searchBrush);
+    if (self->backgroundBrush) DeleteObject(self->backgroundBrush);
     if (self->fontBody) DeleteObject(self->fontBody);
     if (self->fontSmall) DeleteObject(self->fontSmall);
     if (self->fontBold) DeleteObject(self->fontBold);
@@ -2816,6 +3049,16 @@ bool Overlay::Start(const Database& database, const std::wstring& dataDir, const
         Stop();
         return false;
     }
+    return true;
+}
+
+bool Overlay::ReplaceDatabase(std::unique_ptr<Database> next) {
+    if (!impl_->started || impl_->window == nullptr || !next || next->pages.empty()) return false;
+    {
+        std::lock_guard<std::mutex> guard(impl_->pendingLock);
+        impl_->pendingDb = std::move(next);
+    }
+    PostMessageW(impl_->window, kMsgReload, 0, 0);
     return true;
 }
 

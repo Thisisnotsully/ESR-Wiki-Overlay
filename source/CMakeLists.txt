@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(ESRWikiOverlay VERSION 1.2.0 LANGUAGES CXX)
+project(ESRWikiOverlay VERSION 1.3.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,7 +12,7 @@ set(ESR_PLUGIN_SDK_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/../../../PluginSDK-maste
 option(ESR_WIKI_BUILD_TESTS "Build the portable model tests and register them with CTest" ON)
 
 # Portable model: parser, search, paging, color codes. Builds on any host.
-add_library(esr_wiki_model STATIC src/wiki_model.cpp)
+add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_uniques_live.cpp)
 target_include_directories(esr_wiki_model PUBLIC src)
 if(NOT MSVC)
   target_compile_options(esr_wiki_model PRIVATE -Wall -Wextra -Werror)
@@ -33,14 +33,39 @@ if(ESR_WIKI_BUILD_TESTS)
   endif()
   add_test(NAME wiki_model
            COMMAND esr_wiki_model_test "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The cube page reader must give exactly what the Python tools write (tests/cube_live/).
+  add_executable(cube_live_test tests/cube_live_test.cpp)
+  target_link_libraries(cube_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(cube_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET cube_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME cube_live
+           COMMAND cube_live_test "${CMAKE_CURRENT_SOURCE_DIR}/tests/cube_live/cube-recipes-page.html"
+                                  "${CMAKE_CURRENT_SOURCE_DIR}/tests/cube_live/cube-wiki-data.expected.txt")
+
+  # The website uniques builder must give exactly what tools/web_uniques.py writes (data/website-uniques/).
+  add_executable(web_uniques_live_test tests/web_uniques_live_test.cpp)
+  target_link_libraries(web_uniques_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_uniques_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_uniques_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_uniques_live
+           COMMAND web_uniques_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-uniques"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/web-unique-art.txt")
 endif()
 
 # Win32 overlay and D2RLoader plugin (Windows only).
 if(WIN32)
   enable_language(RC)
-  add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/plugin.rc)
+  add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/cube_updater.cpp src/web_fetch.cpp src/web_uniques_updater.cpp src/plugin.rc)
   target_include_directories(esr_wiki_overlay PRIVATE "${ESR_PLUGIN_SDK_INCLUDE}")
-  target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32)
+  target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32 winhttp)
   set_target_properties(esr_wiki_overlay PROPERTIES OUTPUT_NAME "d2rl-esr-wiki-overlay" PREFIX "")
 
   # After each successful build, copy the DLL and data into the live mod (see deploy.cmake).
@@ -70,5 +95,6 @@ if(WIN32)
   install(TARGETS esr_wiki_overlay RUNTIME DESTINATION d2rloader/plugins)
   install(FILES data/wiki-data.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(FILES data/cube-wiki-data.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/web-unique-art.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(DIRECTORY data/images/ DESTINATION d2rloader/plugins/esr-wiki-overlay/images)
 endif()

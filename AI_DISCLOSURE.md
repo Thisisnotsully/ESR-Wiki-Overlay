@@ -1,6 +1,6 @@
 # AI Disclosure
 
-ESR Wiki Overlay 1.2.0 (standalone)
+ESR Wiki Overlay 1.3.0 (standalone)
 Author: Sully
 
 Parts of this project were written with the help of Claude, an AI model made by
