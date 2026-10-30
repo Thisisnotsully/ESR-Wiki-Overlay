@@ -502,6 +502,7 @@ struct Item {
     char kind = 'T';  // 'T' note, 'R' recipe
     std::string a;    // note text, or the ingredients
     std::string b;    // the result
+    std::string family;  // the sub-section of an Item Reroll group (its Type filter), or empty
 };
 struct EntryData {
     std::string title;
@@ -660,11 +661,23 @@ std::vector<EntryData> SplitSections(const std::vector<EntryData>& entries) {
         if (section.notes.empty() && section.rows.empty()) continue;
         EntryData entry;
         entry.title = section.title;
-        for (const std::string& note : section.notes) entry.items.push_back({'T', note, ""});
-        for (const auto& row : section.rows) entry.items.push_back({'R', row.first, row.second});
+        for (const std::string& note : section.notes) entry.items.push_back({'T', note, "", ""});
+        for (const auto& row : section.rows) entry.items.push_back({'R', row.first, row.second, ""});
         result.push_back(std::move(entry));
     }
     return result;
+}
+
+// The Item Reroll groups (see SUB_GROUPS in tools/build_cube_wiki.py): the sub-sections of a group heading, which
+// stay in the group's one entry and are told apart by their family. Empty for any other heading.
+const std::vector<std::string>& GroupSubsections(const std::string& page, const std::string& heading) {
+    static const std::map<std::string, std::vector<std::string>> groups = {
+        {"Magic/Rare Items", {"Standard Reroll", "Starter's Weapon", "CtC Skill Armor"}},
+        {"Rings/Amulets", {"Standard Reroll", "Custom Reroll", "Skill Tab Reroll"}}};
+    static const std::vector<std::string> none;
+    if (page != "reroll") return none;
+    const auto found = groups.find(heading);
+    return found == groups.end() ? none : found->second;
 }
 
 std::string WikiText(const std::vector<Record>& records) {
@@ -676,6 +689,8 @@ std::string WikiText(const std::vector<Record>& records) {
     std::map<std::string, std::size_t> pageIndex;
     for (std::size_t i = 0; i < pages.size(); ++i) pageIndex[pages[i].id] = i;
     std::map<std::string, long> current;  // page id -> entry being filled
+    std::map<std::string, std::string> group;   // page id -> the open Item Reroll group heading
+    std::map<std::string, std::string> family;  // page id -> the sub-section being filled
     const auto currentEntry = [&](PageData& page) -> EntryData& {
         long& at = current[page.id];
         if (at == 0) {
@@ -689,12 +704,20 @@ std::string WikiText(const std::vector<Record>& records) {
         if (found == pageIndex.end()) continue;
         PageData& page = pages[found->second];
         if (record[0] == "SEC") {
-            page.entries.push_back({CleanText(record[2]), {}});
+            const std::string title = CleanText(record[2]);
+            const std::vector<std::string>& subs = GroupSubsections(page.id, group[page.id]);
+            if (std::find(subs.begin(), subs.end(), title) != subs.end()) {
+                family[page.id] = title;  // a sub-section of the open group: its recipes stay in the group's entry
+                continue;
+            }
+            group[page.id] = GroupSubsections(page.id, title).empty() ? std::string() : title;
+            family[page.id].clear();
+            page.entries.push_back({title, {}});
             current[page.id] = static_cast<long>(page.entries.size());
         } else if (record[0] == "DESC" || record[0] == "NOTE") {
-            currentEntry(page).items.push_back({'T', CleanText(record[2]), ""});
+            currentEntry(page).items.push_back({'T', CleanText(record[2]), "", family[page.id]});
         } else if (record[0] == "REC") {
-            currentEntry(page).items.push_back({'R', CleanText(Side(record[2])), CleanText(Side(record[3]))});
+            currentEntry(page).items.push_back({'R', CleanText(Side(record[2])), CleanText(Side(record[3])), family[page.id]});
         }
     }
     for (PageData& page : pages) {
@@ -706,29 +729,39 @@ std::string WikiText(const std::vector<Record>& records) {
         out += "PAGE\t" + page.id + "\t" + page.title + "\t" + page.group + "\n";
         for (const EntryData& entry : page.entries) {
             out += "ENTRY\t" + entry.title + "\t\n";
-            // A block is its notes followed by its recipe table, so a note after a table starts a new block.
-            std::vector<std::pair<std::vector<std::string>, std::vector<std::pair<std::string, std::string>>>> blocks;
-            std::vector<std::string> notes;
-            std::vector<std::pair<std::string, std::string>> recipes;
+            // A block is its notes followed by its recipe table, so a note after a table starts a new block. So does a
+            // change of sub-section: a block carries its sub-section's name as its family (the Type filter).
+            struct Block {
+                std::string family;
+                std::vector<std::string> notes;
+                std::vector<std::pair<std::string, std::string>> recipes;
+            };
+            std::vector<Block> blocks;
+            Block open;
             for (const Item& item : entry.items) {
+                if (item.family != open.family) {
+                    if (!open.notes.empty() || !open.recipes.empty()) blocks.push_back(open);
+                    open = Block{item.family, {}, {}};
+                }
                 if (item.kind == 'T') {
-                    if (!recipes.empty()) {
-                        blocks.emplace_back(notes, recipes);
-                        notes.clear();
-                        recipes.clear();
+                    if (!open.recipes.empty()) {
+                        blocks.push_back(open);
+                        open = Block{item.family, {}, {}};
                     }
-                    notes.push_back(item.a);
+                    open.notes.push_back(item.a);
                 } else {
-                    recipes.emplace_back(item.a, item.b);
+                    open.recipes.emplace_back(item.a, item.b);
                 }
             }
-            if (!notes.empty() || !recipes.empty()) blocks.emplace_back(notes, recipes);
-            for (const auto& block : blocks) {
-                out += "BLOCK\t0\t\t\t\n";
-                for (const std::string& text : block.first) out += "LINE\tT\t" + text + "\n";
-                if (block.second.empty()) continue;
+            if (!open.notes.empty() || !open.recipes.empty()) blocks.push_back(open);
+            for (const Block& block : blocks) {
+                // A sub-section of an Item Reroll group also gives its family (the Type filter).
+                out += block.family.empty() ? std::string("BLOCK\t0\t\t\t\n")
+                                            : "BLOCK\t0\t\t\t\t\t" + block.family + "\t\n";
+                for (const std::string& text : block.notes) out += "LINE\tT\t" + text + "\n";
+                if (block.recipes.empty()) continue;
                 out += std::string("LINE\tC\tIngredients") + kTableSeparator + "Result\n";
-                for (const auto& recipe : block.second) {
+                for (const auto& recipe : block.recipes) {
                     const auto split = [](const std::string& text) {
                         std::vector<std::string> parts;
                         std::size_t start = 0;
@@ -777,6 +810,50 @@ bool BuildCubeWikiData(const std::string& html, std::string& out, std::string& e
         return false;
     }
     out = WikiText(records);
+    return true;
+}
+
+bool ParseClassCraftSections(const std::string& html, std::vector<ClassCraftSection>& out, std::string& error) {
+    out.clear();
+    TableParser parser;
+    parser.Feed(html);
+    const auto isInOut = [](const std::string& text) { return text == "Input" || text == "Output"; };
+    const auto plainBg = [](const std::string& bg) { return bg == "#181818" || bg.empty(); };
+    for (const Table& table : parser.tables) {
+        const std::string tab = table.cat.empty() ? "special" : table.cat;
+        if (tab != "new") continue;  // the class craft sections are on the NewCraft tab
+        bool inClass = false;
+        for (const Row& row : table.rows) {
+            if (row.empty()) continue;
+            // Headings are dark rows: one cell, or two. The Input and Output header row is skipped.
+            std::string heading;
+            bool isHeading = false;
+            if (row.size() == 1 && row[0].bg == "#300000") {
+                const std::string text = Join(row[0].lines, " ");
+                if (!isInOut(text)) {
+                    heading = text;
+                    isHeading = true;
+                }
+            } else if (row.size() == 2 && row[0].bg == "#300000" && row[1].bg == "#300000") {
+                if (!(isInOut(Join(row[0].lines, " ")) && isInOut(Join(row[1].lines, " ")))) {
+                    heading = Join(row[0].lines, " ");
+                    isHeading = true;
+                }
+            }
+            if (isHeading) {
+                inClass = IsClassCraftHeading(heading) && heading != "Class Craft";  // the intro is not a class
+                if (inClass) out.push_back(ClassCraftSection{heading, {}});
+                continue;
+            }
+            if (!inClass || row.size() != 2 || !plainBg(row[0].bg) || !plainBg(row[1].bg)) continue;
+            if (row[0].lines.empty() && row[1].lines.empty()) continue;
+            out.back().recipes.push_back(ClassCraftRecipe{row[0].lines, row[1].lines});
+        }
+    }
+    if (out.empty()) {
+        error = "the cube recipes page has no class craft sections";
+        return false;
+    }
     return true;
 }
 

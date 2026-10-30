@@ -546,12 +546,13 @@ class Builder:
                     code, _, sprite = line.partition("\t")
                     item_art[code.strip()] = sprite.strip()
         entries = []
+        self.web_base_art = {"codes": [], "sections": {}}  # for data/web-base-art.txt (the website pages give none of it)
         for kind, title in (("armor", "Armor"), ("weapons", "Weapons")):
             blocks = []
             for section in data.get(kind, []):
                 headers = section["headers"]
                 qlvl_at = headers.index("Qlvl") if "Qlvl" in headers else None
-                seen = set()
+                seen = {}
                 for item in section["items"]:
                     # The site lists some bases twice under different codes with the same name, tier and
                     # stats; they show as one card.
@@ -560,8 +561,10 @@ class Builder:
                         tuple(cell for label, cell in zip(headers, row) if label not in ("Name", "Code"))
                         for row in item["rows"]))
                     if key in seen:
+                        if self.excel is not None:
+                            family = self.excel.code_family(item["code"]) if kind == "weapons" else section["title"]
+                            self.web_base_art["codes"].append((item["code"], tier_name, family, seen[key]))
                         continue
-                    seen.add(key)
                     block = new_block(item=True, title=item["name"], section=section["title"])
                     first = item["rows"][0]
                     block["fields"] = [(label, value) for label, value in zip(headers, first)
@@ -589,6 +592,12 @@ class Builder:
                         art = self.sprite_index.get(stem) if stem else None
                     if art:
                         block["images"] = [self.note_image(art)]
+                    image_key = block["images"][0] if block["images"] else ""
+                    seen[key] = image_key
+                    if self.excel is not None:
+                        self.web_base_art["codes"].append((item["code"], block["tier"], block.get("family", ""), image_key))
+                    if image_key:
+                        self.web_base_art["sections"].setdefault(section["title"], image_key)
                     blocks.append(block)
             entries.append({"title": title, "subtitle": "%d items" % len(blocks), "blocks": blocks,
                             "wide": False, "compact": False, "sortable": True, "fiveacross": True})
@@ -2748,6 +2757,111 @@ def main():
         shutil.copyfile(DATA_OUT / "wiki-data.txt", DATA_OUT / "wiki-data.mod-uniques.txt")
         if web_uniques.main(["web_uniques.py", str(web_pages), str(DATA_OUT / "wiki-data.txt")]) != 0:
             print("  website uniques: not used, the mod-built Uniques page stays")
+    # The Runes page shown is the one built from the saved gems page of the website (the mod-built page stays in
+    # wiki-data.mod-uniques.txt, which is a copy of the whole mod-built file).
+    web_runes_page = DATA_OUT / "website-runes" / "gems.htm"
+    if web_runes_page.is_file():
+        import web_runes
+        if web_runes.main(["web_runes.py", str(web_runes_page), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website runes: not used, the mod-built Runes page stays")
+    # The Runewords and Gemwords pages shown are built from the saved runewords/gemwords pages (and the gems page for
+    # levels). The pictures the website does not give come from the mod-built pages, saved as web-word-art.txt.
+    words_dir = DATA_OUT / "website-words"
+    if words_dir.is_dir() and web_runes_page.is_file():
+        import web_words
+        mod_text = (DATA_OUT / "wiki-data.mod-uniques.txt")
+        mod_text = mod_text if mod_text.is_file() else (DATA_OUT / "wiki-data.txt")
+        art_file = DATA_OUT / "web-word-art.txt"
+        # Built from the mod-built copy only while that copy still has its own Runewords page; the table is kept otherwise.
+        table = web_words.art_table(mod_text.read_text(encoding="utf-8")) if mod_text.is_file() else ""
+        if table:
+            if args.excel:
+                table += web_words.socket_caps(args.excel)
+            art_file.write_text(table, encoding="utf-8", newline="\n")
+        for kind, page in (("runewords", "runewords.htm"), ("gemwords", "gemwords.htm")):
+            if not (words_dir / page).is_file():
+                continue
+            args = ["web_words.py", kind, str(words_dir / page)]
+            if kind == "runewords":
+                args.append(str(web_runes_page))
+            args += [str(DATA_OUT / "wiki-data.txt"), str(art_file)]
+            if web_words.main(args) != 0:
+                print("  website %s: not used, the mod-built page stays" % kind)
+    # The Item Bases page shown is built from the saved armors and weapons pages. Their pictures, tiers and weapon
+    # families come from the mod's tables, saved as web-base-art.txt.
+    bases_dir = DATA_OUT / "website-bases"
+    base_art = getattr(builder, "web_base_art", None)
+    if base_art and base_art["codes"]:
+        rows = ["BASE\t%s\t%s\t%s\t%s" % row for row in sorted(set(base_art["codes"]))]
+        rows += ["SECTION\t%s\t%s" % (title, key) for title, key in sorted(base_art["sections"].items())]
+        (DATA_OUT / "web-base-art.txt").write_text("\n".join(rows) + "\n", encoding="utf-8", newline="\n")
+    if (bases_dir / "armors.htm").is_file() and (bases_dir / "weapons.htm").is_file():
+        import web_bases
+        if web_bases.main(["web_bases.py", str(bases_dir / "armors.htm"), str(bases_dir / "weapons.htm"),
+                           str(DATA_OUT / "wiki-data.txt"), str(DATA_OUT / "web-base-art.txt")]) != 0:
+            print("  website item bases: not used, the mod-built page stays")
+    # The Item Affixes page exists only on the website: it is built from the saved prefixes, suffixes and quality pages.
+    affixes_dir = DATA_OUT / "website-affixes"
+    if all((affixes_dir / n).is_file() for n in ("prefixes.htm", "suffixes.htm", "quality_affixes.htm")):
+        import web_affixes
+        if web_affixes.main(["web_affixes.py", str(affixes_dir / "prefixes.htm"), str(affixes_dir / "suffixes.htm"),
+                             str(affixes_dir / "quality_affixes.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website item affixes: not used, the page is left out")
+    # The Ascendancy page is rebuilt from the saved website page (the Orb of Creation table of the mod-built page is kept).
+    ascendancy_dir = DATA_OUT / "website-ascendancy"
+    if (ascendancy_dir / "ascendancies.htm").is_file():
+        import web_ascendancy
+        if web_ascendancy.main(["web_ascendancy.py", str(ascendancy_dir / "ascendancies.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website ascendancies: not used, the mod-built page stays")
+    # The Set Items page is rebuilt from the saved website page (each card keeps the picture the page already gives it).
+    sets_dir = DATA_OUT / "website-sets"
+    if (sets_dir / "sets.htm").is_file():
+        import web_sets
+        if web_sets.main(["web_sets.py", str(sets_dir / "sets.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website sets: not used, the mod-built page stays")
+    # The Endgame Maps page is rebuilt from the saved website page (each boss keeps the picture the page already gives it).
+    endgame_dir = DATA_OUT / "website-endgame"
+    if (endgame_dir / "endgame_maps.htm").is_file():
+        import web_endgame
+        if web_endgame.main(["web_endgame.py", str(endgame_dir / "endgame_maps.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website endgame maps: not used, the mod-built page stays")
+    # The Special Craft page is rebuilt from the saved website page (its four outcome sections).
+    special_dir = DATA_OUT / "website-special"
+    if (special_dir / "special_crafting_outcomes.htm").is_file():
+        import web_special
+        if web_special.main(["web_special.py", str(special_dir / "special_crafting_outcomes.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website special crafting: not used, the mod-built page stays")
+    # The Mercenary/O-Skill page is rebuilt from the saved website page (the mercenary and oskill tables).
+    skills_dir = DATA_OUT / "website-skills"
+    if (skills_dir / "skill_information.htm").is_file():
+        import web_skills
+        if web_skills.main(["web_skills.py", str(skills_dir / "skill_information.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website skill information: not used, the mod-built page stays")
+    # The Vessel of Souls page is rebuilt from the saved website page (the overview, tiers and completion).
+    vessel_dir = DATA_OUT / "website-vessel"
+    if (vessel_dir / "vessel_of_souls.htm").is_file():
+        import web_vessel
+        if web_vessel.main(["web_vessel.py", str(vessel_dir / "vessel_of_souls.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website vessel of souls: not used, the mod-built page stays")
+    # The Kill Ledger page is rebuilt from the saved website page (the kill and boss bonus tables).
+    kill_dir = DATA_OUT / "website-kill"
+    if (kill_dir / "kill_ledger.htm").is_file():
+        import web_kill
+        if web_kill.main(["web_kill.py", str(kill_dir / "kill_ledger.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website kill ledger: not used, the mod-built page stays")
+    # The Weapon Mastery page is rebuilt from the saved website page (the general recipes and the specializations).
+    mastery_dir = DATA_OUT / "website-mastery"
+    if (mastery_dir / "weapon_mastery.htm").is_file():
+        import web_mastery
+        if web_mastery.main(["web_mastery.py", str(mastery_dir / "weapon_mastery.htm"), str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website weapon mastery: not used, the mod-built page stays")
+    # The IAS Calculator tab: the calculator is drawn by the overlay from the saved Frame Table files; this adds its page.
+    ias_dir = DATA_OUT / "website-ias"
+    if (ias_dir / "ias-calculator.html").is_file() and (ias_dir / "ias-calculator-data.js").is_file():
+        import web_ias
+        if web_ias.main(["web_ias.py", str(ias_dir / "ias-calculator.html"), str(ias_dir / "ias-calculator-data.js"),
+                         str(DATA_OUT / "wiki-data.txt")]) != 0:
+            print("  website IAS calculator: not used, the tab is left out")
 
     for key, path in sorted(builder.custom_art.items()):
         (DATA_OUT / "images").mkdir(exist_ok=True)

@@ -40,6 +40,26 @@ if(NOT _result EQUAL 0)
   message(WARNING "ESR Wiki overlay: could not copy web-unique-art.txt to ${_dest_data}.")
 endif()
 
+file(COPY_FILE "${SRC_DATA}/web-word-art.txt" "${_dest_data}/web-word-art.txt"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy web-word-art.txt to ${_dest_data}.")
+endif()
+
+file(COPY_FILE "${SRC_DATA}/web-base-art.txt" "${_dest_data}/web-base-art.txt"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy web-base-art.txt to ${_dest_data}.")
+endif()
+
+foreach(_ias ias-calculator.html ias-calculator-data.js)
+  file(COPY_FILE "${SRC_DATA}/website-ias/${_ias}" "${_dest_data}/${_ias}"
+       RESULT _result ONLY_IF_DIFFERENT)
+  if(NOT _result EQUAL 0)
+    message(WARNING "ESR Wiki overlay: could not copy ${_ias} to ${_dest_data}.")
+  endif()
+endforeach()
+
 file(GLOB _pngs "${SRC_DATA}/images/*.png")
 set(_copied 0)
 foreach(_png IN LISTS _pngs)

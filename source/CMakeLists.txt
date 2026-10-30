@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(ESRWikiOverlay VERSION 1.3.0 LANGUAGES CXX)
+project(ESRWikiOverlay VERSION 1.4.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,7 +12,7 @@ set(ESR_PLUGIN_SDK_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/../../../PluginSDK-maste
 option(ESR_WIKI_BUILD_TESTS "Build the portable model tests and register them with CTest" ON)
 
 # Portable model: parser, search, paging, color codes. Builds on any host.
-add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_uniques_live.cpp)
+add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/drop_finder.cpp src/drop_finder_model.cpp)
 target_include_directories(esr_wiki_model PUBLIC src)
 if(NOT MSVC)
   target_compile_options(esr_wiki_model PRIVATE -Wall -Wextra -Werror)
@@ -58,12 +58,201 @@ if(ESR_WIKI_BUILD_TESTS)
            COMMAND web_uniques_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-uniques"
                                          "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt"
                                          "${CMAKE_CURRENT_SOURCE_DIR}/data/web-unique-art.txt")
+
+  # The website runes builder must give exactly what tools/web_runes.py writes (data/website-runes/gems.htm).
+  add_executable(web_runes_live_test tests/web_runes_live_test.cpp)
+  target_link_libraries(web_runes_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_runes_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_runes_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_runes_live
+           COMMAND web_runes_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-runes/gems.htm"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/tests/cube_live/cube-recipes-page.html"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website runewords/gemwords builders must give exactly what tools/web_words.py writes (data/website-words/).
+  add_executable(web_words_live_test tests/web_words_live_test.cpp)
+  target_link_libraries(web_words_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_words_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_words_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_words_live
+           COMMAND web_words_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-words/runewords.htm"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/website-words/gemwords.htm"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/website-runes/gems.htm"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/web-word-art.txt"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website item bases builder must give exactly what tools/web_bases.py writes (data/website-bases/).
+  add_executable(web_bases_live_test tests/web_bases_live_test.cpp)
+  target_link_libraries(web_bases_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_bases_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_bases_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_bases_live
+           COMMAND web_bases_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-bases/armors.htm"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/website-bases/weapons.htm"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/web-base-art.txt"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website item affixes builder must give exactly what tools/web_affixes.py writes (data/website-affixes/).
+  add_executable(web_affixes_live_test tests/web_affixes_live_test.cpp)
+  target_link_libraries(web_affixes_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_affixes_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_affixes_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_affixes_live
+           COMMAND web_affixes_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-affixes/prefixes.htm"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/website-affixes/suffixes.htm"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/website-affixes/quality_affixes.htm"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website ascendancy builder must give exactly what tools/web_ascendancy.py writes (data/website-ascendancy/).
+  add_executable(web_ascendancy_live_test tests/web_ascendancy_live_test.cpp)
+  target_link_libraries(web_ascendancy_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_ascendancy_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_ascendancy_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_ascendancy_live
+           COMMAND web_ascendancy_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ascendancy/ascendancies.htm"
+                                            "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website sets builder must give exactly what tools/web_sets.py writes (data/website-sets/).
+  add_executable(web_sets_live_test tests/web_sets_live_test.cpp)
+  target_link_libraries(web_sets_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_sets_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_sets_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_sets_live
+           COMMAND web_sets_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-sets/sets.htm"
+                                      "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website endgame maps builder must give exactly what tools/web_endgame.py writes (data/website-endgame/).
+  add_executable(web_endgame_live_test tests/web_endgame_live_test.cpp)
+  target_link_libraries(web_endgame_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_endgame_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_endgame_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_endgame_live
+           COMMAND web_endgame_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-endgame/endgame_maps.htm"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website special crafting builder must give exactly what tools/web_special.py writes (data/website-special/).
+  add_executable(web_special_live_test tests/web_special_live_test.cpp)
+  target_link_libraries(web_special_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_special_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_special_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_special_live
+           COMMAND web_special_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-special/special_crafting_outcomes.htm"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website skill information builder must give exactly what tools/web_skills.py writes (data/website-skills/).
+  add_executable(web_skills_live_test tests/web_skills_live_test.cpp)
+  target_link_libraries(web_skills_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_skills_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_skills_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_skills_live
+           COMMAND web_skills_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-skills/skill_information.htm"
+                                        "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website vessel of souls builder must give exactly what tools/web_vessel.py writes (data/website-vessel/).
+  add_executable(web_vessel_live_test tests/web_vessel_live_test.cpp)
+  target_link_libraries(web_vessel_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_vessel_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_vessel_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_vessel_live
+           COMMAND web_vessel_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-vessel/vessel_of_souls.htm"
+                                        "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website kill ledger builder must give exactly what tools/web_kill.py writes (data/website-kill/).
+  add_executable(web_kill_live_test tests/web_kill_live_test.cpp)
+  target_link_libraries(web_kill_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_kill_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_kill_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_kill_live
+           COMMAND web_kill_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-kill/kill_ledger.htm"
+                                      "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The website weapon mastery builder must give exactly what tools/web_mastery.py writes (data/website-mastery/).
+  add_executable(web_mastery_live_test tests/web_mastery_live_test.cpp)
+  target_link_libraries(web_mastery_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_mastery_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_mastery_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_mastery_live
+           COMMAND web_mastery_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-mastery/weapon_mastery.htm"
+                                         "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The Drop Finder engine must give what the website's own script gives (tests/drop_finder_reference.js writes the cases).
+  add_executable(drop_finder_test tests/drop_finder_test.cpp)
+  target_link_libraries(drop_finder_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(drop_finder_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET drop_finder_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME drop_finder
+           COMMAND drop_finder_test "${CMAKE_CURRENT_SOURCE_DIR}/data/drop-finder"
+                                    "${CMAKE_CURRENT_SOURCE_DIR}/tests/drop_finder/expected.json")
+
+  # The Class Crafting page built from the cube recipes page must match the shipped page's items and art.
+  add_executable(class_crafting_test tests/class_crafting_test.cpp)
+  target_link_libraries(class_crafting_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(class_crafting_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET class_crafting_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME class_crafting
+           COMMAND class_crafting_test "${CMAKE_CURRENT_SOURCE_DIR}/tests/cube_live/cube-recipes-page.html"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The calculator engine must give what the website's own script gives (tests/gen_ias_cases.js writes the cases).
+  add_executable(ias_calc_test tests/ias_calc_test.cpp)
+  target_link_libraries(ias_calc_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(ias_calc_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET ias_calc_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME ias_calc
+           COMMAND ias_calc_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ias/ias-calculator.html"
+                                 "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ias/ias-calculator-data.js"
+                                 "${CMAKE_CURRENT_SOURCE_DIR}/tests/ias_cases.tsv")
 endif()
 
 # Win32 overlay and D2RLoader plugin (Windows only).
 if(WIN32)
   enable_language(RC)
-  add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/cube_updater.cpp src/web_fetch.cpp src/web_uniques_updater.cpp src/plugin.rc)
+  add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/cube_updater.cpp src/web_fetch.cpp src/web_pages_updater.cpp src/plugin.rc)
   target_include_directories(esr_wiki_overlay PRIVATE "${ESR_PLUGIN_SDK_INCLUDE}")
   target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32 winhttp)
   set_target_properties(esr_wiki_overlay PROPERTIES OUTPUT_NAME "d2rl-esr-wiki-overlay" PREFIX "")
@@ -96,5 +285,9 @@ if(WIN32)
   install(FILES data/wiki-data.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(FILES data/cube-wiki-data.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(FILES data/web-unique-art.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/web-word-art.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/web-base-art.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/website-ias/ias-calculator.html data/website-ias/ias-calculator-data.js
+          DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(DIRECTORY data/images/ DESTINATION d2rloader/plugins/esr-wiki-overlay/images)
 endif()

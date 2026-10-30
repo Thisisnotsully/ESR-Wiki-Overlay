@@ -15,6 +15,13 @@ from extract_wiki import COLOR_BLUE, TABLE_SEPARATOR, split_cube_sections, tidy_
 
 # Pages laid out in the same sections as the main wiki's tab (same split, same titles).
 SECTIONED_PAGES = {"for", "dst"}
+# The Item Reroll groups. A group's sub-sections stay in the group's one entry: each block carries its sub-section's
+# name as its family, so the overlay's Type filter picks between them. Standard Reroll is in both groups.
+GROUP_PAGE = "reroll"
+SUB_GROUPS = {
+    "Magic/Rare Items": ["Standard Reroll", "Starter's Weapon", "CtC Skill Armor"],
+    "Rings/Amulets": ["Standard Reroll", "Custom Reroll", "Skill Tab Reroll"],
+}
 
 
 def clean(text):
@@ -28,19 +35,25 @@ def side(text):
 
 
 def blocks_of(items):
-    """Splits one entry's items into (notes, recipes) blocks. A block is its notes followed by its
-    recipe table, so a note after a table starts a new block."""
+    """Splits one entry's items into (notes, recipes, family) blocks. A block is its notes followed by its recipe
+    table, so a note after a table starts a new block; so does a change of sub-section (family)."""
     blocks, notes, recipes = [], [], []
+    family = None
     for item in items:
+        if item[-1] != family:
+            if notes or recipes:
+                blocks.append((notes, recipes, family))
+                notes, recipes = [], []
+            family = item[-1]
         if item[0] == "T":
             if recipes:
-                blocks.append((notes, recipes))
+                blocks.append((notes, recipes, family))
                 notes, recipes = [], []
             notes.append(item[1])
         else:
             recipes.append((item[1], item[2]))
     if notes or recipes:
-        blocks.append((notes, recipes))
+        blocks.append((notes, recipes, family))
     return blocks
 
 
@@ -48,8 +61,8 @@ def sectioned(entry_list):
     """Entries re-cut into the wiki's sections: notes first, then the recipe table."""
     raw = [(title, [item[1] if item[0] == "T" else f"{item[1]}  ->  {item[2]}" for item in items])
            for title, _, items in entry_list]
-    return [[section["title"], "", [("T", note) for note in section["notes"]]
-             + [("R", recipe_in, recipe_out) for recipe_in, recipe_out in section["rows"]]]
+    return [[section["title"], "", [("T", note, "") for note in section["notes"]]
+             + [("R", recipe_in, recipe_out, "") for recipe_in, recipe_out in section["rows"]]]
             for section in split_cube_sections(raw) if section["notes"] or section["rows"]]
 
 
@@ -60,6 +73,8 @@ def main(src, out):
     page_index = {}
     entries = {}         # id -> list of [title, subtitle, lines]
     current = {}         # id -> entry being filled
+    open_group = {}      # id -> the open Item Reroll group heading
+    family = {}          # id -> the sub-section being filled
     for row in rows[1:]:
         kind = row[0]
         if kind == "CAT":
@@ -69,25 +84,28 @@ def main(src, out):
             entries[cid] = []
             continue
         cid = row[1]
+        members = SUB_GROUPS if cid == GROUP_PAGE else {}
         if kind == "SEC":
-            entry = [clean(row[2]), "", []]
+            title = clean(row[2])
+            if open_group.get(cid) in members and title in members[open_group[cid]]:
+                family[cid] = title  # a sub-section of the open group: its recipes stay in the group's entry
+                continue
+            open_group[cid] = title if title in members else None
+            family[cid] = None
+            entry = [title, "", []]
             entries[cid].append(entry)
             current[cid] = entry
-        elif kind in ("DESC", "NOTE"):
+        elif kind in ("DESC", "NOTE", "REC"):
             entry = current.get(cid)
             if entry is None:
                 entry = [pages[page_index[cid]][1], "", []]
                 entries[cid].append(entry)
                 current[cid] = entry
-            entry[2].append(("T", clean(row[2])))
-        elif kind == "REC":
-            entry = current.get(cid)
-            if entry is None:
-                entry = [pages[page_index[cid]][1], "", []]
-                entries[cid].append(entry)
-                current[cid] = entry
-            text = f"{side(row[2])}  ->  {side(row[3])}"
-            entry[2].append(("R", clean(side(row[2])), clean(side(row[3]))))
+            fam = family.get(cid) or ""
+            if kind == "REC":
+                entry[2].append(("R", clean(side(row[2])), clean(side(row[3])), fam))
+            else:
+                entry[2].append(("T", clean(row[2]), fam))
 
     for cid in SECTIONED_PAGES & set(entries):
         entries[cid] = sectioned(entries[cid])
@@ -97,8 +115,10 @@ def main(src, out):
         lines.append("\t".join(["PAGE", cid, title, group]))
         for etitle, esub, elines in entries[cid]:
             lines.append("\t".join(["ENTRY", etitle, esub]))
-            for notes, recipes in blocks_of(elines):
-                lines.append("\t".join(["BLOCK", "0", "", "", ""]))
+            for notes, recipes, family_name in blocks_of(elines):
+                # a sub-section of an Item Reroll group also gives its family (the Type filter)
+                fields = ["BLOCK", "0", "", "", "", "", family_name, ""] if family_name else ["BLOCK", "0", "", "", ""]
+                lines.append("\t".join(fields))
                 for text in notes:
                     lines.append("\t".join(["LINE", "T", text]))
                 if recipes:

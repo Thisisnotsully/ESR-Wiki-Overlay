@@ -151,20 +151,6 @@
       ]
     },
     {
-      "id": "forging",
-      "title": "Forging",
-      "group": "Wiki",
-      "mode": "cubeTables",
-      "cubePage": "for"
-    },
-    {
-      "id": "d-stones",
-      "title": "D-Stones",
-      "group": "Wiki",
-      "mode": "cubeTables",
-      "cubePage": "dst"
-    },
-    {
       "id": "endgame-maps",
       "title": "Endgame Maps",
       "group": "Endgame",

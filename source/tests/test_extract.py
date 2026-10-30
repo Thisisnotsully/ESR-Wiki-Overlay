@@ -50,7 +50,7 @@ class ExtractionTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.path = OVERLAY / "data" / "wiki-data.txt"
-        cls.text = cls.path.read_text(encoding="utf-8").splitlines()
+        cls.text = cls.path.read_text(encoding="utf-8").split("\n")
         cls.entries = {}   # page id -> list of entry titles
         cls.blocks = {}    # page id -> block count
         cls.fields = {}    # block title -> list of (label, value)
@@ -73,15 +73,15 @@ class ExtractionTests(unittest.TestCase):
     def test_header_and_page_order(self):
         self.assertEqual(self.text[0], "#ESRWIKI\t2")
         self.assertEqual(list(self.entries)[0], "welcome")
-        self.assertEqual(len(self.entries), 17)  # cube recipes moved to the cube overlay; Endgame Maps, Weapon Mastery and Item Bases added
+        self.assertEqual(len(self.entries), 17)  # cube recipes moved to the cube overlay (with Forging and D-Stones); Endgame Maps, Weapon Mastery, Item Bases, Item Affixes and IAS Calculator added
 
     def test_category_and_block_counts(self):
         expected = {
-            "runes": (4, 95),
-            "runewords": (8, 415),
-            "set-items": (10, 342),
+            "runes": (4, 95),   # 94 website runes + the how-to note   # built from the website gems page
+            "runewords": (8, 474),   # built from the website runewords page; a recipe on several item kinds has a card in each
+            "set-items": (10, 346),   # built from the website sets page: 269 pieces and 77 set cards
             "uniques": (13, 1106),   # built from the website pages
-            "gemwords": (4, 157),
+            "gemwords": (8, 1408),   # built from the website gemwords page; a row has a card under each item kind it allows
         }
         for page, (categories, blocks) in expected.items():
             with self.subTest(page=page):
@@ -93,7 +93,7 @@ class ExtractionTests(unittest.TestCase):
             self.entries["runes"],
             ["Kanji Runes", "LoD Runes", "Elemental Runes", "How to Acquire Elemental Runes"],
         )
-        # Blocks per rune family: 46 Kanji, 33 LoD, 15 ESR (r50 and r84-r97).
+        # Blocks per rune family on the website page: 47 Kanji (Null Rune ends them), 33 LoD, 14 elemental.
         text = self.text
         counts, current = {}, None
         runes_start = next(i for i, l in enumerate(text) if l.startswith("PAGE\trunes\t"))
@@ -105,9 +105,293 @@ class ExtractionTests(unittest.TestCase):
                 counts[current] = 0
             elif parts[0] == "BLOCK":
                 counts[current] += 1
-        self.assertEqual(counts["Kanji Runes"], 46)
+        self.assertEqual(counts["Kanji Runes"], 47)
         self.assertEqual(counts["LoD Runes"], 33)
-        self.assertEqual(counts["Elemental Runes"], 15)
+        self.assertEqual(counts["Elemental Runes"], 14)
+
+    def test_website_runes_page(self):
+        text = [l.split("\t") for l in self.text]
+        start = next(i for i, p in enumerate(text) if p[0] == "PAGE" and p[1] == "runes")
+        end = next(i for i in range(start + 1, len(text)) if text[i][0] == "PAGE")
+        cards, title, group = [], None, None
+        for p in text[start:end]:
+            if p[0] == "ENTRY":
+                group = p[1]
+            elif p[0] == "BLOCK":
+                title = {"name": p[2], "group": group, "lines": [], "img": None, "level": None}
+                cards.append(title)
+            elif p[0] == "LINE":
+                title["lines"].append(p[2])
+            elif p[0] == "IMG":
+                title["img"] = p[1]
+            elif p[0] == "FIELD":
+                title["level"] = p[2]
+        by = {(c["group"], c["name"]): c for c in cards}
+        # Same cells are shown once; the website's own labels are used.
+        self.assertEqual(by[("Kanji Runes", "I Rune")]["lines"], [
+            "\u00ffc0Weapons / Gloves:", "\u00ffc3+15% Enhanced Damage",
+            "\u00ffc0Helms / Boots / Armor / Shields / Belts:", "\u00ffc3+30 Defense"])
+        self.assertEqual(by[("Kanji Runes", "Shi Rune")]["lines"], ["\u00ffc0All Items:", "\u00ffc3+5 to Mana after each Kill"])
+        self.assertEqual(by[("Kanji Runes", "Null Rune")]["lines"], [])                 # empty on the website
+        self.assertEqual(by[("Elemental Runes", "Moon Rune")]["lines"][0], "\u00ffc0Weapons / Gloves:")
+        self.assertEqual(by[("Kanji Runes", "I Rune")]["level"], "2")
+        self.assertEqual(by[("LoD Runes", "Hel Rune")]["level"], "0")                    # as the website gives it
+        # Ko is both a Kanji and a LoD rune, each with its own art.
+        self.assertEqual(by[("Kanji Runes", "Ko Rune")]["img"], "items_misc_rune_ko_rune")
+        self.assertEqual(by[("LoD Runes", "Ko Rune")]["img"], "items_misc_rune_ko_lod_rune")
+        self.assertFalse(any(" Rune" not in c["name"] for c in cards if c["group"] != "How to Acquire Elemental Runes"))
+        self.assertTrue(any("Catalyst" in l for c in cards for l in c["lines"]))        # the fixed how-to note is kept
+        # (str.splitlines would cut the cells at the line-break separator, so read the page by "\n" only.)
+        raw = (OVERLAY / "data" / "wiki-data.txt").read_text(encoding="utf-8").split("\n")
+        rows = [l.split("\t", 2)[2] for l in raw if l.startswith("LINE\tR\t") and "\x1fÿc3" in l and "Rune" in l.split("\x1f")[1]
+                and l.split("\x1f")[1][3:].split(" ")[0] in {"Moon", "Fire", "Water", "Wood", "Metal", "Earth", "Sun", "Thunder", "Wind", "Dragon", "Life", "Death", "Heaven", "God"}]
+        self.assertEqual(len(rows), 14)                                                 # from the cube recipes page
+        self.assertIn("Null Rune\x1eFrozen Soul\x1f\u00ffc3Moon Rune", rows)       # laid out like the cube recipes
+
+    def test_website_runewords_and_gemwords_pages(self):
+        def cards(page):
+            out, cur, on = {}, None, False
+            for l in self.text:
+                p = l.split("\t")
+                if p[0] == "PAGE":
+                    on = p[1] == page
+                elif on and p[0] == "BLOCK":
+                    cur = out.setdefault(p[2], {"head": p, "lines": [], "runes": [], "fields": {}})
+                elif on and cur is not None:
+                    if p[0] == "LINE":
+                        cur["lines"].append(p[2])
+                    elif p[0] == "RUNE":
+                        cur["runes"].append(p[1:])
+                    elif p[0] == "FIELD":
+                        cur["fields"][p[1]] = p[2]
+            return out
+        words = cards("runewords")
+        enigma = words["Enigma"]
+        self.assertEqual(enigma["fields"]["Sockets"], "3")
+        self.assertEqual(enigma["head"][4], "3 Sockets")
+        self.assertEqual(enigma["head"][7], "65")                          # the highest rune level, from the gems page
+        self.assertEqual(enigma["runes"][0], ["items_misc_rune_jah_rune", "Jah", "lod"])
+        self.assertIn("\u00ffc7Jah Rune + Ith Rune + Ber Rune", enigma["lines"])
+        gems = cards("gemwords")
+        holy = gems["Holy"]
+        self.assertEqual(holy["head"][6], "Holy")                           # filter family = the gemword
+        self.assertEqual(holy["runes"], [])                                 # gemword cards show no rune row
+
+    def test_runeword_rune_bonuses_follow_the_category(self):
+        page = cat = name = None
+        bonus = {}
+        for l in self.text:
+            p = l.split("\t")
+            if p[0] == "PAGE":
+                page = p[1]
+            elif p[0] == "ENTRY":
+                cat = p[1]
+            elif p[0] == "BLOCK":
+                name = p[2]
+                if page == "runewords":
+                    bonus[(cat, name)] = None
+            elif p[0] == "LINE" and page == "runewords":
+                if p[2] == "\u00ffc4Rune Bonuses:":
+                    bonus[(cat, name)] = []
+                elif bonus.get((cat, name)) is not None and not p[2].startswith(("\u00ffc5", "\u00ffc0")):
+                    bonus[(cat, name)].append(p[2])
+        self.assertIsNone(bonus[("Charms", "Brandish")])                       # charms have no rune bonuses
+        self.assertIn("\u00ffc3+15% Enhanced Damage", bonus[("Weapons", "Brandish")])
+        self.assertEqual(bonus[("Belts", "Stone")], ["\u00ffc3+30 Defense", "\u00ffc3+5 to Mana after each Kill"])
+
+    def test_ias_calculator_tab(self):
+        pages = [l.split("\t") for l in self.text if l.startswith("PAGE\t")]
+        self.assertEqual(pages[-1][1:4], ["ias-calculator", "IAS Calculator", "Endgame"])  # the second row of tabs
+        self.assertEqual(len(self.entries["ias-calculator"]), 1)
+
+    def test_ascendancy_page_follows_the_website(self):
+        start = self.text.index("PAGE\tascendancy\tAscendancy\tWiki")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries[:2], ["Ascendancies", "Higher Tier Challenges"])
+        self.assertEqual(entries[2:], sorted(entries[2:], key=str.lower))
+        self.assertEqual(len(entries), 17)
+        text = "\n".join(page)
+        self.assertIn("Orb of Creation / Material Locations", text)
+        self.assertIn("LINE\tC\tInput\x1fOutput", text)
+        self.assertIn("Soul Warden Ascendancy Stone", text)
+        self.assertEqual(text.count("LINE\tC\tInput\x1fOutput"), 15)
+        self.assertIn("The second tier is achieved by killing Nihalthak", text)
+        self.assertEqual(text.count("\u00ffc4Tier 1:\u00ffc0"), 15)
+        self.assertEqual(text.count("\u00ffc4Tier 5:\u00ffc0"), 15)
+        self.assertIn("Annihilation can proc only when you are below 30% current life.", text)
+        self.assertIn("You need to set a hotkey for stance dancing", text)
+
+    def test_sets_page_follows_the_website(self):
+        start = self.text.index("PAGE\tset-items\tSet Items\tWiki")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries, ["Generic", "Amazon", "Barbarian", "Necromancer", "Paladin",
+                                   "Sorceress", "Assassin", "Druid", "Warlock", "Hireling"])
+        self.assertEqual(sum(1 for l in page if l == "LINE\tH\tSet bonus"), 77)
+        self.assertIn("FIELD\tBase\tRing", page)
+
+    def test_endgame_maps_page_follows_the_website(self):
+        start = self.text.index("PAGE\tendgame-maps\tEndgame Maps\tEndgame")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries[0], "Overview")
+        self.assertEqual(len(entries), 19)
+        self.assertEqual(entries[1], "Lucion's Whisper - Cellar of Pain")
+        self.assertEqual(sum(1 for l in page if l.startswith("IMG\t")), 18)
+        self.assertIn("LINE\tT\t\u00ffcPOrb of Anointment\u00ffcN (5% chance on average)", page)
+        self.assertIn("LINE\tH\t\u00ffcHRewards (for each boss)", page)
+
+    def test_special_crafting_page_follows_the_website(self):
+        start = self.text.index("PAGE\tcorruption\tSpecial Craft\tEndgame")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries, ["Corruption Outcomes", "Anointment Outcomes", "Sanctification Outcomes",
+                                   "Standard of Heroes Outcomes"])
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 532)
+        self.assertIn("BLOCK\t0\t\t\tWeapon\t\tWeapon\t0", page)
+        self.assertIn("BLOCK\t0\t\t\tAny Jewel\t\t\t0", page)
+        self.assertIn("LINE\tR\t\u00ffc3Same Item: *** Upgraded ***; +(2 to 3)% Bonus to All Attributes", page)
+
+    def test_skill_information_page_follows_the_website(self):
+        start = self.text.index("PAGE\tmerc-oskill\tMercenary/O-Skill\tEndgame")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries, ["Mercenaries", "Oskills"])
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 54)
+        self.assertIn("LINE\tC\tHireling\x1fSubtype\x1fSkills", page)
+        self.assertIn("LINE\tT\tHere you can find information about mercenaries and various oskills.", page)
+
+    def test_vessel_of_souls_page_follows_the_website(self):
+        start = self.text.index("PAGE\tvessel-of-souls\tVessel of Souls\tEndgame")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries, ["Overview", "Tier 1", "Tier 2", "Tier 3", "Tier 4", "Completion"])
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 409)
+        self.assertIn("LINE\tR\t2x \u00ffcRHeart\u00ffcN\x1e\u00ffcRBrain\u00ffcN\x1e\u00ffcOTail\u00ffcN\x1e\u00ffcNQuill\u00ffcN\x1f+5% Chance to Cast Level 15 Thrown Axe on Striking\x1f350 Souls", page)
+        self.assertIn("LINE\tR\t\u00ffcPOrb of Anointment\u00ffcN (with 5 souls remaining)\x1f\u00ffcPWeapon Anointment Bonus\u00ffcN\x1f-5 Souls", page)
+
+    def test_weapon_mastery_page_follows_the_website(self):
+        start = self.text.index("PAGE\tweapon-mastery\tWeapon Mastery\tEndgame")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries[:2], ["Overview", "General Recipes"])
+        self.assertIn("Stag Bow Variant", entries)
+        self.assertEqual(len(entries), 20)  # Overview, General Recipes and 18 specialization variants
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 31)  # 3 general rows, 28 skill rows
+        self.assertIn("LINE\tR\t\u00ffcHAwakened Weapon Mastery Token\u00ffcN\x1e\u00ffcYSpider's Silk\u00ffcN\x1e"
+                      "\u00ffcPAnvil Stone\u00ffcN\x1f\u00ffcOStrafe\u00ffcN\x1fTriples the number of targets", "\n".join(page))
+
+    def test_kill_ledger_page_follows_the_website(self):
+        start = self.text.index("PAGE\tkill-ledger\tKill Ledger\tEndgame")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(entries, ["Overview", "Kill Bonuses", "Boss Bonuses"])
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 24)
+        self.assertIn("LINE\tR\t500 kills\x1fAny Flawless Gem\x1f+10% to All Resistances", page)
+        self.assertIn("LINE\tR\t\u00ffcNMaple Leaf\u00ffcN\x1e\u00ffcRFlawed Bleeding Stone\u00ffcN\x1fLucion\x1f+100 to Life", page)
+
+    def test_website_item_affixes_page(self):
+        self.assertEqual(list(self.entries["item-affixes"]), ["Armor", "Weapons", "Other"])
+        rows = {"Prefix": 0, "Suffix": 0, "Superior": 0}
+        families = {}
+        entry = block = tier = page = None
+        for line in self.text:
+            parts = line.split("\t")
+            if parts[0] == "PAGE":
+                page = parts[1]
+            elif page == "item-affixes" and parts[0] == "ENTRY":
+                entry = parts[1]
+                families[entry] = set()
+            elif page == "item-affixes" and parts[0] == "BLOCK":
+                block, tier = parts[6], parts[5]  # item type, affix kind
+                families[entry].add(block)
+            elif page == "item-affixes" and parts[0] == "LINE" and parts[1] == "R" and tier in rows:
+                rows[tier] += 1
+        # 7890 / 15026 / 1428 rows on the website, less the charm and jewel tables it lists twice
+        self.assertEqual(rows, {"Prefix": 7890 - 353 - 453 - 87 - 3, "Suffix": 15026 - 331 - 954 - 222, "Superior": 1428 - 83})
+        self.assertIn("Helm", families["Armor"])
+        self.assertIn("Amazon Bow", families["Weapons"])
+        self.assertTrue({"Ring", "Amulet", "Small Charm", "Jewel"} <= families["Other"])
+        self.assertTrue(not {"General", "voib", "Bow Quiver / Crossbow Quiver", "Item Type Keys"} & families["Other"])
+        other = [p[6] for p in (l.split("\t") for l in self.text[self.text.index("PAGE\titem-affixes\tItem Affixes\tWiki"):]) if p[0] == "BLOCK"]
+        seen = [x for i, x in enumerate(other) if x not in other[:i]]
+        self.assertEqual(seen[seen.index("Ring") + 1], "Amulet")
+        self.assertEqual(seen[seen.index("Small Charm") + 1], "Jewel")
+        self.assertNotIn("Helm", families["Weapons"])
+        # every entry allows the row sorts, and the rows of each table come alphabetically by name
+        start = self.text.index("PAGE\titem-affixes\tItem Affixes\tWiki")
+        page = self.text[start:]
+        for k in range(1, len(page)):
+            if page[k].startswith("PAGE\t"):
+                page = page[:k]
+                break
+        entries = [l for l in page if l.startswith("ENTRY\t")]
+        self.assertEqual(len(entries), 3)
+        self.assertTrue(all(l.split("\t")[-1] == "rowsort" for l in entries))
+        names, tables = [], 0
+        for l in page:
+            parts = l.split("\t")
+            if parts[0] == "BLOCK" or (parts[0] == "LINE" and parts[1] == "C"):
+                if len(names) > 1:
+                    self.assertEqual(names, sorted(names), "rows are not in name order")
+                names = []
+                tables += 1
+            elif parts[0] == "LINE" and parts[1] == "R" and "\x1f" in parts[2] and parts[2].startswith("\u00ffc3"):
+                names.append(parts[2].split("\x1f")[0].replace("\u00ffc3", "").lower())
+        self.assertGreater(tables, 100)
+
+    def test_website_item_bases_page(self):
+        blocks, page, cur = {}, None, None
+        for l in self.text:
+            p = l.split("\t")
+            if p[0] == "PAGE":
+                page = p[1]
+            elif p[0] == "BLOCK" and page == "item-bases":
+                cur = blocks.setdefault(p[2], {"head": p, "fields": {}, "img": None})
+            elif p[0] == "FIELD" and page == "item-bases" and cur is not None:
+                cur["fields"].setdefault(p[1], p[2])
+            elif p[0] == "IMG" and page == "item-bases" and cur is not None:
+                cur["img"] = p[1]
+        quilted = blocks["Quilted Armor"]
+        self.assertEqual(quilted["head"][3:8], ["Normal qui", "Armor", "Normal", "Armor", "1"])
+        self.assertEqual(quilted["fields"]["Defense"], "18-22")
+        self.assertNotIn("Mag Lvl", quilted["fields"])                          # empty website cells are left out
+        self.assertEqual(blocks["Maiden Javelin"]["fields"]["Missile"], "6 to 22 (14.0 Avg)")
+        self.assertEqual(blocks["Maiden Javelin"]["head"][6], "Amazon Javelin")  # type filter = the website table
+        self.assertTrue(all(b["img"] for b in blocks.values()))
 
     def test_item_blocks_carry_excel_fields(self):
         if not (OVERLAY / "data" / "wiki-data.txt").exists():
@@ -179,12 +463,12 @@ class ExtractionTests(unittest.TestCase):
             elif parts[0] == "ENTRY":
                 entry = parts[1]
             elif parts[0] == "BLOCK" and page == "set-items" and entry != "Hireling":
-                blocks.append({"title": parts[2], "section": parts[4], "lines": []})
+                blocks.append({"title": parts[2], "section": parts[4], "entry": entry, "lines": []})
             elif parts[0] == "LINE" and page == "set-items" and entry != "Hireling" and blocks:
                 blocks[-1]["lines"].append(parts[2])
         self.assertTrue(blocks)
         self.assertTrue(all(b["section"] for b in blocks))
-        sections = [b["section"] for b in blocks]
+        sections = [(b["entry"], b["section"]) for b in blocks]   # a class can have a set with the same name as another class's
         seen = []
         for section in sections:
             if not seen or seen[-1] != section:
@@ -193,7 +477,7 @@ class ExtractionTests(unittest.TestCase):
         plate = next(b for b in blocks if b["title"] == "Naj's Light Plate")
         self.assertIn("\u00ffcC+6 Defense (Based on Character Level)", plate["lines"])
         bonus = [b for b in blocks if "Set bonus" in b["lines"]]
-        self.assertEqual(len(bonus), len({b["section"] for b in blocks}))
+        self.assertEqual(len(bonus), len({(b["entry"], b["section"]) for b in blocks}))
 
     def test_hireling_cards_follow_setitems_by_difficulty(self):
         """The Hireling entry is laid out like the Warlock sets (a header per set, its pieces, then its bonus

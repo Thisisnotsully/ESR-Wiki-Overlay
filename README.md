@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.3.0
+# ESR Wiki Overlay 1.4.0
 
 A read-only in-game wiki overlay for Eastern Sun Resurrected (ESR) on Diablo II
 Resurrected, loaded by D2RLoader. It has two windows: the ESR Wiki and Horadric Cube Recipes.
@@ -16,6 +16,10 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
     wiki-data.txt
     cube-wiki-data.txt
     web-unique-art.txt
+    web-word-art.txt
+    web-base-art.txt
+    ias-calculator.html
+    ias-calculator-data.js
     images/*.png
 ```
 
@@ -23,6 +27,24 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
 - Press pause or escape and press the ESR Wiki button, or in the Horadric Cube there is a recipe button.
 - Type `eswiki` in the in-game console, or
 - Bind a key to "Open ESR Wiki" in the game's controls (no key is bound by default).
+
+## What is new in 1.4.0
+
+- The Runes page is now built from the Eastern Sun Resurrected website (the gems page) and refreshes the same way as the Uniques page: when the game starts and every six hours while it runs, with the last copy kept in the plugin folder. A file named `runes-live-disabled.txt` in the plugin folder turns the check off. Each rune shows the website's own item-kind labels and values; the "How to Acquire Elemental Runes" note stays at the end, and its recipe table follows the Cube Recipes page, so it updates too (the explanatory text above the table is fixed).
+- The Runewords and Gemwords pages are now built from the website's runewords and gemwords pages, and refresh the same way (at game start and every six hours; the last copies are kept in the plugin folder). Files named `runewords-live-disabled.txt` and `gemwords-live-disabled.txt` turn the checks off. A runeword's required level is the highest level of the runes it uses, read from the gems page. Gemword cards are one per website row. `web-word-art.txt` gives the cards their pictures.
+- The Item Bases page is now built from the website's armors and weapons pages and refreshes the same way (at game start and every six hours; the last copies are kept in the plugin folder). A file named `bases-live-disabled.txt` turns the check off. `web-base-art.txt` gives the items their pictures, tiers and weapon families.
+- New IAS Calculator tab (second row): the website's Frame Table as a working calculator. Pick class, form, skill and weapons, type your attack speed and cast rate, and see the frames, attacks per second and the breakpoint tables. Its data and constants refresh from the website like the other pages (a file named `ias-live-disabled.txt` turns the check off).
+- The Ascendancy tab now follows the website's Ascendancies page (introduction, challenges, gem recipes, tier stats and footnotes) and refreshes the same way as the other website pages. A file named `ascendancy-live-disabled.txt` turns the check off.
+- The Set Items tab now follows the website's Sets page (every piece's stats and bonuses, each set's partial and full bonus) and refreshes the same way as the other website pages. Pictures stay as before. A file named `sets-live-disabled.txt` turns the check off.
+- The Kill Ledger tab now follows the website's Kill Ledger page (overview, kill bonuses and boss bonuses) and refreshes the same way as the other website pages. A file named `kill-live-disabled.txt` turns the check off.
+- The Weapon Mastery tab now follows the website's Weapon Mastery page (overview, general recipes and every specialization variant) and refreshes the same way as the other website pages. A file named `mastery-live-disabled.txt` turns the check off.
+- The Vessel of Souls tab now follows the website's Vessel of Souls page and refreshes the same way as the other website pages. A file named `vessel-live-disabled.txt` turns the check off.
+- The Mercenary/O-Skill tab now follows the website's Skill Information page and refreshes the same way as the other website pages. A file named `skills-live-disabled.txt` turns the check off.
+- The Special Craft tab (corruptions, anointments, sanctifications, standard of heroes) now follows the website's Special Crafting Outcomes page and refreshes the same way as the other website pages. A file named `special-live-disabled.txt` turns the check off.
+- The Endgame Maps tab now follows the website's End Game Maps page (overview, every map boss's abilities and rewards) and refreshes the same way as the other website pages. Boss pictures stay as before. A file named `endgame-live-disabled.txt` turns the check off.
+- New Item Affixes tab: every prefix, suffix and quality affix from the website's prefixes, suffixes and quality pages, in three categories (Armor, Weapons, Other), each with an Affix filter (Prefix, Suffix, Superior) and a Type filter for the item type, like Uniques and Item Bases, with the website's levels, rarity, group and stats. It refreshes the same way as the other website pages (at game start and every six hours; the last copies are kept in the plugin folder). A file named `affixes-live-disabled.txt` turns the check off.
+- The D-Stones and Forging tabs are gone from the main wiki; both are still on the Cube Recipes window.
+- Cube recipe tables centre their text vertically, so a recipe with more inputs than results (or the reverse) no longer leaves the shorter side at the top of its row.
 
 ## What is new in 1.3.0
 

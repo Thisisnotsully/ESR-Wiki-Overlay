@@ -187,8 +187,8 @@ void TestGeneratedData(const std::string& path) {
     };
     struct Expect { const char* id; std::size_t entries; std::size_t blocks; };
     const Expect expected[] = {
-        {"runes", 4, 95},      {"runewords", 8, 415}, {"set-items", 10, 342},
-        {"uniques", 13, 1106}, {"gemwords", 4, 157},
+        {"runes", 4, 95},      {"runewords", 8, 474}, {"set-items", 10, 346},
+        {"uniques", 13, 1106}, {"gemwords", 8, 1408},
     };
     for (const Expect& e : expected) {
         const esrwiki::Page* page = find(e.id);
@@ -211,17 +211,56 @@ void TestGeneratedData(const std::string& path) {
         Check(lod.find("Dexterity") != std::string::npos, "LoD Ko bonus lines found");
         Check(kanji.find("Strength") != std::string::npos, "Kanji Ko bonus lines found");
         Check(esrwiki::RuneBonusLines(db, "Nonexistent", false, "Weapons").empty(), "unknown rune has no lines");
+        // The website's labels ("Weapons / Gloves", "Helms / Boots / Armor / Shields / Belts") pick the lines by item kind.
+        Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Gloves")).find("Enhanced Damage") != std::string::npos, "I rune on gloves");
+        Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Torso")).find("+30 Defense") != std::string::npos, "I rune on armor");
+        Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Torso")).find("Enhanced Damage") == std::string::npos, "I rune on armor has no weapon line");
+        Check(esrwiki::RuneBonusLines(db, "I", false, "Charms").empty(), "I rune on a charm has no lines");
+        Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Gloves")).find("Gloves:") == std::string::npos, "no section labels");
+    }
+    const esrwiki::Page* ascendancy = find("ascendancy");
+    if (ascendancy != nullptr) {
+        int left = 0, flipped = 0;
+        for (const auto& entry : ascendancy->entries) {
+            if (entry.splitLayout == 1) ++left;
+            if (entry.splitLayout == 2) ++flipped;
+        }
+        Check(left + flipped == 15 && left > 0 && flipped > 0, "the 15 ascendancies use the split layout, on alternating sides");
     }
     const esrwiki::Page* runewords = find("runewords");
     if (runewords != nullptr) Check(esrwiki::FilterEntries(*runewords, "").size() == 8, "runewords has 8 categories");
     const esrwiki::Page* runes = find("runes");
     if (runes != nullptr) {
         Check(runes->entries.size() >= 3 && runes->entries[0].title == "Kanji Runes", "runes start with Kanji");
-        Check(runes->entries[0].blocks.size() == 46, "46 Kanji runes");
+        Check(runes->entries[0].blocks.size() == 47, "47 Kanji runes");
         Check(runes->entries[1].blocks.size() == 33, "33 LoD runes");
-        Check(runes->entries[2].blocks.size() == 15, "15 ESR runes");
+        Check(runes->entries[2].blocks.size() == 14, "14 elemental runes");
         Check(runes->entries[0].blocks[0].title.find("\xC3\xBF") == std::string::npos, "titles have no color codes");
     }
+}
+
+void TestRowSort() {
+    const char us = '\x1f';
+    const auto row = [&](const std::string& name, const char* min, const char* max, const char* rarity) {
+        return esrwiki::Line{esrwiki::LineKind::Row, "\xC3\xBF" "c3" + name + us + min + us + max + us + rarity};
+    };
+    std::vector<esrwiki::Line> lines;
+    lines.push_back({esrwiki::LineKind::Heading, "Title"});
+    lines.push_back({esrwiki::LineKind::Header, std::string("Name") + us + "Min iLvl" + us + "Max iLvl" + us + "Rarity"});
+    lines.push_back(row("A", "10", "50", "7"));
+    lines.push_back(row("B", "2", "", "30"));
+    lines.push_back(row("C", "10", "20", "7"));
+    lines.push_back(row("D", "5", "80", "1"));
+    const auto names = [](const std::vector<esrwiki::Line>& sorted) {
+        std::string out;
+        for (const auto& line : sorted) if (line.kind == esrwiki::LineKind::Row) out += line.text[4];
+        return out;
+    };
+    Check(names(esrwiki::SortTableRows(lines, esrwiki::BlockSort::Default)) == "ABCD", "default keeps the order");
+    Check(names(esrwiki::SortTableRows(lines, esrwiki::BlockSort::RowMinIlvl)) == "BDAC", "min iLvl lowest first, ties keep order");
+    Check(names(esrwiki::SortTableRows(lines, esrwiki::BlockSort::RowMaxIlvl)) == "BDAC", "max iLvl highest first, no maximum counts as highest");
+    Check(names(esrwiki::SortTableRows(lines, esrwiki::BlockSort::RowRarity)) == "DACB", "rarity lowest first");
+    Check(esrwiki::SortTableRows(lines, esrwiki::BlockSort::RowMinIlvl)[0].kind == esrwiki::LineKind::Heading, "headings stay put");
 }
 
 }  // namespace
@@ -234,6 +273,7 @@ int main(int argc, char** argv) {
     TestColorCodes();
     TestArrangement();
     TestSearchAndCompact();
+    TestRowSort();
     TestGeneratedData(argc > 1 ? argv[1] : "../data/wiki-data.txt");
     if (failures == 0) std::printf("wiki_model_test: all checks passed\n");
     return failures == 0 ? 0 : 1;

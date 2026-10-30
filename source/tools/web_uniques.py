@@ -73,8 +73,12 @@ def dash_ranges(text):
     return re.sub(r"\((-?\d+(?:\.\d+)?) to (-?\d+(?:\.\d+)?)\)", r"\1-\2", text)
 
 
-def property_lines(cell):
-    """[(colour code, text)] from the Properties cell: <br> ends a line, <font color> sets the colour."""
+GAP = None  # in property_lines(gaps=True): the "colour" of an empty line (a blank line between groups of lines)
+
+
+def property_lines(cell, dash=True, gaps=False):
+    """[(colour code, text)] from the Properties cell: <br> ends a line, <font color> sets the colour.
+    dash=False keeps "(10 to 20)" as written; gaps=True also reports each empty line as (GAP, "")."""
     lines, stack, current = [], [], []
 
     def color():
@@ -88,8 +92,11 @@ def property_lines(cell):
         current.clear()
         if text:
             lines.append((color_of_line[0], text))
+        elif gaps and not final[0]:
+            lines.append((GAP, ""))
 
     color_of_line = [DEFAULT_COLOR]
+    final = [False]
     for token in re.split(r"(<[^>]*>)", cell):
         if not token:
             continue
@@ -109,10 +116,14 @@ def property_lines(cell):
         if clean(token) and not clean("".join(current)):
             color_of_line[0] = color()
         current.append(token)
+    final[0] = True
     flush()
     out = []
     for code, text in lines:
-        if RANGE_DASH:
+        if code is GAP:
+            out.append((code, text))
+            continue
+        if RANGE_DASH and dash:
             text = dash_ranges(text)
         if HIDDEN_LINES.match(text):
             continue

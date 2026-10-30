@@ -7,7 +7,7 @@
 namespace esrwiki {
 
 namespace {
-constexpr std::size_t kMaxPageBytes = 8u * 1024u * 1024u;
+constexpr std::size_t kMaxPageBytes = 32u * 1024u * 1024u;  // the suffixes page alone is about 14 MB
 
 std::wstring QueryHeader(HINTERNET request, DWORD what) {
     DWORD size = 0;

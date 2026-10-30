@@ -66,6 +66,10 @@ struct Entry {
     bool sortable = false;  // item cards can be sorted by level, tier, family or name
     bool wide = false;     // one card per row, with its stats and notes in a column beside it
     bool compact = false;  // small cards, six per row (as on the rune library)
+    int splitLayout = 0;      // 1: lines on the left, picture and name on the right; 2: the other way round (flags "split", "splitflip")
+    bool rowSort = false;     // the sort chips order table rows by Min iLvl, Max iLvl or Rarity (flag "rowsort")
+    bool keepOrder = false;   // type chips in the order the blocks appear, not alphabetical (flag "keeporder")
+    bool socketSort = false;  // a Sockets filter like runewords, and no sort chips (flag "socketsort")
     bool fiveAcross = false;  // item cards, five per row (flag "fiveacross" after "sortable")
 };
 
@@ -96,7 +100,14 @@ std::vector<std::size_t> FilterEntries(const Page& page, const std::string& quer
 // Default picks the sort for the entry: fewest sockets for runewords, lowest level for
 // sortable item lists. Filters (socket count, tier, weapon family) are applied before
 // the sort.
-enum class BlockSort { Default, Name, LevelLowFirst, LevelHighFirst };
+enum class BlockSort { Default, Name, LevelLowFirst, LevelHighFirst, RowMinIlvl, RowMaxIlvl, RowRarity, RowRarityHigh };
+
+// The sorts that reorder the rows of the tables inside a block (entries with the "rowsort" flag) instead of the blocks.
+bool IsRowSort(BlockSort sort);
+
+// The lines of a block with the rows of each table put in the order of `sort`: Min iLvl lowest first, Max iLvl highest
+// first, Rarity lowest first. Rows keep their order when the column is missing, and equal values keep their order.
+std::vector<Line> SortTableRows(const std::vector<Line>& lines, BlockSort sort);
 
 // The sort that applies to an entry, with Default resolved.
 BlockSort ResolveBlockSort(const Entry& entry, BlockSort sort);

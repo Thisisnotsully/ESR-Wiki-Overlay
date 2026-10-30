@@ -34,6 +34,12 @@
 
 #include "overlay.hpp"
 #include "cursor_art.hpp"
+#include <cstdio>
+#include <cwchar>
+#include <cwctype>
+#include <map>
+
+#include "drop_finder_model.hpp"
 #include "wiki_model.hpp"
 
 namespace esrwiki {
@@ -44,6 +50,7 @@ constexpr UINT kMsgToggle = WM_APP + 1;
 constexpr UINT kMsgShutdown = WM_APP + 2;
 constexpr UINT kMsgOpen = WM_APP + 3;
 constexpr UINT kMsgReload = WM_APP + 4;  // swap in a new database (see Overlay::ReplaceDatabase)
+constexpr UINT kMsgDrop = WM_APP + 5;    // new Drop Finder data, taken on the UI thread (see Overlay::SetDropFinder)
 constexpr UINT_PTR kTimerFocus = 1;
 constexpr UINT_PTR kTimerHandoff = 2;
 constexpr UINT kHandoffPollMs = 8;
@@ -171,7 +178,7 @@ struct Layout {
     RECT next{};
     RECT pageLabel{};
     RECT detail{};
-    RECT switchButton{};
+    std::vector<RECT> switchButtons;  // one per switch button, the first leftmost
     RECT scrollTrack{};
     RECT scrollThumb{};
     bool scrollable = false;
@@ -613,6 +620,17 @@ int MeasureHeightUncached(HDC dc, const std::wstring& text, int width, HFONT fon
     return measured.bottom - measured.top;
 }
 
+// Width of `text` on one line in `font` (no wrapping), used to fit a tooltip to its longest line.
+int NaturalWidth(HDC dc, const std::wstring& text, HFONT font) {
+    if (text.empty()) return 0;
+    RECT measured = Rect(0, 0, 0, 0);
+    const HFONT previous = static_cast<HFONT>(SelectObject(dc, font));
+    DrawTextW(dc, text.c_str(), static_cast<int>(text.size()), &measured,
+              DT_LEFT | DT_SINGLELINE | DT_NOPREFIX | DT_CALCRECT);
+    SelectObject(dc, previous);
+    return measured.right - measured.left;
+}
+
 // Height that `text` needs when wrapped to `width` in `font`, remembered for repeat measures.
 int MeasureHeight(HDC dc, const std::wstring& text, int width, HFONT font) {
     if (text.empty()) return 0;
@@ -626,6 +644,32 @@ int MeasureHeight(HDC dc, const std::wstring& text, int width, HFONT font) {
 }
 
 // Width of `text` on one line in `font`.
+// Drop shadows: a dark band under a panel (fading out), and a dark offset copy under header text.
+void DropShadow(HDC dc, const RECT& rect, int px) {
+    static const BYTE alphas[] = {150, 100, 60, 30};
+    for (int k = 0; k < 4; ++k) {
+        const RECT strip = Rect(rect.left + 2 * px, rect.bottom + k * px, rect.right - 2 * px, rect.bottom + (k + 1) * px);
+        FillPanel(dc, strip, RGB(0, 0, 0), alphas[k]);
+    }
+}
+
+void ShadowText(HDC dc, const std::wstring& text, RECT rect, HFONT font, UINT format, int px) {
+    Text(dc, text, Rect(rect.left + px, rect.top + px, rect.right + px, rect.bottom + px), RGB(0, 0, 0), font, format);
+}
+
+// A shadow cast toward the bottom right: L-shaped bands just outside the rect, so the panel itself stays clear.
+void CornerShadow(HDC dc, const RECT& rect, int px) {
+    static const BYTE alphas[] = {150, 100, 60, 30};
+    for (int k = 0; k < 4; ++k) {
+        const int right = rect.right + k * px;   // this band's inner edge
+        const int bottom = rect.bottom + k * px;
+        const RECT side = Rect(right, rect.top + (k + 1) * px, right + px, bottom + px);
+        const RECT foot = Rect(rect.left + (k + 1) * px, bottom, right + px, bottom + px);
+        FillPanel(dc, side, RGB(0, 0, 0), alphas[k]);
+        FillPanel(dc, foot, RGB(0, 0, 0), alphas[k]);
+    }
+}
+
 int MeasureWidth(HDC dc, const std::wstring& text, HFONT font) {
     if (text.empty()) return 0;
     RECT measured = Rect(0, 0, 0, 0);
@@ -954,6 +998,13 @@ LRESULT CALLBACK BlockerProc(HWND window, UINT message, WPARAM wParam, LPARAM lP
 
 }  // namespace
 
+// One entry of a drop-down list on the IAS calculator page.
+struct CalcOption {
+    std::string label;
+    int value = -1;
+    std::string key;  // the weapon type, for the type lists
+};
+
 struct OverlayState {
     std::function<bool(unsigned int)> isCloseKey;  // see Overlay::SetCloseKey
     const Database* database = nullptr;
@@ -1005,6 +1056,8 @@ struct OverlayState {
     bool hasPendingSelect = false;        // after clearing a search: keep this entry selected on this tab
     std::size_t pendingPage = 0;
     std::size_t pendingSelect = 0;
+    std::size_t searchAnchor = 0;         // the entry being viewed when the search started
+    std::size_t searchAnchorPage = 0;     // the tab that search started on
     std::map<std::string, std::unique_ptr<Gdiplus::Bitmap>> images;
     Layout layout;
     bool started = false;
@@ -1013,9 +1066,60 @@ struct OverlayState {
     std::wstring windowClassName;
     std::wstring blockerClassName;
     std::wstring cursorClassName;
-    std::wstring switchLabel;          // empty when the overlay has no switch button
-    std::function<void()> onSwitch;
+    std::vector<SwitchButton> switches;  // buttons that open the other panels, left of the close button
+    // The Drop Finder panel (dropMode, see overlay_drop.inc): its own window. A placeholder page keeps the wiki code
+    // paths valid, and the Drop Finder paints and takes input in its place.
+    bool dropMode = false;
+    std::unique_ptr<Database> dropPlaceholder;
+    std::mutex dropLock;  // guards dropPending
+    std::shared_ptr<const drop::DropFinderData> dropPending;
+    std::shared_ptr<const drop::DropFinderData> dropData;
+    std::unique_ptr<drop::Engine> dropEngine;
+    std::vector<drop::MonsterEntry> dropMonsters;      // the listed monsters (the monster picker)
+    std::vector<drop::MonsterEntry> dropEveryMonster;  // every monster (the "dropped by" table)
+    std::vector<drop::ItemEntry> dropItems;
+    drop::Settings dropSettings;
+    drop::Setup dropSetup;
+    bool dropHasMonster = false;
+    drop::MonsterEntry dropMonster;
+    bool dropHasItem = false;
+    drop::ItemEntry dropItem;
+    std::vector<drop::DropRow> dropRows;
+    std::vector<drop::WhoRow> dropWho;
+    std::vector<drop::DropRow> dropShownRows;  // the Drops rows as drawn (after search and sort), for clicks
+    std::vector<drop::WhoRow> dropShownWho;    // the Dropped by rows as drawn, for clicks
+    bool dropDirty = true;          // the rows need recomputing
+    int dropPicker = 0;             // the picker or number field being edited (kPick*)
+    std::wstring dropText;          // the text typed into it
+    int dropScrollList = 0;         // first candidate shown in the picker
+    int dropScrollRows = 0;         // first row of "Drops"
+    int dropScrollWho = 0;          // first row of "Dropped by"
+    int dropSortRows = 1;           // "Drops" column sorted by (0 name, 1 chance, 2 quest)
+    bool dropSortRowsDesc = true;
+    int dropSortWho = 4;            // "Dropped by" column sorted by (0 monster, 1 zone, 2 difficulty, 3 type, 4 chance, 5 quest)
+    bool dropSortWhoDesc = true;
+    std::wstring dropFilters[16];   // per-column search text: "Drops" 0..2, "Dropped by" 8..12
+    int dropFilterTarget = 0;       // the column whose search box is open (an index into dropFilters)
+    std::vector<int> dropCandidates;  // what the open picker lists
+    struct DropHit { RECT rect; int kind; int index; };
+    std::vector<DropHit> dropHits;
+    void DrawSwitchButton(HDC dc, const RECT& rect, const std::wstring& label, bool current);
+    void BeginSwitch(const std::function<void()>& onSwitch);
+    void ApplyPendingDrop();
+    void DropRecompute();
+    void ComputeDropCandidates();
+    std::wstring DropCandidateName(int value) const;
+    void SetDropPicker(int picker);
+    void CloseDropPicker();
+    void ChooseDropCandidate(int value);
+    void StepDrop(int index);
+    void DropPaint(HDC target);
+    void DropClick(int x, int y);
+    void DropWheel(int x, int y, int steps);
+    void DropTextChanged();
+    void DropEnter();
     bool greenNames = false;  // set-item pages draw names and headers in green
+    bool gemwordCards = false;          // the Gemwords page: its cards are three per row
     COLORREF itemNameColor = kGold;     // item names on this page: gold uniques/runewords/gemwords, green sets, orange class crafting
     COLORREF tooltipNameColor = kGold;  // tooltip heading colour on this page (sets keep the plain gold)
     int titleLine = 18;       // line height of fontTitle
@@ -1028,9 +1132,34 @@ struct OverlayState {
     int clipBottom = 0;
     int scrollTotal = 0;    // content height and visible height from the last paint
     int scrollVisible = 0;
+    std::vector<int> matchTops;  // scroll offsets of the blocks that match the search, from the last layout
+    int matchBase = 0;           // the top of the detail band, for those offsets
     bool dragging = false;  // dragging the scrollbar thumb
     int dragStartY = 0;
     int dragStartScroll = 0;
+
+    // The IAS calculator page. calcPending is handed over by Overlay::SetCalculatorData from another thread; the rest
+    // belongs to the UI thread.
+    std::mutex calcLock;
+    std::shared_ptr<const ias::Data> calcPending;
+    std::shared_ptr<const ias::Data> calcData;
+    ias::Setup calcSetup;
+    std::string calcMainType, calcOffType;  // the weapon type lists narrow the weapon lists
+    int calcOpen = -1;        // the drop-down whose list is showing
+    int calcListScroll = 0;   // its first visible row
+    int calcNumFocus = -1;    // the number field being typed in
+    std::string calcNumText;
+    bool calcNumFresh = false;  // the next character replaces the whole value
+    struct CalcHit { RECT rect; int kind; int index; };  // kind: 0 drop-down, 1 number field, 2 list row
+    std::vector<CalcHit> calcHits;
+    RECT calcListRect{};
+    bool CalcActive() const;
+    bool CalcClick(int x, int y);
+    bool CalcWheel(int x, int y, int steps);
+    bool CalcChar(wchar_t ch);
+    int* CalcNumber(int id);
+    void CalcChoose(int field, const CalcOption& option);
+    int RenderCalculator(HDC dc, int top, int scroll, bool draw);
 
     const Page& CurrentPage() const { return database->pages[pageIndex]; }
     PageView& CurrentView() { return views[pageIndex]; }
@@ -1049,6 +1178,7 @@ struct OverlayState {
     void SelectFiltered(std::size_t index);
     void MovePage(int direction);
     void StepMatch(int direction);
+    bool StepWithinEntry(int direction);
     void Show();
     void Hide();
     void ApplyPendingDatabase();
@@ -1077,10 +1207,21 @@ struct OverlayState {
                         std::size_t begin, std::size_t end, int left, int width_, int y, bool draw);
     int RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Block& block, int left, int width_, int y,
                          bool draw);
+    // An ascendancy: the tier lines in one half, the name and picture in the other, like the website.
+    int RenderSplitBlock(HDC dc, Gdiplus::Graphics* graphics, const Block& block, int left, int width_, int y, bool draw);
+    int splitNow = 0;  // the split layout of the entry being drawn (Entry::splitLayout), 0 for none
+    std::string splitTitleNow;
     int RenderTable(HDC dc, const std::vector<Line>& lines, std::size_t first, std::size_t last, int left,
                     int width_, int y, bool draw);
     // Row heights per table, keyed by width and text, so scrolling does not re-measure every cell.
     std::unordered_map<std::string, std::vector<int>> tableHeightCache;
+    // The width each column needs for its longest word, per table, for the same reason.
+    std::unordered_map<std::string, std::vector<int>> tableNeedCache;
+    // Table rows in the order of the active row sort, per block, so painting does not sort again.
+    BlockSort rowSortNow = BlockSort::Default;
+    BlockSort sortedRowsFor = BlockSort::Default;
+    const Database* sortedRowsDb = nullptr;
+    std::unordered_map<const Block*, std::vector<Line>> sortedRows;
     // The block order of the detail pane, reused until one of its inputs changes.
     struct ArrangeKey {
         const Database* db;
@@ -1120,9 +1261,15 @@ int OverlayState::RuneRows(std::size_t count, const TileStyle& style) const {
 // fixed-size art (about a quarter of the normal size) and up to six per row.
 TileStyle OverlayState::MakeTileStyle(int width_, bool compact, bool fiveAcross) const {
     TileStyle style;
-    style.columns = fiveAcross ? 5 : compact ? (width_ >= S(560) ? 6 : 4) : 3;
+    style.columns = fiveAcross ? 5 : gemwordCards ? 3 : compact ? (width_ >= S(560) ? 6 : 4) : 3;
     style.gap = compact || fiveAcross ? S(6) : S(12);
     style.tileWidth = std::max(S(40), (width_ - style.gap * (style.columns - 1)) / style.columns);
+    if (gemwordCards) {
+        // Three per row, but each card keeps the width it has at the compact six (or four) per row, so the
+        // row is left-aligned with space to its right.
+        const int compactColumns = width_ >= S(560) ? 6 : 4;
+        style.tileWidth = std::max(S(40), (width_ - S(6) * (compactColumns - 1)) / compactColumns);
+    }
     style.padding = S(6);
     style.nameFont = compact || fiveAcross ? fontSmall : fontBold;
     if (compact) {
@@ -1203,16 +1350,29 @@ Layout OverlayState::ComputeLayout() {
     const int right = width - margin;
 
     // Header: the switch and close buttons share one band, right-aligned with the tabs.
-    const int headerTop = kFrameSlice + S(8);  // clear of the picture's top frame, which grows with the window
+    // The header is raised 10 px from its centred spot, so it sits closer to the picture's top frame. The header
+    // line and the tabs stay where they were.
+    const int headerLine = kFrameSlice + S(6);  // where the header would sit with the header line below it
+    const int headerTop = headerLine - S(10);  // clear of the picture's top frame, which grows with the window
     const int headerHeight = S(28);
-    computed.close = Rect(right - S(32), headerTop, right, headerTop + headerHeight);
-    computed.switchButton = Rect(computed.close.left - gap - S(140), headerTop, computed.close.left - gap, headerTop + headerHeight);
-    computed.title = Rect(margin, headerTop, computed.switchButton.left - gap, headerTop + headerHeight);
+    // The title, switch buttons and close button share one row, 3 px below the header top, so their centres line up.
+    const int rowTop = headerTop + S(3);
+    // The buttons sit on the title's row, centred with the title's text.
+    const int buttonTop = rowTop + S(1);
+    computed.close = Rect(right - S(32), buttonTop, right, buttonTop + headerHeight);
+    // The switch buttons sit left of the close button, the first one leftmost; the title takes the rest.
+    computed.switchButtons.resize(switches.size());
+    int switchRight = computed.close.left - gap;
+    for (std::size_t i = switches.size(); i-- > 0;) {
+        computed.switchButtons[i] = Rect(switchRight - S(140), buttonTop, switchRight, buttonTop + headerHeight);
+        switchRight = computed.switchButtons[i].left - gap;
+    }
+    computed.title = Rect(margin, rowTop, switchRight, rowTop + headerHeight);
 
     // Tabs: full width between the margins, equal gaps across and down.
     const int tabRowHeight = std::max(S(30), bodyLine + S(10));
     const int tabGap = gap;
-    const int tabTop = headerTop + headerHeight + gap;
+    const int tabTop = headerLine + headerHeight + gap + S(2);
     computed.tabs.resize(pages.size());
     std::vector<int> seenInRow(rowNames.size(), 0);
     for (std::size_t i = 0; i < pages.size(); ++i) {
@@ -1227,7 +1387,9 @@ Layout OverlayState::ComputeLayout() {
     }
 
     const int contentTop = tabTop + static_cast<int>(rowNames.size()) * (tabRowHeight + tabGap);
-    computed.separatorY = contentTop - tabGap / 2;  // the picture's header line sits between the tabs and the content
+    // The picture's header line sits under the title row, as on the Drop Finder, so the tabs sit on the plain content
+    // background rather than inside the header art.
+    computed.separatorY = headerLine + headerHeight + S(6);
     const int bottom = height - margin;
     const int listWidth = Bounded(static_cast<int>(S(340) * uiScale), S(260), std::max(S(260), width * 38 / 100)) * 85 / 100 * 70 / 100;
     const int listRight = margin + listWidth;
@@ -1396,6 +1558,17 @@ void OverlayState::ReleaseBackgroundCache() {
     backgroundHeight = 0;
 }
 
+// Display size of some mythical art, as a share of its fitted size (1.0 = unchanged).
+static double ImageDisplayScale(const std::string& key) {
+    if (key == "mythical_rathmaseternalskull") return 0.35;  // reduced 65%
+    if (key == "mythical_eternalhourglassofthetimelesssands") return 0.70;  // reduced 30%
+    if (key == "mythical_baalsvilewhisper") return 0.75;  // reduced 25%
+    // Mythical rings, amulets and the Ember (jewel) of Creation: reduced 35%
+    if (key == "mythical_mythicalhighlordswrath" || key == "mythical_thetiesthatbind" || key == "mythical_vesselofsouls" ||
+        key == "mythical_emberofcreation" || key == "mythical_lichkingsessence") return 0.65;
+    return 1.0;
+}
+
 void OverlayState::DrawImageKey(Gdiplus::Graphics& graphics, const std::string& key, RECT box) {
     Gdiplus::Bitmap* bitmap = FindImage(key);
     if (bitmap == nullptr) return;
@@ -1404,7 +1577,7 @@ void OverlayState::DrawImageKey(Gdiplus::Graphics& graphics, const std::string& 
     if (imageWidth <= 0 || imageHeight <= 0) return;
     const double boxWidth = box.right - box.left;
     const double boxHeight = box.bottom - box.top;
-    const double scale = std::min(boxWidth / imageWidth, boxHeight / imageHeight);
+    const double scale = std::min(boxWidth / imageWidth, boxHeight / imageHeight) * ImageDisplayScale(key);
     const int drawWidth = static_cast<int>(imageWidth * scale);
     const int drawHeight = static_cast<int>(imageHeight * scale);
     const int left = box.left + (static_cast<int>(boxWidth) - drawWidth) / 2;
@@ -1415,6 +1588,11 @@ void OverlayState::DrawImageKey(Gdiplus::Graphics& graphics, const std::string& 
 // Moves the selection to the next or previous matching entry, wrapping at either end.
 void OverlayState::StepMatch(int direction) {
     if (query.empty() || totalMatches == 0) return;
+    // First the matches inside the entry being viewed; past the last one, the next entry with matches.
+    if (StepWithinEntry(direction)) {
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
     PageView& view = CurrentView();
     if (direction > 0 && view.selected + 1 < filtered.size()) {
         SelectFiltered(view.selected + 1);
@@ -1438,6 +1616,29 @@ void OverlayState::StepMatch(int direction) {
     InvalidateRect(window, nullptr, FALSE);
 }
 
+// Moves the open entry to its next matching block in the direction given, scrolling that block to the top of the
+// view. False when no match is left that way, so the caller moves on to another entry.
+bool OverlayState::StepWithinEntry(int direction) {
+    PageView& view = CurrentView();
+    const int current = view.detailScroll;
+    const int maxScroll = std::max(0, scrollTotal - scrollVisible);
+    bool found = false;
+    int target = 0;
+    for (const int offset : matchTops) {
+        const int scroll = std::min(offset, maxScroll);  // the last matches cannot scroll past the end
+        if (direction > 0 && scroll > current && (!found || scroll < target)) {
+            target = scroll;
+            found = true;
+        } else if (direction < 0 && scroll < current && (!found || scroll > target)) {
+            target = scroll;
+            found = true;
+        }
+    }
+    if (!found) return false;
+    view.detailScroll = target;
+    return true;
+}
+
 // The search box passes Enter to the overlay as the next match, and Shift+Enter as the previous.
 WNDPROC gSearchProc = nullptr;
 
@@ -1445,9 +1646,21 @@ LRESULT CALLBACK SearchEditProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM l
     if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_RETURN) {
         if (message == WM_KEYDOWN) {
             auto* self = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
-            if (self) self->StepMatch((GetKeyState(VK_SHIFT) & 0x8000) ? -1 : 1);
+            if (self && self->dropMode) {
+                self->DropEnter();
+            } else if (self && self->CalcActive() && self->calcNumFocus >= 0) {
+                self->calcNumFocus = -1;  // Enter finishes the number being typed
+                InvalidateRect(self->window, nullptr, FALSE);
+            } else if (self) {
+                self->StepMatch((GetKeyState(VK_SHIFT) & 0x8000) ? -1 : 1);
+            }
         }
         return 0;
+    }
+    if (message == WM_CHAR) {
+        // A number field of the IAS calculator page takes the typing instead of the search box.
+        auto* self = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
+        if (self != nullptr && self->CalcChar(static_cast<wchar_t>(wParam))) return 0;
     }
     return CallWindowProcW(gSearchProc, hwnd, message, wParam, lParam);
 }
@@ -1461,6 +1674,10 @@ void OverlayState::Refilter() {
     query = Narrow(buffer);
     if (!query.empty()) {
         hasPendingSelect = false;
+        if (!wasSearching) {  // a new search begins where the user is looking
+            searchAnchor = selectedEntry;
+            searchAnchorPage = pageIndex;
+        }
     } else if (wasSearching) {
         // Clearing the search keeps the tab and the entry being viewed in the search results.
         hasPendingSelect = true;
@@ -1479,6 +1696,14 @@ void OverlayState::Refilter() {
     view.selected = 0;
     view.listPage = 0;
     view.detailScroll = 0;
+    // While searching on the tab the search began on, select the first match at or after the entry that was being
+    // viewed (wrapping to the first match when there is none after it).
+    if (!query.empty() && searchAnchorPage == pageIndex && !filtered.empty()) {
+        const auto at = std::find_if(filtered.begin(), filtered.end(),
+                                     [this](std::size_t entry) { return entry >= searchAnchor; });
+        view.selected = at == filtered.end() ? 0 : static_cast<std::size_t>(at - filtered.begin());
+        view.listPage = view.selected / rowsPerPage;
+    }
     // Keeps the viewed entry selected once the search is cleared. Applied on every refilter until
     // the search is typed in again, so a second refilter cannot reset it.
     if (query.empty() && hasPendingSelect && pendingPage == pageIndex && !filtered.empty()) {
@@ -1490,6 +1715,8 @@ void OverlayState::Refilter() {
 void OverlayState::SetPage(std::size_t index) {
     if (index >= database->pages.size() || index == pageIndex) return;
     pageIndex = index;
+    calcOpen = -1;
+    calcNumFocus = -1;
     Refilter();
 }
 
@@ -1691,6 +1918,7 @@ void OverlayState::EndDrag() {
 }
 
 void OverlayState::HandleMove(int x, int y) {
+    if (dropMode) return;  // the Drop Finder has no hover
     if (!trackingMouse) {
         TRACKMOUSEEVENT track{};
         track.cbSize = sizeof(track);
@@ -1814,8 +2042,15 @@ void OverlayState::DrawTooltip(HDC dc) {
     std::vector<int> heights;
     int totalHeight = S(16);
     // Mythical cards (wide entries) start at the wider size.
-    const std::vector<int> widths = hover.entry->wide ? std::vector<int>{S(520), S(640)}
-                                                      : std::vector<int>{S(340), S(420), S(520), S(640)};
+    // The tip is as wide as its longest line needs (within the window), so it has no empty margin. Wider sizes
+    // follow only if the text does not fit the bottom of the window at that width.
+    int widest = 0;
+    for (const TipRow& row : rows) widest = std::max(widest, NaturalWidth(dc, row.text, row.font));
+    const int fitWidth = std::min(std::max(widest + S(24), S(160)), maxTipWidth);
+    std::vector<int> widths{fitWidth};
+    for (const int candidate : {S(340), S(420), S(520), S(640)}) {
+        if (candidate > fitWidth) widths.push_back(candidate);
+    }
     for (const int candidate : widths) {
         tipWidth = std::min(candidate, maxTipWidth);
         const int inner = tipWidth - S(24);
@@ -1827,6 +2062,37 @@ void OverlayState::DrawTooltip(HDC dc) {
             totalHeight += rowHeight + gap;
         }
         if (totalHeight <= availableHeight) break;
+    }
+
+    // Rows are placed in one column unless even the widest tip is taller than the window (a long mythical): then
+    // the rows flow into two to four columns, each row whole, so nothing is cut off at the bottom.
+    // columnWidth is the width of the text in one column; columns are separated by one padding unit (S(12)) and
+    // the tip has one padding unit at each outside edge, the same as a single column.
+    int columnWidth = tipWidth - S(24);
+    std::vector<int> rowColumn(rows.size(), 0);
+    std::vector<int> rowY(rows.size(), 0);  // from the top of the tip's text area
+    {
+        int y = 0;
+        for (std::size_t i = 0; i < rows.size(); ++i) { rowY[i] = y; y += heights[i] + gap; }
+    }
+    if (totalHeight > availableHeight && !rows.empty()) {
+        for (int columns = 2; columns <= 4; ++columns) {
+            const int spare = maxTipWidth - S(24) - (columns - 1) * S(12);
+            columnWidth = std::min({S(420), spare / columns, widest});
+            const int inner = columnWidth;
+            int column = 0, y = 0, tallest = 0;
+            for (std::size_t i = 0; i < rows.size(); ++i) {
+                heights[i] = MeasureHeight(dc, rows[i].text, inner, rows[i].font);
+                if (y > 0 && y + heights[i] + S(16) > availableHeight) { column++; y = 0; }
+                rowColumn[i] = column;
+                rowY[i] = y;
+                y += heights[i] + gap;
+                tallest = std::max(tallest, y);
+            }
+            tipWidth = S(24) + columns * columnWidth + (columns - 1) * S(12);
+            totalHeight = tallest + S(16);
+            if (column < columns) break;  // everything fits in this many columns
+        }
     }
 
     // The tooltip sits beside the thing hovered, not at the pointer, and clear of the drawn cursor: the
@@ -1848,15 +2114,17 @@ void OverlayState::DrawTooltip(HDC dc) {
     const int visibleHeight = std::min(totalHeight, static_cast<int>(client.bottom) - top - S(8));
     const RECT box = Rect(left, top, left + tipWidth, top + visibleHeight);
     // Tooltips sit on a see-through black so the wiki behind them still shows.
+    CornerShadow(dc, box, S(2));
     FillPanel(dc, box, RGB(10, 7, 4), 214);
     FrameColor(dc, box, kGold);
     const int saved = SaveDC(dc);
     IntersectClipRect(dc, box.left, box.top, box.right, box.bottom);
     int y = top + S(8);
     for (std::size_t i = 0; i < rows.size(); ++i) {
-        const RECT lineRect = Rect(left + S(12), y, left + tipWidth - S(12), y + heights[i]);
+        const int columnLeft = left + S(12) + rowColumn[i] * (columnWidth + S(12));
+        const int rowTop = y + rowY[i];
+        const RECT lineRect = Rect(columnLeft, rowTop, columnLeft + columnWidth, rowTop + heights[i]);
         Text(dc, rows[i].text, lineRect, rows[i].color, rows[i].font, DT_LEFT | DT_WORDBREAK | DT_NOPREFIX);
-        y += heights[i] + gap;
     }
     RestoreDC(dc, saved);
 }
@@ -1867,6 +2135,10 @@ void OverlayState::QueryChanged() {
 }
 
 void OverlayState::HandleClick(int x, int y) {
+    if (dropMode) {
+        DropClick(x, y);
+        return;
+    }
     PageView& view = CurrentView();
     if (!query.empty() && Inside(layout.clearQuery, x, y)) {
         SetWindowTextW(search, L"");
@@ -1895,11 +2167,16 @@ void OverlayState::HandleClick(int x, int y) {
         InvalidateRect(window, nullptr, FALSE);
         return;
     }
+    if (CalcClick(x, y)) return;
     for (const Chip& chip : layout.chips) {
         if (!Inside(chip.rect, x, y)) continue;
         switch (chip.kind) {
             case ChipKind::Socket: view.socketFilter = chip.value; break;
-            case ChipKind::Sort: view.sort = static_cast<BlockSort>(chip.value); break;
+            case ChipKind::Sort: {
+                const BlockSort picked = static_cast<BlockSort>(chip.value);
+                view.sort = (IsRowSort(picked) && view.sort == picked) ? BlockSort::Default : picked;  // again: back to names
+                break;
+            }
             case ChipKind::Tier: view.tierFilter = chip.text; break;
             case ChipKind::Family: view.familyFilter = chip.text; break;
         }
@@ -1907,25 +2184,13 @@ void OverlayState::HandleClick(int x, int y) {
         InvalidateRect(window, nullptr, FALSE);
         return;
     }
-    if (!switchLabel.empty() && Inside(layout.switchButton, x, y)) {
-        // The other panel opens while this one stays up, and this one hides once the other has
-        // painted, so the dimmed backdrop and the cursor never drop out in between.
-        open = false;
-        EndDrag();
-        ClearHover();
-        if (onSwitch) {
-            handingOff = true;
-            gHandoffActive = true;
-            gHandoffReady = false;
-            handoffStarted = GetTickCount64();
-            handoffSettled = false;
-            gHandoffForeground = previousForeground;
-            onSwitch();
-            SetTimer(window, kTimerHandoff, kHandoffPollMs, nullptr);
-        } else {
-            Hide();
+    for (std::size_t i = 0; i < switches.size(); ++i) {
+        if (Inside(layout.switchButtons[i], x, y)) {
+            if (switches[i].current) return;
+            if (switches[i].available && !switches[i].available()) return;
+            BeginSwitch(switches[i].onSwitch);
+            return;
         }
-        return;
     }
     if (Inside(layout.close, x, y)) {
         Hide();
@@ -1949,9 +2214,14 @@ void OverlayState::HandleClick(int x, int y) {
 }
 
 void OverlayState::HandleWheel(int x, int y, int delta) {
+    if (dropMode) {
+        DropWheel(x, y, delta / WHEEL_DELTA);
+        return;
+    }
     PageView& view = CurrentView();
     const int steps = delta / WHEEL_DELTA;
     if (Inside(layout.detail, x, y)) {
+        if (CalcWheel(x, y, steps)) return;
         view.detailScroll = std::max(0, view.detailScroll - steps * S(40));
     } else if (x < layout.detail.left && y >= layout.search.top && !filtered.empty()) {
         // Wheel down selects the next entry, wheel up the previous one.
@@ -1963,6 +2233,7 @@ void OverlayState::HandleWheel(int x, int y, int delta) {
 }
 
 void OverlayState::HandleKey(WPARAM key) {
+    if (dropMode) return;  // the Drop Finder's keys are its text box's
     PageView& view = CurrentView();
     if (filtered.empty()) return;
     switch (key) {
@@ -2000,9 +2271,11 @@ void OverlayState::PaintList(HDC dc) {
     }
     Text(dc, countText, layout.count, kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     if (!query.empty()) {
+        CornerShadow(dc, layout.matchPrev, S(2));
         FillPanel(dc, layout.matchPrev, kPanel, 200);
         FrameColor(dc, layout.matchPrev, kBorder);
         Text(dc, L"<", layout.matchPrev, totalMatches == 0 ? kDim : kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+        CornerShadow(dc, layout.matchNext, S(2));
         FillPanel(dc, layout.matchNext, kPanel, 200);
         FrameColor(dc, layout.matchNext, kBorder);
         Text(dc, L">", layout.matchNext, totalMatches == 0 ? kDim : kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
@@ -2017,18 +2290,26 @@ void OverlayState::PaintList(HDC dc) {
         const Entry& entry = page.entries[filtered[position]];
         const RECT row = layout.rows[i];
         const bool selected = position == view.selected;
+        CornerShadow(dc, row, S(2));
         FillPanel(dc, row, selected ? kSelected : kPanel, 185);
         if (selected) FrameColor(dc, row, kGold);
         const RECT titleRect = Rect(row.left + S(12), row.top + S(4), row.right - S(12), row.bottom - S(4));
-        Text(dc, Wide(entry.title), titleRect, kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK | DT_VCENTER);
+        // Wrapped lines, left-aligned, with the block centred vertically in the row.
+        const std::wstring rowTitle = Wide(entry.title);
+        const int titleHeight = MeasureHeight(dc, rowTitle, titleRect.right - titleRect.left, fontBold);
+        RECT centred = titleRect;
+        centred.top += std::max<int>(0, (static_cast<int>(titleRect.bottom - titleRect.top) - titleHeight) / 2);
+        Text(dc, rowTitle, centred, kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK);
     }
 
-    const std::wstring pageText = L"Page " + std::to_wstring(view.listPage + 1) + L" of " + std::to_wstring(pages);
+    const std::wstring pageText = std::to_wstring(view.listPage + 1) + L"/" + std::to_wstring(pages);
     Text(dc, pageText, layout.pageLabel, kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+    CornerShadow(dc, layout.prev, S(2));
     FillPanel(dc, layout.prev, kPanel, 200);
     FrameColor(dc, layout.prev, kBorder);
     Text(dc, L"< Prev", layout.prev, view.listPage > 0 ? kText : kDim, fontBody,
          DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+    CornerShadow(dc, layout.next, S(2));
     FillPanel(dc, layout.next, kPanel, 200);
     FrameColor(dc, layout.next, kBorder);
     Text(dc, L"Next >", layout.next, view.listPage + 1 < pages ? kText : kDim, fontBody,
@@ -2052,9 +2333,11 @@ static std::string ActiveFilter(const Entry& entry, std::string Block::*member, 
 // Weapon families present in an entry, in alphabetical order.
 static std::vector<std::string> DistinctFamilies(const Entry& entry) {
     std::set<std::string> families;
+    std::vector<std::string> ordered;
     for (const Block& block : entry.blocks) {
-        if (!block.family.empty()) families.insert(block.family);
+        if (!block.family.empty() && families.insert(block.family).second) ordered.push_back(block.family);
     }
+    if (entry.keepOrder) return ordered;
     return std::vector<std::string>(families.begin(), families.end());
 }
 
@@ -2063,7 +2346,9 @@ static std::vector<std::string> DistinctFamilies(const Entry& entry) {
 // wrap onto another line when a row is full.
 int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     layout.chips.clear();
-    const bool runes = HasRuneBlocks(entry);
+    // Class Crafting has no filters or sorts: its cards stay in the order the page gives them.
+    if (CurrentPage().id == "class-crafting") return layout.detail.top + S(12);
+    const bool runes = HasRuneBlocks(entry) || entry.socketSort;  // gemwords have a Sockets filter but no runes
     // Tier names (unique tiers, or Hireling difficulties) need the controls even without runes or sorting.
     const bool hasTiers = std::any_of(entry.blocks.begin(), entry.blocks.end(),
                                       [](const Block& block) { return !block.tier.empty(); });
@@ -2100,6 +2385,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
         }
         const RECT rect = Rect(cursor, rowY, cursor + chipWidth, rowY + rowHeight);
         layout.chips.push_back(Chip{rect, kind, value, name});
+        CornerShadow(dc, rect, S(2));
         FillPanel(dc, rect, selected ? kSelected : kPanel, 200);
         FrameColor(dc, rect, selected ? kGold : kBorder);
         Text(dc, text, rect, selected ? kGold : kText, fontSmall, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
@@ -2118,16 +2404,20 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
         y = rowY + rowHeight + S(6);
     }
     // Tier filter: unique tiers, or Hireling difficulties. Only the names present are listed.
-    const char* const tierNames[] = {"Normal", "Exceptional", "Elite", "Nightmare", "Hell"};
+    const char* const tierNames[] = {"Normal", "Exceptional", "Elite", "Nightmare", "Hell", "Mythic"};
     {
         if (hasTiers) {
-            label(y, L"Tier:");
+            // The known tiers in their order, then any other name the blocks carry (Item Affixes: Prefix, Suffix, Superior).
+            std::vector<std::string> tiers;
+            for (const char* name : tierNames)
+                if (AnyBlock(entry, &Block::tier, name)) tiers.push_back(name);
+            const std::size_t known = tiers.size();
+            for (const Block& block : entry.blocks)
+                if (!block.tier.empty() && std::find(tiers.begin(), tiers.end(), block.tier) == tiers.end()) tiers.push_back(block.tier);
+            label(y, tiers.size() > known ? L"Affix:" : L"Tier:");
             int rowY = y, cursor = chipStart;
             chip(rowY, cursor, L"All", S(44), ChipKind::Tier, 0, "", tierNow.empty());
-            for (const char* name : tierNames) {
-                if (!AnyBlock(entry, &Block::tier, name)) continue;
-                chip(rowY, cursor, Wide(name), S(80), ChipKind::Tier, 0, name, tierNow == name);
-            }
+            for (const std::string& name : tiers) chip(rowY, cursor, Wide(name), S(80), ChipKind::Tier, 0, name, tierNow == name);
             y = rowY + rowHeight + S(6);
         }
     }
@@ -2136,8 +2426,25 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
             label(y, L"Type:");
             int rowY = y, cursor = chipStart;
             chip(rowY, cursor, L"All", S(44), ChipKind::Family, 0, "", familyNow.empty());
-            for (const std::string& family : families) {
-                chip(rowY, cursor, Wide(family), S(70), ChipKind::Family, 0, family, familyNow == family);
+            // Helms on the Gemwords page: the country types go in a row of their own at the top, the other
+            // types on a second row below.
+            static const std::set<std::string> kCountryTypes = {
+                "America", "Austria", "Britain", "Canada", "China", "France", "Germany", "Italy", "Japan", "Portugal", "Russia"};
+            std::vector<std::string> ordered = families;
+            const bool countryRows = CurrentPage().id == "gemwords" && entry.title == "Helms";
+            std::size_t countries = 0;
+            if (countryRows) {
+                std::stable_partition(ordered.begin(), ordered.end(),
+                                      [](const std::string& family) { return kCountryTypes.count(family) > 0; });
+                countries = static_cast<std::size_t>(std::count_if(ordered.begin(), ordered.end(),
+                                      [](const std::string& family) { return kCountryTypes.count(family) > 0; }));
+            }
+            for (std::size_t i = 0; i < ordered.size(); ++i) {
+                if (countryRows && countries > 0 && i == countries) {
+                    rowY += rowHeight + S(6);  // the other types start a second row
+                    cursor = chipStart;
+                }
+                chip(rowY, cursor, Wide(ordered[i]), S(70), ChipKind::Family, 0, ordered[i], familyNow == ordered[i]);
             }
             y = rowY + rowHeight + S(6);
         }
@@ -2146,9 +2453,24 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     // Sort chips only do something for level-sorted lists or titled blocks.
     const bool hasTitles = std::any_of(entry.blocks.begin(), entry.blocks.end(),
                                        [](const Block& block) { return !block.title.empty(); });
-    if (!entry.sortable && !hasTitles) return y;
+    if (entry.socketSort || (!entry.sortable && !hasTitles)) return y;  // gemwords: the Sockets filter only
     label(y, L"Sort:");
     int rowY = y, cursor = chipStart;
+    if (entry.rowSort) {  // table rows: each chip cycles ascending, descending, then back to names
+        const bool ilvlOn = active == BlockSort::RowMinIlvl || active == BlockSort::RowMaxIlvl;
+        const BlockSort ilvlNext = active == BlockSort::RowMinIlvl ? BlockSort::RowMaxIlvl
+                                 : active == BlockSort::RowMaxIlvl ? BlockSort::Default : BlockSort::RowMinIlvl;
+        const std::wstring ilvlText = active == BlockSort::RowMinIlvl ? L"iLvl \u2191"
+                                    : active == BlockSort::RowMaxIlvl ? L"iLvl \u2193" : L"iLvl";
+        chip(rowY, cursor, ilvlText, S(80), ChipKind::Sort, static_cast<std::size_t>(ilvlNext), "", ilvlOn);
+        const bool rarityOn = active == BlockSort::RowRarity || active == BlockSort::RowRarityHigh;
+        const BlockSort rarityNext = active == BlockSort::RowRarity ? BlockSort::RowRarityHigh
+                                   : active == BlockSort::RowRarityHigh ? BlockSort::Default : BlockSort::RowRarity;
+        const std::wstring rarityText = active == BlockSort::RowRarity ? L"Rarity \u2191"
+                                      : active == BlockSort::RowRarityHigh ? L"Rarity \u2193" : L"Rarity";
+        chip(rowY, cursor, rarityText, S(90), ChipKind::Sort, static_cast<std::size_t>(rarityNext), "", rarityOn);
+        return rowY + rowHeight + S(10);
+    }
     if (entry.sortable) {
         chip(rowY, cursor, L"Lowest level", S(110), ChipKind::Sort,
              static_cast<std::size_t>(BlockSort::LevelLowFirst), "", active == BlockSort::LevelLowFirst);
@@ -2173,6 +2495,7 @@ void OverlayState::DrawScrollbar(HDC dc, int top, int visible, int total, int sc
     const int maxScroll = total - visible;
     const int thumbTop = track.top + static_cast<int>(static_cast<long long>(trackHeight - thumbHeight) * scroll / maxScroll);
     layout.scrollThumb = Rect(track.left, thumbTop, track.right, thumbTop + thumbHeight);
+    CornerShadow(dc, track, S(2));
     FillPanel(dc, track, kSearchFill, 200);
     FillColor(dc, layout.scrollThumb, dragging ? kGold : kBorder);
 }
@@ -2220,8 +2543,10 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
             const Block& block = entry.blocks[index];
             const int tileLeft = left + static_cast<int>(c) * (style.tileWidth + style.gap);
             const RECT tile = Rect(tileLeft, y, tileLeft + style.tileWidth, y + rowHeight);
+            if (!draw && !query.empty() && BlockMatches(block, query)) matchTops.push_back(y - matchBase);
             const bool onScreen = tile.bottom > clipTop && tile.top < clipBottom;
             if (draw && onScreen) {
+                CornerShadow(dc, tile, S(2));
                 FillPanel(dc, tile, kTile, 150);
                 FrameColor(dc, tile, kBorder);
             }
@@ -2320,8 +2645,10 @@ int OverlayState::RenderWideTiles(HDC dc, Gdiplus::Graphics* graphics, const Ent
         const RECT column = Rect(sideLeft, y, sideLeft + sideWidth, y + rowHeight);
         const bool onScreen = tile.bottom > clipTop && tile.top < clipBottom;
         if (draw && onScreen) {
+            CornerShadow(dc, tile, S(2));
             FillPanel(dc, tile, kTile, 150);
             FrameColor(dc, tile, kBorder);
+            CornerShadow(dc, column, S(2));
             FillPanel(dc, column, kTile, 150);
             FrameColor(dc, column, kBorder);
             Text(dc, Wide(block.title), Rect(left + pad, y + pad, left + tileWidth - pad, y + pad + nameHeight),
@@ -2371,9 +2698,13 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
     std::vector<std::size_t> weight(columns, 1);
     for (const auto& row : rows) {
         for (std::size_t c = 0; c < row.size(); ++c) {
-            // Weighted by the longest line of the cell, since line breaks stack text vertically.
+            // Weighted by the longest visible line of the cell (colour codes take no room), since line breaks
+            // stack text vertically.
+            std::string visible;
+            COLORREF ignored = kBody;
+            PlainText(row[c], visible, ignored, kBody);
             std::size_t longest = 0, current = 0;
-            for (const char ch : row[c]) {
+            for (const char ch : visible) {
                 if (ch == '\n') current = 0;
                 else longest = std::max(longest, ++current);
             }
@@ -2401,15 +2732,38 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
         return Wide(plain);
     };
 
+    std::string key = std::to_string(width_);
+    for (std::size_t i = first; i < last; ++i) {
+        key += '|';
+        key += static_cast<char>(lines[i].kind);
+        key += lines[i].text;
+    }
     // Widen any column whose longest unbreakable word would otherwise be clipped. The extra
     // room comes out of the wider columns in proportion to their width.
     {
         std::vector<int> need(columns, 0);
+        const auto knownNeed = tableNeedCache.find(key);
+        const bool measureNeed = knownNeed == tableNeedCache.end();
+        if (!measureNeed) need = knownNeed->second;
         const HFONT previous = static_cast<HFONT>(SelectObject(dc, fontBody));
-        for (std::size_t r = 0; r < rows.size(); ++r) {
+        for (std::size_t r = 0; measureNeed && r < rows.size(); ++r) {
             for (std::size_t c = 0; c < columns; ++c) {
                 COLORREF color = kBody;
                 const std::wstring text = cellText(r, c, color);
+                // Each line of the cell stays on one line when it fits in part of the table (up to two fifths
+                // of its width), so a short ingredient such as a token name does not wrap.
+                std::size_t lineStart = 0;
+                while (lineStart <= text.size()) {
+                    std::size_t lineEnd = text.find(L'\n', lineStart);
+                    if (lineEnd == std::wstring::npos) lineEnd = text.size();
+                    if (lineEnd > lineStart) {
+                        SIZE size{};
+                        GetTextExtentPoint32W(dc, text.c_str() + lineStart, static_cast<int>(lineEnd - lineStart), &size);
+                        const int wanted = std::min(static_cast<int>(size.cx) + 2 * pad + S(4), width_ * 2 / 5);
+                        need[c] = std::max(need[c], wanted);
+                    }
+                    lineStart = lineEnd + 1;
+                }
                 std::size_t begin = 0;
                 while (begin <= text.size()) {
                     std::size_t end = text.find(L' ', begin);
@@ -2424,6 +2778,7 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
             }
         }
         SelectObject(dc, previous);
+        if (measureNeed) tableNeedCache.emplace(key, need);
         int deficit = 0;
         for (std::size_t c = 0; c < columns; ++c) {
             if (colWidth[c] < need[c]) { deficit += need[c] - colWidth[c]; colWidth[c] = need[c]; }
@@ -2459,12 +2814,6 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
         return MeasureHeight(dc, cellText(r, c, color), w, f);
     };
 
-    std::string key = std::to_string(width_);
-    for (std::size_t i = first; i < last; ++i) {
-        key += '|';
-        key += static_cast<char>(lines[i].kind);
-        key += lines[i].text;
-    }
     auto cached = tableHeightCache.find(key);
     if (cached == tableHeightCache.end()) {
         std::vector<int> measured;
@@ -2491,7 +2840,11 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
                 const std::wstring text = cellText(r, c, color);
                 const RECT cell = Rect(x, y, x + colWidth[c], y + rowHeight);
                 FrameColor(dc, cell, kBorder);
-                const RECT inner = Rect(x + pad, y + pad, x + colWidth[c] - pad, y + rowHeight - pad);
+                RECT inner = Rect(x + pad, y + pad, x + colWidth[c] - pad, y + rowHeight - pad);
+                // Centre the cell's text vertically, so a short cell next to a tall one sits mid-row, not at the top.
+                const int contentHeight = cellHeight(r, c, std::max(S(20), colWidth[c] - 2 * pad), font);
+                const int spare = (inner.bottom - inner.top) - contentHeight;
+                if (spare > 0) inner.top += spare / 2;
                 if (multiColour(r, c)) LayoutPieces(dc, LinePieces(rawCell(r, c), kBody), kBody, inner, font, DT_LEFT, true);
                 else Text(dc, text, inner, color, font, DT_LEFT | DT_WORDBREAK);
                 x += colWidth[c];
@@ -2504,6 +2857,7 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
 
 int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Block& block, int left, int width_,
                                    int y, bool draw) {
+    if (splitNow != 0 && !block.images.empty()) return RenderSplitBlock(dc, graphics, block, left, width_, y, draw);
     if (!block.title.empty()) {
         const std::wstring wide = Wide(block.title);
         const int h = MeasureHeight(dc, wide, width_, fontBold);
@@ -2562,15 +2916,27 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
     }
     if (!block.fields.empty()) y += S(4);
 
-    for (std::size_t i = 0; i < block.lines.size();) {
-        const Line& line = block.lines[i];
+    const std::vector<Line>* shownLines = &block.lines;
+    if (IsRowSort(rowSortNow)) {
+        if (sortedRowsFor != rowSortNow || sortedRowsDb != database) {
+            sortedRows.clear();
+            sortedRowsFor = rowSortNow;
+            sortedRowsDb = database;
+        }
+        auto found = sortedRows.find(&block);
+        if (found == sortedRows.end()) found = sortedRows.emplace(&block, SortTableRows(block.lines, rowSortNow)).first;
+        shownLines = &found->second;
+    }
+    const std::vector<Line>& blockLines = *shownLines;
+    for (std::size_t i = 0; i < blockLines.size();) {
+        const Line& line = blockLines[i];
         if (line.kind == LineKind::Row || line.kind == LineKind::Header) {
             std::size_t end = i;
-            while (end < block.lines.size() && (block.lines[end].kind == LineKind::Row ||
-                                                block.lines[end].kind == LineKind::Header)) {
+            while (end < blockLines.size() && (blockLines[end].kind == LineKind::Row ||
+                                               blockLines[end].kind == LineKind::Header)) {
                 ++end;
             }
-            y = RenderTable(dc, block.lines, i, end, left, width_, y, draw);
+            y = RenderTable(dc, blockLines, i, end, left, width_, y, draw);
             i = end;
             continue;
         }
@@ -2600,11 +2966,14 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
 // content right edge leaves room for the scrollbar.
 int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std::size_t>& order, bool headers,
                                int top, int scroll, bool compact, bool draw) {
+    if (!draw) matchTops.clear();
+    if (CalcActive()) return RenderCalculator(dc, top, scroll, draw);
     const RECT area = layout.detail;
     const int left = area.left + S(16);
     const int width_ = area.right - S(22) - left;
     int y = top - scroll;
     const int origin = y;
+    if (!draw) matchBase = origin;
 
     std::unique_ptr<Gdiplus::Graphics> owned;
     Gdiplus::Graphics* graphics = nullptr;
@@ -2628,9 +2997,11 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
     y += S(4);
 
     if (order.empty()) {
-        if (draw) Text(dc, L"Nothing matches this filter", Rect(left, y, left + width_, y + S(24)), kDim, fontBody,
+        // Tall enough for the font's full line, so the text is not cut off at the bottom.
+        const int noMatchHeight = std::max(S(24), bodyLine + S(6));
+        if (draw) Text(dc, L"Nothing matches this filter", Rect(left, y, left + width_, y + noMatchHeight), kDim, fontBody,
                        DT_LEFT | DT_SINGLELINE);
-        return y + S(24) - origin;
+        return y + noMatchHeight - origin;
     }
 
     bool firstBlock = true;
@@ -2643,6 +3014,7 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
                 if (draw) FillColor(dc, Rect(left, y, left + width_, y + 1), kBorder);
                 y += S(12);
             }
+            if (!draw && !query.empty() && BlockMatches(first, query)) matchTops.push_back(y - matchBase);
             y = RenderGuideBlock(dc, graphics, first, left, width_, y, draw);
             y += S(6);
             firstBlock = false;
@@ -2674,6 +3046,89 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
     return y - origin;
 }
 
+int OverlayState::RenderSplitBlock(HDC dc, Gdiplus::Graphics* graphics, const Block& block, int left, int width_, int y,
+                                   bool draw) {
+    const std::vector<Line>& lines = block.lines;
+    std::size_t first = 0;
+    while (first < lines.size() && lines[first].kind != LineKind::Stat) ++first;
+    std::size_t last = first;
+    while (last < lines.size() && lines[last].kind == LineKind::Stat) ++last;
+
+    // One line, centred in a column. Returns the height it takes.
+    const auto centred = [&](const Line& line, HFONT font, int x, int width, int top, bool paint) {
+        std::string plain;
+        COLORREF unused = kBody;
+        PlainText(line.text, plain, unused, kBody);
+        const std::wstring wide = Wide(plain);
+        const int h = MeasureHeight(dc, wide, width, font);
+        if (paint) {
+            const RECT box = Rect(x, top, x + width, top + h);
+            if (HasColorCodes(line.text)) LayoutPieces(dc, LinePieces(line.text, kBody), kBody, box, font, DT_CENTER, true);
+            else Text(dc, wide, box, kBody, font, DT_CENTER | DT_WORDBREAK);
+        }
+        return h + S(3);
+    };
+
+    // Lines of the block outside the columns, full width and centred; an Input / Output table is centred and no wider
+    // than needed.
+    const auto flow = [&](std::size_t from, std::size_t to, HFONT font) {
+        for (std::size_t i = from; i < to;) {
+            if (lines[i].kind == LineKind::Row || lines[i].kind == LineKind::Header) {
+                std::size_t end = i;
+                while (end < to && (lines[end].kind == LineKind::Row || lines[end].kind == LineKind::Header)) ++end;
+                const int tableW = std::min(width_, S(640));
+                y = RenderTable(dc, lines, i, end, left + (width_ - tableW) / 2, tableW, y, draw);
+                i = end;
+            } else {
+                y += centred(lines[i], font, left, width_, y, draw);
+                ++i;
+            }
+        }
+    };
+    flow(0, first, fontBody);
+    if (first > 0) y += S(8);
+
+    const int gap = S(16);
+    const int columnW = (width_ - gap) / 2;
+    const bool pictureLeft = splitNow == 2;
+    const int textX = pictureLeft ? left + columnW + gap : left;
+    const int pictureX = pictureLeft ? left : left + columnW + gap;
+
+    int textH = 0;
+    for (std::size_t i = first; i < last; ++i) textH += centred(lines[i], fontBody, textX, columnW, 0, false);
+
+    const std::wstring splitTitle = Wide(splitTitleNow);
+    const int titleH = MeasureHeight(dc, splitTitle, columnW, fontBold);
+    int pictureW = std::min(columnW, S(300));
+    int pictureH = pictureW;
+    Gdiplus::Bitmap* bitmap = FindImage(block.images[0]);
+    if (bitmap != nullptr && bitmap->GetWidth() > 0 && bitmap->GetHeight() > 0) {
+        pictureH = pictureW * static_cast<int>(bitmap->GetHeight()) / static_cast<int>(bitmap->GetWidth());
+    }
+    const int pictureColumnH = titleH + S(8) + pictureH;
+    const int rowH = std::max(textH, pictureColumnH);
+
+    if (draw) {
+        int top = y + (rowH - textH) / 2;
+        for (std::size_t i = first; i < last; ++i) top += centred(lines[i], fontBody, textX, columnW, top, true);
+        const int pictureTop = y + (rowH - pictureColumnH) / 2;
+        Text(dc, splitTitle, Rect(pictureX, pictureTop, pictureX + columnW, pictureTop + titleH), kHeaderGold, fontBold,
+             DT_CENTER | DT_WORDBREAK);
+        const int imageLeft = pictureX + (columnW - pictureW) / 2;
+        const int imageTop = pictureTop + titleH + S(8);
+        if (imageTop + pictureH > clipTop && imageTop < clipBottom) {
+            DrawImageKey(*graphics, block.images[0], Rect(imageLeft, imageTop, imageLeft + pictureW, imageTop + pictureH));
+        }
+    }
+    y += rowH + S(8);
+
+    flow(last, lines.size(), fontSmall);  // footnotes, then the recipe table
+    return y;
+}
+
+#include "overlay_calc.inc"
+#include "overlay_drop.inc"
+
 std::vector<std::size_t> OverlayState::ArrangedOrder(const Entry& entry, std::size_t entryIndex,
                                                     const PageView& view) {
     ArrangeKey key{database, pageIndex, entryIndex, view.socketFilter,
@@ -2688,6 +3143,10 @@ std::vector<std::size_t> OverlayState::ArrangedOrder(const Entry& entry, std::si
 }
 
 void OverlayState::Paint(HDC target) {
+    if (dropMode) {
+        DropPaint(target);
+        return;
+    }
     RECT client{};
     GetClientRect(window, &client);
     const int clientWidth = client.right - client.left;
@@ -2702,31 +3161,31 @@ void OverlayState::Paint(HDC target) {
 
     const Page& page = CurrentPage();
     greenNames = (page.id == "set-items");
+    gemwordCards = page.id == "gemwords";
     const bool goldItems = page.id == "uniques" || page.id == "runewords" || page.id == "gemwords";
     itemNameColor = page.id == "set-items" ? CodeColor('2') : page.id == "class-crafting" ? CodeColor('8')
                   : goldItems ? CodeColor('4') : kGold;
     tooltipNameColor = goldItems || page.id == "class-crafting" ? itemNameColor : kGold;
 
+    // Stacked dark copies at growing offsets make a heavier shadow, which shows on the dark header.
+    for (int offset : {S(1), S(2), S(3)}) ShadowText(dc, title, layout.title, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER, offset);
     Text(dc, title, layout.title, kHeaderGold, fontTitle, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
-    if (!switchLabel.empty()) {
-        // Like the launcher's gold PLAY button: a gold fill with dark lettering.
-        FillPanel(dc, layout.switchButton, RGB(196, 152, 66), 235);
-        // A light outer edge and a dark line just inside it, so the button reads against its own gold fill.
-        FrameColor(dc, layout.switchButton, RGB(250, 226, 160));
-        const RECT inner = Rect(layout.switchButton.left + 1, layout.switchButton.top + 1,
-                                layout.switchButton.right - 1, layout.switchButton.bottom - 1);
-        FrameColor(dc, inner, RGB(122, 88, 28));
-        Text(dc, switchLabel, layout.switchButton, RGB(58, 40, 14), fontBold, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+    for (std::size_t i = 0; i < switches.size(); ++i) {
+        DropShadow(dc, layout.switchButtons[i], S(2));
+        DrawSwitchButton(dc, layout.switchButtons[i], switches[i].label, switches[i].current);
     }
+    DropShadow(dc, layout.close, S(2));
     FillPanel(dc, layout.close, kPanel, 200);
     FrameColor(dc, layout.close, kBorder);
     Text(dc, L"X", layout.close, kText, fontBold, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     {
         const RECT box = SearchBoxRect(layout);
+        CornerShadow(dc, box, S(2));
         FillColor(dc, box, kSearchFill);
         FrameColor(dc, box, kBorder);
     }
     if (!query.empty()) {
+        CornerShadow(dc, layout.clearQuery, S(2));
         FillPanel(dc, layout.clearQuery, kPanel, 200);
         FrameColor(dc, layout.clearQuery, kBorder);
         Text(dc, L"X", layout.clearQuery, kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
@@ -2735,6 +3194,7 @@ void OverlayState::Paint(HDC target) {
     for (std::size_t i = 0; i < layout.tabs.size(); ++i) {
         const bool active = i == pageIndex;
         const bool matched = !query.empty() && !active && i < tabMatches.size() && tabMatches[i] > 0;
+        CornerShadow(dc, layout.tabs[i], S(2));
         FillPanel(dc, layout.tabs[i], active ? kSelected : (matched ? kHighlightFill : kPanel), 200);
         FrameColor(dc, layout.tabs[i], active || matched ? kGold : kBorder);
         Text(dc, Wide(database->pages[i].title), layout.tabs[i], kHeaderGold, fontBody,
@@ -2748,6 +3208,7 @@ void OverlayState::Paint(HDC target) {
     PaintList(dc);
 
     detailHits.clear();
+    CornerShadow(dc, layout.detail, S(2));
     FillPanel(dc, layout.detail, kPanel, 185);
     FrameColor(dc, layout.detail, kBorder);
     PageView& view = CurrentView();
@@ -2757,6 +3218,9 @@ void OverlayState::Paint(HDC target) {
         clipTop = top - S(2);
         clipBottom = layout.detail.bottom - 1;
         const std::vector<std::size_t> order = ArrangedOrder(entry, filtered[view.selected], view);
+        rowSortNow = ResolveBlockSort(entry, view.sort);
+        splitNow = entry.splitLayout;
+        splitTitleNow = entry.title + " Ascendancy";
         const bool headers = !entry.sortable && !(HasRuneBlocks(entry) && view.sort == BlockSort::Name);
         const int visible = layout.detail.bottom - top - S(10);
         const int total = RenderDetail(dc, entry, order, headers, top, 0, page.compact, false);
@@ -2810,6 +3274,9 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         return 0;
     case kMsgReload:
         self->ApplyPendingDatabase();
+        return 0;
+    case kMsgDrop:
+        self->ApplyPendingDrop();
         return 0;
     case kMsgShutdown:
         if (IsWindow(self->blocker)) DestroyWindow(self->blocker);
@@ -2868,7 +3335,13 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         return 0;
     }
     case WM_COMMAND:
-        if (LOWORD(wParam) == kIdSearch && HIWORD(wParam) == EN_CHANGE) self->QueryChanged();
+        if (LOWORD(wParam) == kIdSearch && HIWORD(wParam) == EN_CHANGE) {
+            if (self->dropMode) {
+                self->DropTextChanged();
+            } else {
+                self->QueryChanged();
+            }
+        }
         return 0;
     case WM_CTLCOLOREDIT:
         SetTextColor(reinterpret_cast<HDC>(wParam), kText);
@@ -2977,6 +3450,7 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     gSearchProc = reinterpret_cast<WNDPROC>(SetWindowLongPtrW(self->search, GWLP_WNDPROC,
                                                                reinterpret_cast<LONG_PTR>(SearchEditProc)));
     self->Refilter();
+    if (self->dropMode) self->ApplyPendingDrop();
     self->started = true;
     SetEvent(self->ready);
 
@@ -3025,7 +3499,7 @@ Overlay::Overlay() : impl_(std::make_unique<OverlayState>()) {}
 Overlay::~Overlay() { Stop(); }
 
 bool Overlay::Start(const Database& database, const std::wstring& dataDir, const std::wstring& title,
-                    const std::wstring& instanceId, const std::wstring& switchLabel, std::function<void()> onSwitch) {
+                    const std::wstring& instanceId, const std::vector<SwitchButton>& switches) {
     if (impl_->started || database.pages.empty()) return false;
     impl_->database = &database;
     impl_->dataDir = dataDir;
@@ -3033,8 +3507,7 @@ bool Overlay::Start(const Database& database, const std::wstring& dataDir, const
     impl_->windowClassName = L"EsrWikiOverlayWindow-" + instanceId;
     impl_->blockerClassName = L"EsrWikiInputBlocker-" + instanceId;
     impl_->cursorClassName = L"EsrWikiCursor-" + instanceId;
-    impl_->switchLabel = switchLabel;
-    impl_->onSwitch = std::move(onSwitch);
+    impl_->switches = switches;
     impl_->cursorThread = CreateThread(nullptr, 0, CursorThread, impl_.get(), 0, &impl_->cursorThreadId);
     impl_->ready = CreateEventW(nullptr, FALSE, FALSE, nullptr);
     if (impl_->ready == nullptr) return false;
@@ -3050,6 +3523,26 @@ bool Overlay::Start(const Database& database, const std::wstring& dataDir, const
         return false;
     }
     return true;
+}
+
+bool Overlay::StartDropFinder(const std::wstring& dataDir, const std::wstring& instanceId, const std::wstring& title,
+                              const std::vector<SwitchButton>& switches) {
+    if (impl_->started) return false;
+    impl_->dropPlaceholder = std::make_unique<Database>();
+    Page page;
+    page.id = "drop-finder";
+    page.title = "Drop Finder";
+    impl_->dropPlaceholder->pages.push_back(page);
+    impl_->dropMode = true;
+    return Start(*impl_->dropPlaceholder, dataDir, title, instanceId, switches);
+}
+
+void Overlay::SetDropFinder(std::shared_ptr<const drop::DropFinderData> data) {
+    {
+        std::lock_guard<std::mutex> guard(impl_->dropLock);
+        impl_->dropPending = std::move(data);
+    }
+    if (impl_->window != nullptr) PostMessageW(impl_->window, kMsgDrop, 0, 0);
 }
 
 bool Overlay::ReplaceDatabase(std::unique_ptr<Database> next) {

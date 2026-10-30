@@ -183,8 +183,7 @@ LINE	R	3 Ancient DecipherersChipped Topazÿc3Normal CircletGem Socket (3)
 LINE	R	2 Any Arrowsÿc3Normal Bolt
 LINE	R	2 Any Boltsÿc3Normal Arrow
 ENTRY	Magic/Rare Items	
-ENTRY	Standard Reroll	
-BLOCK	0			
+BLOCK	0					Standard Reroll	
 LINE	C	IngredientsResult
 LINE	R	Magic Weapon/ArmorNormal Gemÿc3Magic Item of the Same Type(ilvl = 30)Gem Socket (2)(This recipe is an ES version of LoD3 C-Gem reroll. A poor man's special)
 LINE	R	Magic Weapon/ArmorBlemished Gemÿc3Magic Item of the Same Type(ilvl = character lvl)
@@ -195,10 +194,9 @@ LINE	R	Ethereal Rare Weapon/Armor(Crystal Sword/Crystal Boots family excluded)
 LINE	R	Ethereal Normal Unique Weapon/Armor(Crystal Sword/Crystal Boots family excluded)2 Perfect Gemsÿc3Ethereal Unique Item of the Same Type(ilvl = 99)
 LINE	R	Ethereal Exceptional Unique Weapon/Armor(Crystal Sword/Crystal Boots family excluded)3 Perfect Gemsÿc3Ethereal Unique Item of the Same Type(ilvl = 99)
 LINE	R	Ethereal Elite Unique Weapon/Armor(Crystal Sword/Crystal Boots family excluded)4 Perfect Gemsÿc3Ethereal Unique Item of the Same Type(ilvl = 99)
-BLOCK	0			
+BLOCK	0					Standard Reroll	
 LINE	T	*This recipe is cheaper than the traditional 2 Blemished Gems recipe, but the item level goes down by a bit with every use and those items cannot roll more than 1 socket. This is to encourage players to pick up rare items from the ground as they find them and reroll them a few times.
-ENTRY	Starter's Weapon	
-BLOCK	0			
+BLOCK	0					Starter's Weapon	
 LINE	C	IngredientsResult
 LINE	R	Magic BowEmeraldChipped RubyMagic JewelAncient Deciphererÿc3Magic Item of the Same Type(ilvl = 35) +100% Enhanced Damage15-20% Increased Attack Speed +1-2 To Bow & Crossbow (Amazon Only)Gem Socket (1-2)
 LINE	R	Magic Spear/JavelinEmeraldChipped TopazMagic JewelAncient Deciphererÿc3Magic Item of the Same Type(ilvl = 35) +100% Enhanced Damage15-20% Increased Attack Speed +1-2 To Spear & Javelin (Amazon Only)Gem Socket (1-2)
@@ -215,8 +213,7 @@ LINE	R	Magic ScepterDiamondChipped AmethystMagic JewelAncient Deciphererÿc
 LINE	R	Magic OrbSapphireChipped RubyMagic JewelAncient Deciphererÿc3Magic Item of the Same Type(ilvl = 35) +1 To Sorceress Skills +1-2 To Fire Skills (Sorceress Only) +20-40 To Mana +4-6 Mana After Each KillGem Socket (1-2)
 LINE	R	Magic OrbSapphireChipped SapphireMagic JewelAncient Deciphererÿc3Magic Item of the Same Type(ilvl = 35) +1 To Sorceress Skills +1-2 To Cold Skills (Sorceress Only) +20-40 To Mana +4-6 Mana After Each KillGem Socket (1-2)
 LINE	R	Magic OrbSapphireChipped TopazMagic JewelAncient Deciphererÿc3Magic Item of the Same Type(ilvl = 35) +1 To Sorceress Skills +1-2 To Lightning Skills (Sorceress Only) +20-40 To Mana +4-6 Mana After Each KillGem Socket (1-2)
-ENTRY	CtC Skill Armor	
-BLOCK	0			
+BLOCK	0					CtC Skill Armor	
 LINE	C	IngredientsResult
 LINE	R	Magic Torso2 EmeraldsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)25% CtC Level 12 Inner Sight When StruckGem Socket (2)
 LINE	R	Magic Torso2 RubiesAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Fade When StruckGem Socket (2)
@@ -303,8 +300,7 @@ LINE	R	Set Ring/AmuletNormal Gemÿc3Set Item of the Same Name
 ENTRY	Rings/Amulets	
 BLOCK	0			
 LINE	T	When you reroll multiple Amulets or Rings, the last one put in the Cube determines the type. For example, if you put a Ring, an Amazon Ring and a Sorc Ring in this order, you'll get a new Sorc Ring. If the output ilvl is lower than the level of the spawned Unique, it turns into a rare.
-ENTRY	Standard Reroll	
-BLOCK	0			
+BLOCK	0					Standard Reroll	
 LINE	C	IngredientsResult
 LINE	R	3 Magic Ringsÿc3Magic Ring(ilvl = char level)
 LINE	R	3 Magic Amuletsÿc3Magic Amulet(ilvl = char level)
@@ -320,8 +316,7 @@ LINE	R	3 Unique Rings(Optionally add dragon Stone form for class jewelry)ÿc3U
 LINE	R	3 Unique Amulets(Optionally add dragon Stone form for class jewelry)ÿc3Unique Amulet(ilvl = char level x 80%)To roll a non-class Unique Amulet,your clvl must be higer than 15.To roll a class specific Unique Amulet,your clvl must be higher than 57.
 LINE	R	3 BrainsKeyÿc3Rare Amulet(ilvl=char level)Key
 LINE	R	3 EyesKeyÿc3Rare Ring(ilvl=char level)Key
-ENTRY	Custom Reroll	
-BLOCK	0			
+BLOCK	0					Custom Reroll	
 LINE	C	IngredientsResult
 LINE	R	3 Magic Amulets(or Rerolling Orb with 3 Magic Amulet pts)RubySapphireTopazEmeraldÿc3Magic Amulet(ilvl = char level)All Resistances +22-28
 LINE	R	3 Magic Rings(or Rerolling Orb with 3 Magic Ring pts)2 Rubiesÿc3Magic Ring(ilvl = char level)Fire Resist 44-56%
@@ -341,8 +336,7 @@ LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Diamonds
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Obsidiansÿc3Rare Ring(ilvl = char level)Damage Reduced By 3-4%
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Skullsÿc3Rare Ring(ilvl = char level)4-6% Physical Damage Leeched as Life
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Amethystsÿc3Rare Ring(ilvl = char level)4-6% Physical Damage Leeched as Mana
-ENTRY	Skill Tab Reroll	
-BLOCK	0			
+BLOCK	0					Skill Tab Reroll	
 LINE	C	IngredientsResult
 LINE	R	Magic Amazon Amulet/Ring3 Ancient DecipherersMagic JewelRubyÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Bow & Crossbow (Amazon Only)
 LINE	R	Magic Amazon Amulet/Ring3 Ancient DecipherersMagic JewelEmeraldÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Passive & Magic (AmazonOnly)

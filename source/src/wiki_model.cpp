@@ -116,6 +116,11 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
             entry.sortable = field(3) == "sortable";
             for (std::size_t flag = 3; flag < fields.size(); ++flag) {
                 if (fields[flag] == "fiveacross") entry.fiveAcross = true;
+                if (fields[flag] == "keeporder") entry.keepOrder = true;
+                if (fields[flag] == "rowsort") entry.rowSort = true;
+                if (fields[flag] == "socketsort") entry.socketSort = true;
+                if (fields[flag] == "split") entry.splitLayout = 1;
+                if (fields[flag] == "splitflip") entry.splitLayout = 2;
             }
             if (entry.title.empty()) return fail("ENTRY needs a title");
             out.pages.back().entries.push_back(std::move(entry));
@@ -206,12 +211,27 @@ bool HasRuneBlocks(const Entry& entry) {
     return false;
 }
 
+// How many sockets a block has: its runes for runewords, or the Sockets field for gemwords (which have no runes).
+static std::size_t BlockSocketCount(const Block& block) {
+    if (!block.runes.empty()) return block.runes.size();
+    for (const Field& field : block.fields) {
+        if (field.label != "Sockets") continue;
+        std::size_t count = 0;
+        for (char c : field.value) {
+            if (c < '0' || c > '9') break;
+            count = count * 10 + static_cast<std::size_t>(c - '0');
+        }
+        return count;
+    }
+    return 0;
+}
+
 std::vector<std::size_t> SocketCounts(const Entry& entry) {
     std::vector<std::size_t> counts;
     for (const Block& block : entry.blocks) {
-        if (block.runes.empty()) continue;
-        if (std::find(counts.begin(), counts.end(), block.runes.size()) == counts.end())
-            counts.push_back(block.runes.size());
+        const std::size_t count = BlockSocketCount(block);
+        if (count == 0) continue;
+        if (std::find(counts.begin(), counts.end(), count) == counts.end()) counts.push_back(count);
     }
     std::sort(counts.begin(), counts.end());
     return counts;
@@ -221,7 +241,82 @@ bool BlockMatches(const Block& block, const std::string& query) {
     return BlockContains(block, AsciiLower(query));
 }
 
+bool IsRowSort(BlockSort sort) {
+    return sort == BlockSort::RowMinIlvl || sort == BlockSort::RowMaxIlvl || sort == BlockSort::RowRarity
+        || sort == BlockSort::RowRarityHigh;
+}
+
+
+// The number in a table cell, ignoring colour codes; -1 when there is none.
+static long CellNumber(const std::string& cell) {
+    std::size_t i = 0;
+    while (i < cell.size()) {
+        if (static_cast<unsigned char>(cell[i]) == 0xC3 && i + 3 < cell.size() && static_cast<unsigned char>(cell[i + 1]) == 0xBF && cell[i + 2] == 'c') {
+            i += 4;  // "ÿc" and the colour letter
+            continue;
+        }
+        if (cell[i] >= '0' && cell[i] <= '9') {
+            long value = 0;
+            while (i < cell.size() && cell[i] >= '0' && cell[i] <= '9') value = value * 10 + (cell[i++] - '0');
+            return value;
+        }
+        ++i;
+    }
+    return -1;
+}
+
+static std::vector<std::string> SplitRowCells(const std::string& text) {
+    std::vector<std::string> cells(1);
+    for (const char c : text) {
+        if (c == '\x1f') cells.emplace_back();
+        else cells.back() += c;
+    }
+    return cells;
+}
+
+std::vector<Line> SortTableRows(const std::vector<Line>& lines, BlockSort sort) {
+    if (!IsRowSort(sort)) return lines;
+    const char* const column = sort == BlockSort::RowMinIlvl ? "Min iLvl" : sort == BlockSort::RowMaxIlvl ? "Max iLvl" : "Rarity";
+    const bool highFirst = sort == BlockSort::RowMaxIlvl || sort == BlockSort::RowRarityHigh;
+    std::vector<Line> out = lines;
+    std::size_t index = 0;
+    while (index < out.size()) {
+        if (out[index].kind != LineKind::Row) { ++index; continue; }
+        std::size_t end = index;
+        while (end < out.size() && out[end].kind == LineKind::Row) ++end;
+        // the header row just above the rows says which column holds the number
+        std::size_t position = std::string::npos;
+        if (index > 0 && out[index - 1].kind == LineKind::Header) {
+            const std::vector<std::string> names = SplitRowCells(out[index - 1].text);
+            for (std::size_t c = 0; c < names.size(); ++c)
+                if (names[c] == column) position = c;
+        }
+        if (position != std::string::npos) {
+            std::vector<long> keys;
+            for (std::size_t r = index; r < end; ++r) {
+                const std::vector<std::string> cells = SplitRowCells(out[r].text);
+                long value = position < cells.size() ? CellNumber(cells[position]) : -1;
+                if (value < 0 && highFirst && sort == BlockSort::RowMaxIlvl) value = 1000000;  // no maximum item level: no upper limit, so it counts as the highest
+                keys.push_back(value);
+            }
+            std::vector<std::size_t> order(end - index);
+            for (std::size_t k = 0; k < order.size(); ++k) order[k] = k;
+            std::stable_sort(order.begin(), order.end(), [&](std::size_t a, std::size_t b) {
+                return highFirst ? keys[a] > keys[b] : keys[a] < keys[b];
+            });
+            std::vector<Line> block;
+            block.reserve(order.size());
+            for (const std::size_t k : order) block.push_back(out[index + k]);
+            std::copy(block.begin(), block.end(), out.begin() + static_cast<std::ptrdiff_t>(index));
+        }
+        index = end;
+    }
+    return out;
+}
+
 BlockSort ResolveBlockSort(const Entry& entry, BlockSort sort) {
+    if (entry.rowSort) return IsRowSort(sort) ? sort : BlockSort::Default;  // the blocks keep their order
+    if (entry.socketSort) return BlockSort::Default;  // gemwords keep their order; the Sockets filter picks
     if (sort != BlockSort::Default) return sort;
     // Only sortable entries have a level sort; everything else keeps its section order.
     return entry.sortable ? BlockSort::LevelLowFirst : BlockSort::Default;
@@ -243,7 +338,7 @@ std::vector<std::size_t> ArrangeBlocks(const Entry& entry, std::size_t socketFil
     std::vector<std::size_t> order;
     for (std::size_t i = 0; i < entry.blocks.size(); ++i) {
         const Block& block = entry.blocks[i];
-        if (socketFilter != 0 && block.runes.size() != socketFilter) continue;
+        if (socketFilter != 0 && BlockSocketCount(block) != socketFilter) continue;
         if (!tierFilter.empty() && block.tier != tierFilter) continue;
         if (!familyFilter.empty() && block.family != familyFilter) continue;
         if (!wholeEntry && !BlockContains(block, needle)) continue;
@@ -331,13 +426,23 @@ std::vector<Line> RuneBonusLines(const Database& db, const std::string& runeLabe
                                  const std::string& entryTitle) {
     std::vector<Line> out;
     const std::string wanted = runeLabel + " Rune";
-    const bool weapon = entryTitle.find("Weapon") != std::string::npos;
-    const bool helm = entryTitle.find("Helm") != std::string::npos;
+    // The Runes page gives each rune's lines under the website's own item-kind labels ("Weapons / Gloves",
+    // "Helms / Boots", "Armor / Shields / Belts", "All Items"). Only the sections that name the card's item kind
+    // (or "All Items") are shown, without their labels; a kind the website gives no bonus for (charms) shows none.
+    std::string kind;  // the label word for this kind of item
+    if (entryTitle == "Torso") kind = "Armor";
+    else if (entryTitle == "Weapons" || entryTitle == "Gloves" || entryTitle == "Helms" || entryTitle == "Boots" ||
+             entryTitle == "Shields" || entryTitle == "Belts") kind = entryTitle;
     auto keep = [&](const std::string& heading) {
         if (heading == "All Items") return true;
-        if (weapon) return heading == "Weapon";
-        if (helm) return heading == "Helm" || heading == "Armor/Helm/Shield";
-        return heading == "Shield" || heading == "Armor/Helm/Shield";
+        if (kind.empty()) return false;
+        std::size_t start = 0;
+        for (;;) {
+            const std::size_t at = heading.find(" / ", start);
+            if (heading.substr(start, at == std::string::npos ? std::string::npos : at - start) == kind) return true;
+            if (at == std::string::npos) return false;
+            start = at + 3;
+        }
     };
     for (const Page& page : db.pages) {
         if (page.id != "runes") continue;

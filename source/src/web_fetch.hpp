@@ -31,6 +31,6 @@ struct FetchResult {
 // A conditional GET: nothing is downloaded when `known` still matches the site's copy. `stop` is an event
 // that cuts a long download short.
 FetchResult Fetch(const std::wstring& url, const Meta& known, HANDLE stop,
-                  const wchar_t* userAgent = L"ESR-Wiki-Overlay/1.3 (cube recipes)");
+                  const wchar_t* userAgent = L"ESR-Wiki-Overlay/1.4 (cube recipes)");
 
 }  // namespace esrwiki
