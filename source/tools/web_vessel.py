@@ -29,6 +29,14 @@ SAME_ITEM = "Same Item"
 TIER_HEADINGS = "Organs\x1fEffect\x1fSoul cost"
 COMPLETION_HEADINGS = "Blemished ingredients\x1fMythical base\x1fBonus"
 SEPARATOR = "\x1f"
+# the translated page: its labels, and the column headings the overlay shows (the website does not write those)
+FRENCH_SECTION = {"Tier 1": "Palier 1", "Tier 2": "Palier 2", "Tier 3": "Palier 3", "Tier 4": "Palier 4",
+                  COMPLETION: "Achèvement"}
+FRENCH_VESSEL = "Vaisseau des Âmes"
+FRENCH_SAME_ITEM = "Même objet"
+FRENCH_TIER_HEADINGS = "Organes\x1fEffet\x1fCoût en âmes"
+FRENCH_COMPLETION_HEADINGS = "Ingrédients Blemished\x1fBase mythique\x1fBonus"
+LABELS = {"french": False}  # set by parse(): the page is a translation
 BLOCK_LINE = "BLOCK\t0\t\t\t\t\t\t0"
 # the website's colour names and hex values, as the overlay's colour letters
 COLORS = {"red": "R", "orange": "O", "gold": "K", "yellow": "9", "lightgray": "N", "green": "G", "blue": "L",
@@ -85,7 +93,7 @@ def ingredients(cell):
     waiting = []  # bracketed lines with no item before them yet
     for runs in cell_lines(cell):
         text = plain(runs)
-        if not parts and not waiting and text == VESSEL:
+        if not parts and not waiting and text in (VESSEL, FRENCH_VESSEL):
             continue
         if text.startswith("("):
             if parts:
@@ -104,7 +112,7 @@ def ingredients(cell):
 def outcome(cell):
     """(first outcome line rendered, the notes after it joined) of an outcome cell, or None when it has none."""
     lines = cell_lines(cell)
-    if lines and plain(lines[0]) == SAME_ITEM:
+    if lines and plain(lines[0]) in (SAME_ITEM, FRENCH_SAME_ITEM):
         lines = lines[1:]
     if not lines:
         return None
@@ -116,6 +124,7 @@ def outcome(cell):
 def parse(html):
     if "</html" not in html.lower():
         raise SystemExit("the saved page is incomplete")
+    LABELS["french"] = FRENCH_SAME_ITEM in html
     overview = []
     sections = {}  # title -> {"intro": [...], "rows": [...], "default": cost}
     order = []
@@ -132,9 +141,13 @@ def parse(html):
         if len(first) != 1:
             continue
         heading_lines = cell_lines(first[0])
-        if not heading_lines or plain(heading_lines[0]) not in SECTIONS:
+        if not heading_lines:
             continue
         title = plain(heading_lines[0])
+        if LABELS["french"]:
+            title = next((en for en, fr in FRENCH_SECTION.items() if fr == title), title)
+        if title not in SECTIONS:
+            continue
         intro_text = " ".join(plain(runs) for runs in heading_lines[1:])
         match = COST.search(intro_text)
         default = ("%s Souls" % match.group(1)) if match else ""  # the soul cost each recipe states in the intro
@@ -153,7 +166,7 @@ def parse(html):
             if title == COMPLETION:
                 if not lines:
                     raise SystemExit("a completion row has no outcome")
-                start = 1 if plain(lines[0]) == SAME_ITEM else 0
+                start = 1 if plain(lines[0]) in (SAME_ITEM, FRENCH_SAME_ITEM) else 0
                 if start >= len(lines):
                     raise SystemExit("a completion row has no outcome")
                 base = rendered(lines[start])
@@ -185,9 +198,14 @@ def build_page(overview, sections):
     out += ["LINE\tT\t" + line for line in overview]
     for title in SECTIONS:
         section = sections[title]
-        out += ["ENTRY\t%s\t" % title, BLOCK_LINE]
+        shown = FRENCH_SECTION[title] if LABELS["french"] else title
+        out += ["ENTRY\t%s\t" % shown, BLOCK_LINE]
         out += ["LINE\tT\t" + line for line in section["intro"]]
-        out.append("LINE\tC\t" + (COMPLETION_HEADINGS if title == COMPLETION else TIER_HEADINGS))
+        if LABELS["french"]:
+            headings = FRENCH_COMPLETION_HEADINGS if title == COMPLETION else FRENCH_TIER_HEADINGS
+        else:
+            headings = COMPLETION_HEADINGS if title == COMPLETION else TIER_HEADINGS
+        out.append("LINE\tC\t" + headings)
         out += ["LINE\tR\t" + row for row in section["rows"]]
     return out
 

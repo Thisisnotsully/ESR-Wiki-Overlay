@@ -26,7 +26,10 @@ struct WebPagesUpdaterState {
 
     // <cachePrefix><page name>[<suffix>], e.g. uniques-web-unique_armors.htm[.meta]
     std::wstring CacheName(std::size_t index, const wchar_t* suffix) const {
-        return config.cachePrefix + Wide(config.pageNames[index]) + suffix;
+        std::wstring name = Wide(config.pageNames[index]);  // "frFR/gems.htm" is saved as "frFR_gems.htm"
+        for (wchar_t& c : name)
+            if (c == L'/' || c == L'\\') c = L'_';
+        return config.cachePrefix + name + suffix;
     }
 
     void Log(const std::string& message) const {

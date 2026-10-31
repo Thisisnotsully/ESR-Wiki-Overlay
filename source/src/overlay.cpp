@@ -33,16 +33,102 @@
 #include <vector>
 
 #include "overlay.hpp"
+#include "debug_log.hpp"
 #include "cursor_art.hpp"
 #include <cstdio>
 #include <cwchar>
 #include <cwctype>
 #include <map>
 
-#include "drop_finder_model.hpp"
 #include "wiki_model.hpp"
 
 namespace esrwiki {
+static std::string NarrowForLog(const std::wstring& text) {
+    if (text.empty()) return std::string();
+    const int length = WideCharToMultiByte(CP_UTF8, 0, text.data(), static_cast<int>(text.size()), nullptr, 0, nullptr, nullptr);
+    std::string out(static_cast<std::size_t>(length), '\0');
+    WideCharToMultiByte(CP_UTF8, 0, text.data(), static_cast<int>(text.size()), out.data(), length, nullptr, nullptr);
+    return out;
+}
+
+namespace {
+std::map<std::wstring, std::wstring> gUiStrings;  // English text -> the loader language's text
+std::set<std::wstring> gUiValues;  // the translations themselves (text already in the language is not 'missing')
+}
+
+std::size_t LoadUiStrings(const std::wstring& path) {
+    gUiStrings.clear();
+    gUiValues.clear();
+    if (path.empty()) return 0;
+    std::ifstream file(path, std::ios::binary);
+    if (!file) return 0;
+    const auto toWide = [](const std::string& utf8) {
+        if (utf8.empty()) return std::wstring();
+        const int length = MultiByteToWideChar(CP_UTF8, 0, utf8.data(), static_cast<int>(utf8.size()), nullptr, 0);
+        std::wstring out(static_cast<std::size_t>(length), L'\0');
+        MultiByteToWideChar(CP_UTF8, 0, utf8.data(), static_cast<int>(utf8.size()), out.data(), length);
+        return out;
+    };
+    std::string line;
+    while (std::getline(file, line)) {
+        if (!line.empty() && line.back() == '\r') line.pop_back();
+        const std::size_t tab = line.find('\t');
+        if (tab == 0 || tab == std::string::npos) continue;
+        gUiStrings[toWide(line.substr(0, tab))] = toWide(line.substr(tab + 1));
+        gUiValues.insert(toWide(line.substr(tab + 1)));
+    }
+    return gUiStrings.size();
+}
+
+std::wstring UiText(const std::wstring& english) {
+    const auto found = gUiStrings.find(english);
+    if (found != gUiStrings.end()) return found->second;
+    if (!gUiStrings.empty()) {  // a language is loaded: say which labels it has no text for
+        bool plainEnglish = true;
+        for (const wchar_t c : english) {
+            if (c > 127) plainEnglish = false;
+        }
+        if (gUiValues.count(english) != 0) plainEnglish = false;  // already a translation (text built from localized data)
+        if (plainEnglish) DebugLogOnce("ui-missing:" + NarrowForLog(english), "no translation for UI text: " + NarrowForLog(english));
+    }
+    return english;
+}
+
+// UiText for names that come from the page data (entry titles, field labels): the data is already localized where
+// the website is, so a name with no entry here is normal and is not logged.
+static std::wstring UiDataText(const std::wstring& text) {
+    const auto found = gUiStrings.find(text);
+    return found != gUiStrings.end() ? found->second : text;
+}
+
+std::wstring UiFormat(const std::wstring& english, const std::vector<std::wstring>& args) {
+    std::wstring text = UiText(english);
+    for (std::size_t i = 0; i < args.size(); ++i) {
+        const std::wstring token = L"{" + std::to_wstring(i) + L"}";
+        for (std::size_t at = text.find(token); at != std::wstring::npos; at = text.find(token, at + args[i].size())) {
+            text.replace(at, token.size(), args[i]);
+        }
+    }
+    return text;
+}
+
+// The counts the wiki data builders write under an entry heading ("215 items", "4448 affixes, 16 item types").
+static std::wstring TranslateCounts(const std::wstring& text) {
+    std::size_t digits = 0;
+    while (digits < text.size() && text[digits] >= L'0' && text[digits] <= L'9') ++digits;
+    if (digits == 0) return UiText(text);
+    const std::wstring first = text.substr(0, digits), rest = text.substr(digits);
+    if (rest == L" items" || rest == L" item") return UiFormat(L"{0}" + rest, {first});
+    const std::size_t comma = rest.find(L", ");
+    if (rest.rfind(L" affixes", 0) == 0 && comma != std::wstring::npos) {
+        std::size_t d2 = comma + 2, end = d2;
+        while (end < rest.size() && rest[end] >= L'0' && rest[end] <= L'9') ++end;
+        if (end > d2 && rest.compare(end, std::wstring::npos, L" item types") == 0)
+            return UiFormat(L"{0} affixes, {1} item types", {first, rest.substr(d2, end - d2)});
+    }
+    return UiText(text);
+}
+
 namespace {
 
 constexpr int kIdSearch = 1001;
@@ -50,7 +136,6 @@ constexpr UINT kMsgToggle = WM_APP + 1;
 constexpr UINT kMsgShutdown = WM_APP + 2;
 constexpr UINT kMsgOpen = WM_APP + 3;
 constexpr UINT kMsgReload = WM_APP + 4;  // swap in a new database (see Overlay::ReplaceDatabase)
-constexpr UINT kMsgDrop = WM_APP + 5;    // new Drop Finder data, taken on the UI thread (see Overlay::SetDropFinder)
 constexpr UINT_PTR kTimerFocus = 1;
 constexpr UINT_PTR kTimerHandoff = 2;
 constexpr UINT kHandoffPollMs = 8;
@@ -173,7 +258,6 @@ struct Layout {
     RECT matchPrev{};   // steps the selection back to the previous match
     RECT matchNext{};   // steps the selection forward to the next match
     RECT count{};
-    std::vector<RECT> rows;
     RECT prev{};
     RECT next{};
     RECT pageLabel{};
@@ -764,6 +848,32 @@ std::atomic<int> gCursorHotX{0};  // hot spot of the cursor image now drawn, in 
 std::atomic<int> gCursorHotY{0};
 std::atomic<int> gCursorDrawWidth{0};   // size of the cursor image now drawn, so tooltips can keep clear of it
 std::atomic<int> gCursorDrawHeight{0};
+// The screen area the wiki covers (the game window), for the drawn cursor: outside it the pointer belongs to other
+// programs and shows their own cursor. Empty (all zero) means no limit.
+std::atomic<int> gCoverLeft{0}, gCoverTop{0}, gCoverRight{0}, gCoverBottom{0};
+bool PointInCover(const POINT& p) {
+    const int r = gCoverRight.load(), b = gCoverBottom.load();
+    if (r <= gCoverLeft.load() || b <= gCoverTop.load()) return true;
+    return p.x >= gCoverLeft.load() && p.x < r && p.y >= gCoverTop.load() && p.y < b;
+}
+
+// Puts the input blocker exactly over the game window (its client area), so every click outside the game goes to
+// the program under it as usual. Without a game window it covers all monitors, as before.
+void PlaceBlocker(HWND blocker, HWND game) {
+    if (!IsWindow(game)) {
+        gCoverLeft = gCoverTop = gCoverRight = gCoverBottom = 0;
+        if (IsWindow(blocker))
+            SetWindowPos(blocker, nullptr, GetSystemMetrics(SM_XVIRTUALSCREEN), GetSystemMetrics(SM_YVIRTUALSCREEN),
+                         GetSystemMetrics(SM_CXVIRTUALSCREEN), GetSystemMetrics(SM_CYVIRTUALSCREEN),
+                         SWP_NOZORDER | SWP_NOACTIVATE);
+        return;
+    }
+    const RECT cover = GameScreenRect(game);
+    gCoverLeft = cover.left; gCoverTop = cover.top; gCoverRight = cover.right; gCoverBottom = cover.bottom;
+    if (IsWindow(blocker))
+        SetWindowPos(blocker, nullptr, cover.left, cover.top, cover.right - cover.left, cover.bottom - cover.top,
+                     SWP_NOZORDER | SWP_NOACTIVATE);
+}
 
 // Over the wiki the system cursor is hidden (the drawn one replaces it); with another program in front
 // the normal arrow shows.
@@ -956,7 +1066,9 @@ LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     case WM_TIMER: {
         thread_local int polls = 0;
         if (!wanted && ++polls % 5 == 0) RememberGameCursor();  // about every 40 ms while the wiki is closed
-        const bool show = wanted && OwnWindowInFront();
+        POINT pointer{};
+        const bool inside = !GetCursorPos(&pointer) || PointInCover(pointer);
+        const bool show = wanted && OwnWindowInFront() && inside;
         if (show && !IsWindowVisible(window)) {
                 POINT* last = reinterpret_cast<POINT*>(GetWindowLongPtrW(window, GWLP_USERDATA));
             if (last != nullptr) *last = POINT{-1, -1};
@@ -1046,7 +1158,17 @@ struct OverlayState {
     int boldLine = 18;
     int width = 0;
     int height = 0;
-    int rowsPerPage = 1;
+    // Entry list geometry, set by ComputeLayout. EnsurePages splits the filtered entries into list pages,
+    // so a row can grow to fit a wrapped title.
+    int listLeftX = 0;
+    int listRightX = 0;
+    int listTopY = 0;
+    int listBottomY = 0;
+    int listRowGap = 0;
+    int listTextWidth = 1;
+    bool pagesDirty = true;
+    std::vector<std::size_t> pageStarts{0};  // first filtered entry on each list page
+    std::vector<int> rowHeights;             // row height for each filtered entry
     std::size_t pageIndex = 0;
     std::vector<PageView> views;
     std::string query;
@@ -1067,57 +1189,8 @@ struct OverlayState {
     std::wstring blockerClassName;
     std::wstring cursorClassName;
     std::vector<SwitchButton> switches;  // buttons that open the other panels, left of the close button
-    // The Drop Finder panel (dropMode, see overlay_drop.inc): its own window. A placeholder page keeps the wiki code
-    // paths valid, and the Drop Finder paints and takes input in its place.
-    bool dropMode = false;
-    std::unique_ptr<Database> dropPlaceholder;
-    std::mutex dropLock;  // guards dropPending
-    std::shared_ptr<const drop::DropFinderData> dropPending;
-    std::shared_ptr<const drop::DropFinderData> dropData;
-    std::unique_ptr<drop::Engine> dropEngine;
-    std::vector<drop::MonsterEntry> dropMonsters;      // the listed monsters (the monster picker)
-    std::vector<drop::MonsterEntry> dropEveryMonster;  // every monster (the "dropped by" table)
-    std::vector<drop::ItemEntry> dropItems;
-    drop::Settings dropSettings;
-    drop::Setup dropSetup;
-    bool dropHasMonster = false;
-    drop::MonsterEntry dropMonster;
-    bool dropHasItem = false;
-    drop::ItemEntry dropItem;
-    std::vector<drop::DropRow> dropRows;
-    std::vector<drop::WhoRow> dropWho;
-    std::vector<drop::DropRow> dropShownRows;  // the Drops rows as drawn (after search and sort), for clicks
-    std::vector<drop::WhoRow> dropShownWho;    // the Dropped by rows as drawn, for clicks
-    bool dropDirty = true;          // the rows need recomputing
-    int dropPicker = 0;             // the picker or number field being edited (kPick*)
-    std::wstring dropText;          // the text typed into it
-    int dropScrollList = 0;         // first candidate shown in the picker
-    int dropScrollRows = 0;         // first row of "Drops"
-    int dropScrollWho = 0;          // first row of "Dropped by"
-    int dropSortRows = 1;           // "Drops" column sorted by (0 name, 1 chance, 2 quest)
-    bool dropSortRowsDesc = true;
-    int dropSortWho = 4;            // "Dropped by" column sorted by (0 monster, 1 zone, 2 difficulty, 3 type, 4 chance, 5 quest)
-    bool dropSortWhoDesc = true;
-    std::wstring dropFilters[16];   // per-column search text: "Drops" 0..2, "Dropped by" 8..12
-    int dropFilterTarget = 0;       // the column whose search box is open (an index into dropFilters)
-    std::vector<int> dropCandidates;  // what the open picker lists
-    struct DropHit { RECT rect; int kind; int index; };
-    std::vector<DropHit> dropHits;
     void DrawSwitchButton(HDC dc, const RECT& rect, const std::wstring& label, bool current);
     void BeginSwitch(const std::function<void()>& onSwitch);
-    void ApplyPendingDrop();
-    void DropRecompute();
-    void ComputeDropCandidates();
-    std::wstring DropCandidateName(int value) const;
-    void SetDropPicker(int picker);
-    void CloseDropPicker();
-    void ChooseDropCandidate(int value);
-    void StepDrop(int index);
-    void DropPaint(HDC target);
-    void DropClick(int x, int y);
-    void DropWheel(int x, int y, int steps);
-    void DropTextChanged();
-    void DropEnter();
     bool greenNames = false;  // set-item pages draw names and headers in green
     bool gemwordCards = false;          // the Gemwords page: its cards are three per row
     COLORREF itemNameColor = kGold;     // item names on this page: gold uniques/runewords/gemwords, green sets, orange class crafting
@@ -1176,6 +1249,9 @@ struct OverlayState {
     void Refilter();
     void SetPage(std::size_t index);
     void SelectFiltered(std::size_t index);
+    void EnsurePages();
+    std::size_t PageOf(std::size_t index);
+    std::vector<RECT> PageRects(std::size_t page);
     void MovePage(int direction);
     void StepMatch(int direction);
     bool StepWithinEntry(int direction);
@@ -1387,7 +1463,7 @@ Layout OverlayState::ComputeLayout() {
     }
 
     const int contentTop = tabTop + static_cast<int>(rowNames.size()) * (tabRowHeight + tabGap);
-    // The picture's header line sits under the title row, as on the Drop Finder, so the tabs sit on the plain content
+    // The picture's header line sits under the title row, so the tabs sit on the plain content
     // background rather than inside the header art.
     computed.separatorY = headerLine + headerHeight + S(6);
     const int bottom = height - margin;
@@ -1407,16 +1483,17 @@ Layout OverlayState::ComputeLayout() {
                               computed.matchNext.left - tight, countTop + countHeight);
     computed.count = Rect(margin, countTop, computed.matchPrev.left - tight, countTop + countHeight);
 
-    const int rowHeight = std::max(S(48), boldLine * 2 + S(10));
-    const int rowGap = tight;
     const int pagingHeight = std::max(S(30), bodyLine + S(10));
     const int listTop = countTop + countHeight + gap;
     const int pagingTop = bottom - pagingHeight;
-    rowsPerPage = std::max(3, (pagingTop - gap - listTop + rowGap) / (rowHeight + rowGap));
-    for (int i = 0; i < rowsPerPage; ++i) {
-        const int top = listTop + i * (rowHeight + rowGap);
-        computed.rows.push_back(Rect(margin, top, listRight, top + rowHeight));
-    }
+    // The rows themselves are placed per list page once their titles are measured (see EnsurePages).
+    listLeftX = margin;
+    listRightX = listRight;
+    listTopY = listTop;
+    listBottomY = pagingTop - gap;
+    listRowGap = tight;
+    listTextWidth = std::max(S(20), listWidth - S(24));
+    pagesDirty = true;
     const int pagingButton = S(80);
     computed.prev = Rect(margin, pagingTop, margin + pagingButton, bottom);
     computed.next = Rect(listRight - pagingButton, pagingTop, listRight, bottom);
@@ -1450,6 +1527,8 @@ void OverlayState::FitToGame() {
         top = (GetSystemMetrics(SM_CYSCREEN) - h) / 2;
         fittedGameRect = RECT{};
     }
+
+    PlaceBlocker(blocker, gameWindow);
 
     const double scale = std::clamp(static_cast<double>(w) / S(960), 0.85, 1.5);
     if (std::fabs(scale - uiScale) > 0.02) {
@@ -1646,9 +1725,7 @@ LRESULT CALLBACK SearchEditProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM l
     if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_RETURN) {
         if (message == WM_KEYDOWN) {
             auto* self = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
-            if (self && self->dropMode) {
-                self->DropEnter();
-            } else if (self && self->CalcActive() && self->calcNumFocus >= 0) {
+            if (self && self->CalcActive() && self->calcNumFocus >= 0) {
                 self->calcNumFocus = -1;  // Enter finishes the number being typed
                 InvalidateRect(self->window, nullptr, FALSE);
             } else if (self) {
@@ -1686,6 +1763,7 @@ void OverlayState::Refilter() {
     }
     gHighlight = LowerWide(Wide(query));
     filtered = FilterEntries(CurrentPage(), query);
+    pagesDirty = true;
     tabMatches.assign(database->pages.size(), 0);
     totalMatches = 0;
     for (std::size_t i = 0; i < database->pages.size(); ++i) {
@@ -1702,13 +1780,13 @@ void OverlayState::Refilter() {
         const auto at = std::find_if(filtered.begin(), filtered.end(),
                                      [this](std::size_t entry) { return entry >= searchAnchor; });
         view.selected = at == filtered.end() ? 0 : static_cast<std::size_t>(at - filtered.begin());
-        view.listPage = view.selected / rowsPerPage;
+        view.listPage = PageOf(view.selected);
     }
     // Keeps the viewed entry selected once the search is cleared. Applied on every refilter until
     // the search is typed in again, so a second refilter cannot reset it.
     if (query.empty() && hasPendingSelect && pendingPage == pageIndex && !filtered.empty()) {
         view.selected = std::min(pendingSelect, filtered.size() - 1);
-        view.listPage = view.selected / rowsPerPage;
+        view.listPage = PageOf(view.selected);
     }
 }
 
@@ -1720,23 +1798,69 @@ void OverlayState::SetPage(std::size_t index) {
     Refilter();
 }
 
+// Splits the filtered entries into list pages. A row is at least the usual height and grows to fit its
+// wrapped title; a page holds the rows that fit above the paging buttons.
+void OverlayState::EnsurePages() {
+    if (!pagesDirty) return;
+    pagesDirty = false;
+    const int baseHeight = std::max(S(48), boldLine * 2 + S(10));
+    rowHeights.assign(filtered.size(), baseHeight);
+    HDC dc = GetDC(window);
+    for (std::size_t i = 0; i < filtered.size(); ++i) {
+        const Entry& entry = CurrentPage().entries[filtered[i]];
+        const int titleHeight = MeasureHeight(dc, UiDataText(Wide(entry.title)), listTextWidth, fontBold);
+        rowHeights[i] = std::max(baseHeight, titleHeight + S(8));
+    }
+    ReleaseDC(window, dc);
+    pageStarts.assign(1, 0);
+    int y = listTopY;
+    for (std::size_t i = 0; i < filtered.size(); ++i) {
+        if (y != listTopY && y + rowHeights[i] > listBottomY) {
+            pageStarts.push_back(i);
+            y = listTopY;
+        }
+        y += rowHeights[i] + listRowGap;
+    }
+}
+
+std::size_t OverlayState::PageOf(std::size_t index) {
+    EnsurePages();
+    const auto after = std::upper_bound(pageStarts.begin(), pageStarts.end(), index);
+    return static_cast<std::size_t>(after - pageStarts.begin()) - 1;
+}
+
+// The rectangles of the rows on one list page, top to bottom.
+std::vector<RECT> OverlayState::PageRects(std::size_t page) {
+    EnsurePages();
+    std::vector<RECT> rects;
+    const std::size_t first = pageStarts[page];
+    const std::size_t last = page + 1 < pageStarts.size() ? pageStarts[page + 1] : filtered.size();
+    int y = listTopY;
+    for (std::size_t i = first; i < last; ++i) {
+        rects.push_back(Rect(listLeftX, y, listRightX, y + rowHeights[i]));
+        y += rowHeights[i] + listRowGap;
+    }
+    return rects;
+}
+
 void OverlayState::SelectFiltered(std::size_t index) {
     if (index >= filtered.size()) return;
     PageView& view = CurrentView();
     view.selected = index;
-    view.listPage = index / rowsPerPage;
+    view.listPage = PageOf(index);
     view.detailScroll = 0;
 }
 
 void OverlayState::MovePage(int direction) {
     if (filtered.empty()) return;
     PageView& view = CurrentView();
-    const auto pages = PageCount(filtered.size(), rowsPerPage);
+    EnsurePages();
+    const auto pages = pageStarts.size();
     const auto current = view.listPage;
     if (direction < 0 && current == 0) return;
     if (direction > 0 && current + 1 >= pages) return;
     view.listPage = direction < 0 ? current - 1 : current + 1;
-    view.selected = view.listPage * rowsPerPage;
+    view.selected = pageStarts[view.listPage];
     view.detailScroll = 0;
 }
 
@@ -1854,6 +1978,7 @@ void OverlayState::ShowBlocker(bool show) {
     }
     if (IsWindow(gameWindow) && GetWindow(blocker, GW_OWNER) != gameWindow)
         SetWindowLongPtrW(blocker, GWLP_HWNDPARENT, reinterpret_cast<LONG_PTR>(gameWindow));
+    PlaceBlocker(blocker, gameWindow);
     // Shown fully transparent and then faded to its strength, so the first frame is never opaque black.
     SetLayeredWindowAttributes(blocker, 0, 0, LWA_ALPHA);
     SetWindowPos(blocker, HWND_TOP, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOACTIVATE | SWP_SHOWWINDOW);
@@ -1918,7 +2043,6 @@ void OverlayState::EndDrag() {
 }
 
 void OverlayState::HandleMove(int x, int y) {
-    if (dropMode) return;  // the Drop Finder has no hover
     if (!trackingMouse) {
         TRACKMOUSEEVENT track{};
         track.cbSize = sizeof(track);
@@ -1976,9 +2100,9 @@ void OverlayState::DrawTooltip(HDC dc) {
         // Gem and jewel sockets show only "Any Gem" or "Any Jewel". Other runes show their name.
         const std::wstring socket = Wide(block.runes[hover.rune].label);
         if (socket.rfind(L"Any ", 0) == 0) {
-            rows.push_back({socket, kGold, fontBold});
+            rows.push_back({UiText(socket), kGold, fontBold});
         } else {
-            rows.push_back({socket + L" Rune", block.runes[hover.rune].lod ? CodeColor('8') : kGold, fontBold});
+            rows.push_back({UiFormat(L"{0} Rune", {socket}), block.runes[hover.rune].lod ? CodeColor('8') : kGold, fontBold});
             // The rune's own stat lines for this kind of item (Runes page), instead of a "Socketed in" line.
             const RuneIcon& rune = block.runes[hover.rune];
             for (const Line& line : RuneBonusLines(*database, rune.label, rune.lod, hover.entry->title)) {
@@ -1998,7 +2122,7 @@ void OverlayState::DrawTooltip(HDC dc) {
         rows.push_back({Wide(heading), headingColor, fontBold});
         if (!block.subtitle.empty()) rows.push_back({Wide(block.subtitle), kDim, fontSmall});
         for (const Field& field : block.fields) {
-            rows.push_back({Wide(field.label + ": " + field.value), kBody, fontBody});
+            rows.push_back({UiDataText(Wide(field.label)) + L": " + Wide(field.value), kBody, fontBody});
         }
         for (const Line& line : block.lines) {
             std::string plain;
@@ -2135,10 +2259,6 @@ void OverlayState::QueryChanged() {
 }
 
 void OverlayState::HandleClick(int x, int y) {
-    if (dropMode) {
-        DropClick(x, y);
-        return;
-    }
     PageView& view = CurrentView();
     if (!query.empty() && Inside(layout.clearQuery, x, y)) {
         SetWindowTextW(search, L"");
@@ -2203,9 +2323,10 @@ void OverlayState::HandleClick(int x, int y) {
             return;
         }
     }
-    for (std::size_t i = 0; i < layout.rows.size(); ++i) {
-        if (!Inside(layout.rows[i], x, y)) continue;
-        SelectFiltered(view.listPage * rowsPerPage + i);
+    const std::vector<RECT> pageRows = PageRects(view.listPage);
+    for (std::size_t i = 0; i < pageRows.size(); ++i) {
+        if (!Inside(pageRows[i], x, y)) continue;
+        SelectFiltered(pageStarts[view.listPage] + i);
         break;
     }
     if (Inside(layout.prev, x, y)) MovePage(-1);
@@ -2214,10 +2335,6 @@ void OverlayState::HandleClick(int x, int y) {
 }
 
 void OverlayState::HandleWheel(int x, int y, int delta) {
-    if (dropMode) {
-        DropWheel(x, y, delta / WHEEL_DELTA);
-        return;
-    }
     PageView& view = CurrentView();
     const int steps = delta / WHEEL_DELTA;
     if (Inside(layout.detail, x, y)) {
@@ -2233,7 +2350,6 @@ void OverlayState::HandleWheel(int x, int y, int delta) {
 }
 
 void OverlayState::HandleKey(WPARAM key) {
-    if (dropMode) return;  // the Drop Finder's keys are its text box's
     PageView& view = CurrentView();
     if (filtered.empty()) return;
     switch (key) {
@@ -2259,15 +2375,15 @@ void OverlayState::HandleKey(WPARAM key) {
 void OverlayState::PaintList(HDC dc) {
     const Page& page = CurrentPage();
     PageView& view = CurrentView();
-    const std::size_t pages = PageCount(filtered.size(), rowsPerPage);
+    EnsurePages();
+    const std::size_t pages = pageStarts.size();
     view.listPage = std::min(view.listPage, pages - 1);
+    const std::vector<RECT> pageRows = PageRects(view.listPage);
 
-    std::wstring countText = std::to_wstring(filtered.size()) + L" of " + std::to_wstring(page.entries.size()) +
-                             L" entries";
+    std::wstring countText = UiFormat(L"{0} of {1} entries", {std::to_wstring(filtered.size()), std::to_wstring(page.entries.size())});
     if (!query.empty()) {
         const std::wstring position = filtered.empty() ? L"0" : std::to_wstring(view.selected + 1);
-        countText = position + L" of " + std::to_wstring(filtered.size()) + L" here | " +
-                    std::to_wstring(totalMatches) + L" total";
+        countText = UiFormat(L"{0} of {1} here | {2} total", {position, std::to_wstring(filtered.size()), std::to_wstring(totalMatches)});
     }
     Text(dc, countText, layout.count, kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     if (!query.empty()) {
@@ -2282,20 +2398,20 @@ void OverlayState::PaintList(HDC dc) {
     }
 
     if (filtered.empty()) {
-        Text(dc, L"No matches", layout.rows[0], kDim, fontBody, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+        Text(dc, UiText(L"No matches"), Rect(listLeftX, listTopY, listRightX, listTopY + std::max(S(24), bodyLine + S(6))), kDim, fontBody, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     }
-    for (std::size_t i = 0; i < layout.rows.size(); ++i) {
-        const std::size_t position = view.listPage * rowsPerPage + i;
+    for (std::size_t i = 0; i < pageRows.size(); ++i) {
+        const std::size_t position = pageStarts[view.listPage] + i;
         if (position >= filtered.size()) break;
         const Entry& entry = page.entries[filtered[position]];
-        const RECT row = layout.rows[i];
+        const RECT row = pageRows[i];
         const bool selected = position == view.selected;
         CornerShadow(dc, row, S(2));
         FillPanel(dc, row, selected ? kSelected : kPanel, 185);
         if (selected) FrameColor(dc, row, kGold);
         const RECT titleRect = Rect(row.left + S(12), row.top + S(4), row.right - S(12), row.bottom - S(4));
         // Wrapped lines, left-aligned, with the block centred vertically in the row.
-        const std::wstring rowTitle = Wide(entry.title);
+        const std::wstring rowTitle = UiDataText(Wide(entry.title));
         const int titleHeight = MeasureHeight(dc, rowTitle, titleRect.right - titleRect.left, fontBold);
         RECT centred = titleRect;
         centred.top += std::max<int>(0, (static_cast<int>(titleRect.bottom - titleRect.top) - titleHeight) / 2);
@@ -2307,12 +2423,12 @@ void OverlayState::PaintList(HDC dc) {
     CornerShadow(dc, layout.prev, S(2));
     FillPanel(dc, layout.prev, kPanel, 200);
     FrameColor(dc, layout.prev, kBorder);
-    Text(dc, L"< Prev", layout.prev, view.listPage > 0 ? kText : kDim, fontBody,
+    Text(dc, UiText(L"< Prev"), layout.prev, view.listPage > 0 ? kText : kDim, fontBody,
          DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     CornerShadow(dc, layout.next, S(2));
     FillPanel(dc, layout.next, kPanel, 200);
     FrameColor(dc, layout.next, kBorder);
-    Text(dc, L"Next >", layout.next, view.listPage + 1 < pages ? kText : kDim, fontBody,
+    Text(dc, UiText(L"Next >"), layout.next, view.listPage + 1 < pages ? kText : kDim, fontBody,
          DT_CENTER | DT_SINGLELINE | DT_VCENTER);
 }
 
@@ -2367,13 +2483,13 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     const int right = layout.detail.right - S(22);
     int labelWidth = 0;
     for (const wchar_t* text : {L"Sockets:", L"Tier:", L"Type:", L"Sort:"}) {
-        labelWidth = std::max(labelWidth, MeasureWidth(dc, text, fontSmall));
+        labelWidth = std::max(labelWidth, MeasureWidth(dc, UiText(text), fontSmall));
     }
     labelWidth += S(12);
     const int chipStart = left + labelWidth;
 
     auto label = [&](int rowY, const wchar_t* text) {
-        Text(dc, text, Rect(left, rowY, left + labelWidth, rowY + rowHeight), kDim, fontSmall,
+        Text(dc, UiText(text), Rect(left, rowY, left + labelWidth, rowY + rowHeight), kDim, fontSmall,
              DT_LEFT | DT_SINGLELINE | DT_VCENTER);
     };
     auto chip = [&](int& rowY, int& cursor, const std::wstring& text, int minWidth, ChipKind kind,
@@ -2396,7 +2512,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     if (runes) {
         label(y, L"Sockets:");
         int rowY = y, cursor = chipStart;
-        chip(rowY, cursor, L"All", S(44), ChipKind::Socket, 0, "", view.socketFilter == 0);
+        chip(rowY, cursor, UiText(L"All"), S(44), ChipKind::Socket, 0, "", view.socketFilter == 0);
         for (std::size_t count : SocketCounts(entry)) {
             chip(rowY, cursor, std::to_wstring(count), S(36), ChipKind::Socket, count, "",
                  view.socketFilter == count);
@@ -2416,8 +2532,8 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
                 if (!block.tier.empty() && std::find(tiers.begin(), tiers.end(), block.tier) == tiers.end()) tiers.push_back(block.tier);
             label(y, tiers.size() > known ? L"Affix:" : L"Tier:");
             int rowY = y, cursor = chipStart;
-            chip(rowY, cursor, L"All", S(44), ChipKind::Tier, 0, "", tierNow.empty());
-            for (const std::string& name : tiers) chip(rowY, cursor, Wide(name), S(80), ChipKind::Tier, 0, name, tierNow == name);
+            chip(rowY, cursor, UiText(L"All"), S(44), ChipKind::Tier, 0, "", tierNow.empty());
+            for (const std::string& name : tiers) chip(rowY, cursor, UiText(Wide(name)), S(80), ChipKind::Tier, 0, name, tierNow == name);
             y = rowY + rowHeight + S(6);
         }
     }
@@ -2425,7 +2541,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
         if (!families.empty()) {
             label(y, L"Type:");
             int rowY = y, cursor = chipStart;
-            chip(rowY, cursor, L"All", S(44), ChipKind::Family, 0, "", familyNow.empty());
+            chip(rowY, cursor, UiText(L"All"), S(44), ChipKind::Family, 0, "", familyNow.empty());
             // Helms on the Gemwords page: the country types go in a row of their own at the top, the other
             // types on a second row below.
             static const std::set<std::string> kCountryTypes = {
@@ -2444,7 +2560,7 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
                     rowY += rowHeight + S(6);  // the other types start a second row
                     cursor = chipStart;
                 }
-                chip(rowY, cursor, Wide(ordered[i]), S(70), ChipKind::Family, 0, ordered[i], familyNow == ordered[i]);
+                chip(rowY, cursor, UiText(Wide(ordered[i])), S(70), ChipKind::Family, 0, ordered[i], familyNow == ordered[i]);
             }
             y = rowY + rowHeight + S(6);
         }
@@ -2460,24 +2576,24 @@ int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
         const bool ilvlOn = active == BlockSort::RowMinIlvl || active == BlockSort::RowMaxIlvl;
         const BlockSort ilvlNext = active == BlockSort::RowMinIlvl ? BlockSort::RowMaxIlvl
                                  : active == BlockSort::RowMaxIlvl ? BlockSort::Default : BlockSort::RowMinIlvl;
-        const std::wstring ilvlText = active == BlockSort::RowMinIlvl ? L"iLvl \u2191"
-                                    : active == BlockSort::RowMaxIlvl ? L"iLvl \u2193" : L"iLvl";
+        const std::wstring ilvlText = active == BlockSort::RowMinIlvl ? UiText(L"iLvl \u2191")
+                                    : active == BlockSort::RowMaxIlvl ? UiText(L"iLvl \u2193") : UiText(L"iLvl");
         chip(rowY, cursor, ilvlText, S(80), ChipKind::Sort, static_cast<std::size_t>(ilvlNext), "", ilvlOn);
         const bool rarityOn = active == BlockSort::RowRarity || active == BlockSort::RowRarityHigh;
         const BlockSort rarityNext = active == BlockSort::RowRarity ? BlockSort::RowRarityHigh
                                    : active == BlockSort::RowRarityHigh ? BlockSort::Default : BlockSort::RowRarity;
-        const std::wstring rarityText = active == BlockSort::RowRarity ? L"Rarity \u2191"
-                                      : active == BlockSort::RowRarityHigh ? L"Rarity \u2193" : L"Rarity";
+        const std::wstring rarityText = active == BlockSort::RowRarity ? UiText(L"Rarity \u2191")
+                                      : active == BlockSort::RowRarityHigh ? UiText(L"Rarity \u2193") : UiText(L"Rarity");
         chip(rowY, cursor, rarityText, S(90), ChipKind::Sort, static_cast<std::size_t>(rarityNext), "", rarityOn);
         return rowY + rowHeight + S(10);
     }
     if (entry.sortable) {
-        chip(rowY, cursor, L"Lowest level", S(110), ChipKind::Sort,
+        chip(rowY, cursor, UiText(L"Lowest level"), S(110), ChipKind::Sort,
              static_cast<std::size_t>(BlockSort::LevelLowFirst), "", active == BlockSort::LevelLowFirst);
-        chip(rowY, cursor, L"Highest level", S(110), ChipKind::Sort,
+        chip(rowY, cursor, UiText(L"Highest level"), S(110), ChipKind::Sort,
              static_cast<std::size_t>(BlockSort::LevelHighFirst), "", active == BlockSort::LevelHighFirst);
     }
-    chip(rowY, cursor, L"A-Z", S(56), ChipKind::Sort, static_cast<std::size_t>(BlockSort::Name), "",
+    chip(rowY, cursor, UiText(L"A-Z"), S(56), ChipKind::Sort, static_cast<std::size_t>(BlockSort::Name), "",
          active == BlockSort::Name);
 
     return rowY + rowHeight + S(10);
@@ -2729,7 +2845,7 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
         std::string plain;
         if (c < rows[r].size()) PlainText(rows[r][c], plain, color, header ? kGold : kBody);
         if (header) color = kGold;
-        return Wide(plain);
+        return header ? UiText(Wide(plain)) : Wide(plain);
     };
 
     std::string key = std::to_string(width_);
@@ -2909,7 +3025,7 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
     }
 
     for (const Field& field : block.fields) {
-        const std::wstring wide = Wide(field.label + ": " + field.value);
+        const std::wstring wide = UiDataText(Wide(field.label)) + L": " + Wide(field.value);
         const int h = MeasureHeight(dc, wide, width_, fontBody);
         if (draw) Text(dc, wide, Rect(left, y, left + width_, y + h), kBody, fontBody, DT_LEFT | DT_WORDBREAK);
         y += h + S(3);
@@ -2986,11 +3102,11 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
     }
 
     const int titleHeight = titleLine + S(8);
-    if (draw) Text(dc, Wide(entry.title), Rect(left, y, left + width_, y + titleHeight), kHeaderGold, fontTitle,
+    if (draw) Text(dc, UiDataText(Wide(entry.title)), Rect(left, y, left + width_, y + titleHeight), kHeaderGold, fontTitle,
                    DT_LEFT | DT_SINGLELINE);
     y += titleHeight + S(2);
     if (!entry.subtitle.empty()) {
-        if (draw) Text(dc, Wide(entry.subtitle), Rect(left, y, left + width_, y + S(20)), kDim, fontSmall,
+        if (draw) Text(dc, TranslateCounts(Wide(entry.subtitle)), Rect(left, y, left + width_, y + S(20)), kDim, fontSmall,
                        DT_LEFT | DT_SINGLELINE);
         y += S(24);
     }
@@ -2999,7 +3115,7 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
     if (order.empty()) {
         // Tall enough for the font's full line, so the text is not cut off at the bottom.
         const int noMatchHeight = std::max(S(24), bodyLine + S(6));
-        if (draw) Text(dc, L"Nothing matches this filter", Rect(left, y, left + width_, y + noMatchHeight), kDim, fontBody,
+        if (draw) Text(dc, UiText(L"Nothing matches this filter"), Rect(left, y, left + width_, y + noMatchHeight), kDim, fontBody,
                        DT_LEFT | DT_SINGLELINE);
         return y + noMatchHeight - origin;
     }
@@ -3023,7 +3139,7 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
         }
 
         if (headers && !first.section.empty()) {
-            const std::wstring header = Wide(first.section);
+            const std::wstring header = UiText(Wide(first.section));
             const int h = MeasureHeight(dc, header, width_, fontBold);
             if (draw) Text(dc, header, Rect(left, y, left + width_, y + h), greenNames ? CodeColor('2') : kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK);
             y += h + S(2);
@@ -3127,7 +3243,7 @@ int OverlayState::RenderSplitBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
 }
 
 #include "overlay_calc.inc"
-#include "overlay_drop.inc"
+#include "overlay_switch.inc"
 
 std::vector<std::size_t> OverlayState::ArrangedOrder(const Entry& entry, std::size_t entryIndex,
                                                     const PageView& view) {
@@ -3143,10 +3259,6 @@ std::vector<std::size_t> OverlayState::ArrangedOrder(const Entry& entry, std::si
 }
 
 void OverlayState::Paint(HDC target) {
-    if (dropMode) {
-        DropPaint(target);
-        return;
-    }
     RECT client{};
     GetClientRect(window, &client);
     const int clientWidth = client.right - client.left;
@@ -3197,8 +3309,22 @@ void OverlayState::Paint(HDC target) {
         CornerShadow(dc, layout.tabs[i], S(2));
         FillPanel(dc, layout.tabs[i], active ? kSelected : (matched ? kHighlightFill : kPanel), 200);
         FrameColor(dc, layout.tabs[i], active || matched ? kGold : kBorder);
-        Text(dc, Wide(database->pages[i].title), layout.tabs[i], kHeaderGold, fontBody,
-             DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+        // A label that does not fit its tab is drawn in the smaller font, and with an ellipsis if even that is too wide.
+        const std::wstring tabLabel = UiText(Wide(database->pages[i].title));
+        HFONT tabFont = fontBody;
+        UINT tabFlags = DT_CENTER | DT_SINGLELINE | DT_VCENTER;
+        {
+            const int have = layout.tabs[i].right - layout.tabs[i].left - S(8);
+            if (MeasureWidth(dc, tabLabel, tabFont) > have) tabFont = fontSmall;
+            const int need = MeasureWidth(dc, tabLabel, tabFont);
+            if (need > have) {
+                tabFlags |= DT_END_ELLIPSIS;
+                DebugLogOnce("tab:" + database->pages[i].id, "tab label does not fit even in the small font: '" + database->pages[i].title +
+                                                              "' needs " + std::to_string(need) + " px, the tab has " + std::to_string(have) + " px");
+            }
+        }
+        Text(dc, tabLabel, Rect(layout.tabs[i].left + S(4), layout.tabs[i].top, layout.tabs[i].right - S(4), layout.tabs[i].bottom),
+             kHeaderGold, tabFont, tabFlags);
         if (active) {  // the launcher marks the open tab with a gold underline
             FillColor(dc, Rect(layout.tabs[i].left + S(6), layout.tabs[i].bottom - S(4), layout.tabs[i].right - S(6),
                                layout.tabs[i].bottom - S(2)), kGold);
@@ -3244,7 +3370,7 @@ void OverlayState::Paint(HDC target) {
         DeleteDC(detailDc);
         DrawScrollbar(dc, top, visible, total, view.detailScroll);
     } else {
-        Text(dc, L"Nothing selected", layout.detail, kDim, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
+        Text(dc, UiText(L"Nothing selected"), layout.detail, kDim, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }
 
     DrawTooltip(dc);
@@ -3274,9 +3400,6 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         return 0;
     case kMsgReload:
         self->ApplyPendingDatabase();
-        return 0;
-    case kMsgDrop:
-        self->ApplyPendingDrop();
         return 0;
     case kMsgShutdown:
         if (IsWindow(self->blocker)) DestroyWindow(self->blocker);
@@ -3336,11 +3459,7 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     }
     case WM_COMMAND:
         if (LOWORD(wParam) == kIdSearch && HIWORD(wParam) == EN_CHANGE) {
-            if (self->dropMode) {
-                self->DropTextChanged();
-            } else {
-                self->QueryChanged();
-            }
+            self->QueryChanged();
         }
         return 0;
     case WM_CTLCOLOREDIT:
@@ -3450,7 +3569,6 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     gSearchProc = reinterpret_cast<WNDPROC>(SetWindowLongPtrW(self->search, GWLP_WNDPROC,
                                                                reinterpret_cast<LONG_PTR>(SearchEditProc)));
     self->Refilter();
-    if (self->dropMode) self->ApplyPendingDrop();
     self->started = true;
     SetEvent(self->ready);
 
@@ -3525,26 +3643,6 @@ bool Overlay::Start(const Database& database, const std::wstring& dataDir, const
     return true;
 }
 
-bool Overlay::StartDropFinder(const std::wstring& dataDir, const std::wstring& instanceId, const std::wstring& title,
-                              const std::vector<SwitchButton>& switches) {
-    if (impl_->started) return false;
-    impl_->dropPlaceholder = std::make_unique<Database>();
-    Page page;
-    page.id = "drop-finder";
-    page.title = "Drop Finder";
-    impl_->dropPlaceholder->pages.push_back(page);
-    impl_->dropMode = true;
-    return Start(*impl_->dropPlaceholder, dataDir, title, instanceId, switches);
-}
-
-void Overlay::SetDropFinder(std::shared_ptr<const drop::DropFinderData> data) {
-    {
-        std::lock_guard<std::mutex> guard(impl_->dropLock);
-        impl_->dropPending = std::move(data);
-    }
-    if (impl_->window != nullptr) PostMessageW(impl_->window, kMsgDrop, 0, 0);
-}
-
 bool Overlay::ReplaceDatabase(std::unique_ptr<Database> next) {
     if (!impl_->started || impl_->window == nullptr || !next || next->pages.empty()) return false;
     {
@@ -3585,6 +3683,11 @@ void Overlay::SetCloseKey(std::function<bool(unsigned int)> isCloseKey) {
 
 void Overlay::Open() {
     if (impl_->window != nullptr) PostMessageW(impl_->window, kMsgOpen, 0, 0);
+}
+
+std::string UiTextUtf8(const std::string& english) {
+    const std::wstring text = UiText(Wide(english));
+    return text == Wide(english) ? std::string() : Narrow(text);  // empty: no translation
 }
 
 }  // namespace esrwiki

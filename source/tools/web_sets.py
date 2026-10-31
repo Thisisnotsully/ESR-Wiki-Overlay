@@ -31,8 +31,14 @@ MIN_SETS = 60
 SECTION = re.compile(r'<a name="([A-Za-z]+)"></a>')
 CELL = re.compile(r'<td([^>]*)>(.*?)</td>', re.S | re.I)
 BR = re.compile(r"<br\s*/?>", re.I)
-MARKER = re.compile(r"^\((\d+) items?\)$")
+MARKER = re.compile(r"^\((\d+) (?:items?|objets?)\)$")
+LEVEL = re.compile(r"(?:Lvl|Niv\.?)\s+(\d+)\s*/\s*(?:Req\s+Lvl|Niv\.?\s*requis)\s+(\d+)")
+PARTIAL_HEADING = re.compile(r"(?:Partial Set Bonus|Bonus partiel d'ensemble)")
+FULL_HEADING = re.compile(r"(?:Full Set Bonus|Bonus d'ensemble complet)")
 DIFF_SUFFIX = re.compile(r"^(.*)-(N|NM|H) \(merc only\)$")
+# the same suffix on a translated page ("-N (uniquement mercenaire)"); the translated pages put the Hireling sets
+# inside the General table, so their sets are told apart by it
+DIFF_SUFFIX_ANY = re.compile(r"^(.*?)\s*-\s*(N|NM|H)\s*\([^()]*\)$")
 
 
 def text(fragment):
@@ -46,7 +52,7 @@ def lines_of(fragment):
 def parse_piece(left, right):
     name_match = re.search(r'<font color="#48B850">(.*?)</font>', left, re.S)
     base_match = re.search(r'<a href="[^"]*">(.*?)</a>', left, re.S)
-    level = re.search(r"Lvl\s+(\d+)\s*/\s*Req\s+Lvl\s+(\d+)", text(left))
+    level = LEVEL.search(text(left))
     stats_match = re.search(r'<font color="8080E6">(.*?)</font>', left, re.S)
     if not (name_match and level):
         raise SystemExit("a set piece could not be read: %s" % text(left)[:60])
@@ -83,9 +89,13 @@ def parse_piece(left, right):
     }
 
 
+def heading_index(lines, pattern):
+    return next(i for i, line in enumerate(lines) if pattern.fullmatch(line))
+
+
 def parse_partial(cell):
     lines = [t for t in (text(part) for part in BR.split(cell)) if t]
-    start = lines.index("Partial Set Bonus") + 1
+    start = heading_index(lines, PARTIAL_HEADING) + 1
     stats, count = [], 2
     for line in lines[start:]:
         marker = MARKER.match(line)
@@ -98,10 +108,10 @@ def parse_partial(cell):
 
 def parse_full(cell):
     lines = [t for t in (text(part) for part in BR.split(cell)) if t]
-    return lines[lines.index("Full Set Bonus") + 1:]
+    return lines[heading_index(lines, FULL_HEADING) + 1:]
 
 
-def parse_sections(html):
+def parse_sections(html, need_hireling=True):
     marks = [(m.group(1), m.start()) for m in SECTION.finditer(html)]
     if not marks:
         raise SystemExit("the sets page has no sections")
@@ -128,20 +138,25 @@ def parse_sections(html):
             if current is None:
                 i += 1
                 continue
-            if "Lvl" in text(content) and "48B850" in content and i + 1 < len(cells):
+            if ("Lvl" in text(content) or "Niv." in text(content)) and "48B850" in content and i + 1 < len(cells):
                 piece = parse_piece(content, cells[i + 1][1])
                 if not piece["name"].endswith("_old"):  # old pieces of a set are left out
                     current["pieces"].append(piece)
                 i += 2
                 continue
-            if "Partial Set Bonus" in content and i + 1 < len(cells):
+            if PARTIAL_HEADING.search(text(content)) and i + 1 < len(cells):
                 current["partial"], current["partial_count"] = parse_partial(content)
                 current["full"] = parse_full(cells[i + 1][1])
                 i += 2
                 continue
             i += 1
+        # a section heading that is written in the translation is a record with no pieces: left out
+        records = [record for record in records if record["pieces"]]
+        if not need_hireling:
+            records = [record for record in records
+                       if not any(DIFF_SUFFIX_ANY.match(piece["name"]) for piece in record["pieces"])]
         result[name] = records
-    missing = [name for name in ORDER if name not in result]
+    missing = [name for name in ORDER if name not in result and (need_hireling or name != "Hireling")]
     if missing:
         raise SystemExit("the sets page has no %s section" % missing[0])
     return result
@@ -180,6 +195,7 @@ def existing_pictures(lines):
 
 
 def set_blocks(section, record, pictures, report):
+    # the picture of a translated card is the one of its English card (the pictures are keyed by the English names)
     hireling = section == "Hireling"
     pieces = record["pieces"]
     if not pieces:
@@ -200,7 +216,7 @@ def set_blocks(section, record, pictures, report):
             match = DIFF_SUFFIX.match(title)
             title = match.group(1) if match else title
         count += 1
-        keys = pictures.get(key_of(title, diff), [])
+        keys = pictures.get(key_of(piece.get("en_name", title), diff), [])
         if not keys:
             report.append("no picture: %s" % title)
         blocks.append("BLOCK\t1\t%s\t%s\t%s\t%s\t\t%d" % (title, diff, display, diff, piece["req"]))
@@ -219,7 +235,7 @@ def set_blocks(section, record, pictures, report):
             blocks += ["LINE\tS\t" + TITLE_COLOR + s for s in lines]
         blocks.append("LINE\tS\t%sRequired Level: %d" % (REQ_COLOR, piece["req"]))
     # the set card: its partial and full bonuses
-    keys = pictures.get(key_of(record["header"], diff), [])
+    keys = pictures.get(key_of(record.get("en_header", record["header"]), diff), [])
     if not keys:
         report.append("no picture: %s" % record["header"])
     blocks.append("BLOCK\t1\t%s\t%s\t%s\t%s\t\t0" % (record["header"], diff, display, diff))
@@ -270,7 +286,7 @@ def splice(current, page):
 
 
 def main(argv):
-    if len(argv) != 3:
+    if len(argv) not in (3, 4):
         print(__doc__)
         return 2
     sets_path, target = Path(argv[1]), Path(argv[2])
@@ -280,7 +296,22 @@ def main(argv):
         if "</html" not in html.lower():
             raise SystemExit("%s is incomplete" % sets_path.name)
         current = target.read_text(encoding="utf-8")
-        sections = parse_sections(html)
+        reference = None                       # --reference=<English sets.htm>: the Hireling sets are not on the translated page
+        if len(argv) > 3:
+            reference = Path(argv[3])
+        sections = parse_sections(html, need_hireling=reference is None)
+        if reference is not None:
+            english_html = reference.read_text(encoding="utf-8", errors="replace")
+            english = parse_sections(english_html)
+            for name, records in sections.items():
+                theirs = english[name]
+                if [len(r["pieces"]) for r in records] != [len(r["pieces"]) for r in theirs]:
+                    raise SystemExit("the %s sets do not line up with the English page" % name)
+                for record, en in zip(records, theirs):
+                    record["en_header"] = en["header"]
+                    for piece, en_piece in zip(record["pieces"], en["pieces"]):
+                        piece["en_name"] = en_piece["name"]
+            sections["Hireling"] = english["Hireling"]
         page = build_page(sections, existing_pictures(page_lines(current.split("\n"))), report)
         merged = splice(current, page)
     except SystemExit as stop:

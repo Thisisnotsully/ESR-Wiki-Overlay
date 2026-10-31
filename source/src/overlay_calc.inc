@@ -162,6 +162,12 @@ bool OverlayState::CalcChar(wchar_t ch) {
     return true;
 }
 
+// Calculator text that comes from the website data or fixed English labels; weapon names with a bracketed speed are left alone.
+static std::string Tr(const std::string& text) {
+    if (text.empty() || text.find('[') != std::string::npos) return text;
+    return Narrow(UiText(Wide(text)));
+}
+
 void Overlay::SetCalculatorData(std::shared_ptr<const ias::Data> data) {
     if (!impl_ || !data) return;
     {
@@ -188,14 +194,14 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
         if (draw) Text(dc, text, Rect(left + indent, y, left + width_, y + h), color, font, DT_LEFT | DT_WORDBREAK);
         y += h;
     };
-    line(L"Calculator", fontTitle, kHeaderGold);
+    line(UiText(L"Calculator"), fontTitle, kHeaderGold);
     y += S(2);
     if (!calcData) {
-        line(L"The calculator data is not available.", fontBody, kDim);
+        line(UiText(L"The calculator data is not available."), fontBody, kDim);
         return y - origin;
     }
-    line(L"Attacks and casts resolve in whole animation frames at 25 frames per second, so speed only changes when you cross a "
-         L"breakpoint. Pick your setup to see where you land and what the next tier costs.",
+    line(UiText(L"Attacks and casts resolve in whole animation frames at 25 frames per second, so speed only changes when you cross a "
+         L"breakpoint. Pick your setup to see where you land and what the next tier costs."),
          fontSmall, kDim);
     y += S(10);
 
@@ -212,20 +218,20 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
     for (const wchar_t* caption : {L"Increased attack speed (all gear)", L"Increased attack speed (main hand)",
                                    L"Increased attack speed (off hand)", L"Base attack speed (skills, buffs)",
                                    L"Base attack speed (off hand)", L"Main hand: weapon", L"Off hand: weapon"})
-        labelW = std::max(labelW, MeasureWidth(dc, caption, fontSmall) + S(20));
+        labelW = std::max(labelW, MeasureWidth(dc, UiText(caption), fontSmall) + S(20));
     labelW = std::min(labelW, width_ / 2);
     const int boxW = std::min(S(330), width_ - labelW);
     const int numW = S(110);
 
     const auto hint = [&](const std::string& text, int boxWidth) {
         if (text.empty()) return;
-        const std::wstring wide = Wide(text);
+        const std::wstring wide = Wide(Tr(text));
         const int h = MeasureHeight(dc, wide, boxWidth, fontSmall);
         if (draw) Text(dc, wide, Rect(left + labelW, y, left + labelW + boxWidth, y + h), kDim, fontSmall, DT_LEFT | DT_WORDBREAK);
         y += h;
     };
     const auto caption = [&](const std::string& text, bool enabled) {
-        if (draw) Text(dc, Wide(text), Rect(left, y, left + labelW - S(8), y + rowH), enabled ? kText : kDim, fontSmall,
+        if (draw) Text(dc, UiText(Wide(text)), Rect(left, y, left + labelW - S(8), y + rowH), enabled ? kText : kDim, fontSmall,
                        DT_LEFT | DT_SINGLELINE | DT_VCENTER | DT_END_ELLIPSIS);
     };
     int popupField = -1;
@@ -236,7 +242,7 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
         if (draw) {
             FillPanel(dc, box, kSearchFill, enabled ? 235 : 150);
             FrameColor(dc, box, calcOpen == field ? kGold : kBorder);
-            Text(dc, Wide(value), Rect(box.left + S(8), box.top, box.right - S(26), box.bottom), enabled ? kText : kDim, fontBody,
+            Text(dc, Wide(Tr(value)), Rect(box.left + S(8), box.top, box.right - S(26), box.bottom), enabled ? kText : kDim, fontBody,
                  DT_LEFT | DT_SINGLELINE | DT_VCENTER | DT_END_ELLIPSIS);
             Text(dc, L"v", Rect(box.right - S(24), box.top, box.right - S(6), box.bottom), kDim, fontSmall,
                  DT_CENTER | DT_SINGLELINE | DT_VCENTER);
@@ -284,13 +290,13 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
     numberRow(3, "Base attack speed (weapon)", "Base attack speed granted by the weapon itself. Its bracketed speed is already counted.");
     if (r.showOffHandFields) numberRow(4, "Base attack speed (off hand)", "Averaged with the main hand, like the speed modifiers.");
     numberRow(5, "Base attack speed (skills, buffs)", "Skills, buffs and auras. Slows count as negatives.");
-    numberRow(6, "Faster cast rate", "Caps at " + std::to_string(data.k.fcrCap) + ".");
+    numberRow(6, "Faster cast rate", Narrow(UiFormat(L"Caps at {0}.", {std::to_wstring(data.k.fcrCap)})));
     y += S(8);
 
     // the readout
     const auto readout = [&](const char* key, const std::string& value, COLORREF color) {
         if (draw) {
-            Text(dc, Wide(key), Rect(left, y, left + labelW + S(40), y + rowH), kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+            Text(dc, UiText(Wide(key)), Rect(left, y, left + labelW + S(40), y + rowH), kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
             Text(dc, Wide(value), Rect(left + labelW + S(40), y, left + width_, y + rowH), color, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
         }
         y += rowH - S(4);
@@ -322,14 +328,14 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
         const int rows = rowH - S(4);
         if (draw) {
             Text(dc, Wide(statTitle), Rect(left + S(8), y, left + cw, y + rows), kHeaderGold, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
-            Text(dc, L"Frames", Rect(left + cw, y, left + 2 * cw, y + rows), kHeaderGold, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+            Text(dc, UiText(L"Frames"), Rect(left + cw, y, left + 2 * cw, y + rows), kHeaderGold, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
             Text(dc, Wide(perSecondTitle), Rect(left + 2 * cw, y, left + 3 * cw, y + rows), kHeaderGold, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
-            Text(dc, L"From here", Rect(left + 3 * cw, y, left + width_, y + rows), kHeaderGold, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+            Text(dc, UiText(L"From here"), Rect(left + 3 * cw, y, left + width_, y + rows), kHeaderGold, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
             FillColor(dc, Rect(left, y + rows, left + width_, y + rows + 1), kBorder);
         }
         y += rows + S(2);
         if (t.rows.empty()) {
-            line(L"Not available for this setup.", fontSmall, kDim);
+            line(UiText(L"Not available for this setup."), fontSmall, kDim);
         }
         for (const ias::TableRow& row : t.rows) {
             if (draw) {
@@ -349,15 +355,15 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
         y += S(10);
     };
 
-    line(L"Attack", fontBold, kHeaderGold);
+    line(UiText(L"Attack"), fontBold, kHeaderGold);
     y += S(4);
     bigNumbers(r.attackFrames, r.attackLabel, r.attackPerSecond, r.attackPerSecondLabel, r.attackSolo);
     table(r.tableTitleStat, r.tableTitlePerSecond, r.attack);
-    line(L"Cast", fontBold, kHeaderGold);
+    line(UiText(L"Cast"), fontBold, kHeaderGold);
     y += S(4);
-    bigNumbers(r.castFrames, "frames per cast", r.castPerSecond, "casts / sec", "");
-    table("FCR needed", "Casts / sec", r.cast);
-    line(L"Values come from the Frame Table on the Eastern Sun Resurrected website and refresh with it.", fontSmall, kDim);
+    bigNumbers(r.castFrames, Tr("frames per cast"), r.castPerSecond, Tr("casts / sec"), "");
+    table(Tr("FCR needed"), Tr("Casts / sec"), r.cast);
+    line(UiText(L"Values come from the Frame Table on the Eastern Sun Resurrected website and refresh with it."), fontSmall, kDim);
     y += S(10);
 
     // the open drop-down list, drawn over the page instead of pushing it down
@@ -392,7 +398,7 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
                 default: current = option.value == calcSetup.wep2; break;
                 }
                 if (current) FillColor(dc, item, kSelected);
-                Text(dc, Wide(option.label), Rect(item.left + S(8), item.top, item.right - S(14), item.bottom), current ? kGold : kText, fontBody,
+                Text(dc, Wide(Tr(option.label)), Rect(item.left + S(8), item.top, item.right - S(14), item.bottom), current ? kGold : kText, fontBody,
                      DT_LEFT | DT_SINGLELINE | DT_VCENTER | DT_END_ELLIPSIS);
                 popupHits.push_back({item, 2, index});
             }

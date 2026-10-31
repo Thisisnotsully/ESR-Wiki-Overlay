@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include "wiki_model.hpp"
+#include "debug_log.hpp"
 
 #include <algorithm>
 #include <cctype>
@@ -290,6 +291,15 @@ std::vector<Line> SortTableRows(const std::vector<Line>& lines, BlockSort sort) 
             const std::vector<std::string> names = SplitRowCells(out[index - 1].text);
             for (std::size_t c = 0; c < names.size(); ++c)
                 if (names[c] == column) position = c;
+            // A translated page names the columns in its own language; they keep the English order (Name, Rare, Min iLvl,
+            // Max iLvl, Req Lvl, Rarity, Group, Stats).
+            const bool byName = position != std::string::npos;
+            if (position == std::string::npos && names.size() == 8)
+                position = sort == BlockSort::RowMinIlvl ? 2 : sort == BlockSort::RowMaxIlvl ? 3 : 5;
+            DebugLogOnce(std::string("sort:") + column + ":" + std::to_string(names.size()) + (position == std::string::npos ? ":none" : ":ok"),
+                         std::string("row sort by ") + column + ": " +
+                             (position == std::string::npos ? "no matching column (the header has " + std::to_string(names.size()) + " cells)"
+                                                            : "column " + std::to_string(position) + (byName ? " found by name" : " found by position")));
         }
         if (position != std::string::npos) {
             std::vector<long> keys;

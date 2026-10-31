@@ -108,6 +108,11 @@ def type_order(title):
     return (0 if title == "General" else 1, title.lower(), title)
 
 
+def identity(table):
+    """The English title of a table: the item type that classifies it and keys it. A translated page shows its own title."""
+    return table.get("ident", table["title"])
+
+
 def category_of(title):
     if title in ARMOR:
         return "Armor"
@@ -116,15 +121,16 @@ def category_of(title):
 
 def build_page(pages):
     """pages: {kind key: tables}."""
-    found = {}  # (item type, kind key) -> table, the first of a title that appears twice on a page
+    found = {}  # (English item type, kind key) -> table, the first of a title that appears twice on a page
     for _, key in KINDS:
         for table in pages[key]:
-            if table["title"] in EXCLUDED:
+            if identity(table) in EXCLUDED:
                 continue
-            found.setdefault((table["title"], key), table)
+            found.setdefault((identity(table), key), table)
     out = ["PAGE\t%s\t%s\tWiki" % (PAGE_ID, PAGE_TITLE)]
     for category in ("Armor", "Weapons", "Other"):
-        types = sorted({title for title, _ in found if category_of(title) == category}, key=type_order)
+        types = sorted({title for title, _ in found if category_of(title) == category},
+                       key=lambda title: (title == "General", found[next(k for k in found if k[0] == title)]["title"].lower()))
         for moved, anchor in AFTER:
             if moved in types and anchor in types:
                 types.remove(moved)
@@ -136,8 +142,9 @@ def build_page(pages):
                 table = found.get((title, key))
                 if table is None:
                     continue
-                name = "%s %s" % (title, label)
-                out.append("BLOCK\t0\t%s\t\t\t%s\t%s\t0" % (name, KIND_WORD[key], title))
+                shown = table["title"]
+                name = "%s %s" % (shown, label)
+                out.append("BLOCK\t0\t%s\t\t\t%s\t%s\t0" % (name, KIND_WORD[key], shown))
                 out.append("LINE\tH\t%s%s (%d)" % (GOLD, name, len(table["rows"])))
                 out.append("LINE\tC\t" + SEPARATOR.join(table["headers"]))
                 for text in sorted_rows(table["headers"], table["rows"]):
@@ -162,6 +169,10 @@ def main(argv):
     if len(argv) != 5:
         print(__doc__)
         return 2
+    reference = None                       # --reference=<English prefixes>,<English suffixes>,<English quality>
+    for arg in [a for a in argv if a.startswith("--reference=")]:
+        reference = [Path(p) for p in arg[len("--reference="):].split(",")]
+        argv = [a for a in argv if not a.startswith("--reference=")]
     paths, target = [Path(a) for a in argv[1:4]], Path(argv[4])
     try:
         pages, keys = {}, []
@@ -173,6 +184,13 @@ def main(argv):
             count = sum(len(t["rows"]) for t in tables)
             if count < MIN_ROWS[key]:
                 raise SystemExit("only %d %s found; the website page looks broken" % (count, label.lower()))
+            if reference is not None:
+                # the translated tables sit in the same order, with the same rows, as the English ones
+                english, _ = parse_tables(reference[len(pages)].read_text(encoding="utf-8", errors="replace"))
+                if [len(t["rows"]) for t in english] != [len(t["rows"]) for t in tables]:
+                    raise SystemExit("the %s tables do not line up with the English page" % label.lower())
+                for table, en in zip(tables, english):
+                    table["ident"] = en["title"]
             pages[key] = tables
             keys += found
         lines = target.read_text(encoding="utf-8").split("\n")

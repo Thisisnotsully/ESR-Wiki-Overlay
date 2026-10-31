@@ -25,7 +25,11 @@ PAGE_FILES = ("unique_others.htm", "unique_weapons.htm", "unique_armors.htm", "u
 SITE = "https://easternsunresurrected.com/"
 
 RANGE_DASH = True
-HIDDEN_LINES = re.compile(r"^Tinkering Points\b", re.I)
+HIDDEN_LINES = re.compile(r"^(?:Tinkering Points|Points de bricolage)\b", re.I)
+# the labels of the translated pages, next to the English ones
+ITEM_LEVEL = re.compile(r"(?:Item Level|Niveau de l'objet)", re.I)
+REQUIRED_LEVEL = re.compile(r"(?:Required Level|Niveau requis)", re.I)
+GAMBLE_LABELS = ("Gamble Item:", "Objet de pari :")
 
 # Colour of a <font color=...> on the website -> Diablo II colour code (blue is the page's own colour).
 COLORS = {"4850B8": "3", "ORANGE": "8", "WHITE": "0", "RED": "1"}
@@ -139,13 +143,13 @@ def parse_page(name, text):
         if len(cells) == 1 and re.search(r"colspan", row, re.I):
             heading = clean(re.sub(r"<[^>]+>", " ", cells[0]))
             continue
-        if len(cells) != 4 or "Item Level" not in cells[1]:
+        if len(cells) != 4 or not ITEM_LEVEL.search(cells[1]):
             continue
         head = re.split(r'<font face="arial,helvetica" size="-1" color', cells[0], maxsplit=1, flags=re.I)[0]
         parts = pieces(head)
         gamble = None
-        if "Gamble Item:" in parts:
-            at = parts.index("Gamble Item:")
+        if any(label in parts for label in GAMBLE_LABELS):
+            at = next(i for i, part in enumerate(parts) if part in GAMBLE_LABELS)
             gamble = parts[at + 1] if at + 1 < len(parts) else None
             parts = parts[:at]
         if not parts:
@@ -161,7 +165,11 @@ def parse_page(name, text):
         if match:
             base, code = match.group(1).strip(), match.group(2)
         picture = re.search(r'<img[^>]+src="[^"]*?([^/"]+)\.png"', cells[0], re.I)
-        levels = dict(re.findall(r"(Item Level|Required Level):\s*(\d+)", clean(re.sub(r"<[^>]+>", " ", cells[1]))))
+        plain = clean(re.sub(r"<[^>]+>", " ", cells[1]))
+        found_ilvl = re.search(ITEM_LEVEL.pattern + r":\s*(\d+)", plain, re.I)
+        found_level = re.search(REQUIRED_LEVEL.pattern + r":\s*(\d+)", plain, re.I)
+        levels = {"Item Level": found_ilvl.group(1) if found_ilvl else "",
+                  "Required Level": found_level.group(1) if found_level else ""}
         group = heading_group(name, heading)
         records.append({
             "page": name, "heading": heading, "group": group, "title": title, "base": base, "code": code,
@@ -173,18 +181,32 @@ def parse_page(name, text):
     return records
 
 
-def parse_pages(folder):
+def read_page_records(folder, name):
+    path = Path(folder) / name
+    if not path.exists():
+        raise SystemExit("missing website page: %s" % path)
+    text = path.read_text(encoding="utf-8", errors="replace")
+    if not re.search(r"</html", text, re.I):
+        raise SystemExit("incomplete website page: %s" % path)
+    found = parse_page(name, text)
+    if not found:
+        raise SystemExit("no items found in %s" % path)
+    return found
+
+
+def parse_pages(folder, reference=None):
+    """All records of the four pages. A translated folder is paired with the English one item by item (the pages
+    list the same items in the same order); each record takes its English table heading, group and coupon flag."""
     records = []
     for name in PAGE_FILES:
-        path = Path(folder) / name
-        if not path.exists():
-            raise SystemExit("missing website page: %s" % path)
-        text = path.read_text(encoding="utf-8", errors="replace")
-        if not re.search(r"</html", text, re.I):
-            raise SystemExit("incomplete website page: %s" % path)
-        found = parse_page(name, text)
-        if not found:
-            raise SystemExit("no items found in %s" % path)
+        found = read_page_records(folder, name)
+        if reference is not None:
+            english = read_page_records(reference, name)
+            if len(english) != len(found):
+                raise SystemExit("%s has %d items, the English page %d" % (name, len(found), len(english)))
+            for mine, theirs in zip(found, english):
+                mine["heading"], mine["group"], mine["coupon"] = theirs["heading"], theirs["group"], theirs["coupon"]
+                mine["english_title"] = theirs["title"]
         records += found
     return records
 
@@ -215,13 +237,14 @@ def build_page(records, art_text):
         if rec["group"] not in entries:
             unplaced.append(rec["title"])
             continue
-        plain = re.sub(r"\s*\([^)]*Variant\)$", "", rec["title"])
+        title = rec.get("english_title", rec["title"])                # the art is keyed by the English names
+        plain = re.sub(r"\s*\([^)]*Variant\)$", "", title)
         # The unique's own art first, else the art of its base item (by the code the website shows).
-        own = unique.get(rec["title"]) or unique_norm.get(norm(rec["title"])) or unique.get(plain)
+        own = unique.get(title) or unique_norm.get(norm(title)) or unique.get(plain)
         by_code = base.get(rec["code"])
         img = (own[0] if own and own[0] else "") or (by_code[0] if by_code else "")
         if not img:
-            no_art.append(rec["title"])
+            no_art.append(title)
         mythical = rec["group"] == "Mythical"
         # Tier and weapon family belong to the base item.
         tier, family = ("", "") if mythical else (by_code[1], by_code[2]) if by_code else (own[1], own[2]) if own else ("", "")
@@ -273,12 +296,13 @@ def splice(lines, page_lines):
 
 
 def main(argv):
-    if len(argv) not in (3, 4):
+    if len(argv) not in (3, 4, 5):
         print(__doc__)
         return 2
     folder, target = Path(argv[1]), Path(argv[2])
     try:
-        records = parse_pages(folder)
+        reference = Path(argv[4]) if len(argv) > 4 and argv[4] else None
+        records = parse_pages(folder, reference)
         text = target.read_text(encoding="utf-8")
         art_path = Path(argv[3]) if len(argv) > 3 else target.parent / "web-unique-art.txt"
         art_text = art_path.read_text(encoding="utf-8") if art_path.exists() else ""

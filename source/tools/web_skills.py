@@ -20,6 +20,8 @@ SECTIONS = {  # the website's heading -> (columns in each row, the rows it must 
     "Mercenaries": (3, 10),
     "Oskills": (2, 20),
 }
+# the translated page's section headings, by the English heading they stand for
+TRANSLATED_SECTION = {"Mercenaires": "Mercenaries", "Compétences d'objet": "Oskills"}
 SEPARATOR = "\x1f"  # the unit separator the overlay splits table cells on
 BLOCK_LINE = "BLOCK\t0\t\t\t\t\t\t0"
 TABLE = re.compile(r"<table[^>]*>(.*?)</table>", re.S | re.I)
@@ -56,6 +58,7 @@ def parse(html):
         if len(cells) != 1:
             continue
         text = cell_text(cells[0])
+        text = TRANSLATED_SECTION.get(text, text)
         if text not in SECTIONS:
             if len(rows) == 1:
                 intro = lines_of(cells[0])

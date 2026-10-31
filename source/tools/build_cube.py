@@ -21,6 +21,92 @@ CLASS_CRAFT_HEADINGS = {"Class Craft"} | {c + " Craft" for c in (
     "Amazon", "Assassin", "Barbarian", "Druid", "Necromancer", "Paladin", "Sorceress", "Warlock")}
 CAT_IDS = set(SITE_TABS) | {"new"}
 
+# The words the builder looks for, per locale. "en" is the site's English page; the others are read from the
+# translated pages (data/locales/<code>/). The tab titles are the overlay's own names for the site tabs.
+LOCALES = {
+ "en": {
+  "cats": {c[0]: c[1] for c in CATS}, "input": "Input", "output": "Output", "notes": "Notes",
+  "class_headings": CLASS_CRAFT_HEADINGS,
+  "tinker_from": "See also Supercharged Tinkering.", "tinker_to": "See also Supercharged Tinkering (Secret Recipe 22).",
+ },
+ "frFR": {  # draft: the tab titles need a native check
+  "cats": {"general": "Général", "mat": "Matériaux", "reroll": "Relance d'objet", "old": "Ancienne fabrication",
+           "for": "Forge", "dst": "Pierre D", "tin": "Bricolage", "bas": "Amélioration de base",
+           "soc": "Châsses", "sec": "Secret"},
+  "input": "Entrée", "output": "Sortie", "notes": "Remarques",
+  "class_headings": {"Fabrication de classe", "Fabrication d'Amazone", "Fabrication d'Assassin",
+                     "Fabrication de Barbare", "Fabrication de Druide", "Fabrication de Nécromancien",
+                     "Fabrication de Paladin", "Fabrication d'Ensorceleuse", "Fabrication de Démoniste"},
+  "tinker_from": "Voir aussi Bricolage surchargé.", "tinker_to": "Voir aussi Bricolage surchargé (recette secrète 22).",
+ },
+ "deDE": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'Allgemein', 'mat': 'Material', 'reroll': 'Gegenstand neu würfeln', 'old': 'Altes Crafting', 'for': 'Schmieden', 'dst': 'D-Stein', 'tin': 'Basteln', 'bas': 'Basis-Upgrade', 'soc': 'Sockel', 'sec': 'Geheim'},
+  "input": 'Eingabe', "output": 'Ausgabe', "notes": 'Hinweise',
+  "class_headings": {'Fertigen: Amazone', 'Fertigen: Barbar', 'Fertigen: Assassine', 'Fertigen: Totenbeschwörer', 'Klassen-Fertigen', 'Fertigen: Paladin', 'Fertigen: Hexenmeister', 'Fertigen: Zauberin', 'Fertigen: Druide'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "esES": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'General', 'mat': 'Materiales', 'reroll': 'Reroll de objeto', 'old': 'Crafteo heredado', 'for': 'Forjado', 'dst': 'Piedra D', 'tin': 'Tinkering', 'bas': 'Mejora base', 'soc': 'Engastes', 'sec': 'Secreto'},
+  "input": 'Entrada', "output": 'Salida', "notes": 'Notas',
+  "class_headings": {'Fabricación de druida', 'Fabricación de clase', 'Fabricación de nigromante', 'Fabricación de bárbaro', 'Fabricación de hechicera', 'Fabricación de paladín', 'Fabricación de amazona', 'Fabricación de brujo', 'Fabricación de asesina'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "itIT": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'Generale', 'mat': 'Materiali', 'reroll': 'Reroll oggetti', 'old': 'Crafting legacy', 'for': 'Forgiatura', 'dst': 'Pietra D', 'tin': 'Tinkering', 'bas': 'Miglioramento base', 'soc': 'Incastonature', 'sec': 'Segreto'},
+  "input": 'Ingresso', "output": 'Risultato', "notes": 'Note',
+  "class_headings": {'Creazione di classe', 'Creazione Amazzone', 'Creazione Stregone', 'Creazione Incantatrice', 'Creazione Druido', 'Creazione Assassina', 'Creazione Negromante', 'Creazione Paladino', 'Creazione Barbaro'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "koKR": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': '일반', 'mat': '재료', 'reroll': '아이템 리롤', 'old': '구 제작', 'for': '단조', 'dst': 'D석', 'tin': '팅커링', 'bas': '기본 강화', 'soc': '소켓', 'sec': '비밀'},
+  "input": '입력', "output": '출력', "notes": '메모',
+  "class_headings": {'성기사 제작', '어쌔신 제작', '드루이드 제작', '아마존 제작', '원소술사 제작', '워록 제작', '야만용사 제작', '직업 제작', '강령술사 제작'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "plPL": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'Ogólne', 'mat': 'Materiały', 'reroll': 'Przerzucanie przedmiotów', 'old': 'Stare wytwarzanie', 'for': 'Kucie', 'dst': 'Kamień D', 'tin': 'Tinkering', 'bas': 'Ulepszenie bazy', 'soc': 'Gniazda', 'sec': 'Sekret'},
+  "input": 'Wejście', "output": 'Wynik', "notes": 'Uwagi',
+  "class_headings": {'Wytwarzanie klasowe', 'Wytwarzanie: Barbarzyńca', 'Wytwarzanie: Paladyn', 'Wytwarzanie: Amazonka', 'Wytwarzanie: Zabójczyni', 'Wytwarzanie: Czarnoksiężnik', 'Wytwarzanie: Nekromanta', 'Wytwarzanie: Czarodziejka', 'Wytwarzanie: Druid'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "ruRU": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'Общее', 'mat': 'Материалы', 'reroll': 'Перебрасывание предметов', 'old': 'Старый крафт', 'for': 'Ковка', 'dst': 'Камень D', 'tin': 'Тинкеринг', 'bas': 'Улучшение базы', 'soc': 'Гнёзда', 'sec': 'Секрет'},
+  "input": 'Вход', "output": 'Результат', "notes": 'Примечания',
+  "class_headings": {'Создание: Друид', 'Создание: Варвар', 'Создание: Амазонка', 'Классовое создание', 'Создание: Волшебница', 'Создание: Некромант', 'Создание: Паладин', 'Создание: Ассасин', 'Создание: Чернокнижник'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "zhCN": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': '通用', 'mat': '材料', 'reroll': '物品重骰', 'old': '旧版制作', 'for': '锻造', 'dst': 'D石', 'tin': '调校', 'bas': '基础升级', 'soc': '插槽', 'sec': '秘密'},
+  "input": '输入', "output": '输出', "notes": '备注',
+  "class_headings": {'魔法师合成', '亚马逊合成', '野蛮人合成', '刺客合成', '死灵法师合成', '圣骑士合成', '术士合成', '德鲁伊合成', '职业合成'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "zhTW": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': '一般', 'mat': '材料', 'reroll': '物品重骰', 'old': '舊版製作', 'for': '鍛造', 'dst': 'D石', 'tin': '調校', 'bas': '基礎升級', 'soc': '插槽', 'sec': '秘密'},
+  "input": '輸入', "output": '輸出', "notes": '備註',
+  "class_headings": {'刺客合成', '德魯伊合成', '職業合成', '魔法師合成', '死靈法師合成', '亞馬遜合成', '術士合成', '野蠻人合成', '聖騎士合成'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "esMX": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'General', 'mat': 'Materiales', 'reroll': 'Reroll de objeto', 'old': 'Crafteo heredado', 'for': 'Forjado', 'dst': 'Piedra D', 'tin': 'Tinkering', 'bas': 'Mejora base', 'soc': 'Engastes', 'sec': 'Secreto'},
+  "input": 'Entrada', "output": 'Salida', "notes": 'Notas',
+  "class_headings": {'Fabricación de druida', 'Fabricación de clase', 'Fabricación de nigromante', 'Fabricación de bárbaro', 'Fabricación de hechicera', 'Fabricación de paladín', 'Fabricación de amazona', 'Fabricación de brujo', 'Fabricación de asesina'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "jaJP": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': '一般', 'mat': '素材', 'reroll': 'アイテムリロール', 'old': '旧クラフト', 'for': '鍛造', 'dst': 'Dストーン', 'tin': 'ティンカリング', 'bas': 'ベースアップグレード', 'soc': 'ソケット', 'sec': 'シークレット'},
+  "input": '入力', "output": '出力', "notes": 'メモ',
+  "class_headings": {'ネクロマンサークラフト', 'パラディンクラフト', 'アマゾンクラフト', 'ドルイドクラフト', 'バーバリアンクラフト', 'アサシンクラフト', 'ソーサレスクラフト', 'クラスクラフト', 'ウォーロッククラフト'},
+  "tinker_from": None, "tinker_to": None,
+ },
+ "ptBR": {  # draft: tab titles and Notes need a native check
+  "cats": {'general': 'Geral', 'mat': 'Materiais', 'reroll': 'Reroll de item', 'old': 'Crafting legado', 'for': 'Forja', 'dst': 'Pedra D', 'tin': 'Tinkering', 'bas': 'Melhoria de base', 'soc': 'Soquetes', 'sec': 'Secreto'},
+  "input": 'Entrada', "output": 'Resultado', "notes": 'Notas',
+  "class_headings": {'Criação de Amazona', 'Criação de Assassina', 'Criação de Druida', 'Criação de Bárbaro', 'Criação de Bruxo', 'Criação de Necromante', 'Criação de classe', 'Criação de Paladino', 'Criação de Feiticeira'},
+  "tinker_from": None, "tinker_to": None,
+ },
+}
+
 class P(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -73,11 +159,12 @@ class P(HTMLParser):
 def cell_text(c):
     return " | ".join(c["lines"])
 
-def main(src, out):
+def main(src, out, locale="en"):
+    L = LOCALES[locale]
     p = P(); p.feed(open(src, encoding="utf-8", errors="replace").read())
     lines = ["#ESRCUBE\t1"]
     for cid, title, group in CATS:
-        lines.append("\t".join(["CAT", cid, title, group]))
+        lines.append("\t".join(["CAT", cid, L["cats"][cid], group]))
     counts = {"REC":0,"SEC":0,"DESC":0,"NOTE":0}
     skipped = []
     has_section = set()     # overlay pages that already have a section heading
@@ -86,14 +173,14 @@ def main(src, out):
         nonlocal in_class_craft
         if cat == "old":
             if kind == "SEC":
-                in_class_craft = fields[0] in CLASS_CRAFT_HEADINGS
+                in_class_craft = fields[0] in L["class_headings"]
             if in_class_craft:
                 return
         if kind == "SEC":
             has_section.add(cat)
         elif cat == "general" and cat not in has_section:
             # Notes before the first heading of the General page get a heading of their own.
-            lines.append("\t".join(["SEC", cat, "Notes"])); counts["SEC"] += 1
+            lines.append("\t".join(["SEC", cat, L["notes"]])); counts["SEC"] += 1
             has_section.add(cat)
         lines.append("\t".join([kind, cat, *fields])); counts[kind] += 1
     for t in p.tables:
@@ -106,12 +193,12 @@ def main(src, out):
             texts = [c["lines"] for c in r]
             if len(r) == 1 and r[0]["bg"] == "#300000":
                 txt = " ".join(r[0]["lines"])
-                if txt in ("Input","Output"): continue
+                if txt in (L["input"], L["output"]): continue
                 # A short line is a heading, unless it is a sentence; a long one is a description.
                 kind = "SEC" if len(txt) <= 60 and not txt.endswith(".") else "NOTE" if len(txt) <= 60 else "DESC"
                 emit(kind, cat, txt)
             elif len(r) == 2 and r[0]["bg"] == "#300000" and r[1]["bg"] == "#300000":
-                if cell_text(r[0]) in ("Input","Output") and cell_text(r[1]) in ("Input","Output"): continue
+                if cell_text(r[0]) in (L["input"], L["output"]) and cell_text(r[1]) in (L["input"], L["output"]): continue
                 # sub-heading with a description pair
                 txt = " ".join(r[0]["lines"]) if r[0]["lines"] else ""
                 emit("SEC", cat, txt)
@@ -127,9 +214,10 @@ def main(src, out):
                 skipped.append((cat, [ (c["bg"], c["lines"][:2]) for c in r ]))
     text = "\n".join(lines) + "\n"
     # Wording the overlay shows for the Tinkering cross-reference.
-    text = text.replace("See also Supercharged Tinkering.", "See also Supercharged Tinkering (Secret Recipe 22).")
+    if L["tinker_from"]:
+        text = text.replace(L["tinker_from"], L["tinker_to"])
     open(out, "w", encoding="utf-8").write(text)
     print(counts, "skipped:", len(skipped))
     for s in skipped[:10]: print(" ", s)
 
-main(sys.argv[1], sys.argv[2])
+main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else "en")

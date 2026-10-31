@@ -15,7 +15,7 @@ namespace {
 constexpr DWORD kRecheckMs = 6u * 60u * 60u * 1000u;  // ask the site again every six hours
 constexpr wchar_t kPageFile[] = L"cube-recipes-page.html";
 constexpr wchar_t kMetaFile[] = L"cube-recipes-page.meta";
-constexpr wchar_t kOptOutFile[] = L"cube-live-disabled.txt";
+constexpr wchar_t kOptOutFile[] = L"live-updates-disabled.txt";  // the one switch for every website update
 
 }  // namespace
 
@@ -108,7 +108,7 @@ void CubeUpdater::Start(const std::wstring& cacheDir, const std::wstring& url,
     state_->log = std::move(log);
     // A file with this name next to the data turns the website check off.
     if (GetFileAttributesW((cacheDir + L"\\" + kOptOutFile).c_str()) != INVALID_FILE_ATTRIBUTES) {
-        state_->Log("website updates are turned off (cube-live-disabled.txt)");
+        state_->Log("website updates are turned off (live-updates-disabled.txt)");
         return;
     }
     state_->stop = CreateEventW(nullptr, TRUE, FALSE, nullptr);

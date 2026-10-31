@@ -19,7 +19,9 @@
 #include <string>
 
 #include "cube_updater.hpp"
+#include "locale_live.hpp"
 #include "web_pages_updater.hpp"
+#include "debug_log.hpp"
 #include "web_runes_live.hpp"
 #include "web_bases_live.hpp"
 #include "web_affixes_live.hpp"
@@ -47,7 +49,7 @@ constexpr D2RL::PluginInfo EsrOverlayPluginInfo {
     .abiVersion = D2RL_PLUGIN_ABI_VERSION,
     .id = "esr-wiki-overlay",
     .name = "ESR Wiki Overlay",
-    .version = "1.4.0",
+    .version = "1.5.0",
     .author = "Sully",
     .description = "Read-only ESR wiki reference overlay. Open it with the eswiki command, or a key bound in the controls.",
     .flags = D2RL::PluginFlags::Client,
@@ -60,6 +62,8 @@ std::unique_ptr<esrwiki::Database> database;
 std::unique_ptr<esrwiki::Overlay> overlay;
 std::unique_ptr<esrwiki::Database> cubeDatabase;   // Horadric Cube recipes (cube-wiki-data.txt)
 std::unique_ptr<esrwiki::Overlay> cubeOverlay;
+bool cubeReady = false;                            // the cube window is running (guarded by webDataMutex)
+std::string pendingCubeData;                       // the localized cube data built before the window was ready (webDataMutex)
 esrwiki::CubeUpdater cubeUpdater;                  // keeps the cube recipes in step with the website
 esrwiki::WebPagesUpdater webUniquesUpdater;        // keeps the Uniques page in step with the website
 esrwiki::WebPagesUpdater webRunesUpdater;          // keeps the Runes page in step with the website
@@ -76,6 +80,7 @@ esrwiki::WebPagesUpdater webVesselUpdater;          // keeps the Vessel of Souls
 esrwiki::WebPagesUpdater webKillUpdater;            // keeps the Kill Ledger page in step with the website
 esrwiki::WebPagesUpdater webMasteryUpdater;         // keeps the Weapon Mastery page in step with the website
 esrwiki::WebPagesUpdater webAffixesUpdater;        // keeps the Item Affixes page in step with the website
+esrwiki::WebPagesUpdater webLocalizedUpdater;      // keeps the localized wiki in step with the localized website pages
 esrwiki::WebPagesUpdater webIasUpdater;            // keeps the IAS calculator data in step with the website
 std::mutex webDataMutex;                           // the website updates build on liveWikiData one after another
 std::string liveWikiData;                          // the shipped wiki data with every website page merged in so far
@@ -148,6 +153,40 @@ std::string ReadWholeFile(const std::wstring& path) {
     std::ostringstream content;
     content << file.rdbuf();
     return content.str();
+}
+
+// The language set in the loader's menu (text_locale in d2rloader.toml; the config folder is next to the plugins folder that holds the DLL).
+// Returns the locale code, or "" for English or when it is not set.
+std::string LoaderLocale() {
+    static const char* const kLocales[] = {"deDE", "esES", "frFR", "itIT", "koKR", "plPL", "ruRU", "zhCN",
+                                           "zhTW", "esMX", "jaJP", "ptBR"};
+    try {
+        // The game's own loader config (the one the in-game settings menu writes), next to the game's executable.
+        // The plugin's folder has its own copy for mods, so the plugin folder is only the fallback.
+        std::string toml;
+        try {
+            wchar_t exe[MAX_PATH] = {};
+            GetModuleFileNameW(nullptr, exe, MAX_PATH);
+            const std::wstring exePath(exe);
+            const auto slash = exePath.find_last_of(L"\\/");
+            const std::wstring gameDir = slash == std::wstring::npos ? exePath : exePath.substr(0, slash);
+            toml = ReadWholeFile(gameDir + L"\\d2rloader\\config\\d2rloader.toml");
+        } catch (const std::exception&) {
+            toml = ReadWholeFile(PluginDirectory() + L"\\..\\config\\d2rloader.toml");
+        }
+        const std::size_t key = toml.find("\ntext_locale");
+        if (key == std::string::npos) return "";
+        const std::size_t open = toml.find('"', key);
+        const std::size_t close = open == std::string::npos ? std::string::npos : toml.find('"', open + 1);
+        if (close == std::string::npos) return "";
+        const std::string code = toml.substr(open + 1, close - open - 1);
+        for (const char* known : kLocales) {
+            if (code == known) return code;
+        }
+        return "";
+    } catch (const std::exception&) {
+        return "";
+    }
 }
 
 // Toggles the panel that was opened most recently (the main wiki unless cube recipes was last).
@@ -484,8 +523,14 @@ void Release() noexcept {
     webSkillsUpdater.Stop();
     webVesselUpdater.Stop();
     webKillUpdater.Stop();
+    webLocalizedUpdater.Stop();
     webMasteryUpdater.Stop();
     webIasUpdater.Stop();
+    {
+        std::lock_guard<std::mutex> lock(webDataMutex);
+        cubeReady = false;
+        pendingCubeData.clear();
+    }
     if (cubeOverlay) cubeOverlay->Stop();
     cubeOverlay.reset();
     cubeDatabase.reset();
@@ -501,12 +546,21 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
     try {
         if (!D2RL::HasContext(plugin)) return false;
         pluginContext = plugin;
+        esrwiki::DebugSink() = [](const std::string& message) {
+            if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+        };
         plugin->LogInfo("ESR Wiki overlay load started");
 
         const std::wstring dataDir = PluginDirectory() + L"\\esr-wiki-overlay";
         database = std::make_unique<esrwiki::Database>();
         std::string error;
-        const std::string shippedWikiData = ReadWholeFile(dataDir + L"\\wiki-data.txt");
+        // A translated main wiki (data\locales\<code>\wiki-data.txt) replaces the English one when the loader is set to
+        // that language. Its pages are not updated from the website, which publishes English text.
+        const std::string mainLocale = LoaderLocale();
+        const std::wstring localizedWiki = mainLocale.empty() ? std::wstring()
+            : dataDir + L"\\locales\\" + std::wstring(mainLocale.begin(), mainLocale.end()) + L"\\wiki-data.txt";
+        const bool localizedMain = !localizedWiki.empty() && std::ifstream(localizedWiki).good();
+        const std::string shippedWikiData = ReadWholeFile(localizedMain ? localizedWiki : dataDir + L"\\wiki-data.txt");
         const std::string webArtTable = ReadWholeFile(dataDir + L"\\web-unique-art.txt");
         const std::string webWordArtTable = ReadWholeFile(dataDir + L"\\web-word-art.txt");
         const std::string webBaseArtTable = ReadWholeFile(dataDir + L"\\web-base-art.txt");
@@ -517,10 +571,16 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             return false;
         }
 
+        // The overlay's own labels in the loader's language (locales\<code>\ui-strings.txt); English stays as it is.
+        const std::size_t uiStringCount = esrwiki::LoadUiStrings(mainLocale.empty() ? std::wstring()
+            : dataDir + L"\\locales\\" + std::wstring(mainLocale.begin(), mainLocale.end()) + L"\\ui-strings.txt");
+        esrwiki::ias::SetTranslator(&esrwiki::UiTextUtf8);
+        esrwiki::DebugLog("loader language: " + (mainLocale.empty() ? std::string("none (English)") : mainLocale) + "; main wiki data: " +
+                          (localizedMain ? "translated file" : "English file") + "; UI strings loaded: " + std::to_string(uiStringCount));
         overlay = std::make_unique<esrwiki::Overlay>();
         overlay->SetCloseKey(matchesOpenKey);
-        if (!overlay->Start(*database, dataDir, L"ESR Wiki", L"main",
-                            {{L"Cube Recipes", [] {
+        if (!overlay->Start(*database, dataDir, esrwiki::UiText(L"ESR Wiki"), L"main",
+                            {{esrwiki::UiText(L"Cube Recipes"), [] {
                                   lastPanel = LastPanel::Cube;
                                   if (cubeOverlay != nullptr) cubeOverlay->Open();
                               }, [] { return cubeOverlay != nullptr; }}})) {
@@ -532,11 +592,112 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         const std::string loaded = "ESR Wiki overlay ready: " + std::to_string(database->pages.size()) +
                                    " pages, " + std::to_string(database->entryCount()) + " entries";
         plugin->LogInfo(loaded.c_str());
+        for (const esrwiki::Page& page : database->pages) {
+            esrwiki::DebugLog("page " + page.id + " '" + page.title + "': " + std::to_string(page.entries.size()) + " entries");
+        }
 
         // The Uniques and Runes pages shipped with the plugin show at once; the website's current pages replace them
         // as soon as they have been read. Pages that give far fewer items than the shipped page are treated as
         // broken and ignored.
-        try {
+        if (localizedMain) esrwiki::DebugLog("translated wiki: the English page updaters are skipped, the localized website pages are used instead");
+        if (localizedMain) try {
+            // The pages the website supplies are rebuilt from the localized website: the English builders read the English
+            // pages and the localized pages translate what they make. Everything else stays as the shipped file has it.
+            const std::string englishShipped = ReadWholeFile(dataDir + L"\\wiki-data.txt");
+            const std::string uiStrings = ReadWholeFile(dataDir + L"\\locales\\" + std::wstring(mainLocale.begin(), mainLocale.end()) + L"\\ui-strings.txt");
+            const std::string shippedCube = ReadWholeFile(dataDir + L"\\locales\\" + std::wstring(mainLocale.begin(), mainLocale.end()) + L"\\cube-wiki-data.txt");
+            {
+                std::lock_guard<std::mutex> lock(webDataMutex);
+                liveWikiData = shippedWikiData;
+            }
+            const auto log = [](const std::string& message) {
+                if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+            };
+            if (englishShipped.empty()) {
+                esrwiki::DebugLog("localized website pages: no English wiki-data.txt shipped, so they are not used");
+            } else {
+                auto shippedData = std::make_shared<esrwiki::Database>();
+                std::string shippedError;
+                esrwiki::ParseDatabase(shippedWikiData, *shippedData, shippedError);
+                static const char* const kRebuiltPages[] = {"uniques", "runes", "runewords", "gemwords", "item-bases", "item-affixes",
+                                                            "ascendancy", "class-crafting", "set-items", "endgame-maps", "corruption",
+                                                            "merc-oskill", "vessel-of-souls", "kill-ledger", "weapon-mastery"};
+                const std::wstring code(mainLocale.begin(), mainLocale.end());
+                esrwiki::WebPagesConfig localized;
+                localized.cacheDir = dataDir;
+                localized.siteUrl = kSiteUrl;
+                for (const char* name : esrwiki::kLocalizedPageNames) localized.pageNames.push_back(name);  // the English pages
+                for (const char* name : esrwiki::kLocalizedPageNames) localized.pageNames.push_back(mainLocale + "/" + name);  // the same pages in the language
+                localized.cachePrefix = L"locale-" + code + L"-web-";  // locale-frFR-web-frFR_gems.htm
+                localized.optOutFile = esrwiki::kLiveUpdatesOffFile;
+                localized.userAgent = L"ESR-Wiki-Overlay/1.5 (website " + code + L")";
+                localized.logPrefix = "ESR Wiki website (" + mainLocale + "): ";
+                localized.use = [englishShipped, uiStrings, shippedCube, shippedWikiData, shippedData, webArtTable, webWordArtTable, webBaseArtTable](
+                                    const std::vector<std::string>& pages, std::string& error) {
+                    esrwiki::LocalizedBuildInput build;
+                    build.shippedEnglish = englishShipped;
+                    build.shippedLocalized = shippedWikiData;
+                    build.englishPages.assign(pages.begin(), pages.begin() + static_cast<std::ptrdiff_t>(esrwiki::kLocalizedPageCount));
+                    build.localizedPages.assign(pages.begin() + static_cast<std::ptrdiff_t>(esrwiki::kLocalizedPageCount), pages.end());
+                    build.uiStrings = uiStrings;
+                    build.shippedCubeLocalized = shippedCube;
+                    build.uniqueArtTable = webArtTable;
+                    build.wordArtTable = webWordArtTable;
+                    build.baseArtTable = webBaseArtTable;
+                    std::string next, report, cubeNext;
+                    if (!esrwiki::BuildLocalizedWikiData(build, next, report, error, &cubeNext)) return false;
+                    auto parsed = std::make_unique<esrwiki::Database>();
+                    std::string parseError;
+                    if (!esrwiki::ParseDatabase(next, *parsed, parseError)) {
+                        error = "website data rejected: " + parseError;
+                        return false;
+                    }
+                    for (const char* id : kRebuiltPages)
+                        if (CountPageBlocks(*parsed, id) * 10 < CountPageBlocks(*shippedData, id) * 6) {
+                            error = std::string("the localized website pages give far fewer items for ") + id + " than expected, ignored";
+                            return false;
+                        }
+                    // The Horadric Cube window's data: same checks (it parses, and keeps at least 60% of the shipped recipes).
+                    std::unique_ptr<esrwiki::Database> cubeParsed;
+                    if (!cubeNext.empty()) {
+                        auto shippedCubeData = std::make_unique<esrwiki::Database>();
+                        auto parsedCube = std::make_unique<esrwiki::Database>();
+                        std::string cubeParseError, shippedParseError;
+                        if (esrwiki::ParseDatabase(shippedCube, *shippedCubeData, shippedParseError) &&
+                            esrwiki::ParseDatabase(cubeNext, *parsedCube, cubeParseError) &&
+                            CountRecipes(*parsedCube) * 10 >= CountRecipes(*shippedCubeData) * 6) {
+                            cubeParsed = std::move(parsedCube);
+                        } else if (pluginContext != nullptr) {
+                            pluginContext->LogError("ESR Wiki cube recipes: the localized website data was rejected, the shipped recipes stay");
+                        }
+                    }
+                    std::lock_guard<std::mutex> lock(webDataMutex);
+                    if (overlay == nullptr) return false;
+                    overlay->ReplaceDatabase(std::move(parsed));
+                    liveWikiData = std::move(next);
+                    if (cubeParsed) {
+                        if (cubeReady && cubeOverlay != nullptr) cubeOverlay->ReplaceDatabase(std::move(cubeParsed));
+                        else pendingCubeData = std::move(cubeNext);  // the window is not up yet: it takes this when it starts
+                    }
+                    if (pluginContext != nullptr) {
+                        std::size_t from = 0;
+                        while (from < report.size()) {
+                            const std::size_t to = report.find('\n', from);
+                            const std::string line = report.substr(from, to == std::string::npos ? std::string::npos : to - from);
+                            if (!line.empty()) pluginContext->LogInfo(("ESR Wiki website: " + line).c_str());
+                            if (to == std::string::npos) break;
+                            from = to + 1;
+                        }
+                    }
+                    return true;
+                };
+                localized.log = log;
+                webLocalizedUpdater.Start(std::move(localized));
+            }
+        } catch (...) {
+            esrwiki::DebugLog("localized website pages: could not be started");
+        }
+        if (!localizedMain) try {
             {
                 std::lock_guard<std::mutex> lock(webDataMutex);
                 liveWikiData = shippedWikiData;
@@ -560,7 +721,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             uniques.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebUniquePageNames) uniques.pageNames.push_back(name);
             uniques.cachePrefix = L"uniques-web-";  // uniques-web-unique_armors.htm
-            uniques.optOutFile = L"uniques-live-disabled.txt";
+            uniques.optOutFile = esrwiki::kLiveUpdatesOffFile;
             uniques.userAgent = L"ESR-Wiki-Overlay/1.4 (website uniques)";
             uniques.logPrefix = "ESR Wiki website uniques: ";
             uniques.use = [shippedUniques, webArtTable](const std::vector<std::string>& pages, std::string& error) {
@@ -578,7 +739,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             runes.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebRunesPageNames) runes.pageNames.push_back(name);  // gems page, cube recipes page
             runes.cachePrefix = L"runes-web-";  // runes-web-gems.htm
-            runes.optOutFile = L"runes-live-disabled.txt";
+            runes.optOutFile = esrwiki::kLiveUpdatesOffFile;
             runes.userAgent = L"ESR-Wiki-Overlay/1.4 (website runes)";
             runes.logPrefix = "ESR Wiki website runes: ";
             runes.use = [shippedRunes](const std::vector<std::string>& pages, std::string& error) {
@@ -596,7 +757,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             runewords.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebRunewordsPageNames) runewords.pageNames.push_back(name);  // runewords page, gems page
             runewords.cachePrefix = L"runewords-web-";  // runewords-web-runewords.htm
-            runewords.optOutFile = L"runewords-live-disabled.txt";
+            runewords.optOutFile = esrwiki::kLiveUpdatesOffFile;
             runewords.userAgent = L"ESR-Wiki-Overlay/1.4 (website runewords)";
             runewords.logPrefix = "ESR Wiki website runewords: ";
             runewords.use = [shippedRunewords, webWordArtTable](const std::vector<std::string>& pages, std::string& error) {
@@ -614,7 +775,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             gemwords.siteUrl = kSiteUrl;
             gemwords.pageNames.push_back(esrwiki::kWebGemwordsPageName);
             gemwords.cachePrefix = L"gemwords-web-";  // gemwords-web-gemwords.htm
-            gemwords.optOutFile = L"gemwords-live-disabled.txt";
+            gemwords.optOutFile = esrwiki::kLiveUpdatesOffFile;
             gemwords.userAgent = L"ESR-Wiki-Overlay/1.4 (website gemwords)";
             gemwords.logPrefix = "ESR Wiki website gemwords: ";
             gemwords.use = [shippedGemwords, webWordArtTable](const std::vector<std::string>& pages, std::string& error) {
@@ -632,7 +793,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             bases.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebBasesPageNames) bases.pageNames.push_back(name);  // armors page, weapons page
             bases.cachePrefix = L"bases-web-";  // bases-web-armors.htm
-            bases.optOutFile = L"bases-live-disabled.txt";
+            bases.optOutFile = esrwiki::kLiveUpdatesOffFile;
             bases.userAgent = L"ESR-Wiki-Overlay/1.4 (website item bases)";
             bases.logPrefix = "ESR Wiki website item bases: ";
             bases.use = [shippedBases, webBaseArtTable](const std::vector<std::string>& pages, std::string& error) {
@@ -650,7 +811,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             affixes.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebAffixesPageNames) affixes.pageNames.push_back(name);  // prefixes, suffixes, quality
             affixes.cachePrefix = L"affixes-web-";  // affixes-web-prefixes.htm
-            affixes.optOutFile = L"affixes-live-disabled.txt";
+            affixes.optOutFile = esrwiki::kLiveUpdatesOffFile;
             affixes.userAgent = L"ESR-Wiki-Overlay/1.4 (website item affixes)";
             affixes.logPrefix = "ESR Wiki website item affixes: ";
             affixes.use = [shippedAffixes](const std::vector<std::string>& pages, std::string& error) {
@@ -668,7 +829,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             ascendancy.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebAscendancyPageNames) ascendancy.pageNames.push_back(name);  // ascendancies.htm
             ascendancy.cachePrefix = L"ascendancy-web-";  // ascendancy-web-ascendancies.htm
-            ascendancy.optOutFile = L"ascendancy-live-disabled.txt";
+            ascendancy.optOutFile = esrwiki::kLiveUpdatesOffFile;
             ascendancy.userAgent = L"ESR-Wiki-Overlay/1.4 (website ascendancies)";
             ascendancy.logPrefix = "ESR Wiki website ascendancies: ";
             ascendancy.use = [shippedAscendancy](const std::vector<std::string>& pages, std::string& error) {
@@ -687,7 +848,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             classCrafting.siteUrl = kSiteUrl;
             classCrafting.pageNames.push_back("Eastern%20Sun%20Resurrected%20Cube%20Recipes.html");
             classCrafting.cachePrefix = L"class-crafting-web-";
-            classCrafting.optOutFile = L"class-crafting-live-disabled.txt";
+            classCrafting.optOutFile = esrwiki::kLiveUpdatesOffFile;
             classCrafting.userAgent = L"ESR-Wiki-Overlay/1.4 (website cube recipes)";
             classCrafting.logPrefix = "ESR Wiki website class crafting: ";
             classCrafting.use = [shippedClass](const std::vector<std::string>& pages, std::string& error) {
@@ -705,7 +866,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             sets.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebSetsPageNames) sets.pageNames.push_back(name);  // sets.htm
             sets.cachePrefix = L"sets-web-";  // sets-web-sets.htm
-            sets.optOutFile = L"sets-live-disabled.txt";
+            sets.optOutFile = esrwiki::kLiveUpdatesOffFile;
             sets.userAgent = L"ESR-Wiki-Overlay/1.4 (website sets)";
             sets.logPrefix = "ESR Wiki website sets: ";
             sets.use = [shippedSets](const std::vector<std::string>& pages, std::string& error) {
@@ -723,7 +884,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             endgame.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebEndgamePageNames) endgame.pageNames.push_back(name);  // endgame_maps.htm
             endgame.cachePrefix = L"endgame-web-";  // endgame-web-endgame_maps.htm
-            endgame.optOutFile = L"endgame-live-disabled.txt";
+            endgame.optOutFile = esrwiki::kLiveUpdatesOffFile;
             endgame.userAgent = L"ESR-Wiki-Overlay/1.4 (website endgame maps)";
             endgame.logPrefix = "ESR Wiki website endgame maps: ";
             endgame.use = [shippedEndgame](const std::vector<std::string>& pages, std::string& error) {
@@ -743,7 +904,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             special.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebSpecialPageNames) special.pageNames.push_back(name);
             special.cachePrefix = L"special-web-";  // special-web-special_crafting_outcomes.htm
-            special.optOutFile = L"special-live-disabled.txt";
+            special.optOutFile = esrwiki::kLiveUpdatesOffFile;
             special.userAgent = L"ESR-Wiki-Overlay/1.4 (website special crafting)";
             special.logPrefix = "ESR Wiki website special crafting: ";
             special.use = [shippedSpecial](const std::vector<std::string>& pages, std::string& error) {
@@ -763,7 +924,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             skills.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebSkillsPageNames) skills.pageNames.push_back(name);
             skills.cachePrefix = L"skills-web-";  // skills-web-skill_information.htm
-            skills.optOutFile = L"skills-live-disabled.txt";
+            skills.optOutFile = esrwiki::kLiveUpdatesOffFile;
             skills.userAgent = L"ESR-Wiki-Overlay/1.4 (website skill information)";
             skills.logPrefix = "ESR Wiki website skill information: ";
             skills.use = [shippedSkills](const std::vector<std::string>& pages, std::string& error) {
@@ -783,7 +944,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             vessel.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebVesselPageNames) vessel.pageNames.push_back(name);
             vessel.cachePrefix = L"vessel-web-";  // vessel-web-vessel_of_souls.htm
-            vessel.optOutFile = L"vessel-live-disabled.txt";
+            vessel.optOutFile = esrwiki::kLiveUpdatesOffFile;
             vessel.userAgent = L"ESR-Wiki-Overlay/1.4 (website vessel of souls)";
             vessel.logPrefix = "ESR Wiki website vessel of souls: ";
             vessel.use = [shippedVessel](const std::vector<std::string>& pages, std::string& error) {
@@ -803,7 +964,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             kill.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebKillPageNames) kill.pageNames.push_back(name);
             kill.cachePrefix = L"kill-web-";  // kill-web-kill_ledger.htm
-            kill.optOutFile = L"kill-live-disabled.txt";
+            kill.optOutFile = esrwiki::kLiveUpdatesOffFile;
             kill.userAgent = L"ESR-Wiki-Overlay/1.4 (website kill ledger)";
             kill.logPrefix = "ESR Wiki website kill ledger: ";
             kill.use = [shippedKill](const std::vector<std::string>& pages, std::string& error) {
@@ -823,7 +984,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             mastery.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::kWebMasteryPageNames) mastery.pageNames.push_back(name);
             mastery.cachePrefix = L"mastery-web-";  // mastery-web-weapon_mastery.html
-            mastery.optOutFile = L"mastery-live-disabled.txt";
+            mastery.optOutFile = esrwiki::kLiveUpdatesOffFile;
             mastery.userAgent = L"ESR-Wiki-Overlay/1.4 (website weapon mastery)";
             mastery.logPrefix = "ESR Wiki website weapon mastery: ";
             mastery.use = [shippedMastery](const std::vector<std::string>& pages, std::string& error) {
@@ -836,6 +997,17 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             mastery.log = log;
             webMasteryUpdater.Start(std::move(mastery));
 
+        } catch (const std::exception& error) {
+            const std::string message = std::string("ESR Wiki website updates unavailable: ") + error.what();
+            plugin->LogError(message.c_str());
+        }
+
+        // The IAS calculator has no page text of its own, so it loads in every language (a translated wiki skips
+        // only the updaters that would put English pages back).
+        try {
+            const auto log = [](const std::string& message) {
+                if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+            };
             // The IAS calculator: the data that shipped, then whatever the website has.
             {
                 auto shipped = std::make_shared<esrwiki::ias::Data>();
@@ -843,6 +1015,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
                 if (esrwiki::ias::Parse(ReadWholeFile(dataDir + L"\\ias-calculator.html"),
                                         ReadWholeFile(dataDir + L"\\ias-calculator-data.js"), *shipped, why)) {
                     overlay->SetCalculatorData(shipped);
+                    esrwiki::DebugLog("IAS calculator: shipped data loaded");
                 } else {
                     log("ESR Wiki IAS calculator: the shipped data cannot be used: " + why);
                 }
@@ -852,7 +1025,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             iasConfig.siteUrl = kSiteUrl;
             for (const char* name : esrwiki::ias::kPageNames) iasConfig.pageNames.push_back(name);  // the page, its data file
             iasConfig.cachePrefix = L"ias-web-";  // ias-web-ias-calculator.html
-            iasConfig.optOutFile = L"ias-live-disabled.txt";
+            iasConfig.optOutFile = esrwiki::kLiveUpdatesOffFile;
             iasConfig.userAgent = L"ESR-Wiki-Overlay/1.4 (website IAS calculator)";
             iasConfig.logPrefix = "ESR Wiki website IAS calculator: ";
             iasConfig.use = [](const std::vector<std::string>& pages, std::string& error) {
@@ -872,12 +1045,20 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         try {
             cubeDatabase = std::make_unique<esrwiki::Database>();
             std::string cubeError;
-            if (esrwiki::ParseDatabase(ReadWholeFile(dataDir + L"\\cube-wiki-data.txt"), *cubeDatabase, cubeError)) {
+            // A translated cube file (data\locales\<code>) replaces the English one when the loader is set to that
+            // language. Those recipes are the shipped fallback; the localized website build (above) replaces them live.
+            const std::string locale = LoaderLocale();
+            const std::wstring localized = locale.empty() ? std::wstring()
+                : dataDir + L"\\locales\\" + std::wstring(locale.begin(), locale.end()) + L"\\cube-wiki-data.txt";
+            const bool localizedCube = !localized.empty() && std::ifstream(localized).good();
+            esrwiki::DebugLog(std::string("cube recipes: ") + (localizedCube ? "translated file (replaced live from the localized website)" : "English file"));
+            if (esrwiki::ParseDatabase(ReadWholeFile(localizedCube ? localized : dataDir + L"\\cube-wiki-data.txt"),
+                                       *cubeDatabase, cubeError)) {
                 cubeOverlay = std::make_unique<esrwiki::Overlay>();
                 cubeOverlay->SetCloseKey(matchesOpenKey);
                 const bool started = cubeOverlay->Start(
-                    *cubeDatabase, dataDir, L"Horadric Cube Recipes", L"cube",
-                    {{L"Main Wiki", [] {
+                    *cubeDatabase, dataDir, esrwiki::UiText(L"Horadric Cube Recipes"), L"cube",
+                    {{esrwiki::UiText(L"Main Wiki"), [] {
                           lastPanel = LastPanel::Main;
                           if (overlay != nullptr) overlay->Open();
                       }, [] { return overlay != nullptr; }}});
@@ -889,7 +1070,18 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
                     // them as soon as it has been read. A page with far fewer recipes than the shipped data
                     // is treated as a broken page and ignored.
                     const std::size_t shipped = CountRecipes(*cubeDatabase);
-                    cubeUpdater.Start(
+                    {   // a localized build that finished before this window existed is applied now
+                        std::lock_guard<std::mutex> lock(webDataMutex);
+                        cubeReady = true;
+                        if (!pendingCubeData.empty()) {
+                            auto pendingParsed = std::make_unique<esrwiki::Database>();
+                            std::string pendingError;
+                            if (esrwiki::ParseDatabase(pendingCubeData, *pendingParsed, pendingError))
+                                cubeOverlay->ReplaceDatabase(std::move(pendingParsed));
+                            pendingCubeData.clear();
+                        }
+                    }
+                    if (!localizedCube) cubeUpdater.Start(
                         dataDir, kCubePageUrl,
                         [shipped](const std::string& wikiData) {
                             auto next = std::make_unique<esrwiki::Database>();

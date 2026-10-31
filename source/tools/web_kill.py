@@ -27,9 +27,16 @@ LEDGER = "Kill Ledger"
 JUST_KILLED = " just killed"
 KILLS_HEADINGS = "Kills\x1fGem\x1fBonus"
 BOSS_HEADINGS = "Ingredients\x1fBoss\x1fBonus"
+# the translated page: its section titles (they start the heading), ledger name, boss suffix and headings
+FRENCH_SECTION = {KILLS: "Bonus de victimes", BOSSES: "Bonus de boss"}
+FRENCH_LEDGER = "Tuer le Registre"
+FRENCH_JUST_KILLED = re.compile(r" venant d'être tu(?:é|ée|és|ées)$")
+FRENCH_KILLS_HEADINGS = "Victimes\x1fGemme\x1fBonus"
+FRENCH_BOSS_HEADINGS = "Ingrédients\x1fBoss\x1fBonus"
+LABELS = {"french": False}  # set by parse(): the page is a translation
 SEPARATOR = "\x1f"
 BLOCK_LINE = "BLOCK\t0\t\t\t\t\t\t0"
-COUNT = re.compile(r"^\(At least (\d+) kills\)$", re.I)
+COUNT = re.compile(r"^\((?:At least|Au moins) (\d+) (?:kills|victimes)\)$", re.I)
 # the website's colour names and hex values, as the overlay's colour letters
 COLORS = {"red": "R", "orange": "O", "gold": "K", "yellow": "9", "lightgray": "N", "green": "G", "blue": "L",
           "purple": "P", "white": "W", "gray": "Y", "#bdb76b": "K", "#928a70": "N", "#706850": "H"}
@@ -80,7 +87,7 @@ def cell_lines(fragment):
 def parse_input(cell):
     """(kills, gem, boss) of a kill bonus or boss bonus input cell. Kill rows have a count, boss rows a boss."""
     lines = cell_lines(cell)
-    if lines and plain(lines[0]) == LEDGER:
+    if lines and plain(lines[0]) in (LEDGER, FRENCH_LEDGER):
         lines = lines[1:]
     return lines
 
@@ -101,9 +108,15 @@ def boss_row(inputs, outcome):
     if len(lines) < 2:
         raise SystemExit("a boss bonus row has no ingredients and a boss")
     last = plain(lines[-1])
-    if not last.endswith(JUST_KILLED):
-        raise SystemExit("a boss bonus row does not end with a boss that was just killed")
-    boss = last[: -len(JUST_KILLED)]
+    if LABELS["french"]:
+        ending = FRENCH_JUST_KILLED.search(last)
+        if not ending:
+            raise SystemExit("a boss bonus row does not end with a boss that was just killed")
+        boss = last[: ending.start()]
+    else:
+        if not last.endswith(JUST_KILLED):
+            raise SystemExit("a boss bonus row does not end with a boss that was just killed")
+        boss = last[: -len(JUST_KILLED)]
     # one ingredient per line, as the Vessel of Souls organs and the cube recipes
     ingredients = "\x1e".join(rendered(runs) for runs in lines[:-1])
     return ingredients + SEPARATOR + boss + SEPARATOR + bonus_of(outcome)
@@ -111,7 +124,7 @@ def boss_row(inputs, outcome):
 
 def bonus_of(outcome):
     lines = cell_lines(outcome)
-    if lines and plain(lines[0]) == LEDGER:
+    if lines and plain(lines[0]) in (LEDGER, FRENCH_LEDGER):
         lines = lines[1:]
     if not lines:
         raise SystemExit("a row has no bonus")
@@ -121,6 +134,7 @@ def bonus_of(outcome):
 def parse(html):
     if "</html" not in html.lower():
         raise SystemExit("the saved page is incomplete")
+    LABELS["french"] = "venant d'être tu" in html
     tables = TABLE.findall(html)
     if len(tables) < 3:
         raise SystemExit("the kill ledger tables are missing")
@@ -139,6 +153,8 @@ def parse(html):
         else:
             title = plain(cell_lines(head[0])[0]) if cell_lines(head[0]) else ""
             intro = [rendered(runs) for runs in cell_lines(head[1])]
+        if LABELS["french"]:
+            title = next((en for en, fr in FRENCH_SECTION.items() if title.startswith(fr)), title)
         if title not in SECTIONS:
             raise SystemExit("the table %r is not a kill ledger table" % title)
         rows_out = []
@@ -165,9 +181,14 @@ def build_page(overview, sections):
     out = ["PAGE\t%s\t%s\t%s" % (PAGE_ID, PAGE_TITLE, PAGE_GROUP), "ENTRY\t%s\t" % OVERVIEW, BLOCK_LINE]
     out += ["LINE\tT\t" + line for line in overview]
     for title, intro, rows_out in sections:
-        out += ["ENTRY\t%s\t" % title, BLOCK_LINE]
+        french = LABELS["french"]
+        out += ["ENTRY\t%s\t" % (FRENCH_SECTION[title] if french else title), BLOCK_LINE]
         out += ["LINE\tT\t" + line for line in intro]
-        out.append("LINE\tC\t" + (KILLS_HEADINGS if title == KILLS else BOSS_HEADINGS))
+        if french:
+            headings = FRENCH_KILLS_HEADINGS if title == KILLS else FRENCH_BOSS_HEADINGS
+        else:
+            headings = KILLS_HEADINGS if title == KILLS else BOSS_HEADINGS
+        out.append("LINE\tC\t" + headings)
         out += ["LINE\tR\t" + row for row in rows_out]
     return out
 

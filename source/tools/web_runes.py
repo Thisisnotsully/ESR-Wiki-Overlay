@@ -60,13 +60,13 @@ def parse_runes(text):
     labels = None
     for row in re.findall(r"<tr[^>]*>(.*?)</tr>", text, re.S | re.I):
         cells = re.findall(r"<td[^>]*>(.*?)</td>", row, re.S | re.I)
-        if len(cells) == 1 and re.search(r"Req\s*Lvl", cells[0], re.I):
+        if len(cells) == 1 and re.search(r"(?:Req\s*Lvl|Niv\.?\s*requis)", cells[0], re.I):
             plain = clean(re.sub(r"<[^>]+>", " ", cells[0]))
-            name = re.split(r"\s*Req\s*Lvl", plain, maxsplit=1, flags=re.I)[0].strip()
-            level = re.search(r"Req\s*Lvl:?\s*(\d+)", plain, re.I)
+            name = re.split(r"\s*(?:Req\s*Lvl|Niv\.?\s*requis)", plain, maxsplit=1, flags=re.I)[0].strip()
+            level = re.search(r"(?:Req\s*Lvl|Niv\.?\s*requis)\s*:?\s*(\d+)", plain, re.I)
             color = re.search(r"<b>\s*<font[^>]*color\s*=\s*\"?([#0-9A-Za-z]+)", cells[0], re.I)
             current = None
-            if name.endswith(" Rune") and level:
+            if re.search(r"\brune\b", name, re.I) and level:
                 current = {"name": name, "level": level.group(1), "color": color.group(1) if color else ""}
                 labels = None
             continue
@@ -84,7 +84,7 @@ def parse_runes(text):
 
 
 def image_key(rune, taken):
-    base = "items_misc_rune_" + re.sub(r"[^a-z0-9]+", "_", rune["name"].lower()).strip("_")
+    base = "items_misc_rune_" + re.sub(r"[^a-z0-9]+", "_", rune.get("key", rune["name"]).lower()).strip("_")
     if rune["group"] == "LoD" and base in taken:
         base = base[: -len("_rune")] + "_lod_rune"
     return base
@@ -165,7 +165,7 @@ def splice(lines, page_lines):
 
 
 def main(argv):
-    if len(argv) not in (3, 4):
+    if len(argv) not in (3, 4, 5):
         print(__doc__)
         return 2
     source, target = Path(argv[1]), Path(argv[2])
@@ -178,6 +178,15 @@ def main(argv):
             raise SystemExit("only %d runes found; the website page looks broken" % len(runes))
         if {r["group"] for r in runes} != {k for k, _ in GROUPS}:
             raise SystemExit("the website runes do not fall into the three groups")
+        # A translated page: the same runes in the same order as the English page (argv[4]). Each rune keeps its
+        # English identity (image, group) and shows the translated name.
+        if len(argv) > 4:
+            reference = parse_runes(Path(argv[4]).read_text(encoding="utf-8", errors="replace"))
+            if len(reference) != len(runes):
+                raise SystemExit("the English page has %d runes, this one %d" % (len(reference), len(runes)))
+            for rune, ref in zip(runes, reference):
+                rune["key"] = ref["name"]
+                rune["group"] = ref["group"]
         cube_path = Path(argv[3]) if len(argv) > 3 else target.parent / "cube-wiki-data.txt"
         cube_text = cube_path.read_text(encoding="utf-8") if cube_path.exists() else ""
         text = target.read_text(encoding="utf-8")

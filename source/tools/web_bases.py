@@ -109,8 +109,20 @@ def out_text(value):
     return re.sub(r"_lod\b", "", clean(value))
 
 
-def build_page(armor, weapons, art):
+def identity_by_code(sections):
+    """{code: (name, cells)} of every item, with the cells as the English page writes them."""
+    out = {}
+    for section in sections:
+        headers = section["headers"]
+        for item in section["items"]:
+            out[item["code"]] = (item["name"], tuple(tuple(c for label, c in zip(headers, row) if label not in ("Name", "Code"))
+                                                      for row in item["rows"]))
+    return out
+
+
+def build_page(armor, weapons, art, identity=None):
     codes, sections = art
+    identity = identity or {}
     out = ["PAGE\t%s\t%s\tWiki" % (PAGE_ID, PAGE_TITLE)]
     for (kind, title), found in zip(KINDS, (armor, weapons)):
         blocks = []
@@ -123,8 +135,10 @@ def build_page(armor, weapons, art):
                 # Mythical bases get their own tier so the Tier filter can show them apart from Normal.
                 if tier == "Normal" and item["name"].startswith("Mythical "):
                     tier = "Mythic"
-                key = (item["name"], tier, tuple(tuple(c for label, c in zip(headers, row) if label not in ("Name", "Code"))
-                                                  for row in item["rows"]))
+                # the translated page's cells differ from the English ones ("2M" for "2H"); the item code is the same in both
+                same = identity.get(item["code"], (item["name"], tuple(tuple(c for label, c in zip(headers, row) if label not in ("Name", "Code"))
+                                                                     for row in item["rows"])))
+                key = (same[0], tier, same[1])
                 if key in seen:
                     continue
                 seen.add(key)
@@ -169,6 +183,10 @@ def main(argv):
     if len(argv) not in (4, 5):
         print(__doc__)
         return 2
+    reference = None                       # --reference=<English armors>,<English weapons>
+    for arg in [a for a in argv if a.startswith("--reference=")]:
+        reference = [Path(p) for p in arg[len("--reference="):].split(",")]
+        argv = [a for a in argv if not a.startswith("--reference=")]
     armors_path, weapons_path, target = Path(argv[1]), Path(argv[2]), Path(argv[3])
     try:
         found = []
@@ -187,7 +205,17 @@ def main(argv):
         trailing = bool(lines) and lines[-1] == ""
         if trailing:
             lines = lines[:-1]
-        merged = splice(lines, build_page(found[0], found[1], art))
+        identity = None
+        if reference is not None:
+            identity = {}
+            for kind, path, sections in zip(("armor", "weapons"), reference, found):
+                english = parse_sections(path.read_text(encoding="utf-8", errors="replace"), kind)
+                ours = {it["code"] for s in sections for it in s["items"]}
+                theirs = identity_by_code(english)
+                if not ours <= set(theirs):
+                    raise SystemExit("the English %s page does not list %d of these items" % (kind, len(ours - set(theirs))))
+                identity.update({code: theirs[code] for code in ours})
+        merged = splice(lines, build_page(found[0], found[1], art, identity))
     except SystemExit as stop:
         print("Website item bases: %s" % stop)
         return 1

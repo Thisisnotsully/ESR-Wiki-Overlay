@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(ESRWikiOverlay VERSION 1.4.0 LANGUAGES CXX)
+project(ESRWikiOverlay VERSION 1.5.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,7 +12,7 @@ set(ESR_PLUGIN_SDK_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/../../../PluginSDK-maste
 option(ESR_WIKI_BUILD_TESTS "Build the portable model tests and register them with CTest" ON)
 
 # Portable model: parser, search, paging, color codes. Builds on any host.
-add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/drop_finder.cpp src/drop_finder_model.cpp)
+add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/locale_align.cpp src/locale_live.cpp)
 target_include_directories(esr_wiki_model PUBLIC src)
 if(NOT MSVC)
   target_compile_options(esr_wiki_model PRIVATE -Wall -Wextra -Werror)
@@ -211,18 +211,6 @@ if(ESR_WIKI_BUILD_TESTS)
            COMMAND web_mastery_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-mastery/weapon_mastery.htm"
                                          "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
 
-  # The Drop Finder engine must give what the website's own script gives (tests/drop_finder_reference.js writes the cases).
-  add_executable(drop_finder_test tests/drop_finder_test.cpp)
-  target_link_libraries(drop_finder_test PRIVATE esr_wiki_model)
-  if(NOT MSVC)
-    target_compile_options(drop_finder_test PRIVATE -Wall -Wextra -Werror)
-  else()
-    set_property(TARGET drop_finder_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
-  endif()
-  add_test(NAME drop_finder
-           COMMAND drop_finder_test "${CMAKE_CURRENT_SOURCE_DIR}/data/drop-finder"
-                                    "${CMAKE_CURRENT_SOURCE_DIR}/tests/drop_finder/expected.json")
-
   # The Class Crafting page built from the cube recipes page must match the shipped page's items and art.
   add_executable(class_crafting_test tests/class_crafting_test.cpp)
   target_link_libraries(class_crafting_test PRIVATE esr_wiki_model)
@@ -234,6 +222,16 @@ if(ESR_WIKI_BUILD_TESTS)
   add_test(NAME class_crafting
            COMMAND class_crafting_test "${CMAKE_CURRENT_SOURCE_DIR}/tests/cube_live/cube-recipes-page.html"
                                        "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+
+  # The localized pages' text, lined up with the English pages, translates the wiki data.
+  add_executable(locale_align_test tests/locale_align_test.cpp)
+  target_link_libraries(locale_align_test PRIVATE esr_wiki_model)
+  if(MSVC)
+    set_property(TARGET locale_align_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  else()
+    target_compile_options(locale_align_test PRIVATE -Wall -Wextra -Werror)
+  endif()
+  add_test(NAME locale_align COMMAND locale_align_test "${CMAKE_CURRENT_SOURCE_DIR}/data")
 
   # The calculator engine must give what the website's own script gives (tests/gen_ias_cases.js writes the cases).
   add_executable(ias_calc_test tests/ias_calc_test.cpp)
@@ -290,4 +288,5 @@ if(WIN32)
   install(FILES data/website-ias/ias-calculator.html data/website-ias/ias-calculator-data.js
           DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(DIRECTORY data/images/ DESTINATION d2rloader/plugins/esr-wiki-overlay/images)
+  install(DIRECTORY data/locales/ DESTINATION d2rloader/plugins/esr-wiki-overlay/locales FILES_MATCHING PATTERN "*.txt")
 endif()

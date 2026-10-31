@@ -62,7 +62,7 @@ def runeword_image(row, cat, word_image, art):
     if word_image and image_category(word_image) == cat:
         return word_image
     if cat == "Weapons":
-        kinds = [t for t in row["allowed"] if t in WEAPON_TOKENS] + ["Weapon"]
+        kinds = [t for t in row["en_allowed"] if t in WEAPON_TOKENS] + ["Weapon"]
     else:
         kinds = [CATEGORY_TYPE.get(cat, "")]
     return next((art["type"][k] for k in kinds if k in art["type"]), word_image if image_category(word_image or "") == "" else None)
@@ -232,7 +232,7 @@ def parse_rows(text):
             continue
         bold = re.search(r"<b>(.*?)</b>", cells[0], re.S | re.I)
         name = clean(re.sub(r"<[^>]+>", " ", bold.group(1))) if bold else ""
-        sockets = re.search(r"\((\d+(?:-\d+)?)\s*Socket", clean(re.sub(r"<[^>]+>", " ", cells[0])), re.I)
+        sockets = re.search(r"\((\d+(?:-\d+)?)\s+[^()]+\)", clean(re.sub(r"<[^>]+>", " ", cells[0])))
         if not name or not sockets:
             continue
         ingredients = []
@@ -268,7 +268,9 @@ def parse_rows(text):
                 groups.append(current)
             columns.append(groups)
         rows.append({"name": name, "sockets": sockets.group(1), "ingredients": ingredients, "allowed": allowed,
-                     "excluded": excluded, "columns": columns})
+                     "excluded": excluded, "columns": columns,
+                     # identity (art, categories, levels): the English text when a translated page is read
+                     "en_name": name, "en_allowed": allowed, "en_ingredients": ingredients})
     return rows, labels
 
 
@@ -291,7 +293,7 @@ def can_hold(row, token, cat, art):
 
 def categories_of(row, first_only, art=None):
     found = []
-    for token in row["allowed"]:
+    for token in row["en_allowed"]:
         if token in ARMOR_TOKENS:
             cats = ARMOR_TOKENS[token]
         elif token in WEAPON_TOKENS:
@@ -336,7 +338,7 @@ def stat_lines(row, labels, heading, cat=None):
         if kind:                                   # only the column that names the category's kind of item
             cell = next((c for c, label in zip(cells, labels) if kind in label.split(" / ")), [])
         else:                                      # charms: what every column agrees on (a charm-only row: its filled columns)
-            used = [c for c in cells if c] if all(t == "Charm" for t in row["allowed"]) else cells
+            used = [c for c in cells if c] if all(t == "Charm" for t in row["en_allowed"]) else cells
             cell = used[0] if used and all(c and c == used[0] for c in used) else []
         out += ["LINE\tS\tÿc%s%s" % (code, text) for code, text in cell]
     return out
@@ -360,14 +362,15 @@ def icon_of(label, uncoloured, art):
 def build_page(kind, rows, labels, art, levels):
     runewords = kind == "runewords"
     entries = {cat: [] for cat in CATEGORIES}
+    seen = {cat: set() for cat in CATEGORIES}
     for row in rows:
-        names = [n for n, _ in row["ingredients"]]
-        icons = [icon_of(n, u, art) for n, u in row["ingredients"]]
+        names = [n for n, _ in row["en_ingredients"]]
+        icons = [icon_of(n, u, art) for n, u in row["en_ingredients"]]
         level = 0
         if runewords:
-            known = [level_of(levels, n, u) for n, u in row["ingredients"]]
+            known = [level_of(levels, n, u) for n, u in row["en_ingredients"]]
             level = max([k for k in known if k is not None], default=0)
-        word_image = art["word"].get((norm(row["name"]), ingredient_key(names))) if runewords else None
+        word_image = art["word"].get((norm(row["en_name"]), ingredient_key(names))) if runewords else None
         head = ["BLOCK\t1\t%s\t\t%s\t\t%s\t%d" % (row["name"], plural(row["sockets"]), "" if runewords else row["name"], level),
                 "FIELD\tSockets\t%s" % row["sockets"], "FIELD\tBase types\t%s" % allowed_text(row)]
         tail = []
@@ -383,7 +386,10 @@ def build_page(kind, rows, labels, art, levels):
                 tail2.append("LINE\tS\tÿc5Required Level: %d" % level)
             tail2.append("LINE\tS\tÿc0%s" % allowed_text(row))
             card = head + (["IMG\t%s" % img] if img else []) + tail2
-            if card not in entries[cat]:           # the website lists a few recipes twice, word for word
+            # the website lists a few recipes twice, word for word; a translated card also has to match in English
+            key = (tuple(card), row["en_name"], tuple(row["en_allowed"]), tuple(names))
+            if key not in seen[cat]:
+                seen[cat].add(key)
                 entries[cat].append(card)
     title = "Runewords" if runewords else "Gemwords"
     out = ["PAGE\t%s\t%s\tWiki" % (kind, title)]
@@ -410,7 +416,100 @@ def splice(lines, page_lines, page_id, after):
     return lines[:at] + page_lines + lines[at:]
 
 
+FILLER_WORDS = {"rune", "une", "pas", "de", "jewel", "jewels", "joyau", "joyaux", "bijou"}
+
+
+LEVEL_TEXT = r"(?:Req\s*Lvl|Niv\.?\s*requis)"
+
+
+def gem_names(text):
+    """The rune and gem names of a gems page, in page order (each row that names a required level)."""
+    names = []
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", text, re.S | re.I):
+        cells = re.findall(r"<td[^>]*>(.*?)</td>", row, re.S | re.I)
+        if len(cells) != 1:
+            continue
+        plain = clean(re.sub(r"<[^>]+>", " ", cells[0]))
+        if re.search(LEVEL_TEXT, plain, re.I):
+            names.append(re.split(r"\s*" + LEVEL_TEXT, plain, maxsplit=1, flags=re.I)[0].strip())
+    return names
+
+
+def squash(name):
+    return " ".join(name.lower().split())
+
+
+def recipe_key(row, to_english=None):
+    """Language-independent identity of a recipe: its socket count and its rune tokens ("Rune I" and "I Rune" are both "i").
+    to_english maps translated rune and gem names to their English names; a name that two English names share becomes ("*",)."""
+    to_english = to_english or {}
+    tokens = []
+    for name, _ in row["ingredients"]:
+        names = to_english.get(squash(name))
+        if names is not None and len(names) > 1:
+            tokens.append(("*",))
+            continue
+        text = next(iter(names)) if names else name
+        if text.lower() == "une rune":                       # the French name of the A rune
+            tokens.append(("a",))
+            continue
+        tokens.append(tuple(w for w in re.findall(r"[^\W_]+|\(\d+-\d+\)", text.lower()) if w not in FILLER_WORDS))
+    return (row["sockets"], tuple(sorted(tokens)))
+
+
+def match_score(mine, theirs):
+    """How many of the translated recipe's rune tokens find a partner in the English recipe; ("*",) matches any."""
+    left = list(theirs)
+    score = 0
+    for token in sorted(mine, key=lambda t: t == ("*",)):
+        if token == ("*",):
+            if left:
+                left.pop()
+                score += 1
+        elif token in left:
+            left.remove(token)
+            score += 1
+    return score
+
+
+def pair_recipes(rows, english, to_english):
+    """(translated row, English row) pairs. Every pair with the same socket count is scored by its shared rune
+    tokens (an identical recipe scores best); the best pairs are taken first, so one recipe cannot steal another's partner."""
+    keys = [recipe_key(row, to_english) for row in rows]
+    en_keys = [recipe_key(ref) for ref in english]
+    scored = []
+    for i, row in enumerate(rows):
+        for j, ref in enumerate(english):
+            if ref["sockets"] != row["sockets"]:
+                continue
+            exact = keys[i] == en_keys[j]
+            score = match_score(keys[i][1], en_keys[j][1]) + (100 if exact else 0)
+            scored.append((score, -i, -j, i, j))
+    scored.sort(reverse=True)
+    taken_row, taken_ref, pairs = set(), set(), {}
+    for score, _, _, i, j in scored:
+        if i in taken_row or j in taken_ref:
+            continue
+        if score < 100 and score < len(keys[i][1]) - 1:
+            continue
+        taken_row.add(i)
+        taken_ref.add(j)
+        pairs[i] = j
+    for i, row in enumerate(rows):
+        if i not in pairs:
+            raise SystemExit("no English recipe matches %s (%s)" % (row["name"], row["sockets"]))
+    return [(row, english[pairs[i]]) for i, row in enumerate(rows)]
+
+
 def main(argv):
+    reference = None
+    for arg in [a for a in argv if a.startswith("--reference=")]:
+        reference = Path(arg[len("--reference="):])
+        argv = [a for a in argv if not a.startswith("--reference=")]
+    gem_pairs = None                      # --gem-pairs=<English gems page>,<translated gems page>
+    for arg in [a for a in argv if a.startswith("--gem-pairs=")]:
+        gem_pairs = [Path(p) for p in arg[len("--gem-pairs="):].split(",")]
+        argv = [a for a in argv if not a.startswith("--gem-pairs=")]
     kind = argv[1] if len(argv) > 1 else ""
     if kind == "runewords" and len(argv) in (5, 6):
         page_path, gems_path, target = Path(argv[2]), Path(argv[3]), Path(argv[4])
@@ -426,6 +525,21 @@ def main(argv):
         if "</html" not in page.lower():
             raise SystemExit("%s is incomplete" % page_path.name)
         rows, labels = parse_rows(page)
+        if reference is not None:
+            english, _ = parse_rows(reference.read_text(encoding="utf-8", errors="replace"))
+            if len(english) != len(rows):
+                raise SystemExit("the English page has %d recipes, this one %d" % (len(english), len(rows)))
+            to_english = {}
+            if gem_pairs is not None:
+                en_gems = gem_names(gem_pairs[0].read_text(encoding="utf-8", errors="replace"))
+                fr_gems = gem_names(gem_pairs[1].read_text(encoding="utf-8", errors="replace"))
+                if len(en_gems) != len(fr_gems):
+                    raise SystemExit("the gems pages list %d and %d names" % (len(en_gems), len(fr_gems)))
+                for fr_name, en_name in zip(fr_gems, en_gems):
+                    to_english.setdefault(squash(fr_name), set()).add(en_name)
+            # the translated page does not list the recipes in the English order: pair them by socket count and rune names
+            for row, ref in pair_recipes(rows, english, to_english):
+                row["en_name"], row["en_allowed"], row["en_ingredients"] = ref["name"], ref["allowed"], ref["ingredients"]
         if len(rows) < (RUNEWORD_MIN if kind == "runewords" else GEMWORD_MIN):
             raise SystemExit("only %d recipes found; the website page looks broken" % len(rows))
         levels = {}

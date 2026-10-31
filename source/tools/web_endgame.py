@@ -23,6 +23,10 @@ MIN_OVERVIEW = 5
 BLOCK_LINE = "BLOCK\t0\t\t\t\t\t\t0"
 HEADING = "H"            # the website's heading colour (#706850)
 ABILITIES_LABEL = "Abilities"
+# the translated page's labels (the French site writes "Avertissement :" and "Récompenses")
+WARNING_LABELS = ("Warning:", "Avertissement :")
+REWARDS_LABELS = ("Rewards", "Récompenses")
+FRENCH_ABILITIES = "Capacités"
 # the website's colour names and hex values, as the overlay's colour letters
 COLORS = {"red": "R", "green": "G", "purple": "P", "orange": "O", "#8b0000": "D", "#4850b8": "B", "#0000ff": "L",
           "#706850": "H", "#808080": "Y", "white": "W", "#f1e5ac": "K"}
@@ -83,7 +87,7 @@ def boss_lines(cell):
             continue
         codes = {code for code, _, _ in content}
         if codes == {HEADING}:
-            section = "rewards" if text.startswith("Rewards") else "other"
+            section = "rewards" if text.startswith(REWARDS_LABELS) else "other"
             out.append("LINE\tH\tÿcH" + text)
         elif codes == {None} and all(italic for _, italic, _ in content):
             out.append("LINE\tT\t" + text)
@@ -97,7 +101,7 @@ def boss_lines(cell):
             rest_raw = "".join(text for _, _, text in runs[i:])
             rest = clean(rest_raw)
             if section != "rewards" and not abilities:
-                out.append("LINE\tH\tÿc" + HEADING + ABILITIES_LABEL)
+                out.append("LINE\tH\tÿc" + HEADING + (FRENCH_ABILITIES if FRENCH_PAGE[0] else ABILITIES_LABEL))
                 abilities = True
             if rest:
                 lead = " " if rest_raw[:1].isspace() else ""
@@ -109,13 +113,17 @@ def boss_lines(cell):
     return out
 
 
+FRENCH_PAGE = [False]   # set by parse(): the label shown on the page's ability lines follows the page's language
+
+
 def parse(html):
     if "</html" not in html.lower():
         raise SystemExit("the saved page is incomplete")
+    FRENCH_PAGE[0] = "Avertissement" in html
     overview, bosses = [], []
     for row in ROW.findall(html):
         cells = CELL.findall(row)
-        if len(cells) == 1 and "Warning:" in cells[0][1]:
+        if len(cells) == 1 and any(label in cells[0][1] for label in WARNING_LABELS):
             overview = [join(line) for line in runs_of(cells[0][1]) if join(line)]
         elif len(cells) == 2 and "map-bosses/" in cells[0][1]:
             title = text_of(cells[0][1])
@@ -145,11 +153,12 @@ def existing_pictures(lines):
     return pictures
 
 
-def build_page(overview, bosses, pictures, report):
+def build_page(overview, bosses, pictures, report, english_titles=None):
     out = ["PAGE\t%s\t%s\t%s" % (PAGE_ID, PAGE_TITLE, PAGE_GROUP), "ENTRY\t%s\t" % OVERVIEW, BLOCK_LINE]
     out += ["LINE\tT\t" + text for text in overview]
-    for title, lines in bosses:
-        images = pictures.get(key_of(title), [])
+    for n, (title, lines) in enumerate(bosses):
+        # a translated page's bosses are pictured by their English names
+        images = pictures.get(key_of(english_titles[n] if english_titles else title), [])
         if not images:
             report.append("no picture: %s" % title)
         out += ["ENTRY\t%s\t" % title, BLOCK_LINE]
@@ -182,15 +191,22 @@ def page_lines(lines):
 
 
 def main(argv):
-    if len(argv) != 3:
+    if len(argv) not in (3, 4):
         print(__doc__)
         return 2
     page_path, target = Path(argv[1]), Path(argv[2])
+    english = Path(argv[3]) if len(argv) > 3 else None   # the English page, when the page is a translation
     report = []
     try:
         overview, bosses = parse(page_path.read_text(encoding="utf-8", errors="replace"))
+        english_titles = None
+        if english is not None:
+            _, english_bosses = parse(english.read_text(encoding="utf-8", errors="replace"))
+            if len(english_bosses) != len(bosses):
+                raise SystemExit("the English page has %d map bosses, this one %d" % (len(english_bosses), len(bosses)))
+            english_titles = [title for title, _ in english_bosses]
         current = target.read_text(encoding="utf-8")
-        page = build_page(overview, bosses, existing_pictures(page_lines(current.split("\n"))), report)
+        page = build_page(overview, bosses, existing_pictures(page_lines(current.split("\n"))), report, english_titles)
         merged = splice(current, page)
     except SystemExit as stop:
         print("Website endgame maps: %s" % stop)

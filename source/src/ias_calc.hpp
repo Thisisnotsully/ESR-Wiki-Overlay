@@ -54,6 +54,11 @@ struct Data {
     Constants k;
 };
 
+// Optional display-text translator: receives the English text (with {0}, {1} placeholders) and returns the translation, or
+// an empty string when there is none. Without one, everything stays English.
+using Translator = std::string (*)(const std::string&);
+void SetTranslator(Translator translator);
+
 // The website pages the data is read from, in the order Parse expects them.
 inline constexpr const char* kPageNames[2] = {"ias-calculator.html", "ias-calculator-data.js"};
 

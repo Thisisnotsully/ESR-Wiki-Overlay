@@ -26,6 +26,10 @@ SECTIONS = {  # the website's heading -> the number of outcome rows the section 
 }
 OUTCOME_COLOR = "ÿc3"  # the overlay's colour marker and the colour the outcome lines have always had
 SAME_ITEM = "Same Item"
+# the translated page's labels, and its section headings in the order of SECTIONS
+FRENCH = {"Same Item": "Même objet", "Input(s)": "Entrée(s)", "Possible Outcome(s)": "Résultat(s) possible(s)"}
+FRENCH_SECTIONS = ("Résultats de corruption", "Résultats d'onction", "Résultats de sanctification",
+                   "Résultats de l'Étendard des Héros")
 TABLE = re.compile(r"<table[^>]*>(.*?)</table>", re.S | re.I)
 ROW = re.compile(r"<tr[^>]*>(.*?)</tr>", re.S | re.I)
 CELL = re.compile(r"<td[^>]*>(.*?)</td>", re.S | re.I)
@@ -43,6 +47,26 @@ def lines_of(fragment):
     return out
 
 
+QUALITY_WORDS = ("Unique", "Ensemble", "Fabriqué", "Rare", "Magie", "Normal", "normal")
+FRENCH_KIND = re.compile(r"\s+(?:normal|normale|normaux|normales)$")
+
+
+def group_name_french(first):
+    """The French block name: "Unique/Ensemble/Fabriqué/Rare/Magie/Arme normale" is Arme, "Charme unique" is Charme."""
+    match = re.match(r"^(?:[^/\s]+/)+(.+)$", first)
+    if match:
+        rest = match.group(1)
+        words = rest.split(" ", 1)
+        if words[0] in QUALITY_WORDS and len(words) > 1:
+            rest = words[1]
+        return FRENCH_KIND.sub("", rest)
+    if first.endswith(" unique"):
+        return first[:-len(" unique")]
+    if first.startswith("Unique "):
+        return first[len("Unique "):]
+    return first
+
+
 def group_name(first):
     """The block name of an input: "Unique/Set/Crafted/Rare/Magic/Normal Weapon" is Weapon, "Unique Charm" is Charm,
     "Hellfire Torch" and "Any Jewel" are themselves."""
@@ -56,16 +80,21 @@ def group_name(first):
 
 def outcome_line(cell):
     parts = lines_of(cell)
-    if parts and parts[0] == SAME_ITEM:
+    if parts and parts[0] in (SAME_ITEM, FRENCH[SAME_ITEM]):
         parts = parts[1:]
     if not parts:
         return None
-    return "LINE\tR\t" + OUTCOME_COLOR + SAME_ITEM + ": " + "; ".join(parts)
+    return "LINE\tR\t" + OUTCOME_COLOR + LABEL[SAME_ITEM] + ": " + "; ".join(parts)
+
+
+LABEL = {key: key for key in FRENCH}   # the labels the page is written with; parse() switches them to French
 
 
 def parse(html):
     if "</html" not in html.lower():
         raise SystemExit("the saved page is incomplete")
+    LABEL.clear()
+    LABEL.update(FRENCH if "Même objet" in html else {key: key for key in FRENCH})
     sections = []
     intro = []
     current = None
@@ -76,13 +105,13 @@ def parse(html):
         cells = CELL.findall(rows[0])
         if len(rows) == 1 and len(cells) == 1:
             text = " ".join(lines_of(cells[0]))
-            if text in SECTIONS:
+            if text in SECTIONS or text in FRENCH_SECTIONS:
                 current = {"title": text, "intro": intro, "groups": {}, "rows": 0}
                 sections.append(current)
                 intro = []
             else:
                 intro = lines_of(cells[0])
-        elif current is not None and "Input(s)" in " ".join(lines_of(rows[0])):
+        elif current is not None and any(label in " ".join(lines_of(rows[0])) for label in (LABEL["Input(s)"], FRENCH["Input(s)"])):
             for row in rows[1:]:
                 row_cells = CELL.findall(row)
                 if len(row_cells) != 2:
@@ -93,17 +122,17 @@ def parse(html):
                 line = outcome_line(row_cells[1])
                 if line is None:
                     raise SystemExit("an outcome row has no outcome")
-                name = group_name(inputs[0])
+                name = (group_name_french if LABEL[SAME_ITEM] != SAME_ITEM else group_name)(inputs[0])
                 current["groups"].setdefault(name, []).append(line)
                 current["rows"] += 1
-    if [s["title"] for s in sections] != list(SECTIONS):
+    if [s["title"] for s in sections] not in (list(SECTIONS), list(FRENCH_SECTIONS)):
         raise SystemExit("the four outcome sections are missing")
-    for section in sections:
+    for number, section in enumerate(sections):
         if not section["intro"]:
             raise SystemExit("%s has no intro" % section["title"])
-        if section["rows"] < SECTIONS[section["title"]]:
-            raise SystemExit("%s has %d outcomes, expected at least %d" % (section["title"], section["rows"],
-                                                                         SECTIONS[section["title"]]))
+        expected = list(SECTIONS.values())[number]     # the sections come in the same order on every language
+        if section["rows"] < expected:
+            raise SystemExit("%s has %d outcomes, expected at least %d" % (section["title"], section["rows"], expected))
     return sections
 
 
@@ -115,7 +144,7 @@ def build_page(sections):
         many = len(section["groups"]) > 1
         for name, rows in section["groups"].items():
             family = name if many else ""
-            out += ["BLOCK\t0\t\t\t%s\t\t%s\t0" % (name, family), "LINE\tC\tPossible Outcome(s)"]
+            out += ["BLOCK\t0\t\t\t%s\t\t%s\t0" % (name, family), "LINE\tC\t" + LABEL["Possible Outcome(s)"]]
             out += rows
     return out
 

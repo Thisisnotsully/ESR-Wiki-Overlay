@@ -12,6 +12,25 @@ namespace {
 
 using LL = long long;
 
+// Display text goes through a translator the plugin installs; the English text is the lookup key.
+Translator gTranslator = nullptr;
+std::string T(const std::string& english) {
+    if (gTranslator) {
+        std::string out = gTranslator(english);
+        if (!out.empty()) return out;
+    }
+    return english;
+}
+std::string TF(const std::string& english, std::initializer_list<std::string> args) {
+    std::string out = T(english);
+    std::size_t index = 0;
+    for (const std::string& arg : args) {
+        const std::string key = "{" + std::to_string(index++) + "}";
+        for (std::size_t at = out.find(key); at != std::string::npos; at = out.find(key, at + arg.size())) out.replace(at, key.size(), arg);
+    }
+    return out;
+}
+
 // ---------- reading the website ----------------------------------------------------------------
 
 struct Json {
@@ -391,7 +410,7 @@ private:
         const Anim3* rec = A1(c, wc);
         a.rec = rec != nullptr;
         if (rec) { a.fpd = rec->fpd; a.spd = rec->spd; a.af = rec->af; }
-        a.label = c.name + " \xC2\xB7 " + Upper(wc) + " attack frame";
+        a.label = TF("{0} \xC2\xB7 {1} attack frame", {c.name, Upper(wc)});
         return a;
     }
 
@@ -513,17 +532,17 @@ private:
             row.frames = static_cast<int>(rows[i].f);
             const long at = static_cast<long>(i);
             row.state = at == hereIdx ? 2 : at == nextIdx ? 3 : at <= hereIdx ? 1 : 0;
-            row.gap = at == hereIdx ? "you are here" : at > hereIdx ? "+" + std::to_string(rows[i].stat - statNow) + " " + unit : "\xE2\x80\x94";
+            row.gap = at == hereIdx ? T("you are here") : at > hereIdx ? "+" + std::to_string(rows[i].stat - statNow) + " " + unit : "\xE2\x80\x94";
             row.perSecond = Fixed2(Fps(rows[i].f) * static_cast<double>(hits));
             table.rows.push_back(std::move(row));
         }
         const Step& last = rows.back();
         std::string n;
-        if (rows.size() == 1 && fixed) n = "Attack speed does not change this.";
-        else if (hereIdx == static_cast<long>(rows.size()) - 1) n = "You are at the fastest tier this setup can reach.";
+        if (rows.size() == 1 && fixed) n = T("Attack speed does not change this.");
+        else if (hereIdx == static_cast<long>(rows.size()) - 1) n = T("You are at the fastest tier this setup can reach.");
         else if (nextIdx >= 0)
-            n = "Next tier costs " + std::to_string(rows[static_cast<std::size_t>(nextIdx)].stat - statNow) + "% more " + unit +
-                " and saves a frame. Floor is " + std::to_string(last.f) + " frames at " + std::to_string(last.stat) + "%.";
+            n = TF("Next tier costs {0}% more {1} and saves a frame. Floor is {2} frames at {3}%.",
+                   {std::to_string(rows[static_cast<std::size_t>(nextIdx)].stat - statNow), unit, std::to_string(last.f), std::to_string(last.stat)});
         table.note = (extraNote.empty() ? "" : extraNote + " ") + n;
         return table;
     }
@@ -550,43 +569,40 @@ Result Engine::Run() {
     std::string note;
     if (isWW) {
         if (K.wwHit)
-            note = "Whirlwind hits on the frame your normal attack would land, made " + std::to_string(K.wwStretch - 100) +
-                   "% longer. Increased attack speed counts in full, diminished as usual, while base attack speed, the weapon speed modifier and slows count at " +
-                   std::to_string(K.wwWeight) + "% of their value. The rate stops at " + std::to_string(K.wwMaxRate) +
-                   " whether you are shapeshifted or not, the \xE2\x88\x92" "30 sequence penalty never applies, and no setup goes below " +
-                   std::to_string(K.wwMinFrames) + " frames between hits. Two-handed swords are still timed on their one-handed animation.";
+            note = TF("Whirlwind hits on the frame your normal attack would land, made {0}% longer. Increased attack speed counts in full, diminished as usual, while base attack speed, the weapon speed modifier and slows count at {1}% of their value. The rate stops at {2} whether you are shapeshifted or not, the \xE2\x88\x92" "30 sequence penalty never applies, and no setup goes below {3} frames between hits. Two-handed swords are still timed on their one-handed animation.",
+                      {std::to_string(K.wwStretch - 100), std::to_string(K.wwWeight), std::to_string(K.wwMaxRate), std::to_string(K.wwMinFrames)});
         else
-            note = "Whirlwind hits on the frame your normal attack would land. The interval is the attack frame of your attack animation for the weapon, played at your attack speed, so all gear, skills, auras, buffs and slows count, diminished as usual, and the \xE2\x88\x92" "30 sequence penalty never applies. Two-handed swords are still timed on their one-handed animation.";
+            note = T("Whirlwind hits on the frame your normal attack would land. The interval is the attack frame of your attack animation for the weapon, played at your attack speed, so all gear, skills, auras, buffs and slows count, diminished as usual, and the \xE2\x88\x92" "30 sequence penalty never applies. Two-handed swords are still timed on their one-handed animation.");
         if (dualNow)
-            note += " With a weapon in each hand each hand is timed on its own weapon and the two intervals are averaged, rounding up. Each strike lands two hits in the same frame, one per weapon, and Eastern Sun lets both hit the same enemy, so there are twice as many hits as strikes.";
+            note += " " + T("With a weapon in each hand each hand is timed on its own weapon and the two intervals are averaged, rounding up. Each strike lands two hits in the same frame, one per weapon, and Eastern Sun lets both hit the same enemy, so there are twice as many hits as strikes.");
     } else if (sk == "strafe" && haveAnim) {
         const LL start = FloorDiv(static_cast<LL>(anim.af) * (100 - K.strafeRollback), 100);
-        note = "Only the first arrow plays the whole animation. Each shot restarts it at " + std::to_string(start) + " of " + std::to_string(anim.fpd) +
-               " frames, " + std::to_string(100 - K.strafeRollback) + "% of the release frame, so a repeat replays " +
-               std::to_string(std::max<LL>(1, anim.fpd - start)) + " animation frames instead of " + std::to_string(anim.fpd) + ".";
+        note = TF("Only the first arrow plays the whole animation. Each shot restarts it at {0} of {1} frames, {2}% of the release frame, so a repeat replays {3} animation frames instead of {1}.",
+                  {std::to_string(start), std::to_string(anim.fpd), std::to_string(100 - K.strafeRollback), std::to_string(std::max<LL>(1, anim.fpd - start))});
     } else if (sk == "traps") {
-        note = "Laying a trap plays the throw animation and scales with attack speed.";
+        note = T("Laying a trap plays the throw animation and scales with attack speed.");
     } else if (haveAnim && anim.seq) {
-        note = "This skill runs a fixed sequence compiled into the game, not a plain animation. Sequences run in animation mode 18, which the engine docks a flat 30 speed, and a sequence takes one frame longer than a plain animation of the same length. " +
-               std::string(anim.seq->note) + " Frame counts below are for the whole cycle" +
-               (anim.hits > 1 ? ", which lands " + std::to_string(anim.hits) + " hits." : ".");
+        note = T("This skill runs a fixed sequence compiled into the game, not a plain animation. Sequences run in animation mode 18, which the engine docks a flat 30 speed, and a sequence takes one frame longer than a plain animation of the same length.") +
+               " " + T(anim.seq->note) + " " +
+               (anim.hits > 1 ? TF("Frame counts below are for the whole cycle, which lands {0} hits.", {std::to_string(anim.hits)})
+                              : T("Frame counts below are for the whole cycle."));
     }
     if (haveAnim && anim.xbow)
-        note += (note.empty() ? "" : " ") + std::string("Eastern Sun fixes crossbow attacks at ") + std::to_string(K.xbowFrames) +
-                " frames whatever the attack speed" + (anim.seq ? ", for the whole attack" : "") +
-                ". Items that add or remove crossbow attack frames move it directly.";
+        note += (note.empty() ? "" : " ") +
+                (anim.seq ? TF("Eastern Sun fixes crossbow attacks at {0} frames whatever the attack speed, for the whole attack. Items that add or remove crossbow attack frames move it directly.", {std::to_string(K.xbowFrames)})
+                          : TF("Eastern Sun fixes crossbow attacks at {0} frames whatever the attack speed. Items that add or remove crossbow attack frames move it directly.", {std::to_string(K.xbowFrames)}));
     if (sk == "frenzy" && haveAnim)
-        note += (note.empty() ? "" : " ") + std::string("Eastern Sun\xE2\x80\x99s Frenzy frames bonus takes one frame off each of the two swings for every point, two off this cycle, down to 3 frames, the shortest cycle where both hits still land. A negative bonus adds two frames per point. The table shows the cycle without it.");
+        note += (note.empty() ? "" : " ") + T("Eastern Sun\xE2\x80\x99s Frenzy frames bonus takes one frame off each of the two swings for every point, two off this cycle, down to 3 frames, the shortest cycle where both hits still land. A negative bonus adds two frames per point. The table shows the cycle without it.");
 
-    r.tableTitleStat = "IAS needed";
-    r.tableTitlePerSecond = "Attacks / sec";
-    r.attackLabel = "frames per attack";
-    r.attackPerSecondLabel = "attacks / sec";
+    r.tableTitleStat = T("IAS needed");
+    r.tableTitlePerSecond = T("Attacks / sec");
+    r.attackLabel = T("frames per attack");
+    r.attackPerSecondLabel = T("attacks / sec");
     if (!haveAnim) {
         r.hasAnim = false;
         r.anim = "\xE2\x80\x94";
         r.attackFrames = r.attackPerSecond = "\xE2\x80\x94";
-        r.attack = MakeTable({}, ias, "IAS", "No animation for this class.", 1, false);
+        r.attack = MakeTable({}, ias, "IAS", T("No animation for this class."), 1, false);
     } else {
         r.hasAnim = true;
         Opt cur;
@@ -603,53 +619,53 @@ Result Engine::Run() {
             cur = dual(wias);
             rows = Ladder(dual, 2000);
             const Opt dm = Diminish(ias + wias), dO = Diminish(ias + oias);
-            if (!dm || !dO) { eTxt = "game crashes (\xE2\x88\x92" "120 IAS)"; eWarn = true; }
+            if (!dm || !dO) { eTxt = T("game crashes (\xE2\x88\x92" "120 IAS)"); eWarn = true; }
             else if (isWW) {
                 const WwRate wm = WwRateOf(*dm, ar + mar, wsm, anim.shifted), wo = WwRateOf(*dO, ar + oar, wsmO, anim.shifted);
-                eTxt = "main " + Signed(wm.rate - 100) + ", off " + Signed(wo.rate - 100) +
-                       ((wm.rate != wm.raw || wo.rate != wo.raw) ? "  (clamped)" : "");
+                eTxt = TF("main {0}, off {1}", {Signed(wm.rate - 100), Signed(wo.rate - 100)}) +
+                       ((wm.rate != wm.raw || wo.rate != wo.raw) ? "  " + T("(clamped)") : "");
                 eWarn = wm.rate != wm.raw || wo.rate != wo.raw;
             } else {
                 const LL avg = Trunc((100 + *dm + ar + mar - wsm) + (100 + *dO + ar + oar - wsmO), 2) - 100 - K.seqPenalty;
                 const LL ca = ClampEias(avg, anim.shifted);
-                eTxt = Signed(ca) + "  (hands averaged)" + (ca != avg ? "  (clamped)" : "");
+                eTxt = Signed(ca) + "  " + T("(hands averaged)") + (ca != avg ? "  " + T("(clamped)") : "");
                 eWarn = ca != avg;
             }
         } else {
             cur = SkillFrames(sk, anim, ias, atkFlat, wsm);
             rows = Ladder([&](LL q) { return SkillFrames(sk, anim, q, atkFlat, wsm); }, 2000);
             const Opt d = Diminish(ias);
-            if (!d) { eTxt = "game crashes (\xE2\x88\x92" "120 IAS)"; eWarn = true; }
+            if (!d) { eTxt = T("game crashes (\xE2\x88\x92" "120 IAS)"); eWarn = true; }
             else if (isWW) {
                 const WwRate wr = WwRateOf(*d, atkFlat, wsm, anim.shifted);
-                eTxt = Signed(wr.rate - 100) + (wr.rate != wr.raw ? "  (clamped)" : "");
+                eTxt = Signed(wr.rate - 100) + (wr.rate != wr.raw ? "  " + T("(clamped)") : "");
                 eWarn = wr.rate != wr.raw;
             } else {
                 const LL eRaw = *d + atkFlat - wsm - (anim.seq ? K.seqPenalty : 0);
                 const LL e = ClampEias(eRaw, anim.shifted);
-                eTxt = Signed(e) + (e != eRaw ? "  (clamped)" : "");
+                eTxt = Signed(e) + (e != eRaw ? "  " + T("(clamped)") : "");
                 eWarn = e != eRaw;
             }
         }
-        if (anim.xbow) eTxt += "  (crossbow: fixed)";
+        if (anim.xbow) eTxt += "  " + T("(crossbow: fixed)");
         r.anim = anim.label;
-        r.baseFrames = anim.seq ? std::to_string(anim.steps) + " steps @ 256"
-                     : anim.ww ? (anim.rec ? "hits on frame " + std::to_string(anim.af) + " of " + std::to_string(anim.fpd) + " @ " + std::to_string(anim.spd)
-                                           : "no animation row, flat " + std::to_string(K.wwNoAnim))
-                     : std::to_string(anim.fpd) + " @ " + std::to_string(anim.spd) + (anim.af ? "  (hits f" + std::to_string(anim.af) + ")" : "");
-        r.speedModifier = splitHands ? "main " + Signed(wsm) + ", off " + Signed(wsmO) : Signed(wsm);
+        r.baseFrames = anim.seq ? TF("{0} steps @ 256", {std::to_string(anim.steps)})
+                     : anim.ww ? (anim.rec ? TF("hits on frame {0} of {1} @ {2}", {std::to_string(anim.af), std::to_string(anim.fpd), std::to_string(anim.spd)})
+                                           : TF("no animation row, flat {0}", {std::to_string(K.wwNoAnim)}))
+                     : std::to_string(anim.fpd) + " @ " + std::to_string(anim.spd) + (anim.af ? "  " + TF("(hits f{0})", {std::to_string(anim.af)}) : "");
+        r.speedModifier = splitHands ? TF("main {0}, off {1}", {Signed(wsm), Signed(wsmO)}) : Signed(wsm);
         r.effectiveIas = eTxt;
         r.effectiveWarn = eWarn;
         const LL hits = anim.seq ? anim.hits : (isWW && dualNow ? 2 : 1);
         if (dualNow && w->twoHanded && w->oneOrTwo)
-            note += " Held in one hand, so it uses the one-handed animation rather than the two-handed one.";
+            note += " " + T("Held in one hand, so it uses the one-handed animation rather than the two-handed one.");
         r.attackFrames = cur ? std::to_string(*cur) : "\xE2\x80\x94";
-        r.attackSolo = (isWW && hits > 1) ? std::to_string(hits) + " hits per strike" : "";
+        r.attackSolo = (isWW && hits > 1) ? TF("{0} hits per strike", {std::to_string(hits)}) : "";
         r.attackPerSecond = cur ? Fixed2(Fps(*cur) * static_cast<double>(hits)) : "\xE2\x80\x94";
-        r.attackLabel = (anim.seq && hits > 1) ? "frames per cycle" : isWW ? (hits > 1 ? "frames between strikes" : "frames between hits") : "frames per attack";
-        r.attackPerSecondLabel = hits > 1 ? "hits / sec" : "attacks / sec";
-        r.tableTitlePerSecond = hits > 1 ? "Hits / sec" : "Attacks / sec";
-        r.attack = MakeTable(rows, splitHands ? wias : ias, splitHands ? "main-hand IAS" : "IAS", note, hits, anim.xbow || (anim.ww && !anim.rec));
+        r.attackLabel = T((anim.seq && hits > 1) ? "frames per cycle" : isWW ? (hits > 1 ? "frames between strikes" : "frames between hits") : "frames per attack");
+        r.attackPerSecondLabel = T(hits > 1 ? "hits / sec" : "attacks / sec");
+        r.tableTitlePerSecond = T(hits > 1 ? "Hits / sec" : "Attacks / sec");
+        r.attack = MakeTable(rows, splitHands ? wias : ias, splitHands ? T("main-hand IAS") : std::string("IAS"), note, hits, anim.xbow || (anim.ww && !anim.rec));
     }
 
     // cast
@@ -657,29 +673,28 @@ Result Engine::Run() {
     const Opt cf = CastFrames(ca.fpd, ca.spd, fcr);
     r.castFrames = cf ? std::to_string(*cf) : "\xE2\x80\x94";
     r.castPerSecond = cf ? Fixed2(Fps(*cf)) : "\xE2\x80\x94";
-    std::string capNote = "Faster cast rate is capped at " + std::to_string(fcrMax) + ", and the rate it allows is already reached at " +
-                          std::to_string(fcrReached) + ".";
-    if (!Diminish(fcr)) capNote += " At exactly \xE2\x88\x92" "120 the game divides by zero and crashes.";
-    else if (CastWraps(fcr)) capNote += " Below \xE2\x88\x92" "54 the game\xE2\x80\x99s arithmetic wraps around and the cast becomes instant.";
+    std::string capNote = TF("Faster cast rate is capped at {0}, and the rate it allows is already reached at {1}.", {std::to_string(fcrMax), std::to_string(fcrReached)});
+    if (!Diminish(fcr)) capNote += " " + T("At exactly \xE2\x88\x92" "120 the game divides by zero and crashes.");
+    else if (CastWraps(fcr)) capNote += " " + T("Below \xE2\x88\x92" "54 the game\xE2\x80\x99s arithmetic wraps around and the cast becomes instant.");
     r.cast = MakeTable(Ladder([&](LL q) { return CastFrames(ca.fpd, ca.spd, q); }, fcrMax), fcr, "FCR",
-                       std::string(f ? "Casting from a form uses the form\xE2\x80\x99s own animation. "
-                                     : "Every class shares this cast animation, so this table is the same for all of them outside a form. ") + capNote,
+                       T(f ? "Casting from a form uses the form\xE2\x80\x99s own animation."
+                           : "Every class shares this cast animation, so this table is the same for all of them outside a form.") + " " + capNote,
                        1, false);
 
     // what the page shows
     r.showMainHandIas = splitHands;
     r.showOffHandFields = splitHands;
-    r.iasHint = splitHands ? "Everything except the two weapons: rings, armour, helm, gloves."
-                           : "Everything you wear, weapon included. Pooled and diminished together.";
-    r.mainHandIasHint = "Increased attack speed on the main-hand weapon, sockets included.";
-    if (splitHands) r.tableTitleStat = "Main-hand IAS needed";
-    r.totalIas = splitHands ? "main hand " + std::to_string(ias + wias) + ", off hand " + std::to_string(ias + oias) : std::to_string(ias);
-    r.flatSpeed = splitHands ? "main " + Signed(ar + mar) + ", off " + Signed(ar + oar) : Signed(atkFlat);
+    r.iasHint = T(splitHands ? "Everything except the two weapons: rings, armour, helm, gloves."
+                             : "Everything you wear, weapon included. Pooled and diminished together.");
+    r.mainHandIasHint = T("Increased attack speed on the main-hand weapon, sockets included.");
+    if (splitHands) r.tableTitleStat = T("Main-hand IAS needed");
+    r.totalIas = splitHands ? TF("main hand {0}, off hand {1}", {std::to_string(ias + wias), std::to_string(ias + oias)}) : std::to_string(ias);
+    r.flatSpeed = splitHands ? TF("main {0}, off {1}", {Signed(ar + mar), Signed(ar + oar)}) : Signed(atkFlat);
 
     const bool skillDual = SkillUsesOffhand(sk);
     const bool canDual = MainAllowsOffhand();
     r.offhandLive = skillDual && canDual;
-    r.offhandHint = !skillDual ? "Only Whirlwind, Frenzy and charge-up strikes use both hands."
+    r.offhandHint = T(!skillDual ? "Only Whirlwind, Frenzy and charge-up strikes use both hands."
                   : !w ? "Pick a main hand first."
                   : !canDual
                       ? (c.name == "Assassin" ? "The Assassin dual wields claws only."
@@ -687,11 +702,11 @@ Result Engine::Run() {
                                                  : "Only the Barbarian and the Assassin dual wield.")
                   : !Off() ? "Leave empty to swing one weapon."
                   : isWW ? "Each hand is timed on its own weapon, the two intervals averaged rounding up. Each strike lands one hit per weapon."
-                         : "Each hand is read on its own weapon\xE2\x80\x99s stats and the two rates are averaged.";
+                         : "Each hand is read on its own weapon\xE2\x80\x99s stats and the two rates are averaged.");
     r.formHint = f && isWW && K.wwHit
-        ? "Whirlwind is timed on your weapon\xE2\x80\x99s human animation, with its own speed ceiling of " + std::to_string(K.wwMaxRate) + " whether you are shapeshifted or not."
-        : f ? "Attack timing follows your weapon\xE2\x80\x99s human animation: the engine rescales the form\xE2\x80\x99s animation to it, within a frame\xE2\x80\x99s rounding. Shapeshifted also raises the speed ceiling from 175 to 250."
-            : "";
+        ? TF("Whirlwind is timed on your weapon\xE2\x80\x99s human animation, with its own speed ceiling of {0} whether you are shapeshifted or not.", {std::to_string(K.wwMaxRate)})
+        : f ? T("Attack timing follows your weapon\xE2\x80\x99s human animation: the engine rescales the form\xE2\x80\x99s animation to it, within a frame\xE2\x80\x99s rounding. Shapeshifted also raises the speed ceiling from 175 to 250.")
+            : std::string();
     return r;
 }
 
@@ -824,5 +839,7 @@ Result Compute(const Data& data, Setup setup) {
     result.setup.fcr = setup.fcr;
     return result;
 }
+
+void SetTranslator(Translator translator) { gTranslator = translator; }
 
 }  // namespace esrwiki::ias

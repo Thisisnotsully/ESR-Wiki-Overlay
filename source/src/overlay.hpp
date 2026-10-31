@@ -15,9 +15,13 @@ namespace esrwiki {
 
 struct OverlayState;  // window and UI state, defined in overlay.cpp
 
-namespace drop {
-struct DropFinderData;  // the Drop Finder's data, defined in drop_finder_model.hpp
-}
+// The overlay's own labels in the loader's language, from locales\<code>\ui-strings.txt (one "English<TAB>text" line
+// each). Text with no translation is shown in English. UiFormat replaces {0}, {1}, ... with the arguments.
+std::size_t LoadUiStrings(const std::wstring& path);  // returns how many strings it read
+std::wstring UiText(const std::wstring& english);
+std::wstring UiFormat(const std::wstring& english, const std::vector<std::wstring>& args);
+// Same lookup for UTF-8 text (the calculator's); returns an empty string when there is no translation.
+std::string UiTextUtf8(const std::string& english);
 
 // A button in a panel's header that opens another panel. `onSwitch` opens that panel (and hands the screen to it).
 struct SwitchButton {
@@ -42,13 +46,6 @@ public:
     // Each of `switches` is a button in the header that opens another panel. Returns false if the window cannot start.
     bool Start(const Database& database, const std::wstring& dataDir, const std::wstring& title,
                const std::wstring& instanceId, const std::vector<SwitchButton>& switches = {});
-    // Starts the Drop Finder panel: the same window with the Drop Finder's own body and no wiki data. Its data comes
-    // from SetDropFinder. Returns false if the window cannot start.
-    bool StartDropFinder(const std::wstring& dataDir, const std::wstring& instanceId, const std::wstring& title,
-                         const std::vector<SwitchButton>& switches);
-    // The Drop Finder's data (the page's tables, names and strings). Safe to call from any thread; the panel shows it
-    // from its next paint.
-    void SetDropFinder(std::shared_ptr<const drop::DropFinderData> data);
     void Stop();
     void Toggle();  // show or hide; safe to call from any thread
     void Open();    // show without toggling; safe to call from any thread

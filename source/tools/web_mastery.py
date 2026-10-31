@@ -22,6 +22,9 @@ PAGE_GROUP = "Endgame"
 OVERVIEW = "Overview"
 GENERAL = "General Recipes"
 SPECIALIZATIONS = "Specializations"
+# the translated page's table headings
+GENERAL_HEADINGS = (GENERAL, "Recettes générales")
+SPECIALIZATION_HEADINGS = (SPECIALIZATIONS, "Spécialisations")
 RECIPE_HEADINGS = "Ingredients\x1fResult"
 SKILL_HEADINGS = "Ingredients\x1fSkill\x1fEffect"
 SEPARATOR = "\x1f"
@@ -85,9 +88,9 @@ def heading_and_rows(table, expected):
         raise SystemExit("a table has no heading")
     heading = cell_lines(head[0])
     title = plain(heading[0]) if heading else ""
-    if title != expected:
-        raise SystemExit("the table %r is not %s" % (title, expected))
-    return [CELL.findall(row) for row in rows[1:]]
+    if title not in expected:
+        raise SystemExit("the table %r is not %s" % (title, expected[0]))
+    return title, [CELL.findall(row) for row in rows[1:]]
 
 
 def skills_of(cell):
@@ -116,7 +119,8 @@ def parse(html):
     if len(overview) < MIN_OVERVIEW:
         raise SystemExit("the overview is missing")
     recipes = []
-    for cells in heading_and_rows(tables[1], GENERAL):
+    general_title, general_rows = heading_and_rows(tables[1], GENERAL_HEADINGS)
+    for cells in general_rows:
         if len(cells) != 2:
             raise SystemExit("a general recipe does not have an ingredients and a result")
         ingredients = LINE_BREAK.join(rendered(runs) for runs in cell_lines(cells[0]))
@@ -125,7 +129,8 @@ def parse(html):
             raise SystemExit("a general recipe is missing its ingredients or its result")
         recipes.append(ingredients + SEPARATOR + result)
     variants = []
-    for cells in heading_and_rows(tables[2], SPECIALIZATIONS):
+    specializations_title, specialization_rows = heading_and_rows(tables[2], SPECIALIZATION_HEADINGS)
+    for cells in specialization_rows:
         if len(cells) != 2:
             raise SystemExit("a specialization does not have a name and an outcome")
         lines = cell_lines(cells[0])
@@ -141,13 +146,13 @@ def parse(html):
         raise SystemExit("the general recipes have %d rows, expected at least %d" % (len(recipes), MIN_RECIPES))
     if len(variants) < MIN_VARIANTS:
         raise SystemExit("the specializations have %d variants, expected at least %d" % (len(variants), MIN_VARIANTS))
-    return overview, recipes, variants
+    return overview, recipes, variants, general_title, specializations_title
 
 
-def build_page(overview, recipes, variants):
+def build_page(overview, recipes, variants, general_title=GENERAL):
     out = ["PAGE\t%s\t%s\t%s" % (PAGE_ID, PAGE_TITLE, PAGE_GROUP), "ENTRY\t%s\t" % OVERVIEW, BLOCK_LINE]
     out += ["LINE\tT\t" + line for line in overview]
-    out += ["ENTRY\t%s\t" % GENERAL, BLOCK_LINE, "LINE\tC\t" + RECIPE_HEADINGS]
+    out += ["ENTRY\t%s\t" % general_title, BLOCK_LINE, "LINE\tC\t" + RECIPE_HEADINGS]
     out += ["LINE\tR\t" + row for row in recipes]
     for name, rows in variants:
         out += ["ENTRY\t%s\t" % name, BLOCK_LINE, "LINE\tC\t" + SKILL_HEADINGS]
@@ -175,9 +180,9 @@ def main(argv):
         return 2
     page_path, target = Path(argv[1]), Path(argv[2])
     try:
-        overview, recipes, variants = parse(page_path.read_text(encoding="utf-8", errors="replace"))
+        overview, recipes, variants, general_title, _ = parse(page_path.read_text(encoding="utf-8", errors="replace"))
         current = target.read_text(encoding="utf-8")
-        merged = splice(current, build_page(overview, recipes, variants))
+        merged = splice(current, build_page(overview, recipes, variants, general_title))
     except SystemExit as stop:
         print("Website weapon mastery: %s" % stop)
         return 1

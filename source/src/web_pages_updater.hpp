@@ -13,6 +13,10 @@
 
 namespace esrwiki {
 
+// One switch for every website update (the wiki pages, the IAS calculator, the cube recipes and the localized pages): a file
+// with this name in the plugin's data folder turns them all off. The plugin then shows what it shipped with.
+inline constexpr wchar_t kLiveUpdatesOffFile[] = L"live-updates-disabled.txt";
+
 struct WebPagesUpdaterState;
 
 struct WebPagesConfig {
@@ -20,7 +24,7 @@ struct WebPagesConfig {
     std::wstring siteUrl;                 // ends with a slash
     std::vector<std::string> pageNames;   // the website pages, e.g. "gems.htm"
     std::wstring cachePrefix;             // saved copies are <cachePrefix><page name> and <...>.meta
-    std::wstring optOutFile;              // a file with this name in cacheDir turns the website check off
+    std::wstring optOutFile;              // always kLiveUpdatesOffFile: a file with this name in cacheDir turns the website check off
     std::wstring userAgent;
     std::string logPrefix;                // starts every log line, e.g. "ESR Wiki website runes: "
     // Builds the new wiki data from the complete set of pages (in pageNames order) and applies it. Returns
