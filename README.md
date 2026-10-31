@@ -21,12 +21,21 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
     ias-calculator.html
     ias-calculator-data.js
     images/*.png
+    locales/<language>/ui-strings.txt, wiki-data.txt, cube-wiki-data.txt   (one folder per language)
 ```
 
 ## Open it
 - Press pause or escape and press the ESR Wiki button, or in the Horadric Cube there is a recipe button.
 - Type `eswiki` in the in-game console, or
 - Bind a key to "Open ESR Wiki" in the game's controls (no key is bound by default).
+
+## What is new in 1.5.0
+
+- **Thirteen languages.** The wiki and the Horadric Cube Recipes window now follow the game's language: English, German (deDE), Spanish (esES), Spanish Latin America (esMX), French (frFR), Italian (itIT), Portuguese (ptBR), Polish (plPL), Russian (ruRU), Korean (koKR), Japanese (jaJP), Simplified Chinese (zhCN) and Traditional Chinese (zhTW). The text comes from the matching language of the Eastern Sun Resurrected website, the same pages and counts as English, and refreshes the same way (at game start and every six hours; the last copies are kept in the plugin folder). The `locales` folder holds a shipped copy of every language for when the website cannot be reached.
+- Only the labels the website does not have (buttons, tab titles, the Welcome page, the IAS calculator wording, table labels) are written by hand. **These hand-written texts are first drafts and have not been reviewed by native speakers**; corrections are welcome.
+- **Not yet checked in the game:** Simplified Chinese, Traditional Chinese and Japanese. Selecting them crashed D2RLoader itself during our testing (the crash is inside D2RLoader.exe, not the overlay), so their layout, fonts and text could not be reviewed. Treat these three as unverified. The other nine non-English languages were checked in the game.
+- A few long runeword effect lines that have no counterpart on the website stay in English, and some Spanish, Portuguese, Polish and Italian tab titles may be wider than their tabs.
+- If the wiki shows English in a non-English game, check that `esr-wiki-overlay/locales/<language>/` exists in the plugin folder and that the log (`logs/esr-wiki-overlay.log`) does not say `UI strings loaded: 0`.
 
 ## What is new in 1.4.0
 

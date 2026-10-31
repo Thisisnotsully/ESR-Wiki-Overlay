@@ -230,6 +230,12 @@ A change to the data or the constants reaches the game by itself; a change to th
 port changed. `tests/ias_calc_test.cpp` checks the port against the page's script: `node tests/gen_ias_cases.js
 <ias-calculator.html> <ias-calculator-data.js> tests/ias_cases.tsv 400` regenerates the cases (`SEED=n` changes them).
 
+## Languages
+`data/locales/<code>/` (deDE, esES, esMX, frFR, itIT, ptBR, plPL, ruRU, koKR, jaJP, zhCN, zhTW) holds `ui-strings.txt`
+(hand-written labels), `wiki-data.txt` and `cube-wiki-data.txt` (offline fallbacks). In game the pages are rebuilt from the
+localized website pages (`locale_align.cpp`, `locale_live.cpp`). `deploy.cmake` and the install rules copy the folder; see
+`overlay/LOCALIZATION-NOTES.md` for the method and for what was and was not checked in the game (zhCN, zhTW and jaJP were not).
+
 ## Known limits
 
 - One gem icon (`items/misc/jewel/jewel`) is missing from the mod and base game; the
