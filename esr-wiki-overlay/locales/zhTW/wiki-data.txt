@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4進化
 LINE	S	ÿc7獅子符文 + N 符文 + 卡魯恩
+LINE	S	ÿc3+15% 更快的跑步/行走
+LINE	S	ÿc3+15% 提升攻擊速度
+LINE	S	ÿc3+15% 更快施法速度
+LINE	S	ÿc3+10% 所有屬性加成
+LINE	S	ÿc3+3% 最高魔法抗性
+LINE	S	ÿc3+3% 到所有最大抗性
+LINE	S	ÿc3所有抗性 +15
+LINE	S	ÿc3+15% 獲得經驗值
 LINE	S	ÿc5所需等级：6
 LINE	S	ÿc0身體護甲, 護身符
 BLOCK	1	揮舞		3 插槽			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4揮舞
 LINE	S	ÿc7I 符文 + 卡魯恩 + 庫魯恩
+LINE	S	ÿc3+150% 增強傷害
+LINE	S	ÿc3+5% 物理傷害吸取為魔法值
+LINE	S	ÿc3+10% 物理傷害吸取為生命
+LINE	S	ÿc3+30% 機率造成粉碎打擊
+LINE	S	ÿc3+30% 致命一擊
+LINE	S	ÿc3擊退
+LINE	S	ÿc3+10% 力量加成
 LINE	S	ÿc5所需等级：7
 LINE	S	ÿc0武器, 護身符
 BLOCK	1	預感		3 插槽			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4預感
 LINE	S	ÿc7優 Rune + 卡魯恩 + N 符文
+LINE	S	ÿc3+30% 更快施法速度
+LINE	S	ÿc3-15% 對敵人元素和毒素抗性
+LINE	S	ÿc3+50 生命值
+LINE	S	ÿc3+50 生命法力
+LINE	S	ÿc3增加最大法力 +30%
+LINE	S	ÿc3每次擊殺後 +10 生命法力
 LINE	S	ÿc5所需等级：9
 LINE	S	ÿc0身體護甲, 頭盔, 護身符
 BLOCK	1	機器		3 插槽			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4機器
 LINE	S	ÿc7Ki 符文 + 卡魯恩 + I 符文
+LINE	S	ÿc3+20% 基礎攻擊速度
+LINE	S	ÿc3+1 最高傷害提升至攻擊 （基於角色等級）
+LINE	S	ÿc3+50 力量
+LINE	S	ÿc3+50 以敏捷
+LINE	S	ÿc3+13% 力量加成
+LINE	S	ÿc3+13% 速度加成
 LINE	S	ÿc5所需等级：10
 LINE	S	ÿc0武器, 護身符
 BLOCK	1	狩獵		2 插槽			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4狩獵
 LINE	S	ÿc7卡魯恩 + 瑞符文
+LINE	S	ÿc3100% 機率在你擊殺敵人時施放等級 10 熱身
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+40% 更快的跑步/行走
+LINE	S	ÿc3-33% 目標防禦
+LINE	S	ÿc3+50% 致命一擊
+LINE	S	ÿc3+13% 速度加成
+LINE	S	ÿc3+10 最大耐力 （基於角色等級）
 LINE	S	ÿc5所需等级：12
 LINE	S	ÿc0頭盔, 護身符
 BLOCK	1	哈迪斯		2 插槽			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4哈迪斯
 LINE	S	ÿc7優 Rune + 米符文
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+1 召喚技能 (Necromancer Only)
+LINE	S	ÿc3+1 召喚技能 (Druid Only)
+LINE	S	ÿc3+20% 所有召喚物抗性
+LINE	S	ÿc3+20% 召喚傷害
+LINE	S	ÿc3+1 To 延遲傳送
+LINE	S	ÿc3法力再生 +50%
 LINE	S	ÿc5所需等级：13
 LINE	S	ÿc0頭盔, 護身符
 BLOCK	1	活力四射		3 插槽			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4活力四射
 LINE	S	ÿc7A 符文 + I 符文 + 卡魯恩
+LINE	S	ÿc3+50% 提升攻擊速度
+LINE	S	ÿc3+50% 機率造成粉碎打擊
+LINE	S	ÿc3+50% 致命一擊
+LINE	S	ÿc3+5 To 戰鬥精通
+LINE	S	ÿc3+50 生命值
+LINE	S	ÿc3增加最大生命 +20%
+LINE	S	ÿc3物理抗性: +15%
 LINE	S	ÿc5所需等级：17
 LINE	S	ÿc0身體護甲, 護身符
 BLOCK	1	惡意		3 插槽			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4惡意
 LINE	S	ÿc7A 符文 + 庫魯恩 + I 符文
+LINE	S	ÿc3對攻擊增加 2000-3000 毒素傷害，持續 20 秒
+LINE	S	ÿc3增加 500%-1000% 流血傷害，持續 20 秒
+LINE	S	ÿc350% 機率在你擊殺敵人時施放等級 1 時間延遲
+LINE	S	ÿc3+400 攻擊評價
+LINE	S	ÿc3-20% 對敵人毒素抗性
+LINE	S	ÿc3被殺的怪物安息吧
+LINE	S	ÿc3每次擊殺後 +40 生命
 LINE	S	ÿc5所需等级：17
 LINE	S	ÿc0近戰武器, 護身符
 BLOCK	1	知識		3 插槽			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4知識
 LINE	S	ÿc7氣符文 + 獅子符文 + Ki 符文
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+30% 更快施法速度
+LINE	S	ÿc3+1 To 閃避
+LINE	S	ÿc3+50 於能量
+LINE	S	ÿc3+16% 能量加成
+LINE	S	ÿc3+100% 從怪物獲得的額外金幣
+LINE	S	ÿc3+100% 獲得魔法物品的機率提升
 LINE	S	ÿc5所需等级：20
 LINE	S	ÿc0頭盔, 護身符
 BLOCK	1	理由		3 插槽			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4理由
 LINE	S	ÿc7瑞符文 + 余魯恩 + U 符文
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+10% 閃避機率
+LINE	S	ÿc3+20 to 靈魂顫慄 (All Classes)
+LINE	S	ÿc3+150 防禦
+LINE	S	ÿc3無法被冰凍
+LINE	S	ÿc3詛咒持續時間減少 50%
 LINE	S	ÿc5所需等级：23
 LINE	S	ÿc0頭盔, 護身符
 BLOCK	1	智慧		2 插槽			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4智慧
 LINE	S	ÿc7氣符文 + E 符文
+LINE	S	ÿc3100% 機率在你施放技能時施放等級 5 時間延遲
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+15% 技能冷卻時間減少
+LINE	S	ÿc3+25% 於魔法傷害
+LINE	S	ÿc3+25% 物理法術傷害
+LINE	S	ÿc3每次擊殺後 +30 生命法力
+LINE	S	ÿc3+25% 獲得經驗值
 LINE	S	ÿc5所需等级：26
 LINE	S	ÿc0頭盔, 護身符
 BLOCK	1	心靈		3 插槽			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4記憶
 LINE	S	ÿc7Ki 符文 + O 符文 + 庫魯恩
+LINE	S	ÿc333% 機率在你施放技能時施放等級 20 心靈傳動
+LINE	S	ÿc333% 機率在受到攻擊時施放等級 20 時間停止
+LINE	S	ÿc3+20% 更快施法速度
+LINE	S	ÿc3-15% 對敵人閃電抗性
+LINE	S	ÿc3+7 To 雷電海德拉 （只有女巫）
+LINE	S	ÿc3+75 生命法力
+LINE	S	ÿc3增加最大法力 +15%
 LINE	S	ÿc5所需等级：30
 LINE	S	ÿc0魔法師法力之刃, 法球, 護身符
 BLOCK	1	囚徒		3 插槽			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4夢想
 LINE	S	ÿc7余魯恩 + 梅符
+LINE	S	ÿc310% 機率在你施放技能時施放等級 30 時間停止
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+15 to 靈魂顫慄 (All Classes)
+LINE	S	ÿc3增加最大法力 +20%
+LINE	S	ÿc3魔法抗性 +10%
+LINE	S	ÿc3物理抗性: +10%
 LINE	S	ÿc5所需等级：32
 LINE	S	ÿc0腰帶, 護身符
 BLOCK	1	財富		2 插槽			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4夏季
 LINE	S	ÿc7那符文 + Tsu 符文
+LINE	S	ÿc310% 機率在你施放技能時施放等級 40 火焰
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+1 火焰技能
+LINE	S	ÿc3+20% 更快的跑步/行走
+LINE	S	ÿc3+20% 更快施法速度
+LINE	S	ÿc3-15% 對敵人火焰抗性
+LINE	S	ÿc3魔法傷害減少 30
 LINE	S	ÿc5所需等级：40
 LINE	S	ÿc0靴子, 護身符
 BLOCK	1	和諧		3 插槽			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4霧
 LINE	S	ÿc7摩符 + 雅魯恩
+LINE	S	ÿc35% 機率在你擊殺敵人時施放等級 40 暗影斗篷
+LINE	S	ÿc35% 機率在你擊殺敵人時施放等級 50 漩渦
+LINE	S	ÿc35% 機率在你擊殺敵人時施放等級 50 沙暴
+LINE	S	ÿc3+1 到所有技能
+LINE	S	ÿc3+25% 物理法術傷害
+LINE	S	ÿc3+25% 冷卻法術傷害
+LINE	S	ÿc3恢復生命 +1000
 LINE	S	ÿc5所需等级：47
 LINE	S	ÿc0靴子, 腰帶, 護身符
 BLOCK	1	惡魔獄卒		3 插槽			48

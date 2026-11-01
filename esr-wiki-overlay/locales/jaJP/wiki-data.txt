@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4進化
 LINE	S	ÿc7シルーン + N ルーン + カルーン
+LINE	S	ÿc3+15% 移動速度アップ
+LINE	S	ÿc3+15% 攻撃速度増加
+LINE	S	ÿc3+15% キャスト速度アップ
+LINE	S	ÿc3全ての属性に +10% ボーナス
+LINE	S	ÿc3+3% 最大魔法耐性に対するボーナス
+LINE	S	ÿc3すべての最大抵抗に +3%
+LINE	S	ÿc3全ての抵抗力 +15
+LINE	S	ÿc3経験値獲得に +15% 追加
 LINE	S	ÿc5必要レベル: 6
 LINE	S	ÿc0甲冑, お守り
 BLOCK	1	振りかざす		ソケット3			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4振りかざす
 LINE	S	ÿc7I ルーン + カルーン + ク rune
+LINE	S	ÿc3+150% 強化ダメージ
+LINE	S	ÿc3+5% 物理ダメージをマナとして吸収
+LINE	S	ÿc3+10% 物理ダメージをライフとして吸収
+LINE	S	ÿc3+30% クリティカルヒットのチャンス
+LINE	S	ÿc3+30% 致命的一撃
+LINE	S	ÿc3ノックバック
+LINE	S	ÿc3+10% 力量ボーナス
 LINE	S	ÿc5必要レベル: 7
 LINE	S	ÿc0武器, お守り
 BLOCK	1	予感		ソケット3			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4予感
 LINE	S	ÿc7ヨルーン + カルーン + N ルーン
+LINE	S	ÿc3+30% キャスト速度アップ
+LINE	S	ÿc3-15% の敵の属性および毒耐性
+LINE	S	ÿc3+50 のライフ
+LINE	S	ÿc3+50 のマナ
+LINE	S	ÿc3最大マナを増加 +30%
+LINE	S	ÿc3+10 のキル後にマナを得る
 LINE	S	ÿc5必要レベル: 9
 LINE	S	ÿc0甲冑, ヘルム, お守り
 BLOCK	1	マシン		ソケット3			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4マシン
 LINE	S	ÿc7キルーン + カルーン + I ルーン
+LINE	S	ÿc3+20% 基本攻撃速度
+LINE	S	ÿc3攻撃の最大ダメージに +1 追加 (キャラクターレベルに基づく)
+LINE	S	ÿc3+50 の力
+LINE	S	ÿc3+50 の敏捷性
+LINE	S	ÿc3+13% 力量ボーナス
+LINE	S	ÿc3+13% デクスタリティへのボーナス
 LINE	S	ÿc5必要レベル: 10
 LINE	S	ÿc0武器, お守り
 BLOCK	1	狩り		ソケット2			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4狩り
 LINE	S	ÿc7カルーン + リルーン
+LINE	S	ÿc3敵を倒した時に、レベル100のウォームアップを発動させる10%の確率
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+40% 移動速度アップ
+LINE	S	ÿc3-33% 対象防御
+LINE	S	ÿc3+50% 致命的一撃
+LINE	S	ÿc3+13% デクスタリティへのボーナス
+LINE	S	ÿc3+10 最大スタミナ (キャラクターレベルに基づく)
 LINE	S	ÿc5必要レベル: 12
 LINE	S	ÿc0ヘルム, お守り
 BLOCK	1	ハデス		ソケット2			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4ハデス
 LINE	S	ÿc7ヨルーン + ミルーン
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+1 の召喚スキル (Necromancer Only)
+LINE	S	ÿc3+1 の召喚スキル (Druid Only)
+LINE	S	ÿc3召喚物の全耐性 +20%
+LINE	S	ÿc3+20% の召喚ダメージ
+LINE	S	ÿc3+1 To 遅延テレポート
+LINE	S	ÿc3マナ再生 +50%
 LINE	S	ÿc5必要レベル: 13
 LINE	S	ÿc0ヘルム, お守り
 BLOCK	1	活力		ソケット3			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4活力
 LINE	S	ÿc7A ルーン + I ルーン + カルーン
+LINE	S	ÿc3+50% 攻撃速度増加
+LINE	S	ÿc3+50% クリティカルヒットのチャンス
+LINE	S	ÿc3+50% 致命的一撃
+LINE	S	ÿc3+5 To 戦闘の達人
+LINE	S	ÿc3+50 のライフ
+LINE	S	ÿc3最大ライフを増加 +20%
+LINE	S	ÿc3物理抵抗: +15%
 LINE	S	ÿc5必要レベル: 17
 LINE	S	ÿc0甲冑, お守り
 BLOCK	1	悪意		ソケット3			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4悪意
 LINE	S	ÿc7A ルーン + ク rune + I ルーン
+LINE	S	ÿc3攻撃に 2000-3000 毒ダメージを 20 秒間追加します
+LINE	S	ÿc3500%-1000%の出血ダメージを20秒かけて追加
+LINE	S	ÿc3敵を倒した時に、レベル50のタイムラプスを発動させる1%の確率
+LINE	S	ÿc3+400 の攻撃評価
+LINE	S	ÿc3-20% の敵の毒耐性
+LINE	S	ÿc3slain monsters rest in peace
+LINE	S	ÿc3+40 キル後のライフ
 LINE	S	ÿc5必要レベル: 17
 LINE	S	ÿc0近接武器, お守り
 BLOCK	1	知識		ソケット3			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4知識
 LINE	S	ÿc7チー ルーン + シルーン + キルーン
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+30% キャスト速度アップ
+LINE	S	ÿc3+1 To 回避
+LINE	S	ÿc3+50 のエネルギー
+LINE	S	ÿc3+16% エネルギーへのボーナス
+LINE	S	ÿc3+100% モンスターからの追加ゴールド
+LINE	S	ÿc3+100% 魔法アイテムを得る確率が上昇
 LINE	S	ÿc5必要レベル: 20
 LINE	S	ÿc0ヘルム, お守り
 BLOCK	1	理由		ソケット3			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4理由
 LINE	S	ÿc7リルーン + ユ Rune + U ルーン
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+10% 回避率
+LINE	S	ÿc3+20 to ソウルシヴァー (All Classes)
+LINE	S	ÿc3+150 防御力
+LINE	S	ÿc3凍結されない
+LINE	S	ÿc3呪いの持続時間が50%短縮されました。
 LINE	S	ÿc5必要レベル: 23
 LINE	S	ÿc0ヘルム, お守り
 BLOCK	1	知恵		ソケット2			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4知恵
 LINE	S	ÿc7チー ルーン + E ルーン
+LINE	S	ÿc3100% Chance to Cast Level 5 Time Lapse on Casting a Skill
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+15% スキルクールダウン減少
+LINE	S	ÿc3+25% の魔法ダメージ
+LINE	S	ÿc3物理呪文ダメージ +25%
+LINE	S	ÿc3+30 のキル後にマナを得る
+LINE	S	ÿc3経験値獲得に +25% 追加
 LINE	S	ÿc5必要レベル: 26
 LINE	S	ÿc0ヘルム, お守り
 BLOCK	1	サイキック		ソケット3			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4メモリ
 LINE	S	ÿc7キルーン + O ルーン + ク rune
+LINE	S	ÿc333% Chance to Cast Level 20 Telekinesis on Casting a Skill
+LINE	S	ÿc333% の確率で攻撃を受けた時にレベル 20 の 時間停止 を発動する
+LINE	S	ÿc3+20% キャスト速度アップ
+LINE	S	ÿc3-15% の敵の雷耐性
+LINE	S	ÿc3+7 To 雷のハイドラ （ソーサレス専用）
+LINE	S	ÿc3+75 のマナ
+LINE	S	ÿc3最大マナを増加 +15%
 LINE	S	ÿc5必要レベル: 30
 LINE	S	ÿc0ソーサレスのマナブレード, オーブ, お守り
 BLOCK	1	捕虜		ソケット3			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4夢
 LINE	S	ÿc7ユ Rune + メルーン
+LINE	S	ÿc3スキル使用時に、レベル30の時間停止を発動させる10%の確率
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+15 to ソウルシヴァー (All Classes)
+LINE	S	ÿc3最大マナを増加 +20%
+LINE	S	ÿc3魔法抵抗 +10%
+LINE	S	ÿc3物理抵抗: +10%
 LINE	S	ÿc5必要レベル: 32
 LINE	S	ÿc0ベルト, お守り
 BLOCK	1	富		ソケット2			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4リッチズドットコム
 LINE	S	ÿc7ナルーン + ツルーンク
+LINE	S	ÿc310% Chance to Cast Level 40 Blaze on Casting a Skill
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3+1 の火のスキル
+LINE	S	ÿc3+20% 移動速度アップ
+LINE	S	ÿc3+20% キャスト速度アップ
+LINE	S	ÿc3-15% の敵の火炎耐性
+LINE	S	ÿc3魔法ダメージが 30 減少
 LINE	S	ÿc5必要レベル: 40
 LINE	S	ÿc0ブーツ, お守り
 BLOCK	1	調和		ソケット3			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4霧
 LINE	S	ÿc7モルーン + ヤルーン
+LINE	S	ÿc3敵を倒した時に、レベル40の影のマントを発動させる5%の確率
+LINE	S	ÿc35% Chance to Cast Level 50 Whirlpool when you Kill an Enemy
+LINE	S	ÿc3敵を倒した時に、レベル5の砂嵐を発動させる50%の確率
+LINE	S	ÿc3すべてのスキルに +1 追加
+LINE	S	ÿc3物理呪文ダメージ +25%
+LINE	S	ÿc3冷気呪文ダメージ +25%
+LINE	S	ÿc3ライフ回復 +1000
 LINE	S	ÿc5必要レベル: 47
 LINE	S	ÿc0ブーツ, ベルト, お守り
 BLOCK	1	ディアブロ		ソケット3			48

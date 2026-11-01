@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Ewolucja
 LINE	S	ÿc7Runy Shi + N Runiczka + Runy Ka
+LINE	S	ÿc3+15% Szybszy Bieg/Chód
+LINE	S	ÿc3+15% Zwiększona Prędkość Ataku
+LINE	S	ÿc3+15% Szybszy Wskaźnik Rzucania
+LINE	S	ÿc3+10% Bonus do Wszystkich Atrybutów
+LINE	S	ÿc3+3% do Maksymalnego Odporu na Magię
+LINE	S	ÿc3+3% do Wszystkich Maksymalnych Oporów
+LINE	S	ÿc3Wszystkie Oporności +15
+LINE	S	ÿc3+15% do Zdobytego Doświadczenia
 LINE	S	ÿc5Wymagany poziom: 6
 LINE	S	ÿc0Pancerz, Urok
 BLOCK	1	Wymachiwać		3 gniazda			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Wymachiwać
 LINE	S	ÿc7I Runa + Runy Ka + Rune Ku
+LINE	S	ÿc3+150% Zwiększone obrażenia
+LINE	S	ÿc3+5% Fizycznych obrażeń kradzionych jako Mana
+LINE	S	ÿc3+10% Fizyczne obrażenia kradzione jako życie
+LINE	S	ÿc3+30% Szansa na Zmiażdżenie Ciosu
+LINE	S	ÿc3+30% Śmiertelny Cios
+LINE	S	ÿc3Odepchnięcie
+LINE	S	ÿc3+10% Bonus do Siły
 LINE	S	ÿc5Wymagany poziom: 7
 LINE	S	ÿc0Broń, Urok
 BLOCK	1	Przeczucie		3 gniazda			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Przeczucie
 LINE	S	ÿc7Runy Yo + Runy Ka + N Runiczka
+LINE	S	ÿc3+30% Szybszy Wskaźnik Rzucania
+LINE	S	ÿc3-15% do odporności na żywioły i trucizny wrogów
+LINE	S	ÿc3+50 do Życia
+LINE	S	ÿc3+50 do Many
+LINE	S	ÿc3Zwiększa Maksymalną Manę +30%
+LINE	S	ÿc3+10 do Many po każdym zabójstwie
 LINE	S	ÿc5Wymagany poziom: 9
 LINE	S	ÿc0Pancerz, Hełm, Urok
 BLOCK	1	Maszyna		3 gniazda			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Maszyna
 LINE	S	ÿc7Runy Ki + Runy Ka + I Runa
+LINE	S	ÿc3+20% bazowej prędkości ataku
+LINE	S	ÿc3+1 do Maksymalnych Obrażeń w Atakach (W oparciu o poziom postaci)
+LINE	S	ÿc3+50 do Siły
+LINE	S	ÿc3+50 do Zręczności
+LINE	S	ÿc3+13% Bonus do Siły
+LINE	S	ÿc3+13% Bonus do Zręczności
 LINE	S	ÿc5Wymagany poziom: 10
 LINE	S	ÿc0Broń, Urok
 BLOCK	1	Polowanie		2 gniazda			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4Polowanie
 LINE	S	ÿc7Runy Ka + Rune Ri
+LINE	S	ÿc3100% Szansa na Rzucenie Poziomu 10 Rozgrzewka, gdy Zabijesz Wroga
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+40% Szybszy Bieg/Chód
+LINE	S	ÿc3-33% Obrona Celu
+LINE	S	ÿc3+50% Śmiertelny Cios
+LINE	S	ÿc3+13% Bonus do Zręczności
+LINE	S	ÿc3+10 Maksymalna Wytrzymałość (W oparciu o poziom postaci)
 LINE	S	ÿc5Wymagany poziom: 12
 LINE	S	ÿc0Hełm, Urok
 BLOCK	1	Hades		2 gniazda			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Hades
 LINE	S	ÿc7Runy Yo + Mi Runy
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+1 do Umiejętności Przywołania (Necromancer Only)
+LINE	S	ÿc3+1 do Umiejętności Przywoływania (Druid Only)
+LINE	S	ÿc3+20% do wszystkich odporności przywołańców
+LINE	S	ÿc3+20% do obrażeń przywołania
+LINE	S	ÿc3+1 To Opóźniony teleport
+LINE	S	ÿc3Regeneracja Many +50%
 LINE	S	ÿc5Wymagany poziom: 13
 LINE	S	ÿc0Hełm, Urok
 BLOCK	1	Ekstaza		3 gniazda			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Ekstaza
 LINE	S	ÿc7Runa + I Runa + Runy Ka
+LINE	S	ÿc3+50% Zwiększona Prędkość Ataku
+LINE	S	ÿc3+50% Szansa na Zmiażdżenie Ciosu
+LINE	S	ÿc3+50% Śmiertelny Cios
+LINE	S	ÿc3+5 To Mistrzostwo Walki
+LINE	S	ÿc3+50 do Życia
+LINE	S	ÿc3Zwiększa Maksymalne Życie +20%
+LINE	S	ÿc3Odpornność na fizyczne obrażenia: +15%
 LINE	S	ÿc5Wymagany poziom: 17
 LINE	S	ÿc0Pancerz, Urok
 BLOCK	1	Złośliwość		3 gniazda			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Złośliwość
 LINE	S	ÿc7Runa + Rune Ku + I Runa
+LINE	S	ÿc3Dodaje 2000-3000 obrażeń Odurzenia do Ataków przez 20 sekund
+LINE	S	ÿc3Dodaje 500%-1000% obrażeń od krwawienia w ciągu 20 sekund
+LINE	S	ÿc350% Szansa na Rzucenie Poziomu 1 Czasoprzestrzeń, gdy Zabijesz Wroga
+LINE	S	ÿc3+400 do Oceny Ataku
+LINE	S	ÿc3-20% do Odporności na Truciznę Wroga
+LINE	S	ÿc3Zabite potwory spoczywają w pokoju
+LINE	S	ÿc3+40 Życia po każdym zabójstwie
 LINE	S	ÿc5Wymagany poziom: 17
 LINE	S	ÿc0Broń do walki wręcz, Urok
 BLOCK	1	Wiedza		3 gniazda			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4Wiedza
 LINE	S	ÿc7Runy Chi + Runy Shi + Runy Ki
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+30% Szybszy Wskaźnik Rzucania
+LINE	S	ÿc3+1 To Unikaj
+LINE	S	ÿc3+50 do Energii
+LINE	S	ÿc3+16% Bonus do Energii
+LINE	S	ÿc3+100% Dodatkowe Złoto z Potworów
+LINE	S	ÿc3+100% Lepsza szansa na zdobycie magicznych przedmiotów
 LINE	S	ÿc5Wymagany poziom: 20
 LINE	S	ÿc0Hełm, Urok
 BLOCK	1	Powód		3 gniazda			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Powód
 LINE	S	ÿc7Rune Ri + Runy Yu + U Runa
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+10% Szansa na uniki
+LINE	S	ÿc3+20 to Drżenie Duszy (All Classes)
+LINE	S	ÿc3+150 Obrony
+LINE	S	ÿc3Nie można zamarznąć
+LINE	S	ÿc3Czas trwania klątwy zmniejszony o 50%
 LINE	S	ÿc5Wymagany poziom: 23
 LINE	S	ÿc0Hełm, Urok
 BLOCK	1	Mądrość		2 gniazda			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4Mądrość
 LINE	S	ÿc7Runy Chi + E Runy
+LINE	S	ÿc3100% Szansa na Rzucenie Poziomu 5 Czasoprzestrzeń przy Rzucaniu Umiejętności
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+15% Redukcja Czasu Odnowienia Umiejętności
+LINE	S	ÿc3+25% do obrażeń od zaklęć magicznych
+LINE	S	ÿc3+25% do obrażeń od zaklęć fizycznych
+LINE	S	ÿc3+30 do Many po każdym zabójstwie
+LINE	S	ÿc3+25% do Zdobytego Doświadczenia
 LINE	S	ÿc5Wymagany poziom: 26
 LINE	S	ÿc0Hełm, Urok
 BLOCK	1	Psychiczny		3 gniazda			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Pamięć
 LINE	S	ÿc7Runy Ki + O Runy + Rune Ku
+LINE	S	ÿc333% Szansa na Rzucenie Poziomu 20 Telekineza przy Rzucaniu Umiejętności
+LINE	S	ÿc333% Szansa na Rzucenie Poziomu 20 Zatrzymanie Czasu po Uderzeniu
+LINE	S	ÿc3+20% Szybszy Wskaźnik Rzucania
+LINE	S	ÿc3-15% do Oporności na Pioruny Wroga
+LINE	S	ÿc3+7 To Hydra błyskawiczna (Tylko dla Czarodziejki)
+LINE	S	ÿc3+75 do Many
+LINE	S	ÿc3Zwiększa Maksymalną Manę +15%
 LINE	S	ÿc5Wymagany poziom: 30
 LINE	S	ÿc0Ostrze many Czarodziejki, Broń dystansowa, Urok
 BLOCK	1	Więzień		3 gniazda			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Sen
 LINE	S	ÿc7Runy Yu + Runa Me
+LINE	S	ÿc310% Szansa na Rzucenie Poziomu 30 Zatrzymanie Czasu przy Rzucaniu Umiejętności
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+15 to Drżenie Duszy (All Classes)
+LINE	S	ÿc3Zwiększa Maksymalną Manę +20%
+LINE	S	ÿc3Odporność na magię +10%
+LINE	S	ÿc3Odpornność na fizyczne obrażenia: +10%
 LINE	S	ÿc5Wymagany poziom: 32
 LINE	S	ÿc0Pas, Urok
 BLOCK	1	Bogactwo		2 gniazda			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4Lato
 LINE	S	ÿc7Runy Na + Runy Tsu
+LINE	S	ÿc310% Szansa na Rzucenie Poziomu 40 Płomień przy Rzucaniu Umiejętności
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+1 do Umiejętności Ognia
+LINE	S	ÿc3+20% Szybszy Bieg/Chód
+LINE	S	ÿc3+20% Szybszy Wskaźnik Rzucania
+LINE	S	ÿc3-15% do Oporu Ognia Wroga
+LINE	S	ÿc3Zredukowane obrażenia magiczne o 30
 LINE	S	ÿc5Wymagany poziom: 40
 LINE	S	ÿc0Buty, Urok
 BLOCK	1	Harmonia		3 gniazda			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4Mgła
 LINE	S	ÿc7Mo Runy + Rune Ya
+LINE	S	ÿc35% Szansa na Rzucenie Poziomu 40 Płaszcz Cieni, gdy Zabijesz Wroga
+LINE	S	ÿc35% Szansa na Rzucenie Poziomu 50 Wirpool, gdy Zabijesz Wroga
+LINE	S	ÿc35% Szansa na Rzucenie Poziomu 50 Burza piaskowa, gdy Zabijesz Wroga
+LINE	S	ÿc3+1 do Wszystkich Umiejętności
+LINE	S	ÿc3+25% do obrażeń od zaklęć fizycznych
+LINE	S	ÿc3+25% do obrażeń od zaklęć zimnych
+LINE	S	ÿc3Odnów Życie +1000
 LINE	S	ÿc5Wymagany poziom: 47
 LINE	S	ÿc0Buty, Pas, Urok
 BLOCK	1	Diablo		3 gniazda			48

@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Evolução
 LINE	S	ÿc7Runa Shi + N Runa + Runa Ka
+LINE	S	ÿc3+15% Mais Rápido Correr/Caminhar
+LINE	S	ÿc3+15% Aumento de Velocidade de Ataque
+LINE	S	ÿc3+15% Taxa de Lançamento Mais Rápida
+LINE	S	ÿc3+10% Bônus para Todos os Atributos
+LINE	S	ÿc3+3% de Resistência Mágica Máxima
+LINE	S	ÿc3+3% para Todas as Resistências Máximas
+LINE	S	ÿc3Todas as Resistências +15
+LINE	S	ÿc3+15% de Experiência Ganha
 LINE	S	ÿc5Nível Requerido: 6
 LINE	S	ÿc0Proteção Corporal, Amuleto
 BLOCK	1	Brandir		3 Soquetes			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Brandir
 LINE	S	ÿc7I Runa + Runa Ka + Rune Ku
+LINE	S	ÿc3+150% Dano Aprimorado
+LINE	S	ÿc3+5% Dano Físico Drenado como Mana
+LINE	S	ÿc3+10% Dano Físico Roubado como Vida
+LINE	S	ÿc3+30% Chance de Golpe Destruidor
+LINE	S	ÿc3+30% Golpe Mortal
+LINE	S	ÿc3Empurrão
+LINE	S	ÿc3+10% Bônus de Força
 LINE	S	ÿc5Nível Requerido: 7
 LINE	S	ÿc0Arma, Amuleto
 BLOCK	1	Pressentir		3 Soquetes			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Pressentir
 LINE	S	ÿc7Runas Yo + Runa Ka + N Runa
+LINE	S	ÿc3+30% Taxa de Lançamento Mais Rápida
+LINE	S	ÿc3-15% para Resistências Elementais e de Veneno do Inimigo
+LINE	S	ÿc3+50 para Vida
+LINE	S	ÿc3+50 para Mana
+LINE	S	ÿc3Aumenta o Máximo de Mana +30%
+LINE	S	ÿc3+10 de Mana após cada Morte
 LINE	S	ÿc5Nível Requerido: 9
 LINE	S	ÿc0Proteção Corporal, Capacete, Amuleto
 BLOCK	1	Máquina		3 Soquetes			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Máquina
 LINE	S	ÿc7Rune Ki + Runa Ka + I Runa
+LINE	S	ÿc3+20% de velocidade de ataque base
+LINE	S	ÿc3+1 de Dano Máximo em Ataques (Baseado no Nível do Personagem)
+LINE	S	ÿc3+50 de Força
+LINE	S	ÿc3+50 para Destreza
+LINE	S	ÿc3+13% Bônus de Força
+LINE	S	ÿc3+13% Bônus em Destreza
 LINE	S	ÿc5Nível Requerido: 10
 LINE	S	ÿc0Arma, Amuleto
 BLOCK	1	Caçar		2 Soquetes			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4Caçar
 LINE	S	ÿc7Runa Ka + Rune Ri
+LINE	S	ÿc3100% Chance to Cast Level 10 Aquecimento ao Matar um Inimigo
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+40% Mais Rápido Correr/Caminhar
+LINE	S	ÿc3-33% Defesa do Alvo
+LINE	S	ÿc3+50% Golpe Mortal
+LINE	S	ÿc3+13% Bônus em Destreza
+LINE	S	ÿc3+10 Stamina Máxima (Baseado no Nível do Personagem)
 LINE	S	ÿc5Nível Requerido: 12
 LINE	S	ÿc0Capacete, Amuleto
 BLOCK	1	Hades		2 Soquetes			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Hades
 LINE	S	ÿc7Runas Yo + Runa Mi
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+1 para Habilidades de Invocação (Necromancer Only)
+LINE	S	ÿc3+1 para Habilidades de Invocação (Druid Only)
+LINE	S	ÿc3+20% para todas as resistências dos lacaios
+LINE	S	ÿc3+20% de Dano de Invocação
+LINE	S	ÿc3+1 To Teletransporte Atrasado
+LINE	S	ÿc3Regenerar Mana +50%
 LINE	S	ÿc5Nível Requerido: 13
 LINE	S	ÿc0Capacete, Amuleto
 BLOCK	1	Exuberância		3 Soquetes			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Exuberância
 LINE	S	ÿc7Uma Runa + I Runa + Runa Ka
+LINE	S	ÿc3+50% Aumento de Velocidade de Ataque
+LINE	S	ÿc3+50% Chance de Golpe Destruidor
+LINE	S	ÿc3+50% Golpe Mortal
+LINE	S	ÿc3+5 To Mestre em Combate
+LINE	S	ÿc3+50 para Vida
+LINE	S	ÿc3Aumenta a Vida Máxima +20%
+LINE	S	ÿc3Resistência Física: +15%
 LINE	S	ÿc5Nível Requerido: 17
 LINE	S	ÿc0Proteção Corporal, Amuleto
 BLOCK	1	Malícia		3 Soquetes			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Malícia
 LINE	S	ÿc7Uma Runa + Rune Ku + I Runa
+LINE	S	ÿc3Adiciona 2000-3000 Dano de Veneno aos Ataques por 20 segundos
+LINE	S	ÿc3Adiciona 500%-1000% de dano de sangramento ao longo de 20 segundos
+LINE	S	ÿc350% Chance to Cast Level 1 Lapso de Tempo ao Matar um Inimigo
+LINE	S	ÿc3+400 para Classificação de Ataque
+LINE	S	ÿc3-20% de Resistência a Veneno do Inimigo
+LINE	S	ÿc3Monstros Mortos Descansem em Paz
+LINE	S	ÿc3+40 Vida após cada Morte
 LINE	S	ÿc5Nível Requerido: 17
 LINE	S	ÿc0Arma corpo a corpo, Amuleto
 BLOCK	1	Conhecimento		3 Soquetes			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4Conhecimento
 LINE	S	ÿc7Runa Chi + Runa Shi + Rune Ki
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+30% Taxa de Lançamento Mais Rápida
+LINE	S	ÿc3+1 To Desviar
+LINE	S	ÿc3+50 para Energia
+LINE	S	ÿc3+16% Bônus para Energia
+LINE	S	ÿc3+100% Ouro Extra de Monstros
+LINE	S	ÿc3+100% Chance de Conseguir Itens Mágicos Melhorada
 LINE	S	ÿc5Nível Requerido: 20
 LINE	S	ÿc0Capacete, Amuleto
 BLOCK	1	Razão		3 Soquetes			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Razão
 LINE	S	ÿc7Rune Ri + Runa Yu + U Runa
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+10% Chance de Esquiva
+LINE	S	ÿc3+20 to Tremor da Alma (All Classes)
+LINE	S	ÿc3+150 Defesa
+LINE	S	ÿc3Não Pode Ser Congelado
+LINE	S	ÿc3Duração da Maldição Reduzida em 50%
 LINE	S	ÿc5Nível Requerido: 23
 LINE	S	ÿc0Capacete, Amuleto
 BLOCK	1	Sabedoria		2 Soquetes			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4Sabedoria
 LINE	S	ÿc7Runa Chi + E Runa
+LINE	S	ÿc3100% Chance to Cast Level 5 Lapso de Tempo ao Conjurar uma Habilidade
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+15% Redução do Tempo de Recarga de Habilidade
+LINE	S	ÿc3+25% de Dano de Feitiço Mágico
+LINE	S	ÿc3+25% de Dano Físico em Feitiços
+LINE	S	ÿc3+30 de Mana após cada Morte
+LINE	S	ÿc3+25% de Experiência Ganha
 LINE	S	ÿc5Nível Requerido: 26
 LINE	S	ÿc0Capacete, Amuleto
 BLOCK	1	Psíquico		3 Soquetes			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Memória
 LINE	S	ÿc7Rune Ki + Runa O + Rune Ku
+LINE	S	ÿc333% Chance to Cast Level 20 Telecinese ao Conjurar uma Habilidade
+LINE	S	ÿc333% Chance to Cast Level 20 Parada do Tempo ao Ser Atacado
+LINE	S	ÿc3+20% Taxa de Lançamento Mais Rápida
+LINE	S	ÿc3-15% de Resistência à Raio do Inimigo
+LINE	S	ÿc3+7 To Hidra Relâmpago (Somente para Feiticeira)
+LINE	S	ÿc3+75 para Mana
+LINE	S	ÿc3Aumenta o Máximo de Mana +15%
 LINE	S	ÿc5Nível Requerido: 30
 LINE	S	ÿc0Lâmina de mana da Feiticeira, Orbe, Amuleto
 BLOCK	1	Cativa		3 Soquetes			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Sonho
 LINE	S	ÿc7Runa Yu + Rune de Me
+LINE	S	ÿc310% Chance to Cast Level 30 Parada do Tempo ao Conjurar uma Habilidade
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+15 to Tremor da Alma (All Classes)
+LINE	S	ÿc3Aumenta o Máximo de Mana +20%
+LINE	S	ÿc3Resistência Mágica +10%
+LINE	S	ÿc3Resistência Física: +10%
 LINE	S	ÿc5Nível Requerido: 32
 LINE	S	ÿc0Cinto, Amuleto
 BLOCK	1	Riqueza		2 Soquetes			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4Verão
 LINE	S	ÿc7Rune Na + Runa Tsu
+LINE	S	ÿc310% Chance to Cast Level 40 Chama ao Conjurar uma Habilidade
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+1 para Habilidades de Fogo
+LINE	S	ÿc3+20% Mais Rápido Correr/Caminhar
+LINE	S	ÿc3+20% Taxa de Lançamento Mais Rápida
+LINE	S	ÿc3-15% de Resistência ao Fogo do Inimigo
+LINE	S	ÿc3Dano Mágico Reduzido em 30
 LINE	S	ÿc5Nível Requerido: 40
 LINE	S	ÿc0Botas, Amuleto
 BLOCK	1	Harmonia		3 Soquetes			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4Névoa
 LINE	S	ÿc7Mo Rune + Runa Ya
+LINE	S	ÿc35% Chance to Cast Level 40 Capa das Sombras ao Matar um Inimigo
+LINE	S	ÿc35% Chance to Cast Level 50 Redemoinho ao Matar um Inimigo
+LINE	S	ÿc35% Chance to Cast Level 50 Tempestade de Areia ao Matar um Inimigo
+LINE	S	ÿc3+1 para Todas as Habilidades
+LINE	S	ÿc3+25% de Dano Físico em Feitiços
+LINE	S	ÿc3+25% de Dano de Feitiço de Frio
+LINE	S	ÿc3Repor Vida +1000
 LINE	S	ÿc5Nível Requerido: 47
 LINE	S	ÿc0Botas, Cinto, Amuleto
 BLOCK	1	Diablo		3 Soquetes			48

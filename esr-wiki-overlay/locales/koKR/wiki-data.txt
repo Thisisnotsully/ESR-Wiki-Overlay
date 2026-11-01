@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4행운
 LINE	S	ÿc7시 룬 + N 룬 + 카 룬
+LINE	S	ÿc3+15% 더 빠른 이동/걷기
+LINE	S	ÿc3+15% 공격 속도 증가
+LINE	S	ÿc3+15% 시전 속도 증가
+LINE	S	ÿc3모든 능력치에 +10% 보너스
+LINE	S	ÿc3최대 마법 저항력 +3% 증가
+LINE	S	ÿc3모든 최대 저항에 +3% 추가
+LINE	S	ÿc3모든 저항력 +15
+LINE	S	ÿc3+15% 경험치 증가
 LINE	S	ÿc5필요 레벨: 6
 LINE	S	ÿc0갑옷, 부적
 BLOCK	1	휘두르기		소켓 3개			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4휘두르기
 LINE	S	ÿc7I 룬 + 카 룬 + 쿠 룬
+LINE	S	ÿc3+150% 증가된 피해
+LINE	S	ÿc3+5% 물리 피해를 마나로 흡수합니다.
+LINE	S	ÿc3+10% 물리 피해 생명력으로 흡수됨
+LINE	S	ÿc3+30% 치명타 확률
+LINE	S	ÿc3+30% 치명타
+LINE	S	ÿc3밀쳐내기
+LINE	S	ÿc3+10% 힘 보너스
 LINE	S	ÿc5필요 레벨: 7
 LINE	S	ÿc0무기, 부적
 BLOCK	1	예감		소켓 3개			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4예감
 LINE	S	ÿc7요 룬 + 카 룬 + N 룬
+LINE	S	ÿc3+30% 시전 속도 증가
+LINE	S	ÿc3-15% 적에게 주는 원소 및 독 저항력
+LINE	S	ÿc3+50 생명력 증가
+LINE	S	ÿc3+50의 마나
+LINE	S	ÿc3최대 마나 증가 +30%
+LINE	S	ÿc3+10의 처치 후 마나 회복
 LINE	S	ÿc5필요 레벨: 9
 LINE	S	ÿc0갑옷, 투구, 부적
 BLOCK	1	기계		소켓 3개			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4기계
 LINE	S	ÿc7키 룬 + 카 룬 + I 룬
+LINE	S	ÿc3+20% 기본 공격 속도
+LINE	S	ÿc3공격에 대한 최대 피해 +1 증가 (캐릭터 레벨 기준)
+LINE	S	ÿc3+50 힘 증가
+LINE	S	ÿc3+50의 민첩성
+LINE	S	ÿc3+13% 힘 보너스
+LINE	S	ÿc3+13% 민첩성 보너스
 LINE	S	ÿc5필요 레벨: 10
 LINE	S	ÿc0무기, 부적
 BLOCK	1	광기		소켓 2개			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4광기
 LINE	S	ÿc7카 룬 + 리 룬
+LINE	S	ÿc3적을 처치할 때 100% 확률로 레벨 10 워밍업를 시전합니다.
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+40% 더 빠른 이동/걷기
+LINE	S	ÿc3-33% 목표 방어력
+LINE	S	ÿc3+50% 치명타
+LINE	S	ÿc3+13% 민첩성 보너스
+LINE	S	ÿc3+10 최대 스태미나 (캐릭터 레벨 기준)
 LINE	S	ÿc5필요 레벨: 12
 LINE	S	ÿc0투구, 부적
 BLOCK	1	하데스		소켓 2개			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4하데스
 LINE	S	ÿc7요 룬 + 미 룬
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+1 소환 기술 (Necromancer Only)
+LINE	S	ÿc3+1 소환 기술에 추가 (Druid Only)
+LINE	S	ÿc3+20% 모든 소환수 저항
+LINE	S	ÿc3+20% 소환 피해
+LINE	S	ÿc3+1 To 지연 텔레포트
+LINE	S	ÿc3마나 재생 +50%
 LINE	S	ÿc5필요 레벨: 13
 LINE	S	ÿc0투구, 부적
 BLOCK	1	열정		소켓 3개			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4열정
 LINE	S	ÿc7룬 + I 룬 + 카 룬
+LINE	S	ÿc3+50% 공격 속도 증가
+LINE	S	ÿc3+50% 치명타 확률
+LINE	S	ÿc3+50% 치명타
+LINE	S	ÿc3+5 To 전투 숙련도
+LINE	S	ÿc3+50 생명력 증가
+LINE	S	ÿc3최대 생명 증가 +20%
+LINE	S	ÿc3물리 저항: +15%
 LINE	S	ÿc5필요 레벨: 17
 LINE	S	ÿc0갑옷, 부적
 BLOCK	1	악의		소켓 3개			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4악의
 LINE	S	ÿc7룬 + 쿠 룬 + I 룬
+LINE	S	ÿc3공격에 2000-3000 독 피해를 20 초 동안 추가합니다.
+LINE	S	ÿc3500%-1000% 출혈 피해를 20초에 걸쳐 추가
+LINE	S	ÿc3적을 처치할 때 50% 확률로 레벨 1 시간 경과를 시전합니다.
+LINE	S	ÿc3+400 공격 등급 증가
+LINE	S	ÿc3-20% 적에게 독 저항력
+LINE	S	ÿc3죽은 괴물들은 평화롭게 잠든다
+LINE	S	ÿc3+40 처치 후 생명력 회복
 LINE	S	ÿc5필요 레벨: 17
 LINE	S	ÿc0근접 무기, 부적
 BLOCK	1	지식		소켓 3개			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	시
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4지식
 LINE	S	ÿc7치 룬 + 시 룬 + 키 룬
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+30% 시전 속도 증가
+LINE	S	ÿc3+1 To 회피
+LINE	S	ÿc3+50 에너지 증가
+LINE	S	ÿc3+16% 에너지 보너스
+LINE	S	ÿc3+100% 몬스터로부터 추가 골드
+LINE	S	ÿc3+100% 마법 아이템 획득 확률 증가
 LINE	S	ÿc5필요 레벨: 20
 LINE	S	ÿc0투구, 부적
 BLOCK	1	이유		소켓 3개			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4이유
 LINE	S	ÿc7리 룬 + 유 룬 + U 룬
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+10% 회피 확률
+LINE	S	ÿc3+20 to 영혼의 떨림 (All Classes)
+LINE	S	ÿc3+150 방어력
+LINE	S	ÿc3얼음에 갇히지 않음
+LINE	S	ÿc3저주 지속시간 50% 감소
 LINE	S	ÿc5필요 레벨: 23
 LINE	S	ÿc0투구, 부적
 BLOCK	1	지혜		소켓 2개			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	치
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4지혜
 LINE	S	ÿc7치 룬 + E 룬
+LINE	S	ÿc3기술 시전 시 100% 확률로 레벨 5 시간 경과를 시전합니다.
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+15% 스킬 쿨타임 감소
+LINE	S	ÿc3+25% 마법 주문 피해 증가
+LINE	S	ÿc3+25% 물리 주문 피해 증가
+LINE	S	ÿc3+30의 처치 후 마나 회복
+LINE	S	ÿc3+25% 경험치 증가
 LINE	S	ÿc5필요 레벨: 26
 LINE	S	ÿc0투구, 부적
 BLOCK	1	정신력		소켓 3개			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4기억
 LINE	S	ÿc7키 룬 + O 룬 + 쿠 룬
+LINE	S	ÿc3기술 시전 시 33% 확률로 레벨 20 염력를 시전합니다.
+LINE	S	ÿc3맞았을 때 33% 확률로 레벨 20 시간 정지를 시전합니다.
+LINE	S	ÿc3+20% 시전 속도 증가
+LINE	S	ÿc3-15% 적의 번개 저항력
+LINE	S	ÿc3+7 To 번개 하이드라 (여사제 전용)
+LINE	S	ÿc3+75의 마나
+LINE	S	ÿc3최대 마나 증가 +15%
 LINE	S	ÿc5필요 레벨: 30
 LINE	S	ÿc0원소술사 마나 검, 구슬, 부적
 BLOCK	1	포로		소켓 3개			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4꿈
 LINE	S	ÿc7유 룬 + 메 룬
+LINE	S	ÿc3기술 시전 시 10% 확률로 레벨 30 시간 정지를 시전합니다.
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+15 to 영혼의 떨림 (All Classes)
+LINE	S	ÿc3최대 마나 증가 +20%
+LINE	S	ÿc3마법 저항 +10%
+LINE	S	ÿc3물리 저항: +10%
 LINE	S	ÿc5필요 레벨: 32
 LINE	S	ÿc0벨트, 부적
 BLOCK	1	부유함		소켓 2개			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	츠
 LINE	S	ÿc4여름
 LINE	S	ÿc7나 룬 + 츠 룬
+LINE	S	ÿc3기술 시전 시 10% 확률로 레벨 40 블레이즈를 시전합니다.
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+1의 화염 기술
+LINE	S	ÿc3+20% 더 빠른 이동/걷기
+LINE	S	ÿc3+20% 시전 속도 증가
+LINE	S	ÿc3-15% 적의 화염 저항력
+LINE	S	ÿc3마법 피해 감소 30
 LINE	S	ÿc5필요 레벨: 40
 LINE	S	ÿc0부츠, 부적
 BLOCK	1	조화		소켓 3개			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4안개
 LINE	S	ÿc7모 룬 + 야 룬
+LINE	S	ÿc3적을 처치할 때 5% 확률로 레벨 40 그림자 망토를 시전합니다.
+LINE	S	ÿc3적을 처치할 때 5% 확률로 레벨 50 소용돌이를 시전합니다.
+LINE	S	ÿc3적을 처치할 때 5% 확률로 레벨 50 모래폭풍를 시전합니다.
+LINE	S	ÿc3모든 기술에 +1 추가
+LINE	S	ÿc3+25% 물리 주문 피해 증가
+LINE	S	ÿc3냉기 주문 피해 +25% 증가
+LINE	S	ÿc3생명력 회복 +1000
 LINE	S	ÿc5필요 레벨: 47
 LINE	S	ÿc0부츠, 벨트, 부적
 BLOCK	1	디아블로		소켓 3개			48

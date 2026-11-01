@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.5.0
+# ESR Wiki Overlay 1.5.1
 
 A read-only in-game wiki overlay for Eastern Sun Resurrected (ESR) on Diablo II
 Resurrected, loaded by D2RLoader. It has two windows: the ESR Wiki and Horadric Cube Recipes.
@@ -28,6 +28,10 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
 - Press pause or escape and press the ESR Wiki button, or in the Horadric Cube there is a recipe button.
 - Type `eswiki` in the in-game console, or
 - Bind a key to "Open ESR Wiki" in the game's controls (no key is bound by default).
+
+## What is new in 1.5.1
+
+- Charm runewords that also allow weapons or armor (Brandish, Machine, Hunt, Hades, Wisdom, Mist and others, 15 of the 33 on the Charms tab) now show their stats. Before, those cards showed only the name, runes and required level, because a charm card was filled only when all three website columns agreed and the columns a runeword does not use are empty. Charms now compare the filled columns; if those disagree nothing is shown, and charms still show no rune bonuses. The fix applies to English and to all twelve other languages, both in the shipped data and when the pages refresh from the website.
 
 ## What is new in 1.5.0
 

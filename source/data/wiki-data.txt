@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Evolution
 LINE	S	ÿc7Shi Rune + N Rune + Ka Rune
+LINE	S	ÿc3+15% Faster Run/Walk
+LINE	S	ÿc3+15% Increased Attack Speed
+LINE	S	ÿc3+15% Faster Cast Rate
+LINE	S	ÿc3+10% Bonus to All Attributes
+LINE	S	ÿc3+3% to Maximum Magic Resist
+LINE	S	ÿc3+3% to All Maximum Resists
+LINE	S	ÿc3All Resists +15
+LINE	S	ÿc3+15% to Experience Gained
 LINE	S	ÿc5Required Level: 6
 LINE	S	ÿc0Body Armor, Charm
 BLOCK	1	Brandish		3 Sockets			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Brandish
 LINE	S	ÿc7I Rune + Ka Rune + Ku Rune
+LINE	S	ÿc3+150% Enhanced Damage
+LINE	S	ÿc3+5% Physical Damage Leeched as Mana
+LINE	S	ÿc3+10% Physical Damage Leeched as Life
+LINE	S	ÿc3+30% Chance of Crushing Blow
+LINE	S	ÿc3+30% Deadly Strike
+LINE	S	ÿc3Knockback
+LINE	S	ÿc3+10% Bonus to Strength
 LINE	S	ÿc5Required Level: 7
 LINE	S	ÿc0Weapon, Charm
 BLOCK	1	Forefeel		3 Sockets			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Forefeel
 LINE	S	ÿc7Yo Rune + Ka Rune + N Rune
+LINE	S	ÿc3+30% Faster Cast Rate
+LINE	S	ÿc3-15% to Enemy Elemental And Poison Resists
+LINE	S	ÿc3+50 to Life
+LINE	S	ÿc3+50 to Mana
+LINE	S	ÿc3Increase Maximum Mana +30%
+LINE	S	ÿc3+10 to Mana after each Kill
 LINE	S	ÿc5Required Level: 9
 LINE	S	ÿc0Body Armor, Helm, Charm
 BLOCK	1	Machine		3 Sockets			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Machine
 LINE	S	ÿc7Ki Rune + Ka Rune + I Rune
+LINE	S	ÿc3+20% Base Attack Speed
+LINE	S	ÿc3+1 to Maximum Damage to Attacks (Based on Character Level)
+LINE	S	ÿc3+50 to Strength
+LINE	S	ÿc3+50 to Dexterity
+LINE	S	ÿc3+13% Bonus to Strength
+LINE	S	ÿc3+13% Bonus to Dexterity
 LINE	S	ÿc5Required Level: 10
 LINE	S	ÿc0Weapon, Charm
 BLOCK	1	Hunt		2 Sockets			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4Hunt
 LINE	S	ÿc7Ka Rune + Ri Rune
+LINE	S	ÿc3100% Chance to Cast Level 10 Warm Up when you Kill an Enemy
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+40% Faster Run/Walk
+LINE	S	ÿc3-33% Target Defense
+LINE	S	ÿc3+50% Deadly Strike
+LINE	S	ÿc3+13% Bonus to Dexterity
+LINE	S	ÿc3+10 Maximum Stamina (Based on Character Level)
 LINE	S	ÿc5Required Level: 12
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Hades		2 Sockets			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Hades
 LINE	S	ÿc7Yo Rune + Mi Rune
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+1 to Summoning Skills (Necromancer Only)
+LINE	S	ÿc3+1 to Summoning Skills (Druid Only)
+LINE	S	ÿc3+20% to Summon All Resists
+LINE	S	ÿc3+20% to Summon Damage
+LINE	S	ÿc3+1 To Delayed Teleport
+LINE	S	ÿc3Regenerate Mana +50%
 LINE	S	ÿc5Required Level: 13
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Exuberance		3 Sockets			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Exuberance
 LINE	S	ÿc7A Rune + I Rune + Ka Rune
+LINE	S	ÿc3+50% Increased Attack Speed
+LINE	S	ÿc3+50% Chance of Crushing Blow
+LINE	S	ÿc3+50% Deadly Strike
+LINE	S	ÿc3+5 To Combat Mastery
+LINE	S	ÿc3+50 to Life
+LINE	S	ÿc3Increase Maximum Life +20%
+LINE	S	ÿc3Physical Resist: +15%
 LINE	S	ÿc5Required Level: 17
 LINE	S	ÿc0Body Armor, Charm
 BLOCK	1	Malice		3 Sockets			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Malice
 LINE	S	ÿc7A Rune + Ku Rune + I Rune
+LINE	S	ÿc3Adds 2000-3000 Poison Damage to Attacks over 20 Seconds
+LINE	S	ÿc3Adds 500%-1000% Bleed Damage over 20 seconds
+LINE	S	ÿc350% Chance to Cast Level 1 Time Lapse when you Kill an Enemy
+LINE	S	ÿc3+400 to Attack Rating
+LINE	S	ÿc3-20% to Enemy Poison Resist
+LINE	S	ÿc3Slain Monsters Rest in Peace
+LINE	S	ÿc3+40 Life after each Kill
 LINE	S	ÿc5Required Level: 17
 LINE	S	ÿc0Melee Weapon, Charm
 BLOCK	1	Knowledge		3 Sockets			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4Knowledge
 LINE	S	ÿc7Chi Rune + Shi Rune + Ki Rune
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+30% Faster Cast Rate
+LINE	S	ÿc3+1 To Dodge
+LINE	S	ÿc3+50 to Energy
+LINE	S	ÿc3+16% Bonus to Energy
+LINE	S	ÿc3+100% Extra Gold from Monsters
+LINE	S	ÿc3+100% Better Chance of Getting Magic Items
 LINE	S	ÿc5Required Level: 20
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Reason		3 Sockets			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Reason
 LINE	S	ÿc7Ri Rune + Yu Rune + U Rune
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+10% Dodge Chance
+LINE	S	ÿc3+20 to Soul Shiver (All Classes)
+LINE	S	ÿc3+150 Defense
+LINE	S	ÿc3Cannot Be Frozen
+LINE	S	ÿc3Curse Duration Reduced by 50%
 LINE	S	ÿc5Required Level: 23
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Wisdom		2 Sockets			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4Wisdom
 LINE	S	ÿc7Chi Rune + E Rune
+LINE	S	ÿc3100% Chance to Cast Level 5 Time Lapse on Casting a Skill
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+15% Skill Cooldown Reduction
+LINE	S	ÿc3+25% to Magic Spell Damage
+LINE	S	ÿc3+25% to Physical Spell Damage
+LINE	S	ÿc3+30 to Mana after each Kill
+LINE	S	ÿc3+25% to Experience Gained
 LINE	S	ÿc5Required Level: 26
 LINE	S	ÿc0Helm, Charm
 BLOCK	1	Psychic		3 Sockets			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Memory
 LINE	S	ÿc7Ki Rune + O Rune + Ku Rune
+LINE	S	ÿc333% Chance to Cast Level 20 Telekinesis on Casting a Skill
+LINE	S	ÿc333% Chance to Cast Level 20 Time Stop when Struck
+LINE	S	ÿc3+20% Faster Cast Rate
+LINE	S	ÿc3-15% to Enemy Lightning Resist
+LINE	S	ÿc3+7 To Lightning Hydra (Sorceress Only)
+LINE	S	ÿc3+75 to Mana
+LINE	S	ÿc3Increase Maximum Mana +15%
 LINE	S	ÿc5Required Level: 30
 LINE	S	ÿc0Sorceress Mana Blade, Orb, Charm
 BLOCK	1	Captive		3 Sockets			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Dream
 LINE	S	ÿc7Yu Rune + Me Rune
+LINE	S	ÿc310% Chance to Cast Level 30 Time Stop on Casting a Skill
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+15 to Soul Shiver (All Classes)
+LINE	S	ÿc3Increase Maximum Mana +20%
+LINE	S	ÿc3Magic Resist +10%
+LINE	S	ÿc3Physical Resist: +10%
 LINE	S	ÿc5Required Level: 32
 LINE	S	ÿc0Belt, Charm
 BLOCK	1	Wealth		2 Sockets			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4Summer
 LINE	S	ÿc7Na Rune + Tsu Rune
+LINE	S	ÿc310% Chance to Cast Level 40 Blaze on Casting a Skill
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+1 to Fire Skills
+LINE	S	ÿc3+20% Faster Run/Walk
+LINE	S	ÿc3+20% Faster Cast Rate
+LINE	S	ÿc3-15% to Enemy Fire Resist
+LINE	S	ÿc3Magic Damage Reduced by 30
 LINE	S	ÿc5Required Level: 40
 LINE	S	ÿc0Boots, Charm
 BLOCK	1	Harmony		3 Sockets			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4Mist
 LINE	S	ÿc7Mo Rune + Ya Rune
+LINE	S	ÿc35% Chance to Cast Level 40 Cloak of Shadows when you Kill an Enemy
+LINE	S	ÿc35% Chance to Cast Level 50 Whirlpool when you Kill an Enemy
+LINE	S	ÿc35% Chance to Cast Level 50 Sandstorm when you Kill an Enemy
+LINE	S	ÿc3+1 to All Skills
+LINE	S	ÿc3+25% to Physical Spell Damage
+LINE	S	ÿc3+25% to Cold Spell Damage
+LINE	S	ÿc3Replenish Life +1000
 LINE	S	ÿc5Required Level: 47
 LINE	S	ÿc0Boots, Belt, Charm
 BLOCK	1	Diablo		3 Sockets			48

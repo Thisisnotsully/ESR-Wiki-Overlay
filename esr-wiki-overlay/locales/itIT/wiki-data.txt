@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Fortuna
 LINE	S	ÿc7Rune Shi + U Rune + Rune Ka
+LINE	S	ÿc3+15% Velocità di Corsa/Passo Maggiore
+LINE	S	ÿc3+15% Velocità d'Attacco Aumentata
+LINE	S	ÿc3+15% Velocità di Lancio Maggiore
+LINE	S	ÿc3+10% Bonus a Tutti gli Attributi
+LINE	S	ÿc3+3% a Massima Resistenza Magica
+LINE	S	ÿc3+3% a Tutte le Resistenze Massime
+LINE	S	ÿc3Tutte le Resistenze +15
+LINE	S	ÿc3+15% all'Esperienza Guadagnata
 LINE	S	ÿc5Livello Richiesto: 6
 LINE	S	ÿc0Corazza, Charm
 BLOCK	1	Brandire		3 Castoni			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Brandire
 LINE	S	ÿc7Rune Ro + Rune Ka + Rune Ku
+LINE	S	ÿc3+150% Danno Migliorato
+LINE	S	ÿc3+5% Danno Fisico Rubato come Mana
+LINE	S	ÿc3+10% Danno Fisico Rubato come Vita
+LINE	S	ÿc3+30% Possibilità di Colpo Mortale
+LINE	S	ÿc3+30% Colpo Mortale
+LINE	S	ÿc3Spinta
+LINE	S	ÿc3+10% Bonus alla Forza
 LINE	S	ÿc5Livello Richiesto: 7
 LINE	S	ÿc0Arma, Charm
 BLOCK	1	Presagio		3 Castoni			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Presagio
 LINE	S	ÿc7Rune Yo + Rune Ka + U Rune
+LINE	S	ÿc3+30% Velocità di Lancio Maggiore
+LINE	S	ÿc3-15% a Resistenze Elementali e Veleno dei Nemici
+LINE	S	ÿc3+50 alla Vita
+LINE	S	ÿc3+50 a Mana
+LINE	S	ÿc3Aumenta il Mana Massimo +30%
+LINE	S	ÿc3+10 a Mana dopo ogni Uccisione
 LINE	S	ÿc5Livello Richiesto: 9
 LINE	S	ÿc0Corazza, Elmo, Charm
 BLOCK	1	Macchina		3 Castoni			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Macchina
 LINE	S	ÿc7Rune Ki + Rune Ka + Rune Ro
+LINE	S	ÿc3+20% alla velocità di attacco base
+LINE	S	ÿc3+1 a Danno Massimo agli Attacchi (Basato sul Livello del Personaggio)
+LINE	S	ÿc3+50 alla Forza
+LINE	S	ÿc3+50 a Destrezza
+LINE	S	ÿc3+13% Bonus alla Forza
+LINE	S	ÿc3+13% Bonus alla Destrezza
 LINE	S	ÿc5Livello Richiesto: 10
 LINE	S	ÿc0Arma, Charm
 BLOCK	1	Caccia		2 Castoni			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4Caccia
 LINE	S	ÿc7Rune Ka + Rune Ri
+LINE	S	ÿc3100% possibilità di lanciare livello 10 Riscaldamento quando uccidi un nemico
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+40% Velocità di Corsa/Passo Maggiore
+LINE	S	ÿc3-33% Difesa del Bersaglio
+LINE	S	ÿc3+50% Colpo Mortale
+LINE	S	ÿc3+13% Bonus alla Destrezza
+LINE	S	ÿc3+10 Stamina Massima (Basato sul Livello del Personaggio)
 LINE	S	ÿc5Livello Richiesto: 12
 LINE	S	ÿc0Elmo, Charm
 BLOCK	1	Ade		2 Castoni			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Ade
 LINE	S	ÿc7Rune Yo + Mi Rune
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+1 a Abilità di Evocazione (Necromancer Only)
+LINE	S	ÿc3+1 a Abilità di Evocazione (Druid Only)
+LINE	S	ÿc3+20% a tutte le resistenze delle evocazioni
+LINE	S	ÿc3+20% ai Danni da Evocazione
+LINE	S	ÿc3+1 To Teletrasporto Ritardato
+LINE	S	ÿc3Rigenera Mana +50%
 LINE	S	ÿc5Livello Richiesto: 13
 LINE	S	ÿc0Elmo, Charm
 BLOCK	1	Esuberanza		3 Castoni			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Esuberanza
 LINE	S	ÿc7Una runa + Rune Ro + Rune Ka
+LINE	S	ÿc3+50% Velocità d'Attacco Aumentata
+LINE	S	ÿc3+50% Possibilità di Colpo Mortale
+LINE	S	ÿc3+50% Colpo Mortale
+LINE	S	ÿc3+5 To Maestria nel Combattimento
+LINE	S	ÿc3+50 alla Vita
+LINE	S	ÿc3Aumenta la Vita Massima +20%
+LINE	S	ÿc3Resistenza Fisica: +15%
 LINE	S	ÿc5Livello Richiesto: 17
 LINE	S	ÿc0Corazza, Charm
 BLOCK	1	Malizia		3 Castoni			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Malizia
 LINE	S	ÿc7Una runa + Rune Ku + Rune Ro
+LINE	S	ÿc3Aggiunge 2000-3000 Danno da Veleno agli Attacchi per 20 secondi
+LINE	S	ÿc3Aggiunge 500%-1000% di danni da sanguinamento in 20 secondi
+LINE	S	ÿc350% possibilità di lanciare livello 1 Lapse di Tempo quando uccidi un nemico
+LINE	S	ÿc3+400 alla Valutazione di Attacco
+LINE	S	ÿc3-20% alla Resistenza al Veleno dei Nemici
+LINE	S	ÿc3Mostri uccisi riposano in pace
+LINE	S	ÿc3+40 Vita dopo ogni Uccisione
 LINE	S	ÿc5Livello Richiesto: 17
 LINE	S	ÿc0Arma da mischia, Charm
 BLOCK	1	Conoscenza		3 Castoni			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4Conoscenza
 LINE	S	ÿc7Rune Chi + Rune Shi + Rune Ki
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+30% Velocità di Lancio Maggiore
+LINE	S	ÿc3+1 To Schivare
+LINE	S	ÿc3+50 all'Energia
+LINE	S	ÿc3+16% Bonus all'Energia
+LINE	S	ÿc3+100% Oro Extra dai Mostri
+LINE	S	ÿc3+100% Maggiore Probabilità di Ottenere Oggetti Magici
 LINE	S	ÿc5Livello Richiesto: 20
 LINE	S	ÿc0Elmo, Charm
 BLOCK	1	Motivo		3 Castoni			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Motivo
 LINE	S	ÿc7Rune Ri + Rune Yu + Rune Fu
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+10% Probabilità di Schivata
+LINE	S	ÿc3+20 to Brivido dell'Anima (All Classes)
+LINE	S	ÿc3+150 Difesa
+LINE	S	ÿc3Non può essere congelato
+LINE	S	ÿc3Durata della maledizione ridotta del 50%
 LINE	S	ÿc5Livello Richiesto: 23
 LINE	S	ÿc0Elmo, Charm
 BLOCK	1	Saggezza		2 Castoni			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4Saggezza
 LINE	S	ÿc7Rune Chi + E Rune
+LINE	S	ÿc3100% possibilità di lanciare livello 5 Lapse di Tempo quando lanci un'abilità
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+15% Riduzione del Tempo di Recupero delle Abilità
+LINE	S	ÿc3+25% ai Danni da Incantesimo Magico
+LINE	S	ÿc3+25% ai Danni da Incantesimo Fisico
+LINE	S	ÿc3+30 a Mana dopo ogni Uccisione
+LINE	S	ÿc3+25% all'Esperienza Guadagnata
 LINE	S	ÿc5Livello Richiesto: 26
 LINE	S	ÿc0Elmo, Charm
 BLOCK	1	Psichico		3 Castoni			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Memoria
 LINE	S	ÿc7Rune Ki + Rune Ki + Rune Ku
+LINE	S	ÿc333% possibilità di lanciare livello 20 Telecinesi quando lanci un'abilità
+LINE	S	ÿc333% possibilità di lanciare livello 20 Fermare il Tempo quando colpito
+LINE	S	ÿc3+20% Velocità di Lancio Maggiore
+LINE	S	ÿc3-15% alla Resistenza al Fulmine dei Nemici
+LINE	S	ÿc3+7 To Idra Fulminea (Solo Stregona)
+LINE	S	ÿc3+75 a Mana
+LINE	S	ÿc3Aumenta il Mana Massimo +15%
 LINE	S	ÿc5Livello Richiesto: 30
 LINE	S	ÿc0Lama di mana dell'Incantatrice, Orbe, Charm
 BLOCK	1	Catturato		3 Castoni			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Sogno
 LINE	S	ÿc7Rune Yu + Rune Me
+LINE	S	ÿc310% possibilità di lanciare livello 30 Fermare il Tempo quando lanci un'abilità
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+15 to Brivido dell'Anima (All Classes)
+LINE	S	ÿc3Aumenta il Mana Massimo +20%
+LINE	S	ÿc3Resistenza Magica +10%
+LINE	S	ÿc3Resistenza Fisica: +10%
 LINE	S	ÿc5Livello Richiesto: 32
 LINE	S	ÿc0Cintura, Charm
 BLOCK	1	Ricchezza		2 Castoni			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4Estate
 LINE	S	ÿc7Rune Na + Rune Tsu
+LINE	S	ÿc310% possibilità di lanciare livello 40 Fiamma quando lanci un'abilità
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+1 a Abilità di Fuoco
+LINE	S	ÿc3+20% Velocità di Corsa/Passo Maggiore
+LINE	S	ÿc3+20% Velocità di Lancio Maggiore
+LINE	S	ÿc3-15% alla Resistenza al Fuoco dei Nemici
+LINE	S	ÿc3Danno Magico Ridotto del 30
 LINE	S	ÿc5Livello Richiesto: 40
 LINE	S	ÿc0Stivali, Charm
 BLOCK	1	Armonia		3 Castoni			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4Nebbia
 LINE	S	ÿc7Mo Rune + Rune Ya
+LINE	S	ÿc35% possibilità di lanciare livello 40 Cloak delle Ombre quando uccidi un nemico
+LINE	S	ÿc35% possibilità di lanciare livello 50 Vortice quando uccidi un nemico
+LINE	S	ÿc35% possibilità di lanciare livello 50 Tempesta di sabbia quando uccidi un nemico
+LINE	S	ÿc3+1 a Tutte le Abilità
+LINE	S	ÿc3+25% ai Danni da Incantesimo Fisico
+LINE	S	ÿc3+25% ai Danni da Incantesimi di Gelo
+LINE	S	ÿc3Ripristina Vita +1000
 LINE	S	ÿc5Livello Richiesto: 47
 LINE	S	ÿc0Stivali, Cintura, Charm
 BLOCK	1	Diablo		3 Castoni			48

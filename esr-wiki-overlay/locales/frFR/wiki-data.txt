@@ -11424,6 +11424,14 @@ RUNE	items_misc_rune_n_rune	N
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Évolution
 LINE	S	ÿc7Rune Shi + N + Rune Ka
+LINE	S	ÿc3+15% Vitesse de course/marche plus rapide
+LINE	S	ÿc3+15% Vitesse d'Attaque Augmentée
+LINE	S	ÿc3+15% Vitesse de lancement plus rapide
+LINE	S	ÿc3+10% Bonus à Tous les Attributs
+LINE	S	ÿc3+3% à la Résistance Magique Maximale
+LINE	S	ÿc3+3% aux Toutes les Résistances Maximales
+LINE	S	ÿc3Toutes les résistances +15
+LINE	S	ÿc3+15% à l'Expérience Gagnée
 LINE	S	ÿc5Niveau requis : 6
 LINE	S	ÿc0Armure, Charme
 BLOCK	1	Brandir		3 châsses			7
@@ -11435,6 +11443,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Brandir
 LINE	S	ÿc7Rune I + Rune Ka + Rune Ku
+LINE	S	ÿc3+150% Dégâts Améliorés
+LINE	S	ÿc3+5% Dégâts Physiques Volés en Mana
+LINE	S	ÿc3+10% Dégâts Physiques Volés en Vie
+LINE	S	ÿc3+30% Chance de Coup Écrasant
+LINE	S	ÿc3+30% Frappe Mortelle
+LINE	S	ÿc3Recul
+LINE	S	ÿc3+10% Bonus à la Force
 LINE	S	ÿc5Niveau requis : 7
 LINE	S	ÿc0Arme, Charme
 BLOCK	1	Prémonition		3 châsses			9
@@ -11446,6 +11461,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_n_rune	N
 LINE	S	ÿc4Prémonition
 LINE	S	ÿc7Rune Yo + Rune Ka + N
+LINE	S	ÿc3+30% Vitesse de lancement plus rapide
+LINE	S	ÿc3-15% aux résistances élémentaires et de poison des ennemis
+LINE	S	ÿc3+50 à la Vie
+LINE	S	ÿc3+50 à la Mana
+LINE	S	ÿc3Augmente le Mana Maximum +30%
+LINE	S	ÿc3+10 de Mana après chaque Kill
 LINE	S	ÿc5Niveau requis : 9
 LINE	S	ÿc0Armure, Casque, Charme
 BLOCK	1	Machine		3 châsses			10
@@ -11457,6 +11478,12 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Machine
 LINE	S	ÿc7Rune Ki + Rune Ka + Rune I
+LINE	S	ÿc3+20% à la vitesse d'attaque de base
+LINE	S	ÿc3+1 aux Dégâts Maximaux aux Attaques (Basé sur le niveau de personnage)
+LINE	S	ÿc3+50 à la Force
+LINE	S	ÿc3+50 à la Dextérité
+LINE	S	ÿc3+13% Bonus à la Force
+LINE	S	ÿc3+13% Bonus à la Dextérité
 LINE	S	ÿc5Niveau requis : 10
 LINE	S	ÿc0Arme, Charme
 BLOCK	1	Chasser		2 châsses			12
@@ -11467,6 +11494,13 @@ RUNE	items_misc_rune_ka_rune	Ka
 RUNE	items_misc_rune_ri_rune	Ri
 LINE	S	ÿc4Chasser
 LINE	S	ÿc7Rune Ka + Rune Ri
+LINE	S	ÿc3100% Chance de lancer le niveau 10 Échauffement lorsque vous tuez un ennemi
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+40% Vitesse de course/marche plus rapide
+LINE	S	ÿc3-33% Défense de la cible
+LINE	S	ÿc3+50% Frappe Mortelle
+LINE	S	ÿc3+13% Bonus à la Dextérité
+LINE	S	ÿc3+10 Endurance Maximale (Basé sur le niveau de personnage)
 LINE	S	ÿc5Niveau requis : 12
 LINE	S	ÿc0Casque, Charme
 BLOCK	1	Hadès		2 châsses			13
@@ -11477,6 +11511,13 @@ RUNE	items_misc_rune_yo_rune	Yo
 RUNE	items_misc_rune_mi_rune	Mi
 LINE	S	ÿc4Hadès
 LINE	S	ÿc7Rune Yo + Rune Mi
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+1 aux Compétences de Summonissement (Necromancer Only)
+LINE	S	ÿc3+1 aux Compétences de Summonissement (Druid Only)
+LINE	S	ÿc3+20% à toutes les résistances des invocations
+LINE	S	ÿc3+20% aux Dégâts d'Invocation
+LINE	S	ÿc3+1 To Téléportation Retardée
+LINE	S	ÿc3Régénération de Mana +50%
 LINE	S	ÿc5Niveau requis : 13
 LINE	S	ÿc0Casque, Charme
 BLOCK	1	Exubérance		3 châsses			17
@@ -11488,6 +11529,13 @@ RUNE	items_misc_rune_i_rune	I
 RUNE	items_misc_rune_ka_rune	Ka
 LINE	S	ÿc4Exubérance
 LINE	S	ÿc7Une rune + Rune I + Rune Ka
+LINE	S	ÿc3+50% Vitesse d'Attaque Augmentée
+LINE	S	ÿc3+50% Chance de Coup Écrasant
+LINE	S	ÿc3+50% Frappe Mortelle
+LINE	S	ÿc3+5 To Maîtrise du Combat
+LINE	S	ÿc3+50 à la Vie
+LINE	S	ÿc3Augmente la Vie Maximale +20%
+LINE	S	ÿc3Résistance Physique : +15%
 LINE	S	ÿc5Niveau requis : 17
 LINE	S	ÿc0Armure, Charme
 BLOCK	1	Malice		3 châsses			17
@@ -11499,6 +11547,13 @@ RUNE	items_misc_rune_ku_rune	Ku
 RUNE	items_misc_rune_i_rune	I
 LINE	S	ÿc4Malice
 LINE	S	ÿc7Une rune + Rune Ku + Rune I
+LINE	S	ÿc3Ajoute 2000-3000 Dégâts de Poison aux Attaques sur 20 secondes
+LINE	S	ÿc3Ajoute 500%-1000% de dégâts de saignement sur 20 secondes
+LINE	S	ÿc350% Chance de lancer le niveau 1 Intervalle de temps lorsque vous tuez un ennemi
+LINE	S	ÿc3+400 à la Classe d'Attaque
+LINE	S	ÿc3-20% à la Résistance au Poison des Ennemis
+LINE	S	ÿc3Monstres tués reposent en paix
+LINE	S	ÿc3+40 Vie après chaque Tuer
 LINE	S	ÿc5Niveau requis : 17
 LINE	S	ÿc0Arme de mêlée, Charme
 BLOCK	1	Connaissance		3 châsses			20
@@ -11510,6 +11565,13 @@ RUNE	items_misc_rune_shi_rune	Shi
 RUNE	items_misc_rune_ki_rune	Ki
 LINE	S	ÿc4Connaissance
 LINE	S	ÿc7Rune Chi + Rune Shi + Rune Ki
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+30% Vitesse de lancement plus rapide
+LINE	S	ÿc3+1 To Esquiver
+LINE	S	ÿc3+50 à l'Énergie
+LINE	S	ÿc3+16% Bonus à l'Énergie
+LINE	S	ÿc3+100% Or supplémentaire des monstres
+LINE	S	ÿc3+100% Meilleure Chance d'Obtenir des Objets Magiques
 LINE	S	ÿc5Niveau requis : 20
 LINE	S	ÿc0Casque, Charme
 BLOCK	1	Raison		3 châsses			23
@@ -11521,6 +11583,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_u_rune	U
 LINE	S	ÿc4Raison
 LINE	S	ÿc7Rune Ri + Rune Yu + Rune U
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+10% Chance d'Esquive
+LINE	S	ÿc3+20 to Frisson d'âme (All Classes)
+LINE	S	ÿc3+150 Défense
+LINE	S	ÿc3Ne peut pas être gelé
+LINE	S	ÿc3Durée de la malédiction réduite de 50%
 LINE	S	ÿc5Niveau requis : 23
 LINE	S	ÿc0Casque, Charme
 BLOCK	1	Sagesse		2 châsses			26
@@ -11531,6 +11599,13 @@ RUNE	items_misc_rune_chi_rune	Chi
 RUNE	items_misc_rune_e_rune	E
 LINE	S	ÿc4Sagesse
 LINE	S	ÿc7Rune Chi + E
+LINE	S	ÿc3100% Chance de lancer le niveau 5 Intervalle de temps lors du lancement d'une compétence
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+15% Réduction du Temps de Recharge des Compétences
+LINE	S	ÿc3+25% aux Dégâts des Sorts Magiques
+LINE	S	ÿc3+25% aux Dégâts de Sorts Physiques
+LINE	S	ÿc3+30 de Mana après chaque Kill
+LINE	S	ÿc3+25% à l'Expérience Gagnée
 LINE	S	ÿc5Niveau requis : 26
 LINE	S	ÿc0Casque, Charme
 BLOCK	1	Psychique		3 châsses			28
@@ -11561,6 +11636,13 @@ RUNE	items_misc_rune_o_rune	O
 RUNE	items_misc_rune_ku_rune	Ku
 LINE	S	ÿc4Mémoire
 LINE	S	ÿc7Rune Ki + Rune O + Rune Ku
+LINE	S	ÿc333% Chance de lancer le niveau 20 Télékinésie lors du lancement d'une compétence
+LINE	S	ÿc333% Chance de lancer le niveau 20 Arrêt du Temps lorsqu'il est frappé
+LINE	S	ÿc3+20% Vitesse de lancement plus rapide
+LINE	S	ÿc3-15% à la Résistance à la Foudre des Ennemis
+LINE	S	ÿc3+7 To Hydre de Foudre (Sorcière Seulement)
+LINE	S	ÿc3+75 à la Mana
+LINE	S	ÿc3Augmente le Mana Maximum +15%
 LINE	S	ÿc5Niveau requis : 30
 LINE	S	ÿc0Lame de mana d'Ensorceleuse, Orbe, Charme
 BLOCK	1	Captif		3 châsses			31
@@ -11588,6 +11670,12 @@ RUNE	items_misc_rune_yu_rune	Yu
 RUNE	items_misc_rune_me_rune	Me
 LINE	S	ÿc4Rêve
 LINE	S	ÿc7Rune Yu + Rune de Me
+LINE	S	ÿc310% Chance de lancer le niveau 30 Arrêt du Temps lors du lancement d'une compétence
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+15 to Frisson d'âme (All Classes)
+LINE	S	ÿc3Augmente le Mana Maximum +20%
+LINE	S	ÿc3Résistance magique +10%
+LINE	S	ÿc3Résistance Physique : +10%
 LINE	S	ÿc5Niveau requis : 32
 LINE	S	ÿc0Ceinture, Charme
 BLOCK	1	Richesse		2 châsses			36
@@ -11648,6 +11736,13 @@ RUNE	items_misc_rune_na_rune	Na
 RUNE	items_misc_rune_tsu_rune	Tsu
 LINE	S	ÿc4Été
 LINE	S	ÿc7Rune Na + Rune Tsu
+LINE	S	ÿc310% Chance de lancer le niveau 40 Flamme lors du lancement d'une compétence
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+1 aux Compétences de Feu
+LINE	S	ÿc3+20% Vitesse de course/marche plus rapide
+LINE	S	ÿc3+20% Vitesse de lancement plus rapide
+LINE	S	ÿc3-15% à la Résistance au Feu des Ennemis
+LINE	S	ÿc3Dégâts magiques réduits de 30
 LINE	S	ÿc5Niveau requis : 40
 LINE	S	ÿc0Bottes, Charme
 BLOCK	1	Harmonie		3 châsses			43
@@ -11694,6 +11789,13 @@ RUNE	items_misc_rune_mo_rune	Mo
 RUNE	items_misc_rune_ya_rune	Ya
 LINE	S	ÿc4Brume
 LINE	S	ÿc7Rune Mo + Rune Ya
+LINE	S	ÿc35% Chance de lancer le niveau 40 Cape des Ombres lorsque vous tuez un ennemi
+LINE	S	ÿc35% Chance de lancer le niveau 50 Tourbillon lorsque vous tuez un ennemi
+LINE	S	ÿc35% Chance de lancer le niveau 50 Tempête de sable lorsque vous tuez un ennemi
+LINE	S	ÿc3+1 à toutes les compétences
+LINE	S	ÿc3+25% aux Dégâts de Sorts Physiques
+LINE	S	ÿc3+25% aux Dégâts des Sorts de Froid
+LINE	S	ÿc3Régénération de Vie +1000
 LINE	S	ÿc5Niveau requis : 47
 LINE	S	ÿc0Bottes, Ceinture, Charme
 BLOCK	1	Diablo		3 châsses			48

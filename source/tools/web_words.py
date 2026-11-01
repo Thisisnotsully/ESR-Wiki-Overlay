@@ -318,7 +318,7 @@ def label_kind(cat):
 def stat_lines(row, labels, heading, cat=None):
     """The card's stat lines, group by group, from the website column that names the category's kind of item (no labels).
     With a heading (runewords) the last group is the rune bonuses and gets the heading. Charms have no column of their
-    own: they get only the groups every column agrees on (every filled column, for a row that allows only charms), and
+    own: they get only the groups every filled column agrees on, and
     no rune bonuses."""
     columns = row["columns"]
     count = max((len(c) for c in columns), default=0)
@@ -337,9 +337,9 @@ def stat_lines(row, labels, heading, cat=None):
         kind = label_kind(cat)
         if kind:                                   # only the column that names the category's kind of item
             cell = next((c for c, label in zip(cells, labels) if kind in label.split(" / ")), [])
-        else:                                      # charms: what every column agrees on (a charm-only row: its filled columns)
-            used = [c for c in cells if c] if all(t == "Charm" for t in row["en_allowed"]) else cells
-            cell = used[0] if used and all(c and c == used[0] for c in used) else []
+        else:                                      # charms: what every filled column agrees on (empty columns are kinds the row does not allow)
+            used = [c for c in cells if c]
+            cell = used[0] if used and all(c == used[0] for c in used) else []
         out += ["LINE\tS\tÿc%s%s" % (code, text) for code, text in cell]
     return out
 

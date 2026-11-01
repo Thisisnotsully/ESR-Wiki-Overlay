@@ -410,12 +410,11 @@ void StatLines(const Row& row, const std::vector<std::string>& labels, const cha
             for (std::size_t c = 0; c < cells.size() && c < labels.size() && shown == nullptr; ++c)
                 if (LabelHasKind(labels[c], kind)) shown = &cells[c];
         } else {  // charms: what every column agrees on
-            bool charmOnly = true;  // a charm-only row: its filled columns
-            for (const std::string& token : row.allowed) if (token != "Charm") charmOnly = false;
+            // Empty columns are kinds of item the row does not allow: only the filled columns are compared.
             std::vector<const Group*> used;
-            for (const Group& cell : cells) if (!charmOnly || !cell.empty()) used.push_back(&cell);
+            for (const Group& cell : cells) if (!cell.empty()) used.push_back(&cell);
             bool agree = !used.empty();
-            for (const Group* cell : used) if (cell->empty() || !SameGroup(*cell, *used[0])) agree = false;
+            for (const Group* cell : used) if (!SameGroup(*cell, *used[0])) agree = false;
             if (agree) shown = used[0];
         }
         if (shown != nullptr) for (const Line& line : *shown) out.push_back(LineOf(line.color, line.text));
