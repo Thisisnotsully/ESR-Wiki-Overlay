@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(ESRWikiOverlay VERSION 1.5.1 LANGUAGES CXX)
+project(ESRWikiOverlay VERSION 1.6.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -245,14 +245,24 @@ if(ESR_WIKI_BUILD_TESTS)
            COMMAND ias_calc_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ias/ias-calculator.html"
                                  "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ias/ias-calculator-data.js"
                                  "${CMAKE_CURRENT_SOURCE_DIR}/tests/ias_cases.tsv")
+
+  # Controller support: PlayStation report layouts, button repeat, tab-grid and on-screen keyboard navigation.
+  add_executable(pad_logic_test tests/pad_logic_test.cpp)
+  target_link_libraries(pad_logic_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(pad_logic_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET pad_logic_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME pad_logic COMMAND pad_logic_test)
 endif()
 
 # Win32 overlay and D2RLoader plugin (Windows only).
 if(WIN32)
   enable_language(RC)
-  add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/cube_updater.cpp src/web_fetch.cpp src/web_pages_updater.cpp src/plugin.rc)
+  add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/cube_updater.cpp src/web_fetch.cpp src/web_pages_updater.cpp src/gamepad.cpp src/input_block.cpp src/plugin.rc)
   target_include_directories(esr_wiki_overlay PRIVATE "${ESR_PLUGIN_SDK_INCLUDE}")
-  target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32 winhttp)
+  target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32 winhttp hid)
   set_target_properties(esr_wiki_overlay PROPERTIES OUTPUT_NAME "d2rl-esr-wiki-overlay" PREFIX "")
 
   # After each successful build, copy the DLL and data into the live mod (see deploy.cmake).

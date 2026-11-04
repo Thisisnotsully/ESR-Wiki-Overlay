@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.5.1
+# ESR Wiki Overlay 1.6.0
 
 A read-only in-game wiki overlay for Eastern Sun Resurrected (ESR) on Diablo II
 Resurrected, loaded by D2RLoader. It has two windows: the ESR Wiki and Horadric Cube Recipes.
@@ -28,6 +28,18 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
 - Press pause or escape and press the ESR Wiki button, or in the Horadric Cube there is a recipe button.
 - Type `eswiki` in the in-game console, or
 - Bind a key to "Open ESR Wiki" in the game's controls (no key is bound by default).
+
+## What is new in 1.6.0
+
+- **Game controller support.** The wiki can be used with a PlayStation controller (DualShock 4, DualSense) or an Xbox controller; it notices the controller by itself and the on-screen help appears to the right of the wiki, matching the controller in use. Using the mouse or keyboard hides it again. Controls (PlayStation names in brackets):
+  - D-pad: highlight a tab (it only opens when you press A (Cross)). Pressing down with no tab below continues into the categories list on the left; up from the first category goes back to the tabs. In the list, up and down pick an entry and left and right turn the list page.
+  - LB / RB (L1 / R1): open the previous / next tab at once. R3: switch between the wiki and the Horadric Cube Recipes window. Start (Options): close the wiki.
+  - Right stick: scroll the entry. RT / LT (R2 / L2): scroll down / up much faster.
+  - Y (Triangle): the on-screen keyboard appears under the search box and the search takes focus. A types the highlighted key, X (Square) clears the search, B (Circle) or Y or the Done key puts the keyboard away without closing the wiki. The keyboard has a second page for accented letters.
+  - Left stick: moves a cursor over the wiki (for the item tooltips and filter buttons); while it was the last thing moved, A (Cross) clicks at the cursor. Clicking the search box with it opens the keyboard.
+  - The help picture is `images\controller_playstation.png` or `images\controller_xbox.png` in the plugin folder; without those files a list of the buttons is drawn instead. A controller used through Steam Input or DS4Windows looks like an Xbox controller to Windows; a file `controller.txt` in the plugin folder containing `playstation` or `xbox` forces which help is shown.
+- The mouse cursor drawn over the wiki now follows the pointer every millisecond instead of about 64 times a second, so it keeps up with the game's own cursor.
+- The pause-menu ESR Wiki button now opens the panel you used last, like the wiki key and the `eswiki` command do. The first time it is the main wiki; after that, if you last used the Horadric Cube Recipes window, that is the one that opens. The page you were reading in each window is kept while the game runs.
 
 ## What is new in 1.5.1
 

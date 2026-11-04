@@ -413,3 +413,145 @@ int OverlayState::RenderCalculator(HDC dc, int top, int scroll, bool draw) {
     }
     return y - origin;
 }
+
+// ---- the calculator with the controller ---------------------------------------------------------------------------------
+
+namespace {
+
+// Whether a list option is the one the setup already has (the same test the list's drawing uses for its gold row).
+bool CalcOptionIsCurrent(const ias::Setup& setup, const std::string& mainType, const std::string& offType, int field,
+                         const CalcOption& option) {
+    switch (field) {
+    case kCalcClass: return option.value == setup.cls;
+    case kCalcForm: return option.value == setup.form;
+    case kCalcSkill: return setup.skill == ias::kSkills[option.value].id;
+    case kCalcMainType: return option.key == mainType;
+    case kCalcMain: return option.value == setup.wep;
+    case kCalcOffType: return option.key == offType;
+    default: return option.value == setup.wep2;
+    }
+}
+
+}  // namespace
+
+// The fields the D-pad can reach, in page order: the drop-downs and number boxes of the last paint.
+static std::vector<const OverlayState::CalcHit*> CalcFieldsOf(const std::vector<OverlayState::CalcHit>& hits) {
+    std::vector<const OverlayState::CalcHit*> fields;
+    for (const OverlayState::CalcHit& hit : hits)
+        if (hit.kind == 0 || hit.kind == 1) fields.push_back(&hit);
+    return fields;
+}
+
+void OverlayState::PadEnterCalc() {
+    const auto fields = CalcFieldsOf(calcHits);
+    if (fields.empty()) return;
+    padZone = PadZone::Calc;
+    calcOpen = -1;
+    calcNumFocus = -1;
+    calcPadKind = fields.front()->kind;
+    calcPadId = fields.front()->index;
+    CalcPadReveal();
+}
+
+// Scrolls the page so the highlighted field is in view (the rectangle is from the last paint).
+void OverlayState::CalcPadReveal() {
+    RECT r{};
+    if (!CalcPadRect(r)) return;
+    const int margin = S(8);
+    int delta = 0;
+    if (r.top < layout.detail.top + margin) delta = r.top - (layout.detail.top + margin);
+    else if (r.bottom > layout.detail.bottom - margin) delta = r.bottom - (layout.detail.bottom - margin);
+    if (delta == 0) return;
+    PageView& view = CurrentView();
+    view.detailScroll = std::clamp(view.detailScroll + delta, 0, std::max(0, scrollTotal - scrollVisible));
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+bool OverlayState::CalcPadRect(RECT& out) const {
+    if (calcOpen >= 0) {  // the open list: its highlighted row
+        for (const CalcHit& hit : calcHits)
+            if (hit.kind == 2 && hit.index == calcPadOption) { out = hit.rect; return true; }
+        return false;
+    }
+    for (const CalcHit& hit : calcHits)
+        if (hit.kind == calcPadKind && hit.index == calcPadId && (hit.kind == 0 || hit.kind == 1)) { out = hit.rect; return true; }
+    return false;
+}
+
+void OverlayState::CalcPadMove(int dx, int dy) {
+    if (!CalcActive()) { padZone = PadZone::List; return; }
+    if (calcOpen >= 0 && calcData) {  // up and down walk the open list
+        const int count = static_cast<int>(CalcOptionsFor(*calcData, calcSetup, calcOpen, calcMainType, calcOffType).size());
+        if (count == 0) return;
+        calcPadOption = std::clamp(calcPadOption + dy, 0, count - 1);
+        if (calcPadOption < calcListScroll) calcListScroll = calcPadOption;
+        if (calcPadOption >= calcListScroll + 9) calcListScroll = calcPadOption - 8;
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
+    const auto fields = CalcFieldsOf(calcHits);
+    if (fields.empty()) { padZone = PadZone::List; return; }
+    int index = 0;
+    for (std::size_t i = 0; i < fields.size(); ++i)
+        if (fields[i]->kind == calcPadKind && fields[i]->index == calcPadId) index = static_cast<int>(i);
+    if (dy != 0) {
+        if (index + dy < 0) { padZone = PadZone::List; return; }  // up from the first field: back to the categories
+        index = std::min(index + dy, static_cast<int>(fields.size()) - 1);
+        calcPadKind = fields[static_cast<std::size_t>(index)]->kind;
+        calcPadId = fields[static_cast<std::size_t>(index)]->index;
+        calcNumFocus = -1;
+        calcHold = 0;
+        CalcPadReveal();
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
+    if (dx == 0) return;
+    if (calcPadKind == 1) {  // left and right change a number; holding speeds it up
+        const ULONGLONG now = GetTickCount64();
+        calcHold = now - calcHoldAt > 400 ? 1 : calcHold + 1;
+        calcHoldAt = now;
+        int* value = CalcNumber(calcPadId);
+        *value = std::clamp(*value + dx * esrwiki::pad::NumberStep(calcHold), -1000, 9999);
+        calcNumFocus = -1;
+        InvalidateRect(window, nullptr, FALSE);
+    } else if (dx < 0) {
+        padZone = PadZone::List;  // left from a drop-down: back to the categories
+    }
+}
+
+void OverlayState::CalcPadConfirm() {
+    if (!CalcActive() || !calcData) return;
+    if (calcOpen >= 0) {  // choose the highlighted row
+        const auto options = CalcOptionsFor(*calcData, calcSetup, calcOpen, calcMainType, calcOffType);
+        if (calcPadOption >= 0 && static_cast<std::size_t>(calcPadOption) < options.size())
+            CalcChoose(calcOpen, options[static_cast<std::size_t>(calcPadOption)]);
+        calcOpen = -1;
+        return;
+    }
+    if (calcPadKind != 0) return;  // a number is changed with Left and Right
+    const auto options = CalcOptionsFor(*calcData, calcSetup, calcPadId, calcMainType, calcOffType);
+    if (options.empty()) return;
+    calcOpen = calcPadId;
+    calcNumFocus = -1;
+    calcPadOption = 0;  // start on the option the setup has now
+    for (std::size_t i = 0; i < options.size(); ++i)
+        if (CalcOptionIsCurrent(calcSetup, calcMainType, calcOffType, calcPadId, options[i])) calcPadOption = static_cast<int>(i);
+    const int visible = std::min(static_cast<int>(options.size()), 9);
+    calcListScroll = std::clamp(calcPadOption - 4, 0, std::max(0, static_cast<int>(options.size()) - visible));
+}
+
+// B: an open list closes first. Returns false when nothing was open (the caller leaves the calculator).
+bool OverlayState::CalcPadBack() {
+    if (calcOpen < 0) return false;
+    calcOpen = -1;
+    InvalidateRect(window, nullptr, FALSE);
+    return true;
+}
+
+// X on a number sets it to 0. Returns false on anything else, so X clears the search as it does elsewhere.
+bool OverlayState::CalcPadClear() {
+    if (calcOpen >= 0 || calcPadKind != 1) return false;
+    *CalcNumber(calcPadId) = 0;
+    InvalidateRect(window, nullptr, FALSE);
+    return true;
+}

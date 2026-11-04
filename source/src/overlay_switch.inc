@@ -30,6 +30,10 @@ void OverlayState::BeginSwitch(const std::function<void()>& onSwitch) {
     open = false;
     EndDrag();
     ClearHover();
+    if (onSwitch && padActive) {  // switched with the controller: the other panel starts in controller mode, help up
+        gPadHandoffKind = static_cast<int>(padKind);
+        gPadHandoffAt = GetTickCount64();
+    }
     if (onSwitch) {
         handingOff = true;
         gHandoffActive = true;

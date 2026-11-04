@@ -90,4 +90,15 @@ foreach(_dir IN LISTS _locale_dirs)
   endif()
 endforeach()
 
+# Sprites in subfolders (images/controller/<ps4|xbox>/*.png) keep their folders.
+file(GLOB_RECURSE _sub_pngs RELATIVE "${SRC_DATA}/images" "${SRC_DATA}/images/*/*.png")
+foreach(_rel IN LISTS _sub_pngs)
+  get_filename_component(_dir "${_rel}" DIRECTORY)
+  file(MAKE_DIRECTORY "${_dest_images}/${_dir}")
+  file(COPY_FILE "${SRC_DATA}/images/${_rel}" "${_dest_images}/${_rel}" RESULT _result ONLY_IF_DIFFERENT)
+  if(_result EQUAL 0)
+    math(EXPR _copied "${_copied} + 1")
+  endif()
+endforeach()
+
 message(STATUS "ESR Wiki overlay deployed to ${DEST} (DLL, wiki-data.txt, ${_copied} images, ${_locales} locales)")

@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.5.1 (source)
+# ESR Wiki Overlay 1.6.0 (source)
 
 Source for the ESR Wiki overlay plugin for Diablo II Resurrected (Eastern Sun Resurrected),
 loaded by D2RLoader. It contains the C++ overlay, the Python tools that generate its data,
@@ -235,6 +235,12 @@ port changed. `tests/ias_calc_test.cpp` checks the port against the page's scrip
 (hand-written labels), `wiki-data.txt` and `cube-wiki-data.txt` (offline fallbacks). In game the pages are rebuilt from the
 localized website pages (`locale_align.cpp`, `locale_live.cpp`). `deploy.cmake` and the install rules copy the folder; see
 `overlay/LOCALIZATION-NOTES.md` for the method and for what was and was not checked in the game (zhCN, zhTW and jaJP were not).
+
+## Game controller
+`src/pad_logic.hpp` (no Windows code: PlayStation report layouts, button repeat, tab-grid and on-screen keyboard
+navigation; tested by `tests/pad_logic_test.cpp`) and `src/gamepad.cpp` (XInput, and PlayStation controllers read from
+their HID device with the overlay's own handle, so nothing the game opened or registered is touched). The behaviour
+(focus zones, buttons, on-screen keyboard, the help picture beside the window) is in `overlay.cpp`, "Controller".
 
 ## Known limits
 

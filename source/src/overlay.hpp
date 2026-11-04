@@ -17,6 +17,8 @@ struct OverlayState;  // window and UI state, defined in overlay.cpp
 
 // The overlay's own labels in the loader's language, from locales\<code>\ui-strings.txt (one "English<TAB>text" line
 // each). Text with no translation is shown in English. UiFormat replaces {0}, {1}, ... with the arguments.
+// The loader's language code (deDE ...), which picks the on-screen keyboard's layout; "" is English.
+void SetKeyboardLocale(const std::string& code);
 std::size_t LoadUiStrings(const std::wstring& path);  // returns how many strings it read
 std::wstring UiText(const std::wstring& english);
 std::wstring UiFormat(const std::wstring& english, const std::vector<std::wstring>& args);
@@ -49,6 +51,7 @@ public:
     void Stop();
     void Toggle();  // show or hide; safe to call from any thread
     void Open();    // show without toggling; safe to call from any thread
+    bool IsShown() const;  // true while the window is visible; safe to call from any thread
     // Replaces the data shown with `next`, which the overlay then owns. Safe to call from any thread; the
     // switch happens on the overlay's own thread. Returns false if the overlay is not running or `next` is empty.
     bool ReplaceDatabase(std::unique_ptr<Database> next);

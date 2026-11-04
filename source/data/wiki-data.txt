@@ -56034,7 +56034,7 @@ FIELD	Soc	4
 FIELD	Gem Type	2
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_armor_armor_light_plate
-BLOCK	1	Mythical Gemstoned Armor	Normal m06	Armor	Mythic	Armor	96
+BLOCK	1	Mythical Gemstoned Armor	Mythic m06	Armor	Mythic	Armor	96
 FIELD	Defense	662-672
 FIELD	Dur	32
 FIELD	FRW	0
@@ -56047,7 +56047,7 @@ FIELD	Soc	6
 FIELD	Gem Type	2
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_armor_armor_studded_leather
-BLOCK	1	Mythical Light Plate	Normal m60	Armor	Mythic	Armor	96
+BLOCK	1	Mythical Light Plate	Mythic m60	Armor	Mythic	Armor	96
 FIELD	Defense	750-761
 FIELD	Dur	60
 FIELD	FRW	1
@@ -56554,7 +56554,7 @@ FIELD	Soc	2
 FIELD	Gem Type	2
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_armor_belt_girdle_h
-BLOCK	1	Mythical Hemp Band	Normal m10	Belt	Mythic	Belt	96
+BLOCK	1	Mythical Hemp Band	Mythic m10	Belt	Mythic	Belt	96
 FIELD	Defense	176-215
 FIELD	Dur	12
 FIELD	FRW	0
@@ -57028,7 +57028,7 @@ FIELD	Soc	3
 FIELD	Gem Type	1
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_armor_circlet_tiara
-BLOCK	1	Mythical Diadem	Normal m20	Circlet	Mythic	Circlet	96
+BLOCK	1	Mythical Diadem	Mythic m20	Circlet	Mythic	Circlet	96
 FIELD	Defense	165-198
 FIELD	Dur	20
 FIELD	FRW	0
@@ -58284,7 +58284,7 @@ FIELD	Gem Type	1
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Druid
 IMG	items_armor_pelt_hawk_helm
-BLOCK	1	Mythical Dream Spirit	Normal m15	Pelt	Mythic	Pelt	96
+BLOCK	1	Mythical Dream Spirit	Mythic m15	Pelt	Mythic	Pelt	96
 FIELD	Defense	231-290
 FIELD	Dur	20
 FIELD	FRW	0
@@ -59472,7 +59472,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	+1 to Bow and Crossbow Skills (Amazon Only) Tinkering Points: (25 to 35) +2 to Bow and Crossbow Skills (Amazon Only) Tinkering Points: (25 to 35) +3 to Bow and Crossbow Skills (Amazon Only) Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
-BLOCK	1	Mythical Matriarchal Bow	Normal m53	Amazon Bow	Mythic	Amazon Bow	96
+BLOCK	1	Mythical Matriarchal Bow	Mythic m53	Amazon Bow	Mythic	Amazon Bow	96
 FIELD	Hands	2H
 FIELD	Damage	38 to 68
 FIELD	Average	53.0 Avg
@@ -59486,7 +59486,7 @@ FIELD	Soc	5
 FIELD	Gem Type	0
 FIELD	Automod	+(3 to 4) to Bow and Crossbow Skills (Amazon Only) Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_stag_bow
-BLOCK	1	Mythical Grand Matron Bow	Normal m54	Amazon Bow	Mythic	Amazon Bow	96
+BLOCK	1	Mythical Grand Matron Bow	Mythic m54	Amazon Bow	Mythic	Amazon Bow	96
 FIELD	Hands	2H
 FIELD	Damage	30 to 88
 FIELD	Average	59.0 Avg
@@ -59500,7 +59500,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	+(3 to 4) to Bow and Crossbow Skills (Amazon Only) Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
-BLOCK	1	Mythical Elven Bow	Normal m55	Amazon Bow	Mythic	Amazon Bow	96
+BLOCK	1	Mythical Elven Bow	Mythic m55	Amazon Bow	Mythic	Amazon Bow	96
 FIELD	Hands	2H
 FIELD	Damage	29 to 86
 FIELD	Average	57.5 Avg
@@ -59564,7 +59564,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+1 to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35) +2 to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35) +3 to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35)
 FIELD	Missile	25 to 64 (44.5 Avg)
 IMG	items_weapon_javelin_maiden_javelin
-BLOCK	1	Mythical Matriarchal Javelin	Normal m31	Amazon Javelin	Mythic	Amazon Javelin	96
+BLOCK	1	Mythical Matriarchal Javelin	Mythic m31	Amazon Javelin	Mythic	Amazon Javelin	96
 FIELD	Hands	1H
 FIELD	Damage	27 to 71
 FIELD	Average	49.0 Avg
@@ -59707,7 +59707,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	+1 to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35) +2 to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35) +3 to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
-BLOCK	1	Mythical Matriarchal Spear	Normal m56	Amazon Spear	Mythic	Amazon Spear	96
+BLOCK	1	Mythical Matriarchal Spear	Mythic m56	Amazon Spear	Mythic	Amazon Spear	96
 FIELD	Hands	2H
 FIELD	Damage	97 to 169
 FIELD	Average	133.0 Avg
@@ -59723,7 +59723,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	+(3 to 4) to Javelin and Spear Skills (Amazon Only) Tinkering Points: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
-BLOCK	1	Mythical Matriarchal Pike	Normal m57	Amazon Spear	Mythic	Amazon Spear	96
+BLOCK	1	Mythical Matriarchal Pike	Mythic m57	Amazon Spear	Mythic	Amazon Spear	96
 FIELD	Hands	2H
 FIELD	Damage	77 to 228
 FIELD	Average	152.5 Avg
@@ -59824,7 +59824,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Damage Reduced by (2 to 4) Magic Damage Reduced by (2 to 4) Tinkering Points: (25 to 35) Damage Reduced by (3 to 6) Magic Damage Reduced by (3 to 6) Tinkering Points: (25 to 35) Damage Reduced by (4 to 8) Magic Damage Reduced by (4 to 8) Tinkering Points: (25 to 35) Damage Reduced by (5 to 10) Magic Damage Reduced by (5 to 10) Tinkering Points: (25 to 35) Damage Reduced by (6 to 12) Magic Damage Reduced by (6 to 12) Tinkering Points: (25 to 35) Damage Reduced by (7 to 14) Magic Damage Reduced by (7 to 14) Tinkering Points: (25 to 35)
 FIELD	Staffmod	Assassin
 IMG	items_weapon_sword_katana
-BLOCK	1	Mythical Katana	Normal m37	Assassin 2H Katana	Mythic	Assassin 2H Katana	96
+BLOCK	1	Mythical Katana	Mythic m37	Assassin 2H Katana	Mythic	Assassin 2H Katana	96
 FIELD	Hands	2H
 FIELD	Damage	97 to 165
 FIELD	Average	131.0 Avg
@@ -60459,7 +60459,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_axe_giant_axe
-BLOCK	1	Mythical Razor Axe	Normal m21	Axe	Mythic	Axe	96
+BLOCK	1	Mythical Razor Axe	Mythic m21	Axe	Mythic	Axe	96
 FIELD	Hands	1H
 FIELD	Damage	45 to 66
 FIELD	Average	55.5 Avg
@@ -60475,7 +60475,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_axe_military_pick
-BLOCK	1	Mythical Slayer Axe	Normal m40	Axe	Mythic	Axe	96
+BLOCK	1	Mythical Slayer Axe	Mythic m40	Axe	Mythic	Axe	96
 FIELD	Hands	2H
 FIELD	Damage	113 to 183
 FIELD	Average	148.0 Avg
@@ -60545,7 +60545,7 @@ FIELD	Automod	+5% Piercing Attack Tinkering Points: (25 to 35) +10% Piercing Att
 FIELD	Staffmod	Barbarian
 FIELD	Missile	29 to 63 (46.0 Avg)
 IMG	items_weapon_axe_barbarian_taxe
-BLOCK	1	Mythical Arreat's Hatchet	Normal m38	Barbarian Javs	Mythic	Barbarian Javs	96
+BLOCK	1	Mythical Arreat's Hatchet	Mythic m38	Barbarian Javs	Mythic	Barbarian Javs	96
 FIELD	Hands	1H
 FIELD	Damage	32 to 70
 FIELD	Average	51.0 Avg
@@ -61000,7 +61000,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_long_war_bow
-BLOCK	1	Mythical Shade Bow	Normal m24	Bow	Mythic	Bow	96
+BLOCK	1	Mythical Shade Bow	Mythic m24	Bow	Mythic	Bow	96
 FIELD	Hands	2H
 FIELD	Damage	36 to 74
 FIELD	Average	55.0 Avg
@@ -61013,7 +61013,7 @@ FIELD	Soc	5
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_long_bow
-BLOCK	1	Mythical Marksman Bow	Normal m01	Bow	Mythic	Bow	96
+BLOCK	1	Mythical Marksman Bow	Mythic m01	Bow	Mythic	Bow	96
 FIELD	Hands	2H
 FIELD	Damage	40 to 76
 FIELD	Average	58.0 Avg
@@ -61027,7 +61027,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_long_battle_bow
-BLOCK	1	Mythical Ancient Bow	Normal m30	Bow	Mythic	Bow	96
+BLOCK	1	Mythical Ancient Bow	Mythic m30	Bow	Mythic	Bow	96
 FIELD	Hands	2H
 FIELD	Damage	32 to 87
 FIELD	Average	59.5 Avg
@@ -61176,7 +61176,7 @@ FIELD	Soc	3
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_club_spiked_club
-BLOCK	1	Mythical Thorned Club	Normal m41	Club	Mythic	Club	96
+BLOCK	1	Mythical Thorned Club	Mythic m41	Club	Mythic	Club	96
 FIELD	Hands	1H
 FIELD	Damage	42 to 69
 FIELD	Average	55.5 Avg
@@ -61552,7 +61552,7 @@ FIELD	Soc	5
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_repeating_crossbow
-BLOCK	1	Mythical Marksman Crossbow	Normal m25	Crossbow	Mythic	Crossbow	96
+BLOCK	1	Mythical Marksman Crossbow	Mythic m25	Crossbow	Mythic	Crossbow	96
 FIELD	Hands	2H
 FIELD	Damage	81 to 136
 FIELD	Average	108.5 Avg
@@ -61567,7 +61567,7 @@ FIELD	Soc	4
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_bow_crossbow
-BLOCK	1	Mythical Odysseus Crossbow	Normal m02	Crossbow	Mythic	Crossbow	96
+BLOCK	1	Mythical Odysseus Crossbow	Mythic m02	Crossbow	Mythic	Crossbow	96
 FIELD	Hands	2H
 FIELD	Damage	83 to 144
 FIELD	Average	113.5 Avg
@@ -61630,7 +61630,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Druid
 IMG	items_weapon_club_druid_club
-BLOCK	1	Mythical Shillelagh	Normal m34	Druid Club	Mythic	Druid Club	96
+BLOCK	1	Mythical Shillelagh	Mythic m34	Druid Club	Mythic	Druid Club	96
 FIELD	Hands	1H
 FIELD	Damage	49 to 66
 FIELD	Average	57.5 Avg
@@ -61857,7 +61857,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_hammer_great_maul
-BLOCK	1	Mythical Ancient Maul	Normal m45	Hammer	Mythic	Hammer	96
+BLOCK	1	Mythical Ancient Maul	Mythic m45	Hammer	Mythic	Hammer	96
 FIELD	Hands	2H
 FIELD	Damage	115 to 176
 FIELD	Average	145.5 Avg
@@ -61873,7 +61873,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_hammer_maul
-BLOCK	1	Mythical Military Hammer	Normal m44	Hammer	Mythic	Hammer	96
+BLOCK	1	Mythical Military Hammer	Mythic m44	Hammer	Mythic	Hammer	96
 FIELD	Hands	1H
 FIELD	Damage	54 to 78
 FIELD	Average	66.0 Avg
@@ -61889,7 +61889,7 @@ FIELD	Soc	5
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_hammer_war_hammer
-BLOCK	1	Mythical Titan's Maul	Normal m03	Hammer	Mythic	Hammer	96
+BLOCK	1	Mythical Titan's Maul	Mythic m03	Hammer	Mythic	Hammer	96
 FIELD	Hands	2H
 FIELD	Damage	118 to 186
 FIELD	Average	152.0 Avg
@@ -62277,7 +62277,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Assassin
 IMG	items_weapon_h2h_hatchet_hands
-BLOCK	1	Mythical Runic Talons	Normal m58	Hand to Hand 2	Mythic	Hand to Hand 2	96
+BLOCK	1	Mythical Runic Talons	Mythic m58	Hand to Hand 2	Mythic	Hand to Hand 2	96
 FIELD	Hands	1H
 FIELD	Damage	37 to 64
 FIELD	Average	50.5 Avg
@@ -62294,7 +62294,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Assassin
 IMG	items_weapon_h2h_claws
-BLOCK	1	Mythical Scissors Suwayyah	Normal m13	Hand to Hand 2	Mythic	Hand to Hand 2	96
+BLOCK	1	Mythical Scissors Suwayyah	Mythic m13	Hand to Hand 2	Mythic	Hand to Hand 2	96
 FIELD	Hands	1H
 FIELD	Damage	44 to 68
 FIELD	Average	56.0 Avg
@@ -62644,7 +62644,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+5% Piercing Attack Tinkering Points: (25 to 35) +10% Piercing Attack Tinkering Points: (25 to 35) +15% Piercing Attack Tinkering Points: (25 to 35) +20% Piercing Attack Tinkering Points: (25 to 35) +25% Piercing Attack Tinkering Points: (25 to 35)
 FIELD	Missile	23 to 67 (45.0 Avg)
 IMG	items_weapon_javelin_throwing_spear
-BLOCK	1	Mythical Ancient Shards	Normal m33	Javelin	Mythic	Javelin	96
+BLOCK	1	Mythical Ancient Shards	Mythic m33	Javelin	Mythic	Javelin	96
 FIELD	Hands	1H
 FIELD	Damage	32 to 63
 FIELD	Average	47.5 Avg
@@ -62661,7 +62661,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+35% Piercing Attack Tinkering Points: (25 to 35)
 FIELD	Missile	32 to 63 (47.5 Avg)
 IMG	items_weapon_javelin_javelin
-BLOCK	1	Mythical Whale Hunter	Normal m28	Javelin	Mythic	Javelin	96
+BLOCK	1	Mythical Whale Hunter	Mythic m28	Javelin	Mythic	Javelin	96
 FIELD	Hands	1H
 FIELD	Damage	25 to 74
 FIELD	Average	49.5 Avg
@@ -62678,7 +62678,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+5% Piercing Attack Tinkering Points: (25 to 35) +10% Piercing Attack Tinkering Points: (25 to 35) +15% Piercing Attack Tinkering Points: (25 to 35) +20% Piercing Attack Tinkering Points: (25 to 35) +25% Piercing Attack Tinkering Points: (25 to 35)
 FIELD	Missile	25 to 74 (49.5 Avg)
 IMG	items_weapon_javelin_throwing_spear
-BLOCK	1	Mythical Whale Hunter	Normal m32	Javelin	Mythic	Javelin	96
+BLOCK	1	Mythical Whale Hunter	Mythic m32	Javelin	Mythic	Javelin	96
 FIELD	Hands	1H
 FIELD	Damage	25 to 74
 FIELD	Average	49.5 Avg
@@ -62974,7 +62974,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Warlock
 IMG	items_weapon_knife_blade
-BLOCK	1	Mythical Ancient Spike	Normal m47	Knife	Mythic	Knife	96
+BLOCK	1	Mythical Ancient Spike	Mythic m47	Knife	Mythic	Knife	96
 FIELD	Hands	1H
 FIELD	Damage	45 to 68
 FIELD	Average	56.5 Avg
@@ -63080,7 +63080,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_h2h_arm
-BLOCK	1	Mythical Raging Knuckle	Normal m51	Knuckle	Mythic	Knuckle	96
+BLOCK	1	Mythical Raging Knuckle	Mythic m51	Knuckle	Mythic	Knuckle	96
 FIELD	Hands	1H
 FIELD	Damage	44 to 65
 FIELD	Average	54.5 Avg
@@ -63095,7 +63095,7 @@ FIELD	Soc	3
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_h2h_brass_knuckle
-BLOCK	1	Mythical Wrecking Arm	Normal m52	Knuckle	Mythic	Knuckle	96
+BLOCK	1	Mythical Wrecking Arm	Mythic m52	Knuckle	Mythic	Knuckle	96
 FIELD	Hands	2H
 FIELD	Damage	106 to 157
 FIELD	Average	131.5 Avg
@@ -63296,7 +63296,7 @@ FIELD	Soc	5
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_mace_flail
-BLOCK	1	Mythical Dire Flail	Normal m43	Mace	Mythic	Mace	96
+BLOCK	1	Mythical Dire Flail	Mythic m43	Mace	Mythic	Mace	96
 FIELD	Hands	1H
 FIELD	Damage	27 to 82
 FIELD	Average	54.5 Avg
@@ -63360,7 +63360,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Adds 8 Poison Damage to Attacks over 2 Seconds +(1 to 3)% to Poison Spell Damage Tinkering Points: (25 to 35) Adds 15 Poison Damage to Attacks over 2 Seconds +(2 to 5)% to Poison Spell Damage Tinkering Points: (25 to 35) Adds 30 Poison Damage to Attacks over 2 Seconds +(4 to 8)% to Poison Spell Damage Tinkering Points: (25 to 35) Adds 60 Poison Damage to Attacks over 2 Seconds +(6 to 11)% to Poison Spell Damage Tinkering Points: (25 to 35) Adds 90 Poison Damage to Attacks over 2 Seconds +(10 to 13)% to Poison Spell Damage Tinkering Points: (25 to 35) Adds 120 Poison Damage to Attacks over 2 Seconds +(11 to 14)% to Poison Spell Damage Tinkering Points: (25 to 35)
 FIELD	Staffmod	Necromancer
 IMG	items_weapon_knife_ceremonial_dagger
-BLOCK	1	Mythical Ceremonial Dagger	Normal m14	Necromancer Dagger	Mythic	Necromancer Dagger	96
+BLOCK	1	Mythical Ceremonial Dagger	Mythic m14	Necromancer Dagger	Mythic	Necromancer Dagger	96
 FIELD	Hands	1H
 FIELD	Damage	22 to 72
 FIELD	Average	47.0 Avg
@@ -63478,7 +63478,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Necromancer
 IMG	items_weapon_polearm_necroscythe2
-BLOCK	1	Mythical Demonic Scythe	Normal m59	Necromancer Polearm	Mythic	Necromancer Polearm	96
+BLOCK	1	Mythical Demonic Scythe	Mythic m59	Necromancer Polearm	Mythic	Necromancer Polearm	96
 FIELD	Hands	2H
 FIELD	Damage	102 to 152
 FIELD	Average	127.0 Avg
@@ -63495,7 +63495,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Necromancer
 IMG	items_weapon_polearm_necroscythe2
-BLOCK	1	Mythical Soul Destroyer	Normal m05	Necromancer Polearm	Mythic	Necromancer Polearm	96
+BLOCK	1	Mythical Soul Destroyer	Mythic m05	Necromancer Polearm	Mythic	Necromancer Polearm	96
 FIELD	Hands	2H
 FIELD	Damage	95 to 175
 FIELD	Average	135.0 Avg
@@ -63767,7 +63767,7 @@ FIELD	Gem Type	1
 FIELD	Automod	+(1 to 5) to Life Tinkering Points: (25 to 35) +(6 to 10) to Life Tinkering Points: (25 to 35) +(11 to 20) to Life Tinkering Points: (25 to 35) +(21 to 30) to Life Tinkering Points: (25 to 35) +(31 to 40) to Life Tinkering Points: (25 to 35) +(41 to 60) to Life Tinkering Points: (25 to 35) +(1 to 5) to Mana Tinkering Points: (25 to 35) +(5 to 10) to Mana Tinkering Points: (25 to 35) +(11 to 20) to Mana Tinkering Points: (25 to 35) +(21 to 30) to Mana Tinkering Points: (25 to 35) +(31 to 40) to Mana Tinkering Points: (25 to 35) +(41 to 60) to Mana Tinkering Points: (25 to 35) +(61 to 80) to Mana Tinkering Points: (25 to 35)
 FIELD	Staffmod	Sorceress
 IMG	items_weapon_orb_dragon_stone
-BLOCK	1	Mythical Dimensional Shard	Normal m07	Orb	Mythic	Orb	96
+BLOCK	1	Mythical Dimensional Shard	Mythic m07	Orb	Mythic	Orb	96
 FIELD	Hands	1H
 FIELD	Damage	46 to 68
 FIELD	Average	57.0 Avg
@@ -63836,7 +63836,7 @@ FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Paladin
 FIELD	Two-Handed	82 to 164 (123.0 Avg)
 IMG	items_weapon_sword_paladin_sword
-BLOCK	1	Mythical Celestial Sword	Normal m35	Paladin Sword	Mythic	Paladin Sword	96
+BLOCK	1	Mythical Celestial Sword	Mythic m35	Paladin Sword	Mythic	Paladin Sword	96
 FIELD	Hands	1H
 FIELD	Damage	37 to 75
 FIELD	Average	56.0 Avg
@@ -64285,7 +64285,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_polearm_war_scythe
-BLOCK	1	Mythical Death Reaper	Normal m49	Polearm	Mythic	Polearm	96
+BLOCK	1	Mythical Death Reaper	Mythic m49	Polearm	Mythic	Polearm	96
 FIELD	Hands	2H
 FIELD	Damage	95 to 177
 FIELD	Average	136.0 Avg
@@ -64562,7 +64562,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Paladin
 IMG	items_weapon_scepter_war_scepter
-BLOCK	1	Mythical Celestial Scepter	Normal m17	Scepter	Mythic	Scepter	96
+BLOCK	1	Mythical Celestial Scepter	Mythic m17	Scepter	Mythic	Scepter	96
 FIELD	Hands	1H
 FIELD	Damage	45 to 70
 FIELD	Average	57.5 Avg
@@ -64578,7 +64578,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Paladin
 IMG	items_weapon_scepter_scepter
-BLOCK	1	Mythical Seraphic Scepter	Normal m12	Scepter	Mythic	Scepter	96
+BLOCK	1	Mythical Seraphic Scepter	Mythic m12	Scepter	Mythic	Scepter	96
 FIELD	Hands	1H
 FIELD	Damage	42 to 64
 FIELD	Average	53.0 Avg
@@ -64595,7 +64595,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Paladin
 IMG	items_weapon_scepter_great_scepter
-BLOCK	1	Mythical Blessed Scepter	Normal m42	Scepter	Mythic	Scepter	96
+BLOCK	1	Mythical Blessed Scepter	Mythic m42	Scepter	Mythic	Scepter	96
 FIELD	Hands	1H
 FIELD	Damage	45 to 68
 FIELD	Average	56.5 Avg
@@ -64659,7 +64659,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35) Tinkering Points: (25 to 35) Tinkering Points: (25 to 35) Tinkering Points: (25 to 35) Tinkering Points: (25 to 35)
 FIELD	Missile	45 to 46 (45.5 Avg)
 IMG	items_weapon_knife_shuriken
-BLOCK	1	Mythical Kagekiri	Normal m39	Shuriken	Mythic	Shuriken	96
+BLOCK	1	Mythical Kagekiri	Mythic m39	Shuriken	Mythic	Shuriken	96
 FIELD	Hands	1H
 FIELD	Damage	50 to 51
 FIELD	Average	50.5 Avg
@@ -64726,7 +64726,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Sorceress
 IMG	items_weapon_sword_mana_blade
-BLOCK	1	Mythical Magic Blade	Normal m09	Sorceress Mana Blade	Mythic	Sorceress Mana Blade	96
+BLOCK	1	Mythical Magic Blade	Mythic m09	Sorceress Mana Blade	Mythic	Sorceress Mana Blade	96
 FIELD	Hands	1H
 FIELD	Damage	40 to 72
 FIELD	Average	56.0 Avg
@@ -65054,7 +65054,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_spear_pike
-BLOCK	1	Mythical Impaler	Normal m48	Spear	Mythic	Spear	96
+BLOCK	1	Mythical Impaler	Mythic m48	Spear	Mythic	Spear	96
 FIELD	Hands	2H
 FIELD	Damage	81 to 224
 FIELD	Average	152.5 Avg
@@ -65488,7 +65488,7 @@ FIELD	Gem Type	1
 FIELD	Automod	+1 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +2 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +3 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +1 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +2 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +3 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +1 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35) +2 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35) +3 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35)
 FIELD	Staffmod	Sorceress
 IMG	items_weapon_staff_war_staff
-BLOCK	1	Mythical Mystic Staff	Normal m50	Staff	Mythic	Staff	96
+BLOCK	1	Mythical Mystic Staff	Mythic m50	Staff	Mythic	Staff	96
 FIELD	Hands	2H
 FIELD	Damage	110 to 166
 FIELD	Average	138.0 Avg
@@ -65504,7 +65504,7 @@ FIELD	Gem Type	1
 FIELD	Automod	+4 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35)
 FIELD	Staffmod	Sorceress
 IMG	items_weapon_staff_long_staff
-BLOCK	1	Mythical Petrified Staff	Normal m29	Staff	Mythic	Staff	96
+BLOCK	1	Mythical Petrified Staff	Mythic m29	Staff	Mythic	Staff	96
 FIELD	Hands	2H
 FIELD	Damage	112 to 181
 FIELD	Average	146.5 Avg
@@ -65521,7 +65521,7 @@ FIELD	Gem Type	1
 FIELD	Automod	+4 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35)
 FIELD	Staffmod	Sorceress
 IMG	items_weapon_staff_gnarled_staff
-BLOCK	1	Mythical Mage Staff	Normal m36	Staff	Mythic	Staff	96
+BLOCK	1	Mythical Mage Staff	Mythic m36	Staff	Mythic	Staff	96
 FIELD	Hands	2H
 FIELD	Damage	101 to 171
 FIELD	Average	136.0 Avg
@@ -65538,7 +65538,7 @@ FIELD	Gem Type	1
 FIELD	Automod	+4 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Fire Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Lightning Skills (Sorceress Only) Tinkering Points: (25 to 35) +4 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35) +5 to Cold Skills (Sorceress Only) Tinkering Points: (25 to 35)
 FIELD	Staffmod	Sorceress
 IMG	items_weapon_staff_battle_staff
-BLOCK	1	Mythical Arcane Staff	Normal m11	Staff	Mythic	Staff	96
+BLOCK	1	Mythical Arcane Staff	Mythic m11	Staff	Mythic	Staff	96
 FIELD	Hands	2H
 FIELD	Damage	105 to 176
 FIELD	Average	140.5 Avg
@@ -66520,7 +66520,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Two-Handed	91 to 154 (122.5 Avg)
 IMG	items_weapon_sword_long_sword
-BLOCK	1	Mythical Rapier	Normal m16	Sword	Mythic	Sword	96
+BLOCK	1	Mythical Rapier	Mythic m16	Sword	Mythic	Sword	96
 FIELD	Hands	1H
 FIELD	Damage	44 to 65
 FIELD	Average	54.5 Avg
@@ -66536,7 +66536,7 @@ FIELD	Soc	3
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_sword_saber
-BLOCK	1	Mythical Jeweled Edge	Normal m46	Sword	Mythic	Sword	96
+BLOCK	1	Mythical Jeweled Edge	Mythic m46	Sword	Mythic	Sword	96
 FIELD	Hands	1H
 FIELD	Damage	40 to 59
 FIELD	Average	49.5 Avg
@@ -66552,7 +66552,7 @@ FIELD	Soc	6
 FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 IMG	items_weapon_sword_crystal_sword
-BLOCK	1	Mythical Hellfire Sword	Normal m22	Sword	Mythic	Sword	96
+BLOCK	1	Mythical Hellfire Sword	Mythic m22	Sword	Mythic	Sword	96
 FIELD	Hands	1H
 FIELD	Damage	42 to 81
 FIELD	Average	61.5 Avg
@@ -66569,7 +66569,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Two-Handed	100 to 196 (148.0 Avg)
 IMG	items_weapon_sword_flamberge
-BLOCK	1	Mythical Death Blade	Normal m18	Sword	Mythic	Sword	96
+BLOCK	1	Mythical Death Blade	Mythic m18	Sword	Mythic	Sword	96
 FIELD	Hands	1H
 FIELD	Damage	44 to 76
 FIELD	Average	60.0 Avg
@@ -66586,7 +66586,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Two-Handed	104 to 180 (142.0 Avg)
 IMG	items_weapon_sword_great_sword
-BLOCK	1	Mythical Death Blade	Normal dd1	Sword	Mythic	Sword	96
+BLOCK	1	Mythical Death Blade	Mythic dd1	Sword	Mythic	Sword	96
 FIELD	Hands	1H
 FIELD	Damage	44 to 76
 FIELD	Average	60.0 Avg
@@ -66732,7 +66732,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+5% Piercing Attack Tinkering Points: (25 to 35) +10% Piercing Attack Tinkering Points: (25 to 35) +15% Piercing Attack Tinkering Points: (25 to 35) +20% Piercing Attack Tinkering Points: (25 to 35) +25% Piercing Attack Tinkering Points: (25 to 35)
 FIELD	Missile	24 to 62 (43.0 Avg)
 IMG	items_weapon_axe_balanced_axe
-BLOCK	1	Mythical Balanced Hatchet	Normal m26	Throwing Axe	Mythic	Throwing Axe	96
+BLOCK	1	Mythical Balanced Hatchet	Mythic m26	Throwing Axe	Mythic	Throwing Axe	96
 FIELD	Hands	1H
 FIELD	Damage	26 to 68
 FIELD	Average	47.0 Avg
@@ -66872,7 +66872,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+5% Piercing Attack Tinkering Points: (25 to 35) +10% Piercing Attack Tinkering Points: (25 to 35) +15% Piercing Attack Tinkering Points: (25 to 35) +20% Piercing Attack Tinkering Points: (25 to 35) +25% Piercing Attack Tinkering Points: (25 to 35)
 FIELD	Missile	25 to 60 (42.5 Avg)
 IMG	items_weapon_knife_balanced_knife
-BLOCK	1	Mythical Balanced Dagger	Normal m08	Throwing Knife	Mythic	Throwing Knife	96
+BLOCK	1	Mythical Balanced Dagger	Mythic m08	Throwing Knife	Mythic	Throwing Knife	96
 FIELD	Hands	1H
 FIELD	Damage	27 to 66
 FIELD	Average	46.5 Avg
@@ -66888,7 +66888,7 @@ FIELD	Gem Type	0
 FIELD	Automod	+5% Piercing Attack Tinkering Points: (25 to 35) +10% Piercing Attack Tinkering Points: (25 to 35) +15% Piercing Attack Tinkering Points: (25 to 35) +20% Piercing Attack Tinkering Points: (25 to 35) +25% Piercing Attack Tinkering Points: (25 to 35)
 FIELD	Missile	27 to 66 (46.5 Avg)
 IMG	items_weapon_knife_balanced_knife
-BLOCK	1	Mythical Balanced Dagger	Normal m27	Throwing Knife	Mythic	Throwing Knife	96
+BLOCK	1	Mythical Balanced Dagger	Mythic m27	Throwing Knife	Mythic	Throwing Knife	96
 FIELD	Hands	1H
 FIELD	Damage	28 to 66
 FIELD	Average	47.0 Avg
@@ -66955,7 +66955,7 @@ FIELD	Gem Type	0
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Warlock
 IMG	items_weapon_sword_warlock_blade
-BLOCK	1	Mythical Abyssal Blade	Normal m61	Voidblade	Mythic	Voidblade	96
+BLOCK	1	Mythical Abyssal Blade	Mythic m61	Voidblade	Mythic	Voidblade	96
 FIELD	Hands	2H
 FIELD	Damage	134 to 135
 FIELD	Average	134.5 Avg
@@ -67214,7 +67214,7 @@ FIELD	Gem Type	1
 FIELD	Automod	Tinkering Points: (25 to 35)
 FIELD	Staffmod	Necromancer
 IMG	items_weapon_wand_grim_wand
-BLOCK	1	Mythical Sepulcher Wand	Normal m23	Wand	Mythic	Wand	96
+BLOCK	1	Mythical Sepulcher Wand	Mythic m23	Wand	Mythic	Wand	96
 FIELD	Hands	1H
 FIELD	Damage	47 to 75
 FIELD	Average	61.0 Avg
@@ -67230,7 +67230,7 @@ FIELD	Gem Type	1
 FIELD	Automod	+(5 to 10)% to Summon Damage Tinkering Points: (25 to 35)
 FIELD	Staffmod	Necromancer
 IMG	items_weapon_wand_yew_wand
-BLOCK	1	Mythical Demonic Wand	Normal m04	Wand	Mythic	Wand	96
+BLOCK	1	Mythical Demonic Wand	Mythic m04	Wand	Mythic	Wand	96
 FIELD	Hands	1H
 FIELD	Damage	40 to 62
 FIELD	Average	51.0 Avg
@@ -107032,7 +107032,7 @@ LINE	S	ÿc3+35 to All Attributes
 LINE	S	ÿc3All Resists +60
 LINE	S	ÿc3+10% to Experience Gained
 LINE	S	ÿc3+150% Better Chance of Getting Magic Items
-ENTRY	Paladin	30 items
+ENTRY	Paladin	26 items
 BLOCK	1	Milabrega's Ironsoles		Milabrega's Regalia			1
 FIELD	Set	Milabrega's Regalia
 FIELD	Base	Heavy Boots

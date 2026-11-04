@@ -38,6 +38,7 @@
 #include "web_uniques_live.hpp"
 #include "overlay.hpp"
 #include "wiki_model.hpp"
+#include "input_block.hpp"
 
 extern "C" IMAGE_DOS_HEADER __ImageBase;
 
@@ -49,7 +50,7 @@ constexpr D2RL::PluginInfo EsrOverlayPluginInfo {
     .abiVersion = D2RL_PLUGIN_ABI_VERSION,
     .id = "esr-wiki-overlay",
     .name = "ESR Wiki Overlay",
-    .version = "1.5.1",
+    .version = "1.6.0",
     .author = "Sully",
     .description = "Read-only ESR wiki reference overlay. Open it with the eswiki command, or a key bound in the controls.",
     .flags = D2RL::PluginFlags::Client,
@@ -84,7 +85,7 @@ esrwiki::WebPagesUpdater webLocalizedUpdater;      // keeps the localized wiki i
 esrwiki::WebPagesUpdater webIasUpdater;            // keeps the IAS calculator data in step with the website
 std::mutex webDataMutex;                           // the website updates build on liveWikiData one after another
 std::string liveWikiData;                          // the shipped wiki data with every website page merged in so far
-// Which panel was opened most recently; the wiki key reopens it.
+// Which panel was opened most recently; the wiki key, the console command and the pause-menu button reopen it (the main wiki until another was used).
 enum class LastPanel { Main, Cube };
 LastPanel lastPanel = LastPanel::Main;
 
@@ -397,8 +398,14 @@ SharedEvents::UiMessageAction __cdecl OnUiMessage(const PluginContext* plugin, c
     if (std::strcmp(command, "OpenPanel") == 0 && std::strcmp(text, kOpenSelectorPanel) == 0) {
         if (threads->runOnUiThread(plugin, DoCloseOpenSelector, nullptr) != Threads::Result::Success)
             plugin->LogError("ESR Wiki: failed to queue closing the selector panel.");
-        lastPanel = LastPanel::Main;
-        if (overlay != nullptr) overlay->Open();
+        // The first open is the main wiki; after that the pause-menu button returns to the panel used last
+        // (the same rule as the wiki key and the console command).
+        if (lastPanel == LastPanel::Cube && cubeOverlay != nullptr) {
+            cubeOverlay->Open();
+        } else {
+            lastPanel = LastPanel::Main;
+            if (overlay != nullptr) overlay->Open();
+        }
         return SharedEvents::UiMessageAction::Continue;
     }
 
@@ -531,6 +538,7 @@ void Release() noexcept {
         cubeReady = false;
         pendingCubeData.clear();
     }
+    esrwiki::inputblock::Remove();  // restore the game's controller call before the wiki windows go
     if (cubeOverlay) cubeOverlay->Stop();
     cubeOverlay.reset();
     cubeDatabase.reset();
@@ -574,6 +582,7 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         // The overlay's own labels in the loader's language (locales\<code>\ui-strings.txt); English stays as it is.
         const std::size_t uiStringCount = esrwiki::LoadUiStrings(mainLocale.empty() ? std::wstring()
             : dataDir + L"\\locales\\" + std::wstring(mainLocale.begin(), mainLocale.end()) + L"\\ui-strings.txt");
+        esrwiki::SetKeyboardLocale(mainLocale);
         esrwiki::ias::SetTranslator(&esrwiki::UiTextUtf8);
         esrwiki::DebugLog("loader language: " + (mainLocale.empty() ? std::string("none (English)") : mainLocale) + "; main wiki data: " +
                           (localizedMain ? "translated file" : "English file") + "; UI strings loaded: " + std::to_string(uiStringCount));
@@ -592,6 +601,10 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
         const std::string loaded = "ESR Wiki overlay ready: " + std::to_string(database->pages.size()) +
                                    " pages, " + std::to_string(database->entryCount()) + " entries";
         plugin->LogInfo(loaded.c_str());
+        // Drop controller presses only while a wiki window is visible (see input_block.hpp).
+        esrwiki::inputblock::Install([] {
+            return (overlay != nullptr && overlay->IsShown()) || (cubeOverlay != nullptr && cubeOverlay->IsShown());
+        });
         for (const esrwiki::Page& page : database->pages) {
             esrwiki::DebugLog("page " + page.id + " '" + page.title + "': " + std::to_string(page.entries.size()) + " entries");
         }

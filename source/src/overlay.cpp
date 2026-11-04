@@ -35,6 +35,8 @@
 #include "overlay.hpp"
 #include "debug_log.hpp"
 #include "cursor_art.hpp"
+#include "gamepad.hpp"
+#include "pad_logic.hpp"
 #include <cstdio>
 #include <cwchar>
 #include <cwctype>
@@ -54,7 +56,12 @@ static std::string NarrowForLog(const std::wstring& text) {
 namespace {
 std::map<std::wstring, std::wstring> gUiStrings;  // English text -> the loader language's text
 std::set<std::wstring> gUiValues;  // the translations themselves (text already in the language is not 'missing')
+std::string gKeyboardLocale;  // the loader's language code; the on-screen keyboard's layout follows it
+std::atomic<int> gPadHandoffKind{0};  // the controller kind (esrwiki::pad::Kind) the outgoing panel was showing help for
+std::atomic<ULONGLONG> gPadHandoffAt{0};  // when a panel was switched with the controller (the next panel keeps the help up)
 }
+
+void SetKeyboardLocale(const std::string& code) { gKeyboardLocale = code; }
 
 std::size_t LoadUiStrings(const std::wstring& path) {
     gUiStrings.clear();
@@ -138,6 +145,9 @@ constexpr UINT kMsgOpen = WM_APP + 3;
 constexpr UINT kMsgReload = WM_APP + 4;  // swap in a new database (see Overlay::ReplaceDatabase)
 constexpr UINT_PTR kTimerFocus = 1;
 constexpr UINT_PTR kTimerHandoff = 2;
+constexpr UINT_PTR kTimerPad = 3;           // polls the controller while the wiki is showing
+constexpr UINT kPadInterval = 16;
+constexpr UINT kMsgOpenOsk = WM_APP + 12;   // the search box was clicked while a controller is in use
 constexpr UINT kHandoffPollMs = 8;
 constexpr ULONGLONG kHandoffTimeoutMs = 600;
 // Foreground window to return to, handed from one overlay to the other when switching panels.
@@ -820,6 +830,19 @@ void PlainText(const std::string& text, std::string& plain, COLORREF& color, COL
 
 // A hover target in the detail pane: a rune icon (rune >= 0) or a whole item tile (rune == -1).
 struct DetailHit { RECT rect; const Entry* entry; const Block* block; int rune; };
+// A whole item tile, for moving the controller's highlight from card to card (visible tiles only).
+struct CardHit { RECT rect; const Entry* entry; const Block* block; };
+
+// One line of the controller help: the button's name, what it does, and up to two of the game's own sprites for it.
+struct HelpRow { const wchar_t* button; const wchar_t* action; const char* icon1; const char* icon2; };
+// The help window's rows and the sizes they are drawn at; shared by sizing the window and drawing into it.
+struct HelpMetrics {
+    std::vector<HelpRow> rows;
+    std::wstring heading;
+    float size = 0, line = 0, iconHeight = 0, gap = 0, iconColumn = 0, textX = 0, inset = 0;
+    int width = 0, height = 0;
+    bool picture = false;  // a picture file stands in for the list
+};
 
 // What the pointer is over; only item blocks and their runes ever get a hover.
 struct Hover { const Entry* entry = nullptr; const Block* block = nullptr; int rune = -1; POINT at{0, 0}; RECT target{0, 0, 0, 0}; };
@@ -1045,12 +1068,30 @@ void RenderCursorImage(HWND window) {
 
 // Click-through window that draws the game's cursor at the pointer. It lives on its own thread (CursorThread),
 // so repaints of the wiki cannot delay it.
+// What the UI thread hands to the cursor thread for the left stick, plus the cursor thread's flags. The stick moves the
+// real pointer on the cursor thread (see CursorThread), so the pointer and the drawn cursor that follows it glide.
+struct CursorDrive {
+    std::atomic<float> stickX{0.0f}, stickY{0.0f};  // left stick, -1..1, up is positive
+    std::atomic<bool> driving{false};               // a controller is in use: the stick moves the pointer
+    std::atomic<bool> hidden{false};                // D-pad use hides the drawn cursor until the stick or the mouse moves
+    std::atomic<int> speed{1300};                   // pixels per second at a full push
+    std::atomic<LONG> pointerX{-1}, pointerY{-1};   // where the stick last put the pointer, to tell it from the real mouse
+    std::atomic<ULONGLONG> movedAt{0};              // when it did (GetTickCount64)
+    void Stop() {
+        driving = false;
+        hidden = false;
+        stickX = 0.0f;
+        stickY = 0.0f;
+    }
+};
+thread_local CursorDrive* tCursorDrive = nullptr;  // the cursor thread's own overlay (CursorProc runs on that thread)
+
 LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
     thread_local bool wanted = false;  // the wiki is open; only this thread reads or writes it
     switch (message) {
     case kMsgCursorShow:
         wanted = true;
-        if (!OwnWindowInFront()) return 0;  // the timer shows it once the game is back in front
+        if (!OwnWindowInFront() || (tCursorDrive != nullptr && tCursorDrive->hidden.load())) return 0;  // the timer shows it later
         if (IsWindow(window)) {
             POINT* last = reinterpret_cast<POINT*>(GetWindowLongPtrW(window, GWLP_USERDATA));
             if (last != nullptr) *last = POINT{-1, -1};
@@ -1068,7 +1109,7 @@ LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         if (!wanted && ++polls % 5 == 0) RememberGameCursor();  // about every 40 ms while the wiki is closed
         POINT pointer{};
         const bool inside = !GetCursorPos(&pointer) || PointInCover(pointer);
-        const bool show = wanted && OwnWindowInFront() && inside;
+        const bool show = wanted && OwnWindowInFront() && inside && !(tCursorDrive != nullptr && tCursorDrive->hidden.load());
         if (show && !IsWindowVisible(window)) {
                 POINT* last = reinterpret_cast<POINT*>(GetWindowLongPtrW(window, GWLP_USERDATA));
             if (last != nullptr) *last = POINT{-1, -1};
@@ -1095,6 +1136,14 @@ LRESULT CALLBACK CursorProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     case WM_ERASEBKGND:
         return 1;
     }
+    return DefWindowProcW(window, message, wParam, lParam);
+}
+
+// The controller help picture: it only shows, never takes the mouse or the focus.
+LRESULT CALLBACK HelpProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
+    if (message == WM_NCHITTEST) return HTTRANSPARENT;
+    if (message == WM_MOUSEACTIVATE) return MA_NOACTIVATE;
+    if (message == WM_ERASEBKGND) return 1;
     return DefWindowProcW(window, message, wParam, lParam);
 }
 
@@ -1198,8 +1247,86 @@ struct OverlayState {
     int titleLine = 18;       // line height of fontTitle
     bool trackingMouse = false;
     HWND gameWindow = nullptr;
+
+    // ---- Controller (pad_logic.hpp has the rules, gamepad.hpp reads the devices) ----
+    esrwiki::pad::Gamepad gamepad;
+    esrwiki::pad::Repeater padRepeat;
+    bool padCursorMoved = false;  // the left stick moved the cursor: the next D-pad press starts from what is under it
+    ULONGLONG padGraceUntil = 0;  // after a controller switch the pad may take a moment to open: stay in controller mode
+    bool padRunning = false;   // the poll timer is on and the controller devices are open (the window is showing)
+    bool padActive = false;    // a controller was the last thing used; the mouse or keyboard switches it off
+    // Cards: item tiles in the detail pane; Chips: the filter and sort buttons above them; Calc: the calculator's fields;
+    // Switches: header buttons
+    enum class PadZone { Tabs, List, Cards, Switches, Chips, Calc };
+    PadZone padZone = PadZone::Tabs;
+    std::size_t padChip = 0;   // the filter or sort button the D-pad highlights (an index into layout.chips)
+    int calcPadKind = 0;       // the calculator field the D-pad highlights: 0 drop-down, 1 number
+    int calcPadId = -1;        // and its id
+    int calcPadOption = 0;     // the highlighted row of the open drop-down list
+    int calcHold = 0;          // Left/Right presses in a row on a number, for the step size
+    ULONGLONG calcHoldAt = 0;
+    std::size_t tabFocus = 0;  // the tab highlighted with the D-pad (opened with A)
+    esrwiki::pad::Kind padKind = esrwiki::pad::Kind::None;
+    ULONGLONG padLast = 0;        // time of the previous poll
+    ULONGLONG padMouseUntil = 0;  // the left stick moved the cursor: A clicks at the cursor until this time
+    CursorDrive drive;            // the left stick and the cursor flags, shared with the cursor thread
+    double padScrollCarry = 0;
+    bool oskOpen = false;
+    bool oskAccents = false;
+    int oskRow = 1, oskCol = 0;
+    esrwiki::pad::OskRows oskRows;
+    struct OskHit { RECT rect; int row; int col; };
+    std::vector<OskHit> oskHits;
+    RECT oskRect{};
+    HWND helpWindow = nullptr;  // the controller help picture, right of the wiki
+    std::wstring helpClassName;
+    int helpWidth = 0;
+    esrwiki::pad::Kind helpDrawnKind = esrwiki::pad::Kind::None;
+    int helpDrawnWidth = 0, helpDrawnHeight = 0;
+    void PadSync();
+    void PadTick();
+    void PadDirection(int dx, int dy);
+    void PadConfirm(ULONGLONG now);
+    void PadBack();
+    void PadStepTab(int direction);
+    void PadClickAtCursor();
+    void PadMouseUsed();
+    void PadModeChanged();
+    void OpenOsk();
+    void CloseOsk();
+    void PressOskKey(int row, int col);
+    bool OskClick(int x, int y);
+    void DrawPadFocus(HDC dc);
+    void DrawCardFocus(HDC dc);
+    void PadCardMove(int dx, int dy);
+    void PadEnterCards();
+    void PadEnterSwitches();
+    void PadLeaveCards();
+    void PadFocusFromCursor();
+    void PadEnterChips(int fromX);
+    void PadValidateZone();
+    void PadEnterCalc();
+    void CalcPadMove(int dx, int dy);
+    void CalcPadConfirm();
+    bool CalcPadClear();
+    bool CalcPadBack();
+    bool CalcPadRect(RECT& out) const;
+    void CalcPadReveal();
+    void DrawDetailFocus(HDC dc);
+    void ApplyChip(const Chip& chip);
+    HelpMetrics MeasureHelp(esrwiki::pad::Kind kind);
+    float HelpIconWidth(const std::string& folder, const char* name, float iconHeight);
+    void DrawOsk(HDC dc);
+    void PositionHelp();
+    void RenderHelp();
+    void SyncHelp();
     RECT fittedGameRect{};
     std::vector<DetailHit> detailHits;
+    std::vector<CardHit> cardHits;          // item tiles on screen, rebuilt each paint
+    const Entry* padCardEntry = nullptr;     // the card the D-pad highlights (its tooltip is shown)
+    const Block* padCardBlock = nullptr;
+    int padCardPending = 0;                 // a scroll that was started to find the next card: +1 down, -1 up
+    std::size_t padSwitch = 0;              // the header button the D-pad highlights
     Hover hover;
     int clipTop = 0;        // visible band of the detail content, in client coordinates
     int clipBottom = 0;
@@ -1513,14 +1640,19 @@ void OverlayState::FitToGame() {
     int top = 0;
     int w = S(960);
     int h = S(620);
+    helpWidth = 0;
     if (IsWindow(gameWindow)) {
         const RECT game = GameScreenRect(gameWindow);
         const int cw = game.right - game.left;
         const int ch = game.bottom - game.top;
-        w = std::min(Bounded(cw * 4 / 5, S(960), S(1500)), cw);
-        h = std::min(Bounded(ch * 9 / 10, S(620), S(1000)), ch);
+        // 60% of the game's width and 72% of its height, within the same limits as before: 1920x1080 gives about
+        // 1152x778 (it was 1500x972 and filled the screen); at 4K the limits still apply, so it is unchanged there.
+        w = std::min(Bounded(cw * 3 / 5, S(960), S(1500)), cw);
+        h = std::min(Bounded(ch * 72 / 100, S(620), S(1000)), ch);
         left = game.left + (cw - w) / 2;
         top = game.top + (ch - h) / 2;
+        // The controller help picture sits right of the wiki, where the wiki already is; the wiki does not move.
+        if (padActive) helpWidth = std::clamp(cw * 17 / 100, S(280), S(440));
         fittedGameRect = game;
     } else {
         left = (GetSystemMetrics(SM_CXSCREEN) - w) / 2;
@@ -1553,6 +1685,7 @@ void OverlayState::FitToGame() {
         const RECT edit = SearchEditRect(layout, bodyLine, S(6));
         MoveWindow(search, edit.left, edit.top, edit.right - edit.left, edit.bottom - edit.top, TRUE);
     }
+    PositionHelp();
 }
 
 Gdiplus::Bitmap* OverlayState::FindImage(const std::string& key) {
@@ -1722,6 +1855,10 @@ bool OverlayState::StepWithinEntry(int direction) {
 WNDPROC gSearchProc = nullptr;
 
 LRESULT CALLBACK SearchEditProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
+    if (message == WM_LBUTTONDOWN) {  // a click on the search box with the controller cursor opens the on-screen keyboard
+        auto* owner = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
+        if (owner != nullptr && owner->padActive) PostMessageW(GetParent(hwnd), kMsgOpenOsk, 0, 0);
+    }
     if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_RETURN) {
         if (message == WM_KEYDOWN) {
             auto* self = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
@@ -1888,6 +2025,7 @@ void OverlayState::Show() {
         UpdateWindow(window);  // painted before the outgoing panel is allowed to hide
         gHandoffReady = true;
     }
+    PadSync();
 }
 
 // Called after the other panel has had time to appear: hides this panel and its blocker.
@@ -1917,6 +2055,7 @@ void OverlayState::FinishHandoff() {
     ShowBlocker(false);
     ShowWindow(window, SW_HIDE);
     firstPainted = false;
+    PadSync();
 }
 
 void OverlayState::Hide() {
@@ -1931,6 +2070,7 @@ void OverlayState::Hide() {
     ClearHover();
     ShowBlocker(false);
     ShowWindow(window, SW_HIDE);
+    PadSync();
     if (previousForeground != nullptr && previousForeground != window && IsWindow(previousForeground)) {
         SetForegroundWindow(previousForeground);
     }
@@ -1948,6 +2088,7 @@ void OverlayState::ApplyPendingDatabase() {
     EndDrag();
     ClearHover();
     detailHits.clear();
+    cardHits.clear();
     tableHeightCache.clear();
     arrangeKey = ArrangeKey{};
     ownedDb = std::move(next);
@@ -2011,6 +2152,7 @@ void OverlayState::SyncVisibility() {
             ShowBlocker(false);
             ShowWindow(window, SW_HIDE);
             firstPainted = false;
+            PadSync();
         }
         return;
     }
@@ -2034,6 +2176,7 @@ void OverlayState::SyncVisibility() {
     // Keep keyboard focus here, so the game does not receive keys while the overlay is open.
     const HWND foreground = GetForegroundWindow();
     if (foreground != window && foreground != blocker) SetForegroundWindow(window);
+    PadSync();
 }
 
 void OverlayState::EndDrag() {
@@ -2258,8 +2401,29 @@ void OverlayState::QueryChanged() {
     InvalidateRect(window, nullptr, FALSE);
 }
 
+// A filter or sort button was pressed, by the mouse or the controller.
+void OverlayState::ApplyChip(const Chip& chip) {
+    PageView& view = CurrentView();
+    switch (chip.kind) {
+        case ChipKind::Socket: view.socketFilter = chip.value; break;
+        case ChipKind::Sort: {
+            const BlockSort picked = static_cast<BlockSort>(chip.value);
+            view.sort = (IsRowSort(picked) && view.sort == picked) ? BlockSort::Default : picked;  // again: back to names
+            break;
+        }
+        case ChipKind::Tier: view.tierFilter = chip.text; break;
+        case ChipKind::Family: view.familyFilter = chip.text; break;
+    }
+    view.detailScroll = 0;
+    InvalidateRect(window, nullptr, FALSE);
+}
+
 void OverlayState::HandleClick(int x, int y) {
     PageView& view = CurrentView();
+    if (oskOpen) {
+        if (OskClick(x, y)) return;
+        if (!Inside(layout.search, x, y)) CloseOsk();  // a click anywhere else puts the keyboard away
+    }
     if (!query.empty() && Inside(layout.clearQuery, x, y)) {
         SetWindowTextW(search, L"");
         QueryChanged();
@@ -2290,18 +2454,7 @@ void OverlayState::HandleClick(int x, int y) {
     if (CalcClick(x, y)) return;
     for (const Chip& chip : layout.chips) {
         if (!Inside(chip.rect, x, y)) continue;
-        switch (chip.kind) {
-            case ChipKind::Socket: view.socketFilter = chip.value; break;
-            case ChipKind::Sort: {
-                const BlockSort picked = static_cast<BlockSort>(chip.value);
-                view.sort = (IsRowSort(picked) && view.sort == picked) ? BlockSort::Default : picked;  // again: back to names
-                break;
-            }
-            case ChipKind::Tier: view.tierFilter = chip.text; break;
-            case ChipKind::Family: view.familyFilter = chip.text; break;
-        }
-        view.detailScroll = 0;
-        InvalidateRect(window, nullptr, FALSE);
+        ApplyChip(chip);
         return;
     }
     for (std::size_t i = 0; i < switches.size(); ++i) {
@@ -2339,7 +2492,7 @@ void OverlayState::HandleWheel(int x, int y, int delta) {
     const int steps = delta / WHEEL_DELTA;
     if (Inside(layout.detail, x, y)) {
         if (CalcWheel(x, y, steps)) return;
-        view.detailScroll = std::max(0, view.detailScroll - steps * S(40));
+        view.detailScroll = std::max(0, view.detailScroll - steps * S(60));  // 60 px a notch (was 40, 50% faster)
     } else if (x < layout.detail.left && y >= layout.search.top && !filtered.empty()) {
         // Wheel down selects the next entry, wheel up the previous one.
         const long long target = static_cast<long long>(view.selected) - steps;
@@ -2369,6 +2522,945 @@ void OverlayState::HandleKey(WPARAM key) {
         return;
     }
     InvalidateRect(window, nullptr, FALSE);
+}
+
+// ---- Controller ------------------------------------------------------------------------------------------------
+// While the wiki is showing, the controller is polled every 16 ms. D-pad: highlight (tabs, then the list on the left);
+// A: confirm; B: back; Y: on-screen keyboard; X: clear the search; LB/RB: previous/next tab; right stick: scroll;
+// LT/RT: scroll faster; left stick: move the cursor (A then clicks it); R3: the other panel; Start: close.
+
+void OverlayState::PadSync() {
+    const bool want = IsWindow(window) && IsWindowVisible(window);
+    if (want == padRunning) return;
+    padRunning = want;
+    if (want) {
+        // controller.txt in the plugin folder: "playstation" or "xbox" forces the help picture (a PlayStation
+        // controller used through Steam Input or DS4Windows looks like an Xbox one).
+        esrwiki::pad::Kind forced = esrwiki::pad::Kind::None;
+        std::ifstream file(dataDir + L"\\controller.txt");
+        std::string word;
+        if (file >> word) {
+            for (char& c : word) c = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+            if (word.find("play") != std::string::npos || word.find("sony") != std::string::npos) forced = esrwiki::pad::Kind::PlayStation;
+            else if (word.find("xbox") != std::string::npos) forced = esrwiki::pad::Kind::Xbox;
+        }
+        gamepad.SetKindOverride(forced);
+        gamepad.Start();
+        padRepeat.Reset();
+        padLast = 0;
+        const ULONGLONG switchedAt = gPadHandoffAt.exchange(0);
+        SetTimer(window, kTimerPad, kPadInterval, nullptr);
+        if (switchedAt != 0 && GetTickCount64() - switchedAt < 3000) {
+            // Switched with the controller: this panel is in controller mode from its first frame and its help window
+            // appears at once, in the same place as the outgoing panel's, so nothing flickers when that one hides.
+            padActive = true;
+            padKind = static_cast<esrwiki::pad::Kind>(gPadHandoffKind.load());
+            padZone = PadZone::Tabs;
+            tabFocus = pageIndex;
+            padMouseUntil = 0;
+            padLast = 0;
+            padGraceUntil = GetTickCount64() + 1500;
+            POINT here{};
+            if (GetCursorPos(&here)) {
+                drive.pointerX.store(here.x);
+                drive.pointerY.store(here.y);
+            }
+            drive.hidden.store(false);
+            PadModeChanged();
+        }
+    } else {
+        KillTimer(window, kTimerPad);
+        gamepad.Stop();
+        CloseOsk();
+        padActive = false;
+        padMouseUntil = 0;
+        drive.Stop();
+        SyncHelp();
+    }
+}
+
+// A real mouse or keyboard was used: the controller help goes away until the controller is used again.
+void OverlayState::PadMouseUsed() {
+    if (!padActive) return;
+    padActive = false;
+    drive.Stop();  // the stick lets go of the pointer and the cursor comes back
+    CloseOsk();
+    PadModeChanged();
+}
+
+// The layout reserves room for the help picture while a controller is in use, so it is redone when that changes.
+void OverlayState::PadModeChanged() {
+    FitToGame();
+    SyncHelp();
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::PadTick() {
+    if (!IsWindowVisible(window)) return;
+    using esrwiki::pad::Button;
+    const ULONGLONG now = GetTickCount64();
+    esrwiki::pad::State s;
+    if (!gamepad.Poll(s, now)) {
+        if (padActive && now < padGraceUntil) {  // just switched panels: the controller is still being opened
+            padLast = now;
+            return;
+        }
+        padKind = esrwiki::pad::Kind::None;
+        drive.Stop();
+        if (padActive) {
+            padActive = false;
+            CloseOsk();
+            PadModeChanged();
+        }
+        padLast = now;
+        return;
+    }
+    bool pressed[esrwiki::pad::kButtonCount];
+    bool released[esrwiki::pad::kButtonCount];
+    padRepeat.Step(s, now, pressed, released);
+    const float dt = padLast == 0 ? 0.016f : std::min(0.1f, static_cast<float>(now - padLast) / 1000.0f);
+    padLast = now;
+    if (!padActive) {
+        if (!esrwiki::pad::Active(s)) return;
+        padActive = true;
+        padKind = s.kind;
+        padZone = PadZone::Tabs;
+        tabFocus = pageIndex;
+        padMouseUntil = 0;
+        POINT here{};
+        if (GetCursorPos(&here)) {
+            drive.pointerX.store(here.x);
+            drive.pointerY.store(here.y);
+        }
+        drive.hidden.store(false);
+        PadModeChanged();
+    } else if (s.kind != padKind) {
+        padKind = s.kind;
+        SyncHelp();
+    }
+    const auto press = [&](Button b) { return pressed[static_cast<int>(b)]; };
+    // The directional buttons put the cursor away; the left stick or the mouse brings it back.
+    if (press(Button::Left) || press(Button::Right) || press(Button::Up) || press(Button::Down)) drive.hidden.store(true);
+
+    if (press(Button::Start)) {
+        Hide();
+        return;
+    }
+    bool changed = false;
+    if (oskOpen) {
+        int dx = 0, dy = 0;
+        if (press(Button::Left)) dx = -1;
+        if (press(Button::Right)) dx = 1;
+        if (press(Button::Up)) dy = -1;
+        if (press(Button::Down)) dy = 1;
+        if (dx != 0 || dy != 0) {
+            padMouseUntil = 0;
+            if (padCursorMoved) {  // start from the key under the cursor
+                padCursorMoved = false;
+                POINT at{};
+                if (GetCursorPos(&at) && ScreenToClient(window, &at)) {
+                    for (const OskHit& hit : oskHits) {
+                        if (Inside(hit.rect, at.x, at.y)) {
+                            oskRow = hit.row;
+                            oskCol = hit.col;
+                        }
+                    }
+                }
+            }
+            esrwiki::pad::OskMove(oskRows, oskRow, oskCol, dx, dy);
+            changed = true;
+        }
+        if (press(Button::A)) {
+            if (now < padMouseUntil) PadClickAtCursor();
+            else PressOskKey(oskRow, oskCol);
+            changed = true;
+        }
+        if (press(Button::Y)) CloseOsk();
+        if (press(Button::B)) {  // an empty search: B puts the keyboard away; otherwise it clears the search
+            if (GetWindowTextLengthW(search) == 0) {
+                CloseOsk();
+            } else {
+                SetWindowTextW(search, L"");
+                QueryChanged();
+            }
+            changed = true;
+        }
+        if (press(Button::X)) {  // Square / X deletes one character
+            SendMessageW(search, WM_CHAR, static_cast<WPARAM>(VK_BACK), 0);
+            changed = true;
+        }
+    } else {
+        if (press(Button::Left)) PadDirection(-1, 0);
+        if (press(Button::Right)) PadDirection(1, 0);
+        if (press(Button::Up)) PadDirection(0, -1);
+        if (press(Button::Down)) PadDirection(0, 1);
+        if (press(Button::A)) PadConfirm(now);
+        if (press(Button::B)) PadBack();
+        if (press(Button::Y)) OpenOsk();
+        if (press(Button::X)) {
+            if (!(padZone == PadZone::Calc && CalcPadClear())) {  // on a calculator number X sets it to 0
+                SetWindowTextW(search, L"");
+                QueryChanged();
+            }
+        }
+        if (press(Button::LB)) PadStepTab(-1);
+        if (press(Button::RB)) PadStepTab(1);
+        if (press(Button::R3) && !switches.empty()) {
+            const SwitchButton& other = switches[0];
+            if (!other.current && (!other.available || other.available())) {
+                BeginSwitch(other.onSwitch);
+                return;
+            }
+        }
+    }
+    if (released[static_cast<int>(Button::A)] && dragging) EndDrag();
+
+    // Left stick: the cursor. The cursor thread moves the pointer (see CursorThread), a millisecond at a time and eased,
+    // so it glides; this poll only hands the stick over. Speed grows with the push, so small pushes are precise.
+    drive.speed.store(S(1300));
+    drive.stickX.store(s.lx);
+    drive.stickY.store(s.ly);
+    drive.driving.store(true);
+    if (s.lx != 0.0f || s.ly != 0.0f) {
+        drive.hidden.store(false);  // moving the cursor brings it back after the D-pad put it away
+        padMouseUntil = now + 2500;
+        padCursorMoved = true;
+    }
+
+    // Right stick scrolls; the triggers scroll much faster (RT down, LT up).
+    const auto trigger = [](float value) { return value < 0.12f ? 0.0f : (value - 0.12f) / 0.88f; };
+    const double scrollSpeed = -static_cast<double>(s.ry) * S(700) + (trigger(s.rt) - trigger(s.lt)) * S(2600);
+    if (scrollSpeed != 0.0) {
+        padScrollCarry += scrollSpeed * dt;
+        const int whole = static_cast<int>(padScrollCarry);
+        padScrollCarry -= whole;
+        if (whole != 0) {
+            PageView& view = CurrentView();
+            const int limit = std::max(0, scrollTotal - scrollVisible);
+            const int next = std::clamp(view.detailScroll + whole, 0, limit);
+            if (next != view.detailScroll) {
+                view.detailScroll = next;
+                changed = true;
+            }
+        }
+    }
+    if (changed) InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::PadClickAtCursor() {
+    POINT point{};
+    if (!GetCursorPos(&point)) return;
+    ScreenToClient(window, &point);
+    HandleClick(point.x, point.y);
+}
+
+// LB / RB: the previous / next tab, opened at once.
+void OverlayState::PadStepTab(int direction) {
+    const std::size_t count = database->pages.size();
+    if (count == 0) return;
+    const std::size_t next = (pageIndex + count + static_cast<std::size_t>(direction + static_cast<int>(count))) % count;
+    SetPage(next);
+    tabFocus = next;
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::OpenOsk() {
+    if (oskOpen) return;
+    if (oskRows.empty()) oskRows = esrwiki::pad::OskLayout(oskAccents, gKeyboardLocale);
+    oskOpen = true;
+    oskRow = 1;
+    oskCol = 0;
+    SetFocus(search);
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::CloseOsk() {
+    if (!oskOpen) return;
+    oskOpen = false;
+    oskHits.clear();
+    if (IsWindow(window)) InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::PressOskKey(int row, int col) {
+    if (row < 0 || row >= static_cast<int>(oskRows.size())) return;
+    const auto& keys = oskRows[static_cast<std::size_t>(row)];
+    if (col < 0 || col >= static_cast<int>(keys.size())) return;
+    const esrwiki::pad::OskKey& key = keys[static_cast<std::size_t>(col)];
+    switch (key.kind) {
+    case esrwiki::pad::KeyKind::Char:
+    case esrwiki::pad::KeyKind::Space:
+        SendMessageW(search, WM_CHAR, static_cast<WPARAM>(key.ch), 0);
+        break;
+    case esrwiki::pad::KeyKind::Backspace:
+        SendMessageW(search, WM_CHAR, static_cast<WPARAM>(VK_BACK), 0);
+        break;
+    case esrwiki::pad::KeyKind::Clear:
+        SetWindowTextW(search, L"");
+        QueryChanged();
+        break;
+    case esrwiki::pad::KeyKind::Done:
+        CloseOsk();
+        break;
+    case esrwiki::pad::KeyKind::Accents:
+        oskAccents = !oskAccents;
+        oskRows = esrwiki::pad::OskLayout(oskAccents, gKeyboardLocale);
+        oskRow = std::min(oskRow, static_cast<int>(oskRows.size()) - 1);
+        oskCol = std::min(oskCol, static_cast<int>(oskRows[static_cast<std::size_t>(oskRow)].size()) - 1);
+        break;
+    }
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+// A click on a key of the on-screen keyboard.
+bool OverlayState::OskClick(int x, int y) {
+    if (!oskOpen || !Inside(oskRect, x, y)) return false;
+    for (const OskHit& hit : oskHits) {
+        if (!Inside(hit.rect, x, y)) continue;
+        oskRow = hit.row;
+        oskCol = hit.col;
+        PressOskKey(hit.row, hit.col);
+        break;
+    }
+    return true;
+}
+
+// The bright frame round what the D-pad has highlighted.
+void OverlayState::DrawPadFocus(HDC dc) {
+    // The detail pane's zones are framed after the pane is drawn: DrawCardFocus a card, DrawDetailFocus a button or field.
+    if (!padActive || oskOpen || padZone == PadZone::Cards || padZone == PadZone::Chips || padZone == PadZone::Calc) return;
+    const COLORREF focus = RGB(255, 240, 180);
+    RECT target{};
+    if (padZone == PadZone::Switches) {
+        if (padSwitch >= layout.switchButtons.size()) return;
+        target = layout.switchButtons[padSwitch];
+    } else if (padZone == PadZone::Tabs) {
+        if (tabFocus >= layout.tabs.size()) return;
+        target = layout.tabs[tabFocus];
+    } else {
+        PageView& view = CurrentView();
+        const std::vector<RECT> rows = PageRects(view.listPage);
+        if (view.selected < pageStarts[view.listPage] || view.selected - pageStarts[view.listPage] >= rows.size()) return;
+        target = rows[view.selected - pageStarts[view.listPage]];
+    }
+    for (int grow : {S(1), S(2)}) {
+        FrameColor(dc, Rect(target.left - grow, target.top - grow, target.right + grow, target.bottom + grow), focus);
+    }
+}
+
+// The focus frame for the filter and sort buttons and the calculator's fields. They are inside the detail pane, so this
+// runs after the pane is drawn, with this paint's positions.
+void OverlayState::DrawDetailFocus(HDC dc) {
+    if (!padActive || oskOpen) return;
+    RECT target{};
+    if (padZone == PadZone::Chips) {
+        if (padChip >= layout.chips.size()) return;
+        target = layout.chips[padChip].rect;
+    } else if (padZone == PadZone::Calc) {
+        if (!CalcPadRect(target)) return;
+    } else {
+        return;
+    }
+    const COLORREF focus = RGB(255, 240, 180);
+    const int saved = SaveDC(dc);
+    if (padZone == PadZone::Calc) IntersectClipRect(dc, layout.detail.left + 1, clipTop, layout.detail.right - S(18), clipBottom);
+    else IntersectClipRect(dc, layout.detail.left, layout.detail.top, layout.detail.right, layout.detail.bottom);
+    for (int grow : {S(1), S(2)}) {
+        FrameColor(dc, Rect(target.left - grow, target.top - grow, target.right + grow, target.bottom + grow), focus);
+    }
+    RestoreDC(dc, saved);
+}
+
+// The item card the D-pad highlights: its frame, and its tooltip beside it. It runs after the detail pane is drawn, so
+// it uses this paint's positions. A card that has scrolled out of view gives the focus to a card that is showing.
+void OverlayState::DrawCardFocus(HDC dc) {
+    if (!padActive || oskOpen || padZone != PadZone::Cards) {
+        if (hover.block != nullptr && hover.block == padCardBlock) ClearHover();
+        return;
+    }
+    if (cardHits.empty()) {
+        ClearHover();
+        padCardBlock = nullptr;
+        return;
+    }
+    // While the left stick is steering the pointer the tooltip follows the pointer (HandleMove). Forcing the D-pad's card
+    // back on every paint fought it: each pointer move cleared the tooltip, each repaint put it back, and the repaints
+    // kept the UI thread too busy to poll the controller.
+    if (GetTickCount64() < padMouseUntil) return;
+    const CardHit* focus = nullptr;
+    for (const CardHit& hit : cardHits) {
+        if (hit.block == padCardBlock) {
+            focus = &hit;
+            break;
+        }
+    }
+    if (focus == nullptr) {
+        focus = &cardHits.front();
+        if (padCardPending < 0) {  // scrolled up: take the lowest card that shows
+            for (const CardHit& hit : cardHits) {
+                if (hit.rect.top >= focus->rect.top) focus = &hit;
+            }
+        }
+    }
+    if (padCardPending != 0 && focus->block == padCardBlock) {
+        // The pane scrolled to make room for the next card in that direction, so the highlighted card is still showing
+        // (now further down or up). Step on to the card beyond it instead of staying on it.
+        std::vector<esrwiki::pad::Box> boxes;
+        int index = 0;
+        for (std::size_t i = 0; i < cardHits.size(); ++i) {
+            const RECT& b = cardHits[i].rect;
+            boxes.push_back(esrwiki::pad::Box{b.left, b.top, b.right, b.bottom});
+            if (&cardHits[i] == focus) index = static_cast<int>(i);
+        }
+        const int next = esrwiki::pad::Neighbor(boxes, index, 0, padCardPending);
+        if (next >= 0) focus = &cardHits[static_cast<std::size_t>(next)];
+    }
+    padCardPending = 0;
+    padCardBlock = focus->block;
+    padCardEntry = focus->entry;
+    const RECT r = focus->rect;
+    // A card the D-pad lands on that is cut off by the top or bottom of the pane is scrolled fully into view (a card taller
+    // than the pane lines its top up). The tooltip and frame are drawn on the repaint that follows.
+    {
+        const int margin = S(6);
+        int delta = 0;
+        if (r.top < clipTop + margin) delta = r.top - (clipTop + margin);
+        else if (r.bottom > clipBottom - margin) delta = std::min<int>(r.bottom - (clipBottom - margin), r.top - (clipTop + margin));
+        if (delta != 0) {
+            PageView& view = CurrentView();
+            const int target = std::clamp(view.detailScroll + delta, 0, std::max(0, scrollTotal - scrollVisible));
+            if (target != view.detailScroll) {
+                view.detailScroll = target;
+                InvalidateRect(window, nullptr, FALSE);
+                return;
+            }
+        }
+    }
+    hover.entry = focus->entry;
+    hover.block = focus->block;
+    hover.rune = -1;
+    hover.at = POINT{(r.left + r.right) / 2, r.top};
+    hover.target = r;
+    const COLORREF gold = RGB(255, 240, 180);
+    // A card scrolled partly out of the pane keeps its frame inside the pane, not over the tabs or header.
+    const int saved = SaveDC(dc);
+    // only the band the cards scroll in: not the filter and sort bar above it, nor the tabs
+    IntersectClipRect(dc, layout.detail.left + 1, clipTop, layout.detail.right - S(18), clipBottom);
+    for (int grow : {S(1), S(2)}) {
+        FrameColor(dc, Rect(r.left - grow, r.top - grow, r.right + grow, r.bottom + grow), gold);
+    }
+    RestoreDC(dc, saved);
+}
+
+// Moves the card highlight to the nearest card in that direction. At the left edge it returns to the categories; at
+// the top or bottom edge of what is showing it scrolls the pane a step and carries on with the card it finds there.
+void OverlayState::PadCardMove(int dx, int dy) {
+    if (cardHits.empty()) {
+        PadLeaveCards();
+        padZone = PadZone::List;
+        return;
+    }
+    std::vector<esrwiki::pad::Box> boxes;
+    int current = 0;
+    for (std::size_t i = 0; i < cardHits.size(); ++i) {
+        const RECT& r = cardHits[i].rect;
+        boxes.push_back(esrwiki::pad::Box{r.left, r.top, r.right, r.bottom});
+        if (cardHits[i].block == padCardBlock) current = static_cast<int>(i);
+    }
+    const int next = esrwiki::pad::Neighbor(boxes, current, dx, dy);
+    if (next >= 0) {
+        const CardHit& hit = cardHits[static_cast<std::size_t>(next)];
+        padCardBlock = hit.block;
+        padCardEntry = hit.entry;
+        return;
+    }
+    if (dx < 0) {
+        PadLeaveCards();
+        padZone = PadZone::List;
+        return;
+    }
+    if (dy != 0) {
+        PageView& view = CurrentView();
+        const int step = std::max(S(40), static_cast<int>(layout.detail.bottom - layout.detail.top) * 3 / 4);
+        const int limit = std::max(0, scrollTotal - scrollVisible);
+        const int target = std::clamp(view.detailScroll + dy * step, 0, limit);
+        if (target != view.detailScroll) {
+            view.detailScroll = target;
+            padCardPending = dy;
+        } else if (dy < 0 && !layout.chips.empty()) {  // already at the top: up goes on to the filter and sort buttons
+            const RECT& from = cardHits[static_cast<std::size_t>(current)].rect;
+            const int fromX = (from.left + from.right) / 2;
+            PadLeaveCards();
+            PadEnterChips(fromX);
+        }
+    }
+}
+
+// The filter and sort buttons: the one in the bottom row nearest the card the highlight came from.
+void OverlayState::PadEnterChips(int fromX) {
+    if (layout.chips.empty()) return;
+    LONG lowest = layout.chips.front().rect.top;
+    for (const Chip& chip : layout.chips) lowest = std::max(lowest, chip.rect.top);
+    padChip = 0;
+    int bestDistance = -1;
+    for (std::size_t i = 0; i < layout.chips.size(); ++i) {
+        const RECT& r = layout.chips[i].rect;
+        if (r.top != lowest) continue;
+        const int distance = std::abs((r.left + r.right) / 2 - fromX);
+        if (bestDistance < 0 || distance < bestDistance) {
+            bestDistance = distance;
+            padChip = i;
+        }
+    }
+    padZone = PadZone::Chips;
+}
+
+// A zone the page no longer has (another tab was opened, or the buttons went away) goes back to the categories.
+void OverlayState::PadValidateZone() {
+    if (padZone == PadZone::Chips && layout.chips.empty()) padZone = PadZone::List;
+    if (padZone == PadZone::Calc && (!CalcActive() || calcHits.empty())) padZone = PadZone::List;
+    if (padZone == PadZone::Chips && padChip >= layout.chips.size()) padChip = layout.chips.size() - 1;
+}
+
+void OverlayState::PadEnterCards() {
+    if (cardHits.empty()) return;
+    padZone = PadZone::Cards;
+    padCardBlock = cardHits.front().block;
+    padCardEntry = cardHits.front().entry;
+    padCardPending = 0;
+}
+
+void OverlayState::PadLeaveCards() {
+    if (padCardBlock != nullptr) ClearHover();
+    padCardBlock = nullptr;
+    padCardEntry = nullptr;
+    padCardPending = 0;
+}
+
+// Up from the top row of tabs goes to the header buttons, the one nearest the highlighted tab.
+void OverlayState::PadEnterSwitches() {
+    padZone = PadZone::Switches;
+    padSwitch = 0;
+    if (tabFocus < layout.tabs.size() && !layout.switchButtons.empty()) {
+        const int centre = (layout.tabs[tabFocus].left + layout.tabs[tabFocus].right) / 2;
+        int bestDistance = -1;
+        for (std::size_t i = 0; i < layout.switchButtons.size() && i < switches.size(); ++i) {
+            const RECT& button = layout.switchButtons[i];
+            const int distance = std::abs((button.left + button.right) / 2 - centre);
+            if (bestDistance < 0 || distance < bestDistance) {
+                bestDistance = distance;
+                padSwitch = i;
+            }
+        }
+    }
+}
+
+// After the left stick has moved the cursor, the highlight jumps to whatever is under it, so the D-pad press that follows
+// moves on from there instead of from where the highlight was left.
+void OverlayState::PadFocusFromCursor() {
+    POINT at{};
+    if (!GetCursorPos(&at) || !ScreenToClient(window, &at)) return;
+    const int x = at.x, y = at.y;
+    for (std::size_t i = 0; i < layout.switchButtons.size(); ++i) {
+        if (Inside(layout.switchButtons[i], x, y)) {
+            padZone = PadZone::Switches;
+            padSwitch = i;
+            return;
+        }
+    }
+    for (std::size_t i = 0; i < layout.tabs.size(); ++i) {
+        if (Inside(layout.tabs[i], x, y)) {
+            padZone = PadZone::Tabs;
+            tabFocus = i;
+            return;
+        }
+    }
+    if (CalcActive()) {
+        for (const CalcHit& hit : calcHits) {
+            if ((hit.kind == 0 || hit.kind == 1) && Inside(hit.rect, x, y) && calcOpen < 0) {
+                padZone = PadZone::Calc;
+                calcPadKind = hit.kind;
+                calcPadId = hit.index;
+                return;
+            }
+        }
+    }
+    for (std::size_t i = 0; i < layout.chips.size(); ++i) {
+        if (Inside(layout.chips[i].rect, x, y)) {
+            padZone = PadZone::Chips;
+            padChip = i;
+            return;
+        }
+    }
+    for (const CardHit& hit : cardHits) {
+        if (Inside(hit.rect, x, y) && Inside(layout.detail, x, y)) {
+            padZone = PadZone::Cards;
+            padCardBlock = hit.block;
+            padCardEntry = hit.entry;
+            return;
+        }
+    }
+    PageView& view = CurrentView();
+    const std::vector<RECT> rows = PageRects(view.listPage);
+    for (std::size_t i = 0; i < rows.size(); ++i) {
+        if (Inside(rows[i], x, y)) {
+            padZone = PadZone::List;
+            const std::size_t index = pageStarts[view.listPage] + i;
+            if (index != view.selected && index < filtered.size()) SelectFiltered(index);
+            return;
+        }
+    }
+}
+
+void OverlayState::PadDirection(int dx, int dy) {
+    padMouseUntil = 0;
+    if (padCursorMoved) {
+        padCursorMoved = false;
+        PadFocusFromCursor();
+    }
+    PadValidateZone();
+    PageView& view = CurrentView();
+    switch (padZone) {
+    case PadZone::Tabs: {
+        std::vector<esrwiki::pad::Box> boxes;
+        for (const RECT& tab : layout.tabs) boxes.push_back({tab.left, tab.top, tab.right, tab.bottom});
+        if (tabFocus >= boxes.size()) tabFocus = pageIndex;
+        const int next = esrwiki::pad::Neighbor(boxes, static_cast<int>(tabFocus), dx, dy);
+        if (next >= 0) tabFocus = static_cast<std::size_t>(next);
+        else if (dy > 0 && !filtered.empty()) padZone = PadZone::List;  // no more tabs below: on to the categories
+        else if (dy < 0 && !switches.empty()) PadEnterSwitches();        // above the top row: the header buttons
+        break;
+    }
+    case PadZone::Switches:
+        if (dx < 0 && padSwitch > 0) --padSwitch;
+        else if (dx > 0 && padSwitch + 1 < switches.size()) ++padSwitch;
+        else if (dy > 0) {
+            padZone = PadZone::Tabs;
+            tabFocus = pageIndex;
+        }
+        break;
+    case PadZone::List:
+        if (dy > 0) {
+            SelectFiltered(std::min(view.selected + 1, filtered.empty() ? std::size_t{0} : filtered.size() - 1));
+        } else if (dy < 0) {
+            if (filtered.empty() || view.selected == 0) {
+                padZone = PadZone::Tabs;
+                tabFocus = pageIndex;
+            } else {
+                SelectFiltered(view.selected - 1);
+            }
+        } else if (dx > 0) {
+            if (CalcActive() && !calcHits.empty()) PadEnterCalc();  // the calculator's fields
+            else if (!cardHits.empty()) PadEnterCards();            // right from the categories: into the items
+            else if (!layout.chips.empty() && pageStarts.size() <= 1) {  // nothing showing: the filter and sort buttons
+                padZone = PadZone::Chips;
+                padChip = 0;
+            } else MovePage(1);
+        } else if (dx < 0) {
+            MovePage(-1);
+        }
+        break;
+    case PadZone::Cards:
+        PadCardMove(dx, dy);
+        break;
+    case PadZone::Chips: {
+        std::vector<esrwiki::pad::Box> boxes;
+        for (const Chip& chip : layout.chips) boxes.push_back({chip.rect.left, chip.rect.top, chip.rect.right, chip.rect.bottom});
+        const int next = esrwiki::pad::Neighbor(boxes, static_cast<int>(padChip), dx, dy);
+        if (next >= 0) padChip = static_cast<std::size_t>(next);
+        else if (dx < 0) padZone = PadZone::List;                // left of the first button: the categories
+        else if (dy > 0 && !cardHits.empty()) PadEnterCards();   // below the last row: into the items
+        break;
+    }
+    case PadZone::Calc:
+        CalcPadMove(dx, dy);
+        break;
+    }
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::PadConfirm(ULONGLONG now) {
+    PadValidateZone();
+    if (now < padMouseUntil) {  // the left stick moved the cursor: A is a click
+        PadClickAtCursor();
+        return;
+    }
+    if (padZone == PadZone::Chips) {  // a filter or sort button
+        if (padChip < layout.chips.size()) {
+            const Chip chip = layout.chips[padChip];  // copied: the repaint after it rebuilds the buttons
+            ApplyChip(chip);
+        }
+        return;
+    }
+    if (padZone == PadZone::Calc) {
+        CalcPadConfirm();
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
+    if (padZone == PadZone::Switches) {  // a header button: A opens that panel
+        if (padSwitch < switches.size() && !switches[padSwitch].current &&
+            (!switches[padSwitch].available || switches[padSwitch].available())) {
+            BeginSwitch(switches[padSwitch].onSwitch);
+        }
+        return;
+    }
+    if (padZone == PadZone::Tabs && tabFocus < database->pages.size()) SetPage(tabFocus);  // only A changes the tab
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+void OverlayState::PadBack() {
+    PadValidateZone();
+    if (padZone == PadZone::Cards) {
+        PadLeaveCards();
+        padZone = PadZone::List;
+    } else if (padZone == PadZone::Chips) {
+        padZone = PadZone::List;
+    } else if (padZone == PadZone::Calc) {
+        if (!CalcPadBack()) padZone = PadZone::List;  // an open list closes first
+    } else if (padZone == PadZone::List || padZone == PadZone::Switches) {
+        padZone = PadZone::Tabs;
+        tabFocus = pageIndex;
+    }
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+// The on-screen keyboard, under the search box.
+void OverlayState::DrawOsk(HDC dc) {
+    oskHits.clear();
+    if (!oskOpen) return;
+    // The keyboard is not page text: the search highlight must not mark its keys (typing "a" would light up the "a" key).
+    struct HighlightOff {
+        std::wstring saved;
+        HighlightOff() : saved(gHighlight) { gHighlight.clear(); }
+        ~HighlightOff() { gHighlight = saved; }
+    } highlightOff;
+    if (oskRows.empty()) oskRows = esrwiki::pad::OskLayout(oskAccents, gKeyboardLocale);
+    int units = 20;  // the widest row, in half-key units (20 unless the language's letters need more)
+    for (const auto& row : oskRows) {
+        int total = 0;
+        for (const esrwiki::pad::OskKey& key : row) total += key.span;
+        units = std::max(units, total);
+    }
+    const int gap = S(4);
+    const int pad = S(8);
+    const int unit = std::max(S(12), static_cast<int>(S(17) * uiScale));
+    const int keyHeight = std::max(S(32), bodyLine + S(16));
+    const int innerWidth = units * unit;
+    const int listWidth = listRightX - listLeftX;
+    const int boxWidth = std::max(innerWidth + 2 * pad, listWidth);
+    const int rowsCount = static_cast<int>(oskRows.size());
+    const int boxHeight = 2 * pad + rowsCount * keyHeight + (rowsCount - 1) * gap;
+    RECT client{};
+    GetClientRect(window, &client);
+    const int left = layout.search.left;
+    int top = layout.search.bottom + gap;
+    if (top + boxHeight > client.bottom - S(8)) top = std::max(S(8), static_cast<int>(client.bottom) - S(8) - boxHeight);
+    oskRect = Rect(left, top, left + boxWidth, top + boxHeight);
+    DropShadow(dc, oskRect, S(3));
+    FillPanel(dc, oskRect, RGB(10, 7, 4), 238);
+    FrameColor(dc, oskRect, kGold);
+    const int keysLeft = left + (boxWidth - innerWidth) / 2;
+    for (int r = 0; r < rowsCount; ++r) {
+        const auto& keys = oskRows[static_cast<std::size_t>(r)];
+        const int y = top + pad + r * (keyHeight + gap);
+        int cumulative = 0;
+        int rowSpan = 0;
+        for (const esrwiki::pad::OskKey& key : keys) rowSpan += key.span;
+        const int rowLeft = keysLeft + (units - rowSpan) * unit / 2;  // a shorter row is centred
+        for (int c = 0; c < static_cast<int>(keys.size()); ++c) {
+            const esrwiki::pad::OskKey& key = keys[static_cast<std::size_t>(c)];
+            const RECT rect = Rect(rowLeft + cumulative * unit, y, rowLeft + (cumulative + key.span) * unit - gap, y + keyHeight);
+            cumulative += key.span;
+            const bool focus = padActive && r == oskRow && c == oskCol;
+            FillPanel(dc, rect, focus ? kSelected : kPanel, 235);
+            FrameColor(dc, rect, focus ? kGold : kBorder);
+            if (focus) FrameColor(dc, Rect(rect.left - 1, rect.top - 1, rect.right + 1, rect.bottom + 1), RGB(255, 240, 180));
+            std::wstring label = key.label;
+            if (key.kind == esrwiki::pad::KeyKind::Space) label = UiText(L"Space");
+            else if (key.kind == esrwiki::pad::KeyKind::Clear) label = UiText(L"Clear");
+            else if (key.kind == esrwiki::pad::KeyKind::Done) label = UiText(L"Done");
+            Text(dc, label, rect, focus ? kHeaderGold : kText, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER | DT_NOPREFIX);
+            oskHits.push_back(OskHit{rect, r, c});
+        }
+    }
+}
+
+// ---- Controller help picture, right of the wiki ----------------------------------------------------------------------
+float OverlayState::HelpIconWidth(const std::string& folder, const char* name, float iconHeight) {
+    if (name == nullptr) return 0.0f;
+    Gdiplus::Bitmap* img = FindImage("controller/" + folder + "/" + name);
+    if (img == nullptr || img->GetHeight() == 0) return 0.0f;
+    return iconHeight * static_cast<float>(img->GetWidth()) / static_cast<float>(img->GetHeight());
+}
+
+// The help list and how big it is: its rows, and a window size that fits them (no more room than the text and sprites need).
+HelpMetrics OverlayState::MeasureHelp(esrwiki::pad::Kind kind) {
+    using esrwiki::pad::Kind;
+    HelpMetrics m;
+    const bool sony = kind == Kind::PlayStation;
+    m.picture = FindImage(sony ? "controller_playstation" : "controller_xbox") != nullptr;
+    const wchar_t* a = sony ? L"Cross" : L"A";
+    const wchar_t* b = sony ? L"Circle" : L"B";
+    const wchar_t* x = sony ? L"Square" : L"X";
+    const wchar_t* y = sony ? L"Triangle" : L"Y";
+    const wchar_t* shoulder = sony ? L"L1 / R1" : L"LB / RB";
+    const wchar_t* trig = sony ? L"L2 / R2" : L"LT / RT";
+    const wchar_t* start = sony ? L"Options" : L"Menu";
+    m.rows = {{L"D-pad", L"Highlight", "dpad", nullptr},
+              {a, L"Select", "buttonbottom", nullptr},
+              {b, L"Back", "buttonright", nullptr},
+              {y, L"Search", "buttontop", nullptr},
+              {x, L"Clear search", "buttonleft", nullptr},
+              {shoulder, L"Previous / next tab", "bumperleft", "bumperright"},
+              {trig, L"Scroll up / down fast", "triggerleft", "triggerright"},
+              {L"Right stick", L"Scroll", "stickright", nullptr},
+              {L"Left stick", L"Move cursor (A clicks)", "stickleft", nullptr},
+              {L"R3", L"Switch panel", "stickrightbutton", nullptr},
+              {start, L"Close", "buttonstart", nullptr}};
+    m.heading = UiText(sony ? L"PlayStation controller" : L"Xbox controller");
+    m.inset = static_cast<float>(S(10));
+    m.size = static_cast<float>(std::max(12.0, S(15) * uiScale));
+    m.line = m.size * 2.3f;
+    m.iconHeight = m.size * 2.0f;
+    m.gap = static_cast<float>(S(6));
+    const std::string folder = sony ? "ps4" : "xbox";
+    for (const HelpRow& row : m.rows) {
+        const float group = HelpIconWidth(folder, row.icon1, m.iconHeight) +
+                            (row.icon2 != nullptr ? m.gap + HelpIconWidth(folder, row.icon2, m.iconHeight) : 0.0f);
+        m.iconColumn = std::max(m.iconColumn, group);
+    }
+    m.textX = m.inset + m.iconColumn + m.gap;
+
+    // The widest text, measured with the fonts the list is drawn with.
+    Gdiplus::Bitmap probe(1, 1, PixelFormat32bppPARGB);
+    Gdiplus::Graphics g(&probe);
+    Gdiplus::FontFamily family(L"Segoe UI");
+    Gdiplus::Font font(&family, m.size, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+    Gdiplus::Font bold(&family, m.size, Gdiplus::FontStyleBold, Gdiplus::UnitPixel);
+    const auto measure = [&](const std::wstring& text, const Gdiplus::Font& f) {
+        Gdiplus::RectF box;
+        g.MeasureString(text.c_str(), -1, &f, Gdiplus::PointF(0, 0), &box);
+        return box.Width;
+    };
+    float right = m.inset + measure(m.heading, bold);
+    for (const HelpRow& row : m.rows) {
+        const float widest = std::max(measure(UiText(row.button), bold), measure(UiText(row.action), font));
+        right = std::max(right, m.textX + widest);
+    }
+    m.width = static_cast<int>(std::ceil(right + m.inset));
+    m.height = static_cast<int>(std::ceil(m.inset + m.size * 2.0f + m.line * static_cast<float>(m.rows.size()) + m.inset));
+    return m;
+}
+
+// The help window is as big as its list, against the wiki's right edge and centred on the wiki's height.
+void OverlayState::PositionHelp() {
+    if (!IsWindow(helpWindow) || !IsWindow(window) || helpWidth <= 0) return;
+    RECT area{};
+    GetWindowRect(window, &area);
+    const HelpMetrics m = MeasureHelp(padKind);
+    const int available = area.bottom - area.top;
+    const int w = m.picture ? helpWidth : m.width;
+    const int h = std::min(m.picture ? available : m.height, available);
+    const int x = area.right + S(8);  // against the wiki's right edge
+    const int y = area.top + (available - h) / 2;
+    SetWindowPos(helpWindow, HWND_TOPMOST, x, y, w, h, SWP_NOACTIVATE);
+}
+
+void OverlayState::RenderHelp() {
+    using esrwiki::pad::Kind;
+    if (!IsWindow(helpWindow)) return;
+    RECT area{};
+    GetWindowRect(helpWindow, &area);
+    const int w = area.right - area.left;
+    const int h = area.bottom - area.top;
+    if (w <= 4 || h <= 4) return;
+    if (helpDrawnKind == padKind && helpDrawnWidth == w && helpDrawnHeight == h) return;
+    helpDrawnKind = padKind;
+    helpDrawnWidth = w;
+    helpDrawnHeight = h;
+
+    Gdiplus::Bitmap bitmap(w, h, PixelFormat32bppPARGB);
+    Gdiplus::Graphics g(&bitmap);
+    g.SetSmoothingMode(Gdiplus::SmoothingModeAntiAlias);
+    g.SetTextRenderingHint(Gdiplus::TextRenderingHintAntiAliasGridFit);
+    g.Clear(Gdiplus::Color(0, 0, 0, 0));
+    // Opaque: while one panel hands over to the other, both help windows are up for a moment in the same place. With a
+    // see-through fill the two stacked (twice as dark) and the drop back to one was the flicker.
+    Gdiplus::SolidBrush panel(Gdiplus::Color(255, 12, 9, 6));
+    Gdiplus::Pen frame(Gdiplus::Color(255, 122, 92, 48), 2.0f);
+    g.FillRectangle(&panel, 1, 1, w - 2, h - 2);
+    g.DrawRectangle(&frame, 1, 1, w - 3, h - 3);
+
+    const bool sony = padKind == Kind::PlayStation;
+    Gdiplus::Bitmap* picture = FindImage(sony ? "controller_playstation" : "controller_xbox");
+    const int inset = S(10);
+    if (picture != nullptr && picture->GetWidth() > 0 && picture->GetHeight() > 0) {
+        const double scale = std::min(static_cast<double>(w - 2 * inset) / picture->GetWidth(),
+                                      static_cast<double>(h - 2 * inset) / picture->GetHeight());
+        const int pw = static_cast<int>(picture->GetWidth() * scale);
+        const int ph = static_cast<int>(picture->GetHeight() * scale);
+        g.SetInterpolationMode(Gdiplus::InterpolationModeHighQualityBicubic);
+        g.DrawImage(picture, (w - pw) / 2, (h - ph) / 2, pw, ph);
+    } else {
+        // No picture file yet: the buttons as a list, each with its sprite from the plugin's images\controller folder
+        // (ps4 or xbox, the game's own controller art). MeasureHelp sizes the window to this list.
+        const HelpMetrics m = MeasureHelp(padKind);
+        const std::string folder = sony ? "ps4" : "xbox";
+        Gdiplus::FontFamily family(L"Segoe UI");
+        const Gdiplus::REAL size = m.size;
+        Gdiplus::Font font(&family, size, Gdiplus::FontStyleRegular, Gdiplus::UnitPixel);
+        Gdiplus::Font bold(&family, size, Gdiplus::FontStyleBold, Gdiplus::UnitPixel);
+        Gdiplus::SolidBrush gold(Gdiplus::Color(255, 224, 182, 96));
+        Gdiplus::SolidBrush text(Gdiplus::Color(255, 244, 236, 220));
+        float top = m.inset;
+        g.DrawString(m.heading.c_str(), -1, &bold, Gdiplus::PointF(m.inset, top), &gold);
+        top += size * 2.0f;
+        // Each sprite is drawn at the row's height; its width follows its own proportions.
+        const auto drawIcon = [&](const char* name, float left, float at) -> float {
+            const float width = HelpIconWidth(folder, name, m.iconHeight);
+            if (width <= 0.0f) return 0.0f;
+            Gdiplus::Bitmap* img = FindImage("controller/" + folder + "/" + name);
+            g.DrawImage(img, left, at, width, m.iconHeight);
+            return width;
+        };
+        for (const HelpRow& row : m.rows) {
+            const float iconY = top + (m.line - m.iconHeight) / 2.0f;
+            float left = m.inset;
+            left += drawIcon(row.icon1, left, iconY);
+            if (row.icon2 != nullptr) left += m.gap + drawIcon(row.icon2, left + m.gap, iconY);
+            const std::wstring button = UiText(row.button);
+            const std::wstring action = UiText(row.action);
+            g.DrawString(button.c_str(), -1, &bold, Gdiplus::PointF(m.textX, top), &gold);
+            g.DrawString(action.c_str(), -1, &font, Gdiplus::PointF(m.textX, top + size * 1.1f), &text);
+            top += m.line;
+        }
+    }
+
+    HBITMAP bits = nullptr;
+    if (bitmap.GetHBITMAP(Gdiplus::Color(0, 0, 0, 0), &bits) != Gdiplus::Ok || bits == nullptr) return;
+    const HDC screen = GetDC(nullptr);
+    const HDC memory = CreateCompatibleDC(screen);
+    const HGDIOBJ old = SelectObject(memory, bits);
+    BLENDFUNCTION blend{AC_SRC_OVER, 0, 255, AC_SRC_ALPHA};
+    POINT origin{area.left, area.top};
+    POINT source{0, 0};
+    SIZE size{w, h};
+    UpdateLayeredWindow(helpWindow, screen, &origin, &size, memory, &source, 0, &blend, ULW_ALPHA);
+    SelectObject(memory, old);
+    DeleteDC(memory);
+    DeleteObject(bits);
+    ReleaseDC(nullptr, screen);
+}
+
+void OverlayState::SyncHelp() {
+    if (!IsWindow(helpWindow)) return;
+    const bool show = padRunning && padActive && helpWidth > 0 && IsWindow(window) && IsWindowVisible(window);
+    if (!show) {
+        if (IsWindowVisible(helpWindow)) ShowWindow(helpWindow, SW_HIDE);
+        return;
+    }
+    PositionHelp();
+    RenderHelp();
+    if (!IsWindowVisible(helpWindow)) ShowWindow(helpWindow, SW_SHOWNOACTIVATE);
 }
 
 // The list shows only each entry's title, wrapped to the row.
@@ -2723,6 +3815,7 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
 
             if (draw && tile.bottom > clipTop && tile.top < clipBottom) {
                 detailHits.push_back(DetailHit{art, &entry, &block, -1});  // the picture itself, not the whole tile
+                cardHits.push_back(CardHit{tile, &entry, &block});
             }
         }
         y += rowHeight + style.gap;
@@ -2781,6 +3874,7 @@ int OverlayState::RenderWideTiles(HDC dc, Gdiplus::Graphics* graphics, const Ent
             const int artLeft = left + (tileWidth - artSize) / 2;
             const int artTop = y + pad + nameHeight + pad + (artBox - artSize) / 2;
             detailHits.push_back(DetailHit{Rect(artLeft, artTop, artLeft + artSize, artTop + artSize), &entry, &block, -1});
+            cardHits.push_back(CardHit{tile, &entry, &block});
         }
         y += rowHeight + gap;
     }
@@ -3332,8 +4426,10 @@ void OverlayState::Paint(HDC target) {
     }
 
     PaintList(dc);
+    DrawPadFocus(dc);
 
     detailHits.clear();
+    cardHits.clear();
     CornerShadow(dc, layout.detail, S(2));
     FillPanel(dc, layout.detail, kPanel, 185);
     FrameColor(dc, layout.detail, kBorder);
@@ -3373,6 +4469,9 @@ void OverlayState::Paint(HDC target) {
         Text(dc, UiText(L"Nothing selected"), layout.detail, kDim, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }
 
+    DrawOsk(dc);
+    DrawCardFocus(dc);
+    DrawDetailFocus(dc);
     DrawTooltip(dc);
     BitBlt(target, 0, 0, clientWidth, clientHeight, dc, 0, 0, SRCCOPY);
     SelectObject(dc, previousBitmap);
@@ -3397,6 +4496,9 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         return 0;
     case kMsgOpen:
         self->Show();
+        return 0;
+    case kMsgOpenOsk:
+        self->OpenOsk();
         return 0;
     case kMsgReload:
         self->ApplyPendingDatabase();
@@ -3434,15 +4536,30 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     case WM_TIMER:
         if (wParam == kTimerFocus) self->SyncVisibility();
         else if (wParam == kTimerHandoff) self->HandoffTick();
+        else if (wParam == kTimerPad) self->PadTick();
         return 0;
-    case WM_MOUSEMOVE:
+    case WM_MOUSEMOVE: {
+        // A move the left stick made is not the mouse; the stick moves the pointer on the cursor thread, so a move soon after
+        // it is not judged.
+        if (self->padActive && GetTickCount64() - self->drive.movedAt.load() > 150) {
+            POINT now{};
+            if (GetCursorPos(&now) && (std::abs(now.x - self->drive.pointerX.load()) > 3 ||
+                                       std::abs(now.y - self->drive.pointerY.load()) > 3)) {
+                DebugLog("controller mode ended by a mouse move: pointer " + std::to_string(now.x) + "," + std::to_string(now.y) +
+                         ", stick left it at " + std::to_string(self->drive.pointerX.load()) + "," +
+                         std::to_string(self->drive.pointerY.load()));
+                self->PadMouseUsed();
+            }
+        }
         self->HandleMove(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
         return 0;
+    }
     case WM_MOUSELEAVE:
         self->trackingMouse = false;
         if (!self->dragging) self->ClearHover();
         return 0;
     case WM_LBUTTONDOWN:
+        self->PadMouseUsed();
         self->HandleClick(GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam));
         return 0;
     case WM_LBUTTONUP:
@@ -3474,6 +4591,7 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
 // Owns the drawn-cursor window and its message loop, separate from the wiki's UI thread.
 DWORD WINAPI CursorThread(LPVOID parameter) {
     auto* self = static_cast<OverlayState*>(parameter);
+    tCursorDrive = &self->drive;
     const HINSTANCE instance = GetModuleHandleW(nullptr);
     WNDCLASSEXW cursorClass{};
     cursorClass.cbSize = sizeof(cursorClass);
@@ -3490,11 +4608,108 @@ DWORD WINAPI CursorThread(LPVOID parameter) {
         SetTimer(self->cursorWindow, 1, 8, nullptr);  // about 120 updates a second while shown
     }
 
-    MSG message{};
-    while (GetMessageW(&message, nullptr, 0, 0) > 0) {
-        TranslateMessage(&message);
-        DispatchMessageW(&message);
+    // The 8 ms WM_TIMER above is rounded up to the system tick (about 15.6 ms), so on its own the drawn cursor
+    // follows the pointer at only ~64 updates a second and trails it. While the cursor is shown, a 1 ms
+    // high-resolution waitable timer moves the window to the pointer instead (the game's own cursor is
+    // drawn once per frame, so this matches it). Without the timer (older Windows) the WM_TIMER path remains.
+#ifndef CREATE_WAITABLE_TIMER_HIGH_RESOLUTION
+#define CREATE_WAITABLE_TIMER_HIGH_RESOLUTION 0x00000002
+#endif
+    HANDLE fastTimer = CreateWaitableTimerExW(nullptr, nullptr, CREATE_WAITABLE_TIMER_HIGH_RESOLUTION, TIMER_ALL_ACCESS);
+    bool fastOn = false;
+    const auto setFast = [&](bool on) {
+        if (fastTimer == nullptr || on == fastOn) return;
+        if (on) {
+            LARGE_INTEGER due;
+            due.QuadPart = -10000;  // 1 ms, then every 1 ms
+            SetWaitableTimer(fastTimer, &due, 1, nullptr, nullptr, FALSE);
+        } else {
+            CancelWaitableTimer(fastTimer);
+        }
+        fastOn = on;
+    };
+
+    // The left stick moves the real pointer from here, on the same 1 ms timer that moves the drawn cursor, so it glides
+    // at the display's pace instead of stepping at the controller poll's. The speed eases toward what the stick asks for
+    // (esrwiki::pad::SmoothToward) and the pointer moves in whole pixels with the remainder carried over.
+    LARGE_INTEGER ticksPerSecond{};
+    QueryPerformanceFrequency(&ticksPerSecond);
+    LARGE_INTEGER lastTick{};
+    double velocityX = 0, velocityY = 0, carryX = 0, carryY = 0;
+    const auto stepStick = [&]() {
+        LARGE_INTEGER nowTick{};
+        QueryPerformanceCounter(&nowTick);
+        const double dt = (lastTick.QuadPart == 0 || ticksPerSecond.QuadPart == 0)
+                              ? 0.001
+                              : std::min(0.05, static_cast<double>(nowTick.QuadPart - lastTick.QuadPart) /
+                                                   static_cast<double>(ticksPerSecond.QuadPart));
+        lastTick = nowTick;
+        CursorDrive& d = self->drive;
+        const bool driving = d.driving.load();
+        const float sx = driving ? d.stickX.load() : 0.0f;
+        const float sy = driving ? d.stickY.load() : 0.0f;
+        const double push = std::min(1.0, std::sqrt(static_cast<double>(sx) * sx + static_cast<double>(sy) * sy));
+        const double speed = d.speed.load();
+        const float targetX = static_cast<float>(sx * push * speed);
+        const float targetY = static_cast<float>(-sy * push * speed);
+        velocityX = esrwiki::pad::SmoothToward(static_cast<float>(velocityX), targetX, static_cast<float>(dt));
+        velocityY = esrwiki::pad::SmoothToward(static_cast<float>(velocityY), targetY, static_cast<float>(dt));
+        if (targetX == 0.0f && targetY == 0.0f && std::fabs(velocityX) < 4.0 && std::fabs(velocityY) < 4.0) {
+            velocityX = velocityY = carryX = carryY = 0.0;  // at rest
+            return;
+        }
+        carryX += velocityX * dt;
+        carryY += velocityY * dt;
+        const int stepX = static_cast<int>(carryX);
+        const int stepY = static_cast<int>(carryY);
+        carryX -= stepX;
+        carryY -= stepY;
+        if (stepX == 0 && stepY == 0) return;
+        POINT point{};
+        RECT area{};
+        if (self->window == nullptr || !GetCursorPos(&point) || !GetWindowRect(self->window, &area)) return;
+        point.x = std::clamp<LONG>(point.x + static_cast<LONG>(stepX), area.left, area.right - 1);
+        point.y = std::clamp<LONG>(point.y + static_cast<LONG>(stepY), area.top, area.bottom - 1);
+        SetCursorPos(point.x, point.y);
+        d.pointerX.store(point.x);
+        d.pointerY.store(point.y);
+        d.movedAt.store(GetTickCount64());
+    };
+    // The pointer is moved about 125 times a second at most (the sub-pixel remainder carries over), which is still smoother
+    // than the display; moving it every millisecond made the wiki repaint for every move.
+    LARGE_INTEGER lastMove{};
+    const auto stepStickPaced = [&]() {
+        LARGE_INTEGER nowTick{};
+        QueryPerformanceCounter(&nowTick);
+        if (lastMove.QuadPart != 0 && ticksPerSecond.QuadPart != 0 &&
+            (nowTick.QuadPart - lastMove.QuadPart) * 1000 < 8 * ticksPerSecond.QuadPart)
+            return;
+        lastMove = nowTick;
+        stepStick();
+    };
+
+    for (bool quit = false; !quit;) {
+        const DWORD handles = fastTimer != nullptr ? 1 : 0;
+        const DWORD woke = MsgWaitForMultipleObjectsEx(handles, handles != 0 ? &fastTimer : nullptr, INFINITE, QS_ALLINPUT,
+                                                       MWMO_INPUTAVAILABLE);
+        if (woke == WAIT_FAILED) break;
+        if (handles != 0 && woke == WAIT_OBJECT_0) {
+            stepStickPaced();
+            if (self->cursorWindow != nullptr && IsWindowVisible(self->cursorWindow)) MoveCursorToPointer(self->cursorWindow);
+        }
+        MSG message{};
+        while (PeekMessageW(&message, nullptr, 0, 0, PM_REMOVE)) {
+            if (message.message == WM_QUIT) {
+                quit = true;
+                break;
+            }
+            TranslateMessage(&message);
+            DispatchMessageW(&message);
+        }
+        if (handles == 0) stepStick();  // no high-resolution timer: the stick moves at the thread's slower wake-ups
+        setFast((self->cursorWindow != nullptr && IsWindowVisible(self->cursorWindow)) || self->drive.driving.load());
     }
+    if (fastTimer != nullptr) CloseHandle(fastTimer);
     if (IsWindow(self->cursorWindow)) DestroyWindow(self->cursorWindow);
     self->cursorWindow = nullptr;
     UnregisterClassW(self->cursorClassName.c_str(), instance);
@@ -3527,6 +4742,13 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     blockerClass.lpszClassName = self->blockerClassName.c_str();
     RegisterClassExW(&blockerClass);
 
+    WNDCLASSEXW helpClass{};
+    helpClass.cbSize = sizeof(helpClass);
+    helpClass.lpfnWndProc = HelpProc;
+    helpClass.hInstance = windowClass.hInstance;
+    helpClass.lpszClassName = self->helpClassName.c_str();
+    RegisterClassExW(&helpClass);
+
     self->CreateFonts();
     self->searchBrush = CreateSolidBrush(kSearchFill);
     self->backgroundBrush = CreateSolidBrush(kBackground);
@@ -3555,6 +4777,11 @@ DWORD WINAPI UiThread(LPVOID parameter) {
                      GetSystemMetrics(SM_CXVIRTUALSCREEN), GetSystemMetrics(SM_CYVIRTUALSCREEN),
                      SWP_NOZORDER | SWP_NOACTIVATE);
     }
+
+    // The controller help picture: click-through, never active, shown only while a controller is in use.
+    self->helpWindow = CreateWindowExW(WS_EX_LAYERED | WS_EX_TOOLWINDOW | WS_EX_TOPMOST | WS_EX_NOACTIVATE | WS_EX_TRANSPARENT,
+                                       self->helpClassName.c_str(), L"", WS_POPUP, 0, 0, 10, 10, nullptr, nullptr,
+                                       windowClass.hInstance, nullptr);
 
     SetTimer(self->window, kTimerFocus, kTimerInterval, nullptr);
     self->FitToGame();
@@ -3604,6 +4831,9 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     if (self->fontSmall) DeleteObject(self->fontSmall);
     if (self->fontBold) DeleteObject(self->fontBold);
     if (self->fontTitle) DeleteObject(self->fontTitle);
+    self->gamepad.Stop();
+    if (self->helpWindow != nullptr) DestroyWindow(self->helpWindow);
+    UnregisterClassW(self->helpClassName.c_str(), helpClass.hInstance);
     UnregisterClassW(self->blockerClassName.c_str(), blockerClass.hInstance);
     UnregisterClassW(self->windowClassName.c_str(), windowClass.hInstance);
     Gdiplus::GdiplusShutdown(self->gdiplusToken);
@@ -3625,6 +4855,7 @@ bool Overlay::Start(const Database& database, const std::wstring& dataDir, const
     impl_->windowClassName = L"EsrWikiOverlayWindow-" + instanceId;
     impl_->blockerClassName = L"EsrWikiInputBlocker-" + instanceId;
     impl_->cursorClassName = L"EsrWikiCursor-" + instanceId;
+    impl_->helpClassName = L"EsrWikiPadHelp-" + instanceId;
     impl_->switches = switches;
     impl_->cursorThread = CreateThread(nullptr, 0, CursorThread, impl_.get(), 0, &impl_->cursorThreadId);
     impl_->ready = CreateEventW(nullptr, FALSE, FALSE, nullptr);
@@ -3683,6 +4914,10 @@ void Overlay::SetCloseKey(std::function<bool(unsigned int)> isCloseKey) {
 
 void Overlay::Open() {
     if (impl_->window != nullptr) PostMessageW(impl_->window, kMsgOpen, 0, 0);
+}
+
+bool Overlay::IsShown() const {
+    return impl_ != nullptr && impl_->window != nullptr && IsWindowVisible(impl_->window) != FALSE;
 }
 
 std::string UiTextUtf8(const std::string& english) {
