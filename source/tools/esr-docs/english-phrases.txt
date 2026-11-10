@@ -1,0 +1,347 @@
+# Strings that equal the enUS string at the same JSON path, in the 12 non-English builds. Ids/keys/formulas (x, y, skill k, id, sy, pre, db.*) are excluded.
+# 342 unique phrases; 110 are English in all 12 languages (ALL = untranslated everywhere), the rest only in some (names that coincide, e.g. Nova, or partial fallback).
+# Unique ALL-language phrases by JSON path: {"skills[].src[].k":9,"skills[].ocr":6,"skills[].src[].v":16,"skills[].osr":5,"skills[].src[].n":62,"classes[].title":9,"notes[]":2,"classes[].intro":1}
+# Skill names / descriptions equal to English per language: {"deDE":{"namesEnglish":9,"descsEnglish":0,"descs":379,"skills":473},"esES":{"namesEnglish":7,"descsEnglish":0,"descs":379,"skills":473},"esMX":{"namesEnglish":8,"descsEnglish":1,"descs":379,"skills":473},"frFR":{"namesEnglish":18,"descsEnglish":0,"descs":379,"skills":473},"itIT":{"namesEnglish":10,"descsEnglish":0,"descs":379,"skills":473},"jaJP":{"namesEnglish":0,"descsEnglish":0,"descs":379,"skills":473},"koKR":{"namesEnglish":0,"descsEnglish":0,"descs":379,"skills":473},"plPL":{"namesEnglish":11,"descsEnglish":0,"descs":379,"skills":473},"ptBR":{"namesEnglish":7,"descsEnglish":0,"descs":379,"skills":473},"ruRU":{"namesEnglish":0,"descsEnglish":0,"descs":379,"skills":473},"zhCN":{"namesEnglish":0,"descsEnglish":0,"descs":379,"skills":473},"zhTW":{"namesEnglish":1,"descsEnglish":0,"descs":379,"skills":473}}
+# format: occurrences-per-language<TAB>languages<TAB>json paths<TAB>phrase
+2542	ALL	skills[].src[].k	Anointment
+1353	ALL	skills[].src[].k	Unique
+384	ALL	skills[].src[].k	Runeword
+179	ALL	skills[].ocr	It’s cast with the casting animation.
+170	ALL	skills[].src[].k	Magic suffix
+146	ALL	skills[].src[].k	Vessel of Souls
+89	ALL	skills[].src[].v	Level 10-20 Aura When Equipped
+87	ALL	skills[].osr	Its missiles carry your weapon damage.
+83	ALL	skills[].src[].k	Set item
+74	ALL	skills[].ocr	It uses the attack animation, and only skills cast with the casting animation count.
+67	ALL	skills[].src[].n	Amulet
+66	ALL	skills[].src[].n	Ring
+64	ALL	skills[].src[].n	Amazonian Pin
+64	ALL	skills[].osr	It deals no weapon damage, and spells don’t count as strikes.
+63	ALL	skills[].src[].n	Amazonian Loop
+63	ALL	skills[].src[].n	Assassin's Choker
+63	ALL	skills[].src[].n	Warlock Pendant
+63	ALL	skills[].src[].n	Warlock Sigil
+62	ALL	skills[].src[].n	Assassin's Jewel
+60	ALL	skills[].src[].n	Barbaric Knuckle
+60	ALL	skills[].src[].n	Circlet
+60	ALL	skills[].src[].n	Primal Charm
+60	ALL	skills[].src[].n	Sorcerer's Band
+60	ALL	skills[].src[].n	Sorcerer's Talisman
+59	ALL	skills[].src[].n	Body Armor
+58	ALL	skills[].src[].n	Helm
+57	ALL	skills[].src[].n	Druid's Seal
+57	ALL	skills[].src[].n	Druidic Necklace
+55	ALL	skills[].src[].n	Death's Locket
+55	ALL	skills[].src[].n	Necromancer's Stone
+52	ALL	skills[].src[].n	Primal Helm
+49	ALL	skills[].src[].n	Pelt
+47	ALL	skills[].src[].v	Level 5-10 Aura When Equipped
+46	ALL	skills[].src[].n	Paladic Halo
+45	ALL	skills[].src[].n	Holy Pendant
+43	ALL	skills[].src[].n	Belt
+43	ALL	skills[].src[].n	Boots
+42	ALL	skills[].src[].n	Grimoire
+42	ALL	skills[].src[].n	Shield
+41	ALL	skills[].src[].n	Necromancer Dagger
+40	ALL	skills[].src[].n	Shuriken
+40	ALL	skills[].src[].n	Throwing Knife
+39	ALL	skills[].src[].n	Gloves
+39	ALL	skills[].src[].n	Staff
+38	ALL	skills[].src[].k	Set bonus
+37	ALL	skills[].src[].n	Knife
+34	ALL	skills[].src[].v	Level 25-30 Aura When Equipped
+33	ALL	skills[].src[].n	Voidblade
+33	ALL	skills[].src[].n	Wand
+32	ALL	skills[].src[].n	Voodoo Heads
+31	ALL	skills[].src[].n	Necromancer Polearm
+31	ALL	skills[].src[].n	Sorceress Mana Blade
+30	ALL	skills[].src[].n	Javelin
+30	ALL	skills[].src[].v	Level 10-15 Aura When Equipped
+29	ALL	skills[].src[].n	Amazon Javelin
+29	ALL	skills[].src[].n	Druid Club
+29	ALL	skills[].src[].n	Spear
+28	ALL	skills[].src[].n	Assassin 2H Katana
+28	ALL	skills[].src[].n	Hand to Hand
+27	ALL	skills[].src[].n	Barbarian Javs
+27	ALL	skills[].src[].n	Knuckle
+27	ALL	skills[].src[].n	Polearm
+27	ALL	skills[].src[].n	Throwing Axe
+26	ALL	skills[].src[].n	Auric Shields
+26	ALL	skills[].src[].n	Axe
+26	ALL	skills[].src[].n	Club
+26	ALL	skills[].src[].n	Hammer
+26	ALL	skills[].src[].n	Mace
+26	ALL	skills[].src[].n	Scepter
+26	ALL	skills[].src[].n	Sword
+24	ALL	skills[].src[].n	Assassin 1H Katana
+24	ALL	skills[].src[].n	Paladin Sword
+20	ALL	skills[].src[].n	Bow
+20	ALL	skills[].src[].v	Level 8-15 Aura When Equipped
+19	ALL	skills[].src[].n	Crossbow
+19	ALL	skills[].src[].k	Cube recipe
+19	ALL	skills[].osr	It hits with your weapon.
+18	ALL	skills[].ocr	It uses the sequence animation, and only skills cast with the casting animation count.
+18	ALL	skills[].src[].n	Orb
+15	ALL	skills[].src[].v	Level 6-11 Aura When Equipped
+13	ALL	skills[].src[].n	Amazon Bow
+13	ALL	skills[].ocr	It uses the special animation, and only skills cast with the casting animation count.
+13	ALL	skills[].src[].n	Missile Potion
+12	ALL	skills[].ocr	It uses the throw animation, and only skills cast with the casting animation count.
+12	ALL	skills[].src[].v	Level 20 Aura When Equipped
+10	ALL	skills[].src[].v	Level 15 Aura When Equipped
+9	1	skills[].sy[]	nec-iron-maiden
+9	5	skills[].sy[]	nec-terror
+7	ALL	skills[].src[].v	Level 10 Aura When Equipped
+6	1	skills[].sy[]	ass-blade-nova
+6	ALL	skills[].src[].v	Level 3-5 Aura When Equipped
+5	1	skills[].src[].n	Admiration
+5	3	skills[].sy[]	bar-berserk
+5	ALL	skills[].src[].v	Level 5 Aura When Equipped
+4	2	skills[].l[].a	%d%% Chance
+4	2	skills[].src[].n	Alea Jacta Est
+4	7	skills[].sy[]	bar-nova
+4	1	skills[].src[].n	Destruction
+4	8	skills[].src[].v	Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped
+4	ALL	skills[].src[].v	Level 5-15 Aura When Equipped
+4	2	skills[].src[].n	Lore
+4	1	skills[].sy[]	pal-conviction
+4	5	skills[].n skills[].src[].n	Terror
+4	1	skills[].src[].n	Warlord's Trust
+3	1	skills[].src[].n	America
+3	6	skills[].src[].n	ArchDimeron
+3	8	skills[].sy[]	ass-iaigiri
+3	4	skills[].src[].n	Azurewrath
+3	7	skills[].src[].n	Bing Sz Wang
+3	2	skills[].src[].n	Canada
+3	1	skills[].src[].n	Chaos Launcher
+3	1	skills[].src[].n	Cunning
+3	3	skills[].src[].n	Doomslinger
+3	1	skills[].sy[]	dru-monsoon
+3	4	skills[].src[].n	Howltusk
+3	1	skills[].n skills[].pre[]	Iron Maiden
+3	ALL	skills[].src[].v	Level 1 Aura When Equipped
+3	6	skills[].src[].v	Level 10-30 Aura When Equipped
+3	ALL	skills[].src[].v	Level 25 Aura When Equipped
+3	8	skills[].src[].v	Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped
+3	ALL	skills[].src[].v	Level 40 Aura When Equipped
+3	ALL	skills[].src[].k	Magic prefix
+3	1	skills[].src[].n	Patience
+3	1	skills[].n skills[].pre[] skills[].src[].n	Vengeance
+3	1	skills[].src[].n	Wanderer
+3	1	skills[].sy[]	war-apocalypse
+3	1	skills[].src[].n	Wind
+3	4	skills[].src[].n	Zephyr
+2	3	skills[].src[].n	Armageddon
+2	7	skills[].src[].n	Ars Tor'Baalos
+2	4	skills[].src[].n	Austria
+2	1	skills[].sy[]	bar-frenzy
+2	2	skills[].src[].n	Blackbog's Sharp
+2	1	skills[].n skills[].s[].a	Blade Nova
+2	1	skills[].src[].n	Bladebuckle
+2	5	skills[].src[].n	Blastbark
+2	1	skills[].src[].n	Blinkbat's Form
+2	7	skills[].n skills[].pre[]	Blizzard
+2	3	skills[].src[].n	Chaos
+2	1	skills[].n skills[].pre[]	Charge
+2	1	skills[].n skills[].pre[]	Conduit
+2	1	skills[].n skills[].pre[]	Contagion
+2	4	skills[].g[].a	Deals 100% of Weapon Damage as Lightning Damage
+2	2	skills[].src[].n	Delirium
+2	1	skills[].src[].n	Discipline
+2	1	skills[].sy[]	dru-twister
+2	1	skills[].n skills[].pre[]	Fend
+2	1	skills[].n skills[].pre[]	Frenzy
+2	5	skills[].src[].n	Goldfinger
+2	4	skills[].src[].n	Gull
+2	8	skills[].n skills[].pre[]	Iaigiri
+2	ALL	skills[].ocr	It uses the kick animation, and only skills cast with the casting animation count.
+2	1	skills[].src[].n	Japan
+2	5	skills[].src[].n	Jindujun
+2	3	skills[].src[].n	Kinemil's Awl
+2	7	skills[].src[].v	Level 10-25 Aura When Equipped
+2	4	skills[].src[].v	Level 15-30 Aura When Equipped
+2	10	skills[].src[].v	Level 20-30 Aura When Equipped
+2	10	skills[].src[].v	Level 30 Aura When Equipped
+2	8	skills[].src[].v	Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped
+2	8	skills[].src[].v	Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped
+2	8	skills[].src[].v	Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped
+2	10	skills[].src[].v	Level 50 Aura When Equipped
+2	2	skills[].n skills[].pre[]	Maul
+2	1	skills[].l[].a	Max Mana: %+d%%
+2	7	skills[].n skills[].pre[]	Nova
+2	1	skills[].sy[]	pal-redemption
+2	1	skills[].sy[]	pal-vengeance
+2	3	skills[].sy[]	pal-vigor
+2	4	skills[].src[].n	Pierre Tombale Couant
+2	5	skills[].src[].n	Portugal
+2	1	skills[].src[].n	Radiance
+2	1	skills[].src[].n	Russia
+2	1	skills[].src[].n	Silence
+2	7	skills[].sy[]	sor-blizzard
+2	1	skills[].sy[]	sor-conduit
+2	7	skills[].sy[]	sor-permafrost
+2	5	skills[].sy[]	sor-zap
+2	2	skills[].n skills[].pre[]	Stampede
+2	1	skills[].src[].n	Stargate
+2	1	skills[].n skills[].pre[]	Strafe
+2	1	skills[].n skills[].pre[]	Tiger Strike
+2	2	skills[].src[].n	Tradition
+2	2	skills[].src[].n	Transformation
+2	1	skills[].n skills[].pre[]	Twister
+2	1	skills[].n skills[].pre[]	Valkyrie
+2	3	skills[].n skills[].pre[]	Vigor
+2	5	skills[].n skills[].pre[]	Zap
+1	1	skills[].l[].a	%d Echo
+1	1	skills[].sy[]	ama-strafe
+1	ALL	classes[].title	Amazon
+1	1	skills[].n	Apocalypse
+1	3	skills[].sy[]	ass-ricochet
+1	1	skills[].sy[]	ass-tiger-strike
+1	ALL	classes[].title	Assassin
+1	1	skills[].l[].a	ATD while Smiting: %+d
+1	2	skills[].src[].n	Atlastrust
+1	1	skills[].src[].n	Bane Ash
+1	1	skills[].sy[]	bar-berserk-fury
+1	2	skills[].sy[]	bar-stampede
+1	ALL	classes[].title	Barbarian
+1	3	skills[].n	Berserk
+1	1	skills[].n	Berserk Fury
+1	2	skills[].src[].n	Blazeband
+1	1	skills[].src[].n	Bloodrise
+1	4	skills[].src[].n	Bonehew
+1	3	skills[].src[].n	Bonesnap
+1	3	skills[].l[].a	Buff Spell Elemental Damage: %+d%%
+1	3	skills[].src[].n	Buriza-Do Kyanon
+1	1	skills[].src[].n	Chillcobble
+1	1	skills[].src[].n	Clavo Platino
+1	1	skills[].src[].n	Cloudcrack
+1	1	skills[].l[].a	Cold Damage: %d-%d
+1	2	skills[].src[].n	Coldkill
+1	1	skills[].n	Concentration
+1	1	skills[].n	Conviction
+1	1	skills[].src[].n	Courage
+1	1	skills[].src[].n	Crainte Vomir
+1	1	skills[].src[].n	Crescent Moon
+1	1	skills[].src[].n	Crushflange
+1	3	skills[].src[].n	Darkteflan
+1	1	skills[].g[].a	Deals 100% of Weapon Damage as Fire Damage
+1	1	skills[].g[].a	Deals 100% of Weapon Damage as Magic Damage
+1	1	skills[].g[].a	Deals 100% of Weapon Damage as Poison Damage
+1	1	skills[].g[].a	Deals 150% of Weapon Damage as Lightning Damage
+1	1	skills[].src[].n	Demon
+1	2	skills[].src[].n	Dfuzzz's Fingerguard
+1	2	skills[].src[].n	Double Kill
+1	1	skills[].src[].n	Dragon
+1	2	skills[].sy[]	dru-maul
+1	ALL	classes[].title	Druid
+1	2	skills[].l[].a	Fire Damage: %d-%d
+1	1	skills[].src[].n	Fortune
+1	1	skills[].src[].n	France
+1	2	skills[].src[].n	Futurebreeze
+1	1	skills[].src[].n	Ghoulhide
+1	1	skills[].src[].n	Gimmershred
+1	1	skills[].src[].n	Glowharness
+1	1	skills[].src[].n	Gold Scarab
+1	1	skills[].src[].n	Gravenspine
+1	1	skills[].src[].n	Gut Siphon
+1	1	skills[].src[].n	Hacker
+1	4	skills[].src[].n	Hawkmail
+1	5	skills[].src[].n	Hellcast
+1	2	skills[].src[].n	Hellclap
+1	4	skills[].src[].n	Hexfire
+1	2	skills[].src[].n	Honor
+1	1	skills[].src[].n	Horizon
+1	2	skills[].src[].n	Hotspur
+1	5	skills[].src[].n	Husoldal Evo
+1	2	skills[].src[].n	Ichorsting
+1	1	skills[].src[].n	Illustrious
+1	1	skills[].src[].n	Inarius' Fall
+1	1	skills[].src[].n	Infernostride
+1	1	skills[].src[].n	Islestrike
+1	ALL	skills[].osr	It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.
+1	ALL	skills[].osr	It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.
+1	ALL	classes[].title	Item Skills
+1	8	skills[].src[].n	Jurai
+1	5	skills[].src[].n	Kuko Shakaku
+1	1	skills[].src[].n	Lance Guard
+1	1	skills[].src[].n	Land
+1	5	skills[].src[].v	Level 1-10 Aura When Equipped
+1	8	skills[].src[].v	Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped
+1	3	skills[].src[].v	Level 1-5 Aura When Equipped
+1	6	skills[].src[].v	Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped
+1	3	skills[].src[].v	Level 10 Aura When Equipped / Level 20 Aura When Equipped
+1	1	skills[].src[].v	Level 15 Aura When Equipped / Level 10 Aura When Equipped
+1	9	skills[].src[].v	Level 15-20 Aura When Equipped
+1	7	skills[].src[].v	Level 2-5 Aura When Equipped
+1	2	skills[].src[].v	Level 20-40 Aura When Equipped
+1	8	skills[].src[].v	Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped
+1	3	skills[].src[].v	Level 30 Aura When Equipped / Level 25 Aura When Equipped
+1	2	skills[].src[].v	Level 30-50 Aura When Equipped
+1	5	skills[].src[].v	Level 4-7 Aura When Equipped
+1	1	skills[].src[].v	Level 5 Aura When Equipped / Level 10 Aura When Equipped
+1	8	skills[].src[].v	Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped
+1	8	skills[].src[].v	Level 5-20 Aura When Equipped
+1	3	skills[].src[].v	Level 5-25 Aura When Equipped
+1	6	skills[].src[].v	Level 6-12 Aura When Equipped
+1	ALL	skills[].src[].v	Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped
+1	8	skills[].src[].v	Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped
+1	5	skills[].src[].v	Level 8 Aura When Equipped / Level 12 Aura When Equipped
+1	1	skills[].g[].a	Life Tap Life Leech: %d%%
+1	3	skills[].src[].n	Lifebane
+1	1	skills[].l[].a	Lightning Damage: %d-%d
+1	1	skills[].src[].n	Lionheart
+1	1	skills[].src[].n	Lord
+1	2	skills[].src[].n	Lunar Charm
+1	2	skills[].src[].n	Magefist
+1	1	skills[].src[].n	Magewrath
+1	1	skills[].l[].a	Magic Damage: %d-%d
+1	1	skills[].src[].n	Maven
+1	1	skills[].g[].a	Max Hydras: %d
+1	1	skills[].n	Meditation
+1	1	skills[].n	Monsoon
+1	2	skills[].src[].n	Morgue
+1	ALL	classes[].title	Necromancer
+1	1	skills[].n	Omnipotence
+1	1	skills[].sy[]	pal-charge
+1	1	skills[].sy[]	pal-concentration
+1	2	skills[].sy[]	pal-meditation
+1	ALL	classes[].title	Paladin
+1	1	skills[].src[].n	Passion
+1	7	skills[].n	Permafrost
+1	1	skills[].src[].n	Phase Visor
+1	1	skills[].src[].n	Phoenix
+1	1	skills[].src[].n	Phrozen Heart
+1	ALL	notes[]	Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.
+1	1	skills[].src[].n	Question
+1	1	skills[].src[].n	Rebellion
+1	3	skills[].n	Ricochet
+1	1	skills[].src[].n	Ripsaw
+1	1	skills[].src[].n	Rohmshun
+1	1	skills[].src[].n	Royalty
+1	1	skills[].src[].n	Secret
+1	4	skills[].src[].n	Shank
+1	ALL	classes[].intro	Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.
+1	3	skills[].src[].n	Skystrike
+1	ALL	classes[].title	Sorceress
+1	1	skills[].src[].n	Sparkraven
+1	1	skills[].src[].n	Spirit Ward
+1	1	skills[].src[].n	Steelclash
+1	1	skills[].src[].n	Steeldriver
+1	3	skills[].src[].n	Stoneraven
+1	4	skills[].src[].n	Stormguild
+1	1	skills[].src[].n	Sureshrill Frost
+1	1	skills[].src[].n	Tara's Vision
+1	1	skills[].src[].n	Tiger
+1	1	skills[].src[].n	Tomb Reaver
+1	3	skills[].src[].n	Toothrow
+1	5	skills[].src[].n	Tyrael's Virtue_old
+1	ALL	notes[]	Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.
+1	1	skills[].src[].n	Venom Grip
+1	ALL	classes[].title	Warlock
+1	4	skills[].src[].n	Warshrike
+1	1	skills[].d	When it procs, unleashes a fully charged Dragon Fury at the level you have learned (not the proc's level).
+1	1	skills[].src[].n	Winter
+1	1	skills[].src[].n	Witchwild String
+1	2	skills[].src[].n	Witherstring
+1	2	skills[].src[].n	Zenith
+1	1	skills[].src[].n	Zerae's Point

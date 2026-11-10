@@ -1,0 +1,2567 @@
+#ESRCAMPAIGN	1
+# Campaign Progression map. Built by tools/build_campaign.py from levels.txt, levels.json, item-names.json
+# and curated tables ported from d2r-esr-runeword-browser (MIT, see THIRD_PARTY_NOTICES.md). Do not edit.
+# Sources: O official Maps page, T txt files, V vanilla Diablo II, W confirmed in game; lowercase = unverified.
+LANGS	enUS	deDE	esES	esMX	frFR	itIT	jaJP	koKR	plPL	ptBR	ruRU	zhCN	zhTW
+TAB	act1	grid	0	Act I
+GRID	act1	. 18 . 19 . . .
+GRID	act1	39 . 17 . 38 . .
+GRID	act1	1 2 3 4 5 6 11+15
+GRID	act1	. 8 9+13 . 10+14 . 20
+GRID	act1	. . . . . . 21..25
+GRID	act1	. . . . . . .
+GRID	act1	32 29+31 28 27 26 7 12+16
+GRID	act1	33 34+35+37 . . . . .
+GRID	act1	. . @40 . . . .
+REGION	act1	-0.45	5.5	4.45	7.85	Monastery
+ROUTE	act1	4	10	d
+ROUTE	act1	4	38	d
+ROUTE	act1	6	20	d
+ROUTE	act1	37	40	d
+SNOTE	act1	O	-	Removed: Jail Level 2. Jail Level 1 goes straight on to the old Level 3, now called Level 2
+SNOTE	act1	O	-	Removed: Catacombs Level 3. Level 2 goes straight on to the old Level 4 (Andariel), now called Level 3
+TAB	act2	grid	1	Act II
+GRID	act2	. 52..54 74 46 66 73 @75
+GRID	act2	50 . 55+59 . . . .
+GRID	act2	. 48+49 . . . . .
+GRID	act2	40 41 42 43 44 45 .
+GRID	act2	. . 56+60 62 65 58 .
+GRID	act2	. . . . . . .
+GRID	act2	. . . 51 47 57 61
+GRID	act2	. 64 63 . . . .
+ROUTE	act2	40	48	d
+ROUTE	act2	40	51	d
+ROUTE	act2	41	55	d
+ROUTE	act2	50	52	d
+ROUTE	act2	51	63	d
+SNOTE	act2	O	-	Removed: the old Sewers Level 1 and Palace Level 1
+SNOTE	act2	O	-	The Viper Amulet can be had without visiting Lost Farm (formely Lost City)
+SNOTE	act2	W	-	Every character starts with the Horadric Cube; Radament does not drop the Horadric Scroll and it is not needed
+TAB	act3	grid	2	Act III
+GRID	act3	75 76 77 78 79 90 .
+GRID	act3	. 85 88 . 80 86+94 .
+GRID	act3	. . 98 92 . 95 .
+GRID	act3	. . 93 . 81 96 .
+GRID	act3	. . . 97 . 89+91 .
+GRID	act3	. . . 99 82 87+84 .
+GRID	act3	. . . . 83 . .
+GRID	act3	. . . @103 100..102 . .
+REGION	act3	2.55	0.45	5.6	7.85	Kurast
+ROUTE	act3	76	88	d
+ROUTE	act3	80	90	d
+ROUTE	act3	80	95	d
+ROUTE	act3	81	89	d
+ROUTE	act3	81	97	d
+ROUTE	act3	88	78	s
+ROUTE	act3	92	80	d
+ROUTE	act3	92	81	d
+ROUTE	act3	92	93	d
+SNOTE	act3	o	w	The tunnel from the Flayer Jungle into Sewers Level 1 is one way; the Kurast entrances work both ways
+SNOTE	act3	O	-	Bookstore Sarina (formely Ruined Temple) can be visited for the book after Baal
+TAB	act4	grid	3	Act IV
+GRID	act4	103 104 105 106 107 108 @109
+TAB	act5	grid	4	Act V
+GRID	act5	137 . 120 128 129 131 132
+GRID	act5	127 117 118 . . . .
+GRID	act5	. . . . . 115 119
+GRID	act5	. 121 . . . 214 116
+GRID	act5	. . . . . 130 138
+GRID	act5	109 110 111 112 114 122 .
+GRID	act5	. . 125 126 . 113 .
+GRID	act5	. . . . . 123+124 .
+REGION	act5	2.55	-0.4	6.45	0.55	Worldstone Keep
+REGION	act5	4.55	1.55	6.45	7.85	Naraku depths
+ROUTE	act5	109	121	s
+ROUTE	act5	118	115	s
+SNOTE	act5	T	-	Frozen River is a dead end: once Anya is free, a red portal in Harrogath leads to the Dimensional Gate
+SNOTE	act5	W	-	That red portal works both ways and stays after you take the Dimensional Gate waypoint
+SNOTE	act5	O	-	Removed: Worldstone Keep Level 3. Level 2 goes straight on to the Throne of Destruction
+SNOTE	act5	O	w	Naraku and below are extremely hard; Nihlathak does not have to die to clear a difficulty
+TAB	special	cards	-1	Special areas
+CARD	special	39
+CARD	special	12
+CARD	special	16
+CARD	special	55
+CARD	special	59
+CARD	special	44
+CARD	special	65
+CARD	special	77
+CARD	special	86
+CARD	special	94
+CARD	special	87
+CARD	special	84
+CARD	special	137
+CARD	special	127
+CARD	special	115
+CARD	special	119
+CARD	special	214
+CARD	special	116
+CARD	special	130
+CARD	special	138
+CARD	special	122
+CARD	special	125
+CARD	special	126
+CARD	special	113
+CARD	special	123
+CARD	special	124
+SNOTE	special	O	-	Special areas such as the Secret Cow Level give the best experience and drops: go after beating the difficulty, or earlier with a strong character
+SNOTE	special	O	w	Naraku and below are for very well geared players only
+TAB	portals	cards	-1	Ubers & portals
+CARD	portals	39
+CARD	portals	133
+CARD	portals	134
+CARD	portals	135
+CARD	portals	136
+CARD	portals	137
+CARD	portals	213
+SNOTE	portals	T	-	Cow Portal: cube a Club and a Tome of Town Portal in the Rogue Encampment
+SNOTE	portals	T	-	Pandemonium Portal: cube the Keys of Terror, Hate and Destruction in Harrogath; it opens to Matron's Den, Forgotten Sands or Furnace of Pain at random
+SNOTE	portals	T	-	Pandemonium Finale Portal: cube Diablo's Horn, Baal's Eye and Mephisto's Brain in Harrogath
+SNOTE	portals	O	-	Endgame maps: transmute a map item by itself in Act V Hell and a red portal opens to the map
+AREA	1	act1	0	town	1	0	0	0	town,notp	0
+NAME	1	enUS	Rogue Encampment
+NAME	1	deDE	Räuberlager
+NAME	1	esES	Campamento de los Pícaros
+NAME	1	esMX	Campamento de los Pícaros
+NAME	1	frFR	Camp des Voleurs
+NAME	1	itIT	Accampamento dei Ladri
+NAME	1	jaJP	ローグのキャンプ
+NAME	1	koKR	도적 캠프
+NAME	1	plPL	Oboz Rzezimieszków
+NAME	1	ptBR	Acampamento dos Ladrões
+NAME	1	ruRU	Лагерь Разбойников
+NAME	1	zhCN	侠盗营地
+NAME	1	zhTW	遊俠營地
+AREA	2	act1	0	outdoor	0	2	38	68	-	0
+NAME	2	enUS	Blood Moor
+NAME	2	deDE	Blutmoor
+NAME	2	esES	Moor de Sangre
+NAME	2	esMX	Moor de Sangre
+NAME	2	frFR	Marais de Sang
+NAME	2	itIT	Palude di Sangue
+NAME	2	jaJP	ブラッド・ムーア
+NAME	2	koKR	피의 초원
+NAME	2	plPL	Mokrad Krwi
+NAME	2	ptBR	Pântano de Sangue
+NAME	2	ruRU	Кровавое Болото
+NAME	2	zhCN	鲜血荒地
+NAME	2	zhTW	血之荒原
+AREA	3	act1	0	outdoor	1	3	38	69	-	0
+NAME	3	enUS	Cold Plains
+NAME	3	deDE	Kaltes Flachland
+NAME	3	esES	Llanuras Frías
+NAME	3	esMX	Llanuras Frías
+NAME	3	frFR	Plaines Froides
+NAME	3	itIT	Pianure Gelate
+NAME	3	jaJP	冷たい平原
+NAME	3	koKR	차가운 평원
+NAME	3	plPL	Zimowe Równiny
+NAME	3	ptBR	Planícies Frias
+NAME	3	ruRU	Холодные равнины
+NAME	3	zhCN	冰冷之原
+NAME	3	zhTW	寒冷平原
+AREA	4	act1	0	outdoor	1	5	39	70	-	0
+NAME	4	enUS	Stony Field
+NAME	4	deDE	Steiniger Feld
+NAME	4	esES	Campo Rocoso
+NAME	4	esMX	Campo Rocoso
+NAME	4	frFR	Champ de Pierre
+NAME	4	itIT	Campo Pietroso
+NAME	4	jaJP	石の野
+NAME	4	koKR	돌밭
+NAME	4	plPL	Kamieniste Pole
+NAME	4	ptBR	Campo Pedregoso
+NAME	4	ruRU	Каменное Поле
+NAME	4	zhCN	乱石旷野
+NAME	4	zhTW	石頭田
+BOSS	4	Rakanishu
+QUEST	4	W	bkd	The Search for Cain	Touch the five stones in the order the key shows
+AREA	5	act1	0	outdoor	1	6	40	71	-	0
+NAME	5	enUS	Dark Wood
+NAME	5	deDE	Dunkler Wald
+NAME	5	esES	Bosque Oscuro
+NAME	5	esMX	Bosque Oscuro
+NAME	5	frFR	Bois Sombre
+NAME	5	itIT	Bosco Scuro
+NAME	5	jaJP	ダークウッド
+NAME	5	koKR	어두운 숲
+NAME	5	plPL	Ciemny Las
+NAME	5	ptBR	Madeira Sombria
+NAME	5	ruRU	Темный Лес
+NAME	5	zhCN	黑暗森林
+NAME	5	zhTW	黑暗森林
+BOSS	5	Treehead WoodFist
+QUEST	5	W	bks	The Search for Cain	Take the scroll from the Tree of Inifuss
+AREA	6	act1	0	outdoor	1	7	40	72	-	0
+NAME	6	enUS	Black Marsh
+NAME	6	deDE	Schwarzes Moor
+NAME	6	esES	Marsh Negro
+NAME	6	esMX	Pantano Negro
+NAME	6	frFR	Marais Noir
+NAME	6	itIT	Palude Nera
+NAME	6	jaJP	黒い湿地
+NAME	6	koKR	검은 늪
+NAME	6	plPL	Czarna Moczar
+NAME	6	ptBR	Pântano Negro
+NAME	6	ruRU	Черные болота
+NAME	6	zhCN	黑色荒地
+NAME	6	zhTW	黑沼澤
+AREA	7	act1	0	outdoor	0	9	41	72	-	0
+NAME	7	enUS	Tamoe Highland
+NAME	7	deDE	Tamoe-Hochland
+NAME	7	esES	Altiplano de Tamoe
+NAME	7	esMX	Altiplano Tamoe
+NAME	7	frFR	Hautes Terres de Tamoe
+NAME	7	itIT	Tamoe Highland
+NAME	7	jaJP	タモエ高原
+NAME	7	koKR	타모에 고원
+NAME	7	plPL	Tamoe Highlands
+NAME	7	ptBR	Planalto Tamoe
+NAME	7	ruRU	Тамое Нагорье
+NAME	7	zhCN	泰摩高地
+NAME	7	zhTW	塔莫高地
+AREA	8	act1	0	cave	0	2	38	70	-	0
+NAME	8	enUS	Den of Evil
+NAME	8	deDE	Böse Höhle
+NAME	8	esES	Guarida del Mal
+NAME	8	esMX	Guarida del Mal
+NAME	8	frFR	Antre du Mal
+NAME	8	itIT	Den del Male
+NAME	8	jaJP	悪の巣
+NAME	8	koKR	악의 소굴
+NAME	8	plPL	Jama Zła
+NAME	8	ptBR	Covil do Mal
+NAME	8	ruRU	Логово Зла
+NAME	8	zhCN	邪恶洞窟
+NAME	8	zhTW	邪惡之窩
+BOSS	8	Corpsefire
+QUEST	8	W	-	Den of Evil	Clear every monster in the cave
+AREA	9	act1	0	cave	0	3	38	71	-	0
+NAME	9	enUS	Cave Level 1
+NAME	9	deDE	Höhlenebene 1
+NAME	9	esES	Cueva Nivel 1
+NAME	9	esMX	Cueva Nivel 1
+NAME	9	frFR	Niveau de la caverne 1
+NAME	9	itIT	Caverna Livello 1
+NAME	9	jaJP	洞窟レベル1
+NAME	9	koKR	동굴 레벨 1
+NAME	9	plPL	Poziom Jaskini 1
+NAME	9	ptBR	Caverna Nível 1
+NAME	9	ruRU	Уровень пещеры 1
+NAME	9	zhCN	洞穴第一层
+NAME	9	zhTW	洞穴層級 1
+AREA	10	act1	0	cave	0	5	39	72	-	0
+NAME	10	enUS	Underground Passage Level 1
+NAME	10	deDE	Unterirdischer Durchgang Ebene 1
+NAME	10	esES	Paso Subterráneo Nivel 1
+NAME	10	esMX	Paso Subterráneo Nivel 1
+NAME	10	frFR	Passage Souterrain Niveau 1
+NAME	10	itIT	Passaggio Sotterraneo Livello 1
+NAME	10	jaJP	地下道 レベル 1
+NAME	10	koKR	지하 통로 1층
+NAME	10	plPL	Przejście Podziemne Poziom 1
+NAME	10	ptBR	Passagem Subterrânea Nível 1
+NAME	10	ruRU	Подземный проход Уровень 1
+NAME	10	zhCN	地底通道第一层
+NAME	10	zhTW	地下通道 第1層
+AREA	11	act1	0	cave	0	6	40	83	-	0
+NAME	11	enUS	Hole Level 1
+NAME	11	deDE	Loch Level 1
+NAME	11	esES	Agujero Nivel 1
+NAME	11	esMX	Nivel de Agujero 1
+NAME	11	frFR	Niveau de trou 1
+NAME	11	itIT	Buco Livello 1
+NAME	11	jaJP	穴レベル1
+NAME	11	koKR	구멍 레벨 1
+NAME	11	plPL	Dziura Poziom 1
+NAME	11	ptBR	Buraco Nível 1
+NAME	11	ruRU	Уровень дыры 1
+NAME	11	zhCN	地洞第一层
+NAME	11	zhTW	洞穴第1層
+AREA	12	act1	0	cave	0	44	68	92	special,zone	0
+NAME	12	enUS	Blood Raven's Workshop Level 1
+NAME	12	deDE	Blutrabenwerkstatt Ebene 1
+NAME	12	esES	Taller de Cuervo Sangriento Nivel 1
+NAME	12	esMX	Taller de Cuervo Sangriento Nivel 1
+NAME	12	frFR	Atelier de la Corbeau de Sang Niveau 1
+NAME	12	itIT	Laboratorio di Blood Raven Livello 1
+NAME	12	jaJP	ブラッドレイヴンの工房 レベル 1
+NAME	12	koKR	블러드 레이븐의 작업장 1층
+NAME	12	plPL	Warsztat Krwawej Wrony Poziom 1
+NAME	12	ptBR	Oficina da Corvo Sangrento Nível 1
+NAME	12	ruRU	Мастерская Кровавой Воробей Level 1
+NAME	12	zhCN	血鸦工坊 1 级
+NAME	12	zhTW	血鴉的工坊 第1層
+OFFICIAL	12	Blood Raven's Workshop
+NOTE	12	O	-	Special area, entered from Tamoe Highland
+AREA	13	act1	0	cave	0	3	39	75	-	0
+NAME	13	enUS	Cave Level 2
+NAME	13	deDE	Höhlenebene 2
+NAME	13	esES	Cueva Nivel 2
+NAME	13	esMX	Cueva Nivel 2
+NAME	13	frFR	Niveau de la caverne 2
+NAME	13	itIT	Caverna Livello 2
+NAME	13	jaJP	洞窟レベル2
+NAME	13	koKR	동굴 레벨 2
+NAME	13	plPL	Poziom Jaskini 2
+NAME	13	ptBR	Caverna Nível 2
+NAME	13	ruRU	Уровень пещеры 2
+NAME	13	zhCN	洞穴第二层  洞穴
+NAME	13	zhTW	洞穴層級 2
+AREA	14	act1	0	cave	0	5	40	76	-	0
+NAME	14	enUS	Underground Passage Level 2
+NAME	14	deDE	Untergrundpassage Ebene 2
+NAME	14	esES	Paso Subterráneo Nivel 2
+NAME	14	esMX	Paso Subterráneo Nivel 2
+NAME	14	frFR	Passage souterrain Niveau 2
+NAME	14	itIT	Passaggio Sotterraneo Livello 2
+NAME	14	jaJP	地下道 レベル 2
+NAME	14	koKR	지하 통로 2층
+NAME	14	plPL	Przejście Podziemne Poziom 2
+NAME	14	ptBR	Passagem Subterrânea Nível 2
+NAME	14	ruRU	Подземный проход Уровень 2
+NAME	14	zhCN	地底通道第二层
+NAME	14	zhTW	地下通道第2層
+AREA	15	act1	0	cave	0	6	41	84	-	0
+NAME	15	enUS	Hole Level 2
+NAME	15	deDE	Hole Level 2
+NAME	15	esES	Agujero Nivel 2
+NAME	15	esMX	Agujero Nivel 2
+NAME	15	frFR	Niveau 2 du Trou
+NAME	15	itIT	Buco Livello 2
+NAME	15	jaJP	ホール レベル 2
+NAME	15	koKR	구멍 레벨 2
+NAME	15	plPL	Dziura Poziom 2
+NAME	15	ptBR	Buraco Nível 2
+NAME	15	ruRU	Дыра Уровень 2
+NAME	15	zhCN	地洞第二层
+NAME	15	zhTW	洞穴第2層
+AREA	16	act1	0	cave	0	44	68	92	special,zone	0
+NAME	16	enUS	Blood Raven's Workshop Level 2
+NAME	16	deDE	Blutrabenwerkstatt Ebene 2
+NAME	16	esES	Taller de Blood Raven Nivel 2
+NAME	16	esMX	Taller de Blood Raven Nivel 2
+NAME	16	frFR	Atelier de la Corbeau de Sang Niveau 2
+NAME	16	itIT	Laboratorio di Blood Raven Livello 2
+NAME	16	jaJP	ブラッドレイヴンの工房 レベル2
+NAME	16	koKR	블러드 레이븐의 작업장 2층
+NAME	16	plPL	Warsztat Krwawej Wrony Poziom 2
+NAME	16	ptBR	Oficina da Corvo Sangrento Nível 2
+NAME	16	ruRU	Мастерская Кровавой Воробей Level 2
+NAME	16	zhCN	血鸦工坊 2 级
+NAME	16	zhTW	血鴉的工坊 第二層
+AREA	17	act1	0	outdoor	0	4	38	79	-	0
+NAME	17	enUS	Burial Grounds
+NAME	17	deDE	Begräbnisstätten
+NAME	17	esES	Tumbas de los Caídos
+NAME	17	esMX	Tumbas de los Caídos
+NAME	17	frFR	Terrains Funéraires
+NAME	17	itIT	Terreni di sepoltura
+NAME	17	jaJP	埋葬地
+NAME	17	koKR	매장지
+NAME	17	plPL	Cmentarzysko
+NAME	17	ptBR	Terras de Sepultamento
+NAME	17	ruRU	Могильные земли
+NAME	17	zhCN	埋骨之地
+NAME	17	zhTW	埋葬之地
+BOSS	17	Blood Raven
+QUEST	17	W	-	Sisters' Burial Grounds	Kill Blood Raven
+AREA	18	act1	0	tomb	0	4	39	86	-	0
+NAME	18	enUS	Crypt
+NAME	18	deDE	Krypta
+NAME	18	esES	Cripta
+NAME	18	esMX	Cripta
+NAME	18	frFR	Crypte
+NAME	18	itIT	Cripta
+NAME	18	jaJP	クリプト
+NAME	18	koKR	지하묘지
+NAME	18	plPL	Krypta
+NAME	18	ptBR	Cripta
+NAME	18	ruRU	Крипта
+NAME	18	zhCN	墓地
+NAME	18	zhTW	地穴
+AREA	19	act1	0	tomb	0	4	39	88	-	0
+NAME	19	enUS	Mausoleum
+NAME	19	deDE	Mausoleum
+NAME	19	esES	Mausoleo
+NAME	19	esMX	Mausoleo
+NAME	19	frFR	Mausolée
+NAME	19	itIT	Mausoleo
+NAME	19	jaJP	霊廟
+NAME	19	koKR	영묘
+NAME	19	plPL	Mauzoleum
+NAME	19	ptBR	Mausoléu
+NAME	19	ruRU	Мавзолей
+NAME	19	zhCN	大陵墓
+NAME	19	zhTW	陵墓
+AREA	20	act1	0	tower	0	0	0	0	-	0
+NAME	20	enUS	Forgotten Tower
+NAME	20	deDE	Vergessener Turm
+NAME	20	esES	Torre Olvidada
+NAME	20	esMX	Torre Olvidada
+NAME	20	frFR	Tour Oubliée
+NAME	20	itIT	Torre Dimenticata
+NAME	20	jaJP	忘れられた塔
+NAME	20	koKR	잊혀진 탑
+NAME	20	plPL	Zapomniana Wieża
+NAME	20	ptBR	Torre Esquecida
+NAME	20	ruRU	Забытая Башня
+NAME	20	zhCN	遗忘之塔
+NAME	20	zhTW	被遺忘的塔
+AREA	21	act1	0	tomb	0	8	40	78	-	0
+NAME	21	enUS	Tower Cellar Level 1
+NAME	21	deDE	Turmkeller Ebene 1
+NAME	21	esES	Nivel 1 de la Bodega de la Torre
+NAME	21	esMX	Sótano de la Torre Nivel 1
+NAME	21	frFR	Sous-sol de la tour Niveau 1
+NAME	21	itIT	Torre Cantina Livello 1
+NAME	21	jaJP	塔の地下室 レベル 1
+NAME	21	koKR	탑 지하실 1층
+NAME	21	plPL	Poziom 1 Piwnicy Wieży
+NAME	21	ptBR	Câmara da Torre Nível 1
+NAME	21	ruRU	Подвал башни Уровень 1
+NAME	21	zhCN	高塔地牢第一层
+NAME	21	zhTW	塔樓地窖第1層
+AREA	22	act1	0	tomb	0	8	41	79	-	0
+NAME	22	enUS	Tower Cellar Level 2
+NAME	22	deDE	Turmkeller Ebene 2
+NAME	22	esES	Sótano de la Torre Nivel 2
+NAME	22	esMX	Cámara de la Torre Nivel 2
+NAME	22	frFR	Sous-sol de la tour Niveau 2
+NAME	22	itIT	Torre Cantina Livello 2
+NAME	22	jaJP	塔の地下室 レベル 2
+NAME	22	koKR	탑 지하실 2층
+NAME	22	plPL	Poziom 2 Piwnicy Wieży
+NAME	22	ptBR	Porão da Torre Nível 2
+NAME	22	ruRU	Подвал башни Уровень 2
+NAME	22	zhCN	高塔地牢第二层
+NAME	22	zhTW	塔樓地窖第2層
+AREA	23	act1	0	tomb	0	8	42	80	-	0
+NAME	23	enUS	Tower Cellar Level 3
+NAME	23	deDE	Turmkeller Ebene 3
+NAME	23	esES	Nivel 3 de la Bodega de la Torre
+NAME	23	esMX	Sótano de la Torre Nivel 3
+NAME	23	frFR	Sous-sol de la tour Niveau 3
+NAME	23	itIT	Torre Cantina Livello 3
+NAME	23	jaJP	塔の地下室 レベル 3
+NAME	23	koKR	탑 지하실 3층
+NAME	23	plPL	Poziom 3 Piwnicy Wieży
+NAME	23	ptBR	Porão da Torre Nível 3
+NAME	23	ruRU	Подвал Башни Уровень 3
+NAME	23	zhCN	高塔地牢第三层
+NAME	23	zhTW	塔樓地窖 第3層
+AREA	24	act1	0	tomb	0	8	43	81	-	0
+NAME	24	enUS	Tower Cellar Level 4
+NAME	24	deDE	Turmkeller Ebene 4
+NAME	24	esES	Nivel 4 de la Bodega de la Torre
+NAME	24	esMX	Sótano de la Torre Nivel 4
+NAME	24	frFR	Sous-sol de la tour Niveau 4
+NAME	24	itIT	Torre Cantina Livello 4
+NAME	24	jaJP	塔の地下室 レベル 4
+NAME	24	koKR	탑 지하실 4층
+NAME	24	plPL	Poziom 4 Piwnicy Wieży
+NAME	24	ptBR	Porão da Torre Nível 4
+NAME	24	ruRU	Подвал Башни Уровень 4
+NAME	24	zhCN	高塔地牢第四层
+NAME	24	zhTW	塔樓地窖第4層
+AREA	25	act1	0	tomb	0	8	44	82	walls	0
+NAME	25	enUS	Tower Cellar Level 5
+NAME	25	deDE	Turmkeller Ebene 5
+NAME	25	esES	Sótano de la Torre Nivel 5
+NAME	25	esMX	Sótano de la Torre Nivel 5
+NAME	25	frFR	Caveau de la tour Niveau 5
+NAME	25	itIT	Torre Cantina Livello 5
+NAME	25	jaJP	塔の地下室 レベル 5
+NAME	25	koKR	탑 지하실 5층
+NAME	25	plPL	Piwnica Wieży Poziom 5
+NAME	25	ptBR	Porão da Torre Nível 5
+NAME	25	ruRU	Подвал Башни Уровень 5
+NAME	25	zhCN	高塔地牢第五层
+NAME	25	zhTW	塔樓地窖第5層
+OFFICIAL	25	Forgotten Tower Level 5
+BOSS	25	The Countess
+QUEST	25	W	-	The Forgotten Tower	Kill the Countess
+NOTE	25	W	-	Teleporting across the walls works here in game, although the official page says it does not
+AREA	26	act1	0	outdoor	0	9	42	73	-	0
+NAME	26	enUS	Monastery Gate
+NAME	26	deDE	Klostertor
+NAME	26	esES	Puerta del Monasterio
+NAME	26	esMX	Puerta del Monasterio
+NAME	26	frFR	Porte du Monastère
+NAME	26	itIT	Porta del Monastero
+NAME	26	jaJP	修道院の門
+NAME	26	koKR	수도원 문
+NAME	26	plPL	Brama Klasztoru
+NAME	26	ptBR	Portão do Mosteiro
+NAME	26	ruRU	Ворота монастыря
+NAME	26	zhCN	修道院大门
+NAME	26	zhTW	修道院大門
+AREA	27	act1	0	outdoor	1	10	42	73	-	0
+NAME	27	enUS	Outer Cloister
+NAME	27	deDE	Äußeres Kloster
+NAME	27	esES	Claustro Exterior
+NAME	27	esMX	Claustro Exterior
+NAME	27	frFR	Cloître extérieur
+NAME	27	itIT	Cloister Esterno
+NAME	27	jaJP	外回廊
+NAME	27	koKR	외부 수도원
+NAME	27	plPL	Zewnętrzny Klasztor
+NAME	27	ptBR	Claustro Externo
+NAME	27	ruRU	Внешний клуатр
+NAME	27	zhCN	外侧回廊
+NAME	27	zhTW	外部修道院
+AREA	28	act1	0	dungeon	0	10	42	73	-	0
+NAME	28	enUS	Barracks
+NAME	28	deDE	Kaserne
+NAME	28	esES	Cuartel
+NAME	28	esMX	Cuartel
+NAME	28	frFR	Caserne
+NAME	28	itIT	Caserma
+NAME	28	jaJP	兵舎
+NAME	28	koKR	병영
+NAME	28	plPL	Koszary
+NAME	28	ptBR	Quartel
+NAME	28	ruRU	Казармы
+NAME	28	zhCN	兵营
+NAME	28	zhTW	兵營
+BOSS	28	The Smith
+QUEST	28	W	hdm	Tools of the Trade	The Smith guards the Malus
+AREA	29	act1	0	dungeon	0	11	43	74	-	0
+NAME	29	enUS	Jail Level 1
+NAME	29	deDE	Gefängnis Ebene 1
+NAME	29	esES	Nivel de Cárcel 1
+NAME	29	esMX	Nivel de Cárcel 1
+NAME	29	frFR	Niveau de prison 1
+NAME	29	itIT	Livello 1 della Prigione
+NAME	29	jaJP	監獄レベル 1
+NAME	29	koKR	감옥 1층
+NAME	29	plPL	Poziom więzienia 1
+NAME	29	ptBR	Prisão Nível 1
+NAME	29	ruRU	Тюрьма Уровень 1
+NAME	29	zhCN	监牢第一层
+NAME	29	zhTW	監獄第1層
+AREA	31	act1	0	dungeon	0	11	43	74	-	0
+NAME	31	enUS	Jail Level 2
+NAME	31	deDE	Gefängnis Ebene 2
+NAME	31	esES	Nivel 2 de la cárcel
+NAME	31	esMX	Nivel 2 de la Cárcel
+NAME	31	frFR	Niveau de prison 2
+NAME	31	itIT	Livello 2 della Prigione
+NAME	31	jaJP	監獄レベル2
+NAME	31	koKR	감옥 2층
+NAME	31	plPL	Poziom 2 Więzienia
+NAME	31	ptBR	Prisão Nível 2
+NAME	31	ruRU	Тюрьма Уровень 2
+NAME	31	zhCN	监牢第二层
+NAME	31	zhTW	監獄第二層
+NOTE	31	O	-	This is the old Jail Level 3; ESR took out the old Level 2
+AREA	32	act1	0	outdoor	1	11	43	75	-	0
+NAME	32	enUS	Inner Cloister
+NAME	32	deDE	Innerer Kreuzgang
+NAME	32	esES	Claustro Interior
+NAME	32	esMX	Claustro Interior
+NAME	32	frFR	Cloître Intérieur
+NAME	32	itIT	Cloister Interno
+NAME	32	jaJP	内院
+NAME	32	koKR	내부 회랑
+NAME	32	plPL	Wewnętrzny Klasztor
+NAME	32	ptBR	Cloister Interno
+NAME	32	ruRU	Внутренний клуатр
+NAME	32	zhCN	内侧回廊
+NAME	32	zhTW	內院
+AREA	33	act1	0	temple	0	12	44	75	-	0
+NAME	33	enUS	Cathedral
+NAME	33	deDE	Kathedrale
+NAME	33	esES	Catedral
+NAME	33	esMX	Catedral
+NAME	33	frFR	Cathédrale
+NAME	33	itIT	Cattedrale
+NAME	33	jaJP	大聖堂
+NAME	33	koKR	대성당
+NAME	33	plPL	Katedra
+NAME	33	ptBR	Catedral
+NAME	33	ruRU	Собор
+NAME	33	zhCN	大教堂
+NAME	33	zhTW	大教堂
+AREA	34	act1	0	tomb	0	12	44	75	-	0
+NAME	34	enUS	Catacombs Level 1
+NAME	34	deDE	Katakomben Ebene 1
+NAME	34	esES	Catacumbas Nivel 1
+NAME	34	esMX	Catacumbas Nivel 1
+NAME	34	frFR	Catacombes Niveau 1
+NAME	34	itIT	Catacombe Livello 1
+NAME	34	jaJP	カタコンベ レベル 1
+NAME	34	koKR	지하묘지 1층
+NAME	34	plPL	Katakumby Poziom 1
+NAME	34	ptBR	Catacumbas Nível 1
+NAME	34	ruRU	Катакомбы Уровень 1
+NAME	34	zhCN	地下墓穴第一层
+NAME	34	zhTW	地穴第一層
+AREA	35	act1	0	tomb	1	12	44	76	-	0
+NAME	35	enUS	Catacombs Level 2
+NAME	35	deDE	Katakomben Ebene 2
+NAME	35	esES	Catacumbas Nivel 2
+NAME	35	esMX	Catacumbas Nivel 2
+NAME	35	frFR	Catacombes Niveau 2
+NAME	35	itIT	Catacombe Livello 2
+NAME	35	jaJP	カタコンベ レベル 2
+NAME	35	koKR	지하묘지 2층
+NAME	35	plPL	Katakumby Poziom 2
+NAME	35	ptBR	Catacumbas Nível 2
+NAME	35	ruRU	Катакомбы Уровень 2
+NAME	35	zhCN	地下墓穴第二层
+NAME	35	zhTW	地下墓穴 第二層
+AREA	37	act1	0	tomb	0	13	45	76	walls	0
+NAME	37	enUS	Catacombs Level 3
+NAME	37	deDE	Katakomben Ebene 3
+NAME	37	esES	Catacumbas Nivel 3
+NAME	37	esMX	Catacumbas Nivel 3
+NAME	37	frFR	Catacombes Niveau 3
+NAME	37	itIT	Catacombe Livello 3
+NAME	37	jaJP	カタコンベ レベル 3
+NAME	37	koKR	지하묘지 3층
+NAME	37	plPL	Katakumby Poziom 3
+NAME	37	ptBR	Catacumbas Nível 3
+NAME	37	ruRU	Катакомбы Уровень 3
+NAME	37	zhCN	地下墓穴第三层
+NAME	37	zhTW	地下墓穴 第3層
+OFFICIAL	37	Catacomb Level 4
+BOSS	37	Andariel
+QUEST	37	W	-	Sisters to the Slaughter	Kill Andariel
+NOTE	37	O	-	This is the old Catacombs Level 4; ESR took out the old Level 3
+NOTE	37	W	-	Teleporting across the walls works here in game, although the official page says it does not
+AREA	38	act1	0	outdoor	0	7	41	79	-	0
+NAME	38	enUS	Tristram
+NAME	38	deDE	Tristram
+NAME	38	esES	Tristram
+NAME	38	esMX	Tristram
+NAME	38	frFR	Tristram
+NAME	38	itIT	Tristram
+NAME	38	jaJP	トリストラム
+NAME	38	koKR	트리스트램
+NAME	38	plPL	Tristram
+NAME	38	ptBR	Tristram
+NAME	38	ruRU	Тристрам
+NAME	38	zhCN	崔斯特姆
+NAME	38	zhTW	特里斯特蘭
+BOSS	38	Griswold
+QUEST	38	W	-	The Search for Cain	Free Deckard Cain from his cage
+ENTRY	38	W	Red portal at the Cairn Stones in Stony Field
+AREA	39	act1	0	outdoor	1	44	68	89	special	0
+NAME	39	enUS	The Secret Cow Level
+NAME	39	deDE	Das geheime Kuhlevel
+NAME	39	esES	El Nivel Secreto de las Vacas
+NAME	39	esMX	El Nivel Secreto de las Vacas
+NAME	39	frFR	Le Niveau Secret des Vaches
+NAME	39	itIT	Il Livello Segreto delle Mucche
+NAME	39	jaJP	秘密の牛のレベル
+NAME	39	koKR	비밀 소 레벨
+NAME	39	plPL	Tajemny Poziom Krowy
+NAME	39	ptBR	O Nível Secreto da Vaca
+NAME	39	ruRU	Секретный уровень коров
+NAME	39	zhCN	秘密乳牛关
+NAME	39	zhTW	秘密牛關卡
+BOSS	39	The Cow King
+NOTE	39	O	-	Special area: top experience and drops once the difficulty is beaten
+NOTE	39	T	-	It has a waypoint in ESR
+ENTRY	39	T	Cube a Club with a Tome of Town Portal in the Rogue Encampment
+AREA	40	act2	1	town	1	0	0	0	town,notp	0
+NAME	40	enUS	Lut Gholein
+NAME	40	deDE	Lut Gholein
+NAME	40	esES	Lut Gholein
+NAME	40	esMX	Lut Gholein
+NAME	40	frFR	Lut Gholein
+NAME	40	itIT	Lut Gholein
+NAME	40	jaJP	ルート・ゴレイン
+NAME	40	koKR	룻 골레인
+NAME	40	plPL	Lut Gholein
+NAME	40	ptBR	Lut Gholein
+NAME	40	ruRU	Лут Голейн
+NAME	40	zhCN	鲁高因
+NAME	40	zhTW	盧特·戈爾因
+OFFICIAL	40	Lut Gohlein
+NOTE	40	O	-	The official page marks the south sewer entrance here
+AREA	41	act2	1	outdoor	0	15	45	78	-	0
+NAME	41	enUS	Rocky Waste
+NAME	41	deDE	Felsige Abfälle
+NAME	41	esES	Desierto Rocoso
+NAME	41	esMX	Desierto Rocoso
+NAME	41	frFR	Décharge Rocheuse
+NAME	41	itIT	Rifiuti Rocciosi
+NAME	41	jaJP	岩だらけの荒地
+NAME	41	koKR	바위 폐허
+NAME	41	plPL	Skaliste Ruiny
+NAME	41	ptBR	Deserto Rochoso
+NAME	41	ruRU	Скалистая Пустошь
+NAME	41	zhCN	碎石荒地
+NAME	41	zhTW	岩石荒地
+AREA	42	act2	1	outdoor	1	16	46	79	-	0
+NAME	42	enUS	Dry Hills
+NAME	42	deDE	Trockene Hügel
+NAME	42	esES	Colinas Secas
+NAME	42	esMX	Colinas Secas
+NAME	42	frFR	Collines Sèches
+NAME	42	itIT	Colline Secche
+NAME	42	jaJP	乾燥した丘
+NAME	42	koKR	건조한 언덕
+NAME	42	plPL	Suche Wzgórza
+NAME	42	ptBR	Colinas Secas
+NAME	42	ruRU	Сухие холмы
+NAME	42	zhCN	干土高地
+NAME	42	zhTW	乾燥山丘
+AREA	43	act2	1	outdoor	1	17	47	79	-	0
+NAME	43	enUS	Far Oasis
+NAME	43	deDE	Ferne Oase
+NAME	43	esES	Lejano Oasis
+NAME	43	esMX	Oasis Lejana
+NAME	43	frFR	Loin Oasis
+NAME	43	itIT	Oasi Lontana
+NAME	43	jaJP	遠いオアシス
+NAME	43	koKR	먼 오아시스
+NAME	43	plPL	Daleka Oaza
+NAME	43	ptBR	Oásis Distante
+NAME	43	ruRU	Далёкая Оазис
+NAME	43	zhCN	遥远的绿洲
+NAME	43	zhTW	遙遠的綠洲
+AREA	44	act2	1	outdoor	1	44	68	89	special,zone	0
+NAME	44	enUS	Lost Farm
+NAME	44	deDE	Verlorene Farm
+NAME	44	esES	Granja Perdida
+NAME	44	esMX	Granja Perdida
+NAME	44	frFR	Ferme Perdue
+NAME	44	itIT	Fattoria Perduta
+NAME	44	jaJP	失われた農場
+NAME	44	koKR	잃어버린 농장
+NAME	44	plPL	Zgubiona Farma
+NAME	44	ptBR	Fazenda Perdida
+NAME	44	ruRU	Потерянная Ферма
+NAME	44	zhCN	失落农场
+NAME	44	zhTW	失落的農場
+OFFICIAL	44	Lost Farm (formely Lost City)
+NOTE	44	O	-	Special area, in place of the old Lost City
+NOTE	44	O	-	The Viper Amulet can be had without coming here
+AREA	45	act2	1	outdoor	0	19	48	80	-	0
+NAME	45	enUS	Valley of Snakes
+NAME	45	deDE	Schlange Tal
+NAME	45	esES	Valle de las Serpientes
+NAME	45	esMX	Valle de las Serpientes
+NAME	45	frFR	Vallée des Serpents
+NAME	45	itIT	Valle dei Serpenti
+NAME	45	jaJP	蛇の谷
+NAME	45	koKR	뱀의 계곡
+NAME	45	plPL	Dolina Węży
+NAME	45	ptBR	Vale das Serpentes
+NAME	45	ruRU	Долина Змей
+NAME	45	zhCN	群蛇峡谷
+NAME	45	zhTW	蛇谷
+AREA	46	act2	1	outdoor	1	17	50	82	-	0
+NAME	46	enUS	Canyon of the Magi
+NAME	46	deDE	Canyon der Magier
+NAME	46	esES	Cañón de los Magos
+NAME	46	esMX	Cañón de los Magos
+NAME	46	frFR	Canyon des Mages
+NAME	46	itIT	Canyon dei Magi
+NAME	46	jaJP	魔法使いの峡谷
+NAME	46	koKR	마법사의 협곡
+NAME	46	plPL	Kanion Magów
+NAME	46	ptBR	Cânion dos Magos
+NAME	46	ruRU	Каньон Магов
+NAME	46	zhCN	贤者之谷
+NAME	46	zhTW	魔法師峽谷
+AREA	47	act2	1	dungeon	0	14	45	77	-	0
+NAME	47	enUS	Temple Passage Level 1
+NAME	47	deDE	Tempelpassage Ebene 1
+NAME	47	esES	Paso del Templo Nivel 1
+NAME	47	esMX	Paso del Templo Nivel 1
+NAME	47	frFR	Passage du Temple Niveau 1
+NAME	47	itIT	Passaggio del Tempio Livello 1
+NAME	47	jaJP	寺院の通路 レベル 1
+NAME	47	koKR	신전 통로 1층
+NAME	47	plPL	Przejście Świątyni Poziom 1
+NAME	47	ptBR	Passagem do Templo Nível 1
+NAME	47	ruRU	Уровень 1 Проход Храма
+NAME	47	zhCN	寺庙通道 1 层
+NAME	47	zhTW	寺廟通道 第1層
+AREA	48	act2	1	dungeon	1	14	45	77	-	0
+NAME	48	enUS	Sewers Level 1
+NAME	48	deDE	Kanalisation Ebene 1
+NAME	48	esES	Aguas Residuales Nivel 1
+NAME	48	esMX	Aguas Residuales Nivel 1
+NAME	48	frFR	Égouts Niveau 1
+NAME	48	itIT	Fogne Livello 1
+NAME	48	jaJP	下水道 レベル 1
+NAME	48	koKR	하수도 1층
+NAME	48	plPL	Kanały Poziom 1
+NAME	48	ptBR	Esgotos Nível 1
+NAME	48	ruRU	Канализация Уровень 1
+NAME	48	zhCN	下水道第一层
+NAME	48	zhTW	下水道第1層
+AREA	49	act2	1	dungeon	0	15	46	78	-	0
+NAME	49	enUS	Sewers Level 2
+NAME	49	deDE	Kanalisation Ebene 2
+NAME	49	esES	Aguas Residuales Nivel 2
+NAME	49	esMX	Aguas Residuales Nivel 2
+NAME	49	frFR	Égouts Niveau 2
+NAME	49	itIT	Fogne Livello 2
+NAME	49	jaJP	下水道レベル2
+NAME	49	koKR	하수도 2층
+NAME	49	plPL	Kanały Poziom 2
+NAME	49	ptBR	Esgotos Nível 2
+NAME	49	ruRU	Канализация Уровень 2
+NAME	49	zhCN	下水道第二层
+NAME	49	zhTW	下水道第2層
+BOSS	49	Radament
+QUEST	49	W	ass	Radament's Lair	Radament drops the book
+AREA	50	act2	1	dungeon	0	0	0	0	-	0
+NAME	50	enUS	Harem Level 1
+NAME	50	deDE	Harem Ebene 1
+NAME	50	esES	Harem Nivel 1
+NAME	50	esMX	Harem Nivel 1
+NAME	50	frFR	Harem Niveau 1
+NAME	50	itIT	Harem Livello 1
+NAME	50	jaJP	ハーレム レベル 1
+NAME	50	koKR	하렘 레벨 1
+NAME	50	plPL	Harem Poziom 1
+NAME	50	ptBR	Harem Nível 1
+NAME	50	ruRU	Гарем Уровень 1
+NAME	50	zhCN	后宫第一层
+NAME	50	zhTW	後宮 第1層
+AREA	51	act2	1	dungeon	0	14	49	81	-	0
+NAME	51	enUS	Underground Maze
+NAME	51	deDE	Unterirdisches Labyrinth
+NAME	51	esES	Mazmorras Subterráneas
+NAME	51	esMX	Labertinto Subterráneo
+NAME	51	frFR	Labyrinthe Souterrain
+NAME	51	itIT	Labirinto Sotterraneo
+NAME	51	jaJP	地下迷路
+NAME	51	koKR	지하 미로
+NAME	51	plPL	Podziemny Labirynt
+NAME	51	ptBR	Labirinto Subterrâneo
+NAME	51	ruRU	Подземный лабиринт
+NAME	51	zhCN	地下迷宫
+NAME	51	zhTW	地下迷宮
+NOTE	51	T	-	Joins Lut Gholein, the Maggot Tunnels, the Maggot Passage and Temple Passage Level 1
+AREA	52	act2	1	dungeon	1	14	49	81	-	0
+NAME	52	enUS	Palace Cellar Level 1
+NAME	52	deDE	Palastkeller Ebene 1
+NAME	52	esES	Cámara del Palacio Nivel 1
+NAME	52	esMX	Cámara del Palacio Nivel 1
+NAME	52	frFR	Caveau du Palais Niveau 1
+NAME	52	itIT	Cella del Palazzo Livello 1
+NAME	52	jaJP	宮殿地下室 レベル 1
+NAME	52	koKR	궁전 지하실 1층
+NAME	52	plPL	Piwnica Pałacu Poziom 1
+NAME	52	ptBR	Câmara do Palácio Nível 1
+NAME	52	ruRU	Подземелье Дворца Уровень 1
+NAME	52	zhCN	皇宫地窖第一层
+NAME	52	zhTW	宮殿地窖 第1層
+AREA	53	act2	1	dungeon	0	14	49	81	-	0
+NAME	53	enUS	Palace Cellar Level 2
+NAME	53	deDE	Palastkeller Ebene 2
+NAME	53	esES	Cámara del Palacio Nivel 2
+NAME	53	esMX	Cámara del Palacio Nivel 2
+NAME	53	frFR	Caveau du Palais Niveau 2
+NAME	53	itIT	Cella del Palazzo Livello 2
+NAME	53	jaJP	宮殿地下室 レベル 2
+NAME	53	koKR	궁전 지하실 2층
+NAME	53	plPL	Piwnica Pałacu Poziom 2
+NAME	53	ptBR	Câmara do Palácio Nível 2
+NAME	53	ruRU	Подземелье дворца Уровень 2
+NAME	53	zhCN	皇宫地窖第二层
+NAME	53	zhTW	宮殿地窖第2層
+AREA	54	act2	1	dungeon	0	14	50	81	-	0
+NAME	54	enUS	Palace Cellar Level 3
+NAME	54	deDE	Palastkeller Ebene 3
+NAME	54	esES	Cámara del Palacio Nivel 3
+NAME	54	esMX	Cámara del Palacio Nivel 3
+NAME	54	frFR	Caveau du Palais Niveau 3
+NAME	54	itIT	Cella del Palazzo Livello 3
+NAME	54	jaJP	宮殿の地下室 レベル 3
+NAME	54	koKR	궁전 지하실 3층
+NAME	54	plPL	Piwnica Pałacu Poziom 3
+NAME	54	ptBR	Câmara do Palácio Nível 3
+NAME	54	ruRU	Подземелье Дворца Уровень 3
+NAME	54	zhCN	皇宫地窖第三层
+NAME	54	zhTW	宮殿地窖 第3層
+QUEST	54	W	-	Arcane Sanctuary	The portal to the Arcane Sanctuary is here
+AREA	55	act2	1	tomb	0	44	68	92	special,zone	0
+NAME	55	enUS	Dark Magician's Chamber Level 1
+NAME	55	deDE	Dunkler Magierraum Ebene 1
+NAME	55	esES	Cámara del Mago Oscuro Nivel 1
+NAME	55	esMX	Cámara del Mago Oscuro Nivel 1
+NAME	55	frFR	Chambre du Magicien Noir Niveau 1
+NAME	55	itIT	Camera del Mago Oscuro Livello 1
+NAME	55	jaJP	ダークマジシャンの間 レベル1
+NAME	55	koKR	어둠의 마법사 방 1층
+NAME	55	plPL	Komnata Ciemnego Czarodzieja Poziom 1
+NAME	55	ptBR	Câmara do Mago Sombrio Nível 1
+NAME	55	ruRU	Темница Темного Магистра Уровень 1
+NAME	55	zhCN	黑暗魔法师密室第一层
+NAME	55	zhTW	黑暗魔法師的密室 第1層
+OFFICIAL	55	Dark Magician's Chamber
+NOTE	55	O	-	Special area, entered from the Rocky Waste
+AREA	56	act2	1	tomb	0	13	46	82	-	0
+NAME	56	enUS	Halls of the Dead Level 1
+NAME	56	deDE	Hallen der Toten Ebene 1
+NAME	56	esES	Salas de los Muertos Nivel 1
+NAME	56	esMX	Salas de los Muertos Nivel 1
+NAME	56	frFR	Salles des Morts Niveau 1
+NAME	56	itIT	Sale dei Morti Livello 1
+NAME	56	jaJP	死者の間 レベル 1
+NAME	56	koKR	죽은 자의 전당 1층
+NAME	56	plPL	Korytarze Zmarłych Poziom 1
+NAME	56	ptBR	Salas dos Mortos Nível 1
+NAME	56	ruRU	Залы Мертвых Уровень 1
+NAME	56	zhCN	死亡之殿第一层
+NAME	56	zhTW	亡者之廳 第1層
+AREA	57	act2	1	tomb	1	14	47	84	-	0
+NAME	57	enUS	Temple Passage Level 2
+NAME	57	deDE	Tempelpassage Ebene 2
+NAME	57	esES	Paso del Templo Nivel 2
+NAME	57	esMX	Pasaje del Templo Nivel 2
+NAME	57	frFR	Passage du Temple Niveau 2
+NAME	57	itIT	Passaggio del Tempio Livello 2
+NAME	57	jaJP	寺院の通路 レベル 2
+NAME	57	koKR	신전 통로 2층
+NAME	57	plPL	Przejście Świątyni Poziom 2
+NAME	57	ptBR	Passagem do Templo Nível 2
+NAME	57	ruRU	Проход Храма Уровень 2
+NAME	57	zhCN	寺庙通道 2 层
+NAME	57	zhTW	寺廟通道第2層
+AREA	58	act2	1	tomb	0	15	49	85	-	0
+NAME	58	enUS	Claw Viper Temple Level 1
+NAME	58	deDE	Klaue Viper Tempel Ebene 1
+NAME	58	esES	Templo de la Víbora Garra Nivel 1
+NAME	58	esMX	Templo de la Víbora Garra Nivel 1
+NAME	58	frFR	Temple du Viper à Griffe Niveau 1
+NAME	58	itIT	Tempio della Viper Claw Livello 1
+NAME	58	jaJP	クロー・バイパー・テンプル レベル 1
+NAME	58	koKR	클로우 바이퍼 사원 1층
+NAME	58	plPL	Świątynia Węża Pazura Poziom 1
+NAME	58	ptBR	Templo da Víbora de Garra Nível 1
+NAME	58	ruRU	Храм Когтя Гадюки Уровень 1
+NAME	58	zhCN	利爪蛇魔神殿第一层
+NAME	58	zhTW	爪蛇神廟 第1層
+AREA	59	act2	1	tomb	0	44	68	92	special,zone	0
+NAME	59	enUS	Dark Magician's Chamber Level 2
+NAME	59	deDE	Dunkler Magierkammer Stufe 2
+NAME	59	esES	Cámara del Mago Oscuro Nivel 2
+NAME	59	esMX	Cámara del Mago Oscuro Nivel 2
+NAME	59	frFR	Chambre du Magicien Noir Niveau 2
+NAME	59	itIT	Camera del Mago Oscuro Livello 2
+NAME	59	jaJP	ダークマジシャンの間 レベル2
+NAME	59	koKR	어둠의 마법사 방 2층
+NAME	59	plPL	Komnata Ciemnego Czarodzieja Poziom 2
+NAME	59	ptBR	Câmara do Mago Sombrio Nível 2
+NAME	59	ruRU	Темница Темного Магистра Уровень 2
+NAME	59	zhCN	黑暗魔法师密室第二层
+NAME	59	zhTW	黑暗魔法師的密室 第二層
+AREA	60	act2	1	tomb	0	14	47	85	walls	0
+NAME	60	enUS	Halls of the Dead Level 2
+NAME	60	deDE	Hallen der Toten Ebene 2
+NAME	60	esES	Salas de los Muertos Nivel 2
+NAME	60	esMX	Salas de los Muertos Nivel 2
+NAME	60	frFR	Salles des Morts Niveau 2
+NAME	60	itIT	Sale dei Morti Livello 2
+NAME	60	jaJP	死者の間 レベル 2
+NAME	60	koKR	죽은 자의 전당 2층
+NAME	60	plPL	Korytarze Zmarłych Poziom 2
+NAME	60	ptBR	Salas dos Mortos Nível 2
+NAME	60	ruRU	Залы Мертвых Уровень 2
+NAME	60	zhCN	死亡之殿第二层
+NAME	60	zhTW	亡者之廳 第二層
+OFFICIAL	60	Hall of the Dead Level 2
+BOSS	60	Bloodwitch the Wild
+NOTE	60	W	-	Teleporting across the walls works here in game, although the official page says it does not
+AREA	61	act2	1	tomb	0	15	49	86	-	0
+NAME	61	enUS	Claw Viper Temple Level 2
+NAME	61	deDE	Klaue Viper Tempel Ebene 2
+NAME	61	esES	Templo de la Víbora Garra Nivel 2
+NAME	61	esMX	Templo de la Víbora Garra Nivel 2
+NAME	61	frFR	Temple des Serpents Griffe Niveau 2
+NAME	61	itIT	Tempio della Viper Claw Livello 2
+NAME	61	jaJP	クロー・バイパー・テンプル レベル 2
+NAME	61	koKR	클로우 바이퍼 사원 2층
+NAME	61	plPL	Świątynia Węża Pazurów Poziom 2
+NAME	61	ptBR	Templo da Víbora de Garras Nível 2
+NAME	61	ruRU	Храм Когтистого Гадюки Уровень 2
+NAME	61	zhCN	利爪蛇魔神殿第二层
+NAME	61	zhTW	爪蛇神廟 第二層
+OFFICIAL	61	Unholy Altar
+BOSS	61	Fangskin
+QUEST	61	O	vip	The Horadric Staff	Take the top of the staff from the altar (the official page calls it the Viper Amulet)
+QUEST	61	W	-	The Tainted Sun	Break the altar and the sun comes back
+NOTE	61	T	-	Reached from Temple Passage Level 2, not from Claw Viper Temple Level 1
+AREA	62	act2	1	cave	0	18	47	87	-	0
+NAME	62	enUS	Maggot Tunnels
+NAME	62	deDE	Maden-Tunnel
+NAME	62	esES	Túneles de Gusanos
+NAME	62	esMX	Túneles de Gusanos
+NAME	62	frFR	Tunnels à Vers
+NAME	62	itIT	Tunnel dei Vermi
+NAME	62	jaJP	マゴットトンネル
+NAME	62	koKR	구더기 터널
+NAME	62	plPL	Tunel Robaków
+NAME	62	ptBR	Túneis de Larvas
+NAME	62	ruRU	Червячные туннели
+NAME	62	zhCN	蛆虫隧道
+NAME	62	zhTW	蛆蟲隧道
+AREA	63	act2	1	cave	0	18	47	87	-	0
+NAME	63	enUS	Maggot Passage
+NAME	63	deDE	Madenpassage
+NAME	63	esES	Paso de los Gusanos
+NAME	63	esMX	Paso de las Lombrices
+NAME	63	frFR	Passage des Vers
+NAME	63	itIT	Passaggio dei Vermi
+NAME	63	jaJP	ウジ虫の通路
+NAME	63	koKR	구더기 통로
+NAME	63	plPL	Przejście Robaków
+NAME	63	ptBR	Passagem da Larva
+NAME	63	ruRU	Червяный проход
+NAME	63	zhCN	蛆虫通道
+NAME	63	zhTW	蛆蟲通道
+AREA	64	act2	1	cave	0	18	48	88	-	0
+NAME	64	enUS	Maggot Lair
+NAME	64	deDE	Madenlager
+NAME	64	esES	Guarida de Gusanos
+NAME	64	esMX	Cueva de Gusanos
+NAME	64	frFR	Grotte des Vers
+NAME	64	itIT	Tana dei Maggot
+NAME	64	jaJP	ウジ虫の巣
+NAME	64	koKR	구더기 소굴
+NAME	64	plPL	Gniazdo Robaków
+NAME	64	ptBR	Toca da Larva
+NAME	64	ruRU	Логово Маготов
+NAME	64	zhCN	蛆虫巢穴
+NAME	64	zhTW	蛆蟲巢穴
+BOSS	64	Coldworm the Burrower
+QUEST	64	O	msf	The Horadric Staff	The shaft is in the chest (the official page: Staff of Kings)
+AREA	65	act2	1	dungeon	0	44	68	92	special,zone	0
+NAME	65	enUS	Andariel's Dressing Room
+NAME	65	deDE	Andariels Umkleide
+NAME	65	esES	El Vestidor de Andariel
+NAME	65	esMX	El Vestidor de Andariel
+NAME	65	frFR	La Loge d'Andariel
+NAME	65	itIT	Spogliatoio di Andariel
+NAME	65	jaJP	アンディリアルのドレッシングルーム
+NAME	65	koKR	안다리엘의 드레싱룸
+NAME	65	plPL	Przebieralnia Andariel
+NAME	65	ptBR	Sala de Estar de Andariel
+NAME	65	ruRU	Гардеробная Андариэль
+NAME	65	zhCN	安达利尔的更衣室
+NAME	65	zhTW	安達利爾的更衣室
+NOTE	65	O	-	Special area, off the old Lost City (now Lost Farm)
+AREA	66	act2	1	tomb	0	18	51	83	-	0
+NAME	66	enUS	Tal Rasha's Tomb
+NAME	66	deDE	Tal Rashas Grab
+NAME	66	esES	Tumba de Rasha
+NAME	66	esMX	Tumba de Rasha
+NAME	66	frFR	Tal Tombe de Rasha
+NAME	66	itIT	Tal La Tomba di Rasha
+NAME	66	jaJP	ラシャの墓
+NAME	66	koKR	라샤의 무덤
+NAME	66	plPL	Tal Grób Rashy
+NAME	66	ptBR	Tal Tumba de Rasha
+NAME	66	ruRU	Tal Гробница Раши
+NAME	66	zhCN	塔拉夏的古墓
+NAME	66	zhTW	Tal 拉莎的墓穴
+QUEST	66	W	hst	The Seven Tombs	Only one tomb is the true one: put the staff in its Horadric Orifice
+AREA	67	act2	1	tomb	0	18	51	83	-	66
+NAME	67	enUS	Tal Rasha's Tomb
+NAME	67	deDE	Tal Rashas Grab
+NAME	67	esES	Tumba de Rasha
+NAME	67	esMX	Tumba de Rasha
+NAME	67	frFR	Tal Tombe de Rasha
+NAME	67	itIT	Tal La Tomba di Rasha
+NAME	67	jaJP	ラシャの墓
+NAME	67	koKR	라샤의 무덤
+NAME	67	plPL	Tal Grób Rashy
+NAME	67	ptBR	Tal Tumba de Rasha
+NAME	67	ruRU	Tal Гробница Раши
+NAME	67	zhCN	塔拉夏的古墓
+NAME	67	zhTW	Tal 拉莎的墓穴
+AREA	68	act2	1	tomb	0	18	51	83	-	66
+NAME	68	enUS	Tal Rasha's Tomb
+NAME	68	deDE	Tal Rashas Grab
+NAME	68	esES	Tumba de Rasha
+NAME	68	esMX	Tumba de Rasha
+NAME	68	frFR	Tal Tombe de Rasha
+NAME	68	itIT	Tal La Tomba di Rasha
+NAME	68	jaJP	ラシャの墓
+NAME	68	koKR	라샤의 무덤
+NAME	68	plPL	Tal Grób Rashy
+NAME	68	ptBR	Tal Tumba de Rasha
+NAME	68	ruRU	Tal Гробница Раши
+NAME	68	zhCN	塔拉夏的古墓
+NAME	68	zhTW	Tal 拉莎的墓穴
+AREA	69	act2	1	tomb	0	18	51	83	-	66
+NAME	69	enUS	Tal Rasha's Tomb
+NAME	69	deDE	Tal Rashas Grab
+NAME	69	esES	Tumba de Rasha
+NAME	69	esMX	Tumba de Rasha
+NAME	69	frFR	Tal Tombe de Rasha
+NAME	69	itIT	Tal La Tomba di Rasha
+NAME	69	jaJP	ラシャの墓
+NAME	69	koKR	라샤의 무덤
+NAME	69	plPL	Tal Grób Rashy
+NAME	69	ptBR	Tal Tumba de Rasha
+NAME	69	ruRU	Tal Гробница Раши
+NAME	69	zhCN	塔拉夏的古墓
+NAME	69	zhTW	Tal 拉莎的墓穴
+AREA	70	act2	1	tomb	0	18	51	83	-	66
+NAME	70	enUS	Tal Rasha's Tomb
+NAME	70	deDE	Tal Rashas Grab
+NAME	70	esES	Tumba de Rasha
+NAME	70	esMX	Tumba de Rasha
+NAME	70	frFR	Tal Tombe de Rasha
+NAME	70	itIT	Tal La Tomba di Rasha
+NAME	70	jaJP	ラシャの墓
+NAME	70	koKR	라샤의 무덤
+NAME	70	plPL	Tal Grób Rashy
+NAME	70	ptBR	Tal Tumba de Rasha
+NAME	70	ruRU	Tal Гробница Раши
+NAME	70	zhCN	塔拉夏的古墓
+NAME	70	zhTW	Tal 拉莎的墓穴
+AREA	71	act2	1	tomb	0	18	51	83	-	66
+NAME	71	enUS	Tal Rasha's Tomb
+NAME	71	deDE	Tal Rashas Grab
+NAME	71	esES	Tumba de Rasha
+NAME	71	esMX	Tumba de Rasha
+NAME	71	frFR	Tal Tombe de Rasha
+NAME	71	itIT	Tal La Tomba di Rasha
+NAME	71	jaJP	ラシャの墓
+NAME	71	koKR	라샤의 무덤
+NAME	71	plPL	Tal Grób Rashy
+NAME	71	ptBR	Tal Tumba de Rasha
+NAME	71	ruRU	Tal Гробница Раши
+NAME	71	zhCN	塔拉夏的古墓
+NAME	71	zhTW	Tal 拉莎的墓穴
+AREA	72	act2	1	tomb	0	18	51	83	-	66
+NAME	72	enUS	Tal Rasha's Tomb
+NAME	72	deDE	Tal Rashas Grab
+NAME	72	esES	Tumba de Rasha
+NAME	72	esMX	Tumba de Rasha
+NAME	72	frFR	Tal Tombe de Rasha
+NAME	72	itIT	Tal La Tomba di Rasha
+NAME	72	jaJP	ラシャの墓
+NAME	72	koKR	라샤의 무덤
+NAME	72	plPL	Tal Grób Rashy
+NAME	72	ptBR	Tal Tumba de Rasha
+NAME	72	ruRU	Tal Гробница Раши
+NAME	72	zhCN	塔拉夏的古墓
+NAME	72	zhTW	Tal 拉莎的墓穴
+AREA	73	act2	1	tomb	0	18	51	83	telelimit	0
+NAME	73	enUS	Tal Rasha's Chamber
+NAME	73	deDE	Tal Rashas Kammer
+NAME	73	esES	Tal Cámara de Rasha
+NAME	73	esMX	Tal Cámara de Rasha
+NAME	73	frFR	Chambre de Rasha
+NAME	73	itIT	Tal La Camera di Rasha
+NAME	73	jaJP	ラシャの間
+NAME	73	koKR	라샤의 방
+NAME	73	plPL	Tal Komnata Rashy
+NAME	73	ptBR	Tal Câmara de Rasha
+NAME	73	ruRU	Tal Камера Раши
+NAME	73	zhCN	塔拉夏的密室
+NAME	73	zhTW	Tal 拉莎的密室
+BOSS	73	Duriel
+QUEST	73	W	-	The Seven Tombs	Kill Duriel
+ENTRY	73	W	Portal from the Horadric Orifice of the true tomb
+AREA	74	act2	1	special	1	15	50	82	-	0
+NAME	74	enUS	Arcane Sanctuary
+NAME	74	deDE	Arkanes Heiligtum
+NAME	74	esES	Santuario Arcano
+NAME	74	esMX	Santuario Arcano
+NAME	74	frFR	Sanctuaire Arcanique
+NAME	74	itIT	Santuario Arcano
+NAME	74	jaJP	秘法の聖域
+NAME	74	koKR	비전 성역
+NAME	74	plPL	Sanktuarium Arkany
+NAME	74	ptBR	Santuário Arcano
+NAME	74	ruRU	Арканное Убежище
+NAME	74	zhCN	秘法圣殿
+NAME	74	zhTW	秘法聖所
+BOSS	74	The Summoner
+QUEST	74	W	-	The Summoner	Kill the Summoner, then read Horazon's Journal
+ENTRY	74	W	Portal in Palace Cellar Level 3
+AREA	75	act3	2	town	1	0	0	0	town,notp	0
+NAME	75	enUS	Kurast Docks
+NAME	75	deDE	Kurast-Docks
+NAME	75	esES	Muelles de Kurast
+NAME	75	esMX	Muelles de Kurast
+NAME	75	frFR	Docks de Kurast
+NAME	75	itIT	Darsena di Kurast
+NAME	75	jaJP	クラスト港
+NAME	75	koKR	쿠라스트 부두
+NAME	75	plPL	Dok Kurast
+NAME	75	ptBR	Docas de Kurast
+NAME	75	ruRU	Курастские доки
+NAME	75	zhCN	库拉斯特港口
+NAME	75	zhTW	庫拉斯特碼頭
+AREA	76	act3	2	outdoor	1	22	51	82	-	0
+NAME	76	enUS	Spider Forest
+NAME	76	deDE	Spinnenwald
+NAME	76	esES	Bosque de Arañas
+NAME	76	esMX	Bosque de Arañas
+NAME	76	frFR	Forêt des Araignées
+NAME	76	itIT	Foresta dei Ragni
+NAME	76	jaJP	スパイダーフォレスト
+NAME	76	koKR	거미 숲
+NAME	76	plPL	Las Pająków
+NAME	76	ptBR	Floresta das Aranhas
+NAME	76	ruRU	Паучий лес
+NAME	76	zhCN	蜘蛛森林
+NAME	76	zhTW	蜘蛛森林
+AREA	77	act3	2	outdoor	1	44	68	92	special,zone	0
+NAME	77	enUS	Marsh of Pain
+NAME	77	deDE	Sumpf des Schmerzes
+NAME	77	esES	Pantano del Dolor
+NAME	77	esMX	Pantano del Dolor
+NAME	77	frFR	Marais de la douleur
+NAME	77	itIT	Palude del Dolore
+NAME	77	jaJP	痛みの湿地
+NAME	77	koKR	고통의 늪
+NAME	77	plPL	Bagna Cierpienia
+NAME	77	ptBR	Pântano da Dor
+NAME	77	ruRU	Болото Боли
+NAME	77	zhCN	痛苦沼泽
+NAME	77	zhTW	痛苦沼澤
+OFFICIAL	77	Marsh of Pain (formely Great Marsh)
+NOTE	77	O	-	Special area, in place of the old Great Marsh
+AREA	78	act3	2	outdoor	1	23	52	83	-	0
+NAME	78	enUS	Flayer Jungle
+NAME	78	deDE	Flayer-Dschungel
+NAME	78	esES	Selva de los Desolladores
+NAME	78	esMX	Selva de los Desolladores
+NAME	78	frFR	Jungle des Fléaux
+NAME	78	itIT	Giungla dei Flayer
+NAME	78	jaJP	フレイヤージャングル
+NAME	78	koKR	플레어 정글
+NAME	78	plPL	Dżungla Flayerów
+NAME	78	ptBR	Selva dos Flayers
+NAME	78	ruRU	Джунгли Плоскохвостов
+NAME	78	zhCN	剥皮丛林
+NAME	78	zhTW	剝皮者叢林
+OFFICIAL	78	Flayer Jungle (Gidbinn Village)
+QUEST	78	O	g33	Blade of the Old Religion	The Gidbinn lies on the altar
+NOTE	78	o	w	The tunnel down to Sewers Level 1 (new in ESR) has no way back up to the jungle
+AREA	79	act3	2	outdoor	1	23	54	83	-	0
+NAME	79	enUS	Lower Kurast
+NAME	79	deDE	Unteres Kurast
+NAME	79	esES	Kurast Inferior
+NAME	79	esMX	Kurast Inferior
+NAME	79	frFR	Basse Kurast
+NAME	79	itIT	Kurast Inferiore
+NAME	79	jaJP	ローワー・クラスト
+NAME	79	koKR	하급 쿠라스트
+NAME	79	plPL	Dolna Kurast
+NAME	79	ptBR	Kurast Inferior
+NAME	79	ruRU	Нижний Кураст
+NAME	79	zhCN	库拉斯特下层
+NAME	79	zhTW	下層庫拉斯特
+NOTE	79	O	-	The official page skips it: its route runs from the Flayer Jungle through Sewers Level 1
+AREA	80	act3	2	outdoor	1	23	54	84	-	0
+NAME	80	enUS	Kurast Bazaar
+NAME	80	deDE	Kurast-Basar
+NAME	80	esES	Bazaar de Kurast
+NAME	80	esMX	Bazar de Kurast
+NAME	80	frFR	Bazaar de Kurast
+NAME	80	itIT	Bazaar di Kurast
+NAME	80	jaJP	クラストバザール
+NAME	80	koKR	쿠라스트 바자르
+NAME	80	plPL	Bazaar Kurast
+NAME	80	ptBR	Bazar de Kurast
+NAME	80	ruRU	Курастский базар
+NAME	80	zhCN	库拉斯特市集
+NAME	80	zhTW	庫拉斯特集市
+AREA	81	act3	2	outdoor	1	24	54	84	-	0
+NAME	81	enUS	Upper Kurast
+NAME	81	deDE	Obere Kurast
+NAME	81	esES	Kurast Superior
+NAME	81	esMX	Kurast Superior
+NAME	81	frFR	Kurast Supérieure
+NAME	81	itIT	Kurast Superiore
+NAME	81	jaJP	上クラスト
+NAME	81	koKR	상부 쿠라스트
+NAME	81	plPL	Górna Kurast
+NAME	81	ptBR	Kurast Superior
+NAME	81	ruRU	Верхний Кураст
+NAME	81	zhCN	库拉斯特上层
+NAME	81	zhTW	上層庫拉斯特
+AREA	82	act3	2	outdoor	0	25	55	84	-	0
+NAME	82	enUS	Kurast Causeway
+NAME	82	deDE	Kurast-Uferstraße
+NAME	82	esES	Camino de Kurast
+NAME	82	esMX	Camino de Kurast
+NAME	82	frFR	Passerelle de Kurast
+NAME	82	itIT	Causa di Kurast
+NAME	82	jaJP	クラストの回廊
+NAME	82	koKR	쿠라스트 도로
+NAME	82	plPL	Kurast Wzgórze
+NAME	82	ptBR	Caminho de Kurast
+NAME	82	ruRU	Курастский мост
+NAME	82	zhCN	库拉斯特堤道
+NAME	82	zhTW	庫拉斯特大道
+AREA	83	act3	2	outdoor	1	25	56	85	-	0
+NAME	83	enUS	Travincal
+NAME	83	deDE	Travincal
+NAME	83	esES	Travincal
+NAME	83	esMX	Travincal
+NAME	83	frFR	Travincal
+NAME	83	itIT	Travincal
+NAME	83	jaJP	トラヴィンカル
+NAME	83	koKR	트라빈칼
+NAME	83	plPL	Travincal
+NAME	83	ptBR	Travincal
+NAME	83	ruRU	Травинкал
+NAME	83	zhCN	崔凡克
+NAME	83	zhTW	特拉文卡尔
+BOSS	83	High Council
+QUEST	83	W	qf1	Khalim's Will	One of the High Council drops the flail
+QUEST	83	W	qf2	Khalim's Will	Cube the flail with the eye, brain and heart, then smash the Compelling Orb
+AREA	84	act3	2	cave	0	44	68	92	special,zone	0
+NAME	84	enUS	Harpie's Nest Level 2
+NAME	84	deDE	Harpiennest Ebene 2
+NAME	84	esES	Nido de la Harpía Nivel 2
+NAME	84	esMX	Nido de la Harpía Nivel 2
+NAME	84	frFR	Nid de Harpie Niveau 2
+NAME	84	itIT	Nido della Arpia Livello 2
+NAME	84	jaJP	ハーピーの巣 レベル2
+NAME	84	koKR	하피의 둥지 2층
+NAME	84	plPL	Gniazdo Harpii Poziom 2
+NAME	84	ptBR	Ninho da Harpia Nível 2
+NAME	84	ruRU	Гнездо Гарпий Уровень 2
+NAME	84	zhCN	鹰身女妖之巢 2 级
+NAME	84	zhTW	哈比巢穴第2層
+AREA	85	act3	2	cave	0	22	52	82	-	0
+NAME	85	enUS	Spider Cavern
+NAME	85	deDE	Spinnenhöhle
+NAME	85	esES	Caverna de Arañas
+NAME	85	esMX	Caverna de Arañas
+NAME	85	frFR	Caverne des Araignées
+NAME	85	itIT	Caverna dei Ragni
+NAME	85	jaJP	スパイダーキャバーン
+NAME	85	koKR	거미 동굴
+NAME	85	plPL	Jaskinia Pająków
+NAME	85	ptBR	Caverna das Aranhas
+NAME	85	ruRU	Пауковая пещера
+NAME	85	zhCN	蜘蛛洞窟
+NAME	85	zhTW	蜘蛛洞穴
+QUEST	85	W	qey	Khalim's Will	The eye is in a chest
+AREA	86	act3	2	dungeon	0	44	68	92	special,zone	0
+NAME	86	enUS	Bookstore Sarina Level 1
+NAME	86	deDE	Buchhandlung Sarina Stufe 1
+NAME	86	esES	Librería Sarina Nivel 1
+NAME	86	esMX	Librería Sarina Nivel 1
+NAME	86	frFR	Librairie Sarina Niveau 1
+NAME	86	itIT	Libreria Sarina Livello 1
+NAME	86	jaJP	書店サリナ レベル1
+NAME	86	koKR	서점 사리나 1레벨
+NAME	86	plPL	Księgarnia Sarina Poziom 1
+NAME	86	ptBR	Livraria Sarina Nível 1
+NAME	86	ruRU	Книжный магазин Сарина Уровень 1
+NAME	86	zhCN	萨琳娜书店 1 层
+NAME	86	zhTW	書店薩莉娜 第1層
+OFFICIAL	86	Bookstore Sarina (formely Ruined Temple)
+NOTE	86	O	-	Special area, entered from the Kurast Bazaar
+AREA	87	act3	2	dungeon	0	44	68	92	special,zone	0
+NAME	87	enUS	Harpie's Nest Level 1
+NAME	87	deDE	Harpiennest Ebene 1
+NAME	87	esES	Nido de la Harpía Nivel 1
+NAME	87	esMX	Nido de la Harpía Nivel 1
+NAME	87	frFR	Nid de Harpie Niveau 1
+NAME	87	itIT	Nido della Arpia Livello 1
+NAME	87	jaJP	ハーピーの巣 レベル 1
+NAME	87	koKR	하피의 둥지 1층
+NAME	87	plPL	Gniazdo Harpii Poziom 1
+NAME	87	ptBR	Ninho da Harpia Nível 1
+NAME	87	ruRU	Гнездо Гарпий Уровень 1
+NAME	87	zhCN	鹰身女妖之巢 1 级
+NAME	87	zhTW	哈比巢穴 第1層
+OFFICIAL	87	Harpie's Nest
+NOTE	87	O	-	Special area, entered from the Kurast Causeway
+AREA	88	act3	2	dungeon	0	23	53	84	-	0
+NAME	88	enUS	Flayer Tunnel
+NAME	88	deDE	Flayer-Tunnel
+NAME	88	esES	Túnel de los Desolladores
+NAME	88	esMX	Túnel de los Desolladores
+NAME	88	frFR	Tunnel des Fléaux
+NAME	88	itIT	Tunnel dei Flayer
+NAME	88	jaJP	フレイヤートンネル
+NAME	88	koKR	플레어 터널
+NAME	88	plPL	Tunel Flayerów
+NAME	88	ptBR	Túnel dos Flageladores
+NAME	88	ruRU	Туннель Плоскогубцев
+NAME	88	zhCN	剥皮者隧道
+NAME	88	zhTW	剝皮者隧道
+AREA	89	act3	2	dungeon	0	23	53	85	-	0
+NAME	89	enUS	Flayer Dungeon Level 1
+NAME	89	deDE	Flayer-Dungeon Ebene 1
+NAME	89	esES	Nivel 1 de la Mazmorras de Desolladores
+NAME	89	esMX	Nivel 1 de la Mazmorras de los Desolladores
+NAME	89	frFR	Niveau 1 de la Donjon des Flayers
+NAME	89	itIT	Livello 1 della Fossa dei Flayer
+NAME	89	jaJP	フレイヤーダンジョン レベル 1
+NAME	89	koKR	플레어 던전 1층
+NAME	89	plPL	Poziom 1 Lochu Flayerów
+NAME	89	ptBR	Masmorra dos Flageladores Nível 1
+NAME	89	ruRU	Уровень 1 Подземелья Плутов
+NAME	89	zhCN	剥皮地牢第一层
+NAME	89	zhTW	剝皮者地牢 第1層
+AREA	90	act3	2	dungeon	0	22	53	85	-	0
+NAME	90	enUS	Swampy Pit
+NAME	90	deDE	Sumpfige Grube
+NAME	90	esES	Foso Pantanoso
+NAME	90	esMX	Foso Pantanoso
+NAME	90	frFR	Fosse Marécageuse
+NAME	90	itIT	Fossa Paludosa
+NAME	90	jaJP	湿地の穴
+NAME	90	koKR	늪지 구덩이
+NAME	90	plPL	Błotnista Jama
+NAME	90	ptBR	Pântano Profundo
+NAME	90	ruRU	Топкое Убежище
+NAME	90	zhCN	沼泽地穴
+NAME	90	zhTW	沼澤深淵
+AREA	91	act3	2	dungeon	0	23	53	86	-	0
+NAME	91	enUS	Flayer Dungeon Level 2
+NAME	91	deDE	Flayer-Dungeon Ebene 2
+NAME	91	esES	Nivel 2 de la Mazmorras de los Desolladores
+NAME	91	esMX	Nivel 2 de la Mazmorras de los Desolladores
+NAME	91	frFR	Niveau 2 du Donjon des Flayers
+NAME	91	itIT	Livello 2 della Fossa dei Flayer
+NAME	91	jaJP	フレイヤーダンジョン レベル 2
+NAME	91	koKR	플레어 던전 2층
+NAME	91	plPL	Poziom 2 Lochu Flayerów
+NAME	91	ptBR	Masmorra dos Flageladores Nível 2
+NAME	91	ruRU	Убежище Плутов Уровень 2
+NAME	91	zhCN	剥皮地牢第二层
+NAME	91	zhTW	剝皮者地牢 第二層
+QUEST	91	O	qbr	Khalim's Will	The brain is in a chest
+AREA	92	act3	2	dungeon	0	24	54	87	-	0
+NAME	92	enUS	Sewers Level 1
+NAME	92	deDE	Kanalisation Ebene 1
+NAME	92	esES	Aguas Residuales Nivel 1
+NAME	92	esMX	Aguas Residuales Nivel 1
+NAME	92	frFR	Égouts Niveau 1
+NAME	92	itIT	Fogne Livello 1
+NAME	92	jaJP	下水道 レベル 1
+NAME	92	koKR	하수도 1층
+NAME	92	plPL	Kanały Poziom 1
+NAME	92	ptBR	Esgotos Nível 1
+NAME	92	ruRU	Канализация Уровень 1
+NAME	92	zhCN	下水道第一层
+NAME	92	zhTW	下水道第1層
+OFFICIAL	92	The Sewer Level 1
+NOTE	92	W	-	Only the way in from the Flayer Jungle is one way; the Kurast entrances work both ways
+AREA	93	act3	2	dungeon	0	25	55	88	-	0
+NAME	93	enUS	Sewers Level 2
+NAME	93	deDE	Kanalisation Ebene 2
+NAME	93	esES	Aguas Residuales Nivel 2
+NAME	93	esMX	Aguas Residuales Nivel 2
+NAME	93	frFR	Égouts Niveau 2
+NAME	93	itIT	Fogne Livello 2
+NAME	93	jaJP	下水道レベル2
+NAME	93	koKR	하수도 2층
+NAME	93	plPL	Kanały Poziom 2
+NAME	93	ptBR	Esgotos Nível 2
+NAME	93	ruRU	Канализация Уровень 2
+NAME	93	zhCN	下水道第二层
+NAME	93	zhTW	下水道第2層
+OFFICIAL	93	The Sewer Level 2
+QUEST	93	O	qhr	Khalim's Will	The heart is in a chest
+AREA	94	act3	2	temple	0	44	68	92	special,zone	0
+NAME	94	enUS	Bookstore Sarina Level 2
+NAME	94	deDE	Buchhandlung Sarina Stufe 2
+NAME	94	esES	Librería Sarina Nivel 2
+NAME	94	esMX	Librería Sarina Nivel 2
+NAME	94	frFR	Librairie Sarina Niveau 2
+NAME	94	itIT	Libreria Sarina Livello 2
+NAME	94	jaJP	書店サリナ レベル2
+NAME	94	koKR	서점 사리나 2층
+NAME	94	plPL	Księgarnia Sarina Poziom 2
+NAME	94	ptBR	Livraria Sarina Nível 2
+NAME	94	ruRU	Книжный магазин Сарина Уровень 2
+NAME	94	zhCN	萨琳娜书店 2 楼
+NAME	94	zhTW	書店薩莉娜 二級
+QUEST	94	O	bbb	Lam Esen's Tome	The tome sits on a bookshelf
+NOTE	94	O	-	The book can still be fetched after Baal is dead
+AREA	95	act3	2	temple	0	24	55	87	-	0
+NAME	95	enUS	Disused Fane
+NAME	95	deDE	Unbenutztes Heiligtum
+NAME	95	esES	Fane Deshabitado
+NAME	95	esMX	Fane Desuso
+NAME	95	frFR	Fane désaffecté
+NAME	95	itIT	Fano Abbandonato
+NAME	95	jaJP	使われていないファン
+NAME	95	koKR	사용되지 않는 성소
+NAME	95	plPL	Nieużywana Świątynia
+NAME	95	ptBR	Fane Abandonado
+NAME	95	ruRU	Заброшенный храм
+NAME	95	zhCN	废弃的寺院
+NAME	95	zhTW	廢棄的聖壇
+AREA	96	act3	2	temple	0	24	55	87	-	0
+NAME	96	enUS	Forgotten Reliquary
+NAME	96	deDE	Vergessenes Reliquiar
+NAME	96	esES	Reliquario Olvidado
+NAME	96	esMX	Reliquario Olvidado
+NAME	96	frFR	Reliquaire Oublié
+NAME	96	itIT	Reliquiario Dimenticato
+NAME	96	jaJP	忘れられた聖遺物
+NAME	96	koKR	잊혀진 유물실
+NAME	96	plPL	Zapomniane Relikwiarz
+NAME	96	ptBR	Relíquias Esquecidas
+NAME	96	ruRU	Забытый реликварий
+NAME	96	zhCN	遗忘的圣殿
+NAME	96	zhTW	被遺忘的聖物箱
+AREA	97	act3	2	temple	0	25	56	88	-	0
+NAME	97	enUS	Forgotten Temple
+NAME	97	deDE	Vergessener Tempel
+NAME	97	esES	Templo Olvidado
+NAME	97	esMX	Templo Olvidado
+NAME	97	frFR	Temple Oublié
+NAME	97	itIT	Tempio Dimenticato
+NAME	97	jaJP	忘れられた神殿
+NAME	97	koKR	잊혀진 사원
+NAME	97	plPL	Zapomniana Świątynia
+NAME	97	ptBR	Templo Esquecido
+NAME	97	ruRU	Забытый храм
+NAME	97	zhCN	遗忘神殿
+NAME	97	zhTW	被遺忘的神廟
+AREA	98	act3	2	temple	0	25	56	88	-	0
+NAME	98	enUS	Ruined Fane
+NAME	98	deDE	Ruiniert Fane
+NAME	98	esES	Tumba Arruinada
+NAME	98	esMX	Fane Arruinado
+NAME	98	frFR	Fane Ruiné
+NAME	98	itIT	Fano Rovinato
+NAME	98	jaJP	廃墟の聖域
+NAME	98	koKR	망가진 성소
+NAME	98	plPL	Zrujnowana Świątynia
+NAME	98	ptBR	Túmulo Arruinado
+NAME	98	ruRU	Разрушенная усыпальница
+NAME	98	zhCN	荒废的寺院
+NAME	98	zhTW	毀壞的聖壇
+AREA	99	act3	2	temple	0	25	56	88	-	0
+NAME	99	enUS	Disused Reliquary
+NAME	99	deDE	Unbenutztes Reliquiar
+NAME	99	esES	Reliquario Inutilizado
+NAME	99	esMX	Reliquario Abandonado
+NAME	99	frFR	Reliquaire inutilisé
+NAME	99	itIT	Reliquiario Inutilizzato
+NAME	99	jaJP	使用されていない聖遺物箱
+NAME	99	koKR	사용되지 않는 유물함
+NAME	99	plPL	Nieczynny Relikwiarz
+NAME	99	ptBR	Relicário Abandonado
+NAME	99	ruRU	Неиспользуемый реликварий
+NAME	99	zhCN	废弃的圣殿
+NAME	99	zhTW	廢棄的聖物匣
+AREA	100	act3	2	temple	0	26	57	86	-	0
+NAME	100	enUS	Durance of Hate Level 1
+NAME	100	deDE	Dauer des Hasses Stufe 1
+NAME	100	esES	Durabilidad del Odio Nivel 1
+NAME	100	esMX	Duración del Odio Nivel 1
+NAME	100	frFR	Durée de la Haine Niveau 1
+NAME	100	itIT	Durance of Hate Livello 1
+NAME	100	jaJP	憎悪の牢獄 レベル 1
+NAME	100	koKR	증오의 던전 1층
+NAME	100	plPL	Durance of Hate Poziom 1
+NAME	100	ptBR	Duração do Ódio Nível 1
+NAME	100	ruRU	Убежище Ненависти Уровень 1
+NAME	100	zhCN	憎恨囚牢第一层
+NAME	100	zhTW	仇恨之牢 第一層
+AREA	101	act3	2	temple	1	26	57	86	-	0
+NAME	101	enUS	Durance of Hate Level 2
+NAME	101	deDE	Dauer des Hasses Ebene 2
+NAME	101	esES	Durabilidad del Odio Nivel 2
+NAME	101	esMX	Duración del Odio Nivel 2
+NAME	101	frFR	Durée de la Haine Niveau 2
+NAME	101	itIT	Durance of Hate Livello 2
+NAME	101	jaJP	憎悪の牢獄 レベル 2
+NAME	101	koKR	증오의 던전 2층
+NAME	101	plPL	Durance of Hate Poziom 2
+NAME	101	ptBR	Duração do Ódio Nível 2
+NAME	101	ruRU	Убежище Ненависти Уровень 2
+NAME	101	zhCN	憎恨囚牢第二层
+NAME	101	zhTW	仇恨之牢 2層
+AREA	102	act3	2	temple	0	26	57	86	walls	0
+NAME	102	enUS	Durance of Hate Level 3
+NAME	102	deDE	Dauer des Hasses Ebene 3
+NAME	102	esES	Durabilidad del Odio Nivel 3
+NAME	102	esMX	Durance of Hate Nivel 3
+NAME	102	frFR	Durée de la Haine Niveau 3
+NAME	102	itIT	Durance of Hate Livello 3
+NAME	102	jaJP	憎悪の監獄 レベル3
+NAME	102	koKR	증오의 던전 3층
+NAME	102	plPL	Durance of Hate Poziom 3
+NAME	102	ptBR	Duração do Ódio Nível 3
+NAME	102	ruRU	Убежище Ненависти Уровень 3
+NAME	102	zhCN	憎恨囚牢第三层
+NAME	102	zhTW	仇恨之牢 第3層
+BOSS	102	Mephisto
+QUEST	102	W	mss	The Guardian	Mephisto drops his Soulstone
+NOTE	102	W	-	Teleporting across the walls works here in game, although the official page says it does not
+AREA	103	act4	3	town	1	0	0	0	town,notp	0
+NAME	103	enUS	The Pandemonium Fortress
+NAME	103	deDE	Die Pandemonium-Festung
+NAME	103	esES	La Fortaleza del Pandemonium
+NAME	103	esMX	La Fortaleza del Pandemonio
+NAME	103	frFR	La Forteresse du Pandémonium
+NAME	103	itIT	La Fortezza del Pandemonio
+NAME	103	jaJP	パンデモニウム要塞
+NAME	103	koKR	팬더모니움 요새
+NAME	103	plPL	Forteca Pandemonium
+NAME	103	ptBR	A Fortaleza do Pandemonium
+NAME	103	ruRU	Фортесса Пандемониум
+NAME	103	zhCN	混沌界要塞
+NAME	103	zhTW	混沌堡壘
+AREA	104	act4	3	outdoor	0	27	58	85	-	0
+NAME	104	enUS	Outer Steppes
+NAME	104	deDE	Äußere Steppen
+NAME	104	esES	Pasos Exteriores
+NAME	104	esMX	Pasos Exteriores
+NAME	104	frFR	Étapes extérieures
+NAME	104	itIT	Steppe Esterne
+NAME	104	jaJP	外部のステップ
+NAME	104	koKR	외부 스텝
+NAME	104	plPL	Zewnętrzne Stepy
+NAME	104	ptBR	Passos Exteriores
+NAME	104	ruRU	Внешние Степи
+NAME	104	zhCN	外围荒原
+NAME	104	zhTW	外部草原
+AREA	105	act4	3	outdoor	0	27	58	86	-	0
+NAME	105	enUS	Plains of Despair
+NAME	105	deDE	Ebenen der Verzweiflung
+NAME	105	esES	Llanuras de Desesperación
+NAME	105	esMX	Llanuras de Desesperación
+NAME	105	frFR	Plaines du Désespoir
+NAME	105	itIT	Pianure della Disperazione
+NAME	105	jaJP	絶望の平原
+NAME	105	koKR	절망의 평원
+NAME	105	plPL	Równiny Rozpaczy
+NAME	105	ptBR	Planícies do Desespero
+NAME	105	ruRU	Равнины Отчаяния
+NAME	105	zhCN	绝望平原
+NAME	105	zhTW	絕望平原
+BOSS	105	Izual
+QUEST	105	W	-	The Fallen Angel	Kill Izual
+AREA	106	act4	3	outdoor	1	28	59	87	-	0
+NAME	106	enUS	City of the Damned
+NAME	106	deDE	Stadt der Verdammten
+NAME	106	esES	Ciudad de los Condenados
+NAME	106	esMX	Ciudad de los Malditos
+NAME	106	frFR	Cité des Damnés
+NAME	106	itIT	Città dei Dannati
+NAME	106	jaJP	呪われた街
+NAME	106	koKR	저주받은 도시
+NAME	106	plPL	Miasto Potępionych
+NAME	106	ptBR	Cidade dos Condenados
+NAME	106	ruRU	Город Проклятых
+NAME	106	zhCN	罪罚之城
+NAME	106	zhTW	詛咒之城
+AREA	107	act4	3	outdoor	1	28	59	88	-	0
+NAME	107	enUS	River of Flame
+NAME	107	deDE	Fluss der Flamme
+NAME	107	esES	Río de Llamas
+NAME	107	esMX	Río de Llamas
+NAME	107	frFR	Rivière de Flamme
+NAME	107	itIT	Fiume di Fiamme
+NAME	107	jaJP	炎の川
+NAME	107	koKR	불의 강
+NAME	107	plPL	Rzeka Płomieni
+NAME	107	ptBR	Rio de Chamas
+NAME	107	ruRU	Река Пламени
+NAME	107	zhCN	火焰之河
+NAME	107	zhTW	火焰之河
+BOSS	107	Hephasto the Armorer
+QUEST	107	W	hfh	Hell's Forge	Hephasto drops the hammer: smash the Soulstone on the Hellforge
+AREA	108	act4	3	outdoor	0	29	60	88	walls	0
+NAME	108	enUS	The Chaos Sanctuary
+NAME	108	deDE	Das Chaosheiligtum
+NAME	108	esES	El Santuario del Caos
+NAME	108	esMX	El Santuario del Caos
+NAME	108	frFR	Le Sanctuaire du Chaos
+NAME	108	itIT	Il Santuario del Caos
+NAME	108	jaJP	混沌の聖域
+NAME	108	koKR	혼돈의 성소
+NAME	108	plPL	Sanktuarium Chaosu
+NAME	108	ptBR	O Santuário do Caos
+NAME	108	ruRU	Убежище Хаоса
+NAME	108	zhCN	混沌魔殿
+NAME	108	zhTW	混沌聖所
+OFFICIAL	108	Chaos Sanctuary
+BOSS	108	Diablo
+QUEST	108	W	-	Terror's End	Open the five seals, then kill Diablo
+NOTE	108	W	-	Teleporting across the walls works here in game, although the official page says it does not
+AREA	109	act5	4	town	1	0	0	0	town,notp	0
+NAME	109	enUS	Harrogath
+NAME	109	deDE	Harrogath
+NAME	109	esES	Harrogath
+NAME	109	esMX	Harrogath
+NAME	109	frFR	Harrogath
+NAME	109	itIT	Harrogath
+NAME	109	jaJP	ハロガス
+NAME	109	koKR	하로가스
+NAME	109	plPL	Harrogath
+NAME	109	ptBR	Harrogath
+NAME	109	ruRU	Харрогат
+NAME	109	zhCN	哈洛加斯
+NAME	109	zhTW	哈洛迦斯
+AREA	110	act5	4	outdoor	0	25	60	83	-	0
+NAME	110	enUS	Bloody Foothills
+NAME	110	deDE	Blutige Ausläufer
+NAME	110	esES	Laderas Sangrientas
+NAME	110	esMX	Laderas Sangrientas
+NAME	110	frFR	Côtes Sanglantes
+NAME	110	itIT	Colline Insanguinate
+NAME	110	jaJP	血まみれの丘陵
+NAME	110	koKR	피로 물든 구릉지
+NAME	110	plPL	Krwawe Góry
+NAME	110	ptBR	Serrania Sangrenta
+NAME	110	ruRU	Кровавые Подножия
+NAME	110	zhCN	血腥丘陵
+NAME	110	zhTW	血腥山腳
+BOSS	110	Shenk the Overseer
+QUEST	110	W	-	Siege on Harrogath	Kill Shenk the Overseer
+NOTE	110	W	-	There is no waypoint here, though the official page shows one
+AREA	111	act5	4	outdoor	1	26	61	84	-	0
+NAME	111	enUS	Frigid Highlands
+NAME	111	deDE	Frostige Hochländer
+NAME	111	esES	Tierras Frías Altas
+NAME	111	esMX	Tierras Altas Frías
+NAME	111	frFR	Hautes Terres Frigides
+NAME	111	itIT	Alte Montagne Gelide
+NAME	111	jaJP	冷たい高地
+NAME	111	koKR	차가운 고원
+NAME	111	plPL	Mroźne Wyżyny
+NAME	111	ptBR	Altiplano Frígido
+NAME	111	ruRU	Ледяные Высоты
+NAME	111	zhCN	冰冻高地
+NAME	111	zhTW	寒冷高地
+OFFICIAL	111	Frigid Highland
+QUEST	111	W	-	Rescue on Mount Arreat	Free the captured barbarians
+AREA	112	act5	4	outdoor	1	27	62	84	-	0
+NAME	112	enUS	Arreat Plateau
+NAME	112	deDE	Arreat-Plateau
+NAME	112	esES	Meseta de Arreat
+NAME	112	esMX	Meseta de Arreat
+NAME	112	frFR	Plateau d'Arreat
+NAME	112	itIT	Pianura di Arreat
+NAME	112	jaJP	アリアット高原
+NAME	112	koKR	아레앗 고원
+NAME	112	plPL	Płaskowyż Arreat
+NAME	112	ptBR	Planalto Arreat
+NAME	112	ruRU	Плато Арреат
+NAME	112	zhCN	亚瑞特高原
+NAME	112	zhTW	阿瑞特高原
+AREA	113	act5	4	temple	0	44	68	92	special	0
+NAME	113	enUS	Nowhere
+NAME	113	deDE	Nirgendwo
+NAME	113	esES	Ninguna parte
+NAME	113	esMX	Ningún lugar
+NAME	113	frFR	Nulle part
+NAME	113	itIT	Nessun luogo
+NAME	113	jaJP	どこにも
+NAME	113	koKR	어디에도 없다
+NAME	113	plPL	Nigdzie
+NAME	113	ptBR	Nenhum lugar
+NAME	113	ruRU	Нигде
+NAME	113	zhCN	虚无之地
+NAME	113	zhTW	無處
+NOTE	113	O	-	Special area, below the Dead End
+AREA	114	act5	4	cave	0	30	63	86	-	0
+NAME	114	enUS	Frozen River
+NAME	114	deDE	Gefrorener Fluss
+NAME	114	esES	Río Congelado
+NAME	114	esMX	Río Congelado
+NAME	114	frFR	Rivière Gelée
+NAME	114	itIT	Fiume Gelato
+NAME	114	jaJP	凍った川
+NAME	114	koKR	얼어붙은 강
+NAME	114	plPL	Zamarznięta Rzeka
+NAME	114	ptBR	Rio Congelado
+NAME	114	ruRU	Замерзшая река
+NAME	114	zhCN	冰冻之河
+NAME	114	zhTW	冰封河流
+QUEST	114	O	ice	Prison of Ice	Free Anya with the potion
+NOTE	114	T	-	Dead end: go on through the red portal in Harrogath once Anya is free
+AREA	115	act5	4	cave	1	44	68	90	special,zone	0
+NAME	115	enUS	Naraku Level 1
+NAME	115	deDE	Naraku Ebene 1
+NAME	115	esES	Naraku Nivel 1
+NAME	115	esMX	Naraku Nivel 1
+NAME	115	frFR	Naraku Niveau 1
+NAME	115	itIT	Naraku Livello 1
+NAME	115	jaJP	奈落 レベル 1
+NAME	115	koKR	나락 1층
+NAME	115	plPL	Naraku Poziom 1
+NAME	115	ptBR	Naraku Nível 1
+NAME	115	ruRU	Нараку Уровень 1
+NAME	115	zhCN	奈落 1 级
+NAME	115	zhTW	奈拉庫 第1層
+OFFICIAL	115	Naraku
+BOSS	115	Treant King
+NOTE	115	O	-	Special area, entered from the Ancients' Way
+NOTE	115	O	w	Naraku and everything below it is very hard, meant for very well geared players
+AREA	116	act5	4	cave	0	44	68	92	special	0
+NAME	116	enUS	Bill Roper's Memorial Ball Park
+NAME	116	deDE	Bill Roper's Gedenk-Ballpark
+NAME	116	esES	Parque de Béisbol Memorial de Bill Roper
+NAME	116	esMX	Parque de Béisbol Memorial de Bill Roper
+NAME	116	frFR	Parc de Baseball à la Mémoire de Bill Roper
+NAME	116	itIT	Parco Giochi Memoriale di Bill Roper
+NAME	116	jaJP	ビル・ローパー記念ボールパーク
+NAME	116	koKR	빌 로퍼 기념 야구장
+NAME	116	plPL	Memoriałowy Park Ballowy Billa Ropera
+NAME	116	ptBR	Parque Memorial Bill Roper
+NAME	116	ruRU	Памятный Парк Билла Ропера
+NAME	116	zhCN	比尔罗珀纪念棒球场
+NAME	116	zhTW	比爾·羅珀紀念棒球場
+OFFICIAL	116	Bill Roper Memorial Ballpark
+BOSS	116	Reporb
+NOTE	116	O	-	Special area, off Naraku Level 2
+AREA	117	act5	4	outdoor	1	28	62	84	-	0
+NAME	117	enUS	Frozen Tundra
+NAME	117	deDE	Gefrorene Tundra
+NAME	117	esES	Tundra Congelada
+NAME	117	esMX	Tundra Congelada
+NAME	117	frFR	Toundra Gelée
+NAME	117	itIT	Tundra Congelata
+NAME	117	jaJP	凍ったツンドラ
+NAME	117	koKR	얼어붙은 툰드라
+NAME	117	plPL	Zamarznięta Tundra
+NAME	117	ptBR	Tundra Congelada
+NAME	117	ruRU	Замороженная Тундра
+NAME	117	zhCN	冰冻苔原
+NAME	117	zhTW	冰封苔原
+AREA	118	act5	4	cave	1	30	64	85	-	0
+NAME	118	enUS	The Ancients' Way
+NAME	118	deDE	Der Weg der Alten
+NAME	118	esES	El Camino de los Antiguos
+NAME	118	esMX	El Camino de los Antiguos
+NAME	118	frFR	Le Chemin des Anciens
+NAME	118	itIT	Il Cammino degli Antichi
+NAME	118	jaJP	古代の道
+NAME	118	koKR	고대인의 길
+NAME	118	plPL	Droga Przodków
+NAME	118	ptBR	O Caminho dos Antigos
+NAME	118	ruRU	Путь Древних
+NAME	118	zhCN	先祖之路
+NAME	118	zhTW	古老者之路
+AREA	119	act5	4	cave	0	44	68	92	special	0
+NAME	119	enUS	GFraizer's Dome
+NAME	119	deDE	GFraizer's Dom
+NAME	119	esES	Domo de GFraizer
+NAME	119	esMX	Domo de GFraizer
+NAME	119	frFR	Dôme de GFraizer
+NAME	119	itIT	Dome di GFraizer
+NAME	119	jaJP	GFraizerのドーム
+NAME	119	koKR	GFraizer의 돔
+NAME	119	plPL	Kopuła GFraizera
+NAME	119	ptBR	Domo de GFraizer
+NAME	119	ruRU	Домен GFraizer
+NAME	119	zhCN	弗雷泽的穹顶
+NAME	119	zhTW	GFraizer的穹頂
+OFFICIAL	119	GFraizer Dome
+BOSS	119	Reziarfg
+NOTE	119	W	-	Reached from Naraku Level 1 and Level 2 (the txt files link Level 1 only)
+AREA	120	act5	4	outdoor	0	38	70	90	-	0
+NAME	120	enUS	Arreat Summit
+NAME	120	deDE	Arreat-Gipfel
+NAME	120	esES	Cumbre de Arreat
+NAME	120	esMX	Cima de Arreat
+NAME	120	frFR	Sommet d'Arreat
+NAME	120	itIT	Cima di Arreat
+NAME	120	jaJP	アリアット山頂
+NAME	120	koKR	아레앗 정상
+NAME	120	plPL	Szczyt Arreat
+NAME	120	ptBR	Cume de Arreat
+NAME	120	ruRU	Вершина Арреата
+NAME	120	zhCN	亚瑞特山巅
+NAME	120	zhTW	阿瑞特峰
+BOSS	120	Ancient Barbarians
+QUEST	120	O	-	Rite of Passage	Beat the three Ancients
+AREA	121	act5	4	temple	1	33	65	86	-	0
+NAME	121	enUS	Dimensional Gate
+NAME	121	deDE	Dimensionstor
+NAME	121	esES	Puerta Dimensional
+NAME	121	esMX	Portal Dimensional
+NAME	121	frFR	Portail Dimensionnel
+NAME	121	itIT	Portale Dimensionale
+NAME	121	jaJP	次元の扉
+NAME	121	koKR	차원 게이트
+NAME	121	plPL	Brama Wymiarowa
+NAME	121	ptBR	Portal Dimensional
+NAME	121	ruRU	Измеренческие Врата
+NAME	121	zhCN	次元之门
+NAME	121	zhTW	維度之門
+BOSS	121	Pindleskin
+NOTE	121	W	-	The red portal in Harrogath stays and works both ways, even after you take this waypoint
+ENTRY	121	W	Red portal in Harrogath once Anya is free
+AREA	122	act5	4	temple	0	44	68	92	special	0
+NAME	122	enUS	The Dead End
+NAME	122	deDE	Die Sackgasse
+NAME	122	esES	El Callejón Sin Salida
+NAME	122	esMX	El Callejón Sin Salida
+NAME	122	frFR	La Fin de la Route
+NAME	122	itIT	Il Vicolo Cieco
+NAME	122	jaJP	死の終わり
+NAME	122	koKR	막다른 골목
+NAME	122	plPL	Martwy Zaułek
+NAME	122	ptBR	O Beco Sem Saída
+NAME	122	ruRU	Мертвый конец
+NAME	122	zhCN	死胡同
+NAME	122	zhTW	死胡同
+OFFICIAL	122	Dead End
+NOTE	122	O	-	Special area, below Naraku Level 3
+NOTE	122	O	w	The stairs down are hidden, but a landmark always marks them
+NOTE	122	O	s	Hint: Sp***ling C***t
+AREA	123	act5	4	temple	0	44	68	94	special	0
+NAME	123	enUS	Nihlathak's Domain Level 1
+NAME	123	deDE	Nihlathaks Gebiet Ebene 1
+NAME	123	esES	Dominio de Nihlathak Nivel 1
+NAME	123	esMX	Dominio de Nihlathak Nivel 1
+NAME	123	frFR	Domaine de Nihlathak Niveau 1
+NAME	123	itIT	Dominio di Nihlathak Livello 1
+NAME	123	jaJP	ニラタクの領域 レベル 1
+NAME	123	koKR	니라타크의 영역 1층
+NAME	123	plPL	Domena Nihlathaka Poziom 1
+NAME	123	ptBR	Domínio de Nihlathak Nível 1
+NAME	123	ruRU	Домен Нихлатха Уровень 1
+NAME	123	zhCN	尼拉塞克的领域 1 级
+NAME	123	zhTW	尼拉塔克的領域 第1層
+NOTE	123	O	-	Special area, entered from Nowhere
+AREA	124	act5	4	temple	0	44	68	96	special	0
+NAME	124	enUS	Nihlathak's Domain Level 2
+NAME	124	deDE	Nihlathaks Bereich Ebene 2
+NAME	124	esES	Dominio de Nihlathak Nivel 2
+NAME	124	esMX	Dominio de Nihlathak Nivel 2
+NAME	124	frFR	Domaine de Nihlathak Niveau 2
+NAME	124	itIT	Dominio di Nihlathak Livello 2
+NAME	124	jaJP	ニラタクの領域 レベル 2
+NAME	124	koKR	니라타크의 영역 2층
+NAME	124	plPL	Domena Nihlathaka Poziom 2
+NAME	124	ptBR	Domínio de Nihlathak Nível 2
+NAME	124	ruRU	Домен Нихлатха Уровень 2
+NAME	124	zhCN	尼拉塞克的领域 2 级
+NAME	124	zhTW	尼拉塔克的領域 第2層
+BOSS	124	Nihlathak
+NOTE	124	O	-	Killing Nihlathak is not needed to clear a difficulty
+AREA	125	act5	4	outdoor	0	44	68	92	special,zone	0
+NAME	125	enUS	Moonshine Distillery
+NAME	125	deDE	Mondschein-Destillerie
+NAME	125	esES	Destilería de Licor
+NAME	125	esMX	Destilería de Licor
+NAME	125	frFR	Distillerie de Lune
+NAME	125	itIT	Distilleria di Moonshine
+NAME	125	jaJP	ムーンシャイン蒸留所
+NAME	125	koKR	달빛 증류소
+NAME	125	plPL	Destylarnia Księżycowego Napoju
+NAME	125	ptBR	Destilaria de Licor
+NAME	125	ruRU	Лунный дистиллятор
+NAME	125	zhCN	月光酿酒厂
+NAME	125	zhTW	月光酒廠
+NOTE	125	O	-	Special area, off the Frigid Highlands
+ENTRY	125	W	Red portal in the Frigid Highlands
+AREA	126	act5	4	outdoor	0	44	68	92	special,zone	0
+NAME	126	enUS	Fake Note Factory
+NAME	126	deDE	Falsche Notizfabrik
+NAME	126	esES	Fábrica de Notas Falsas
+NAME	126	esMX	Fábrica de Notas Falsas
+NAME	126	frFR	Usine de Faux Billets
+NAME	126	itIT	Fabbrica di Note Falsificate
+NAME	126	jaJP	偽のメモ工場
+NAME	126	koKR	가짜 메모 공장
+NAME	126	plPL	Fabryka Fałszywych Notatek
+NAME	126	ptBR	Fábrica de Notas Falsas
+NAME	126	ruRU	Фабрика Фальшивых Записок
+NAME	126	zhCN	假钞厂
+NAME	126	zhTW	假鈔工廠
+NOTE	126	O	-	Special area, off the Arreat Plateau
+ENTRY	126	W	Red portal on the Arreat Plateau
+AREA	127	act5	4	outdoor	0	44	68	92	special,zone	0
+NAME	127	enUS	Poppy Farm
+NAME	127	deDE	Mohnfeld
+NAME	127	esES	Granja de Amapolas
+NAME	127	esMX	Granja de Amapolas
+NAME	127	frFR	Ferme de Pavots
+NAME	127	itIT	Poppy Farm
+NAME	127	jaJP	ポピー農場
+NAME	127	koKR	양귀비 농장
+NAME	127	plPL	Pola Makówek
+NAME	127	ptBR	Fazenda de Papoulas
+NAME	127	ruRU	Ферма Маков
+NAME	127	zhCN	罂粟农场
+NAME	127	zhTW	罌粟農場
+NOTE	127	O	-	Special area, off the Frozen Tundra
+ENTRY	127	W	Red portal in the Frozen Tundra
+AREA	128	act5	4	temple	0	40	67	88	-	0
+NAME	128	enUS	Worldstone Keep Level 1
+NAME	128	deDE	Weltstein-Tempel Ebene 1
+NAME	128	esES	Nivel 1 de la Fortaleza de la Piedra Mundial
+NAME	128	esMX	Nivel 1 de la Fortaleza de la Piedra del Mundo
+NAME	128	frFR	Niveau 1 de la Garde de la Pierre du Monde
+NAME	128	itIT	Livello 1 della Fortezza della Pietra del Mondo
+NAME	128	jaJP	ワールドストーンの砦 レベル 1
+NAME	128	koKR	세계석 성채 1층
+NAME	128	plPL	Zamek Kamienia Świata Poziom 1
+NAME	128	ptBR	Nível 1 da Fortaleza da Pedra do Mundo
+NAME	128	ruRU	Убежище Камня Мира Уровень 1
+NAME	128	zhCN	世界之石要塞第一层
+NAME	128	zhTW	世界石守衛層級 1
+AREA	129	act5	4	temple	1	41	67	88	-	0
+NAME	129	enUS	Worldstone Keep Level 2
+NAME	129	deDE	Weltstein-Tempel Ebene 2
+NAME	129	esES	Nivel 2 de la Fortaleza de la Piedra del Mundo
+NAME	129	esMX	Nivel 2 de la Fortaleza de la Piedra Mundial
+NAME	129	frFR	Niveau 2 de la Garde de la Pierre du Monde
+NAME	129	itIT	Livello 2 della Fortezza della Pietra del Mondo
+NAME	129	jaJP	ワールドストーンの砦 レベル 2
+NAME	129	koKR	세계석 요새 2층
+NAME	129	plPL	Zamek Kamienia Świata Poziom 2
+NAME	129	ptBR	Nível 2 da Câmera da Pedra do Mundo
+NAME	129	ruRU	Убежище Камня Мира Уровень 2
+NAME	129	zhCN	世界之石要塞第二层
+NAME	129	zhTW	世界之石守衛層級 2
+NOTE	129	O	-	Leads straight to the Throne of Destruction; ESR took out Level 3
+AREA	130	act5	4	cave	0	44	68	92	special	0
+NAME	130	enUS	Naraku Level 3
+NAME	130	deDE	Naraku Ebene 3
+NAME	130	esES	Naraku Nivel 3
+NAME	130	esMX	Naraku Nivel 3
+NAME	130	frFR	Naraku Niveau 3
+NAME	130	itIT	Naraku Livello 3
+NAME	130	jaJP	奈落レベル3
+NAME	130	koKR	나락 3층
+NAME	130	plPL	Naraku Poziom 3
+NAME	130	ptBR	Naraku Nível 3
+NAME	130	ruRU	Нараку Уровень 3
+NAME	130	zhCN	奈落 3 级
+NAME	130	zhTW	奈落 第3層
+AREA	131	act5	4	temple	0	44	68	88	-	0
+NAME	131	enUS	Throne of Destruction
+NAME	131	deDE	Thron der Zerstörung
+NAME	131	esES	Trono de la Destrucción
+NAME	131	esMX	Trono de Destrucción
+NAME	131	frFR	Trône de la Destruction
+NAME	131	itIT	Trono della Distruzione
+NAME	131	jaJP	破壊の玉座
+NAME	131	koKR	파괴의 왕좌
+NAME	131	plPL	Tron Zniszczenia
+NAME	131	ptBR	Trono da Destruição
+NAME	131	ruRU	Трон Разрушения
+NAME	131	zhCN	毁灭王座
+NAME	131	zhTW	毀滅之座
+AREA	132	act5	4	temple	0	44	68	88	-	0
+NAME	132	enUS	The Worldstone Chamber
+NAME	132	deDE	Die Weltstein-Kammer
+NAME	132	esES	La Cámara de la Piedra Mundial
+NAME	132	esMX	La Cámara de la Piedra del Mundo
+NAME	132	frFR	La Chambre de la Pierre Monde
+NAME	132	itIT	La Camera della Pietra del Mondo
+NAME	132	jaJP	ワールドストーンの間
+NAME	132	koKR	세계석의 방
+NAME	132	plPL	Komnata Kamienia Świata
+NAME	132	ptBR	A Câmara da Pedra do Mundo
+NAME	132	ruRU	Палата Камня Мира
+NAME	132	zhCN	世界之石大殿
+NAME	132	zhTW	世界之石密室
+OFFICIAL	132	Worldstone Chamber
+BOSS	132	Baal
+QUEST	132	W	-	Eve of Destruction	Kill Baal
+AREA	133	portals	4	tomb	0	99	99	99	special	0
+NAME	133	enUS	Matron's Den
+NAME	133	deDE	Matron's Höhle
+NAME	133	esES	Guarida de la Matrona
+NAME	133	esMX	Guarida de la Matrona
+NAME	133	frFR	Antre de la Matrone
+NAME	133	itIT	Den della Matrona
+NAME	133	jaJP	マトロンの巣
+NAME	133	koKR	모친의 은신처
+NAME	133	plPL	Kryjówka Matrony
+NAME	133	ptBR	Câmara da Matrona
+NAME	133	ruRU	Убежище Матроны
+NAME	133	zhCN	魔母巢穴
+NAME	133	zhTW	母獅之穴
+BOSS	133	Lilith
+QUEST	133	W	dhn	Pandemonium	Lilith drops the horn
+ENTRY	133	W	Cube the Keys of Terror, Hate and Destruction in Harrogath: one of three portals opens
+AREA	134	portals	4	outdoor	0	99	99	99	special	0
+NAME	134	enUS	Forgotten Sands
+NAME	134	deDE	Vergessene Sanden
+NAME	134	esES	Arenas Olvidadas
+NAME	134	esMX	Arenas Olvidadas
+NAME	134	frFR	Sables Oubliés
+NAME	134	itIT	Sabbie Dimenticate
+NAME	134	jaJP	忘れ去られた砂
+NAME	134	koKR	잊혀진 모래
+NAME	134	plPL	Zapomniane Piaski
+NAME	134	ptBR	Areias Esquecidas
+NAME	134	ruRU	Забытые пески
+NAME	134	zhCN	遗忘沙漠
+NAME	134	zhTW	被遺忘的沙漠
+BOSS	134	Uber Duriel
+QUEST	134	W	bey	Pandemonium	Uber Duriel drops the eye
+ENTRY	134	W	Cube the Keys of Terror, Hate and Destruction in Harrogath: one of three portals opens
+AREA	135	portals	4	outdoor	0	99	99	99	special	0
+NAME	135	enUS	Furnace of Pain
+NAME	135	deDE	Schmelze des Schmerzes
+NAME	135	esES	Horno del Dolor
+NAME	135	esMX	Horno del Dolor
+NAME	135	frFR	Fournaise de la douleur
+NAME	135	itIT	Fucina del Dolore
+NAME	135	jaJP	痛みの炉
+NAME	135	koKR	고통의 용광로
+NAME	135	plPL	Piec Cierpienia
+NAME	135	ptBR	Forno da Dor
+NAME	135	ruRU	Печь Боли
+NAME	135	zhCN	苦痛熔炉
+NAME	135	zhTW	痛苦熔爐
+BOSS	135	Uber Izual
+QUEST	135	W	mbr	Pandemonium	Uber Izual drops the brain
+ENTRY	135	W	Cube the Keys of Terror, Hate and Destruction in Harrogath: one of three portals opens
+AREA	136	portals	4	outdoor	0	85	99	110	special	0
+NAME	136	enUS	Tristram
+NAME	136	deDE	Tristram
+NAME	136	esES	Tristram
+NAME	136	esMX	Tristram
+NAME	136	frFR	Tristram
+NAME	136	itIT	Tristram
+NAME	136	jaJP	トリストラム
+NAME	136	koKR	트리스트램
+NAME	136	plPL	Tristram
+NAME	136	ptBR	Tristram
+NAME	136	ruRU	Тристрам
+NAME	136	zhCN	崔斯特姆
+NAME	136	zhTW	特里斯特蘭
+OFFICIAL	136	Uber Tristram
+BOSS	136	Uber Mephisto
+BOSS	136	Uber Diablo
+BOSS	136	Uber Baal
+ENTRY	136	W	Cube Diablo's Horn, Baal's Eye and Mephisto's Brain in Harrogath
+AREA	137	act5	4	outdoor	0	45	68	91	special,notp,entryunknown	0
+NAME	137	enUS	Colossal Summit
+NOTE	137	V	-	Added to Diablo II: Resurrected by Reign of the Warlock: five Colossal Ancient Statues cubed in Act V Hell open a red portal here
+NOTE	137	t	-	ESR has the Eternal Ancients, but neither the txt files nor the official pages say how to get here: no statue item, no cube recipe
+AREA	138	act5	4	cave	0	46	68	92	special	0
+NAME	138	enUS	Nosliwyaj's Reign
+NAME	138	deDE	Nosliwyaj's Herrschaft
+NAME	138	esES	El Reinado de Nosliwyaj
+NAME	138	esMX	El Reinado de Nosliwyaj
+NAME	138	frFR	Le Règne de Nosliwyaj
+NAME	138	itIT	Il Regno di Nosliwyaj
+NAME	138	jaJP	ノスリワイの支配
+NAME	138	koKR	노슬리와이의 통치
+NAME	138	plPL	Panowanie Nosliwyaja
+NAME	138	ptBR	Reinado de Nosliwyaj
+NAME	138	ruRU	Царствование Носливяя
+NAME	138	zhCN	诺斯利瓦伊的统治
+NAME	138	zhTW	諾斯利瓦的統治
+BOSS	138	Nosliwyaj
+NOTE	138	t	-	Boss name taken from the string table
+AREA	213	portals	4	outdoor	0	106	106	106	-	0
+NAME	213	enUS	The Hidden Vault
+NAME	213	deDE	Das verborgene Gewölbe
+NAME	213	esES	La Bóveda Oculta
+NAME	213	esMX	La Bóveda Oculta
+NAME	213	frFR	Le Coffre Caché
+NAME	213	itIT	La Cripta Nascosta
+NAME	213	jaJP	隠された保管庫
+NAME	213	koKR	숨겨진 금고
+NAME	213	plPL	Ukryta Krypta
+NAME	213	ptBR	O Cofre Oculto
+NAME	213	ruRU	Скрытое хранилище
+NAME	213	zhCN	隐藏宝库
+NAME	213	zhTW	隱藏寶庫
+NOTE	213	T	-	The unique map (Goblin Realm)
+ENTRY	213	T	Transmute its map item by itself in Act V Hell: a red portal opens here
+AREA	214	act5	4	cave	0	45	68	91	special	0
+NAME	214	enUS	Naraku Level 2
+NAME	214	deDE	Naraku Ebene 2
+NAME	214	esES	Naraku Nivel 2
+NAME	214	esMX	Naraku Nivel 2
+NAME	214	frFR	Naraku Niveau 2
+NAME	214	itIT	Naraku Livello 2
+NAME	214	jaJP	奈落 レベル 2
+NAME	214	koKR	나락 2층
+NAME	214	plPL	Naraku Poziom 2
+NAME	214	ptBR	Naraku Nível 2
+NAME	214	ruRU	Нараку Уровень 2
+NAME	214	zhCN	奈落 2 级
+NAME	214	zhTW	奈落 第二層
+EDGE	2	8	passage	0	T	
+EDGE	3	9	passage	0	T	
+EDGE	4	10	passage	0	T	
+EDGE	5	10	passage	0	T	
+EDGE	6	20	passage	0	T	
+EDGE	6	11	passage	0	T	
+EDGE	7	12	passage	0	T	
+EDGE	9	13	passage	0	T	
+EDGE	10	14	passage	0	T	
+EDGE	11	15	passage	0	T	
+EDGE	12	16	passage	0	T	
+EDGE	17	18	passage	0	T	
+EDGE	17	19	passage	0	T	
+EDGE	20	21	passage	0	T	
+EDGE	21	22	passage	0	T	
+EDGE	22	23	passage	0	T	
+EDGE	23	24	passage	0	T	
+EDGE	24	25	passage	0	T	
+EDGE	26	27	passage	0	T	
+EDGE	27	28	passage	0	T	
+EDGE	28	29	passage	0	T	
+EDGE	29	31	passage	0	T	
+EDGE	31	32	passage	0	T	
+EDGE	32	33	passage	0	T	
+EDGE	33	34	passage	0	T	
+EDGE	34	35	passage	0	T	
+EDGE	35	37	passage	0	T	
+EDGE	40	48	passage	0	T	
+EDGE	40	51	passage	0	T	
+EDGE	40	50	passage	0	T	
+EDGE	41	55	passage	0	T	
+EDGE	42	56	passage	0	T	
+EDGE	43	62	passage	0	T	
+EDGE	44	65	passage	0	T	
+EDGE	45	58	passage	0	T	
+EDGE	46	66	passage	0	T	
+EDGE	46	67	passage	0	T	
+EDGE	46	68	passage	0	T	
+EDGE	46	69	passage	0	T	
+EDGE	46	70	passage	0	T	
+EDGE	46	71	passage	0	T	
+EDGE	46	72	passage	0	T	
+EDGE	47	51	passage	0	T	
+EDGE	47	58	passage	0	T	
+EDGE	47	57	passage	0	T	
+EDGE	48	49	passage	0	T	
+EDGE	50	52	passage	0	T	
+EDGE	51	62	passage	0	T	
+EDGE	51	63	passage	0	T	
+EDGE	52	53	passage	0	T	
+EDGE	53	54	passage	0	T	
+EDGE	55	59	passage	0	T	
+EDGE	56	60	passage	0	T	
+EDGE	57	61	passage	0	T	
+EDGE	63	64	passage	0	T	
+EDGE	76	88	passage	0	T	
+EDGE	76	85	passage	0	T	
+EDGE	78	92	passage	1	o	one way
+EDGE	78	88	passage	0	T	
+EDGE	80	90	passage	0	T	
+EDGE	80	92	passage	0	T	
+EDGE	80	86	passage	0	T	
+EDGE	80	95	passage	0	T	
+EDGE	81	89	passage	0	T	
+EDGE	81	92	passage	0	T	
+EDGE	81	96	passage	0	T	
+EDGE	81	97	passage	0	T	
+EDGE	82	87	passage	0	T	
+EDGE	82	99	passage	0	T	
+EDGE	83	100	passage	0	T	
+EDGE	84	87	passage	0	T	
+EDGE	86	94	passage	0	T	
+EDGE	89	91	passage	0	T	
+EDGE	92	98	passage	0	T	
+EDGE	92	93	passage	0	T	
+EDGE	100	101	passage	0	T	
+EDGE	101	102	passage	0	T	
+EDGE	106	107	passage	0	T	
+EDGE	107	108	passage	0	T	
+EDGE	112	114	passage	0	T	
+EDGE	113	122	passage	0	T	
+EDGE	113	123	passage	0	T	
+EDGE	115	214	passage	0	T	
+EDGE	115	118	passage	0	T	
+EDGE	115	119	passage	0	T	
+EDGE	116	214	passage	0	T	
+EDGE	117	121	passage	0	T	
+EDGE	117	118	passage	0	T	
+EDGE	118	120	passage	0	T	
+EDGE	120	128	passage	0	T	
+EDGE	122	130	passage	0	T	
+EDGE	123	124	passage	0	T	
+EDGE	128	129	passage	0	T	
+EDGE	129	131	passage	0	T	
+EDGE	130	214	passage	0	T	
+EDGE	130	138	passage	0	T	
+EDGE	131	132	passage	0	T	
+EDGE	1	2	border	0	W	
+EDGE	2	3	border	0	W	
+EDGE	3	4	border	0	W	
+EDGE	3	17	border	0	W	
+EDGE	5	6	border	0	W	
+EDGE	6	7	border	0	W	
+EDGE	7	26	border	0	W	
+EDGE	4	38	portal	0	W	Cairn Stones
+EDGE	1	39	cube	0	T	Cow Portal
+EDGE	37	40	act	1	W	Warriv, after Andariel
+EDGE	40	41	border	0	W	
+EDGE	41	42	border	0	W	
+EDGE	42	43	border	0	W	
+EDGE	43	44	border	0	W	
+EDGE	44	45	border	0	W	
+EDGE	54	74	portal	0	W	Arcane portal
+EDGE	74	46	portal	0	W	Summoner's portal
+EDGE	66	73	portal	1	W	Horadric Orifice (true tomb)
+EDGE	73	75	act	1	W	Meshif, after Duriel
+EDGE	75	76	border	0	W	
+EDGE	76	77	border	0	W	
+EDGE	77	78	border	0	W	
+EDGE	78	79	border	0	W	
+EDGE	79	80	border	0	W	
+EDGE	80	81	border	0	O	
+EDGE	81	82	border	0	W	
+EDGE	82	83	border	0	W	
+EDGE	102	103	act	1	W	Red portal, after Mephisto
+EDGE	103	104	border	0	W	
+EDGE	104	105	border	0	W	
+EDGE	105	106	border	0	W	
+EDGE	108	109	act	1	W	Tyrael's portal, after Diablo
+EDGE	109	110	border	0	W	
+EDGE	110	111	border	0	W	
+EDGE	111	112	border	0	W	
+EDGE	109	121	portal	0	W	Red portal, after Anya
+EDGE	111	125	portal	0	W	Red portal
+EDGE	112	126	portal	0	W	Red portal
+EDGE	117	127	portal	0	W	Red portal
+EDGE	214	119	passage	0	W	
+EDGE	109	133	cube	0	W	Pandemonium Portal
+EDGE	109	134	cube	0	W	Pandemonium Portal
+EDGE	109	135	cube	0	W	Pandemonium Portal
+EDGE	109	136	cube	0	W	Pandemonium Finale Portal
+ITEM	ass	enUS	Book of Skill
+ITEM	bbb	enUS	Lam Esen's Tome
+ITEM	bbb	deDE	Lam Esens Buch
+ITEM	bbb	esES	El Tomo de Lam Esen
+ITEM	bbb	esMX	El Tomo de Lam Esen
+ITEM	bbb	frFR	Le Tome d'Esen
+ITEM	bbb	itIT	Il Tomo di Lam Esen
+ITEM	bbb	jaJP	ラーム・エセンのトーム
+ITEM	bbb	koKR	람 에센의 서적
+ITEM	bbb	plPL	Tom Esena
+ITEM	bbb	ptBR	Tomo de Lam Esen
+ITEM	bbb	ruRU	Том Эсена
+ITEM	bbb	zhCN	蓝伊森之书
+ITEM	bbb	zhTW	拉姆·艾森的書籍
+ITEM	bey	enUS	Baal's Eye
+ITEM	bey	deDE	Baal's Auge
+ITEM	bey	esES	Ojo de Baal
+ITEM	bey	esMX	Ojo de Baal
+ITEM	bey	frFR	L'Œil de Baal
+ITEM	bey	itIT	Occhio di Baal
+ITEM	bey	jaJP	バールの目
+ITEM	bey	koKR	바알의 눈
+ITEM	bey	plPL	Oko Baala
+ITEM	bey	ptBR	Olho de Baal
+ITEM	bey	ruRU	Глаз Баала
+ITEM	bey	zhCN	巴尔之眼
+ITEM	bey	zhTW	巴爾之眼
+ITEM	bkd	enUS	Key to the Cairn Stones
+ITEM	bkd	deDE	Schlüssel zu den Grabsteinen
+ITEM	bkd	esES	Llave de las Piedras del Templo
+ITEM	bkd	esMX	Llave de las Piedras del Templo
+ITEM	bkd	frFR	Clé des Pierres du Cairn
+ITEM	bkd	itIT	Chiave per le Pietre del Cairn
+ITEM	bkd	jaJP	ケルンストーンの鍵
+ITEM	bkd	koKR	카른 스톤의 열쇠
+ITEM	bkd	plPL	Klucz do Kamieni Grobowych
+ITEM	bkd	ptBR	Chave para as Pedras do Cairn
+ITEM	bkd	ruRU	Ключ к Каменным Курганам
+ITEM	bkd	zhCN	石阵之钥
+ITEM	bkd	zhTW	凱恩石之鑰
+ITEM	bks	enUS	Scroll of Inifuss
+ITEM	bks	deDE	Inifuss' Schriftrolle
+ITEM	bks	esES	Pergamino de Inifuss
+ITEM	bks	esMX	Pergamino de Inifuss
+ITEM	bks	frFR	Parchemin d'Inifuss
+ITEM	bks	itIT	Pergamena di Inifuss
+ITEM	bks	jaJP	イニフスの巻物
+ITEM	bks	koKR	이니푸스의 두루마리
+ITEM	bks	plPL	Zwoj Inifusa
+ITEM	bks	ptBR	Pergaminho de Inifuss
+ITEM	bks	ruRU	Свиток Инифуса
+ITEM	bks	zhCN	艾尼弗斯卷轴
+ITEM	bks	zhTW	伊尼夫斯的卷軸
+ITEM	dhn	enUS	Diablo's Horn
+ITEM	dhn	deDE	Diablos Horn
+ITEM	dhn	esES	Cuerno de Diablo
+ITEM	dhn	esMX	Cuerno de Diablo
+ITEM	dhn	frFR	Corne de Diablo
+ITEM	dhn	itIT	Corno di Diablo
+ITEM	dhn	jaJP	ディアブロの角
+ITEM	dhn	koKR	디아블로의 뿔
+ITEM	dhn	plPL	Róg Diablo
+ITEM	dhn	ptBR	Chifre de Diablo
+ITEM	dhn	ruRU	Рог Диабло
+ITEM	dhn	zhCN	迪亚布罗之角
+ITEM	dhn	zhTW	迪亞布羅的角
+ITEM	g33	enUS	The Gidbinn
+ITEM	g33	deDE	Der Gidbinn
+ITEM	g33	esES	El Gidbinn
+ITEM	g33	esMX	El Gidbinn
+ITEM	g33	frFR	Le Gidbinn
+ITEM	g33	itIT	Il Gidbinn
+ITEM	g33	jaJP	ギドビン
+ITEM	g33	koKR	기드빈
+ITEM	g33	plPL	Gidbinn
+ITEM	g33	ptBR	O Gidbinn
+ITEM	g33	ruRU	Гидбинн
+ITEM	g33	zhCN	吉德宾
+ITEM	g33	zhTW	吉德賓
+ITEM	hdm	enUS	Horadric Malus
+ITEM	hdm	deDE	Horadrischer Malus
+ITEM	hdm	esES	Horádrico Malus
+ITEM	hdm	esMX	Horádrico Malus
+ITEM	hdm	frFR	Malus Horadrique
+ITEM	hdm	itIT	Malus Horadrico
+ITEM	hdm	jaJP	ホラドリック・マルス
+ITEM	hdm	koKR	호라드릭 말루스
+ITEM	hdm	plPL	Horadric Malus
+ITEM	hdm	ptBR	Horadric Malus
+ITEM	hdm	ruRU	Горадрический Марус
+ITEM	hdm	zhCN	赫拉迪姆之锤
+ITEM	hdm	zhTW	霍拉德里克的馬魯斯
+ITEM	hfh	enUS	Hell Forge Hammer
+ITEM	hfh	deDE	Höllenschmiedehammer
+ITEM	hfh	esES	Martillo de la Forja del Infierno
+ITEM	hfh	esMX	Martillo de la Forja del Infierno
+ITEM	hfh	frFR	Marteau de la Forge de l'Enfer
+ITEM	hfh	itIT	Martello della Forgia dell'Inferno
+ITEM	hfh	jaJP	地獄の鍛冶ハンマー
+ITEM	hfh	koKR	지옥 대장장이 망치
+ITEM	hfh	plPL	Młot Piekielnej Kuźni
+ITEM	hfh	ptBR	Martelo da Forja do Inferno
+ITEM	hfh	ruRU	Адская кузница молот
+ITEM	hfh	zhCN	地狱熔炉之锤
+ITEM	hfh	zhTW	地獄鍛造錘
+ITEM	hst	enUS	Horadric Staff
+ITEM	hst	deDE	Horadrischer Stab
+ITEM	hst	esES	Bastón Horádrico
+ITEM	hst	esMX	Bastón Horádrico
+ITEM	hst	frFR	Bâton Horadrique
+ITEM	hst	itIT	Bastone Horadrico
+ITEM	hst	jaJP	ホラドリックスタッフ
+ITEM	hst	koKR	호라드릭 지팡이
+ITEM	hst	plPL	Kij Horadrimów
+ITEM	hst	ptBR	Cajado Horádrico
+ITEM	hst	ruRU	Горадрический посох
+ITEM	hst	zhCN	赫拉迪姆之杖
+ITEM	hst	zhTW	霍拉德里法杖
+ITEM	ice	enUS	Malah's Potion
+ITEM	mbr	enUS	Mephisto's Brain
+ITEM	mbr	deDE	Mephistos Gehirn
+ITEM	mbr	esES	Cerebro de Mephisto
+ITEM	mbr	esMX	Cerebro de Mephisto
+ITEM	mbr	frFR	Cerveau de Méphisto
+ITEM	mbr	itIT	Cervello di Mephisto
+ITEM	mbr	jaJP	メフィストの脳
+ITEM	mbr	koKR	메피스토의 두뇌
+ITEM	mbr	plPL	Mózg Mephisto
+ITEM	mbr	ptBR	Cérebro de Mephisto
+ITEM	mbr	ruRU	Мозг Мефисто
+ITEM	mbr	zhCN	墨菲斯托之脑
+ITEM	mbr	zhTW	梅菲斯托的腦袋
+ITEM	msf	enUS	Shaft of the Horadric Staff
+ITEM	msf	deDE	Schaft des Horadrischen Stabes
+ITEM	msf	esES	Eje del Bastón Horádrico
+ITEM	msf	esMX	Eje del Bastón Horádrico
+ITEM	msf	frFR	Fût du bâton horadrique
+ITEM	msf	itIT	Fusto del Bastone Horadrico
+ITEM	msf	jaJP	ホラドリックスタッフのシャフト
+ITEM	msf	koKR	호라드릭 지팡이의 자루
+ITEM	msf	plPL	Trzonek Horadrycznego Kija
+ITEM	msf	ptBR	Cabo do Bastão Horadrico
+ITEM	msf	ruRU	Сhaft of the Horadric Staff
+ITEM	msf	zhCN	赫拉迪姆之杖的杖身
+ITEM	msf	zhTW	霍拉德里克法杖的柄
+ITEM	mss	enUS	Mephisto's Soulstone
+ITEM	mss	deDE	Mephistos Seelenstein
+ITEM	mss	esES	La Piedra del Alma de Mephisto
+ITEM	mss	esMX	La Piedra del Alma de Mephisto
+ITEM	mss	frFR	Pierre d'âme de Mephisto
+ITEM	mss	itIT	Soulstone di Mephisto
+ITEM	mss	jaJP	メフィストのソウルストーン
+ITEM	mss	koKR	메피스토의 영혼석
+ITEM	mss	plPL	Kamień Duszy Mephisto
+ITEM	mss	ptBR	Pedra da Alma de Mephisto
+ITEM	mss	ruRU	Душа Мефисто
+ITEM	mss	zhCN	墨菲斯托的灵魂石
+ITEM	mss	zhTW	梅菲斯托的靈魂石
+ITEM	qbr	enUS	Khalim's Brain
+ITEM	qbr	deDE	Khalims Gehirn
+ITEM	qbr	esES	Cerebro de Khalim
+ITEM	qbr	esMX	Cerebro de Khalim
+ITEM	qbr	frFR	Cerveau de Khalim
+ITEM	qbr	itIT	Cervello di Khalim
+ITEM	qbr	jaJP	カリムの脳
+ITEM	qbr	koKR	칼림의 두뇌
+ITEM	qbr	plPL	Mózg Khalima
+ITEM	qbr	ptBR	Cérebro de Khalim
+ITEM	qbr	ruRU	Мозг Халима
+ITEM	qbr	zhCN	克林姆的大脑
+ITEM	qbr	zhTW	卡利姆的腦袋
+ITEM	qey	enUS	Khalim's Eye
+ITEM	qey	deDE	Khalims Auge
+ITEM	qey	esES	Ojo de Khalim
+ITEM	qey	esMX	Ojo de Khalim
+ITEM	qey	frFR	L'Œil de Khalim
+ITEM	qey	itIT	Occhio di Khalim
+ITEM	qey	jaJP	カリムの目
+ITEM	qey	koKR	칼림의 눈
+ITEM	qey	plPL	Oko Khalima
+ITEM	qey	ptBR	Olho de Khalim
+ITEM	qey	ruRU	Глаз Халима
+ITEM	qey	zhCN	克林姆的眼球
+ITEM	qey	zhTW	卡里姆之眼
+ITEM	qf1	enUS	Khalim's Flail
+ITEM	qf1	deDE	Khalims Peitsche
+ITEM	qf1	esES	La Maza de Khalim
+ITEM	qf1	esMX	Maza de Khalim
+ITEM	qf1	frFR	Fléau de Khalim
+ITEM	qf1	itIT	Martello di Khalim
+ITEM	qf1	jaJP	カリムのフレイル
+ITEM	qf1	koKR	칼림의 채찍
+ITEM	qf1	plPL	Khalimowa Buława
+ITEM	qf1	ptBR	Flail de Khalim
+ITEM	qf1	ruRU	Калима's Кувалда
+ITEM	qf1	zhCN	克林姆的连枷
+ITEM	qf1	zhTW	卡利姆的鐵鎚
+ITEM	qf2	enUS	Khalim's Will
+ITEM	qf2	deDE	Khalims Wille
+ITEM	qf2	esES	La Voluntad de Khalim
+ITEM	qf2	esMX	La Voluntad de Khalim
+ITEM	qf2	frFR	La Volonté de Khalim
+ITEM	qf2	itIT	Volontà di Khalim
+ITEM	qf2	jaJP	カリムの意志
+ITEM	qf2	koKR	칼림의 의지
+ITEM	qf2	plPL	Wola Khalima
+ITEM	qf2	ptBR	Vontade de Khalim
+ITEM	qf2	ruRU	Воля Халима
+ITEM	qf2	zhCN	克林姆的遗愿
+ITEM	qf2	zhTW	卡利姆的意志
+ITEM	qhr	enUS	Khalim's Heart
+ITEM	qhr	deDE	Khalims Herz
+ITEM	qhr	esES	El Corazón de Khalim
+ITEM	qhr	esMX	El Corazón de Khalim
+ITEM	qhr	frFR	Le Cœur de Khalim
+ITEM	qhr	itIT	Cuore di Khalim
+ITEM	qhr	jaJP	カリムの心
+ITEM	qhr	koKR	칼림의 심장
+ITEM	qhr	plPL	Serce Khalima
+ITEM	qhr	ptBR	Coração de Khalim
+ITEM	qhr	ruRU	Сердце Халима
+ITEM	qhr	zhCN	克林姆的心脏
+ITEM	qhr	zhTW	卡利姆之心
+ITEM	vip	enUS	Top of the Horadric Staff
+ITEM	vip	deDE	Oben des Horadrischen Stabs
+ITEM	vip	esES	Parte superior del Bastón Horádrico
+ITEM	vip	esMX	Parte superior del Bastón Horádrico
+ITEM	vip	frFR	Sommet du Bâton Horadrique
+ITEM	vip	itIT	Cima del Bastone Horadrico
+ITEM	vip	jaJP	ホラドリックスタッフの頂部
+ITEM	vip	koKR	호라드릭 지팡이의 정점
+ITEM	vip	plPL	Szczyt Kija Horadrimów
+ITEM	vip	ptBR	Topo do Bastão Horádrico
+ITEM	vip	ruRU	Вершина Горадрического Посоха
+ITEM	vip	zhCN	赫拉迪姆之杖的杖顶
+ITEM	vip	zhTW	霍拉德里法杖的頂端

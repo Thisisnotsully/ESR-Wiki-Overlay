@@ -327,3 +327,212 @@ Helms / Boots / Armor / Shields / Belts	頭盔 / 靴子 / 護甲 / 盾牌 / 腰�
 Helms / Boots / Armor / Shields / Belts:	頭盔 / 靴子 / 護甲 / 盾牌 / 腰帶:
 All Items	所有物品
 All Items:	所有物品:
+Tab	分頁
+Entry	條目
+Card	卡片
+{0} results	{0} 個結果
+1 result	1 個結果
+{0} of {1} entries here | {2} total	{0} / {1} 筆（此處）| 共 {2} 筆
+Search names, stats, runes… (in English)	搜尋名稱、屬性、符文…（繁體中文）
+Nothing has: {0}	皆未找到：{0}
+No card has all of: {0}	沒有卡片同時包含：{0}
+Nothing left without: {0}	排除後無剩餘：{0}
+Type a word to look for: -word only leaves things out	請輸入要搜尋的詞：-詞 僅用於排除
+Did you mean	您是不是要找
+Filters cleared	已清除篩選
+Search cleared	已清除搜尋
+Search suggestions	搜尋建議
+Highlight a key	選取按鍵
+Type the key	輸入按鍵
+Clear search / close keyboard	清除搜尋 / 關閉鍵盤
+Delete a character	刪除一個字元
+Close keyboard	關閉鍵盤
+From the bottom row: suggestions	從最下一列：進入建議
+Pick a suggestion	選擇建議
+Open the suggestion	開啟建議
+Close the suggestions	關閉建議
+Page through the suggestions	翻頁瀏覽建議
+Show / hide keyboard	顯示 / 隱藏鍵盤
+Leave the suggestions	離開建議清單
+{0}: open | {1}: close | {2}: page	{0}：開啟 | {1}：關閉 | {2}：翻頁
+D-pad down: suggestions	方向鍵下：建議
+{0}: suggestions	{0}：建議
+Perk	天賦
+Campaign map	戰役地圖
+Act I	第一幕
+Act II	第二幕
+Act III	第三幕
+Act IV	第四幕
+Act V	第五幕
+Special areas	特殊區域
+Ubers & portals	超級首領與傳送門
+Town	城鎮
+Outdoor area	野外區域
+Cave	洞穴
+Tomb	墓穴
+Dungeon	地牢
+Temple	神殿
+Tower	塔樓
+Special area	特殊區域
+WP	傳送點
+Waypoint	傳送點
+lvl {0}	{0}級
+L{0}	{0}層
+Monster level	怪物等級
+Monsters	怪物
+Official name: {0}	官方名稱：{0}
+Quest items	任務物品
+Quest: {0}	任務：{0}
+Heads up	注意
+Notes	備註
+Getting there	如何前往
+No town portal	無法使用城鎮傳送門
+Teleport is off here	此處無法傳送
+Teleport is limited here	此處傳送受限
+No teleport across the walls	無法穿牆傳送
+No known way in	入口未知
+Endgame zone	終局區域
+(not confirmed yet)	(尚未確認)
+Spoiler: click to show	劇透：點擊顯示
+Spoiler: click to hide	劇透：點擊隱藏
+Click an area on the map to see its details.	點擊地圖上的區域查看詳情。
+Area	區域
+Opens {0}	開啟{0}
+Walk across	步行
+Entrance	入口
+Portal	傳送門
+Cube portal	方塊傳送門
+Next act	下一幕
+Hell lvl {0}	地獄 {0}級
+Monastery	修道院
+Kurast	庫拉斯特
+Worldstone Keep	世界石守衛
+Naraku depths	奈拉庫深處
+Skills	技能
+Skill level:	技能等級：
+Character level:	角色等級：
+Hard points:	投入點數：
+Default	預設
+Skill tree	技能樹
+Requires	前置技能
+Procs on striking	觸發擊中時效果
+Procs on casting	觸發施放時效果
+Yes	是
+No	否
+At skill level {0}	技能等級 {0} 時
+Synergies	協同加成
+Granted by {0} items and recipes	由 {0} 件物品和配方提供
+Passive	被動
+Aura	光環
+Item Skills	物品技能
+Amazonian Loop	亞馬遜環路
+Amazonian Pin	亞馬遜針
+Amulet	護身符
+Anointment	塗油
+Assassin's Choker	刺客的項圈
+Assassin's Jewel	刺客的寶石
+Auric Shields	靈氣盾牌
+Barbaric Knuckle	野蠻拳套
+Belt	腰帶
+Body Armor	身體護甲
+Boots	靴子
+Circlet	頭環
+Cube recipe	方塊配方
+Death's Locket	死亡的項鍊
+Druid's Seal	德魯伊的印記
+Druidic Necklace	德魯伊項鍊
+Gloves	手套
+Grimoire	魔典
+Hand to Hand	拳套武器
+Helm	頭盔
+Holy Pendant	神聖吊墜
+It deals no weapon damage, and spells don’t count as strikes.	它不造成武器傷害，且法術不算作攻擊命中。
+It hits with your weapon.	它用你的武器攻擊。
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	它用你的武器攻擊。在 ESR 中，每次制裁會命中多次，每次命中都可能觸發效果。
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	它用你的武器攻擊。與原版不同，ESR 允許物品觸發效果在旋風斬期間生效。
+It uses the attack animation, and only skills cast with the casting animation count.	它使用攻擊動畫，只有使用施放動畫施放的技能才計算在內。
+It uses the kick animation, and only skills cast with the casting animation count.	它使用踢擊動畫，只有使用施放動畫施放的技能才計算在內。
+It uses the sequence animation, and only skills cast with the casting animation count.	它使用序列動畫，只有使用施放動畫施放的技能才計算在內。
+It uses the special animation, and only skills cast with the casting animation count.	它使用特殊動畫，只有使用施放動畫施放的技能才計算在內。
+It uses the throw animation, and only skills cast with the casting animation count.	它使用投擲動畫，只有使用施放動畫施放的技能才計算在內。
+Its missiles carry your weapon damage.	其投射物帶有你的武器傷害。
+It’s cast with the casting animation.	它使用施放動畫施放。
+Level 1 Aura When Equipped	裝備時提供 1 級 光環
+Level 1-10 Aura When Equipped	裝備時提供 1-10 級 光環
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	裝備時提供 1-2 級 光環 / 裝備時提供 3-5 級 光環
+Level 1-5 Aura When Equipped	裝備時提供 1-5 級 光環
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	裝備時提供 1-5 級 光環 / 裝備時提供 5-10 級 光環 / 裝備時提供 15-20 級 光環
+Level 10 Aura When Equipped	裝備時提供 10 級 光環
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	裝備時提供 10 級 光環 / 裝備時提供 20 級 光環
+Level 10-15 Aura When Equipped	裝備時提供 10-15 級 光環
+Level 10-20 Aura When Equipped	裝備時提供 10-20 級 光環
+Level 10-25 Aura When Equipped	裝備時提供 10-25 級 光環
+Level 10-30 Aura When Equipped	裝備時提供 10-30 級 光環
+Level 15 Aura When Equipped	裝備時提供 15 級 光環
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	裝備時提供 15 級 光環 / 裝備時提供 10 級 光環
+Level 15-20 Aura When Equipped	裝備時提供 15-20 級 光環
+Level 15-30 Aura When Equipped	裝備時提供 15-30 級 光環
+Level 2-5 Aura When Equipped	裝備時提供 2-5 級 光環
+Level 2-8 Aura When Equipped	裝備時提供 2-8 級 光環
+Level 20 Aura When Equipped	裝備時提供 20 級 光環
+Level 20-30 Aura When Equipped	裝備時提供 20-30 級 光環
+Level 20-40 Aura When Equipped	裝備時提供 20-40 級 光環
+Level 25 Aura When Equipped	裝備時提供 25 級 光環
+Level 25-30 Aura When Equipped	裝備時提供 25-30 級 光環
+Level 25-50 Aura When Equipped	裝備時提供 25-50 級 光環
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	裝備時提供 3-10 級 光環 / 裝備時提供 6-11 級 光環
+Level 3-5 Aura When Equipped	裝備時提供 3-5 級 光環
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	裝備時提供 3-5 級 光環 / 裝備時提供 5-10 級 光環
+Level 30 Aura When Equipped	裝備時提供 30 級 光環
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	裝備時提供 30 級 光環 / 裝備時提供 25 級 光環
+Level 30-40 Aura When Equipped	裝備時提供 30-40 級 光環
+Level 30-50 Aura When Equipped	裝備時提供 30-50 級 光環
+Level 30-60 Aura When Equipped	裝備時提供 30-60 級 光環
+Level 4-7 Aura When Equipped	裝備時提供 4-7 級 光環
+Level 40 Aura When Equipped	裝備時提供 40 級 光環
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	裝備時提供 40 級 光環 / 裝備時提供 30 級 光環
+Level 40-80 Aura When Equipped	裝備時提供 40-80 級 光環
+Level 5 Aura When Equipped	裝備時提供 5 級 光環
+Level 5 Aura When Equipped / Level 10 Aura When Equipped	裝備時提供 5 級 光環 / 裝備時提供 10 級 光環
+Level 5-10 Aura When Equipped	裝備時提供 5-10 級 光環
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	裝備時提供 5-10 級 光環 / 裝備時提供 10-15 級 光環
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	裝備時提供 5-10 級 光環 / 裝備時提供 10-20 級 光環
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	裝備時提供 5-10 級 光環 / 裝備時提供 10-20 級 光環 / 裝備時提供 10-15 級 光環
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	裝備時提供 5-10 級 光環 / 裝備時提供 10-20 級 光環 / 裝備時提供 25-30 級 光環
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	裝備時提供 5-10 級 光環 / 裝備時提供 8-15 級 光環
+Level 5-15 Aura When Equipped	裝備時提供 5-15 級 光環
+Level 5-20 Aura When Equipped	裝備時提供 5-20 級 光環
+Level 5-25 Aura When Equipped	裝備時提供 5-25 級 光環
+Level 50 Aura When Equipped	裝備時提供 50 級 光環
+Level 6-11 Aura When Equipped	裝備時提供 6-11 級 光環
+Level 6-12 Aura When Equipped	裝備時提供 6-12 級 光環
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	裝備時提供 6-12 級 光環 / 裝備時提供 10-20 級 光環
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	裝備時提供 6-12 級 光環 / 裝備時提供 10-20 級 光環 / 裝備時提供 10-15 級 光環
+Level 60-100 Aura When Equipped	裝備時提供 60-100 級 光環
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	裝備時提供 8 級 光環 / 裝備時提供 12 級 光環
+Level 8-15 Aura When Equipped	裝備時提供 8-15 級 光環
+Magic prefix	魔法前綴
+Magic suffix	魔法後綴
+Necromancer's Stone	死靈法師之石
+Paladic Halo	聖騎士光環
+Pelt	皮帽
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	選擇技能等級和角色等級，即可查看遊戲會顯示的數值。部分技能不僅隨技能等級成長，也隨角色等級成長。
+Primal Charm	原始護身符
+Primal Helm	原始頭盔
+Ring	戒指
+Runeword	符文之語
+Set item	套裝物品
+Shield	盾牌
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	不屬於任何職業技能樹的技能。物品會以技能加成、施放機率、充能或光環的形式提供它們，因此任何職業都可以使用。
+Sorcerer's Band	巫師之環
+Sorcerer's Talisman	法師的護符
+Tyrael's Virtue_old	泰瑞爾的美德
+Unique	獨特
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	數值假設沒有裝備物品，且其他技能沒有加點。協同加成列在各技能之下，不包含在此處的數值中；開啟技能即可設定協同點數並查看每個等級。
+Vessel of Souls	靈魂之器
+Voodoo Heads	巫毒頭顱
+Warlock Pendant	術士墜飾
+Warlock Sigil	術士印記
+{0}: {1}	{0}：{1}
+{0}, {1}	{0}、{1}
+{0}. {1}	{0}。{1}

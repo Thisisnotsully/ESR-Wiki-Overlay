@@ -38,6 +38,21 @@ int main(int argc, char** argv) {
     CHECK(!esrwiki::BuildWebBasesWikiData(expected, armors, junk, art, out, error), "broken weapons accepted");
     CHECK(!esrwiki::BuildWebBasesWikiData(expected, armors.substr(0, armors.size() / 2), weapons, art, out, error), "cut-off armors accepted");
     CHECK(!esrwiki::BuildWebBasesWikiData(expected, armors, weapons.substr(0, weapons.size() / 2), art, out, error), "cut-off weapons accepted");
+
+    // Automod tiers: the synthetic pages in tests/web_bases_automod/ (found from the website-bases folder of argv[1]) cover a clean
+    // collapse (2 and 3 lines per tier), the degenerate case, a single tier, tiers whose last lines differ, and a one-line tier.
+    // expected-wiki-data.txt is what tools/web_bases.py writes for them.
+    std::string folder = argv[1];
+    folder = folder.substr(0, folder.find_last_of("/\\")) + "/../../tests/web_bases_automod/";
+    const std::string fa = ReadAll(folder + "armors.htm"), fw = ReadAll(folder + "weapons.htm"), fe = ReadAll(folder + "expected-wiki-data.txt");
+    CHECK(!fa.empty() && !fw.empty() && !fe.empty(), "automod fixture missing in " << folder);
+    CHECK(esrwiki::BuildWebBasesWikiData("PAGE\tgemwords\tGemwords\tWiki\n", fa, fw, "", out, error), "automod fixture: " << error);
+    if (out != fe) { std::ofstream("web_bases_automod_actual.txt", std::ios::binary) << out; std::cerr << "FAIL: automod fixture differs (web_bases_automod_actual.txt)\n"; return 1; }
+    const std::string tp = "Tinkering Points: (25 to 35)", sep = "\x1e";
+    const std::string wanted[] = {"Hit A" + sep + "Hit B" + sep + "Hit C" + sep + tp, "Hit A More A" + sep + "Hit B More B" + sep + tp, tp,
+                            "Hit A " + tp, "Hit A Tail A" + sep + "Hit B Tail B", "Hit A " + tp + sep + tp};
+    for (const std::string& value : wanted) CHECK(out.find("FIELD\tAutomod\t" + value + "\n") != std::string::npos, "missing Automod value: " << value);
+    CHECK(out.find(sep + sep) == std::string::npos, "empty Automod entry");
     std::cout << "web_bases_live_test: all checks passed\n";
     return 0;
 }

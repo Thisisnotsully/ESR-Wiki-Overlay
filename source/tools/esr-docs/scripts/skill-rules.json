@@ -1,0 +1,70 @@
+{
+  "$comment": "Rules for scripts/build-skills.mjs. Values on the page are for an unequipped character with no points in other skills; 'stats' sets the stat('…'.accr) values that are not 0 on such a character, and 'baseSkills' are the skills every character has at level 1.",
+  "pageNotes": [
+    "Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.",
+    "Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level."
+  ],
+  "onStriking": {
+    "$comment": "Whether a skill triggers 'chance to cast on striking' (item_skillonhit, on the domeleedamage/domissiledamage events). Spells don't count as strikes. A skill counts when its srvdofunc is a melee attack routine below (with SrcDam, unless the routine is in 'withoutSrcDam'), or when a missile it fires (or one that missile spawns) carries weapon damage (SrcDam on the skill, SrcDamage on the missile). Routine names and meanings are from https://locbones.github.io/D2R_DataGuide/#Skills (srvdofunc). 'notes' adds player-facing text for a routine (76: d2rloader whirlwind plugin, ctc_while_uninterruptible; 150: smite-multihit plugin); 'skills' overrides by skills.txt name: { value: true|false, reason }.",
+    "meleeRoutines": {
+      "1": "DoAttack", "2": "DoApplyDamage", "7": "AmaDoJab", "9": "BarDoFrenzy", "13": "AmaDoFend",
+      "14": "AmaDoLightningStrike", "34": "AssDoProgressiveAttack", "35": "AssDoDualProgressiveAttack",
+      "42": "AssDoDragonTalon", "46": "AssDoDragonClaw", "50": "AssDoDragonTail", "52": "AssDoDragonFlight",
+      "64": "PalDoSacrifice", "67": "PalDoCharge", "70": "BarDoDoubleSwing", "76": "BarDoWhirlwind",
+      "78": "BarDoLeapAttack", "120": "DruDoFeralRage", "121": "DruDoRabies", "122": "DruDoHunger", "150": "PalDoSmite"
+    },
+    "withoutSrcDam": ["34", "35", "150"],
+    "noHitRoutines": { "116": "DruDoWerewolf (toggles the shapeshift state; the SrcDam on these rows isn't a hit)" },
+    "notes": {
+      "76": "Unlike vanilla, ESR lets item procs fire during Whirlwind.",
+      "150": "In ESR each Smite lands several hits, and each hit can proc."
+    },
+    "skills": {}
+  },
+  "maxLevel": 110,
+  "defaultSkillLevel": 20,
+  "defaultCharacterLevel": 110,
+  "baseSkills": ["Attack", "Kick", "Throw", "Unsummon", "Left Hand Throw", "Left Hand Swing"],
+  "stats": {},
+  "tokenAliases": {
+    "$comment": "Formula tokens: a string renames a token (fixes typos in the data), a number pins its value.",
+    "me3o": "m3eo",
+    "me3y": "m3ey",
+    "mael": 0
+  },
+  "hideLines": [
+    { "skill": "Plague Javelin", "match": "^Instant Poison Damage", "$comment": "uses missile plaguejavsplash, which missiles.txt doesn't have" },
+    { "skill": "Bind Demon", "match": "^StrSkillManaCostPerSecond$", "$comment": "string missing from the game data" },
+    { "skill": "Flurry of Shurikens", "match": "^shurikennumber$", "$comment": "string missing from the game data" },
+    { "skill": "Fire Whirlwind", "match": "^physicaldamagewhilewwdesc$", "$comment": "string missing from the game data" },
+    { "skill": "Valkyrie", "match": "^StrSkill21$", "$comment": "'Defense: +X%' reads pst1, the Attack Rating (tohit) passive; the Valkyrie gets no defense % stat (pst2 is the flat Defense line)" }
+  ],
+  "extraLines": [
+    { "$comment": "skilldesc has no lines and the skill grants no stats; Spirit of Nature's life calc multiplies by (100 + this skill's level * 5)%",
+      "skill": "Spirit of Nature Mastery", "lines": [{ "text": "Spirit of Nature Life: %+d%%", "x": "lvl*5" }] },
+    { "$comment": "skilldesc has no lines; the summoned raven's damage and hits come from skills.txt",
+      "skill": "Bloodraven Charge Raven", "lines": [
+        { "text": "Raven Damage: %d-%d", "x": "pnma", "y": "pxma" },
+        { "text": "Attacks per Raven: %d", "x": "clc3" }
+      ] },
+    { "$comment": "calc1 = lvl; its missile uses the heal-nova function (pSrvDoFunc 29). Old docs: level = % of max life healed",
+      "skill": "Time Lapse", "lines": [{ "text": "Heals %d%% of maximum Life", "x": "clc1" }] },
+    { "$comment": "calc1 is 'num targets' in the data; the wildairs missile spawns fury missiles that fire immolationarrow, freezingarrow and lightningarrow",
+      "skill": "Wild Airs of the Elements", "lines": [{ "text": "Targets: %d", "x": "clc1" }] }
+  ],
+  "statText": {
+    "$comment": "Rewording for stats a skill grants when it has no skilldesc lines. hpregen is in 256ths of a point per frame (25 frames a second).",
+    "hpregen": { "text": "Replenishes %d Life per second", "calc": "{v}*25/256" }
+  },
+  "descriptions": {
+    "$comment": "From the old site's Mercenary and Oskill Information page, for skills whose numbers depend on other skills. Long Shot's data gives +5% damage per frame flown over 20 frames (+100%), the old page says up to +200%.",
+    "Dragon Fury Discharge": "When it procs, unleashes a fully charged Dragon Fury at the level you have learned (not the proc's level).",
+    "Execute Discharge": "When it procs, unleashes a fully charged Execute at the level you have learned (not the proc's level).",
+    "Wild Airs of the Elements": "A passive that periodically fires Immolation, Freezing and Lightning Arrows at nearby enemies.",
+    "Long Shot": "A missile that deals 100% weapon damage, and more the farther it flies."
+  },
+  "grantProperties": ["oskill", "att-skill", "hit-skill", "gethit-skill", "kill-skill", "death-skill", "levelup-skill", "cast-skill", "takedmg-skill", "charged", "aura"],
+  "hideSkills": ["Townportal Oskill"],
+  "otherTitle": "Item Skills",
+  "otherIntro": "Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them."
+}

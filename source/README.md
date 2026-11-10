@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.6.0 (source)
+# ESR Wiki Overlay 1.7.0 (source)
 
 Source for the ESR Wiki overlay plugin for Diablo II Resurrected (Eastern Sun Resurrected),
 loaded by D2RLoader. It contains the C++ overlay, the Python tools that generate its data,
@@ -211,6 +211,30 @@ Souls, each ingredient sits on its own line. The website's colours become the ov
 is the all-orange line that starts it. The overlay's `web_mastery_live.cpp` does the same at runtime; a file named
 `mastery-live-disabled.txt` turns the check off. `publish-overlay.ps1 -SkipWebsiteMastery` leaves the saved copy and the page
 as they are.
+
+## Specializations from the website
+The Specializations tab draws the website's perk board (`specializations.htm`) instead of cards. `src/spec_data.cpp` reads the
+page: the explanation above the board, the title, the tabs, and for every tab its perks (position, icon number in the tab's
+sprite sheet, tooltip title, text and hint) and the board's measures from the page's style. `src/overlay_spec.inc` draws it
+(scaled to the pane), shows the perk tooltip on hover or controller focus, and switches tabs by mouse or D-pad.
+`data/website-specializations/specializations.htm` is the shipped English copy; a saved localized page can be placed at
+`data/locales/<code>/specializations.htm` (`scripts/download-locales.ps1` fetches it). At runtime the plugin reads the shipped copy
+first and then the website page in the game's language (`<code>/specializations.htm`) every six hours; `live-updates-disabled.txt`
+turns the check off. The art is the game's own (`global/ui/specializations/*.sprite`, converted to `images/spec_*.png`: the
+four sprite sheets of 15 icons, the background and the glow); the socket ring round each icon is drawn by the overlay.
+`tests/spec_data_test.cpp` checks the reader against the saved page.
+
+## Search suggestions
+`src/search_index.cpp` (no Win32, `tests/search_index_test.cpp`) builds one record per page, entry and card of the loaded database
+and answers a query with ranked hits: exact, prefix, word prefix, substring and every-word title matches, then card text (every word
+somewhere on the card, the line that fits best is the snippet), then letters-in-order and one-typo title matches (`exact` false).
+Matching folds case and accents with `src/text_fold.cpp` (one code point out for each one in: é -> e, ł -> l, ё -> е); nothing is
+translated, so it searches the language the data is in. `src/wiki_model.cpp` uses the same folding and words for the page filter
+(`FilterEntries`, `ArrangeBlocks`, `BlockMatches`), with the folded text of a card cached in `Block::foldedText`.
+`src/overlay_suggest.inc` draws the dropdown under the search box (under the on-screen keyboard when that is open), answers the mouse,
+the keys (Up, Down, Enter, Escape) and the pad (LB / RB with the keyboard open), and `JumpTo` changes the tab, selects the entry, clears
+the chip filters that would hide the card and scrolls to it using the card positions recorded by the layout (`blockSpans`).
+The index is rebuilt whenever the database is replaced.
 
 ## Item affixes from the website
 The Item Affixes page exists only on the website: `prefixes.htm`, `suffixes.htm` and `quality_affixes.htm`.

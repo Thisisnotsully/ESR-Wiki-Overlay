@@ -60,6 +60,34 @@ foreach(_ias ias-calculator.html ias-calculator-data.js)
   endif()
 endforeach()
 
+# The Specializations page (and its localized copies, when shipped) for the first start and for no network.
+file(COPY_FILE "${SRC_DATA}/website-specializations/specializations.htm" "${_dest_data}/specializations.htm"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy specializations.htm to ${_dest_data}.")
+endif()
+
+# The official Maps page (and its localized copies under locales, below) for the first start and for no network.
+file(COPY_FILE "${SRC_DATA}/website-maps/maps.htm" "${_dest_data}/maps.htm"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy maps.htm to ${_dest_data}.")
+endif()
+
+# The Skills tab's data (English; the other languages' copies are under locales, below). tools/build_skills.mjs writes it.
+file(COPY_FILE "${SRC_DATA}/skills-data.json" "${_dest_data}/skills-data.json"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy skills-data.json to ${_dest_data}.")
+endif()
+
+# The Campaign Progression map's data (one file for every language; tools/build_campaign.py writes it).
+file(COPY_FILE "${SRC_DATA}/campaign-map.txt" "${_dest_data}/campaign-map.txt"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy campaign-map.txt to ${_dest_data}.")
+endif()
+
 file(GLOB _pngs "${SRC_DATA}/images/*.png")
 set(_copied 0)
 foreach(_png IN LISTS _pngs)
@@ -70,7 +98,7 @@ foreach(_png IN LISTS _pngs)
   endif()
 endforeach()
 
-# Language data: data/locales/<code>/{ui-strings,wiki-data,cube-wiki-data}.txt. Without these the plugin
+# Language data: data/locales/<code>/{ui-strings,wiki-data,cube-wiki-data}.txt (and skills-data.json). Without these the plugin
 # shows English whatever the game language is.
 file(GLOB _locale_dirs LIST_DIRECTORIES true "${SRC_DATA}/locales/*")
 set(_locales 0)
@@ -78,7 +106,7 @@ foreach(_dir IN LISTS _locale_dirs)
   if(IS_DIRECTORY "${_dir}")
     get_filename_component(_code "${_dir}" NAME)
     file(MAKE_DIRECTORY "${_dest_data}/locales/${_code}")
-    file(GLOB _lfiles "${_dir}/*.txt")
+    file(GLOB _lfiles "${_dir}/*.txt" "${_dir}/specializations.htm" "${_dir}/maps.htm" "${_dir}/skills-data.json")
     foreach(_lf IN LISTS _lfiles)
       get_filename_component(_lname "${_lf}" NAME)
       file(COPY_FILE "${_lf}" "${_dest_data}/locales/${_code}/${_lname}" RESULT _result ONLY_IF_DIFFERENT)

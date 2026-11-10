@@ -834,6 +834,7 @@ std::string Translator::Translate(const std::string& wikiData, TranslateStats* s
         if (type == "LINE" || type == "FIELD" || type == "BLOCK" || type == "ENTRY" || type == "TAG" || type == "NOTE" || type == "RUNE") {
             for (std::size_t i = 1; i < fields.size(); ++i) {
                 if (type == "BLOCK" && i == 5) continue;  // the tier is a key the overlay looks for
+                if (type == "ENTRY" && i >= 3) continue;  // layout flags ("wide", "split", "campaignmap"), never text
                 if (type == "BLOCK" && i == 6 && std::any_of(std::begin(kCountries), std::end(kCountries), [&](const char* c) { return fields[i] == c; })) continue;
                 std::vector<std::string> cells = SplitOn(fields[i], '\x1f');  // table cells
                 for (std::string& cell : cells) {

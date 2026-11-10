@@ -134,11 +134,13 @@ public:
             const bool held = state.down[i];
             pressed[i] = false;
             released[i] = false;
+            repeated_[i] = false;
             if (held && !wasDown_[i]) {
                 pressed[i] = true;
                 nextRepeat_[i] = now + kFirstDelay;
             } else if (held && IsDirection(i) && now >= nextRepeat_[i]) {
                 pressed[i] = true;
+                repeated_[i] = true;
                 nextRepeat_[i] = now + kRepeat;
             } else if (!held && wasDown_[i]) {
                 released[i] = true;
@@ -147,6 +149,9 @@ public:
         }
     }
     void Reset() { for (bool& b : wasDown_) b = false; }
+    // True when the press the last Step reported for this button was an auto-repeat, not a fresh press. Moves that
+    // cross between panels (keyboard to list and back) should only happen on a fresh press.
+    bool IsRepeat(Button b) const { return repeated_[static_cast<int>(b)]; }
 
     static constexpr std::uint64_t kFirstDelay = 380;
     static constexpr std::uint64_t kRepeat = 85;
@@ -157,6 +162,7 @@ private:
                i == static_cast<int>(Button::Left) || i == static_cast<int>(Button::Right);
     }
     bool wasDown_[kButtonCount] = {};
+    bool repeated_[kButtonCount] = {};
     std::uint64_t nextRepeat_[kButtonCount] = {};
 };
 
@@ -339,5 +345,207 @@ inline float SmoothToward(float velocity, float target, float dt, float riseSeco
 // How far one press changes a number held down with the D-pad: 1 at first, then 5, then 10. `repeats` counts the
 // presses already made in this hold (the first press is 0).
 inline int NumberStep(int repeats) { return repeats < 6 ? 1 : (repeats < 16 ? 5 : 10); }
+
+// ---- Search suggestions ------------------------------------------------------------------------------------------
+// The suggestion list as the controller sees it. `pickable` has one flag per row as drawn: false for a row that cannot
+// be opened (the "Did you mean" heading above the typo hits, the message shown when nothing matches).
+inline int FirstPickable(const std::vector<bool>& pickable) {
+    for (std::size_t i = 0; i < pickable.size(); ++i)
+        if (pickable[i]) return static_cast<int>(i);
+    return -1;
+}
+
+struct ListStepResult {
+    int row = -1;        // the row now picked
+    bool leave = false;  // stepped up past the first pickable row (or there is nothing to pick): the focus goes back
+};
+
+// Moves the pick by `delta` rows. One step goes to the next pickable row in that direction (skipping the others); up
+// from the first one leaves the list, down from the last one stays. A bigger step (a page) goes that far, stopping at the
+// ends, and then to the nearest pickable row back toward where it started; it never leaves the list. current < 0 means
+// nothing is picked yet: down picks the first pickable row, up leaves.
+inline ListStepResult ListStep(const std::vector<bool>& pickable, int current, int delta) {
+    const int count = static_cast<int>(pickable.size());
+    const auto ok = [&](int r) { return r >= 0 && r < count && pickable[static_cast<std::size_t>(r)]; };
+    ListStepResult result;
+    if (current < 0 || current >= count) {
+        result.row = delta > 0 ? FirstPickable(pickable) : -1;
+        result.leave = result.row < 0;
+        return result;
+    }
+    result.row = current;
+    if (delta == 0) return result;
+    const int dir = delta > 0 ? 1 : -1;
+    if (delta == dir) {
+        for (int r = current + dir; r >= 0 && r < count; r += dir) {
+            if (ok(r)) {
+                result.row = r;
+                return result;
+            }
+        }
+        if (dir < 0) {
+            result.row = -1;
+            result.leave = true;
+        }
+        return result;
+    }
+    const int target = std::clamp(current + delta, 0, count - 1);
+    for (int r = target; r != current; r -= dir) {
+        if (ok(r)) {
+            result.row = r;
+            return result;
+        }
+    }
+    for (int r = target + dir; r >= 0 && r < count; r += dir) {
+        if (ok(r)) {
+            result.row = r;
+            return result;
+        }
+    }
+    return result;
+}
+
+// Where the controller's focus is while searching: the page (tabs, list, cards...), the on-screen keyboard's keys, or
+// the suggestion list.
+enum class SearchFocus { Page, Keyboard, List };
+enum class SearchEvent {
+    Down,            // D-pad down
+    Up,              // D-pad up
+    Back,            // B (Circle)
+    Shortcut,        // View (Share / Create): into the suggestions, or back out of them
+    Pick,            // A on a suggestion: the view jumps to it
+    KeyboardToggle,  // Y (Triangle): the keyboard opens or closes
+};
+struct FocusContext {
+    bool keyboardOpen = false;      // the on-screen keyboard is showing
+    bool atKeyboardBottom = false;  // the highlighted key is in the keyboard's bottom row
+    bool atListTop = false;         // the pick is on the list's first pickable row
+    bool listPickable = false;      // the suggestion list is showing and has a row that can be opened
+};
+
+// The focus after an event. Only the moves between the three places are decided here; what a button does inside the
+// keyboard or the page (typing, clearing, closing the keyboard) is left to the caller.
+inline SearchFocus NextSearchFocus(SearchFocus focus, SearchEvent event, const FocusContext& c) {
+    const SearchFocus outside = c.keyboardOpen ? SearchFocus::Keyboard : SearchFocus::Page;
+    switch (focus) {
+    case SearchFocus::List:
+        if (!c.listPickable) return outside;
+        switch (event) {
+        case SearchEvent::Up: return c.atListTop ? outside : SearchFocus::List;
+        case SearchEvent::Back:
+        case SearchEvent::Shortcut: return outside;
+        case SearchEvent::Pick: return SearchFocus::Page;
+        case SearchEvent::KeyboardToggle: return c.keyboardOpen ? SearchFocus::List : SearchFocus::Keyboard;
+        case SearchEvent::Down: return SearchFocus::List;
+        }
+        return SearchFocus::List;
+    case SearchFocus::Keyboard:
+        if (c.listPickable && (event == SearchEvent::Shortcut || (event == SearchEvent::Down && c.atKeyboardBottom)))
+            return SearchFocus::List;
+        if (event == SearchEvent::KeyboardToggle) return SearchFocus::Page;
+        return SearchFocus::Keyboard;
+    case SearchFocus::Page:
+        if (event == SearchEvent::Shortcut && c.listPickable) return SearchFocus::List;
+        if (event == SearchEvent::KeyboardToggle) return SearchFocus::Keyboard;
+        return SearchFocus::Page;
+    }
+    return focus;
+}
+
+// Where the on-screen keyboard and the suggestion list go, so the list never covers the keyboard and always shows a
+// few rows. With the keyboard showing, the list goes beside it (on the side with more room) when it is wide enough
+// there and the rows fit; otherwise it goes under the keyboard, and the keys get shorter (down to minKeyHeight) until
+// minRows rows fit. Beside the keyboard the list starts no higher than floorTop (where tooltips start: below the search
+// box and its buttons). Without the keyboard it hangs under the search box (belowTop). All values are client pixels.
+struct PopupInput {
+    int clientWidth = 0, clientHeight = 0;
+    int edge = 8;                  // kept clear at the window's edges
+    int gap = 8;                   // between the keyboard and a list beside it
+    int belowGap = 2;              // between the keyboard and a list under it
+    int floorTop = 0;
+    bool keyboard = false;
+    int keyboardLeft = 0, keyboardTop = 0, keyboardWidth = 0;
+    int keyRows = 0, keyHeight = 0, minKeyHeight = 0, keyGap = 0, keyPad = 0;
+    int belowTop = 0;              // the list's top with no keyboard
+    int listLeft = 0;              // the list's left edge when it is under the keyboard or the search box
+    int listWidth = 0;             // the width the list would like
+    int minSideWidth = 0;          // the narrowest list that may go beside the keyboard
+    int rowHeight = 1, chrome = 0; // one row; the frame and the counter line together
+    int rows = 1;                  // rows the list has
+    int maxRows = 8, minRows = 4;
+};
+struct PopupPlace {
+    enum class Side { Below, Right, Left };
+    Side side = Side::Below;
+    int keyHeight = 0;                       // the keyboard's key height
+    int keyboardTop = 0, keyboardBottom = 0; // the keyboard's box
+    int left = 0, top = 0, width = 0, rows = 1;  // the list's box (its height is rows * rowHeight + chrome)
+};
+
+inline int KeyboardHeight(int keyRows, int keyHeight, int keyGap, int keyPad) {
+    return 2 * keyPad + keyRows * keyHeight + std::max(0, keyRows - 1) * keyGap;
+}
+
+inline int RowsThatFit(const PopupInput& in, int top) {
+    return std::max(0, (in.clientHeight - in.edge - top - in.chrome) / std::max(1, in.rowHeight));
+}
+
+inline PopupPlace PlacePopups(const PopupInput& in) {
+    PopupPlace p;
+    p.keyHeight = in.keyHeight;
+    const int wanted = std::clamp(in.rows, 1, std::max(1, in.maxRows));
+    // Rows the layout must be able to show before the keyboard gives up height or the list moves below it. It does not
+    // depend on how many hits there are, so the keyboard does not resize as the hit count changes while typing.
+    const int need = std::max(1, in.minRows);
+    const auto finish = [&](int top, int fit) {
+        p.top = top;
+        p.rows = std::clamp(fit, 1, wanted);
+    };
+    // The keyboard's box for a key height: under the search box, moved up when it would run off the bottom.
+    const auto keyboardBox = [&](int keyHeight) {
+        const int height = KeyboardHeight(in.keyRows, keyHeight, in.keyGap, in.keyPad);
+        int top = in.keyboardTop;
+        if (top + height > in.clientHeight - in.edge) top = std::max(in.edge, in.clientHeight - in.edge - height);
+        p.keyboardTop = top;
+        p.keyboardBottom = top + height;
+    };
+    p.left = in.listLeft;
+    p.width = in.listWidth;
+    if (!in.keyboard) {
+        finish(in.belowTop, RowsThatFit(in, in.belowTop));
+        return p;
+    }
+    keyboardBox(in.keyHeight);
+    if (in.rows <= 0) {  // no list is showing: the keyboard keeps its full key height
+        p.top = p.keyboardBottom + in.belowGap;
+        return p;
+    }
+    const int keyboardRight = in.keyboardLeft + in.keyboardWidth;
+    const int rightRoom = in.clientWidth - in.edge - keyboardRight - in.gap;
+    const int leftRoom = in.keyboardLeft - in.gap - in.edge;
+    const bool onRight = rightRoom >= leftRoom;
+    const int room = onRight ? rightRoom : leftRoom;
+    if (room >= in.minSideWidth && room > 0) {
+        const int top = std::max(p.keyboardTop, in.floorTop);
+        const int fit = RowsThatFit(in, top);
+        if (fit >= need) {
+            p.side = onRight ? PopupPlace::Side::Right : PopupPlace::Side::Left;
+            p.width = std::min(in.listWidth, room);
+            p.left = onRight ? keyboardRight + in.gap : in.keyboardLeft - in.gap - p.width;
+            finish(top, fit);
+            return p;
+        }
+    }
+    for (int keyHeight = in.keyHeight;; --keyHeight) {
+        keyboardBox(keyHeight);
+        const int top = std::max(p.keyboardBottom + in.belowGap, in.floorTop);
+        const int fit = RowsThatFit(in, top);
+        if (fit >= need || keyHeight <= in.minKeyHeight) {
+            p.keyHeight = keyHeight;
+            finish(top, fit);
+            return p;
+        }
+    }
+}
 
 }  // namespace esrwiki::pad

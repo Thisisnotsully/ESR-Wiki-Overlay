@@ -327,3 +327,211 @@ Helms / Boots / Armor / Shields / Belts	兜 / ブーツ / 鎧 / 盾 / ベルト
 Helms / Boots / Armor / Shields / Belts:	兜 / ブーツ / 鎧 / 盾 / ベルト:
 All Items	すべてのアイテム
 All Items:	すべてのアイテム:
+Tab	タブ
+Entry	項目
+Card	カード
+{0} results	{0} 件
+1 result	1 件
+{0} of {1} entries here | {2} total	{0} / {1} 項目（ここ）| 合計 {2} 項目
+Search names, stats, runes… (in English)	名前・能力値・ルーンを検索…（日本語）
+Nothing has: {0}	どこにもありません: {0}
+No card has all of: {0}	すべてを含むカードはありません: {0}
+Nothing left without: {0}	除外すると何も残りません: {0}
+Type a word to look for: -word only leaves things out	検索する語を入力してください（-語 は除外のみ）
+Did you mean	もしかして
+Filters cleared	フィルターを解除しました
+Search cleared	検索をクリアしました
+Search suggestions	検索候補
+Highlight a key	キーを選ぶ
+Type the key	キーを入力
+Clear search / close keyboard	検索をクリア / キーボードを閉じる
+Delete a character	1文字削除
+Close keyboard	キーボードを閉じる
+From the bottom row: suggestions	最下段から: 候補へ
+Pick a suggestion	候補を選ぶ
+Open the suggestion	候補を開く
+Close the suggestions	候補を閉じる
+Page through the suggestions	候補をページ送り
+Show / hide keyboard	キーボードの表示 / 非表示
+Leave the suggestions	候補から離れる
+{0}: open | {1}: close | {2}: page	{0}: 開く | {1}: 閉じる | {2}: ページ送り
+D-pad down: suggestions	十字キー下: 候補
+{0}: suggestions	{0}: 候補
+Perk	パーク
+Campaign map	キャンペーンマップ
+Act I	アクトI
+Act II	アクトII
+Act III	アクトIII
+Act IV	アクトIV
+Act V	アクトV
+Special areas	特殊エリア
+Ubers & portals	ウーバーとポータル
+Town	町
+Outdoor area	屋外エリア
+Cave	洞窟
+Tomb	墓所
+Dungeon	ダンジョン
+Temple	神殿
+Tower	塔
+Special area	特殊エリア
+WP	WP
+Waypoint	ウェイポイント
+lvl {0}	Lv{0}
+L{0}	L{0}
+Monster level	モンスターレベル
+Monsters	モンスター
+Official name: {0}	公式名: {0}
+Quest items	クエストアイテム
+Quest: {0}	クエスト: {0}
+Heads up	注意
+Notes	メモ
+Getting there	行き方
+No town portal	タウンポータル不可
+Teleport is off here	ここではテレポートできない
+Teleport is limited here	ここではテレポートが制限される
+No teleport across the walls	壁越しのテレポート不可
+No known way in	入口は不明
+Endgame zone	エンドゲームゾーン
+(not confirmed yet)	(未確認)
+Spoiler: click to show	ネタバレ: クリックで表示
+Spoiler: click to hide	ネタバレ: クリックで隠す
+Click an area on the map to see its details.	マップのエリアをクリックすると詳細が表示されます。
+Area	エリア
+Opens {0}	{0}を開く
+Walk across	徒歩
+Entrance	入口
+Portal	ポータル
+Cube portal	キューブのポータル
+Next act	次のアクト
+Hell lvl {0}	ヘル Lv{0}
+Monastery	修道院
+Kurast	クラスト
+Worldstone Keep	ワールドストーンの砦
+Naraku depths	奈落の深部
+Skills	スキル
+Skill level:	スキルレベル:
+Character level:	キャラクターレベル:
+Hard points:	割り振りポイント:
+Default	デフォルト
+Skill tree	スキルツリー
+Requires	必要スキル
+Procs on striking	命中時の効果を発動
+Procs on casting	スキル使用時の効果を発動
+Yes	はい
+No	いいえ
+At skill level {0}	スキルレベル{0}の時
+Synergies	シナジー
+Granted by {0} items and recipes	{0}個のアイテムとレシピで付与
+Passive	常時発動
+Aura	オーラ
+Item Skills	アイテムスキル
+Amazonian Loop	アマゾンのループ
+Amazonian Pin	アマゾンのピン
+Amulet	アミュレット
+Anointment	聖油
+Assassin's Choker	アサシンのチョーカー
+Assassin's Jewel	アサシンの宝石
+Auric Shields	オーラシールド
+Barbaric Knuckle	野蛮なナックル
+Belt	ベルト
+Body Armor	甲冑
+Boots	ブーツ
+Circlet	サークレット
+Cube recipe	キューブレシピ
+Death's Locket	死のロケット
+Druid's Seal	ドルイドの印
+Druidic Necklace	ドルイドのネックレス
+Gloves	手袋
+Grimoire	グリモア
+Hand to Hand	格闘武器
+Helm	ヘルム
+Holy Pendant	聖なるペンダント
+It deals no weapon damage, and spells don’t count as strikes.	武器ダメージを与えず、呪文はヒットとして扱われません。
+It hits with your weapon.	武器でヒットします。
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	武器でヒットします。ESRではスマイトは1回で複数回ヒットし、各ヒットで効果が発動することがあります。
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	武器でヒットします。原作と異なり、ESRでは旋風中にもアイテムの発動効果が発動します。
+It uses the attack animation, and only skills cast with the casting animation count.	攻撃アニメーションを使用し、キャストアニメーションで発動するスキルのみが対象になります。
+It uses the kick animation, and only skills cast with the casting animation count.	キックアニメーションを使用し、キャストアニメーションで発動するスキルのみが対象になります。
+It uses the sequence animation, and only skills cast with the casting animation count.	シーケンスアニメーションを使用し、キャストアニメーションで発動するスキルのみが対象になります。
+It uses the special animation, and only skills cast with the casting animation count.	スペシャルアニメーションを使用し、キャストアニメーションで発動するスキルのみが対象になります。
+It uses the throw animation, and only skills cast with the casting animation count.	投げアニメーションを使用し、キャストアニメーションで発動するスキルのみが対象になります。
+Its missiles carry your weapon damage.	ミサイルには武器ダメージが乗ります。
+It’s cast with the casting animation.	キャストアニメーションで発動します。
+Level 1 Aura When Equipped	装備時のレベル 1 オーラ
+Level 1-10 Aura When Equipped	装備時のレベル 1-10 オーラ
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	装備時のレベル 1-2 オーラ / 装備時のレベル 3-5 オーラ
+Level 1-5 Aura When Equipped	装備時のレベル 1-5 オーラ
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	装備時のレベル 1-5 オーラ / 装備時のレベル 5-10 オーラ / 装備時のレベル 15-20 オーラ
+Level 10 Aura When Equipped	装備時のレベル 10 オーラ
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	装備時のレベル 10 オーラ / 装備時のレベル 20 オーラ
+Level 10-15 Aura When Equipped	装備時のレベル 10-15 オーラ
+Level 10-20 Aura When Equipped	装備時のレベル 10-20 オーラ
+Level 10-25 Aura When Equipped	装備時のレベル 10-25 オーラ
+Level 10-30 Aura When Equipped	装備時のレベル 10-30 オーラ
+Level 15 Aura When Equipped	装備時のレベル 15 オーラ
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	装備時のレベル 15 オーラ / 装備時のレベル 10 オーラ
+Level 15-20 Aura When Equipped	装備時のレベル 15-20 オーラ
+Level 15-30 Aura When Equipped	装備時のレベル 15-30 オーラ
+Level 2-5 Aura When Equipped	装備時のレベル 2-5 オーラ
+Level 2-8 Aura When Equipped	装備時のレベル 2-8 オーラ
+Level 20 Aura When Equipped	装備時のレベル 20 オーラ
+Level 20-30 Aura When Equipped	装備時のレベル 20-30 オーラ
+Level 20-40 Aura When Equipped	装備時のレベル 20-40 オーラ
+Level 25 Aura When Equipped	装備時のレベル 25 オーラ
+Level 25-30 Aura When Equipped	装備時のレベル 25-30 オーラ
+Level 25-50 Aura When Equipped	装備時のレベル 25-50 オーラ
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	装備時のレベル 3-10 オーラ / 装備時のレベル 6-11 オーラ
+Level 3-5 Aura When Equipped	装備時のレベル 3-5 オーラ
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	装備時のレベル 3-5 オーラ / 装備時のレベル 5-10 オーラ
+Level 30 Aura When Equipped	装備時のレベル 30 オーラ
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	装備時のレベル 30 オーラ / 装備時のレベル 25 オーラ
+Level 30-40 Aura When Equipped	装備時のレベル 30-40 オーラ
+Level 30-50 Aura When Equipped	装備時のレベル 30-50 オーラ
+Level 30-60 Aura When Equipped	装備時のレベル 30-60 オーラ
+Level 4-7 Aura When Equipped	装備時のレベル 4-7 オーラ
+Level 40 Aura When Equipped	装備時のレベル 40 オーラ
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	装備時のレベル 40 オーラ / 装備時のレベル 30 オーラ
+Level 40-80 Aura When Equipped	装備時のレベル 40-80 オーラ
+Level 5 Aura When Equipped	装備時のレベル 5 オーラ
+Level 5-10 Aura When Equipped	装備時のレベル 5-10 オーラ
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	装備時のレベル 5-10 オーラ / 装備時のレベル 10-15 オーラ
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	装備時のレベル 5-10 オーラ / 装備時のレベル 10-20 オーラ
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	装備時のレベル 5-10 オーラ / 装備時のレベル 10-20 オーラ / 装備時のレベル 10-15 オーラ
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	装備時のレベル 5-10 オーラ / 装備時のレベル 10-20 オーラ / 装備時のレベル 25-30 オーラ
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	装備時のレベル 5-10 オーラ / 装備時のレベル 8-15 オーラ
+Level 5-15 Aura When Equipped	装備時のレベル 5-15 オーラ
+Level 5-20 Aura When Equipped	装備時のレベル 5-20 オーラ
+Level 5-25 Aura When Equipped	装備時のレベル 5-25 オーラ
+Level 50 Aura When Equipped	装備時のレベル 50 オーラ
+Level 6-11 Aura When Equipped	装備時のレベル 6-11 オーラ
+Level 6-12 Aura When Equipped	装備時のレベル 6-12 オーラ
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	装備時のレベル 6-12 オーラ / 装備時のレベル 10-20 オーラ
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	装備時のレベル 6-12 オーラ / 装備時のレベル 10-20 オーラ / 装備時のレベル 10-15 オーラ
+Level 60-100 Aura When Equipped	装備時のレベル 60-100 オーラ
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	装備時のレベル 8 オーラ / 装備時のレベル 12 オーラ
+Level 8-15 Aura When Equipped	装備時のレベル 8-15 オーラ
+Magic prefix	魔法の接頭辞
+Magic suffix	魔法の接尾辞
+Necromancer's Stone	ネクロマンサーの石
+Paladic Halo	パラディック・ハロー
+Pelt	ペルト
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	スキルレベルとキャラクターレベルを選ぶと、ゲームが表示する数値を確認できます。一部のスキルはスキルレベルだけでなくキャラクターレベルでも成長します。
+Primal Charm	原始のお守り
+Primal Helm	原始のヘルム
+Ring	リング
+Runeword	ルーンワード
+Set item	セットアイテム
+Shield	シールド
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	職業のツリーに属さないスキルです。アイテムがスキルボーナス、発動確率、チャージ、またはオーラとして付与するため、どの職業でも使用できます。
+Sorcerer's Band	魔法使いのバンド
+Sorcerer's Talisman	魔法使いのタリスマン
+Tyrael's Virtue_old	ティラエルの美徳
+Unique	ユニーク
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	数値はアイテムがなく、他のスキルにポイントを振っていない前提です。シナジーによるボーナスは各スキルの下に記載されており、ここの数値には含まれていません。スキルを開くとシナジーポイントを設定して全レベルを確認できます。
+Vessel of Souls	魂の器
+Voodoo Heads	ヴードゥーヘッド
+Warlock Pendant	ウォーロックのペンダント
+Warlock Sigil	ウォーロックの印章
+{0}: {1}	{0}：{1}
+{0}, {1}	{0}、{1}
+{0}. {1}	{0}。{1}

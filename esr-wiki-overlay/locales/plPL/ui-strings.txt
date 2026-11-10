@@ -327,3 +327,209 @@ Helms / Boots / Armor / Shields / Belts	Hełmy / Buty / Zbroje / Tarcze / Pasy
 Helms / Boots / Armor / Shields / Belts:	Hełmy / Buty / Zbroje / Tarcze / Pasy:
 All Items	Wszystkie przedmioty
 All Items:	Wszystkie przedmioty:
+Tab	Zakładka
+Entry	Wpis
+Card	Karta
+{0} results	Wyniki: {0}
+1 result	1 wynik
+{0} of {1} entries here | {2} total	{0} z {1} wpisów tutaj | {2} łącznie
+Search names, stats, runes… (in English)	Szukaj nazw, statystyk, run… (po polsku)
+Nothing has: {0}	Nigdzie nie ma: {0}
+No card has all of: {0}	Żadna karta nie ma wszystkich: {0}
+Nothing left without: {0}	Nic nie zostaje bez: {0}
+Type a word to look for: -word only leaves things out	Wpisz szukane słowo: -słowo tylko wyklucza
+Did you mean	Czy chodziło o
+Filters cleared	Wyczyszczono filtry
+Search cleared	Wyczyszczono wyszukiwanie
+Search suggestions	Podpowiedzi wyszukiwania
+Highlight a key	Zaznacz klawisz
+Type the key	Wpisz klawisz
+Clear search / close keyboard	Wyczyść wyszukiwanie / zamknij klawiaturę
+Delete a character	Usuń znak
+Close keyboard	Zamknij klawiaturę
+From the bottom row: suggestions	Z dolnego rzędu: podpowiedzi
+Pick a suggestion	Wybierz podpowiedź
+Open the suggestion	Otwórz podpowiedź
+Close the suggestions	Zamknij podpowiedzi
+Page through the suggestions	Przewijaj podpowiedzi stronami
+Show / hide keyboard	Pokaż / ukryj klawiaturę
+Leave the suggestions	Opuść podpowiedzi
+{0}: open | {1}: close | {2}: page	{0}: otwórz | {1}: zamknij | {2}: strona
+D-pad down: suggestions	Krzyżak w dół: podpowiedzi
+{0}: suggestions	{0}: podpowiedzi
+Perk	Atut
+Campaign map	Mapa kampanii
+Act I	Akt I
+Act II	Akt II
+Act III	Akt III
+Act IV	Akt IV
+Act V	Akt V
+Special areas	Obszary specjalne
+Ubers & portals	Ubery i portale
+Town	Miasto
+Outdoor area	Obszar otwarty
+Cave	Jaskinia
+Tomb	Grobowiec
+Dungeon	Loch
+Temple	Świątynia
+Tower	Wieża
+Special area	Obszar specjalny
+WP	WP
+Waypoint	Punkt podróży
+lvl {0}	poz. {0}
+L{0}	P{0}
+Monster level	Poziom potworów
+Monsters	Potwory
+Official name: {0}	Oficjalna nazwa: {0}
+Quest items	Przedmioty zadań
+Quest: {0}	Zadanie: {0}
+Heads up	Uwaga
+Notes	Uwagi
+Getting there	Jak tam dotrzeć
+No town portal	Brak portalu do miasta
+Teleport is off here	Teleportacja jest tu wyłączona
+Teleport is limited here	Teleportacja jest tu ograniczona
+No teleport across the walls	Brak teleportacji przez ściany
+No known way in	Brak znanego wejścia
+Endgame zone	Strefa endgame
+(not confirmed yet)	(jeszcze niepotwierdzone)
+Spoiler: click to show	Spoiler: kliknij, aby pokazać
+Spoiler: click to hide	Spoiler: kliknij, aby ukryć
+Click an area on the map to see its details.	Kliknij obszar na mapie, aby zobaczyć szczegóły.
+Area	Obszar
+Opens {0}	Otwiera {0}
+Walk across	Pieszo
+Entrance	Wejście
+Portal	Portal
+Cube portal	Portal z kostki
+Next act	Następny akt
+Hell lvl {0}	poz. {0} (Piekło)
+Monastery	Klasztor
+Kurast	Kurast
+Worldstone Keep	Zamek Kamienia Świata
+Naraku depths	Głębie Naraku
+Skills	Umiejętności
+Skill level:	Poziom umiejętności:
+Character level:	Poziom postaci:
+Hard points:	Wydane punkty:
+Default	Domyślnie
+Skill tree	Drzewko umiejętności
+Requires	Wymaga
+Procs on striking	Aktywuje efekty przy trafieniu
+Procs on casting	Aktywuje efekty przy rzucaniu
+Yes	Tak
+No	Nie
+At skill level {0}	Na poziomie umiejętności {0}
+Synergies	Synergie
+Granted by {0} items and recipes	Nadawana przez przedmioty i receptury: {0}
+Passive	Pasywna
+Aura	Aura
+Item Skills	Umiejętności z przedmiotów
+Amazonian Loop	Pętla Amazonki
+Amazonian Pin	Amazonka Pin
+Anointment	Namaszczenie
+Assassin's Choker	Naszyjnik Zabójcy
+Assassin's Jewel	Jewel Zabójcy
+Auric Shields	Tarcze aury
+Barbaric Knuckle	Barbarzyńska Kostka
+Belt	Pas
+Body Armor	Pancerz
+Boots	Buty
+Circlet	Diadem
+Cube recipe	Receptura z kostki
+Death's Locket	Zawieszka Śmierci
+Druid's Seal	Pieczęć Druida
+Druidic Necklace	Naszyjnik Druidów
+Gloves	Rękawice
+Grimoire	Grymuar
+Hand to Hand	Broń pięściowa
+Helm	Hełm
+Holy Pendant	Święty Wisiorek
+It deals no weapon damage, and spells don’t count as strikes.	Nie zadaje obrażeń broni, a zaklęcia nie liczą się jako trafienia.
+It hits with your weapon.	Trafia twoją bronią.
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	Trafia twoją bronią. W ESR każde Uderzenie zadaje kilka trafień, a każde trafienie może uruchomić efekt.
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	Trafia twoją bronią. W przeciwieństwie do oryginalnej gry ESR pozwala efektom przedmiotów uruchamiać się podczas Oszalałego Wiatru.
+It uses the attack animation, and only skills cast with the casting animation count.	Używa animacji ataku, a liczą się tylko umiejętności rzucane z animacją rzucania zaklęć.
+It uses the kick animation, and only skills cast with the casting animation count.	Używa animacji kopnięcia, a liczą się tylko umiejętności rzucane z animacją rzucania zaklęć.
+It uses the sequence animation, and only skills cast with the casting animation count.	Używa animacji sekwencji, a liczą się tylko umiejętności rzucane z animacją rzucania zaklęć.
+It uses the special animation, and only skills cast with the casting animation count.	Używa animacji specjalnej, a liczą się tylko umiejętności rzucane z animacją rzucania zaklęć.
+It uses the throw animation, and only skills cast with the casting animation count.	Używa animacji rzutu, a liczą się tylko umiejętności rzucane z animacją rzucania zaklęć.
+Its missiles carry your weapon damage.	Jej pociski niosą obrażenia twojej broni.
+It’s cast with the casting animation.	Jest rzucana z animacją rzucania zaklęć.
+Level 1 Aura When Equipped	Poziom 1 Aura po wyposażeniu
+Level 1-10 Aura When Equipped	Poziom 1-10 Aura po wyposażeniu
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	Poziom 1-2 Aura po wyposażeniu / Poziom 3-5 Aura po wyposażeniu
+Level 1-5 Aura When Equipped	Poziom 1-5 Aura po wyposażeniu
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	Poziom 1-5 Aura po wyposażeniu / Poziom 5-10 Aura po wyposażeniu / Poziom 15-20 Aura po wyposażeniu
+Level 10 Aura When Equipped	Poziom 10 Aura po wyposażeniu
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	Poziom 10 Aura po wyposażeniu / Poziom 20 Aura po wyposażeniu
+Level 10-15 Aura When Equipped	Poziom 10-15 Aura po wyposażeniu
+Level 10-20 Aura When Equipped	Poziom 10-20 Aura po wyposażeniu
+Level 10-25 Aura When Equipped	Poziom 10-25 Aura po wyposażeniu
+Level 10-30 Aura When Equipped	Poziom 10-30 Aura po wyposażeniu
+Level 15 Aura When Equipped	Poziom 15 Aura po wyposażeniu
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	Poziom 15 Aura po wyposażeniu / Poziom 10 Aura po wyposażeniu
+Level 15-20 Aura When Equipped	Poziom 15-20 Aura po wyposażeniu
+Level 15-30 Aura When Equipped	Poziom 15-30 Aura po wyposażeniu
+Level 2-5 Aura When Equipped	Poziom 2-5 Aura po wyposażeniu
+Level 2-8 Aura When Equipped	Poziom 2-8 Aura po wyposażeniu
+Level 20 Aura When Equipped	Poziom 20 Aura po wyposażeniu
+Level 20-30 Aura When Equipped	Poziom 20-30 Aura po wyposażeniu
+Level 20-40 Aura When Equipped	Poziom 20-40 Aura po wyposażeniu
+Level 25 Aura When Equipped	Poziom 25 Aura po wyposażeniu
+Level 25-30 Aura When Equipped	Poziom 25-30 Aura po wyposażeniu
+Level 25-50 Aura When Equipped	Poziom 25-50 Aura po wyposażeniu
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	Poziom 3-10 Aura po wyposażeniu / Poziom 6-11 Aura po wyposażeniu
+Level 3-5 Aura When Equipped	Poziom 3-5 Aura po wyposażeniu
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	Poziom 3-5 Aura po wyposażeniu / Poziom 5-10 Aura po wyposażeniu
+Level 30 Aura When Equipped	Poziom 30 Aura po wyposażeniu
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	Poziom 30 Aura po wyposażeniu / Poziom 25 Aura po wyposażeniu
+Level 30-40 Aura When Equipped	Poziom 30-40 Aura po wyposażeniu
+Level 30-50 Aura When Equipped	Poziom 30-50 Aura po wyposażeniu
+Level 30-60 Aura When Equipped	Poziom 30-60 Aura po wyposażeniu
+Level 4-7 Aura When Equipped	Poziom 4-7 Aura po wyposażeniu
+Level 40 Aura When Equipped	Poziom 40 Aura po wyposażeniu
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	Poziom 40 Aura po wyposażeniu / Poziom 30 Aura po wyposażeniu
+Level 40-80 Aura When Equipped	Poziom 40-80 Aura po wyposażeniu
+Level 5 Aura When Equipped	Poziom 5 Aura po wyposażeniu
+Level 5-10 Aura When Equipped	Poziom 5-10 Aura po wyposażeniu
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	Poziom 5-10 Aura po wyposażeniu / Poziom 10-15 Aura po wyposażeniu
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	Poziom 5-10 Aura po wyposażeniu / Poziom 10-20 Aura po wyposażeniu
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Poziom 5-10 Aura po wyposażeniu / Poziom 10-20 Aura po wyposażeniu / Poziom 10-15 Aura po wyposażeniu
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	Poziom 5-10 Aura po wyposażeniu / Poziom 10-20 Aura po wyposażeniu / Poziom 25-30 Aura po wyposażeniu
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	Poziom 5-10 Aura po wyposażeniu / Poziom 8-15 Aura po wyposażeniu
+Level 5-15 Aura When Equipped	Poziom 5-15 Aura po wyposażeniu
+Level 5-20 Aura When Equipped	Poziom 5-20 Aura po wyposażeniu
+Level 5-25 Aura When Equipped	Poziom 5-25 Aura po wyposażeniu
+Level 50 Aura When Equipped	Poziom 50 Aura po wyposażeniu
+Level 6-11 Aura When Equipped	Poziom 6-11 Aura po wyposażeniu
+Level 6-12 Aura When Equipped	Poziom 6-12 Aura po wyposażeniu
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	Poziom 6-12 Aura po wyposażeniu / Poziom 10-20 Aura po wyposażeniu
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Poziom 6-12 Aura po wyposażeniu / Poziom 10-20 Aura po wyposażeniu / Poziom 10-15 Aura po wyposażeniu
+Level 60-100 Aura When Equipped	Poziom 60-100 Aura po wyposażeniu
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	Poziom 8 Aura po wyposażeniu / Poziom 12 Aura po wyposażeniu
+Level 8-15 Aura When Equipped	Poziom 8-15 Aura po wyposażeniu
+Magic prefix	Magiczny przedrostek
+Magic suffix	Magiczny przyrostek
+Necromancer's Stone	Kamień Nekromanty
+Paladic Halo	Halo Paladyna
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	Wybierz poziom umiejętności i poziom postaci, aby zobaczyć wartości, które pokazałaby gra. Niektóre umiejętności skalują się zarówno z poziomem postaci, jak i z poziomem umiejętności.
+Primal Charm	Pierwotny Urok
+Primal Helm	Pierwotny hełm
+Ring	Pierścień
+Runeword	Słowo runiczne
+Set item	Przedmiot zestawu
+Shield	Tarcza
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	Umiejętności, które nie należą do drzewka żadnej klasy. Przedmioty dają je jako premie do umiejętności, szansę na rzucenie, ładunki lub aury, więc może z nich korzystać każda klasa.
+Sorcerer's Band	Pierścień Czarodziejki
+Sorcerer's Talisman	Talizman Czarodzieja
+Tyrael's Virtue_old	Cnota Tyraela
+Unique	Unikat
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	Wartości zakładają brak przedmiotów i brak punktów w innych umiejętnościach. Bonusy z synergii są wymienione pod każdą umiejętnością i nie są wliczone w liczby tutaj; otwórz umiejętność, aby ustawić punkty synergii i zobaczyć każdy poziom.
+Vessel of Souls	Naczynie Dusz
+Voodoo Heads	Głowy voodoo
+Warlock Pendant	Wisior Czarnoksiężnika
+Warlock Sigil	Pieczęć Czarnoksiężnika
+{0}: {1}	{0}: {1}
+{0}, {1}	{0}, {1}
+{0}. {1}	{0}. {1}

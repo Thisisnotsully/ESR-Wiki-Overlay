@@ -327,3 +327,208 @@ Helms / Boots / Armor / Shields / Belts	头盔 / 靴子 / 护甲 / 盾牌 / 腰�
 Helms / Boots / Armor / Shields / Belts:	头盔 / 靴子 / 护甲 / 盾牌 / 腰带:
 All Items	所有物品
 All Items:	所有物品:
+Tab	标签页
+Entry	条目
+Card	卡片
+{0} results	{0} 个结果
+1 result	1 个结果
+{0} of {1} entries here | {2} total	{0} / {1} 条（此处）| 共 {2} 条
+Search names, stats, runes… (in English)	搜索名称、属性、符文…（简体中文）
+Nothing has: {0}	均未找到：{0}
+No card has all of: {0}	没有卡片同时包含：{0}
+Nothing left without: {0}	排除后无剩余：{0}
+Type a word to look for: -word only leaves things out	请输入要搜索的词：-词 仅用于排除
+Did you mean	您是不是要找
+Filters cleared	已清除筛选
+Search cleared	已清空搜索
+Search suggestions	搜索建议
+Highlight a key	选中按键
+Type the key	输入按键
+Clear search / close keyboard	清除搜索 / 关闭键盘
+Delete a character	删除一个字符
+Close keyboard	关闭键盘
+From the bottom row: suggestions	从最下一行：进入建议
+Pick a suggestion	选择建议
+Open the suggestion	打开建议
+Close the suggestions	关闭建议
+Page through the suggestions	翻页浏览建议
+Show / hide keyboard	显示 / 隐藏键盘
+Leave the suggestions	离开建议列表
+{0}: open | {1}: close | {2}: page	{0}：打开 | {1}：关闭 | {2}：翻页
+D-pad down: suggestions	方向键下：建议
+{0}: suggestions	{0}：建议
+Perk	天赋
+Campaign map	战役地图
+Act I	第一幕
+Act II	第二幕
+Act III	第三幕
+Act IV	第四幕
+Act V	第五幕
+Special areas	特殊区域
+Ubers & portals	超级首领与传送门
+Town	城镇
+Outdoor area	野外区域
+Cave	洞穴
+Tomb	墓穴
+Dungeon	地牢
+Temple	神殿
+Tower	塔楼
+Special area	特殊区域
+WP	传送点
+Waypoint	传送点
+lvl {0}	{0}级
+L{0}	{0}层
+Monster level	怪物等级
+Monsters	怪物
+Official name: {0}	官方名称：{0}
+Quest items	任务物品
+Quest: {0}	任务：{0}
+Heads up	注意
+Notes	备注
+Getting there	如何前往
+No town portal	无法使用城镇传送门
+Teleport is off here	此处无法传送
+Teleport is limited here	此处传送受限
+No teleport across the walls	无法穿墙传送
+No known way in	入口未知
+Endgame zone	终局区域
+(not confirmed yet)	(尚未确认)
+Spoiler: click to show	剧透：点击显示
+Spoiler: click to hide	剧透：点击隐藏
+Click an area on the map to see its details.	点击地图上的区域查看详情。
+Area	区域
+Opens {0}	打开{0}
+Walk across	步行
+Entrance	入口
+Portal	传送门
+Cube portal	方块传送门
+Next act	下一幕
+Hell lvl {0}	地狱 {0}级
+Monastery	修道院
+Kurast	库拉斯特
+Worldstone Keep	世界之石要塞
+Naraku depths	奈落深处
+Skills	技能
+Skill level:	技能等级：
+Character level:	角色等级：
+Hard points:	投入点数：
+Default	默认
+Skill tree	技能树
+Requires	前置技能
+Procs on striking	触发击中时效果
+Procs on casting	触发施放时效果
+Yes	是
+No	否
+At skill level {0}	技能等级 {0} 时
+Synergies	协同加成
+Granted by {0} items and recipes	由 {0} 件物品和配方提供
+Passive	被动
+Aura	光环
+Item Skills	物品技能
+Amazonian Loop	亚马逊环
+Amazonian Pin	亚马逊之针
+Amulet	护身符
+Anointment	涂油
+Assassin's Choker	刺客的项圈
+Assassin's Jewel	刺客的珠宝
+Auric Shields	灵气盾牌
+Barbaric Knuckle	野蛮指节
+Belt	腰带
+Body Armor	盔甲
+Boots	靴子
+Circlet	饰环
+Cube recipe	魔盒配方
+Death's Locket	死亡的挂坠
+Druid's Seal	德鲁伊的印记
+Druidic Necklace	德鲁伊项链
+Gloves	手套
+Grimoire	魔典
+Hand to Hand	拳套武器
+Helm	头盔
+Holy Pendant	神圣吊坠
+It deals no weapon damage, and spells don’t count as strikes.	它不造成武器伤害，且法术不算作击中。
+It hits with your weapon.	它用你的武器击中。
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	它用你的武器击中。在 ESR 中，每次盾牌重击会命中多次，每次命中都可能触发效果。
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	它用你的武器击中。与原版不同，ESR 允许物品触发效果在旋风斩期间生效。
+It uses the attack animation, and only skills cast with the casting animation count.	它使用攻击动画，只有使用施放动画施放的技能才计算在内。
+It uses the kick animation, and only skills cast with the casting animation count.	它使用踢击动画，只有使用施放动画施放的技能才计算在内。
+It uses the sequence animation, and only skills cast with the casting animation count.	它使用序列动画，只有使用施放动画施放的技能才计算在内。
+It uses the special animation, and only skills cast with the casting animation count.	它使用特殊动画，只有使用施放动画施放的技能才计算在内。
+It uses the throw animation, and only skills cast with the casting animation count.	它使用投掷动画，只有使用施放动画施放的技能才计算在内。
+Its missiles carry your weapon damage.	其投射物带有你的武器伤害。
+It’s cast with the casting animation.	它使用施放动画施放。
+Level 1 Aura When Equipped	装备时获得等级 1 的光环
+Level 1-10 Aura When Equipped	装备时获得等级 1-10 的光环
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	装备时获得等级 1-2 的光环 / 装备时获得等级 3-5 的光环
+Level 1-5 Aura When Equipped	装备时获得等级 1-5 的光环
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	装备时获得等级 1-5 的光环 / 装备时获得等级 5-10 的光环 / 装备时获得等级 15-20 的光环
+Level 10 Aura When Equipped	装备时获得等级 10 的光环
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	装备时获得等级 10 的光环 / 装备时获得等级 20 的光环
+Level 10-15 Aura When Equipped	装备时获得等级 10-15 的光环
+Level 10-20 Aura When Equipped	装备时获得等级 10-20 的光环
+Level 10-25 Aura When Equipped	装备时获得等级 10-25 的光环
+Level 10-30 Aura When Equipped	装备时获得等级 10-30 的光环
+Level 15 Aura When Equipped	装备时获得等级 15 的光环
+Level 15-20 Aura When Equipped	装备时获得等级 15-20 的光环
+Level 15-30 Aura When Equipped	装备时获得等级 15-30 的光环
+Level 2-5 Aura When Equipped	装备时获得等级 2-5 的光环
+Level 2-8 Aura When Equipped	装备时获得等级 2-8 的光环
+Level 20 Aura When Equipped	装备时获得等级 20 的光环
+Level 20-30 Aura When Equipped	装备时获得等级 20-30 的光环
+Level 20-40 Aura When Equipped	装备时获得等级 20-40 的光环
+Level 25 Aura When Equipped	装备时获得等级 25 的光环
+Level 25-30 Aura When Equipped	装备时获得等级 25-30 的光环
+Level 25-50 Aura When Equipped	装备时获得等级 25-50 的光环
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	装备时获得等级 3-10 的光环 / 装备时获得等级 6-11 的光环
+Level 3-5 Aura When Equipped	装备时获得等级 3-5 的光环
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	装备时获得等级 3-5 的光环 / 装备时获得等级 5-10 的光环
+Level 30 Aura When Equipped	装备时获得等级 30 的光环
+Level 30-40 Aura When Equipped	装备时获得等级 30-40 的光环
+Level 30-50 Aura When Equipped	装备时获得等级 30-50 的光环
+Level 30-60 Aura When Equipped	装备时获得等级 30-60 的光环
+Level 4-7 Aura When Equipped	装备时获得等级 4-7 的光环
+Level 40 Aura When Equipped	装备时获得等级 40 的光环
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	装备时获得等级 40 的光环 / 装备时获得等级 30 的光环
+Level 40-80 Aura When Equipped	装备时获得等级 40-80 的光环
+Level 5 Aura When Equipped	装备时获得等级 5 的光环
+Level 5-10 Aura When Equipped	装备时获得等级 5-10 的光环
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	装备时获得等级 5-10 的光环 / 装备时获得等级 10-15 的光环
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	装备时获得等级 5-10 的光环 / 装备时获得等级 10-20 的光环
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	装备时获得等级 5-10 的光环 / 装备时获得等级 10-20 的光环 / 装备时获得等级 10-15 的光环
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	装备时获得等级 5-10 的光环 / 装备时获得等级 10-20 的光环 / 装备时获得等级 25-30 的光环
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	装备时获得等级 5-10 的光环 / 装备时获得等级 8-15 的光环
+Level 5-15 Aura When Equipped	装备时获得等级 5-15 的光环
+Level 5-20 Aura When Equipped	装备时获得等级 5-20 的光环
+Level 5-25 Aura When Equipped	装备时获得等级 5-25 的光环
+Level 50 Aura When Equipped	装备时获得等级 50 的光环
+Level 6-11 Aura When Equipped	装备时获得等级 6-11 的光环
+Level 6-12 Aura When Equipped	装备时获得等级 6-12 的光环
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	装备时获得等级 6-12 的光环 / 装备时获得等级 10-20 的光环
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	装备时获得等级 6-12 的光环 / 装备时获得等级 10-20 的光环 / 装备时获得等级 10-15 的光环
+Level 60-100 Aura When Equipped	装备时获得等级 60-100 的光环
+Level 8-15 Aura When Equipped	装备时获得等级 8-15 的光环
+Magic prefix	魔法前缀
+Magic suffix	魔法后缀
+Necromancer's Stone	死灵法师之石
+Paladic Halo	圣骑士光环
+Pelt	兽皮
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	选择技能等级和角色等级，即可查看游戏会显示的数值。部分技能不仅随技能等级成长，也随角色等级成长。
+Primal Charm	原始咒符
+Primal Helm	原始头盔
+Ring	戒指
+Runeword	符文之语
+Set item	套装物品
+Shield	之盾
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	不属于任何职业技能树的技能。物品会以技能加成、施放机率、充能或光环的形式提供它们，因此任何职业都可以使用。
+Sorcerer's Band	法师之环
+Sorcerer's Talisman	法师的护符
+Tyrael's Virtue_old	泰瑞尔的美德
+Unique	暗金
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	数值假设没有装备物品，且其他技能没有加点。协同加成列在各技能之下，不包含在此处的数值中；打开技能即可设置协同点数并查看每个等级。
+Vessel of Souls	灵魂容器
+Voodoo Heads	巫毒头颅
+Warlock Pendant	术士坠饰
+Warlock Sigil	术士印记
+{0}: {1}	{0}：{1}
+{0}, {1}	{0}、{1}
+{0}. {1}	{0}。{1}

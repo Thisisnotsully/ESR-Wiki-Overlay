@@ -626,3 +626,97 @@ class ModOnlyUniqueTests(unittest.TestCase):
         self.assertIn("if you wear an enhanced damage opalvein", lines)
         self.assertIn("Socketed (1)", lines)
         self.assertTrue(any(l.startswith("You can bind Baal") for l in self.cards["Ars Tor'Baalos"]))
+
+
+# ---- Item Bases: the Automod column keeps the website's tiers (tools/web_bases.py; C++ twin src/web_bases_live.cpp) ----
+
+S = "\x1e"
+TP = "Tinkering Points: (25 to 35)"
+
+
+def _tiers(*tiers):
+    """An Automod cell as the website writes it: <br> after every line, <br><br> between tiers."""
+    return "".join("".join(line + " <br>" for line in tier) + "<br>" for tier in tiers).rsplit("<br>", 1)[0]
+
+
+AUTOMOD_CASES = [  # (name, code, cell html, expected value)
+    ("Clean Two", "ca1", _tiers(["Hit A", TP], ["Hit B", TP], ["Hit C", TP]), S.join(["Hit A", "Hit B", "Hit C", TP])),
+    ("Clean Three", "ca2", _tiers(["Hit A", "More A", TP], ["Hit B", "More B", TP]),
+     S.join(["Hit A More A", "Hit B More B", TP])),
+    ("Degenerate", "ca3", _tiers([TP], [TP], [TP], [TP]), TP),
+    ("Single", "ca4", _tiers(["Hit A", TP]), "Hit A " + TP),
+    ("Plain", "ca5", TP, TP),
+    ("Different Last", "ca6", _tiers(["Hit A", "Tail A"], ["Hit B", "Tail B"]),
+     S.join(["Hit A Tail A", "Hit B Tail B"])),
+    ("Short Tier", "ca7", _tiers(["Hit A", TP], [TP]), S.join(["Hit A " + TP, TP])),
+    ("Empty", "ca8", "", None),
+]
+
+
+def synthetic_pages():
+    """(armors html, weapons html): the cases above first, then filler rows so the page passes the size check."""
+    head = '<html><body><table>\n<tr><td bgcolor="#402040">%s</td></tr>\n<tr>%s</tr>\n'
+    labels = lambda names: "".join('<td bgcolor="#402040">%s</td>' % n for n in names)  # noqa: E731
+    row = lambda cells: "<tr>" + "".join("<td>%s</td>" % c for c in cells) + "</tr>\n"  # noqa: E731
+    armors = head % ("Armor", labels(["Name", "Code", "Qlvl", "Gem Type", "Automod", "Staffmod"]))
+    weapons = head % ("Sword", labels(["Name", "Qlvl", "Gem Type", "Automod", "Staffmod"]))
+    for name, code, cell, _ in AUTOMOD_CASES:
+        armors += row([name, code, "1", "2", cell, ""])
+        weapons += row([name + "<br>" + code, "1", "2", cell, ""])
+    for i in range(200):
+        armors += row(["Filler %d" % i, "fa%d" % i, "1", "2", "Filler %d" % i, ""])
+    for i in range(300):
+        weapons += row(["Filler %d<br>fw%d" % (i, i), "1", "2", "Filler %d" % i, ""])
+    return armors + "</table></body></html>", weapons + "</table></body></html>"
+
+
+class AutomodTierTests(unittest.TestCase):
+    def setUp(self):
+        import web_bases
+        self.wb = web_bases
+
+    def test_cells(self):
+        for name, _code, cell, expected in AUTOMOD_CASES:
+            with self.subTest(name):
+                self.assertEqual(self.wb.automod_text(cell), expected or "")
+
+    def test_other_text_unchanged(self):
+        self.assertEqual(self.wb.automod_text("<font>a <b>b</b><br>c</font>"), "a b c")
+
+    def fields(self, lines):
+        out, name = {}, None
+        for line in lines:
+            parts = line.split("\t")
+            if parts[0] == "BLOCK":
+                name = parts[2]
+            elif parts[0] == "FIELD" and parts[1] == "Automod":
+                out.setdefault(name, []).append(parts[2])
+        return out
+
+    def test_page_values(self):
+        armors, weapons = synthetic_pages()
+        page = self.wb.build_page(self.wb.parse_sections(armors, "armor"), self.wb.parse_sections(weapons, "weapons"),
+                                  ({}, {}))
+        found = self.fields(page)
+        for name, _code, _cell, expected in AUTOMOD_CASES:
+            if expected:
+                self.assertEqual(found[name], [expected, expected], name)  # once in Armor, once in Weapons
+            else:
+                self.assertNotIn(name, found)
+        text = "\n".join(page)
+        self.assertIn(S, text)
+        self.assertNotIn(S + S, text)
+
+    def test_fixture_matches(self):
+        """tests/web_bases_automod/ holds the pages and the page this builder writes; the C++ test builds the same bytes."""
+        folder = OVERLAY / "tests" / "web_bases_automod"
+        armors, weapons = synthetic_pages()
+        self.assertEqual((folder / "armors.htm").read_text(encoding="utf-8"), armors)
+        self.assertEqual((folder / "weapons.htm").read_text(encoding="utf-8"), weapons)
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "wiki-data.txt"
+            target.write_text("PAGE\tgemwords\tGemwords\tWiki\n", encoding="utf-8", newline="\n")
+            self.assertEqual(self.wb.main(["web_bases.py", str(folder / "armors.htm"), str(folder / "weapons.htm"),
+                                           str(target)]), 0)
+            self.assertEqual(target.read_text(encoding="utf-8"),
+                             (folder / "expected-wiki-data.txt").read_text(encoding="utf-8"))

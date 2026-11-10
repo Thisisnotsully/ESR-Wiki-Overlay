@@ -9,7 +9,7 @@ LINE	T	Abre tu Paquete inicial y tu Caja de armas antes de salir de la ciudad. C
 ENTRY	Muerte, reasignación y deshacer decisiones	Bienvenido a Eastern Sun Resurrected
 BLOCK	0						0
 LINE	T	Haz Alt+clic en un botón + de la pantalla del personaje para reasignar puntos, gastando un uso de un contador limitado; recárgalo combinando 4 Piedras Dragón en un Token de Absolución. Morir cuesta algo de experiencia y oro, pero ningún equipo, y no cuesta nada de experiencia dentro de la zona del jefe de un mapa. La mayoría de las decisiones de equipo tempranas se pueden deshacer: quita cualquier cosa de un engarce transmutando el objeto con una Llave (no funciona con Palabras de gemas, pero sí con Palabras rúnicas). Puedes quitar una fabricación de Forja transmutando el objeto con 3 Pociones de descongelación.
-ENTRY	Progresión de la campaña	Dificultad normal
+ENTRY	Progresión de la campaña	Dificultad normal	campaignmap
 BLOCK	0						0
 LINE	T	ESR ha cambiado el diseño de la campaña para hacerla más ágil que la original. Algunas zonas tienen menos niveles antes de avanzar y otras tienen atajos completos.
 LINE	T	
@@ -55371,7 +55371,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	2
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Cadena Élfica	Normal elv	Armaduras	Normal	Armaduras	33
 FIELD	Defensa	307-343
@@ -55604,7 +55604,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Cadena de Adamantita Drow	Excepcional xlv	Armaduras	Exceptional	Armaduras	58
 FIELD	Defensa	524-572
@@ -55824,7 +55824,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Cadena Silvana	Élite ylv	Armaduras	Elite	Armaduras	83
 FIELD	Defensa	788-809
@@ -56071,7 +56071,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	4-12
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Escudo Heráldico	Normal pa3	Escudos áuricos	Normal	Escudos áuricos	16
 FIELD	Defensa	27-42
@@ -56084,7 +56084,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	6-18
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Escudo de Aerin	Normal pa4	Escudos áuricos	Normal	Escudos áuricos	20
 FIELD	Defensa	43-61
@@ -56097,7 +56097,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	8-20
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Escudo de Corona	Normal pa5	Escudos áuricos	Normal	Escudos áuricos	24
 FIELD	Defensa	63-84
@@ -56110,7 +56110,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	8-24
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache	Normal pa2	Escudos áuricos	Normal	Escudos áuricos	8
 FIELD	Defensa	13-25
@@ -56123,7 +56123,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	4-16
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Escudo Akaran	Excepcional pa6	Escudos áuricos	Exceptional	Escudos áuricos	31
 FIELD	Defensa	100-112
@@ -56136,7 +56136,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	24-32
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Escudo Protector	Excepcional pa8	Escudos áuricos	Exceptional	Escudos áuricos	41
 FIELD	Defensa	130-150
@@ -56149,7 +56149,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	36-48
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Escudo Dorado	Excepcional pa9	Escudos áuricos	Exceptional	Escudos áuricos	45
 FIELD	Defensa	151-175
@@ -56162,7 +56162,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	40-56
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Escudo Real	Excepcional paa	Escudos áuricos	Exceptional	Escudos áuricos	49
 FIELD	Defensa	176-204
@@ -56175,7 +56175,7 @@ FIELD	Bloqueo %	4
 FIELD	Daño	48-64
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Akaran Rondache	Excepcional pa7	Escudos áuricos	Exceptional	Escudos áuricos	34
 FIELD	Defensa	113-129
@@ -56188,7 +56188,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	30-40
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Targe Sagrada	Élite pab	Escudos áuricos	Elite	Escudos áuricos	58
 FIELD	Defensa	125-145
@@ -56201,7 +56201,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	44-140
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Escudo de Kurast	Élite pad	Escudos áuricos	Elite	Escudos áuricos	66
 FIELD	Defensa	171-199
@@ -56214,7 +56214,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	20-164
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Escudo Zakarum	Élite pae	Escudos áuricos	Elite	Escudos áuricos	70
 FIELD	Defensa	200-232
@@ -56227,7 +56227,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	92-92
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Escudo Vórtice	Élite paf	Escudos áuricos	Elite	Escudos áuricos	74
 FIELD	Defensa	233-269
@@ -56240,7 +56240,7 @@ FIELD	Bloqueo %	4
 FIELD	Daño	10-174
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache Sagrada	Élite pac	Escudos áuricos	Elite	Escudos áuricos	60
 FIELD	Defensa	146-170
@@ -56253,7 +56253,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	70-116
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas las Resistencias +(5 to 10) Puntos de retoque: (25 to 35) Todas las Resistencias +(8 to 15) Puntos de retoque: (25 to 35) Todas las Resistencias +(16 to 30) Puntos de retoque: (25 to 35) Todas las Resistencias +(25 to 35) Puntos de retoque: (25 to 35) Todas las Resistencias +(35 to 45) Puntos de retoque: (25 to 35)
+FIELD	Automod	Todas las Resistencias +(5 to 10)Todas las Resistencias +(8 to 15)Todas las Resistencias +(16 to 30)Todas las Resistencias +(25 to 35)Todas las Resistencias +(35 to 45)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Faja	Normal lbl	Cinturón	Normal	Cinturón	3
 FIELD	Defensa	6-10
@@ -56331,7 +56331,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	2
 FIELD	Tipo de gema	2
-FIELD	Automod	+(1 to 3) a Fuerza Puntos de retoque: (25 to 35) +(4 to 6) a Fuerza Puntos de retoque: (25 to 35) +(7 to 9) a Fuerza Puntos de retoque: (25 to 35) +(10 to 15) a Fuerza Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 3) a Fuerza+(4 to 6) a Fuerza+(7 to 9) a Fuerza+(10 to 15) a FuerzaPuntos de retoque: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Cinturón de Piel de Demonio	Excepcional zlb	Cinturón	Exceptional	Cinturón	31
 FIELD	Defensa	75-95
@@ -56409,7 +56409,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	2
 FIELD	Tipo de gema	2
-FIELD	Automod	+(1 to 3) a Fuerza Puntos de retoque: (25 to 35) +(4 to 6) a Fuerza Puntos de retoque: (25 to 35) +(7 to 9) a Fuerza Puntos de retoque: (25 to 35) +(10 to 15) a Fuerza Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 3) a Fuerza+(4 to 6) a Fuerza+(7 to 9) a Fuerza+(10 to 15) a FuerzaPuntos de retoque: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Banda de Cáñamo	Élite alb	Cinturón	Elite	Cinturón	59
 FIELD	Defensa	160-196
@@ -56487,7 +56487,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	2
 FIELD	Tipo de gema	2
-FIELD	Automod	+(1 to 3) a Fuerza Puntos de retoque: (25 to 35) +(4 to 6) a Fuerza Puntos de retoque: (25 to 35) +(7 to 9) a Fuerza Puntos de retoque: (25 to 35) +(10 to 15) a Fuerza Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 3) a Fuerza+(4 to 6) a Fuerza+(7 to 9) a Fuerza+(10 to 15) a FuerzaPuntos de retoque: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Cinturón de Telaraña	Élite ulc	Cinturón	Elite	Cinturón	59
 FIELD	Defensa	160-196
@@ -57394,7 +57394,7 @@ FIELD	Bloqueo %	8
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_codex
 BLOCK	1	[ms]Compendio	Normal wa4	Grimorio	Normal	Grimorio	20
@@ -57408,7 +57408,7 @@ FIELD	Bloqueo %	10
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimorio	Normal wa5	Grimorio	Normal	Grimorio	24
@@ -57422,7 +57422,7 @@ FIELD	Bloqueo %	12
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	[ms]Libro viejo	Normal wa1	Grimorio	Normal	Grimorio	4
@@ -57436,7 +57436,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	[ms]Volumen	Normal wa2	Grimorio	Normal	Grimorio	8
@@ -57450,7 +57450,7 @@ FIELD	Bloqueo %	5
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	[ms]Códice oscuro	Excepcional wa8	Grimorio	Exceptional	Grimorio	45
@@ -57464,7 +57464,7 @@ FIELD	Bloqueo %	8
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_codex
 BLOCK	1	[ms]Compendio poseído	Excepcional wa9	Grimorio	Exceptional	Grimorio	49
@@ -57478,7 +57478,7 @@ FIELD	Bloqueo %	10
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_compendium
 BLOCK	1	[ms]Grimorio poseído	Excepcional waa	Grimorio	Exceptional	Grimorio	54
@@ -57492,7 +57492,7 @@ FIELD	Bloqueo %	12
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	[ms]Texto quemado	Excepcional wa6	Grimorio	Exceptional	Grimorio	33
@@ -57506,7 +57506,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	[ms]Volumen oscuro	Excepcional wa7	Grimorio	Exceptional	Grimorio	39
@@ -57520,7 +57520,7 @@ FIELD	Bloqueo %	5
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	[ms]Códice esotérico	Élite wad	Grimorio	Elite	Grimorio	66
@@ -57534,7 +57534,7 @@ FIELD	Bloqueo %	8
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_codex
 BLOCK	1	[ms]Compendio blasfemo	Élite wae	Grimorio	Elite	Grimorio	81
@@ -57548,7 +57548,7 @@ FIELD	Bloqueo %	10
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_compendium
 BLOCK	1	[ms]Grimorio blasfemo	Élite waf	Grimorio	Elite	Grimorio	85
@@ -57562,7 +57562,7 @@ FIELD	Bloqueo %	12
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	[ms]Volumen olvidado	Élite wab	Grimorio	Elite	Grimorio	59
@@ -57576,7 +57576,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	[ms]Tomo esotérico	Élite wac	Grimorio	Elite	Grimorio	67
@@ -57590,7 +57590,7 @@ FIELD	Bloqueo %	5
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Brujo
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Gorra	Normal cap	Yelmo	Normal	Yelmo	1
@@ -57708,7 +57708,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(6 to 10)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(11 to 20)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(21 to 30)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(31 to 40)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(41 to 50)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5)% Oro Extra de los Monstruos+(6 to 10)% Oro Extra de los Monstruos+(11 to 20)% Oro Extra de los Monstruos+(21 to 30)% Oro Extra de los Monstruos+(31 to 40)% Oro Extra de los Monstruos+(41 to 50)% Oro Extra de los MonstruosPuntos de retoque: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Casco de Guerra	Excepcional xap	Yelmo	Exceptional	Yelmo	29
 FIELD	Defensa	52-67
@@ -57825,7 +57825,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(6 to 10)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(11 to 20)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(21 to 30)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(31 to 40)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(41 to 50)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5)% Oro Extra de los Monstruos+(6 to 10)% Oro Extra de los Monstruos+(11 to 20)% Oro Extra de los Monstruos+(21 to 30)% Oro Extra de los Monstruos+(31 to 40)% Oro Extra de los Monstruos+(41 to 50)% Oro Extra de los MonstruosPuntos de retoque: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Yelmo Alado	Excepcional 4hm	Yelmo	Exceptional	Yelmo	48
 FIELD	Defensa	105-138
@@ -57968,7 +57968,7 @@ FIELD	Bloqueo %	0
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(6 to 10)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(11 to 20)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(21 to 30)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(31 to 40)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35) +(41 to 50)% Oro Extra de los Monstruos Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5)% Oro Extra de los Monstruos+(6 to 10)% Oro Extra de los Monstruos+(11 to 20)% Oro Extra de los Monstruos+(21 to 30)% Oro Extra de los Monstruos+(31 to 40)% Oro Extra de los Monstruos+(41 to 50)% Oro Extra de los MonstruosPuntos de retoque: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Shako	Élite uap	Yelmo	Elite	Yelmo	57
 FIELD	Defensa	130-166
@@ -58652,7 +58652,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	12-20
 FIELD	Engarces	2
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Escudo de Fortaleza	Normal fts	Escudo	Normal	Escudo	31
 FIELD	Defensa	48-72
@@ -58704,7 +58704,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	12-20
 FIELD	Engarces	2
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Defensor	Excepcional xuc	Escudo	Exceptional	Escudo	29
 FIELD	Defensa	60-75
@@ -58808,7 +58808,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	40-76
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Escudo de Reflexión	Excepcional xft	Escudo	Exceptional	Escudo	56
 FIELD	Defensa	37-75
@@ -58938,7 +58938,7 @@ FIELD	Bloqueo %	4
 FIELD	Daño	70-122
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Escudo Ceremonial	Élite yft	Escudo	Elite	Escudo	81
 FIELD	Defensa	195-236
@@ -59055,7 +59055,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	70-122
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	El atacante recibe daño de (4 to 12) Puntos de retoque: (25 to 35) El atacante recibe daño de (16 to 24) Puntos de retoque: (25 to 35) El atacante recibe daño de (28 to 36) Puntos de retoque: (25 to 35) El atacante recibe daño de (40 to 80) Puntos de retoque: (25 to 35)
+FIELD	Automod	El atacante recibe daño de (4 to 12)El atacante recibe daño de (16 to 24)El atacante recibe daño de (28 to 36)El atacante recibe daño de (40 to 80)Puntos de retoque: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Corona Espiritual	Normal eht	Corona Espiritual	Normal	Corona Espiritual	16
 FIELD	Defensa	30-42
@@ -59107,7 +59107,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Cabeza del Desenredador	Normal ne3	Cabezas vudú	Normal	Cabezas vudú	16
@@ -59121,7 +59121,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Cabeza de Gargola	Normal ne4	Cabezas vudú	Normal	Cabezas vudú	20
@@ -59135,7 +59135,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Cabeza de Demonio	Normal ne5	Cabezas vudú	Normal	Cabezas vudú	24
@@ -59149,7 +59149,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Cabeza de Zombie	Normal ne2	Cabezas vudú	Normal	Cabezas vudú	8
@@ -59163,7 +59163,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trofeo Momificado	Excepcional ne6	Cabezas vudú	Exceptional	Cabezas vudú	31
@@ -59177,7 +59177,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Trofeo del Sacristán	Excepcional ne8	Cabezas vudú	Exceptional	Cabezas vudú	41
@@ -59191,7 +59191,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Trofeo del Cantor	Excepcional ne9	Cabezas vudú	Exceptional	Cabezas vudú	45
@@ -59205,7 +59205,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Trofeo de Hierofante	Excepcional nea	Cabezas vudú	Exceptional	Cabezas vudú	49
@@ -59219,7 +59219,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Trofeo de Fetiche	Excepcional ne7	Cabezas vudú	Exceptional	Cabezas vudú	34
@@ -59233,7 +59233,7 @@ FIELD	Bloqueo %	1
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Cráneo de esbirro	Élite neb	Cabezas vudú	Elite	Cabezas vudú	58
@@ -59247,7 +59247,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Cráneo del Supervisor	Élite ned	Cabezas vudú	Elite	Cabezas vudú	66
@@ -59261,7 +59261,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Cráneo de Súcubo	Élite nee	Cabezas vudú	Elite	Cabezas vudú	70
@@ -59275,7 +59275,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Cráneo de Señor de la Sangre	Élite nef	Cabezas vudú	Elite	Cabezas vudú	74
@@ -59289,7 +59289,7 @@ FIELD	Bloqueo %	3
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Cráneo de Engendro del Infierno	Élite neg	Cabezas vudú	Elite	Cabezas vudú	60
@@ -59303,7 +59303,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trofeo de Hierofante	Excepcional qna	Cabezas vudú	Exceptional	Cabezas vudú	49
@@ -59317,7 +59317,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Cráneo de Súcubo	Élite qne	Cabezas vudú	Elite	Cabezas vudú	70
@@ -59331,7 +59331,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Cráneo de Señor de la Sangre	Élite qnf	Cabezas vudú	Elite	Cabezas vudú	74
@@ -59345,7 +59345,7 @@ FIELD	Bloqueo %	2
 FIELD	Daño	0-0
 FIELD	Engarces	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_armor_voodoo_head_demon_head
 ENTRY	Armas	506 objetos	sortable	fiveacross
@@ -59360,7 +59360,7 @@ FIELD	Des. req.	65
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco de Ciervo	Normal am1	Arco de amazona	Normal	Arco de amazona	18
 FIELD	Manos	2H
@@ -59374,7 +59374,7 @@ FIELD	Des. req.	45
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco de Reflexión	Normal am2	Arco de amazona	Normal	Arco de amazona	27
 FIELD	Manos	2H
@@ -59388,7 +59388,7 @@ FIELD	Des. req.	60
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Tuigan	Excepcional 9pb	Arco de amazona	Exceptional	Arco de amazona	58
 FIELD	Manos	2H
@@ -59401,7 +59401,7 @@ FIELD	Des. req.	130
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco de Madera de Ceniza	Excepcional am6	Arco de amazona	Exceptional	Arco de amazona	43
 FIELD	Manos	2H
@@ -59415,7 +59415,7 @@ FIELD	Des. req.	77
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco Ceremonial	Excepcional am7	Arco de amazona	Exceptional	Arco de amazona	52
 FIELD	Manos	2H
@@ -59429,7 +59429,7 @@ FIELD	Des. req.	110
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Élfico	Élite 0pb	Arco de amazona	Elite	Arco de amazona	83
 FIELD	Manos	2H
@@ -59442,7 +59442,7 @@ FIELD	Des. req.	180
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco Matriarcal	Élite amb	Arco de amazona	Elite	Arco de amazona	68
 FIELD	Manos	2H
@@ -59456,7 +59456,7 @@ FIELD	Des. req.	187
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Gran Arco de Matrona	Élite amc	Arco de amazona	Elite	Arco de amazona	77
 FIELD	Manos	2H
@@ -59470,7 +59470,7 @@ FIELD	Des. req.	152
 FIELD	Bonif. Fue/Des	0/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Arco y Ballesta (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Arco y Ballesta (Amazon Only)+2 a Habilidades de Arco y Ballesta (Amazon Only)+3 a Habilidades de Arco y Ballesta (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco matriarcal mítico	Mítico m53	Arco de amazona	Mythic	Arco de amazona	96
 FIELD	Manos	2H
@@ -59527,7 +59527,7 @@ FIELD	Des. req.	47
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 FIELD	A distancia	6 to 22 (14.0 prom.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Jabalina Ceremonial	Excepcional ama	Jabalina de amazona	Exceptional	Jabalina de amazona	49
@@ -59544,7 +59544,7 @@ FIELD	Des. req.	109
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 FIELD	A distancia	14 to 50 (32.0 prom.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Jabalina Matriarcal	Élite amf	Jabalina de amazona	Elite	Jabalina de amazona	74
@@ -59561,7 +59561,7 @@ FIELD	Des. req.	151
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 FIELD	A distancia	25 to 64 (44.5 prom.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Jabalina Matriarcal Mítica	Mítico m31	Jabalina de amazona	Mythic	Jabalina de amazona	96
@@ -59595,7 +59595,7 @@ FIELD	Des. req.	40
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pica de Doncella	Normal am4	Lanza de amazona	Normal	Lanza de amazona	27
 FIELD	Manos	2H
@@ -59611,7 +59611,7 @@ FIELD	Des. req.	52
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lanza Ceremonial	Excepcional am8	Lanza de amazona	Exceptional	Lanza de amazona	43
 FIELD	Manos	2H
@@ -59626,7 +59626,7 @@ FIELD	Des. req.	80
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pica Ceremonial	Excepcional am9	Lanza de amazona	Exceptional	Lanza de amazona	52
 FIELD	Manos	2H
@@ -59642,7 +59642,7 @@ FIELD	Des. req.	98
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lanza Matriarcal	Élite amd	Lanza de amazona	Elite	Lanza de amazona	68
 FIELD	Manos	2H
@@ -59658,7 +59658,7 @@ FIELD	Des. req.	142
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pica Matriarcal	Élite ame	Lanza de amazona	Elite	Lanza de amazona	77
 FIELD	Manos	2H
@@ -59674,7 +59674,7 @@ FIELD	Des. req.	149
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Pica Ceremonial	Excepcional q78	Lanza de amazona	Exceptional	Lanza de amazona	52
 FIELD	Manos	2H
@@ -59690,7 +59690,7 @@ FIELD	Des. req.	98
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lanza Matriarcal	Élite q81	Lanza de amazona	Elite	Lanza de amazona	68
 FIELD	Manos	2H
@@ -59705,7 +59705,7 @@ FIELD	Des. req.	142
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Jabalina y Lanzas (Amazon Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Jabalina y Lanzas (Amazon Only)+2 a Habilidades de Jabalina y Lanzas (Amazon Only)+3 a Habilidades de Jabalina y Lanzas (Amazon Only)Puntos de retoque: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lanza matriarcal mítica	Mítico m56	Lanza de amazona	Mythic	Lanza de amazona	96
 FIELD	Manos	2H
@@ -59753,7 +59753,7 @@ FIELD	Des. req.	60
 FIELD	Bonif. Fue/Des	50/100
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Disciplinas de Sombra (Assassin Only) Puntos de retoque: (25 to 35) +2 a Disciplinas de Sombra (Assassin Only) Puntos de retoque: (25 to 35) +3 a Disciplinas de Sombra (Assassin Only) Puntos de retoque: (25 to 35) +1 a Artes Marciales (Assassin Only) Puntos de retoque: (25 to 35) +2 a Artes Marciales (Assassin Only) Puntos de retoque: (25 to 35) +3 a Artes Marciales (Assassin Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Disciplinas de Sombra (Assassin Only)+2 a Disciplinas de Sombra (Assassin Only)+3 a Disciplinas de Sombra (Assassin Only)+1 a Artes Marciales (Assassin Only)+2 a Artes Marciales (Assassin Only)+3 a Artes Marciales (Assassin Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Asesino
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Wakizashi	Excepcional 9nn	Katana a una mano de asesina	Exceptional	Katana a una mano de asesina	58
@@ -59770,7 +59770,7 @@ FIELD	Des. req.	90
 FIELD	Bonif. Fue/Des	75/100
 FIELD	Engarces	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 a Disciplinas de Sombra (Assassin Only) Puntos de retoque: (25 to 35) +2 a Disciplinas de Sombra (Assassin Only) Puntos de retoque: (25 to 35) +3 a Disciplinas de Sombra (Assassin Only) Puntos de retoque: (25 to 35) +1 a Artes Marciales (Assassin Only) Puntos de retoque: (25 to 35) +2 a Artes Marciales (Assassin Only) Puntos de retoque: (25 to 35) +3 a Artes Marciales (Assassin Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Disciplinas de Sombra (Assassin Only)+2 a Disciplinas de Sombra (Assassin Only)+3 a Disciplinas de Sombra (Assassin Only)+1 a Artes Marciales (Assassin Only)+2 a Artes Marciales (Assassin Only)+3 a Artes Marciales (Assassin Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Asesino
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Ninja-To	Normal njt	Katana a dos manos de asesina	Normal	Katana a dos manos de asesina	35
@@ -59787,7 +59787,7 @@ FIELD	Des. req.	60
 FIELD	Bonif. Fue/Des	100/50
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Daño Reducido en (2 to 4) Daño Mágico Reducido en (2 to 4) Puntos de retoque: (25 to 35) Daño Reducido en (3 to 6) Daño Mágico Reducido en (3 to 6) Puntos de retoque: (25 to 35) Daño Reducido en (4 to 8) Daño Mágico Reducido en (4 to 8) Puntos de retoque: (25 to 35) Daño Reducido en (5 to 10) Daño Mágico Reducido en (5 to 10) Puntos de retoque: (25 to 35) Daño Reducido en (6 to 12) Daño Mágico Reducido en (6 to 12) Puntos de retoque: (25 to 35) Daño Reducido en (7 to 14) Daño Mágico Reducido en (7 to 14) Puntos de retoque: (25 to 35)
+FIELD	Automod	Daño Reducido en (2 to 4) Daño Mágico Reducido en (2 to 4)Daño Reducido en (3 to 6) Daño Mágico Reducido en (3 to 6)Daño Reducido en (4 to 8) Daño Mágico Reducido en (4 to 8)Daño Reducido en (5 to 10) Daño Mágico Reducido en (5 to 10)Daño Reducido en (6 to 12) Daño Mágico Reducido en (6 to 12)Daño Reducido en (7 to 14) Daño Mágico Reducido en (7 to 14)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Asesino
 IMG	items_weapon_sword_katana
 BLOCK	1	Wakizashi	Excepcional 9nj	Katana a dos manos de asesina	Exceptional	Katana a dos manos de asesina	60
@@ -59804,7 +59804,7 @@ FIELD	Des. req.	90
 FIELD	Bonif. Fue/Des	100/50
 FIELD	Engarces	5
 FIELD	Tipo de gema	0
-FIELD	Automod	Daño Reducido en (2 to 4) Daño Mágico Reducido en (2 to 4) Puntos de retoque: (25 to 35) Daño Reducido en (3 to 6) Daño Mágico Reducido en (3 to 6) Puntos de retoque: (25 to 35) Daño Reducido en (4 to 8) Daño Mágico Reducido en (4 to 8) Puntos de retoque: (25 to 35) Daño Reducido en (5 to 10) Daño Mágico Reducido en (5 to 10) Puntos de retoque: (25 to 35) Daño Reducido en (6 to 12) Daño Mágico Reducido en (6 to 12) Puntos de retoque: (25 to 35) Daño Reducido en (7 to 14) Daño Mágico Reducido en (7 to 14) Puntos de retoque: (25 to 35)
+FIELD	Automod	Daño Reducido en (2 to 4) Daño Mágico Reducido en (2 to 4)Daño Reducido en (3 to 6) Daño Mágico Reducido en (3 to 6)Daño Reducido en (4 to 8) Daño Mágico Reducido en (4 to 8)Daño Reducido en (5 to 10) Daño Mágico Reducido en (5 to 10)Daño Reducido en (6 to 12) Daño Mágico Reducido en (6 to 12)Daño Reducido en (7 to 14) Daño Mágico Reducido en (7 to 14)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Asesino
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana	Élite 0nn	Katana a dos manos de asesina	Elite	Katana a dos manos de asesina	83
@@ -59821,7 +59821,7 @@ FIELD	Des. req.	120
 FIELD	Bonif. Fue/Des	100/50
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	Daño Reducido en (2 to 4) Daño Mágico Reducido en (2 to 4) Puntos de retoque: (25 to 35) Daño Reducido en (3 to 6) Daño Mágico Reducido en (3 to 6) Puntos de retoque: (25 to 35) Daño Reducido en (4 to 8) Daño Mágico Reducido en (4 to 8) Puntos de retoque: (25 to 35) Daño Reducido en (5 to 10) Daño Mágico Reducido en (5 to 10) Puntos de retoque: (25 to 35) Daño Reducido en (6 to 12) Daño Mágico Reducido en (6 to 12) Puntos de retoque: (25 to 35) Daño Reducido en (7 to 14) Daño Mágico Reducido en (7 to 14) Puntos de retoque: (25 to 35)
+FIELD	Automod	Daño Reducido en (2 to 4) Daño Mágico Reducido en (2 to 4)Daño Reducido en (3 to 6) Daño Mágico Reducido en (3 to 6)Daño Reducido en (4 to 8) Daño Mágico Reducido en (4 to 8)Daño Reducido en (5 to 10) Daño Mágico Reducido en (5 to 10)Daño Reducido en (6 to 12) Daño Mágico Reducido en (6 to 12)Daño Reducido en (7 to 14) Daño Mágico Reducido en (7 to 14)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Asesino
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana Mítica	Mítico m37	Katana a dos manos de asesina	Mythic	Katana a dos manos de asesina	96
@@ -60505,7 +60505,7 @@ FIELD	Des. req.	60
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Bárbaro
 FIELD	A distancia	7 to 29 (18.0 prom.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60523,7 +60523,7 @@ FIELD	Des. req.	85
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Bárbaro
 FIELD	A distancia	17 to 47 (32.0 prom.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60541,7 +60541,7 @@ FIELD	Des. req.	100
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Bárbaro
 FIELD	A distancia	29 to 63 (46.0 prom.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60559,7 +60559,7 @@ FIELD	Des. req.	100
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Bárbaro
 FIELD	A distancia	32 to 70 (51.0 prom.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -62323,7 +62323,7 @@ FIELD	Nv. req.	0
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	3 to 11 (7.0 prom.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum	Normal pil	Jabalina	Normal	Jabalina	10
@@ -62338,7 +62338,7 @@ FIELD	Des. req.	45
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	5 to 17 (11.0 prom.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lanza Corta	Normal ssp	Jabalina	Normal	Jabalina	15
@@ -62355,7 +62355,7 @@ FIELD	Des. req.	40
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	8 to 20 (14.0 prom.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Guja	Normal glv	Jabalina	Normal	Jabalina	23
@@ -62372,7 +62372,7 @@ FIELD	Des. req.	35
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	16 to 22 (19.0 prom.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Lanza arrojadiza	Normal tsp	Jabalina	Normal	Jabalina	29
@@ -62388,7 +62388,7 @@ FIELD	Des. req.	65
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	8 to 24 (16.0 prom.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Jabalina de Guerra	Excepcional 9ja	Jabalina	Exceptional	Jabalina	32
@@ -62405,7 +62405,7 @@ FIELD	Des. req.	25
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	12 to 26 (19.0 prom.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Gran Pilum	Excepcional 9pi	Jabalina	Exceptional	Jabalina	36
@@ -62421,7 +62421,7 @@ FIELD	Des. req.	88
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	15 to 35 (25.0 prom.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Simbilan	Excepcional 9s9	Jabalina	Exceptional	Jabalina	40
@@ -62438,7 +62438,7 @@ FIELD	Des. req.	80
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	24 to 46 (35.0 prom.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Spiculum	Excepcional 9gl	Jabalina	Exceptional	Jabalina	48
@@ -62455,7 +62455,7 @@ FIELD	Des. req.	73
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	28 to 56 (42.0 prom.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Arpón	Excepcional 9ts	Jabalina	Exceptional	Jabalina	54
@@ -62472,7 +62472,7 @@ FIELD	Des. req.	118
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	14 to 50 (32.0 prom.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Fragmentos Antiguos	Élite 0ja	Jabalina	Elite	Jabalina	59
@@ -62489,7 +62489,7 @@ FIELD	Des. req.	123
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	29 to 57 (43.0 prom.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Terrible	Élite 0pi	Jabalina	Elite	Jabalina	62
@@ -62505,7 +62505,7 @@ FIELD	Des. req.	112
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	27 to 67 (47.0 prom.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lanza Ágil	Élite 0s9	Jabalina	Elite	Jabalina	65
@@ -62522,7 +62522,7 @@ FIELD	Des. req.	95
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	36 to 64 (50.0 prom.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lanza de Ahab	Élite 0gl	Jabalina	Elite	Jabalina	73
@@ -62539,7 +62539,7 @@ FIELD	Des. req.	137
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	36 to 72 (54.0 prom.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Cazador de Ballenas	Élite 0ts	Jabalina	Elite	Jabalina	79
@@ -62556,7 +62556,7 @@ FIELD	Des. req.	145
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	23 to 67 (45.0 prom.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Jabalina Hipérion	Élite 7ja	Jabalina	Elite	Jabalina	59
@@ -62573,7 +62573,7 @@ FIELD	Des. req.	123
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	29 to 57 (43.0 prom.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Estigio	Élite 7pi	Jabalina	Elite	Jabalina	62
@@ -62590,7 +62590,7 @@ FIELD	Des. req.	112
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	27 to 67 (47.0 prom.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lanza de Balrog	Élite 7s7	Jabalina	Elite	Jabalina	65
@@ -62607,7 +62607,7 @@ FIELD	Des. req.	95
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	36 to 64 (50.0 prom.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lanza Fantasma	Élite 7gl	Jabalina	Elite	Jabalina	73
@@ -62624,7 +62624,7 @@ FIELD	Des. req.	137
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	36 to 72 (54.0 prom.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Arpón Alado	Élite 7ts	Jabalina	Elite	Jabalina	79
@@ -62641,7 +62641,7 @@ FIELD	Des. req.	145
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	23 to 67 (45.0 prom.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Fragmentos Antiguos Míticos	Mítico m33	Jabalina	Mythic	Jabalina	96
@@ -62675,7 +62675,7 @@ FIELD	Des. req.	145
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	25 to 74 (49.5 prom.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Cazador de Ballenas Mítico	Mítico m32	Jabalina	Mythic	Jabalina	96
@@ -63325,7 +63325,7 @@ FIELD	Des. req.	15
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Daga Sacrificial	Excepcional 9rd	Daga de nigromante	Exceptional	Daga de nigromante	58
@@ -63341,7 +63341,7 @@ FIELD	Des. req.	30
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Daga Ceremonial	Élite 0rd	Daga de nigromante	Elite	Daga de nigromante	83
@@ -63357,7 +63357,7 @@ FIELD	Des. req.	50
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35) Añade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de Veneno Puntos de retoque: (25 to 35)
+FIELD	Automod	Añade 8 Daño de Veneno a los Ataques durante 2 segundos +(1 to 3)% al Daño de Hechizos de VenenoAñade 15 Daño de Veneno a los Ataques durante 2 segundos +(2 to 5)% al Daño de Hechizos de VenenoAñade 30 Daño de Veneno a los Ataques durante 2 segundos +(4 to 8)% al Daño de Hechizos de VenenoAñade 60 Daño de Veneno a los Ataques durante 2 segundos +(6 to 11)% al Daño de Hechizos de VenenoAñade 90 Daño de Veneno a los Ataques durante 2 segundos +(10 to 13)% al Daño de Hechizos de VenenoAñade 120 Daño de Veneno a los Ataques durante 2 segundos +(11 to 14)% al Daño de Hechizos de VenenoPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Nigromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Daga Ceremonial Mítica	Mítico m14	Daga de nigromante	Mythic	Daga de nigromante	96
@@ -63523,7 +63523,7 @@ FIELD	Nv. req.	0
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globo Sagrado	Normal ob2	Orbe	Normal	Orbe	8
@@ -63537,7 +63537,7 @@ FIELD	Nv. req.	0
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Orbe Apretado	Normal ob4	Orbe	Normal	Orbe	17
@@ -63550,7 +63550,7 @@ FIELD	Nv. req.	13
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	La Piedra de Jared	Normal ob5	Orbe	Normal	Orbe	24
@@ -63565,7 +63565,7 @@ FIELD	Nv. req.	18
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Esfera Ahumada	Normal ob3	Orbe	Normal	Orbe	12
@@ -63579,7 +63579,7 @@ FIELD	Nv. req.	8
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Orbe Brillante	Excepcional ob6	Orbe	Exceptional	Orbe	29
@@ -63593,7 +63593,7 @@ FIELD	Nv. req.	24
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globo Cristalino	Excepcional ob7	Orbe	Exceptional	Orbe	35
@@ -63607,7 +63607,7 @@ FIELD	Nv. req.	27
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Bola Brillante	Excepcional ob9	Orbe	Exceptional	Orbe	42
@@ -63621,7 +63621,7 @@ FIELD	Nv. req.	34
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Cristal Remolino	Excepcional oba	Orbe	Exceptional	Orbe	49
@@ -63636,7 +63636,7 @@ FIELD	Nv. req.	37
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Esfera Nublada	Excepcional ob8	Orbe	Exceptional	Orbe	38
@@ -63650,7 +63650,7 @@ FIELD	Nv. req.	30
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Piedra Celestial	Élite obb	Orbe	Elite	Orbe	57
@@ -63664,7 +63664,7 @@ FIELD	Nv. req.	44
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Orbe Eldritch	Élite obc	Orbe	Elite	Orbe	62
@@ -63678,7 +63678,7 @@ FIELD	Nv. req.	50
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Orbe Vórtice	Élite obe	Orbe	Elite	Orbe	67
@@ -63692,7 +63692,7 @@ FIELD	Nv. req.	63
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Fragmento Dimensional	Élite obf	Orbe	Elite	Orbe	74
@@ -63707,7 +63707,7 @@ FIELD	Nv. req.	66
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Corazón de Demonio	Élite obd	Orbe	Elite	Orbe	64
@@ -63720,7 +63720,7 @@ FIELD	Nv. req.	56
 FIELD	Bonif. Fue/Des	100/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Cristal Remolino	Excepcional q83	Orbe	Exceptional	Orbe	49
@@ -63735,7 +63735,7 @@ FIELD	Nv. req.	37
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Orbe Eldritch	Élite q84	Orbe	Elite	Orbe	62
@@ -63749,7 +63749,7 @@ FIELD	Nv. req.	50
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Fragmento Dimensional	Élite q85	Orbe	Elite	Orbe	74
@@ -63764,7 +63764,7 @@ FIELD	Nv. req.	66
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) a Vida Puntos de retoque: (25 to 35) +(6 to 10) a Vida Puntos de retoque: (25 to 35) +(11 to 20) a Vida Puntos de retoque: (25 to 35) +(21 to 30) a Vida Puntos de retoque: (25 to 35) +(31 to 40) a Vida Puntos de retoque: (25 to 35) +(41 to 60) a Vida Puntos de retoque: (25 to 35) +(1 to 5) a Maná Puntos de retoque: (25 to 35) +(5 to 10) a Maná Puntos de retoque: (25 to 35) +(11 to 20) a Maná Puntos de retoque: (25 to 35) +(21 to 30) a Maná Puntos de retoque: (25 to 35) +(31 to 40) a Maná Puntos de retoque: (25 to 35) +(41 to 60) a Maná Puntos de retoque: (25 to 35) +(61 to 80) a Maná Puntos de retoque: (25 to 35)
+FIELD	Automod	+(1 to 5) a Vida+(6 to 10) a Vida+(11 to 20) a Vida+(21 to 30) a Vida+(31 to 40) a Vida+(41 to 60) a Vida+(1 to 5) a Maná+(5 to 10) a Maná+(11 to 20) a Maná+(21 to 30) a Maná+(31 to 40) a Maná+(41 to 60) a Maná+(61 to 80) a ManáPuntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Fragmento Dimensional Mítico	Mítico m07	Orbe	Mythic	Orbe	96
@@ -64624,7 +64624,7 @@ FIELD	Des. req.	18
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35)
+FIELD	Automod	Puntos de retoque: (25 to 35)
 FIELD	A distancia	7 to 8 (7.5 prom.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Fūma Shuriken	Excepcional fsk	Nudillo	Exceptional	Nudillo	45
@@ -64640,7 +64640,7 @@ FIELD	Des. req.	55
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35)
+FIELD	Automod	Puntos de retoque: (25 to 35)
 FIELD	A distancia	22 to 23 (22.5 prom.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri	Élite kgk	Nudillo	Elite	Nudillo	70
@@ -64656,7 +64656,7 @@ FIELD	Des. req.	160
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35)
+FIELD	Automod	Puntos de retoque: (25 to 35)
 FIELD	A distancia	45 to 46 (45.5 prom.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Mítico Kagekiri	Mítico m39	Nudillo	Mythic	Nudillo	96
@@ -64672,7 +64672,7 @@ FIELD	Des. req.	160
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35) Puntos de retoque: (25 to 35)
+FIELD	Automod	Puntos de retoque: (25 to 35)
 FIELD	A distancia	50 to 51 (50.5 prom.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Espada de Maná	Normal mnb	Hoja de maná de hechicera	Normal	Hoja de maná de hechicera	33
@@ -65334,7 +65334,7 @@ FIELD	Des. req.	15
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Bastón Místico	Élite 1ls	Bastón	Elite	Bastón	62
@@ -65350,7 +65350,7 @@ FIELD	Des. req.	35
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bastón Petrificado	Élite 1cs	Bastón	Elite	Bastón	64
@@ -65367,7 +65367,7 @@ FIELD	Des. req.	37
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Bastón de Mago	Élite 1bs	Bastón	Elite	Bastón	67
@@ -65384,7 +65384,7 @@ FIELD	Des. req.	27
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bastón Arcano	Élite 1ws	Bastón	Elite	Bastón	74
@@ -65400,7 +65400,7 @@ FIELD	Des. req.	15
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Bastón	Élite 6ss	Bastón	Elite	Bastón	57
@@ -65417,7 +65417,7 @@ FIELD	Des. req.	15
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Estalagmita	Élite 6ls	Bastón	Elite	Bastón	62
@@ -65434,7 +65434,7 @@ FIELD	Des. req.	35
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bastón Anciano	Élite 6cs	Bastón	Elite	Bastón	64
@@ -65451,7 +65451,7 @@ FIELD	Des. req.	37
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Shillelagh	Élite 6bs	Bastón	Elite	Bastón	67
@@ -65468,7 +65468,7 @@ FIELD	Des. req.	27
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bastón de Arconte	Élite 6ws	Bastón	Elite	Bastón	74
@@ -65485,7 +65485,7 @@ FIELD	Des. req.	15
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +1 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +2 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +3 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+1 a Habilidades de Fuego (Sorceress Only)+2 a Habilidades de Fuego (Sorceress Only)+3 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Fuego (Sorceress Only)+1 a Habilidades de Rayo (Sorceress Only)+2 a Habilidades de Rayo (Sorceress Only)+3 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+1 a Habilidades de Frío (Sorceress Only)+2 a Habilidades de Frío (Sorceress Only)+3 a Habilidades de Frío (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Bastón místico mítico	Mítico m50	Bastón	Mythic	Bastón	96
@@ -65501,7 +65501,7 @@ FIELD	Des. req.	35
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only)+5 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+5 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)+5 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Báculo Petrificado Mítico	Mítico m29	Bastón	Mythic	Bastón	96
@@ -65518,7 +65518,7 @@ FIELD	Des. req.	41
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only)+5 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+5 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)+5 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Bastón Mágico Mítico	Mítico m36	Bastón	Mythic	Bastón	96
@@ -65535,7 +65535,7 @@ FIELD	Des. req.	27
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only)+5 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+5 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)+5 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Báculo Arcano Mítico	Mítico m11	Bastón	Mythic	Bastón	96
@@ -65551,7 +65551,7 @@ FIELD	Des. req.	15
 FIELD	Bonif. Fue/Des	100/0
 FIELD	Engarces	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Fuego (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Rayo (Sorceress Only) Puntos de retoque: (25 to 35) +4 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35) +5 a Habilidades de Frío (Sorceress Only) Puntos de retoque: (25 to 35)
+FIELD	Automod	+4 a Habilidades de Fuego (Sorceress Only)+5 a Habilidades de Fuego (Sorceress Only)+4 a Habilidades de Rayo (Sorceress Only)+5 a Habilidades de Rayo (Sorceress Only)+4 a Habilidades de Frío (Sorceress Only)+5 a Habilidades de Frío (Sorceress Only)Puntos de retoque: (25 to 35)
 FIELD	Mod de bastón	Hechicera
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Espada Corta	Normal ssd	Espada	Normal	Espada	1
@@ -66614,7 +66614,7 @@ FIELD	Des. req.	25
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	6 to 16 (11.0 prom.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hacha Equilibrada	Normal bal	Hacha arrojadiza	Normal	Hacha arrojadiza	21
@@ -66630,7 +66630,7 @@ FIELD	Des. req.	57
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	9 to 21 (15.0 prom.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Francisca	Excepcional 9ta	Hacha arrojadiza	Exceptional	Hacha arrojadiza	36
@@ -66646,7 +66646,7 @@ FIELD	Des. req.	80
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	15 to 39 (27.0 prom.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hurlbat	Excepcional 9b8	Hacha arrojadiza	Exceptional	Hacha arrojadiza	46
@@ -66663,7 +66663,7 @@ FIELD	Des. req.	106
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	22 to 38 (30.0 prom.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Hacha arrojadiza	Élite 0ta	Hacha arrojadiza	Elite	Hacha arrojadiza	62
@@ -66679,7 +66679,7 @@ FIELD	Des. req.	108
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	40 to 59 (49.5 prom.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hacha Equilibrada	Élite 0b6	Hacha arrojadiza	Elite	Hacha arrojadiza	71
@@ -66696,7 +66696,7 @@ FIELD	Des. req.	122
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	24 to 62 (43.0 prom.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Hacha Voladora	Élite 7ta	Hacha arrojadiza	Elite	Hacha arrojadiza	62
@@ -66712,7 +66712,7 @@ FIELD	Des. req.	108
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	40 to 59 (49.5 prom.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hacha Alada	Élite 7b8	Hacha arrojadiza	Elite	Hacha arrojadiza	71
@@ -66729,7 +66729,7 @@ FIELD	Des. req.	122
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	24 to 62 (43.0 prom.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Hacha Equilibrada Mítica	Mítico m26	Hacha arrojadiza	Mythic	Hacha arrojadiza	96
@@ -66746,7 +66746,7 @@ FIELD	Des. req.	122
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	26 to 68 (47.0 prom.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Cuchillo arrojadizo	Normal tkf	Cuchillo arrojadizo	Normal	Cuchillo arrojadizo	4
@@ -66760,7 +66760,7 @@ FIELD	Des. req.	21
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	4 to 12 (8.0 prom.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Cuchillo Equilibrado	Normal bkf	Cuchillo arrojadizo	Normal	Cuchillo arrojadizo	17
@@ -66775,7 +66775,7 @@ FIELD	Des. req.	51
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	5 to 15 (10.0 prom.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dardo de Batalla	Excepcional 9tk	Cuchillo arrojadizo	Exceptional	Cuchillo arrojadizo	31
@@ -66790,7 +66790,7 @@ FIELD	Des. req.	52
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	11 to 35 (23.0 prom.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Dardo de Guerra	Excepcional 9bk	Cuchillo arrojadizo	Exceptional	Cuchillo arrojadizo	42
@@ -66806,7 +66806,7 @@ FIELD	Des. req.	97
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	15 to 35 (25.0 prom.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Daga arrojadiza	Élite 0tk	Cuchillo arrojadizo	Elite	Cuchillo arrojadizo	58
@@ -66821,7 +66821,7 @@ FIELD	Des. req.	141
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	33 to 61 (47.0 prom.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Daga Equilibrada	Élite 0bk	Cuchillo arrojadizo	Elite	Cuchillo arrojadizo	67
@@ -66837,7 +66837,7 @@ FIELD	Des. req.	142
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	25 to 60 (42.5 prom.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Cuchillo Volador	Élite 7tk	Cuchillo arrojadizo	Elite	Cuchillo arrojadizo	58
@@ -66853,7 +66853,7 @@ FIELD	Des. req.	141
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	33 to 61 (47.0 prom.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Cuchillo Alado	Élite 7bk	Cuchillo arrojadizo	Elite	Cuchillo arrojadizo	67
@@ -66869,7 +66869,7 @@ FIELD	Des. req.	142
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	25 to 60 (42.5 prom.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Daga Mítica Equilibrada	Mítico m08	Cuchillo arrojadizo	Mythic	Cuchillo arrojadizo	96
@@ -66885,7 +66885,7 @@ FIELD	Des. req.	142
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	27 to 66 (46.5 prom.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Daga Mítica Equilibrada	Mítico m27	Cuchillo arrojadizo	Mythic	Cuchillo arrojadizo	96
@@ -66901,7 +66901,7 @@ FIELD	Des. req.	142
 FIELD	Bonif. Fue/Des	75/75
 FIELD	Engarces	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perforante Puntos de retoque: (25 to 35) +10% Ataque Perforante Puntos de retoque: (25 to 35) +15% Ataque Perforante Puntos de retoque: (25 to 35) +20% Ataque Perforante Puntos de retoque: (25 to 35) +25% Ataque Perforante Puntos de retoque: (25 to 35)
+FIELD	Automod	+5% Ataque Perforante+10% Ataque Perforante+15% Ataque Perforante+20% Ataque Perforante+25% Ataque PerforantePuntos de retoque: (25 to 35)
 FIELD	A distancia	28 to 66 (47.0 prom.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Hoja del vacío	Normal vob	Hoja del vacío	Normal	Hoja del vacío	23
@@ -111660,6 +111660,10 @@ LINE	T	ÿcNConjunto de Llaves del Pandemonium (100 % de probabilidad)
 LINE	T	ÿcNOtros objetos/materiales genéricos
 LINE	H	ÿcHRecompensas (variante über)
 LINE	T	ÿcNSi consigues matar a Lucion con /players 8, soltará su esencia (Esencia de Lucion). La esencia es una versión más poderosa de un Donut de Socket.
+PAGE	specializations	Especializaciones	Endgame
+ENTRY	Especializaciones	Perks of the four specializations
+BLOCK	0						0
+LINE	T	The specializations need their data from the website. Open this tab once the plugin has loaded it.
 PAGE	weapon-mastery	Maestría con armas	Endgame
 ENTRY	Overview	
 BLOCK	0						0

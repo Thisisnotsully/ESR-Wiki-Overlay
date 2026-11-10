@@ -9,7 +9,7 @@ LINE	T	Otwórz Pakiet startowy i Skrzynię z bronią, zanim opuścisz miasto. Za
 ENTRY	Śmierć, resetowanie i cofanie wyborów	Witaj w Eastern Sun Resurrected
 BLOCK	0						0
 LINE	T	Kliknij z Alt przycisk + na ekranie postaci, aby zresetować punkty, zużywając jedno użycie z ograniczonego licznika; uzupełnisz go, łącząc w kostce 4 Kamienie Smoka w Znak Rozgrzeszenia. Śmierć kosztuje trochę doświadczenia i złota, ale nie ekwipunek, a w obszarze bossa mapy nie kosztuje doświadczenia wcale. Większość wczesnych wyborów ekwipunku można cofnąć: wyjmij cokolwiek z gniazda, transmutując przedmiot z Kluczem (nie działa dla Słów klejnotów, ale działa dla Słów runicznych). Kucie możesz usunąć, transmutując przedmiot z 3 Miksturami rozmrażania.
-ENTRY	Przebieg kampanii	Poziom trudności Normalny
+ENTRY	Przebieg kampanii	Poziom trudności Normalny	campaignmap
 BLOCK	0						0
 LINE	T	ESR zmienił układ kampanii, aby uczynić ją bardziej zwartą niż w Vanilli. Niektóre obszary mają mniej poziomów, zanim pójdziesz dalej, a niektóre mają całkowite obejścia.
 LINE	T	
@@ -55371,7 +55371,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Elfińska Zbroja	Normalny elv	Pancerze	Normal	Pancerze	33
 FIELD	Obrona	307-343
@@ -55604,7 +55604,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Drow Adamantytowa Łańcuch	Wyjątkowy xlv	Pancerze	Exceptional	Pancerze	58
 FIELD	Obrona	524-572
@@ -55824,7 +55824,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Sylvańska Łańcuch	Elitarny ylv	Pancerze	Elite	Pancerze	83
 FIELD	Obrona	788-809
@@ -56071,7 +56071,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	4-12
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Tarcza Heraldyczna	Normalny pa3	Tarcze aury	Normal	Tarcze aury	16
 FIELD	Obrona	27-42
@@ -56084,7 +56084,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	6-18
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Tarcza Aerin	Normalny pa4	Tarcze aury	Normal	Tarcze aury	20
 FIELD	Obrona	43-61
@@ -56097,7 +56097,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	8-20
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Tarcza Korony	Normalny pa5	Tarcze aury	Normal	Tarcze aury	24
 FIELD	Obrona	63-84
@@ -56110,7 +56110,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	8-24
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache	Normalny pa2	Tarcze aury	Normal	Tarcze aury	8
 FIELD	Obrona	13-25
@@ -56123,7 +56123,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	4-16
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Tarcza Akaran	Wyjątkowy pa6	Tarcze aury	Exceptional	Tarcze aury	31
 FIELD	Obrona	100-112
@@ -56136,7 +56136,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	24-32
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Tarcza Ochrony	Wyjątkowy pa8	Tarcze aury	Exceptional	Tarcze aury	41
 FIELD	Obrona	130-150
@@ -56149,7 +56149,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	36-48
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Złocona Tarcza	Wyjątkowy pa9	Tarcze aury	Exceptional	Tarcze aury	45
 FIELD	Obrona	151-175
@@ -56162,7 +56162,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	40-56
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Królewski Tarcza	Wyjątkowy paa	Tarcze aury	Exceptional	Tarcze aury	49
 FIELD	Obrona	176-204
@@ -56175,7 +56175,7 @@ FIELD	Blok %	4
 FIELD	Obrażenia	48-64
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Akaran Rondache	Wyjątkowy pa7	Tarcze aury	Exceptional	Tarcze aury	34
 FIELD	Obrona	113-129
@@ -56188,7 +56188,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	30-40
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Święta Tarcza	Elitarny pab	Tarcze aury	Elite	Tarcze aury	58
 FIELD	Obrona	125-145
@@ -56201,7 +56201,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	44-140
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Tarcza Kurast	Elitarny pad	Tarcze aury	Elite	Tarcze aury	66
 FIELD	Obrona	171-199
@@ -56214,7 +56214,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	20-164
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Tarcza Zakarum	Elitarny pae	Tarcze aury	Elite	Tarcze aury	70
 FIELD	Obrona	200-232
@@ -56227,7 +56227,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	92-92
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Tarcza Wiru	Elitarny paf	Tarcze aury	Elite	Tarcze aury	74
 FIELD	Obrona	233-269
@@ -56240,7 +56240,7 @@ FIELD	Blok %	4
 FIELD	Obrażenia	10-174
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Święta Rondacha	Elitarny pac	Tarcze aury	Elite	Tarcze aury	60
 FIELD	Obrona	146-170
@@ -56253,7 +56253,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	70-116
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Wszystkie Oporności +(5 to 10) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(8 to 15) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(16 to 30) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(25 to 35) Punkty majsterkowania: (25 to 35) Wszystkie Oporności +(35 to 45) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Wszystkie Oporności +(5 to 10)Wszystkie Oporności +(8 to 15)Wszystkie Oporności +(16 to 30)Wszystkie Oporności +(25 to 35)Wszystkie Oporności +(35 to 45)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Pas	Normalny lbl	Pas	Normal	Pas	3
 FIELD	Obrona	6-10
@@ -56331,7 +56331,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	2
-FIELD	Automod	+(1 to 3) do Siły Punkty majsterkowania: (25 to 35) +(4 to 6) do Siły Punkty majsterkowania: (25 to 35) +(7 to 9) do Siły Punkty majsterkowania: (25 to 35) +(10 to 15) do Siły Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 3) do Siły+(4 to 6) do Siły+(7 to 9) do Siły+(10 to 15) do SiłyPunkty majsterkowania: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Demonhide Pas.	Wyjątkowy zlb	Pas	Exceptional	Pas	31
 FIELD	Obrona	75-95
@@ -56409,7 +56409,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	2
-FIELD	Automod	+(1 to 3) do Siły Punkty majsterkowania: (25 to 35) +(4 to 6) do Siły Punkty majsterkowania: (25 to 35) +(7 to 9) do Siły Punkty majsterkowania: (25 to 35) +(10 to 15) do Siły Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 3) do Siły+(4 to 6) do Siły+(7 to 9) do Siły+(10 to 15) do SiłyPunkty majsterkowania: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Pas konopny	Elitarny alb	Pas	Elite	Pas	59
 FIELD	Obrona	160-196
@@ -56487,7 +56487,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	2
-FIELD	Automod	+(1 to 3) do Siły Punkty majsterkowania: (25 to 35) +(4 to 6) do Siły Punkty majsterkowania: (25 to 35) +(7 to 9) do Siły Punkty majsterkowania: (25 to 35) +(10 to 15) do Siły Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 3) do Siły+(4 to 6) do Siły+(7 to 9) do Siły+(10 to 15) do SiłyPunkty majsterkowania: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Pasek Pajęczej Sieci	Elitarny ulc	Pas	Elite	Pas	59
 FIELD	Obrona	160-196
@@ -57394,7 +57394,7 @@ FIELD	Blok %	8
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_codex
 BLOCK	1	Kompendium	Normalny wa4	Grymuar	Normal	Grymuar	20
@@ -57408,7 +57408,7 @@ FIELD	Blok %	10
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grymuar	Normalny wa5	Grymuar	Normal	Grymuar	24
@@ -57422,7 +57422,7 @@ FIELD	Blok %	12
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Stara księga	Normalny wa1	Grymuar	Normal	Grymuar	4
@@ -57436,7 +57436,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tom	Normalny wa2	Grymuar	Normal	Grymuar	8
@@ -57450,7 +57450,7 @@ FIELD	Blok %	5
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Mroczny kodeks	Wyjątkowy wa8	Grymuar	Exceptional	Grymuar	45
@@ -57464,7 +57464,7 @@ FIELD	Blok %	8
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_codex
 BLOCK	1	Opętane kompendium	Wyjątkowy wa9	Grymuar	Exceptional	Grymuar	49
@@ -57478,7 +57478,7 @@ FIELD	Blok %	10
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Opętany grymuar	Wyjątkowy waa	Grymuar	Exceptional	Grymuar	54
@@ -57492,7 +57492,7 @@ FIELD	Blok %	12
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Spalony tekst	Wyjątkowy wa6	Grymuar	Exceptional	Grymuar	33
@@ -57506,7 +57506,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Mroczny tom	Wyjątkowy wa7	Grymuar	Exceptional	Grymuar	39
@@ -57520,7 +57520,7 @@ FIELD	Blok %	5
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Kodeks okultystyczny	Elitarny wad	Grymuar	Elite	Grymuar	66
@@ -57534,7 +57534,7 @@ FIELD	Blok %	8
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_codex
 BLOCK	1	Bluźniercze kompendium	Elitarny wae	Grymuar	Elite	Grymuar	81
@@ -57548,7 +57548,7 @@ FIELD	Blok %	10
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Bluźnierczy grymuar	Elitarny waf	Grymuar	Elite	Grymuar	85
@@ -57562,7 +57562,7 @@ FIELD	Blok %	12
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Zapomniany tom	Elitarny wab	Grymuar	Elite	Grymuar	59
@@ -57576,7 +57576,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Księga okultystyczna	Elitarny wac	Grymuar	Elite	Grymuar	67
@@ -57590,7 +57590,7 @@ FIELD	Blok %	5
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarnoksiężnik
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Czapka	Normalny cap	Hełm	Normal	Hełm	1
@@ -57708,7 +57708,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(6 to 10)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(11 to 20)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(21 to 30)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(31 to 40)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(41 to 50)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5)% Dodatkowe Złoto z Potworów+(6 to 10)% Dodatkowe Złoto z Potworów+(11 to 20)% Dodatkowe Złoto z Potworów+(21 to 30)% Dodatkowe Złoto z Potworów+(31 to 40)% Dodatkowe Złoto z Potworów+(41 to 50)% Dodatkowe Złoto z PotworówPunkty majsterkowania: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Hełm wojenny	Wyjątkowy xap	Hełm	Exceptional	Hełm	29
 FIELD	Obrona	52-67
@@ -57825,7 +57825,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(6 to 10)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(11 to 20)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(21 to 30)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(31 to 40)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(41 to 50)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5)% Dodatkowe Złoto z Potworów+(6 to 10)% Dodatkowe Złoto z Potworów+(11 to 20)% Dodatkowe Złoto z Potworów+(21 to 30)% Dodatkowe Złoto z Potworów+(31 to 40)% Dodatkowe Złoto z Potworów+(41 to 50)% Dodatkowe Złoto z PotworówPunkty majsterkowania: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Skrzydlaty Hełm	Wyjątkowy 4hm	Hełm	Exceptional	Hełm	48
 FIELD	Obrona	105-138
@@ -57968,7 +57968,7 @@ FIELD	Blok %	0
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(6 to 10)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(11 to 20)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(21 to 30)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(31 to 40)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35) +(41 to 50)% Dodatkowe Złoto z Potworów Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5)% Dodatkowe Złoto z Potworów+(6 to 10)% Dodatkowe Złoto z Potworów+(11 to 20)% Dodatkowe Złoto z Potworów+(21 to 30)% Dodatkowe Złoto z Potworów+(31 to 40)% Dodatkowe Złoto z Potworów+(41 to 50)% Dodatkowe Złoto z PotworówPunkty majsterkowania: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Shako	Elitarny uap	Hełm	Elite	Hełm	57
 FIELD	Obrona	130-166
@@ -58652,7 +58652,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	12-20
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Tarcza Forteczna	Normalny fts	Tarcza	Normal	Tarcza	31
 FIELD	Obrona	48-72
@@ -58704,7 +58704,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	12-20
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Obrońca	Wyjątkowy xuc	Tarcza	Exceptional	Tarcza	29
 FIELD	Obrona	60-75
@@ -58808,7 +58808,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	40-76
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Tarcza Odbicia	Wyjątkowy xft	Tarcza	Exceptional	Tarcza	56
 FIELD	Obrona	37-75
@@ -58938,7 +58938,7 @@ FIELD	Blok %	4
 FIELD	Obrażenia	70-122
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Ceremonialna Tarcza	Elitarny yft	Tarcza	Elite	Tarcza	81
 FIELD	Obrona	195-236
@@ -59055,7 +59055,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	70-122
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (16 to 24) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (28 to 36) Punkty majsterkowania: (25 to 35) Atakujący otrzymuje obrażenia w wysokości (40 to 80) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Atakujący otrzymuje obrażenia w wysokości (4 to 12)Atakujący otrzymuje obrażenia w wysokości (16 to 24)Atakujący otrzymuje obrażenia w wysokości (28 to 36)Atakujący otrzymuje obrażenia w wysokości (40 to 80)Punkty majsterkowania: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Korona Ducha	Normalny eht	Korona Ducha	Normal	Korona Ducha	16
 FIELD	Obrona	30-42
@@ -59107,7 +59107,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Głowa Rozplątacza	Normalny ne3	Głowy voodoo	Normal	Głowy voodoo	16
@@ -59121,7 +59121,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Głowa Gargulca	Normalny ne4	Głowy voodoo	Normal	Głowy voodoo	20
@@ -59135,7 +59135,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Demoniczna Głowa	Normalny ne5	Głowy voodoo	Normal	Głowy voodoo	24
@@ -59149,7 +59149,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Zombie Głowa	Normalny ne2	Głowy voodoo	Normal	Głowy voodoo	8
@@ -59163,7 +59163,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Mumiowany Trofeum	Wyjątkowy ne6	Głowy voodoo	Exceptional	Głowy voodoo	31
@@ -59177,7 +59177,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Trofеj Sextona	Wyjątkowy ne8	Głowy voodoo	Exceptional	Głowy voodoo	41
@@ -59191,7 +59191,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Trofeum Kantora	Wyjątkowy ne9	Głowy voodoo	Exceptional	Głowy voodoo	45
@@ -59205,7 +59205,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Trofеj Hierofanta	Wyjątkowy nea	Głowy voodoo	Exceptional	Głowy voodoo	49
@@ -59219,7 +59219,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Trofey Fetysza	Wyjątkowy ne7	Głowy voodoo	Exceptional	Głowy voodoo	34
@@ -59233,7 +59233,7 @@ FIELD	Blok %	1
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Czaszka Miniona	Elitarny neb	Głowy voodoo	Elite	Głowy voodoo	58
@@ -59247,7 +59247,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Czaszka Nadzorcy	Elitarny ned	Głowy voodoo	Elite	Głowy voodoo	66
@@ -59261,7 +59261,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Czaszka Succubusa	Elitarny nee	Głowy voodoo	Elite	Głowy voodoo	70
@@ -59275,7 +59275,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Czaszka Krwiopijcy	Elitarny nef	Głowy voodoo	Elite	Głowy voodoo	74
@@ -59289,7 +59289,7 @@ FIELD	Blok %	3
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Czaszka Piekielnego Potwora	Elitarny neg	Głowy voodoo	Elite	Głowy voodoo	60
@@ -59303,7 +59303,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trofеj Hierofanta	Wyjątkowy qna	Głowy voodoo	Exceptional	Głowy voodoo	49
@@ -59317,7 +59317,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Czaszka Succubusa	Elitarny qne	Głowy voodoo	Elite	Głowy voodoo	70
@@ -59331,7 +59331,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Czaszka Krwiopijcy	Elitarny qnf	Głowy voodoo	Elite	Głowy voodoo	74
@@ -59345,7 +59345,7 @@ FIELD	Blok %	2
 FIELD	Obrażenia	0-0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	2
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_armor_voodoo_head_demon_head
 ENTRY	Broń	przedmioty: 506	sortable	fiveacross
@@ -59360,7 +59360,7 @@ FIELD	Wym. zręczność	65
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Łuk Jelenia	Normalny am1	Łuk Amazonki	Normal	Łuk Amazonki	18
 FIELD	Ręce	2H
@@ -59374,7 +59374,7 @@ FIELD	Wym. zręczność	45
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	5
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Łuk refleksyjny	Normalny am2	Łuk Amazonki	Normal	Łuk Amazonki	27
 FIELD	Ręce	2H
@@ -59388,7 +59388,7 @@ FIELD	Wym. zręczność	60
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Łuk Tuigana	Wyjątkowy 9pb	Łuk Amazonki	Exceptional	Łuk Amazonki	58
 FIELD	Ręce	2H
@@ -59401,7 +59401,7 @@ FIELD	Wym. zręczność	130
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Łuk z Ashwood	Wyjątkowy am6	Łuk Amazonki	Exceptional	Łuk Amazonki	43
 FIELD	Ręce	2H
@@ -59415,7 +59415,7 @@ FIELD	Wym. zręczność	77
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	5
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Ceremonialny Łuk	Wyjątkowy am7	Łuk Amazonki	Exceptional	Łuk Amazonki	52
 FIELD	Ręce	2H
@@ -59429,7 +59429,7 @@ FIELD	Wym. zręczność	110
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Łuk elficki	Elitarny 0pb	Łuk Amazonki	Elite	Łuk Amazonki	83
 FIELD	Ręce	2H
@@ -59442,7 +59442,7 @@ FIELD	Wym. zręczność	180
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Matriarchal Łuk	Elitarny amb	Łuk Amazonki	Elite	Łuk Amazonki	68
 FIELD	Ręce	2H
@@ -59456,7 +59456,7 @@ FIELD	Wym. zręczność	187
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	5
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Wielka Matrona Łuk	Elitarny amc	Łuk Amazonki	Elite	Łuk Amazonki	77
 FIELD	Ręce	2H
@@ -59470,7 +59470,7 @@ FIELD	Wym. zręczność	152
 FIELD	Premia siła/zręczność	0/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Łuków i Kusz (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Łuków i Kusz (Amazon Only)+2 do Umiejętności Łuków i Kusz (Amazon Only)+3 do Umiejętności Łuków i Kusz (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Mityczny łuk matriarchalny	Mityczny m53	Łuk Amazonki	Mythic	Łuk Amazonki	96
 FIELD	Ręce	2H
@@ -59527,7 +59527,7 @@ FIELD	Wym. zręczność	47
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	6 to 22 (14.0 śr.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Ceremonialna Włócznia	Wyjątkowy ama	Oszczep Amazonki	Exceptional	Oszczep Amazonki	49
@@ -59544,7 +59544,7 @@ FIELD	Wym. zręczność	109
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	14 to 50 (32.0 śr.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Matriarchal Włócznia	Elitarny amf	Oszczep Amazonki	Elite	Oszczep Amazonki	74
@@ -59561,7 +59561,7 @@ FIELD	Wym. zręczność	151
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	25 to 64 (44.5 śr.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Mityczna Matriarchalna Włócznia	Mityczny m31	Oszczep Amazonki	Mythic	Oszczep Amazonki	96
@@ -59595,7 +59595,7 @@ FIELD	Wym. zręczność	40
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Włócznia Panny	Normalny am4	Włócznia Amazonki	Normal	Włócznia Amazonki	27
 FIELD	Ręce	2H
@@ -59611,7 +59611,7 @@ FIELD	Wym. zręczność	52
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Ceremonialna Włócznia	Wyjątkowy am8	Włócznia Amazonki	Exceptional	Włócznia Amazonki	43
 FIELD	Ręce	2H
@@ -59626,7 +59626,7 @@ FIELD	Wym. zręczność	80
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Ceremonial Włócznia	Wyjątkowy am9	Włócznia Amazonki	Exceptional	Włócznia Amazonki	52
 FIELD	Ręce	2H
@@ -59642,7 +59642,7 @@ FIELD	Wym. zręczność	98
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Matriarchal Włócznia	Elitarny amd	Włócznia Amazonki	Elite	Włócznia Amazonki	68
 FIELD	Ręce	2H
@@ -59658,7 +59658,7 @@ FIELD	Wym. zręczność	142
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Matriarchal Włócznia	Elitarny ame	Włócznia Amazonki	Elite	Włócznia Amazonki	77
 FIELD	Ręce	2H
@@ -59674,7 +59674,7 @@ FIELD	Wym. zręczność	149
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Ceremonial Włócznia	Wyjątkowy q78	Włócznia Amazonki	Exceptional	Włócznia Amazonki	52
 FIELD	Ręce	2H
@@ -59690,7 +59690,7 @@ FIELD	Wym. zręczność	98
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Matriarchal Włócznia	Elitarny q81	Włócznia Amazonki	Elite	Włócznia Amazonki	68
 FIELD	Ręce	2H
@@ -59705,7 +59705,7 @@ FIELD	Wym. zręczność	142
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Włóczni i Oszczepów (Amazon Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Włóczni i Oszczepów (Amazon Only)+2 do Umiejętności Włóczni i Oszczepów (Amazon Only)+3 do Umiejętności Włóczni i Oszczepów (Amazon Only)Punkty majsterkowania: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Mityczna włócznia matriarchalna	Mityczny m56	Włócznia Amazonki	Mythic	Włócznia Amazonki	96
 FIELD	Ręce	2H
@@ -59753,7 +59753,7 @@ FIELD	Wym. zręczność	60
 FIELD	Premia siła/zręczność	50/100
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Dyscyplin Cienia (Assassin Only) Punkty majsterkowania: (25 to 35) +2 do Dyscyplin Cienia (Assassin Only) Punkty majsterkowania: (25 to 35) +3 do Dyscyplin Cienia (Assassin Only) Punkty majsterkowania: (25 to 35) +1 do Sztuk Walki (Assassin Only) Punkty majsterkowania: (25 to 35) +2 do Sztuk Walki (Assassin Only) Punkty majsterkowania: (25 to 35) +3 do Sztuk Walki (Assassin Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Dyscyplin Cienia (Assassin Only)+2 do Dyscyplin Cienia (Assassin Only)+3 do Dyscyplin Cienia (Assassin Only)+1 do Sztuk Walki (Assassin Only)+2 do Sztuk Walki (Assassin Only)+3 do Sztuk Walki (Assassin Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Zabójczyni
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Wakizashi	Wyjątkowy 9nn	Jednoręczna katana Zabójczyni	Exceptional	Jednoręczna katana Zabójczyni	58
@@ -59770,7 +59770,7 @@ FIELD	Wym. zręczność	90
 FIELD	Premia siła/zręczność	75/100
 FIELD	Gniazda	5
 FIELD	Typ klejnotu	0
-FIELD	Automod	+1 do Dyscyplin Cienia (Assassin Only) Punkty majsterkowania: (25 to 35) +2 do Dyscyplin Cienia (Assassin Only) Punkty majsterkowania: (25 to 35) +3 do Dyscyplin Cienia (Assassin Only) Punkty majsterkowania: (25 to 35) +1 do Sztuk Walki (Assassin Only) Punkty majsterkowania: (25 to 35) +2 do Sztuk Walki (Assassin Only) Punkty majsterkowania: (25 to 35) +3 do Sztuk Walki (Assassin Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Dyscyplin Cienia (Assassin Only)+2 do Dyscyplin Cienia (Assassin Only)+3 do Dyscyplin Cienia (Assassin Only)+1 do Sztuk Walki (Assassin Only)+2 do Sztuk Walki (Assassin Only)+3 do Sztuk Walki (Assassin Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Zabójczyni
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Ninja-To	Normalny njt	Dwuręczna katana Zabójczyni	Normal	Dwuręczna katana Zabójczyni	35
@@ -59787,7 +59787,7 @@ FIELD	Wym. zręczność	60
 FIELD	Premia siła/zręczność	100/50
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	Zredukowane obrażenia o (2 to 4) Zredukowane obrażenia magiczne o (2 to 4) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (3 to 6) Zredukowane obrażenia magiczne o (3 to 6) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (4 to 8) Zredukowane obrażenia magiczne o (4 to 8) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (5 to 10) Zredukowane obrażenia magiczne o (5 to 10) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (6 to 12) Zredukowane obrażenia magiczne o (6 to 12) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (7 to 14) Zredukowane obrażenia magiczne o (7 to 14) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Zredukowane obrażenia o (2 to 4) Zredukowane obrażenia magiczne o (2 to 4)Zredukowane obrażenia o (3 to 6) Zredukowane obrażenia magiczne o (3 to 6)Zredukowane obrażenia o (4 to 8) Zredukowane obrażenia magiczne o (4 to 8)Zredukowane obrażenia o (5 to 10) Zredukowane obrażenia magiczne o (5 to 10)Zredukowane obrażenia o (6 to 12) Zredukowane obrażenia magiczne o (6 to 12)Zredukowane obrażenia o (7 to 14) Zredukowane obrażenia magiczne o (7 to 14)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Zabójczyni
 IMG	items_weapon_sword_katana
 BLOCK	1	Wakizashi	Wyjątkowy 9nj	Dwuręczna katana Zabójczyni	Exceptional	Dwuręczna katana Zabójczyni	60
@@ -59804,7 +59804,7 @@ FIELD	Wym. zręczność	90
 FIELD	Premia siła/zręczność	100/50
 FIELD	Gniazda	5
 FIELD	Typ klejnotu	0
-FIELD	Automod	Zredukowane obrażenia o (2 to 4) Zredukowane obrażenia magiczne o (2 to 4) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (3 to 6) Zredukowane obrażenia magiczne o (3 to 6) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (4 to 8) Zredukowane obrażenia magiczne o (4 to 8) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (5 to 10) Zredukowane obrażenia magiczne o (5 to 10) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (6 to 12) Zredukowane obrażenia magiczne o (6 to 12) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (7 to 14) Zredukowane obrażenia magiczne o (7 to 14) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Zredukowane obrażenia o (2 to 4) Zredukowane obrażenia magiczne o (2 to 4)Zredukowane obrażenia o (3 to 6) Zredukowane obrażenia magiczne o (3 to 6)Zredukowane obrażenia o (4 to 8) Zredukowane obrażenia magiczne o (4 to 8)Zredukowane obrażenia o (5 to 10) Zredukowane obrażenia magiczne o (5 to 10)Zredukowane obrażenia o (6 to 12) Zredukowane obrażenia magiczne o (6 to 12)Zredukowane obrażenia o (7 to 14) Zredukowane obrażenia magiczne o (7 to 14)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Zabójczyni
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana	Elitarny 0nn	Dwuręczna katana Zabójczyni	Elite	Dwuręczna katana Zabójczyni	83
@@ -59821,7 +59821,7 @@ FIELD	Wym. zręczność	120
 FIELD	Premia siła/zręczność	100/50
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	Zredukowane obrażenia o (2 to 4) Zredukowane obrażenia magiczne o (2 to 4) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (3 to 6) Zredukowane obrażenia magiczne o (3 to 6) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (4 to 8) Zredukowane obrażenia magiczne o (4 to 8) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (5 to 10) Zredukowane obrażenia magiczne o (5 to 10) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (6 to 12) Zredukowane obrażenia magiczne o (6 to 12) Punkty majsterkowania: (25 to 35) Zredukowane obrażenia o (7 to 14) Zredukowane obrażenia magiczne o (7 to 14) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Zredukowane obrażenia o (2 to 4) Zredukowane obrażenia magiczne o (2 to 4)Zredukowane obrażenia o (3 to 6) Zredukowane obrażenia magiczne o (3 to 6)Zredukowane obrażenia o (4 to 8) Zredukowane obrażenia magiczne o (4 to 8)Zredukowane obrażenia o (5 to 10) Zredukowane obrażenia magiczne o (5 to 10)Zredukowane obrażenia o (6 to 12) Zredukowane obrażenia magiczne o (6 to 12)Zredukowane obrażenia o (7 to 14) Zredukowane obrażenia magiczne o (7 to 14)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Zabójczyni
 IMG	items_weapon_sword_katana
 BLOCK	1	Mityczna Katana	Mityczny m37	Dwuręczna katana Zabójczyni	Mythic	Dwuręczna katana Zabójczyni	96
@@ -60505,7 +60505,7 @@ FIELD	Wym. zręczność	60
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Barbarzyńca
 FIELD	Dystans	7 to 29 (18.0 śr.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60523,7 +60523,7 @@ FIELD	Wym. zręczność	85
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Barbarzyńca
 FIELD	Dystans	17 to 47 (32.0 śr.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60541,7 +60541,7 @@ FIELD	Wym. zręczność	100
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Barbarzyńca
 FIELD	Dystans	29 to 63 (46.0 śr.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60559,7 +60559,7 @@ FIELD	Wym. zręczność	100
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Barbarzyńca
 FIELD	Dystans	32 to 70 (51.0 śr.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -62323,7 +62323,7 @@ FIELD	Wym. poz.	0
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	3 to 11 (7.0 śr.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum	Normalny pil	Javelina	Normal	Javelina	10
@@ -62338,7 +62338,7 @@ FIELD	Wym. zręczność	45
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	5 to 17 (11.0 śr.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Krótka Włócznia	Normalny ssp	Javelina	Normal	Javelina	15
@@ -62355,7 +62355,7 @@ FIELD	Wym. zręczność	40
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	8 to 20 (14.0 śr.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Glaive	Normalny glv	Javelina	Normal	Javelina	23
@@ -62372,7 +62372,7 @@ FIELD	Wym. zręczność	35
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	16 to 22 (19.0 śr.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Włócznia do rzucania	Normalny tsp	Javelina	Normal	Javelina	29
@@ -62388,7 +62388,7 @@ FIELD	Wym. zręczność	65
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	8 to 24 (16.0 śr.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Wojenny oszczep	Wyjątkowy 9ja	Javelina	Exceptional	Javelina	32
@@ -62405,7 +62405,7 @@ FIELD	Wym. zręczność	25
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	12 to 26 (19.0 śr.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Wielki Pilum	Wyjątkowy 9pi	Javelina	Exceptional	Javelina	36
@@ -62421,7 +62421,7 @@ FIELD	Wym. zręczność	88
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	15 to 35 (25.0 śr.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Simbilan	Wyjątkowy 9s9	Javelina	Exceptional	Javelina	40
@@ -62438,7 +62438,7 @@ FIELD	Wym. zręczność	80
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	24 to 46 (35.0 śr.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Spiculum	Wyjątkowy 9gl	Javelina	Exceptional	Javelina	48
@@ -62455,7 +62455,7 @@ FIELD	Wym. zręczność	73
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	28 to 56 (42.0 śr.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Harpuny	Wyjątkowy 9ts	Javelina	Exceptional	Javelina	54
@@ -62472,7 +62472,7 @@ FIELD	Wym. zręczność	118
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	14 to 50 (32.0 śr.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Starożytne Odłamy	Elitarny 0ja	Javelina	Elite	Javelina	59
@@ -62489,7 +62489,7 @@ FIELD	Wym. zręczność	123
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	29 to 57 (43.0 śr.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Złowieszcze Pilum	Elitarny 0pi	Javelina	Elite	Javelina	62
@@ -62505,7 +62505,7 @@ FIELD	Wym. zręczność	112
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	27 to 67 (47.0 śr.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Zwinna Włócznia	Elitarny 0s9	Javelina	Elite	Javelina	65
@@ -62522,7 +62522,7 @@ FIELD	Wym. zręczność	95
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	36 to 64 (50.0 śr.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Włócznia Ahaba	Elitarny 0gl	Javelina	Elite	Javelina	73
@@ -62539,7 +62539,7 @@ FIELD	Wym. zręczność	137
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	36 to 72 (54.0 śr.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Wielorybi Łowca	Elitarny 0ts	Javelina	Elite	Javelina	79
@@ -62556,7 +62556,7 @@ FIELD	Wym. zręczność	145
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	23 to 67 (45.0 śr.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Hyperion Włócznia	Elitarny 7ja	Javelina	Elite	Javelina	59
@@ -62573,7 +62573,7 @@ FIELD	Wym. zręczność	123
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	29 to 57 (43.0 śr.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Stygijski Pilum	Elitarny 7pi	Javelina	Elite	Javelina	62
@@ -62590,7 +62590,7 @@ FIELD	Wym. zręczność	112
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	27 to 67 (47.0 śr.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Włócznia Balroga	Elitarny 7s7	Javelina	Elite	Javelina	65
@@ -62607,7 +62607,7 @@ FIELD	Wym. zręczność	95
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	36 to 64 (50.0 śr.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Duchowy Glaive	Elitarny 7gl	Javelina	Elite	Javelina	73
@@ -62624,7 +62624,7 @@ FIELD	Wym. zręczność	137
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	36 to 72 (54.0 śr.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Skrzydlaty Harpun	Elitarny 7ts	Javelina	Elite	Javelina	79
@@ -62641,7 +62641,7 @@ FIELD	Wym. zręczność	145
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	23 to 67 (45.0 śr.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Mityczne Starożytne Odłamki	Mityczny m33	Javelina	Mythic	Javelina	96
@@ -62675,7 +62675,7 @@ FIELD	Wym. zręczność	145
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	25 to 74 (49.5 śr.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Mityczny Łowca Wielorybów	Mityczny m32	Javelina	Mythic	Javelina	96
@@ -63325,7 +63325,7 @@ FIELD	Wym. zręczność	15
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Dagger of Sacrifice	Wyjątkowy 9rd	Sztylet Nekromanty	Exceptional	Sztylet Nekromanty	58
@@ -63341,7 +63341,7 @@ FIELD	Wym. zręczność	30
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Ceremonialny Sztylet	Elitarny 0rd	Sztylet Nekromanty	Elite	Sztylet Nekromanty	83
@@ -63357,7 +63357,7 @@ FIELD	Wym. zręczność	50
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35) Dodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć trucizny Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Dodaje 8 obrażeń Odurzenia do Ataków przez 2 sekund +(1 to 3)% do obrażeń od zaklęć truciznyDodaje 15 obrażeń Odurzenia do Ataków przez 2 sekund +(2 to 5)% do obrażeń od zaklęć truciznyDodaje 30 obrażeń Odurzenia do Ataków przez 2 sekund +(4 to 8)% do obrażeń od zaklęć truciznyDodaje 60 obrażeń Odurzenia do Ataków przez 2 sekund +(6 to 11)% do obrażeń od zaklęć truciznyDodaje 90 obrażeń Odurzenia do Ataków przez 2 sekund +(10 to 13)% do obrażeń od zaklęć truciznyDodaje 120 obrażeń Odurzenia do Ataków przez 2 sekund +(11 to 14)% do obrażeń od zaklęć truciznyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Nekromanta
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Mitologiczny Ceremonialny Sztylet	Mityczny m14	Sztylet Nekromanty	Mythic	Sztylet Nekromanty	96
@@ -63523,7 +63523,7 @@ FIELD	Wym. poz.	0
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Święta Kula	Normalny ob2	Broń dystansowa	Normal	Broń dystansowa	8
@@ -63537,7 +63537,7 @@ FIELD	Wym. poz.	0
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Złączona Kula	Normalny ob4	Broń dystansowa	Normal	Broń dystansowa	17
@@ -63550,7 +63550,7 @@ FIELD	Wym. poz.	13
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Kamień Jareda	Normalny ob5	Broń dystansowa	Normal	Broń dystansowa	24
@@ -63565,7 +63565,7 @@ FIELD	Wym. poz.	18
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Wędzona Sfera	Normalny ob3	Broń dystansowa	Normal	Broń dystansowa	12
@@ -63579,7 +63579,7 @@ FIELD	Wym. poz.	8
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Świecąca Kula	Wyjątkowy ob6	Broń dystansowa	Exceptional	Broń dystansowa	29
@@ -63593,7 +63593,7 @@ FIELD	Wym. poz.	24
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Kryształowa Kula	Wyjątkowy ob7	Broń dystansowa	Exceptional	Broń dystansowa	35
@@ -63607,7 +63607,7 @@ FIELD	Wym. poz.	27
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Iskrząca Kula	Wyjątkowy ob9	Broń dystansowa	Exceptional	Broń dystansowa	42
@@ -63621,7 +63621,7 @@ FIELD	Wym. poz.	34
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Wirujący Kryształ	Wyjątkowy oba	Broń dystansowa	Exceptional	Broń dystansowa	49
@@ -63636,7 +63636,7 @@ FIELD	Wym. poz.	37
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Zamglona Sfera	Wyjątkowy ob8	Broń dystansowa	Exceptional	Broń dystansowa	38
@@ -63650,7 +63650,7 @@ FIELD	Wym. poz.	30
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Niebiański Kamień	Elitarny obb	Broń dystansowa	Elite	Broń dystansowa	57
@@ -63664,7 +63664,7 @@ FIELD	Wym. poz.	44
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Eldrycka Kula	Elitarny obc	Broń dystansowa	Elite	Broń dystansowa	62
@@ -63678,7 +63678,7 @@ FIELD	Wym. poz.	50
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Wortexowa Kula	Elitarny obe	Broń dystansowa	Elite	Broń dystansowa	67
@@ -63692,7 +63692,7 @@ FIELD	Wym. poz.	63
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Klejnot Wymiarowy	Elitarny obf	Broń dystansowa	Elite	Broń dystansowa	74
@@ -63707,7 +63707,7 @@ FIELD	Wym. poz.	66
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Demoniczne Serce	Elitarny obd	Broń dystansowa	Elite	Broń dystansowa	64
@@ -63720,7 +63720,7 @@ FIELD	Wym. poz.	56
 FIELD	Premia siła/zręczność	100/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Wirujący Kryształ	Wyjątkowy q83	Broń dystansowa	Exceptional	Broń dystansowa	49
@@ -63735,7 +63735,7 @@ FIELD	Wym. poz.	37
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Eldrycka Kula	Elitarny q84	Broń dystansowa	Elite	Broń dystansowa	62
@@ -63749,7 +63749,7 @@ FIELD	Wym. poz.	50
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Klejnot Wymiarowy	Elitarny q85	Broń dystansowa	Elite	Broń dystansowa	74
@@ -63764,7 +63764,7 @@ FIELD	Wym. poz.	66
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+(1 to 5) do Życia Punkty majsterkowania: (25 to 35) +(6 to 10) do Życia Punkty majsterkowania: (25 to 35) +(11 to 20) do Życia Punkty majsterkowania: (25 to 35) +(21 to 30) do Życia Punkty majsterkowania: (25 to 35) +(31 to 40) do Życia Punkty majsterkowania: (25 to 35) +(41 to 60) do Życia Punkty majsterkowania: (25 to 35) +(1 to 5) do Many Punkty majsterkowania: (25 to 35) +(5 to 10) do Many Punkty majsterkowania: (25 to 35) +(11 to 20) do Many Punkty majsterkowania: (25 to 35) +(21 to 30) do Many Punkty majsterkowania: (25 to 35) +(31 to 40) do Many Punkty majsterkowania: (25 to 35) +(41 to 60) do Many Punkty majsterkowania: (25 to 35) +(61 to 80) do Many Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+(1 to 5) do Życia+(6 to 10) do Życia+(11 to 20) do Życia+(21 to 30) do Życia+(31 to 40) do Życia+(41 to 60) do Życia+(1 to 5) do Many+(5 to 10) do Many+(11 to 20) do Many+(21 to 30) do Many+(31 to 40) do Many+(41 to 60) do Many+(61 to 80) do ManyPunkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Mityczny Wymiarowy Kryształ	Mityczny m07	Broń dystansowa	Mythic	Broń dystansowa	96
@@ -64624,7 +64624,7 @@ FIELD	Wym. zręczność	18
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	7 to 8 (7.5 śr.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Fūma Shuriken	Wyjątkowy fsk	Kostka	Exceptional	Kostka	45
@@ -64640,7 +64640,7 @@ FIELD	Wym. zręczność	55
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	22 to 23 (22.5 śr.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri	Elitarny kgk	Kostka	Elite	Kostka	70
@@ -64656,7 +64656,7 @@ FIELD	Wym. zręczność	160
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	45 to 46 (45.5 śr.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Mityczny Kagekiri	Mityczny m39	Kostka	Mythic	Kostka	96
@@ -64672,7 +64672,7 @@ FIELD	Wym. zręczność	160
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	Punkty majsterkowania: (25 to 35)
 FIELD	Dystans	50 to 51 (50.5 śr.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Mana Ostrze	Normalny mnb	Ostrze many Czarodziejki	Normal	Ostrze many Czarodziejki	33
@@ -65334,7 +65334,7 @@ FIELD	Wym. zręczność	15
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Mistyczna Laska	Elitarny 1ls	Kostur	Elite	Kostur	62
@@ -65350,7 +65350,7 @@ FIELD	Wym. zręczność	35
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Skruszona Laska	Elitarny 1cs	Kostur	Elite	Kostur	64
@@ -65367,7 +65367,7 @@ FIELD	Wym. zręczność	37
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Kij magii	Elitarny 1bs	Kostur	Elite	Kostur	67
@@ -65384,7 +65384,7 @@ FIELD	Wym. zręczność	27
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Różdżka Arkana	Elitarny 1ws	Kostur	Elite	Kostur	74
@@ -65400,7 +65400,7 @@ FIELD	Wym. zręczność	15
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Laska	Elitarny 6ss	Kostur	Elite	Kostur	57
@@ -65417,7 +65417,7 @@ FIELD	Wym. zręczność	15
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Stalagmit	Elitarny 6ls	Kostur	Elite	Kostur	62
@@ -65434,7 +65434,7 @@ FIELD	Wym. zręczność	35
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Elderska Laska	Elitarny 6cs	Kostur	Elite	Kostur	64
@@ -65451,7 +65451,7 @@ FIELD	Wym. zręczność	37
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Shillelagh	Elitarny 6bs	Kostur	Elite	Kostur	67
@@ -65468,7 +65468,7 @@ FIELD	Wym. zręczność	27
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Laska Archona	Elitarny 6ws	Kostur	Elite	Kostur	74
@@ -65485,7 +65485,7 @@ FIELD	Wym. zręczność	15
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	1
-FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +1 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +2 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +3 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Ognia (Sorceress Only)+2 do Umiejętności Ognia (Sorceress Only)+3 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+1 do Umiejętności Zimowych (Sorceress Only)+2 do Umiejętności Zimowych (Sorceress Only)+3 do Umiejętności Zimowych (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Mityczny mistyczny kostur	Mityczny m50	Kostur	Mythic	Kostur	96
@@ -65501,7 +65501,7 @@ FIELD	Wym. zręczność	35
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	1
-FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)+5 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Mityczny Skamieniały Kij	Mityczny m29	Kostur	Mythic	Kostur	96
@@ -65518,7 +65518,7 @@ FIELD	Wym. zręczność	41
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)+5 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Mityczna Laska Maga	Mityczny m36	Kostur	Mythic	Kostur	96
@@ -65535,7 +65535,7 @@ FIELD	Wym. zręczność	27
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	1
-FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)+5 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Mityczna Arkana Laska	Mityczny m11	Kostur	Mythic	Kostur	96
@@ -65551,7 +65551,7 @@ FIELD	Wym. zręczność	15
 FIELD	Premia siła/zręczność	100/0
 FIELD	Gniazda	6
 FIELD	Typ klejnotu	0
-FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Ognia (Sorceress Only) Punkty majsterkowania: (25 to 35) +4 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35) +5 do Umiejętności Zimowych (Sorceress Only) Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Ognia (Sorceress Only)+5 do Umiejętności Ognia (Sorceress Only)+4 do Umiejętności Zimowych (Sorceress Only)+5 do Umiejętności Zimowych (Sorceress Only)Punkty majsterkowania: (25 to 35)
 FIELD	Mod laski	Czarodziejka
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Krótki Miecz	Normalny ssd	Miecz	Normal	Miecz	1
@@ -66614,7 +66614,7 @@ FIELD	Wym. zręczność	25
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	6 to 16 (11.0 śr.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Zrównoważona Siekiera	Normalny bal	Wyrzucany topór	Normal	Wyrzucany topór	21
@@ -66630,7 +66630,7 @@ FIELD	Wym. zręczność	57
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	9 to 21 (15.0 śr.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Francisca	Wyjątkowy 9ta	Wyrzucany topór	Exceptional	Wyrzucany topór	36
@@ -66646,7 +66646,7 @@ FIELD	Wym. zręczność	80
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	15 to 39 (27.0 śr.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hurlbat	Wyjątkowy 9b8	Wyrzucany topór	Exceptional	Wyrzucany topór	46
@@ -66663,7 +66663,7 @@ FIELD	Wym. zręczność	106
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	3
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	22 to 38 (30.0 śr.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Rzucany topór	Elitarny 0ta	Wyrzucany topór	Elite	Wyrzucany topór	62
@@ -66679,7 +66679,7 @@ FIELD	Wym. zręczność	108
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	40 to 59 (49.5 śr.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Zrównoważony Topór	Elitarny 0b6	Wyrzucany topór	Elite	Wyrzucany topór	71
@@ -66696,7 +66696,7 @@ FIELD	Wym. zręczność	122
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	24 to 62 (43.0 śr.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Latająca Siekiera	Elitarny 7ta	Wyrzucany topór	Elite	Wyrzucany topór	62
@@ -66712,7 +66712,7 @@ FIELD	Wym. zręczność	108
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	40 to 59 (49.5 śr.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Skrzydlaty Topór	Elitarny 7b8	Wyrzucany topór	Elite	Wyrzucany topór	71
@@ -66729,7 +66729,7 @@ FIELD	Wym. zręczność	122
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	24 to 62 (43.0 śr.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Mityczny Zrównoważony Topór	Mityczny m26	Wyrzucany topór	Mythic	Wyrzucany topór	96
@@ -66746,7 +66746,7 @@ FIELD	Wym. zręczność	122
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	4
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	26 to 68 (47.0 śr.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Nóż do rzucania	Normalny tkf	Nóż do rzucania	Normal	Nóż do rzucania	4
@@ -66760,7 +66760,7 @@ FIELD	Wym. zręczność	21
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	4 to 12 (8.0 śr.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Zrównoważony Nóż	Normalny bkf	Nóż do rzucania	Normal	Nóż do rzucania	17
@@ -66775,7 +66775,7 @@ FIELD	Wym. zręczność	51
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	5 to 15 (10.0 śr.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Strzała Bitewna	Wyjątkowy 9tk	Nóż do rzucania	Exceptional	Nóż do rzucania	31
@@ -66790,7 +66790,7 @@ FIELD	Wym. zręczność	52
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	11 to 35 (23.0 śr.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Wojenny Dart	Wyjątkowy 9bk	Nóż do rzucania	Exceptional	Nóż do rzucania	42
@@ -66806,7 +66806,7 @@ FIELD	Wym. zręczność	97
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	15 to 35 (25.0 śr.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Rzucany sztylet	Elitarny 0tk	Nóż do rzucania	Elite	Nóż do rzucania	58
@@ -66821,7 +66821,7 @@ FIELD	Wym. zręczność	141
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	33 to 61 (47.0 śr.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Zrównoważony Sztylet	Elitarny 0bk	Nóż do rzucania	Elite	Nóż do rzucania	67
@@ -66837,7 +66837,7 @@ FIELD	Wym. zręczność	142
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	25 to 60 (42.5 śr.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Latający Nóż	Elitarny 7tk	Nóż do rzucania	Elite	Nóż do rzucania	58
@@ -66853,7 +66853,7 @@ FIELD	Wym. zręczność	141
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	33 to 61 (47.0 śr.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Skrzydlaty Nóż	Elitarny 7bk	Nóż do rzucania	Elite	Nóż do rzucania	67
@@ -66869,7 +66869,7 @@ FIELD	Wym. zręczność	142
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	25 to 60 (42.5 śr.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Mityczny Zrównoważony Sztylet	Mityczny m08	Nóż do rzucania	Mythic	Nóż do rzucania	96
@@ -66885,7 +66885,7 @@ FIELD	Wym. zręczność	142
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	27 to 66 (46.5 śr.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Mityczny Zrównoważony Sztylet	Mityczny m27	Nóż do rzucania	Mythic	Nóż do rzucania	96
@@ -66901,7 +66901,7 @@ FIELD	Wym. zręczność	142
 FIELD	Premia siła/zręczność	75/75
 FIELD	Gniazda	2
 FIELD	Typ klejnotu	0
-FIELD	Automod	+5% Atak Przeszywający Punkty majsterkowania: (25 to 35) +10% Atak Przeszywający Punkty majsterkowania: (25 to 35) +15% Atak Przeszywający Punkty majsterkowania: (25 to 35) +20% Atak Przeszywający Punkty majsterkowania: (25 to 35) +25% Atak Przeszywający Punkty majsterkowania: (25 to 35)
+FIELD	Automod	+5% Atak Przeszywający+10% Atak Przeszywający+15% Atak Przeszywający+20% Atak Przeszywający+25% Atak PrzeszywającyPunkty majsterkowania: (25 to 35)
 FIELD	Dystans	28 to 66 (47.0 śr.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Ostrze Próżni	Normalny vob	Ostrze próżni	Normal	Ostrze próżni	23
@@ -111660,6 +111660,10 @@ LINE	T	ÿcNZestaw Kluczy Pandemonium (100% szansy)
 LINE	T	ÿcNInne zwykłe przedmioty/materiały
 LINE	H	ÿcHNagrody (wariant uber)
 LINE	T	ÿcNJeśli zabijesz Luciona na /players 8, upuści swoją esencję (Esencja Luciona). Esencja to potężniejsza wersja przedmiotu Gniazdo Donut.
+PAGE	specializations	Specjalizacje	Endgame
+ENTRY	Specjalizacje	Perks of the four specializations
+BLOCK	0						0
+LINE	T	The specializations need their data from the website. Open this tab once the plugin has loaded it.
 PAGE	weapon-mastery	Biegłość w broni	Endgame
 ENTRY	Overview	
 BLOCK	0						0

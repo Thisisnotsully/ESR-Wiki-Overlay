@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(ESRWikiOverlay VERSION 1.6.0 LANGUAGES CXX)
+project(ESRWikiOverlay VERSION 1.7.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -12,7 +12,7 @@ set(ESR_PLUGIN_SDK_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/../../../PluginSDK-maste
 option(ESR_WIKI_BUILD_TESTS "Build the portable model tests and register them with CTest" ON)
 
 # Portable model: parser, search, paging, color codes. Builds on any host.
-add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/locale_align.cpp src/locale_live.cpp)
+add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/spec_data.cpp src/search_index.cpp src/text_fold.cpp src/locale_align.cpp src/locale_live.cpp src/campaign_data.cpp src/campaign_labels.cpp src/web_maps_page.cpp src/campaign_live.cpp src/skills_data.cpp src/skill_calc.cpp src/skills_page.cpp)
 target_include_directories(esr_wiki_model PUBLIC src)
 if(NOT MSVC)
   target_compile_options(esr_wiki_model PRIVATE -Wall -Wextra -Werror)
@@ -246,6 +246,74 @@ if(ESR_WIKI_BUILD_TESTS)
                                  "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ias/ias-calculator-data.js"
                                  "${CMAKE_CURRENT_SOURCE_DIR}/tests/ias_cases.tsv")
 
+  # The Specializations page reader (tabs, perks, tooltips) against the saved website page.
+  add_executable(spec_data_test tests/spec_data_test.cpp)
+  target_link_libraries(spec_data_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(spec_data_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET spec_data_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME spec_data
+           COMMAND spec_data_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-specializations/specializations.htm")
+
+  # The Campaign Progression map data (tools/build_campaign.py writes data/campaign-map.txt): parse, grids, names, layout.
+  add_executable(campaign_data_test tests/campaign_data_test.cpp)
+  target_link_libraries(campaign_data_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(campaign_data_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET campaign_data_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME campaign_data
+           COMMAND campaign_data_test "${CMAKE_CURRENT_SOURCE_DIR}/data/campaign-map.txt")
+
+  # The campaign map's label placer on every act tab of the real data: no overlaps, less edge under the labels.
+  add_executable(campaign_labels_test tests/campaign_labels_test.cpp)
+  target_link_libraries(campaign_labels_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(campaign_labels_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET campaign_labels_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME campaign_labels
+           COMMAND campaign_labels_test "${CMAKE_CURRENT_SOURCE_DIR}/data/campaign-map.txt")
+
+  # The official Maps page reader (teleport restrictions, special-area cards) against the saved page and its translations.
+  add_executable(web_maps_page_test tests/web_maps_page_test.cpp)
+  target_link_libraries(web_maps_page_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(web_maps_page_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET web_maps_page_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME web_maps_page
+           COMMAND web_maps_page_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-maps" "${CMAKE_CURRENT_SOURCE_DIR}/data/locales")
+
+  # The official Maps page matched to the campaign map's areas (by name, then by position on the English page).
+  add_executable(campaign_live_test tests/campaign_live_test.cpp)
+  target_link_libraries(campaign_live_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(campaign_live_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET campaign_live_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME campaign_live
+           COMMAND campaign_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/campaign-map.txt"
+                                      "${CMAKE_CURRENT_SOURCE_DIR}/data/website-maps" "${CMAKE_CURRENT_SOURCE_DIR}/data/locales")
+
+  # Search suggestions: ranking, accents and case, typos, text search, highlights.
+  add_executable(search_index_test tests/search_index_test.cpp)
+  target_link_libraries(search_index_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(search_index_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET search_index_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME search_index
+           COMMAND search_index_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-specializations/specializations.htm"
+                                     "${CMAKE_CURRENT_SOURCE_DIR}/data/locales/deDE/specializations.htm")
+
   # Controller support: PlayStation report layouts, button repeat, tab-grid and on-screen keyboard navigation.
   add_executable(pad_logic_test tests/pad_logic_test.cpp)
   target_link_libraries(pad_logic_test PRIVATE esr_wiki_model)
@@ -255,6 +323,29 @@ if(ESR_WIKI_BUILD_TESTS)
     set_property(TARGET pad_logic_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
   endif()
   add_test(NAME pad_logic COMMAND pad_logic_test)
+
+  # Skills tab: skills-data.json reader and the port of the website's skill-calc.js. Every line of every skill in all
+  # 13 languages must match the JavaScript byte for byte (fixtures written by tests/skill_calc_parity.mjs).
+  add_executable(skill_calc_test tests/skill_calc_test.cpp)
+  target_link_libraries(skill_calc_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(skill_calc_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET skill_calc_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME skill_calc
+           COMMAND skill_calc_test "${CMAKE_CURRENT_SOURCE_DIR}/data" "${CMAKE_CURRENT_SOURCE_DIR}/tests/skill_calc")
+
+  # The Skills tab's entries and blocks, made from data/skills-data.json (src/skills_page.hpp).
+  add_executable(skills_page_test tests/skills_page_test.cpp)
+  target_link_libraries(skills_page_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(skills_page_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET skills_page_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME skills_page
+           COMMAND skills_page_test "${CMAKE_CURRENT_SOURCE_DIR}/data")
 endif()
 
 # Win32 overlay and D2RLoader plugin (Windows only).
@@ -297,6 +388,10 @@ if(WIN32)
   install(FILES data/web-base-art.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(FILES data/website-ias/ias-calculator.html data/website-ias/ias-calculator-data.js
           DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/website-specializations/specializations.htm DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/campaign-map.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/website-maps/maps.htm DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/skills-data.json DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(DIRECTORY data/images/ DESTINATION d2rloader/plugins/esr-wiki-overlay/images)
-  install(DIRECTORY data/locales/ DESTINATION d2rloader/plugins/esr-wiki-overlay/locales FILES_MATCHING PATTERN "*.txt")
+  install(DIRECTORY data/locales/ DESTINATION d2rloader/plugins/esr-wiki-overlay/locales FILES_MATCHING PATTERN "*.txt" PATTERN "specializations.htm" PATTERN "maps.htm" PATTERN "skills-data.json")
 endif()

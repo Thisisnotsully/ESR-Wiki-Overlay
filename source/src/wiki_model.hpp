@@ -14,6 +14,8 @@
 #include <string>
 #include <vector>
 
+#include "text_fold.hpp"
+
 namespace esrwiki {
 
 enum class LineKind : char {
@@ -57,6 +59,10 @@ struct Block {
     int level = 0;        // required level, for sorting
     std::string note;               // extra notes shown beside the card; not part of the tooltip
     std::string tag;                // short label drawn under the art in a card tile, e.g. "(Coupon only)"
+    // Search cache: the title and BlockSearchLines, made by text::SearchTextUtf8 and joined by '\n', built the first
+    // time the block is searched.
+    mutable std::string foldedText;
+    mutable bool foldedReady = false;
 };
 
 struct Entry {
@@ -71,6 +77,9 @@ struct Entry {
     bool keepOrder = false;   // type chips in the order the blocks appear, not alphabetical (flag "keeporder")
     bool socketSort = false;  // a Sockets filter like runewords, and no sort chips (flag "socketsort")
     bool fiveAcross = false;  // item cards, five per row (flag "fiveacross" after "sortable")
+    // The Campaign Progression map is drawn under the entry's text (flag "campaignmap"). A flag rather than the title, so the
+    // translated copies of wiki-data.txt are recognised too.
+    bool campaignMap = false;
 };
 
 struct Page {
@@ -91,8 +100,8 @@ struct Database {
 // record is malformed; `out` is left unspecified in that case.
 bool ParseDatabase(const std::string& text, Database& out, std::string& error);
 
-// Indexes of entries on `page` whose title, subtitle, or any block text contains
-// `query` (ASCII case-insensitive). An empty query matches every entry.
+// Indexes of entries on `page` whose title and subtitle, or any one block, match `query` (the query language of
+// text_fold.hpp: every word, "phrases", -excluded; case and accents folded). An empty query matches every entry.
 std::vector<std::size_t> FilterEntries(const Page& page, const std::string& query);
 
 // How the rows of an entry's item blocks are ordered. Sockets sorts by the
@@ -115,14 +124,25 @@ BlockSort ResolveBlockSort(const Entry& entry, BlockSort sort);
 // Block indexes of `entry` in display order. `socketFilter` keeps only blocks with
 // that many runes (0 keeps every block). Blocks with a section stay grouped under
 // it, in the order each section first appears, unless sorted by Name.
-// `query` (ASCII case-insensitive) keeps only blocks whose title, section, fields,
-// lines or rune labels match, unless the entry's own title or subtitle matches.
+// `query` (see FilterEntries) keeps only blocks that match it, unless the entry's own title and subtitle match;
+// then every block is kept except those with an excluded term.
 std::vector<std::size_t> ArrangeBlocks(const Entry& entry, std::size_t socketFilter, const std::string& tierFilter,
                                        const std::string& familyFilter, BlockSort sort,
                                        const std::string& query = std::string());
 
-// True when `query` appears in any searchable text of the block (tooltip text included).
+// True when the block matches `query` (see FilterEntries): its title, subtitle, section, fields, rune labels, lines,
+// note and tag. The search suggestions (search_index.hpp) match a card on exactly this text.
 bool BlockMatches(const Block& block, const std::string& query);
+bool BlockMatches(const Block& block, const text::ParsedQuery& query);
+// True when the entry's own title and subtitle match `query`.
+bool EntryTextMatches(const Entry& entry, const text::ParsedQuery& query);
+// The searchable lines of a block besides its title, colour codes removed, in a fixed order: subtitle, section,
+// "label: value" for each field, the rune labels (one line), the lines, note, tag. Empty pieces are left out.
+std::vector<std::string> BlockSearchLines(const Block& block);
+// The block's cached search text (see Block::foldedText).
+const std::string& BlockSearchText(const Block& block);
+// The entry's title and subtitle (colour codes removed) made by text::SearchTextUtf8, joined by '\n'.
+std::string EntrySearchText(const Entry& entry);
 
 // True when any block in the entry is a runeword (has rune icons).
 bool HasRuneBlocks(const Entry& entry);

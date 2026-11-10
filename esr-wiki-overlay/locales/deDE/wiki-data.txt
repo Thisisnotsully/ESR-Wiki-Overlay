@@ -9,7 +9,7 @@ LINE	T	Öffne dein Startpaket und deine Waffenkiste, bevor du die Stadt verläss
 ENTRY	Tod, Fertigkeiten zurücksetzen und Entscheidungen rückgängig machen	Willkommen bei Eastern Sun Resurrected
 BLOCK	0						0
 LINE	T	Alt+Klick auf eine +-Schaltfläche im Charakterbildschirm setzt die Fertigkeiten zurück und verbraucht eine Nutzung eines begrenzten Zählers; fülle ihn auf, indem du 4 Drachensteine im Würfel zu einem Token der Absolution kombinierst. Sterben kostet etwas Erfahrung und Gold, aber keine Ausrüstung, und innerhalb eines Kartenboss-Bereichs kostet es gar keine Erfahrung. Die meisten frühen Ausrüstungsentscheidungen lassen sich rückgängig machen: Entferne alles aus einem Sockel, indem du den Gegenstand mit einem Schlüssel umwandelst (funktioniert nicht bei Edelsteinwörtern, aber bei Runenwörtern). Ein Schmiede-Handwerk entfernst du, indem du den Gegenstand mit 3 Auftautränken umwandelst.
-ENTRY	Kampagnenverlauf	Normaler Schwierigkeitsgrad
+ENTRY	Kampagnenverlauf	Normaler Schwierigkeitsgrad	campaignmap
 BLOCK	0						0
 LINE	T	ESR hat den Aufbau der Kampagne gestrafft, sodass sie schlanker ist als im Original. In manchen Gebieten gibt es weniger Ebenen bis zum Weiterkommen, und manche lassen sich ganz umgehen.
 LINE	T	
@@ -55371,7 +55371,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Elfenkette	Normal elv	Rüstungen	Normal	Rüstungen	33
 FIELD	Verteidigung	307-343
@@ -55604,7 +55604,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Drow Adamantitkette	Außergewöhnlich xlv	Rüstungen	Exceptional	Rüstungen	58
 FIELD	Verteidigung	524-572
@@ -55824,7 +55824,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Sylvanische Kette	Elite ylv	Rüstungen	Elite	Rüstungen	83
 FIELD	Verteidigung	788-809
@@ -56071,7 +56071,7 @@ FIELD	Block %	1
 FIELD	Schaden	4-12
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Heraldisches Schild	Normal pa3	Aurenschilde	Normal	Aurenschilde	16
 FIELD	Verteidigung	27-42
@@ -56084,7 +56084,7 @@ FIELD	Block %	2
 FIELD	Schaden	6-18
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Aerin-Schild	Normal pa4	Aurenschilde	Normal	Aurenschilde	20
 FIELD	Verteidigung	43-61
@@ -56097,7 +56097,7 @@ FIELD	Block %	2
 FIELD	Schaden	8-20
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Kronenschild	Normal pa5	Aurenschilde	Normal	Aurenschilde	24
 FIELD	Verteidigung	63-84
@@ -56110,7 +56110,7 @@ FIELD	Block %	3
 FIELD	Schaden	8-24
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache	Normal pa2	Aurenschilde	Normal	Aurenschilde	8
 FIELD	Verteidigung	13-25
@@ -56123,7 +56123,7 @@ FIELD	Block %	2
 FIELD	Schaden	4-16
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Akaran-Schild	Außergewöhnlich pa6	Aurenschilde	Exceptional	Aurenschilde	31
 FIELD	Verteidigung	100-112
@@ -56136,7 +56136,7 @@ FIELD	Block %	2
 FIELD	Schaden	24-32
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Schutzschild	Außergewöhnlich pa8	Aurenschilde	Exceptional	Aurenschilde	41
 FIELD	Verteidigung	130-150
@@ -56149,7 +56149,7 @@ FIELD	Block %	3
 FIELD	Schaden	36-48
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Vergoldeter Schild	Außergewöhnlich pa9	Aurenschilde	Exceptional	Aurenschilde	45
 FIELD	Verteidigung	151-175
@@ -56162,7 +56162,7 @@ FIELD	Block %	3
 FIELD	Schaden	40-56
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Königsschild	Außergewöhnlich paa	Aurenschilde	Exceptional	Aurenschilde	49
 FIELD	Verteidigung	176-204
@@ -56175,7 +56175,7 @@ FIELD	Block %	4
 FIELD	Schaden	48-64
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Akaran Rondache	Außergewöhnlich pa7	Aurenschilde	Exceptional	Aurenschilde	34
 FIELD	Verteidigung	113-129
@@ -56188,7 +56188,7 @@ FIELD	Block %	2
 FIELD	Schaden	30-40
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Heilige Targe	Elite pab	Aurenschilde	Elite	Aurenschilde	58
 FIELD	Verteidigung	125-145
@@ -56201,7 +56201,7 @@ FIELD	Block %	2
 FIELD	Schaden	44-140
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Kurast-Schild	Elite pad	Aurenschilde	Elite	Aurenschilde	66
 FIELD	Verteidigung	171-199
@@ -56214,7 +56214,7 @@ FIELD	Block %	3
 FIELD	Schaden	20-164
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Zakarum-Schild	Elite pae	Aurenschilde	Elite	Aurenschilde	70
 FIELD	Verteidigung	200-232
@@ -56227,7 +56227,7 @@ FIELD	Block %	3
 FIELD	Schaden	92-92
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Vortexschild	Elite paf	Aurenschilde	Elite	Aurenschilde	74
 FIELD	Verteidigung	233-269
@@ -56240,7 +56240,7 @@ FIELD	Block %	4
 FIELD	Schaden	10-174
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Heilige Rondache	Elite pac	Aurenschilde	Elite	Aurenschilde	60
 FIELD	Verteidigung	146-170
@@ -56253,7 +56253,7 @@ FIELD	Block %	3
 FIELD	Schaden	70-116
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Alle Widerstände +(5 to 10) Tüftelpunkte: (25 to 35) Alle Widerstände +(8 to 15) Tüftelpunkte: (25 to 35) Alle Widerstände +(16 to 30) Tüftelpunkte: (25 to 35) Alle Widerstände +(25 to 35) Tüftelpunkte: (25 to 35) Alle Widerstände +(35 to 45) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Alle Widerstände +(5 to 10)Alle Widerstände +(8 to 15)Alle Widerstände +(16 to 30)Alle Widerstände +(25 to 35)Alle Widerstände +(35 to 45)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Schärpe	Normal lbl	Gürtel	Normal	Gürtel	3
 FIELD	Verteidigung	6-10
@@ -56331,7 +56331,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	2
-FIELD	Automod	+(1 to 3) zu Stärke Tüftelpunkte: (25 to 35) +(4 to 6) zu Stärke Tüftelpunkte: (25 to 35) +(7 to 9) zu Stärke Tüftelpunkte: (25 to 35) +(10 to 15) zu Stärke Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 3) zu Stärke+(4 to 6) zu Stärke+(7 to 9) zu Stärke+(10 to 15) zu StärkeTüftelpunkte: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Dämonhautgürtel	Außergewöhnlich zlb	Gürtel	Exceptional	Gürtel	31
 FIELD	Verteidigung	75-95
@@ -56409,7 +56409,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	2
-FIELD	Automod	+(1 to 3) zu Stärke Tüftelpunkte: (25 to 35) +(4 to 6) zu Stärke Tüftelpunkte: (25 to 35) +(7 to 9) zu Stärke Tüftelpunkte: (25 to 35) +(10 to 15) zu Stärke Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 3) zu Stärke+(4 to 6) zu Stärke+(7 to 9) zu Stärke+(10 to 15) zu StärkeTüftelpunkte: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Hanfband	Elite alb	Gürtel	Elite	Gürtel	59
 FIELD	Verteidigung	160-196
@@ -56487,7 +56487,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	2
-FIELD	Automod	+(1 to 3) zu Stärke Tüftelpunkte: (25 to 35) +(4 to 6) zu Stärke Tüftelpunkte: (25 to 35) +(7 to 9) zu Stärke Tüftelpunkte: (25 to 35) +(10 to 15) zu Stärke Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 3) zu Stärke+(4 to 6) zu Stärke+(7 to 9) zu Stärke+(10 to 15) zu StärkeTüftelpunkte: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Spinnennetzgürtel	Elite ulc	Gürtel	Elite	Gürtel	59
 FIELD	Verteidigung	160-196
@@ -57394,7 +57394,7 @@ FIELD	Block %	8
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_codex
 BLOCK	1	[ns]Kompendium	Normal wa4	[ns]Grimoire	Normal	[ns]Grimoire	20
@@ -57408,7 +57408,7 @@ FIELD	Block %	10
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_compendium
 BLOCK	1	[ns]Grimoire	Normal wa5	[ns]Grimoire	Normal	[ns]Grimoire	24
@@ -57422,7 +57422,7 @@ FIELD	Block %	12
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	[ns]Altes Buch	Normal wa1	[ns]Grimoire	Normal	[ns]Grimoire	4
@@ -57436,7 +57436,7 @@ FIELD	Block %	3
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	[ms]Foliant	Normal wa2	[ns]Grimoire	Normal	[ns]Grimoire	8
@@ -57450,7 +57450,7 @@ FIELD	Block %	5
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	[ms]Dunkler Kodex	Außergewöhnlich wa8	[ns]Grimoire	Exceptional	[ns]Grimoire	45
@@ -57464,7 +57464,7 @@ FIELD	Block %	8
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_codex
 BLOCK	1	[ns]Besessenes Kompendium	Außergewöhnlich wa9	[ns]Grimoire	Exceptional	[ns]Grimoire	49
@@ -57478,7 +57478,7 @@ FIELD	Block %	10
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_compendium
 BLOCK	1	[ns]Besessenes Grimoire	Außergewöhnlich waa	[ns]Grimoire	Exceptional	[ns]Grimoire	54
@@ -57492,7 +57492,7 @@ FIELD	Block %	12
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	[ms]Verbrannter Text	Außergewöhnlich wa6	[ns]Grimoire	Exceptional	[ns]Grimoire	33
@@ -57506,7 +57506,7 @@ FIELD	Block %	3
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	[ms]Dunkler Foliant	Außergewöhnlich wa7	[ns]Grimoire	Exceptional	[ns]Grimoire	39
@@ -57520,7 +57520,7 @@ FIELD	Block %	5
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	[ms]Okkulter Kodex	Elite wad	[ns]Grimoire	Elite	[ns]Grimoire	66
@@ -57534,7 +57534,7 @@ FIELD	Block %	8
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_codex
 BLOCK	1	[ns]Blasphemisches Kompendium	Elite wae	[ns]Grimoire	Elite	[ns]Grimoire	81
@@ -57548,7 +57548,7 @@ FIELD	Block %	10
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_compendium
 BLOCK	1	[ns]Blasphemisches Grimoire	Elite waf	[ns]Grimoire	Elite	[ns]Grimoire	85
@@ -57562,7 +57562,7 @@ FIELD	Block %	12
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	[ms]Vergessener Band	Elite wab	[ns]Grimoire	Elite	[ns]Grimoire	59
@@ -57576,7 +57576,7 @@ FIELD	Block %	3
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	[ms]Okkulter Foliant	Elite wac	[ns]Grimoire	Elite	[ns]Grimoire	67
@@ -57590,7 +57590,7 @@ FIELD	Block %	5
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Hexenmeister
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Kappe	Normal cap	Helm	Normal	Helm	1
@@ -57708,7 +57708,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(6 to 10)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(11 to 20)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(21 to 30)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(31 to 40)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(41 to 50)% Extra Gold von Monstern Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5)% Extra Gold von Monstern+(6 to 10)% Extra Gold von Monstern+(11 to 20)% Extra Gold von Monstern+(21 to 30)% Extra Gold von Monstern+(31 to 40)% Extra Gold von Monstern+(41 to 50)% Extra Gold von MonsternTüftelpunkte: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Kriegshelm	Außergewöhnlich xap	Helm	Exceptional	Helm	29
 FIELD	Verteidigung	52-67
@@ -57825,7 +57825,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(6 to 10)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(11 to 20)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(21 to 30)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(31 to 40)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(41 to 50)% Extra Gold von Monstern Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5)% Extra Gold von Monstern+(6 to 10)% Extra Gold von Monstern+(11 to 20)% Extra Gold von Monstern+(21 to 30)% Extra Gold von Monstern+(31 to 40)% Extra Gold von Monstern+(41 to 50)% Extra Gold von MonsternTüftelpunkte: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Flügelhelm	Außergewöhnlich 4hm	Helm	Exceptional	Helm	48
 FIELD	Verteidigung	105-138
@@ -57968,7 +57968,7 @@ FIELD	Block %	0
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(6 to 10)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(11 to 20)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(21 to 30)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(31 to 40)% Extra Gold von Monstern Tüftelpunkte: (25 to 35) +(41 to 50)% Extra Gold von Monstern Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5)% Extra Gold von Monstern+(6 to 10)% Extra Gold von Monstern+(11 to 20)% Extra Gold von Monstern+(21 to 30)% Extra Gold von Monstern+(31 to 40)% Extra Gold von Monstern+(41 to 50)% Extra Gold von MonsternTüftelpunkte: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Shako	Elite uap	Helm	Elite	Helm	57
 FIELD	Verteidigung	130-166
@@ -58652,7 +58652,7 @@ FIELD	Block %	1
 FIELD	Schaden	12-20
 FIELD	Sockel	2
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Festungsschild	Normal fts	Schild	Normal	Schild	31
 FIELD	Verteidigung	48-72
@@ -58704,7 +58704,7 @@ FIELD	Block %	2
 FIELD	Schaden	12-20
 FIELD	Sockel	2
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Verteidiger	Außergewöhnlich xuc	Schild	Exceptional	Schild	29
 FIELD	Verteidigung	60-75
@@ -58808,7 +58808,7 @@ FIELD	Block %	1
 FIELD	Schaden	40-76
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Reflexionsschild	Außergewöhnlich xft	Schild	Exceptional	Schild	56
 FIELD	Verteidigung	37-75
@@ -58938,7 +58938,7 @@ FIELD	Block %	4
 FIELD	Schaden	70-122
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Zeremonialer Schild	Elite yft	Schild	Elite	Schild	81
 FIELD	Verteidigung	195-236
@@ -59055,7 +59055,7 @@ FIELD	Block %	2
 FIELD	Schaden	70-122
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Angreifer erleidet Schaden von (4 to 12) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (16 to 24) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (28 to 36) Tüftelpunkte: (25 to 35) Angreifer erleidet Schaden von (40 to 80) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Angreifer erleidet Schaden von (4 to 12)Angreifer erleidet Schaden von (16 to 24)Angreifer erleidet Schaden von (28 to 36)Angreifer erleidet Schaden von (40 to 80)Tüftelpunkte: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Geistkrone	Normal eht	Geistkrone	Normal	Geistkrone	16
 FIELD	Verteidigung	30-42
@@ -59107,7 +59107,7 @@ FIELD	Block %	1
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Entwirrer-Kopf	Normal ne3	Voodoo-Köpfe	Normal	Voodoo-Köpfe	16
@@ -59121,7 +59121,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Gargoylekopf	Normal ne4	Voodoo-Köpfe	Normal	Voodoo-Köpfe	20
@@ -59135,7 +59135,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Dämonenkopf	Normal ne5	Voodoo-Köpfe	Normal	Voodoo-Köpfe	24
@@ -59149,7 +59149,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Zombiekopf	Normal ne2	Voodoo-Köpfe	Normal	Voodoo-Köpfe	8
@@ -59163,7 +59163,7 @@ FIELD	Block %	1
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Mumifizierte Trophäe	Außergewöhnlich ne6	Voodoo-Köpfe	Exceptional	Voodoo-Köpfe	31
@@ -59177,7 +59177,7 @@ FIELD	Block %	1
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Sexton-Trophäe	Außergewöhnlich ne8	Voodoo-Köpfe	Exceptional	Voodoo-Köpfe	41
@@ -59191,7 +59191,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Cantor-Trophäe	Außergewöhnlich ne9	Voodoo-Köpfe	Exceptional	Voodoo-Köpfe	45
@@ -59205,7 +59205,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Hierophant-Trophäe	Außergewöhnlich nea	Voodoo-Köpfe	Exceptional	Voodoo-Köpfe	49
@@ -59219,7 +59219,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Fetisch-Trophäe	Außergewöhnlich ne7	Voodoo-Köpfe	Exceptional	Voodoo-Köpfe	34
@@ -59233,7 +59233,7 @@ FIELD	Block %	1
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Minionenschädel	Elite neb	Voodoo-Köpfe	Elite	Voodoo-Köpfe	58
@@ -59247,7 +59247,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Aufseher-Schädel	Elite ned	Voodoo-Köpfe	Elite	Voodoo-Köpfe	66
@@ -59261,7 +59261,7 @@ FIELD	Block %	3
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Succubus-Schädel	Elite nee	Voodoo-Köpfe	Elite	Voodoo-Köpfe	70
@@ -59275,7 +59275,7 @@ FIELD	Block %	3
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Blutlord-Schädel	Elite nef	Voodoo-Köpfe	Elite	Voodoo-Köpfe	74
@@ -59289,7 +59289,7 @@ FIELD	Block %	3
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Höllenbrut-Schädel	Elite neg	Voodoo-Köpfe	Elite	Voodoo-Köpfe	60
@@ -59303,7 +59303,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Hierophant-Trophäe	Außergewöhnlich qna	Voodoo-Köpfe	Exceptional	Voodoo-Köpfe	49
@@ -59317,7 +59317,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Succubus-Schädel	Elite qne	Voodoo-Köpfe	Elite	Voodoo-Köpfe	70
@@ -59331,7 +59331,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Blutlord-Schädel	Elite qnf	Voodoo-Köpfe	Elite	Voodoo-Köpfe	74
@@ -59345,7 +59345,7 @@ FIELD	Block %	2
 FIELD	Schaden	0-0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	2
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_armor_voodoo_head_demon_head
 ENTRY	Waffen	506 Gegenstände	sortable	fiveacross
@@ -59360,7 +59360,7 @@ FIELD	Benöt. Geschick	65
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Hirschbogen	Normal am1	Amazonenbogen	Normal	Amazonenbogen	18
 FIELD	Hände	2H
@@ -59374,7 +59374,7 @@ FIELD	Benöt. Geschick	45
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	5
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Reflexbogen	Normal am2	Amazonenbogen	Normal	Amazonenbogen	27
 FIELD	Hände	2H
@@ -59388,7 +59388,7 @@ FIELD	Benöt. Geschick	60
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Tuiganbogen	Außergewöhnlich 9pb	Amazonenbogen	Exceptional	Amazonenbogen	58
 FIELD	Hände	2H
@@ -59401,7 +59401,7 @@ FIELD	Benöt. Geschick	130
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Aschenholz-Bogen	Außergewöhnlich am6	Amazonenbogen	Exceptional	Amazonenbogen	43
 FIELD	Hände	2H
@@ -59415,7 +59415,7 @@ FIELD	Benöt. Geschick	77
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	5
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Zeremonienbogen	Außergewöhnlich am7	Amazonenbogen	Exceptional	Amazonenbogen	52
 FIELD	Hände	2H
@@ -59429,7 +59429,7 @@ FIELD	Benöt. Geschick	110
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Elfenbogen	Elite 0pb	Amazonenbogen	Elite	Amazonenbogen	83
 FIELD	Hände	2H
@@ -59442,7 +59442,7 @@ FIELD	Benöt. Geschick	180
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Matriarchal Bogen	Elite amb	Amazonenbogen	Elite	Amazonenbogen	68
 FIELD	Hände	2H
@@ -59456,7 +59456,7 @@ FIELD	Benöt. Geschick	187
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	5
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Großer Matronenbogen	Elite amc	Amazonenbogen	Elite	Amazonenbogen	77
 FIELD	Hände	2H
@@ -59470,7 +59470,7 @@ FIELD	Benöt. Geschick	152
 FIELD	Stärke/Geschick-Bonus	0/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Bogen- und Armbrustfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+2 zu Bogen- und Armbrustfähigkeiten (Amazon Only)+3 zu Bogen- und Armbrustfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Mythischer Matriarchinnenbogen	Mythisch m53	Amazonenbogen	Mythic	Amazonenbogen	96
 FIELD	Hände	2H
@@ -59527,7 +59527,7 @@ FIELD	Benöt. Geschick	47
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	6 to 22 (14.0 Durchschn.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Zeremonielle Javelin	Außergewöhnlich ama	Amazonen-Wurfspeer	Exceptional	Amazonen-Wurfspeer	49
@@ -59544,7 +59544,7 @@ FIELD	Benöt. Geschick	109
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	14 to 50 (32.0 Durchschn.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Matriarchal Wurfspieß	Elite amf	Amazonen-Wurfspeer	Elite	Amazonen-Wurfspeer	74
@@ -59561,7 +59561,7 @@ FIELD	Benöt. Geschick	151
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	25 to 64 (44.5 Durchschn.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Mythische Matriarchale Wurfspieß	Mythisch m31	Amazonen-Wurfspeer	Mythic	Amazonen-Wurfspeer	96
@@ -59595,7 +59595,7 @@ FIELD	Benöt. Geschick	40
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Jungfrauen-Pike	Normal am4	Amazonenspeer	Normal	Amazonenspeer	27
 FIELD	Hände	2H
@@ -59611,7 +59611,7 @@ FIELD	Benöt. Geschick	52
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Zeremonialspeer	Außergewöhnlich am8	Amazonenspeer	Exceptional	Amazonenspeer	43
 FIELD	Hände	2H
@@ -59626,7 +59626,7 @@ FIELD	Benöt. Geschick	80
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Zeremonielle Pike	Außergewöhnlich am9	Amazonenspeer	Exceptional	Amazonenspeer	52
 FIELD	Hände	2H
@@ -59642,7 +59642,7 @@ FIELD	Benöt. Geschick	98
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Matriarchal Speer	Elite amd	Amazonenspeer	Elite	Amazonenspeer	68
 FIELD	Hände	2H
@@ -59658,7 +59658,7 @@ FIELD	Benöt. Geschick	142
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Matriarchal Pike	Elite ame	Amazonenspeer	Elite	Amazonenspeer	77
 FIELD	Hände	2H
@@ -59674,7 +59674,7 @@ FIELD	Benöt. Geschick	149
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Zeremonielle Pike	Außergewöhnlich q78	Amazonenspeer	Exceptional	Amazonenspeer	52
 FIELD	Hände	2H
@@ -59690,7 +59690,7 @@ FIELD	Benöt. Geschick	98
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Matriarchal Speer	Elite q81	Amazonenspeer	Elite	Amazonenspeer	68
 FIELD	Hände	2H
@@ -59705,7 +59705,7 @@ FIELD	Benöt. Geschick	142
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +2 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35) +3 zu Wurf- und Speerfähigkeiten (Amazon Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Wurf- und Speerfähigkeiten (Amazon Only)+2 zu Wurf- und Speerfähigkeiten (Amazon Only)+3 zu Wurf- und Speerfähigkeiten (Amazon Only)Tüftelpunkte: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Mythischer Matriarchinnenspeer	Mythisch m56	Amazonenspeer	Mythic	Amazonenspeer	96
 FIELD	Hände	2H
@@ -59753,7 +59753,7 @@ FIELD	Benöt. Geschick	60
 FIELD	Stärke/Geschick-Bonus	50/100
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Schattenkünsten (Assassin Only) Tüftelpunkte: (25 to 35) +2 zu Schattenkünsten (Assassin Only) Tüftelpunkte: (25 to 35) +3 zu Schattenkünsten (Assassin Only) Tüftelpunkte: (25 to 35) +1 zu Kampfkunst (Assassin Only) Tüftelpunkte: (25 to 35) +2 zu Kampfkunst (Assassin Only) Tüftelpunkte: (25 to 35) +3 zu Kampfkunst (Assassin Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Schattenkünsten (Assassin Only)+2 zu Schattenkünsten (Assassin Only)+3 zu Schattenkünsten (Assassin Only)+1 zu Kampfkunst (Assassin Only)+2 zu Kampfkunst (Assassin Only)+3 zu Kampfkunst (Assassin Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Assassine
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Wakizashi	Außergewöhnlich 9nn	Assassinen-Einhandkatana	Exceptional	Assassinen-Einhandkatana	58
@@ -59770,7 +59770,7 @@ FIELD	Benöt. Geschick	90
 FIELD	Stärke/Geschick-Bonus	75/100
 FIELD	Sockel	5
 FIELD	Edelsteintyp	0
-FIELD	Automod	+1 zu Schattenkünsten (Assassin Only) Tüftelpunkte: (25 to 35) +2 zu Schattenkünsten (Assassin Only) Tüftelpunkte: (25 to 35) +3 zu Schattenkünsten (Assassin Only) Tüftelpunkte: (25 to 35) +1 zu Kampfkunst (Assassin Only) Tüftelpunkte: (25 to 35) +2 zu Kampfkunst (Assassin Only) Tüftelpunkte: (25 to 35) +3 zu Kampfkunst (Assassin Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Schattenkünsten (Assassin Only)+2 zu Schattenkünsten (Assassin Only)+3 zu Schattenkünsten (Assassin Only)+1 zu Kampfkunst (Assassin Only)+2 zu Kampfkunst (Assassin Only)+3 zu Kampfkunst (Assassin Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Assassine
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Ninja-To	Normal njt	Assassinen-Zweihandkatana	Normal	Assassinen-Zweihandkatana	35
@@ -59787,7 +59787,7 @@ FIELD	Benöt. Geschick	60
 FIELD	Stärke/Geschick-Bonus	100/50
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	Schaden reduziert um (2 to 4) Magischer Schaden um (2 to 4) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (3 to 6) Magischer Schaden um (3 to 6) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (4 to 8) Magischer Schaden um (4 to 8) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (5 to 10) Magischer Schaden um (5 to 10) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (6 to 12) Magischer Schaden um (6 to 12) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (7 to 14) Magischer Schaden um (7 to 14) reduziert Tüftelpunkte: (25 to 35)
+FIELD	Automod	Schaden reduziert um (2 to 4) Magischer Schaden um (2 to 4) reduziertSchaden reduziert um (3 to 6) Magischer Schaden um (3 to 6) reduziertSchaden reduziert um (4 to 8) Magischer Schaden um (4 to 8) reduziertSchaden reduziert um (5 to 10) Magischer Schaden um (5 to 10) reduziertSchaden reduziert um (6 to 12) Magischer Schaden um (6 to 12) reduziertSchaden reduziert um (7 to 14) Magischer Schaden um (7 to 14) reduziertTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Assassine
 IMG	items_weapon_sword_katana
 BLOCK	1	Wakizashi	Außergewöhnlich 9nj	Assassinen-Zweihandkatana	Exceptional	Assassinen-Zweihandkatana	60
@@ -59804,7 +59804,7 @@ FIELD	Benöt. Geschick	90
 FIELD	Stärke/Geschick-Bonus	100/50
 FIELD	Sockel	5
 FIELD	Edelsteintyp	0
-FIELD	Automod	Schaden reduziert um (2 to 4) Magischer Schaden um (2 to 4) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (3 to 6) Magischer Schaden um (3 to 6) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (4 to 8) Magischer Schaden um (4 to 8) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (5 to 10) Magischer Schaden um (5 to 10) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (6 to 12) Magischer Schaden um (6 to 12) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (7 to 14) Magischer Schaden um (7 to 14) reduziert Tüftelpunkte: (25 to 35)
+FIELD	Automod	Schaden reduziert um (2 to 4) Magischer Schaden um (2 to 4) reduziertSchaden reduziert um (3 to 6) Magischer Schaden um (3 to 6) reduziertSchaden reduziert um (4 to 8) Magischer Schaden um (4 to 8) reduziertSchaden reduziert um (5 to 10) Magischer Schaden um (5 to 10) reduziertSchaden reduziert um (6 to 12) Magischer Schaden um (6 to 12) reduziertSchaden reduziert um (7 to 14) Magischer Schaden um (7 to 14) reduziertTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Assassine
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana	Elite 0nn	Assassinen-Zweihandkatana	Elite	Assassinen-Zweihandkatana	83
@@ -59821,7 +59821,7 @@ FIELD	Benöt. Geschick	120
 FIELD	Stärke/Geschick-Bonus	100/50
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	Schaden reduziert um (2 to 4) Magischer Schaden um (2 to 4) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (3 to 6) Magischer Schaden um (3 to 6) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (4 to 8) Magischer Schaden um (4 to 8) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (5 to 10) Magischer Schaden um (5 to 10) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (6 to 12) Magischer Schaden um (6 to 12) reduziert Tüftelpunkte: (25 to 35) Schaden reduziert um (7 to 14) Magischer Schaden um (7 to 14) reduziert Tüftelpunkte: (25 to 35)
+FIELD	Automod	Schaden reduziert um (2 to 4) Magischer Schaden um (2 to 4) reduziertSchaden reduziert um (3 to 6) Magischer Schaden um (3 to 6) reduziertSchaden reduziert um (4 to 8) Magischer Schaden um (4 to 8) reduziertSchaden reduziert um (5 to 10) Magischer Schaden um (5 to 10) reduziertSchaden reduziert um (6 to 12) Magischer Schaden um (6 to 12) reduziertSchaden reduziert um (7 to 14) Magischer Schaden um (7 to 14) reduziertTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Assassine
 IMG	items_weapon_sword_katana
 BLOCK	1	Mythische Katana	Mythisch m37	Assassinen-Zweihandkatana	Mythic	Assassinen-Zweihandkatana	96
@@ -60505,7 +60505,7 @@ FIELD	Benöt. Geschick	60
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Barbar
 FIELD	Fernkampf	7 to 29 (18.0 Durchschn.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60523,7 +60523,7 @@ FIELD	Benöt. Geschick	85
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Barbar
 FIELD	Fernkampf	17 to 47 (32.0 Durchschn.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60541,7 +60541,7 @@ FIELD	Benöt. Geschick	100
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Barbar
 FIELD	Fernkampf	29 to 63 (46.0 Durchschn.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60559,7 +60559,7 @@ FIELD	Benöt. Geschick	100
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Barbar
 FIELD	Fernkampf	32 to 70 (51.0 Durchschn.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -62323,7 +62323,7 @@ FIELD	Benöt. Stufe	0
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	3 to 11 (7.0 Durchschn.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum	Normal pil	Speer	Normal	Speer	10
@@ -62338,7 +62338,7 @@ FIELD	Benöt. Geschick	45
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	5 to 17 (11.0 Durchschn.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Kurze Speer	Normal ssp	Speer	Normal	Speer	15
@@ -62355,7 +62355,7 @@ FIELD	Benöt. Geschick	40
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	8 to 20 (14.0 Durchschn.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Glefe	Normal glv	Speer	Normal	Speer	23
@@ -62372,7 +62372,7 @@ FIELD	Benöt. Geschick	35
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	16 to 22 (19.0 Durchschn.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Wurfspeer	Normal tsp	Speer	Normal	Speer	29
@@ -62388,7 +62388,7 @@ FIELD	Benöt. Geschick	65
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	8 to 24 (16.0 Durchschn.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Kriegsspeer	Außergewöhnlich 9ja	Speer	Exceptional	Speer	32
@@ -62405,7 +62405,7 @@ FIELD	Benöt. Geschick	25
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	12 to 26 (19.0 Durchschn.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Großes Pilum	Außergewöhnlich 9pi	Speer	Exceptional	Speer	36
@@ -62421,7 +62421,7 @@ FIELD	Benöt. Geschick	88
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	15 to 35 (25.0 Durchschn.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Simbilan	Außergewöhnlich 9s9	Speer	Exceptional	Speer	40
@@ -62438,7 +62438,7 @@ FIELD	Benöt. Geschick	80
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	24 to 46 (35.0 Durchschn.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Spiculum	Außergewöhnlich 9gl	Speer	Exceptional	Speer	48
@@ -62455,7 +62455,7 @@ FIELD	Benöt. Geschick	73
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	28 to 56 (42.0 Durchschn.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Harpun	Außergewöhnlich 9ts	Speer	Exceptional	Speer	54
@@ -62472,7 +62472,7 @@ FIELD	Benöt. Geschick	118
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	14 to 50 (32.0 Durchschn.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Uralte Splitter	Elite 0ja	Speer	Elite	Speer	59
@@ -62489,7 +62489,7 @@ FIELD	Benöt. Geschick	123
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	29 to 57 (43.0 Durchschn.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Schreckliches Pilum	Elite 0pi	Speer	Elite	Speer	62
@@ -62505,7 +62505,7 @@ FIELD	Benöt. Geschick	112
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	27 to 67 (47.0 Durchschn.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lissome Speer	Elite 0s9	Speer	Elite	Speer	65
@@ -62522,7 +62522,7 @@ FIELD	Benöt. Geschick	95
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	36 to 64 (50.0 Durchschn.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Ahab-Speer	Elite 0gl	Speer	Elite	Speer	73
@@ -62539,7 +62539,7 @@ FIELD	Benöt. Geschick	137
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	36 to 72 (54.0 Durchschn.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Waljäger	Elite 0ts	Speer	Elite	Speer	79
@@ -62556,7 +62556,7 @@ FIELD	Benöt. Geschick	145
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	23 to 67 (45.0 Durchschn.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Hyperion-Wurfspieß	Elite 7ja	Speer	Elite	Speer	59
@@ -62573,7 +62573,7 @@ FIELD	Benöt. Geschick	123
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	29 to 57 (43.0 Durchschn.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Stygisches Pilum	Elite 7pi	Speer	Elite	Speer	62
@@ -62590,7 +62590,7 @@ FIELD	Benöt. Geschick	112
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	27 to 67 (47.0 Durchschn.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Balrog-Speer	Elite 7s7	Speer	Elite	Speer	65
@@ -62607,7 +62607,7 @@ FIELD	Benöt. Geschick	95
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	36 to 64 (50.0 Durchschn.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Geistergleve	Elite 7gl	Speer	Elite	Speer	73
@@ -62624,7 +62624,7 @@ FIELD	Benöt. Geschick	137
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	36 to 72 (54.0 Durchschn.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Geflügelter Harpunen	Elite 7ts	Speer	Elite	Speer	79
@@ -62641,7 +62641,7 @@ FIELD	Benöt. Geschick	145
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	23 to 67 (45.0 Durchschn.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Mythologische alte Splitter	Mythisch m33	Speer	Mythic	Speer	96
@@ -62675,7 +62675,7 @@ FIELD	Benöt. Geschick	145
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	25 to 74 (49.5 Durchschn.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Mythischer Walfänger	Mythisch m32	Speer	Mythic	Speer	96
@@ -63325,7 +63325,7 @@ FIELD	Benöt. Geschick	15
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Opferdolch	Außergewöhnlich 9rd	Totenbeschwörer-Dolch	Exceptional	Totenbeschwörer-Dolch	58
@@ -63341,7 +63341,7 @@ FIELD	Benöt. Geschick	30
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Zeremonialdolch	Elite 0rd	Totenbeschwörer-Dolch	Elite	Totenbeschwörer-Dolch	83
@@ -63357,7 +63357,7 @@ FIELD	Benöt. Geschick	50
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35) Fügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch Zauber Tüftelpunkte: (25 to 35)
+FIELD	Automod	Fügt Angriffe über 8 Sekunden 2 Giftschaden hinzu +(1 to 3)% zu Giftschaden durch ZauberFügt Angriffe über 15 Sekunden 2 Giftschaden hinzu +(2 to 5)% zu Giftschaden durch ZauberFügt Angriffe über 30 Sekunden 2 Giftschaden hinzu +(4 to 8)% zu Giftschaden durch ZauberFügt Angriffe über 60 Sekunden 2 Giftschaden hinzu +(6 to 11)% zu Giftschaden durch ZauberFügt Angriffe über 90 Sekunden 2 Giftschaden hinzu +(10 to 13)% zu Giftschaden durch ZauberFügt Angriffe über 120 Sekunden 2 Giftschaden hinzu +(11 to 14)% zu Giftschaden durch ZauberTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Totenbeschwörer
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Mythos Zeremonialdolch	Mythisch m14	Totenbeschwörer-Dolch	Mythic	Totenbeschwörer-Dolch	96
@@ -63523,7 +63523,7 @@ FIELD	Benöt. Stufe	0
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Heiliges Globus	Normal ob2	Fernkampfwaffe	Normal	Fernkampfwaffe	8
@@ -63537,7 +63537,7 @@ FIELD	Benöt. Stufe	0
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Gefasster Orb	Normal ob4	Fernkampfwaffe	Normal	Fernkampfwaffe	17
@@ -63550,7 +63550,7 @@ FIELD	Benöt. Stufe	13
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Jareds Stein	Normal ob5	Fernkampfwaffe	Normal	Fernkampfwaffe	24
@@ -63565,7 +63565,7 @@ FIELD	Benöt. Stufe	18
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Geräucherte Kugel	Normal ob3	Fernkampfwaffe	Normal	Fernkampfwaffe	12
@@ -63579,7 +63579,7 @@ FIELD	Benöt. Stufe	8
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Leuchtende Kugel	Außergewöhnlich ob6	Fernkampfwaffe	Exceptional	Fernkampfwaffe	29
@@ -63593,7 +63593,7 @@ FIELD	Benöt. Stufe	24
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Kristallkugel	Außergewöhnlich ob7	Fernkampfwaffe	Exceptional	Fernkampfwaffe	35
@@ -63607,7 +63607,7 @@ FIELD	Benöt. Stufe	27
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Funkelnde Kugel	Außergewöhnlich ob9	Fernkampfwaffe	Exceptional	Fernkampfwaffe	42
@@ -63621,7 +63621,7 @@ FIELD	Benöt. Stufe	34
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Wirbelnder Kristall	Außergewöhnlich oba	Fernkampfwaffe	Exceptional	Fernkampfwaffe	49
@@ -63636,7 +63636,7 @@ FIELD	Benöt. Stufe	37
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Wolkige Kugel	Außergewöhnlich ob8	Fernkampfwaffe	Exceptional	Fernkampfwaffe	38
@@ -63650,7 +63650,7 @@ FIELD	Benöt. Stufe	30
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Himmlischer Stein	Elite obb	Fernkampfwaffe	Elite	Fernkampfwaffe	57
@@ -63664,7 +63664,7 @@ FIELD	Benöt. Stufe	44
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Eldritch-Orb	Elite obc	Fernkampfwaffe	Elite	Fernkampfwaffe	62
@@ -63678,7 +63678,7 @@ FIELD	Benöt. Stufe	50
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Vortex-Orb	Elite obe	Fernkampfwaffe	Elite	Fernkampfwaffe	67
@@ -63692,7 +63692,7 @@ FIELD	Benöt. Stufe	63
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Dimensionaler Splitter	Elite obf	Fernkampfwaffe	Elite	Fernkampfwaffe	74
@@ -63707,7 +63707,7 @@ FIELD	Benöt. Stufe	66
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Dämonenherz	Elite obd	Fernkampfwaffe	Elite	Fernkampfwaffe	64
@@ -63720,7 +63720,7 @@ FIELD	Benöt. Stufe	56
 FIELD	Stärke/Geschick-Bonus	100/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Wirbelnder Kristall	Außergewöhnlich q83	Fernkampfwaffe	Exceptional	Fernkampfwaffe	49
@@ -63735,7 +63735,7 @@ FIELD	Benöt. Stufe	37
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Eldritch-Orb	Elite q84	Fernkampfwaffe	Elite	Fernkampfwaffe	62
@@ -63749,7 +63749,7 @@ FIELD	Benöt. Stufe	50
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Dimensionaler Splitter	Elite q85	Fernkampfwaffe	Elite	Fernkampfwaffe	74
@@ -63764,7 +63764,7 @@ FIELD	Benöt. Stufe	66
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+(1 to 5) zu Leben Tüftelpunkte: (25 to 35) +(6 to 10) zu Leben Tüftelpunkte: (25 to 35) +(11 to 20) zu Leben Tüftelpunkte: (25 to 35) +(21 to 30) zu Leben Tüftelpunkte: (25 to 35) +(31 to 40) zu Leben Tüftelpunkte: (25 to 35) +(41 to 60) zu Leben Tüftelpunkte: (25 to 35) +(1 to 5) zu Mana Tüftelpunkte: (25 to 35) +(5 to 10) zu Mana Tüftelpunkte: (25 to 35) +(11 to 20) zu Mana Tüftelpunkte: (25 to 35) +(21 to 30) zu Mana Tüftelpunkte: (25 to 35) +(31 to 40) zu Mana Tüftelpunkte: (25 to 35) +(41 to 60) zu Mana Tüftelpunkte: (25 to 35) +(61 to 80) zu Mana Tüftelpunkte: (25 to 35)
+FIELD	Automod	+(1 to 5) zu Leben+(6 to 10) zu Leben+(11 to 20) zu Leben+(21 to 30) zu Leben+(31 to 40) zu Leben+(41 to 60) zu Leben+(1 to 5) zu Mana+(5 to 10) zu Mana+(11 to 20) zu Mana+(21 to 30) zu Mana+(31 to 40) zu Mana+(41 to 60) zu Mana+(61 to 80) zu ManaTüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Mythischer Dimensionaler Splitter	Mythisch m07	Fernkampfwaffe	Mythic	Fernkampfwaffe	96
@@ -64624,7 +64624,7 @@ FIELD	Benöt. Geschick	18
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	7 to 8 (7.5 Durchschn.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Fūma Shuriken	Außergewöhnlich fsk	Knöchel	Exceptional	Knöchel	45
@@ -64640,7 +64640,7 @@ FIELD	Benöt. Geschick	55
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	22 to 23 (22.5 Durchschn.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri	Elite kgk	Knöchel	Elite	Knöchel	70
@@ -64656,7 +64656,7 @@ FIELD	Benöt. Geschick	160
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	45 to 46 (45.5 Durchschn.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Mythischer Kagekiri	Mythisch m39	Knöchel	Mythic	Knöchel	96
@@ -64672,7 +64672,7 @@ FIELD	Benöt. Geschick	160
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35) Tüftelpunkte: (25 to 35)
+FIELD	Automod	Tüftelpunkte: (25 to 35)
 FIELD	Fernkampf	50 to 51 (50.5 Durchschn.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Mana-Klinge	Normal mnb	Manaklinge der Zauberin	Normal	Manaklinge der Zauberin	33
@@ -65334,7 +65334,7 @@ FIELD	Benöt. Geschick	15
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Mystischer Stab	Elite 1ls	Kampfstab	Elite	Kampfstab	62
@@ -65350,7 +65350,7 @@ FIELD	Benöt. Geschick	35
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Petrifizierter Stab	Elite 1cs	Kampfstab	Elite	Kampfstab	64
@@ -65367,7 +65367,7 @@ FIELD	Benöt. Geschick	37
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Magierstab	Elite 1bs	Kampfstab	Elite	Kampfstab	67
@@ -65384,7 +65384,7 @@ FIELD	Benöt. Geschick	27
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Arkane Stab	Elite 1ws	Kampfstab	Elite	Kampfstab	74
@@ -65400,7 +65400,7 @@ FIELD	Benöt. Geschick	15
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Gehenstock	Elite 6ss	Kampfstab	Elite	Kampfstab	57
@@ -65417,7 +65417,7 @@ FIELD	Benöt. Geschick	15
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	2
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Stalagmit	Elite 6ls	Kampfstab	Elite	Kampfstab	62
@@ -65434,7 +65434,7 @@ FIELD	Benöt. Geschick	35
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Ältester Stab	Elite 6cs	Kampfstab	Elite	Kampfstab	64
@@ -65451,7 +65451,7 @@ FIELD	Benöt. Geschick	37
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Shillelagh	Elite 6bs	Kampfstab	Elite	Kampfstab	67
@@ -65468,7 +65468,7 @@ FIELD	Benöt. Geschick	27
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Archonstab	Elite 6ws	Kampfstab	Elite	Kampfstab	74
@@ -65485,7 +65485,7 @@ FIELD	Benöt. Geschick	15
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	1
-FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +1 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +2 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +3 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+1 zu Feuerfähigkeiten (Sorceress Only)+2 zu Feuerfähigkeiten (Sorceress Only)+3 zu Feuerfähigkeiten (Sorceress Only)+4 zu Feuerfähigkeiten (Sorceress Only)+1 zu Blitzfähigkeiten (Sorceress Only)+2 zu Blitzfähigkeiten (Sorceress Only)+3 zu Blitzfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+1 zu Kälteskills (Sorceress Only)+2 zu Kälteskills (Sorceress Only)+3 zu Kälteskills (Sorceress Only)+4 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Mythischer Mystikerstab	Mythisch m50	Kampfstab	Mythic	Kampfstab	96
@@ -65501,7 +65501,7 @@ FIELD	Benöt. Geschick	35
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	3
 FIELD	Edelsteintyp	1
-FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only)+5 zu Feuerfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+5 zu Blitzfähigkeiten (Sorceress Only)+4 zu Kälteskills (Sorceress Only)+5 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Mythischer Versteinerter Stab	Mythisch m29	Kampfstab	Mythic	Kampfstab	96
@@ -65518,7 +65518,7 @@ FIELD	Benöt. Geschick	41
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only)+5 zu Feuerfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+5 zu Blitzfähigkeiten (Sorceress Only)+4 zu Kälteskills (Sorceress Only)+5 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Mythischer Magierstab	Mythisch m36	Kampfstab	Mythic	Kampfstab	96
@@ -65535,7 +65535,7 @@ FIELD	Benöt. Geschick	27
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	4
 FIELD	Edelsteintyp	1
-FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only)+5 zu Feuerfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+5 zu Blitzfähigkeiten (Sorceress Only)+4 zu Kälteskills (Sorceress Only)+5 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Mythischer Arkane Stab	Mythisch m11	Kampfstab	Mythic	Kampfstab	96
@@ -65551,7 +65551,7 @@ FIELD	Benöt. Geschick	15
 FIELD	Stärke/Geschick-Bonus	100/0
 FIELD	Sockel	6
 FIELD	Edelsteintyp	0
-FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Feuerfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Blitzfähigkeiten (Sorceress Only) Tüftelpunkte: (25 to 35) +4 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35) +5 zu Kälteskills (Sorceress Only) Tüftelpunkte: (25 to 35)
+FIELD	Automod	+4 zu Feuerfähigkeiten (Sorceress Only)+5 zu Feuerfähigkeiten (Sorceress Only)+4 zu Blitzfähigkeiten (Sorceress Only)+5 zu Blitzfähigkeiten (Sorceress Only)+4 zu Kälteskills (Sorceress Only)+5 zu Kälteskills (Sorceress Only)Tüftelpunkte: (25 to 35)
 FIELD	Stabmod	Zauberin
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Kurzschwert	Normal ssd	Schwert	Normal	Schwert	1
@@ -66614,7 +66614,7 @@ FIELD	Benöt. Geschick	25
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	6 to 16 (11.0 Durchschn.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Ausgewogene Axt	Normal bal	Wurfbeil	Normal	Wurfbeil	21
@@ -66630,7 +66630,7 @@ FIELD	Benöt. Geschick	57
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	9 to 21 (15.0 Durchschn.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Francisca	Außergewöhnlich 9ta	Wurfbeil	Exceptional	Wurfbeil	36
@@ -66646,7 +66646,7 @@ FIELD	Benöt. Geschick	80
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	15 to 39 (27.0 Durchschn.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hurlbat	Außergewöhnlich 9b8	Wurfbeil	Exceptional	Wurfbeil	46
@@ -66663,7 +66663,7 @@ FIELD	Benöt. Geschick	106
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	3
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	22 to 38 (30.0 Durchschn.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Wurfbeil	Elite 0ta	Wurfbeil	Elite	Wurfbeil	62
@@ -66679,7 +66679,7 @@ FIELD	Benöt. Geschick	108
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	40 to 59 (49.5 Durchschn.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Ausgewogener Beil	Elite 0b6	Wurfbeil	Elite	Wurfbeil	71
@@ -66696,7 +66696,7 @@ FIELD	Benöt. Geschick	122
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	24 to 62 (43.0 Durchschn.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Fliegende Axt	Elite 7ta	Wurfbeil	Elite	Wurfbeil	62
@@ -66712,7 +66712,7 @@ FIELD	Benöt. Geschick	108
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	40 to 59 (49.5 Durchschn.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Flügeläxte	Elite 7b8	Wurfbeil	Elite	Wurfbeil	71
@@ -66729,7 +66729,7 @@ FIELD	Benöt. Geschick	122
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	24 to 62 (43.0 Durchschn.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Mythische Ausgewogene Axt	Mythisch m26	Wurfbeil	Mythic	Wurfbeil	96
@@ -66746,7 +66746,7 @@ FIELD	Benöt. Geschick	122
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	4
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	26 to 68 (47.0 Durchschn.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Wurfmesser	Normal tkf	Wurfmesser	Normal	Wurfmesser	4
@@ -66760,7 +66760,7 @@ FIELD	Benöt. Geschick	21
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	4 to 12 (8.0 Durchschn.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Ausgewogenes Messer	Normal bkf	Wurfmesser	Normal	Wurfmesser	17
@@ -66775,7 +66775,7 @@ FIELD	Benöt. Geschick	51
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	5 to 15 (10.0 Durchschn.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Kampf-Dart	Außergewöhnlich 9tk	Wurfmesser	Exceptional	Wurfmesser	31
@@ -66790,7 +66790,7 @@ FIELD	Benöt. Geschick	52
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	11 to 35 (23.0 Durchschn.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Kriegspfeil	Außergewöhnlich 9bk	Wurfmesser	Exceptional	Wurfmesser	42
@@ -66806,7 +66806,7 @@ FIELD	Benöt. Geschick	97
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	15 to 35 (25.0 Durchschn.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Wurfmesser	Elite 0tk	Wurfmesser	Elite	Wurfmesser	58
@@ -66821,7 +66821,7 @@ FIELD	Benöt. Geschick	141
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	33 to 61 (47.0 Durchschn.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Ausgewogenes Messer	Elite 0bk	Wurfmesser	Elite	Wurfmesser	67
@@ -66837,7 +66837,7 @@ FIELD	Benöt. Geschick	142
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	25 to 60 (42.5 Durchschn.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Fliegendes Messer	Elite 7tk	Wurfmesser	Elite	Wurfmesser	58
@@ -66853,7 +66853,7 @@ FIELD	Benöt. Geschick	141
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	33 to 61 (47.0 Durchschn.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Flügelmesser	Elite 7bk	Wurfmesser	Elite	Wurfmesser	67
@@ -66869,7 +66869,7 @@ FIELD	Benöt. Geschick	142
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	25 to 60 (42.5 Durchschn.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Mythische Ausgewogene Klinge	Mythisch m08	Wurfmesser	Mythic	Wurfmesser	96
@@ -66885,7 +66885,7 @@ FIELD	Benöt. Geschick	142
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	27 to 66 (46.5 Durchschn.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Mythische Ausgewogene Klinge	Mythisch m27	Wurfmesser	Mythic	Wurfmesser	96
@@ -66901,7 +66901,7 @@ FIELD	Benöt. Geschick	142
 FIELD	Stärke/Geschick-Bonus	75/75
 FIELD	Sockel	2
 FIELD	Edelsteintyp	0
-FIELD	Automod	+5% Durchdringender Angriff Tüftelpunkte: (25 to 35) +10% Durchdringender Angriff Tüftelpunkte: (25 to 35) +15% Durchdringender Angriff Tüftelpunkte: (25 to 35) +20% Durchdringender Angriff Tüftelpunkte: (25 to 35) +25% Durchdringender Angriff Tüftelpunkte: (25 to 35)
+FIELD	Automod	+5% Durchdringender Angriff+10% Durchdringender Angriff+15% Durchdringender Angriff+20% Durchdringender Angriff+25% Durchdringender AngriffTüftelpunkte: (25 to 35)
 FIELD	Fernkampf	28 to 66 (47.0 Durchschn.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Leerenklinge	Normal vob	Leerenklinge	Normal	Leerenklinge	23
@@ -111660,6 +111660,10 @@ LINE	T	ÿcNPandemonium-Schlüsselset (100 % Chance)
 LINE	T	ÿcNWeitere allgemeine Gegenstände/Materialien
 LINE	H	ÿcHBelohnungen (Über-Variante)
 LINE	T	ÿcNWenn du Lucion mit /players 8 tötest, lässt er seine Essenz fallen (Lucion's Essenz). Die Essenz ist eine stärkere Version eines Socket Donut.
+PAGE	specializations	Spezialisierungen	Endgame
+ENTRY	Spezialisierungen	Perks of the four specializations
+BLOCK	0						0
+LINE	T	The specializations need their data from the website. Open this tab once the plugin has loaded it.
 PAGE	weapon-mastery	Waffenbeherrschung	Endgame
 ENTRY	Overview	
 BLOCK	0						0

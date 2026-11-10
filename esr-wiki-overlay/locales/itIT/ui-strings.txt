@@ -327,3 +327,213 @@ Helms / Boots / Armor / Shields / Belts	Elmi / Stivali / Armature / Scudi / Cint
 Helms / Boots / Armor / Shields / Belts:	Elmi / Stivali / Armature / Scudi / Cinture:
 All Items	Tutti gli oggetti
 All Items:	Tutti gli oggetti:
+Tab	Pagina
+Entry	Voce
+Card	Scheda
+{0} results	{0} risultati
+1 result	1 risultato
+{0} of {1} entries here | {2} total	{0} di {1} voci qui | {2} in totale
+Search names, stats, runes… (in English)	Cerca nomi, statistiche, rune… (in italiano)
+Nothing has: {0}	Nessun elemento contiene: {0}
+No card has all of: {0}	Nessuna scheda contiene tutto: {0}
+Nothing left without: {0}	Non resta nulla senza: {0}
+Type a word to look for: -word only leaves things out	Scrivi una parola da cercare: -parola esclude soltanto
+Did you mean	Forse cercavi
+Filters cleared	Filtri azzerati
+Search cleared	Ricerca cancellata
+Search suggestions	Suggerimenti di ricerca
+Highlight a key	Evidenzia un tasto
+Type the key	Digita il tasto
+Clear search / close keyboard	Cancella la ricerca / chiudi la tastiera
+Delete a character	Elimina un carattere
+Close keyboard	Chiudi la tastiera
+From the bottom row: suggestions	Dalla riga in basso: suggerimenti
+Pick a suggestion	Scegli un suggerimento
+Open the suggestion	Apri il suggerimento
+Close the suggestions	Chiudi i suggerimenti
+Page through the suggestions	Scorri i suggerimenti per pagine
+Show / hide keyboard	Mostra / nascondi la tastiera
+Leave the suggestions	Esci dai suggerimenti
+{0}: open | {1}: close | {2}: page	{0}: apri | {1}: chiudi | {2}: pagina
+D-pad down: suggestions	Croce direzionale giù: suggerimenti
+{0}: suggestions	{0}: suggerimenti
+Perk	Vantaggio
+Campaign map	Mappa della campagna
+Act I	Atto I
+Act II	Atto II
+Act III	Atto III
+Act IV	Atto IV
+Act V	Atto V
+Special areas	Aree speciali
+Ubers & portals	Uber e portali
+Town	Città
+Outdoor area	Area all'aperto
+Cave	Grotta
+Tomb	Tomba
+Dungeon	Sotterraneo
+Temple	Tempio
+Tower	Torre
+Special area	Area speciale
+WP	WP
+Waypoint	Punto di teletrasporto
+lvl {0}	liv. {0}
+L{0}	L{0}
+Monster level	Livello dei mostri
+Monsters	Mostri
+Official name: {0}	Nome ufficiale: {0}
+Quest items	Oggetti delle missioni
+Quest: {0}	Missione: {0}
+Heads up	Attenzione
+Notes	Note
+Getting there	Come arrivarci
+No town portal	Nessun portale cittadino
+Teleport is off here	Qui il teletrasporto è disattivato
+Teleport is limited here	Qui il teletrasporto è limitato
+No teleport across the walls	Niente teletrasporto attraverso i muri
+No known way in	Nessun accesso noto
+Endgame zone	Zona endgame
+(not confirmed yet)	(non ancora confermato)
+Spoiler: click to show	Spoiler: clicca per mostrare
+Spoiler: click to hide	Spoiler: clicca per nascondere
+Click an area on the map to see its details.	Clicca su un'area della mappa per vederne i dettagli.
+Area	Area
+Opens {0}	Apre {0}
+Walk across	A piedi
+Entrance	Ingresso
+Portal	Portale
+Cube portal	Portale del cubo
+Next act	Atto successivo
+Hell lvl {0}	liv. {0} (Inferno)
+Monastery	Monastero
+Kurast	Kurast
+Worldstone Keep	Fortezza della Pietra del Mondo
+Naraku depths	Profondità di Naraku
+Skills	Abilità
+Skill level:	Livello abilità:
+Character level:	Livello personaggio:
+Hard points:	Punti investiti:
+Default	Predefinito
+Skill tree	Albero delle abilità
+Requires	Richiede
+Procs on striking	Attiva effetti al colpo
+Procs on casting	Attiva effetti al lancio
+Yes	Sì
+No	No
+At skill level {0}	Al livello di abilità {0}
+Synergies	Sinergie
+Granted by {0} items and recipes	Conferita da {0} oggetti e ricette
+Passive	Passiva
+Aura	Aura
+Item Skills	Abilità oggetti
+Amazonian Loop	Anello Amazzonico
+Amazonian Pin	Pinnacolo Amazzonico
+Amulet	Amuleto
+Anointment	Unzione
+Assassin's Choker	Collana dell'Assassino
+Assassin's Jewel	Gioiello dell'Assassino
+Auric Shields	Scudi aurici
+Barbaric Knuckle	Dito Barbarico
+Belt	Cintura
+Body Armor	Corazza
+Boots	Stivali
+Circlet	Cerchietto
+Cube recipe	Ricetta del cubo
+Death's Locket	Ciondolo della Morte
+Druid's Seal	Sigillo del Druido
+Druidic Necklace	Collana Druidica
+Gloves	Guanti
+Grimoire	Grimorio
+Hand to Hand	Arma da pugno
+Helm	Elmo
+Holy Pendant	Ciondolo Sacro
+Homunculus	Omunculus
+It deals no weapon damage, and spells don’t count as strikes.	Non infligge danno dell'arma, e gli incantesimi non contano come colpi.
+It hits with your weapon.	Colpisce con la tua arma.
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	Colpisce con la tua arma. In ESR ogni Colpisci mette a segno più colpi, e ogni colpo può attivare degli effetti.
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	Colpisce con la tua arma. A differenza del gioco originale, ESR permette agli effetti a innesco degli oggetti di attivarsi durante Furia.
+It uses the attack animation, and only skills cast with the casting animation count.	Usa l'animazione di attacco, e contano solo le abilità lanciate con l'animazione di incantesimo.
+It uses the kick animation, and only skills cast with the casting animation count.	Usa l'animazione di calcio, e contano solo le abilità lanciate con l'animazione di incantesimo.
+It uses the sequence animation, and only skills cast with the casting animation count.	Usa l'animazione di sequenza, e contano solo le abilità lanciate con l'animazione di incantesimo.
+It uses the special animation, and only skills cast with the casting animation count.	Usa l'animazione speciale, e contano solo le abilità lanciate con l'animazione di incantesimo.
+It uses the throw animation, and only skills cast with the casting animation count.	Usa l'animazione di lancio, e contano solo le abilità lanciate con l'animazione di incantesimo.
+Its missiles carry your weapon damage.	I suoi proiettili infliggono il danno della tua arma.
+It’s cast with the casting animation.	Viene lanciata con l'animazione di incantesimo.
+Level 1 Aura When Equipped	Aura di livello 1 quando equipaggiata
+Level 1-10 Aura When Equipped	Aura di livello 1-10 quando equipaggiata
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	Aura di livello 1-2 quando equipaggiata / Aura di livello 3-5 quando equipaggiata
+Level 1-5 Aura When Equipped	Aura di livello 1-5 quando equipaggiata
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	Aura di livello 1-5 quando equipaggiata / Aura di livello 5-10 quando equipaggiata / Aura di livello 15-20 quando equipaggiata
+Level 10 Aura When Equipped	Aura di livello 10 quando equipaggiata
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	Aura di livello 10 quando equipaggiata / Aura di livello 20 quando equipaggiata
+Level 10-15 Aura When Equipped	Aura di livello 10-15 quando equipaggiata
+Level 10-20 Aura When Equipped	Aura di livello 10-20 quando equipaggiata
+Level 10-25 Aura When Equipped	Aura di livello 10-25 quando equipaggiata
+Level 10-30 Aura When Equipped	Aura di livello 10-30 quando equipaggiata
+Level 15 Aura When Equipped	Aura di livello 15 quando equipaggiata
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	Aura di livello 15 quando equipaggiata / Aura di livello 10 quando equipaggiata
+Level 15-20 Aura When Equipped	Aura di livello 15-20 quando equipaggiata
+Level 15-30 Aura When Equipped	Aura di livello 15-30 quando equipaggiata
+Level 2-5 Aura When Equipped	Aura di livello 2-5 quando equipaggiata
+Level 2-8 Aura When Equipped	Aura di livello 2-8 quando equipaggiata
+Level 20 Aura When Equipped	Aura di livello 20 quando equipaggiata
+Level 20-30 Aura When Equipped	Aura di livello 20-30 quando equipaggiata
+Level 20-40 Aura When Equipped	Aura di livello 20-40 quando equipaggiata
+Level 25 Aura When Equipped	Aura di livello 25 quando equipaggiata
+Level 25-30 Aura When Equipped	Aura di livello 25-30 quando equipaggiata
+Level 25-50 Aura When Equipped	Aura di livello 25-50 quando equipaggiata
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	Aura di livello 3-10 quando equipaggiata / Aura di livello 6-11 quando equipaggiata
+Level 3-5 Aura When Equipped	Aura di livello 3-5 quando equipaggiata
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	Aura di livello 3-5 quando equipaggiata / Aura di livello 5-10 quando equipaggiata
+Level 30 Aura When Equipped	Aura di livello 30 quando equipaggiata
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	Aura di livello 30 quando equipaggiata / Aura di livello 25 quando equipaggiata
+Level 30-40 Aura When Equipped	Aura di livello 30-40 quando equipaggiata
+Level 30-50 Aura When Equipped	Aura di livello 30-50 quando equipaggiata
+Level 30-60 Aura When Equipped	Aura di livello 30-60 quando equipaggiata
+Level 4-7 Aura When Equipped	Aura di livello 4-7 quando equipaggiata
+Level 40 Aura When Equipped	Aura di livello 40 quando equipaggiata
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	Aura di livello 40 quando equipaggiata / Aura di livello 30 quando equipaggiata
+Level 40-80 Aura When Equipped	Aura di livello 40-80 quando equipaggiata
+Level 5 Aura When Equipped	Aura di livello 5 quando equipaggiata
+Level 5 Aura When Equipped / Level 10 Aura When Equipped	Aura di livello 5 quando equipaggiata / Aura di livello 10 quando equipaggiata
+Level 5-10 Aura When Equipped	Aura di livello 5-10 quando equipaggiata
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	Aura di livello 5-10 quando equipaggiata / Aura di livello 10-15 quando equipaggiata
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	Aura di livello 5-10 quando equipaggiata / Aura di livello 10-20 quando equipaggiata
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Aura di livello 5-10 quando equipaggiata / Aura di livello 10-20 quando equipaggiata / Aura di livello 10-15 quando equipaggiata
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	Aura di livello 5-10 quando equipaggiata / Aura di livello 10-20 quando equipaggiata / Aura di livello 25-30 quando equipaggiata
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	Aura di livello 5-10 quando equipaggiata / Aura di livello 8-15 quando equipaggiata
+Level 5-15 Aura When Equipped	Aura di livello 5-15 quando equipaggiata
+Level 5-20 Aura When Equipped	Aura di livello 5-20 quando equipaggiata
+Level 5-25 Aura When Equipped	Aura di livello 5-25 quando equipaggiata
+Level 50 Aura When Equipped	Aura di livello 50 quando equipaggiata
+Level 6-11 Aura When Equipped	Aura di livello 6-11 quando equipaggiata
+Level 6-12 Aura When Equipped	Aura di livello 6-12 quando equipaggiata
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	Aura di livello 6-12 quando equipaggiata / Aura di livello 10-20 quando equipaggiata
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Aura di livello 6-12 quando equipaggiata / Aura di livello 10-20 quando equipaggiata / Aura di livello 10-15 quando equipaggiata
+Level 60-100 Aura When Equipped	Aura di livello 60-100 quando equipaggiata
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	Aura di livello 8 quando equipaggiata / Aura di livello 12 quando equipaggiata
+Level 8-15 Aura When Equipped	Aura di livello 8-15 quando equipaggiata
+Magic prefix	Prefisso magico
+Magic suffix	Suffisso magico
+Necromancer's Stone	Pietra del Negromante
+Paladic Halo	Alone di Paladino
+Pelt	Scudo
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	Scegli un livello di abilità e un livello del personaggio per vedere i valori che mostrerebbe il gioco. Alcune abilità scalano sia con il livello del personaggio sia con il livello dell'abilità.
+Primal Charm	Amuleto Primordiale
+Primal Helm	Elmo primordiale
+Ring	Anello
+Runeword	Parola runica
+Set item	Oggetto del set
+Shield	Scudo
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	Abilità che non appartengono all'albero di nessuna classe. Gli oggetti le concedono come bonus alle abilità, come possibilità di lanciarle, come cariche o come aure, così qualsiasi classe può usarle.
+Sorcerer's Band	Anello del Mago
+Sorcerer's Talisman	Talismano del Mago
+Tyrael's Virtue_old	La Virtù di Tyrael
+Unique	Unico
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	I valori presuppongono nessun oggetto e nessun punto nelle altre abilità. I bonus delle sinergie sono elencati sotto ogni abilità e non sono inclusi nei numeri qui; apri un'abilità per impostare i punti sinergia e vedere ogni livello.
+Vessel of Souls	Vascello delle Anime
+Voodoo Heads	Teste voodoo
+Warlock Pendant	Ciondolo dello Stregone
+Warlock Sigil	Sigillo dello Stregone
+{0}: {1}	{0}: {1}
+{0}, {1}	{0}, {1}
+{0}. {1}	{0}. {1}

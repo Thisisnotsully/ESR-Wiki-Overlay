@@ -11,7 +11,7 @@ LINE	C	IngredientsResult
 LINE	R	Staff of KingsViper amuletÿc3Horadric Staff
 LINE	R	Khalim's BrainKhalim's EyeKhalim's HeartKhalim's Flailÿc3Khalim's Will
 LINE	R	Wirt's leg or Any Club Class WeaponTome of Town Portalÿc3Portal to the Secret Cow Level
-LINE	R	Starter's Packÿc3Character AugmenterNoob's Odd CharmKill Ledger (see Kill Ledger Page)
+LINE	R	Starter's Packÿc3Noob's Odd CharmKill Ledger (see Kill Ledger Page)
 LINE	R	Tome of Town PortalTome of Identifyÿc3Starter's Pack
 LINE	R	Any Small CharmAncient Decipherer1-4 Stamina Potionsÿc3Special Small Charm-(25-100)% Better Chance of GettingMagic Item(0% MF is the best for finding white items. NegativeMF also increases the chance of low-quality items)
 LINE	R	Any Small CharmAncient Decipherer1-4 Any Mana Potionsÿc3Special Small CharmIncreases Max Mana by -(2/4/8/16)%
@@ -48,10 +48,10 @@ LINE	T	*The feather works on ethereal items as well due to an engine bug, so be 
 LINE	T	**Spell Mastery is a passive that increases total spell damage by 4% per level and stacks with all other masteries.
 LINE	T	***Astrogha's Petrified Heart can be used on any item to remove the corruption status in order to be able to corrupt that item again. If used on a Triune Harbinger of Apocalypse staff, it will allow it to receive an additional corruption (it will not reset the entire count to 0). Doing so, the item will also count 1 less corruption for every heart used when providing the bonus damage to Triumvirate Orb (as if the corruption never happened).
 LINE	T	****Branded items cannot be modified in any way. Cloning an item also clones the socketables inside it, but they cannot be removed.
-ENTRY	Misc/Repair	
+ENTRY	Misc	
 BLOCK	0			
 LINE	C	IngredientsResult
-LINE	R	4 Dragon Stonesÿc3Token of Absolution(respecs your skills)
+LINE	R	4/8/12 Dragon Stonesÿc3Token of Absolution/x2/x3(respecs your skills)
 LINE	R	3 Any Healing Potions3 Any Mana potionsChipped Gemÿc3Rejuvenation Potion
 LINE	R	3 Any Healing Potions3 Any Mana potionsNormal Gemÿc3Full Rejuvenation Potion
 LINE	R	3 Rejuvenation Potionsÿc3Full Rejuvenation Potion
@@ -215,12 +215,12 @@ LINE	R	Magic OrbSapphireChipped SapphireMagic JewelAncient Deciphererÿc3Ma
 LINE	R	Magic OrbSapphireChipped TopazMagic JewelAncient Deciphererÿc3Magic Item of the Same Type(ilvl = 35) +1 To Sorceress Skills +1-2 To Lightning Skills (Sorceress Only) +20-40 To Mana +4-6 Mana After Each KillGem Socket (1-2)
 BLOCK	0					CtC Skill Armor	
 LINE	C	IngredientsResult
-LINE	R	Magic Torso2 EmeraldsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)25% CtC Level 12 Inner Sight When StruckGem Socket (2)
+LINE	R	Magic Torso2 EmeraldsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 12 Inner Sight When StruckGem Socket (2)
 LINE	R	Magic Torso2 RubiesAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Fade When StruckGem Socket (2)
-LINE	R	Magic Torso2 AmethystsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)30% CtC Level 6 Battle Orders When StruckGem Socket (2)
-LINE	R	Magic Torso2 TopazesAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)13% CtC Level 1 Shock Wave When StruckGem Socket (2)
-LINE	R	Magic Torso2 SkullsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)25% CtC Level 6 Dim Vision When StruckGem Socket (2)
-LINE	R	Magic Torso2 DiamondsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)33% CtC Level 6 Blessed Hammer WhenStruckGem Socket (2)
+LINE	R	Magic Torso2 AmethystsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Battle Orders When StruckGem Socket (2)
+LINE	R	Magic Torso2 TopazesAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 1 Shock Wave When StruckGem Socket (2)
+LINE	R	Magic Torso2 SkullsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Dim Vision When StruckGem Socket (2)
+LINE	R	Magic Torso2 DiamondsAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Blessed Hammer WhenStruckGem Socket (2)
 LINE	R	Magic Torso2 SapphiresAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Static Field When StruckGem Socket (2)
 LINE	R	Magic Torso2 ObsidiansAncient Deciphererÿc3Magic Item of the Same Type(ilvl = previous ilvl)20% CtC Level 6 Sigil: Lethargy When StruckGem Socket (2)
 ENTRY	Unique Items	
@@ -235,7 +235,7 @@ LINE	R	Exceptional Unique Item2 Perfect Gemsÿc3Unique Item of the Same Name
 LINE	R	Elite Unique Item3 Perfect Gemsÿc3Unique Item of the Same Name
 LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver(Required Level 1-39)Perfect Gemÿc3Unique Item of the Same Name
 LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver(Required Level 40-59)2 Perfect Gemsÿc3Unique Item of the Same Name
-LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver(except lvl 92+ Unique Jewelry and Quivers)(Required Level 60+)3 Perfect Gemsÿc3Unique Item of the Same Name
+LINE	R	Unique Ring/Amulet/Charm/Jewel/Quiver(except lvl 92+ Unique Jewels and Quivers)(Required Level 60+)3 Perfect Gemsÿc3Unique Item of the Same Name
 ENTRY	Set Items	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -253,7 +253,8 @@ LINE	C	IngredientsResult
 LINE	R	Infernal Cranium (Set Cap)Thawing Potionÿc3Berserker's Headgear (Set Cap)
 LINE	R	Berserker's Headgear (Set Cap)Thawing Potionÿc3Infernal Cranium (Set Cap)
 LINE	R	Autolycus' Thieving Tools (Set Light Belt)Thawing Potionÿc3Arctic Binding (Set Light Belt)
-LINE	R	Arctic Binding (Set Light Belt)Thawing Potionÿc3Autolycus' Thieving Tools (Set Light Belt)
+LINE	R	Arctic Binding (Set Light Belt)Thawing Potionÿc3Bane's Authority (Set Light Belt)
+LINE	R	Bane's Authority (Set Light Belt)Thawing Potionÿc3Autolycus' Thieving Tools (Set Light Belt)
 LINE	R	Boots of Sneaking (Set Boots)Thawing Potionÿc3Hsarus' Iron Heel (Set Boots)
 LINE	R	Hsarus' Iron Heel (Set Boots)Thawing Potionÿc3Boots of Sneaking (Set Boots)
 BLOCK	0			
@@ -266,7 +267,7 @@ LINE	R	Lixo's Harp (Set Gothic Bow)Thawing Potionÿc3Converts the base item(G
 LINE	R	Aanna's Touch (Set Lance)Thawing Potionÿc3Converts the base item(Lance -> Rock Buster -> Ballista)
 LINE	R	Death's Touch (Set Throwing Knife)Thawing Potionÿc3Converts the base item(Throwing Knife <-> Katar)
 LINE	R	Motoko's Power (Set Ninja To)Thawing Potionÿc3Converts the base item(Ninja To -> Battering Arm -> Repeating Crosbow)
-LINE	R	Alora's Silent Assault (Set Hand Scythe)Thawing Potionÿc3Converts the base item(Hand Scythe <-> Tekko)
+LINE	R	Alora's Silent Assault (Set Hand Scythe)Thawing Potionÿc3Converts the base item(Hand Scythe -> War Dart -> Tekko)
 LINE	R	Borik's Nightblade (Set Katana)Thawing Potionÿc3Converts the base item(Katana -> Wrecking Arm -> Scissors Suwayyah)
 LINE	R	Messerschmidt's Reaver (Set Battle Axe)Thawing Potionÿc3Converts the base item(Battle Axe <-> Flamberge)
 LINE	R	Blood Baron (Set Great Sword)Thawing Potionÿc3Converts the base item(Great Sword <-> Balanced Axe)
@@ -284,10 +285,10 @@ LINE	R	Anduin's Protector (Set Aerin Shield)(No socket is allowed)Thawing Poti
 LINE	R	Griffith's Parry (Set Rapier)Thawing Potionÿc3Converts the base item(Rapier -> Seraphic Scepter -> Assassin Crossbow)
 LINE	R	Divada's Focus (Set Mana Blade)Thawing Potionÿc3Converts the base item(Mana Blade <-> Brass Knuckle)
 LINE	R	The Staff of the Magi (Set Rune Staff)Thawing Potionÿc3Converts the base item(Rune Staff -> Grim Scythe -> Ballista)
-LINE	R	Bane's Oathmaker (Set Kris)Thawing Potionÿc3Converts the base item(Kris -> Two-Handed Sword)
-LINE	R	The Dark One's Slicer (Set Blade)Thawing Potionÿc3Converts the base item(Blade -> Double Axe)
+LINE	R	Bane's Oathmaker (Set Kris)Thawing Potionÿc3Converts the base item(Kris <-> Two-Handed Sword)
+LINE	R	The Dark One's Slicer (Set Blade)Thawing Potionÿc3Converts the base item(Blade <-> Double Axe)
 LINE	R	Blade of the Kingslayer (Set Nether Sword)Thawing Potionÿc3Converts the base item(Nether Sword -> Chu-Ko-Nu -> Bill)
-LINE	R	Rathma's Command (Set Cedar Staff)Thawing Potionÿc3Converts the base item(Cedar Staff -> Battle Scythe)
+LINE	R	Rathma's Command (Set Cedar Staff)Thawing Potionÿc3Converts the base item(Cedar Staff <-> Battle Scythe)
 LINE	R	Power of the Void (Set Petrified Wand)Thawing Potionÿc3Converts the base item(Petrified Wand -> Partizan -> Gothic Bow)
 LINE	R	Harbinger of Ruin's Merciless Rule (Set Abyssal Blade)Thawing Potionÿc3Converts the base item(Abyssal Blade -> Mithral Knife -> Mystic Staff)
 ENTRY	Set Reroll	
@@ -332,7 +333,7 @@ LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Rubies�
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Sapphiresÿc3Rare Ring(ilvl = char level)Cold Resist 22-28%
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Topazesÿc3Rare Ring(ilvl = char level)Lightning Resist 22-28%
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Emeraldsÿc3Rare Ring(ilvl = char level)Posion Resist 22-28%
-LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Diamondsÿc3Rare Ring(ilvl = char level)Magic Resist 11-14%
+LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Diamondsÿc3Rare Ring(ilvl = char level)Magic Resist 12-15%
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Obsidiansÿc3Rare Ring(ilvl = char level)Damage Reduced By 3-4%
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Skullsÿc3Rare Ring(ilvl = char level)4-6% Physical Damage Leeched as Life
 LINE	R	3 Rare Rings(or Rerolling Orb with 7 Magic Ring pts)2 Flawless Amethystsÿc3Rare Ring(ilvl = char level)4-6% Physical Damage Leeched as Mana
@@ -360,7 +361,7 @@ LINE	R	Magic Sorceress Amulet/Ring3 Ancient DecipherersMagic JewelRubyÿc3Ma
 LINE	R	Magic Sorceress Amulet/Ring3 Ancient DecipherersMagic JewelTopazÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Lightning Spells (SorceressOnly)
 LINE	R	Magic Sorceress Amulet/Ring3 Ancient DecipherersMagic JewelSapphireÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Cold Spells (Sorceress Only)
 LINE	R	Magic Warlock Amulet/Ring3 Ancient DecipherersMagic JewelTopazÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Demon Skills (Warlock Only)
-LINE	R	Magic Warlock Amulet/Ring3 Ancient DecipherersMagic JewelOnyxÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Eldritch Skills (Warlock Only)
+LINE	R	Magic Warlock Amulet/Ring3 Ancient DecipherersMagic JewelObsidianÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Eldritch Skills (Warlock Only)
 LINE	R	Magic Warlock Amulet/Ring3 Ancient DecipherersMagic JewelRubyÿc3Magic Item of the Same Type(ilvl = char level) +1-3 To Chaos Skills (Warlock Only)
 ENTRY	Charms	
 BLOCK	0			
@@ -380,7 +381,7 @@ LINE	R	3 Rare Jewelsÿc3Rare Jewel(ilvl = char level)
 LINE	R	7 Rare Jewelsÿc3Unique Jewel(ilvl = char level x 80%)
 LINE	R	Unique JewelScroll of Town Portalÿc3Rare Jewel(ilvl = char level)
 LINE	R	3 Unique Jewelsÿc3Unique Jewel(ilvl = char level x 80%)
-LINE	R	Unique Jewel3 Perfect GemsKeyÿc3Unique Jewel(ilvl = char level x 80%)Key
+LINE	R	Unique Jewel5 Perfect GemsKeyÿc3Unique Jewel(ilvl = char level x 80%)Key
 LINE	R	Rerolling Orb1-6 Set Ringsÿc3Rerolling OrbAdds 1-6 Jewel Points
 LINE	R	Rerolling Orb1-6 Set Amuletsÿc3Rerolling OrbAdds 1-6 Jewel Points
 ENTRY	Arrow/Bolt Quivers	
@@ -443,7 +444,7 @@ LINE	R	Magic BootsRi RunePerfect EmeraldAny Jewelÿc3Safety BootsLightning 
 LINE	R	Magic GlovesKi RunePerfect EmeraldAny Jewelÿc3Safety GlovesFire Resist +(30 to 50)%Damage Reduced by (6 to 12)Magic Damage Reduced by (6 to 12)Gem Socket (1)1-4 Random Affixes
 LINE	R	Magic BeltYo RunePerfect EmeraldAny Jewelÿc3Safety BeltCold Resist +(30 to 50)%Damage Reduced by (6 to 12)Magic Damage Reduced by (6 to 12)Gem Socket (1)1-4 Random Affixes
 LINE	R	Magic ShieldKa RunePerfect EmeraldAny Jewelÿc3Safety ShieldMagic Resist +(15 to 30)%Damage Reduced by (9 to 18)Magic Damage Reduced by (9 to 18)Gem Socket (2)1-4 Random Affixes
-LINE	R	Magic TorsoN RunePerfect EmeraldAny Jewelÿc3Safety BodyCannot Be FrozenDamage Reduced by (6 to 12)Magic Damage Reduced by (6 to 12)Gem Socket (2)1-4 Random Affixes
+LINE	R	Magic TorsoN RunePerfect EmeraldAny Jewelÿc3Safety BodyCannot Be FrozenDamage Reduced by (9 to 18)Magic Damage Reduced by (9 to 18)Gem Socket (2)1-4 Random Affixes
 LINE	R	Magic AmuletMi RunePerfect EmeraldAny Jewelÿc3Safety Amulet +(3 to 5)% Increased Chance of BlockingDamage Reduced by (6 to 12)Magic Damage Reduced by (6 to 12)Gem Socket (1)1-4 Random Affixes
 LINE	R	Magic RingYa RunePerfect EmeraldAny Jewelÿc3Safety Ring +(15 to 25) to VitalityDamage Reduced by (6 to 12)Magic Damage Reduced by (6 to 12)Gem Socket (1)1-4 Random Affixes
 LINE	R	Magic WeaponA RunePerfect EmeraldAny Jewelÿc3Safety WeaponPhysical Resist: +(20 to 30)%Damage Reduced by (18 to 36)Magic Damage Reduced by (18 to 36)Gem Socket (2)1-4 Random Affixes
@@ -487,7 +488,7 @@ LINE	R	Target ItemAnvil StoneChipped Diamondÿc3The Same Item +48% Damage To 
 LINE	R	Target ItemAnvil StoneChipped Sapphireÿc3The Same ItemIncrease Max Mana 16%
 ENTRY	Rune Forging	
 BLOCK	0			
-LINE	T	Rune Forging Target Item includes: Any Rarity Equipment (Weapons, Armor, Rings and Amulets) No Runewords (white/socketed items work) You can also use kanji runes.
+LINE	T	Rune Forging Target Item includes: Any Rarity Equipment (Weapons, Armor, Rings and Amulets) No Runewords (white/socketed items work) You can also use kanji runes. You can not use LoD runes.
 LINE	C	IngredientsResult
 LINE	R	Target Item2 Same RunesChipped Gemÿc3The Same ItemAdds bonus of the Rune
 ENTRY	Aura Forging	
@@ -505,7 +506,7 @@ LINE	R	Magic/Rare/Crafted/Set/Unique AmuletOrange Aura StoneChipped Gemÿc3Th
 ENTRY	Stat Forging (Jewel)	
 BLOCK	0			
 LINE	C	IngredientsResult
-LINE	R	Magic/Rare JewelAnvil StoneChipped Emeraldÿc3The Same Item15% Better Chance of Getting Magic Item
+LINE	R	Magic/Rare JewelAnvil StoneChipped Emeraldÿc3The Same Item30% Better Chance of Getting Magic Item
 LINE	R	Magic/Rare JewelAnvil StoneChipped Rubyÿc3The Same Item15% Increased Attack Speed
 LINE	R	Magic/Rare JewelAnvil StoneChipped Amethystÿc3The Same Item9% Chance of Crushing Blow
 LINE	R	Magic/Rare JewelAnvil StoneChipped Topazÿc3The Same ItemIncrease Max Life 12%
@@ -526,7 +527,7 @@ LINE	R	Any Weapon/Armorwith no (merc only) propertyAnvil StonePerfect Rubyÿ
 LINE	R	Any Weapon/Armorwith no (merc only) propertyAnvil StonePerfect Sapphireÿc3Any Weapon/Armor +1 To All Skills +20% To Poison Spell Damage +20% To Magic Spell Damage +20% To Physical Spell DamageMagic Damage Reduced by 75Adds (merc only) property
 LINE	R	Any Weapon/Armorwith no (merc only) propertyAnvil StonePerfect Topazÿc3The Same Item +1 To All Skills +15% To Spell DamageAll Resistances +50Adds (merc only) property
 LINE	R	Any Weapon/Armorwith no (merc only) propertyAnvil StonePerfect Emeraldÿc3The Same Item +1 To All Skills +30% to All SpeedsPiercing Attack 100%Adds (merc only) property
-LINE	R	Any Weapon/Armorwith no (merc only) propertyAnvil StonePerfect Diamondÿc3The Same Item +1 To Molten Focus +1 To Glacial Focus +1 To Static FocusAdds (merc only) property
+LINE	R	Any Weapon/Armorwith no (merc only) propertyAnvil StonePerfect Diamondÿc3The Same Item +10 To Molten Focus +10 To Glacial Focus +10 To Static FocusAdds (merc only) property
 LINE	R	Converted Item3 Antidote Potionsÿc3The Same ItemRemoves Merc Only ConverisonUnderlined Material(s)
 PAGE	dst	D-Stone	Modify
 ENTRY	D-Stone	
@@ -535,7 +536,7 @@ LINE	T	D-Stoning D-Stoning can also be applied to unforgeable items like Runewor
 LINE	T	D-Stoning Caps Every cap listed in the d-stoning section is a standalone cap specific for the purpose of dragon stoning. For example, if an item has 190% fire spell damage from affixes and the dragon stone cap is 200%, you can go above 200% as long as the dragon stone cap is respected (in this particular case, you can go as high as 390% fire spell damage, 190% from base and 200% from the d-stoning cap). The only exception to this rule is enhanced damage and enhanced defense that cannot go above 500% on any item.
 LINE	T	D-Stoning Runeworded Items D-Stoning applied to a white item ÿc1after making a Runeword is lostÿc0 when you remove the Runes. D-Stoning applied to a white item ÿc1before making a Runeword remainsÿc0 when you remove the Runes. (Please also see the caution of Secret Recipe 50.)
 LINE	T	Fail-Safe Features D-Stoning doesn't work if the target is elite and has +58 level req penalty or more. D-Stoning doesn't work if the target is exceptional and has +79 level req penalty or more. D-Stoning doesn't work if the target is normal or jewelry and has +99 level req penalty or more.
-LINE	T	Dragon Stone Cycling Dragon Stones can be transmuted to obtain its different forms that can be used for crafting.
+LINE	T	Dragon Stone Cycling Dragon Stones can be transmuted to obtain its different forms that can be used for crafting. You can transmute 2 or 3 of the same type at the same time for faster cycling.
 LINE	C	IngredientsResult
 LINE	R	Dragon Stoneÿc3Holy Symbol
 LINE	R	Holy Symbolÿc3Blackmoor
@@ -555,12 +556,12 @@ LINE	R	Any WeaponDragon Stoneÿc3The Same Item5% Increased Attack SpeedLevel
 LINE	R	Any WeaponDragon StoneKeyÿc3The Same Item +2-5% To Fire Spell Damage*Level Requirement +2(Capped at 300%)Key
 LINE	R	Any WeaponForging Hammerÿc3The Same Item +12% Enhanced DamageLevel Requirement +2(Capped at 500%)
 LINE	R	Any WeaponForging HammerKeyÿc3The Same Item3% Chance of Crushing BlowLevel Requirement +2(Capped at 100%)Key
-LINE	R	Any WeaponForging HammerStamina Potionÿc3The Same Item +2-5% To Physical Spell Damage*Level Requirement +2(Capped at 300)Stamina Potion
+LINE	R	Any WeaponForging HammerStamina Potionÿc3The Same Item +2-5% To Physical Spell Damage*Level Requirement +2(Capped at 300%)Stamina Potion
 LINE	R	Any WeaponTyranium Oreÿc3The Same ItemIncrease Max Life 4%Level Requirement +2(Capped at 60%)
 LINE	R	Any WeaponTyranium OreKeyÿc3The Same Item +2-5% To Lightning Spell Damage*Level Requirement +2(Capped at 300%)Key
 LINE	R	Any WeaponTyranium OreStamina Potionÿc3The Same Item2% Physical Damage Leeched as LifeLevel Requirement +2(Capped at 60%)Stamina Potion
 LINE	R	Any WeaponBlackmoorÿc3The Same Item5% Faster Cast RateLevel Requirement +2(Capped at 120%)
-LINE	R	Any WeaponBlackmoorKeyÿc3The Same Item +3 Mana After Each KillLevel Requirement +2(Capped at 150)Key
+LINE	R	Any WeaponBlackmoorKeyÿc3The Same Item +3 Mana After Each KillLevel Requirement +2(Capped at 60)Key
 LINE	R	Any WeaponBlackmoorStamina Potionÿc3The Same Item +2-5% Magic Spell Damage*Level Requirement +2(Capped at 300%)Stamina Potion
 LINE	R	Any WeaponForging HammerAntidote Potionÿc3The Same Item +2-5% Summon Damage*Level Requirement +2(Capped at 300%)Antidote Potion
 LINE	R	Any WeaponHoly Symbolÿc3The Same Item +12% Damage To Undead +12% Damage To DemonsLevel Requirement +2(Capped at 500%)
@@ -577,12 +578,12 @@ LINE	R	Any Torso/Helm/ShieldSpider's Silkÿc3The Same Item10% Better Chance o
 LINE	R	Any Torso/Helm/ShieldSpider's SilkKeyÿc3The Same Item +4 To DexterityLevel Requirement +3(Capped at 200)Key
 LINE	R	Any Torso/Helm/ShieldDragon Stoneÿc3The Same Item5% Increased Attack SpeedLevel Requirement +3(Capped at 120%)
 LINE	R	Any Torso/Helm/ShieldDragon StoneKeyÿc3The Same Item5% Faster Hit RecoveryLevel Requirement +3(Capped at 120%)Key
-LINE	R	Any Torso/Helm/ShieldForging Hammerÿc3The Same Item +8% Enhanced DefenseLevel Requirement +3(Capped at 500%)
+LINE	R	Any Torso/Helm/ShieldForging Hammerÿc3The Same Item +12% Enhanced DefenseLevel Requirement +3(Capped at 500%)
 LINE	R	Any Torso/Helm/ShieldForging HammerKeyÿc3The Same Item +4 To StrengthLevel Requirement +3(Capped at 200)Key
 LINE	R	Any Torso/Helm/ShieldTyranium Oreÿc3The Same ItemIncrease Max Life 4%Level Requirement +3(Capped at 60%)
 LINE	R	Any Torso/Helm/ShieldTyranium OreKeyÿc3The Same Item +16 To LifeLevel Requirement +3(Capped at 256)Key
 LINE	R	Any Torso/Helm/ShieldBlackmoorÿc3The Same Item5% Faster Cast RateLevel Requirement +3(Capped at 120%)
-LINE	R	Any Torso/Helm/ShieldBlackmoorKeyÿc3The Same Item +2 to Strength, Dexterity and EnergyLevel Requirement +3(Capped at 200%)Key*This cap is shared with the individual strength, dexterity and energy caps.
+LINE	R	Any Torso/Helm/ShieldBlackmoorKeyÿc3The Same Item +2 to Strength, Dexterity and EnergyLevel Requirement +3(Capped at 200)Key*This cap is shared with the individual strength, dexterity and energy caps.
 LINE	R	Any Torso/Helm/ShieldBlackmoorStamina Potionÿc3The Same Item-2 To Light RadiusLevel Requirement +3Stamina Potion
 LINE	R	Any Torso/Helm/ShieldHoly Symbolÿc3The Same ItemAll Resistances +4Level Requirement +3(Capped at 150)
 LINE	R	Any Torso/Helm/ShieldHoly SymbolStamina Potionÿc3The Same Item +2 To Light RadiusLevel Requirement +3(Capped at 10)Stamina Potion
@@ -597,19 +598,19 @@ LINE	R	Any Gloves/Belt/BootsSpider's Silkÿc3The Same Item10% Better Chance o
 LINE	R	Any Gloves/Belt/BootsSpider's SilkKeyÿc3The Same Item +4 To DexterityLevel Requirement +4(Capped at 200)Key
 LINE	R	Any Gloves/Belt/BootsDragon Stoneÿc3The Same Item5% Increased Attack SpeedLevel Requirement +4(Capped at 120%)
 LINE	R	Any Gloves/Belt/BootsDragon StoneKeyÿc3The Same Item5% Faster Hit RecoveryLevel Requirement +4(Capped at 120%)Key
-LINE	R	Any Gloves/Belt/BootsForging Hammerÿc3The Same Item +8% Enhanced DefenseLevel Requirement +4(Capped at 500%)
+LINE	R	Any Gloves/Belt/BootsForging Hammerÿc3The Same Item +12% Enhanced DefenseLevel Requirement +4(Capped at 500%)
 LINE	R	Any Gloves/Belt/BootsForging HammerKeyÿc3The Same Item +4 To StrengthLevel Requirement +4(Capped at 200)Key
 LINE	R	Any Gloves/Belt/BootsTyranium Oreÿc3The Same ItemIncrease Max Life 4%Level Requirement +4(Capped at 60%)
 LINE	R	Any Gloves/Belt/BootsTyranium OreKeyÿc3The Same Item +16 To LifeLevel Requirement +4(Capped at 256)Key
 LINE	R	Any Gloves/Belt/BootsBlackmoorÿc3The Same Item5% Faster Cast RateLevel Requirement +4(Capped at 120%)
-LINE	R	Any Gloves/Belt/BootsBlackmoorKeyÿc3The Same Item +2 to Strength, Dexterity and EnergyLevel Requirement +4(Capped at 200%)Key*This cap is shared with the individual strength, dexterity and energy caps.
+LINE	R	Any Gloves/Belt/BootsBlackmoorKeyÿc3The Same Item +2 to Strength, Dexterity and EnergyLevel Requirement +4(Capped at 200)Key*This cap is shared with the individual strength, dexterity and energy caps.
 LINE	R	Any Gloves/Belt/BootsBlackmoorStamina Potionÿc3The Same Item-2 To Light RadiusLevel Requirement +4Stamina Potion
-LINE	R	Any Gloves/Belt/BootsHoly Symbolÿc3The Same ItemAll Resistances +4Level Requirement +4(Capped at 150)
+LINE	R	Any Gloves/Belt/BootsHoly Symbolÿc3The Same ItemAll Resistances +4Level Requirement +4(Capped at 100)
 LINE	R	Any Gloves/Belt/BootsHoly SymbolStamina Potionÿc3The Same Item +2 To Light RadiusLevel Requirement +4(Capped at 10)Stamina Potion
 LINE	R	Any Gloves/Belt/BootsCrushed Gemÿc3The Same ItemIncrease Max Mana 4%Level Requirement +4(Capped at 60%)
 LINE	R	Any Gloves/Belt/BootsCrushed GemKeyÿc3The Same Item +16 To ManaLevel Requirement +4(Capped at 256)Key
 LINE	R	Any Gloves/Belt/BootsCrushed GemStamina Potionÿc3The Same Item +4 To EnergyLevel Requirement +4(Capped at 200)Stamina Potion
-LINE	R	Any Gloves/Belt/BootsVoid Shardÿc3The Same Item +1% To Summon Physical and Magic ResistsLevel Requirement +4(Capped at 15)
+LINE	R	Any Gloves/Belt/BootsVoid Shardÿc3The Same Item +1% To Summon Physical and Magic ResistsLevel Requirement +4(Capped at 15%)
 ENTRY	D-Stoning Ring/Amulet	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -621,13 +622,13 @@ LINE	R	Any Ring/AmuletDragon StoneKeyÿc3The Same Item5% Increased Attack Sp
 LINE	R	Any Ring/AmuletDragon StoneStamina Potionÿc3The Same ItemMagic Damage Reduced By 3Level Requirement +4Stamina Potion(Capped at 45)
 LINE	R	Any Ring/AmuletForging Hammerÿc3The Same Item3% Chance of Crushing BlowLevel Requirement +4(Capped at 100%)
 LINE	R	Any Ring/AmuletForging HammerKeyÿc3The Same Item5% Faster Run/WalkLevel Requirement +4(Capped at 120%)Key
-LINE	R	Any Ring/AmuletForging HammerStamina Potionÿc3The Same Item10% Extra Gold From MonstersLevel Requirement +4Stamina Potion(Capped at 400%)
+LINE	R	Any Ring/AmuletForging HammerStamina Potionÿc3The Same Item10% Extra Gold From MonstersLevel Requirement +4Stamina Potion(Capped at 300%)
 LINE	R	Any Ring/AmuletTyranium Oreÿc3The Same Item2% Physical Damage Leeched as LifeLevel Requirement +4(Capped at 60%)
 LINE	R	Any Ring/AmuletTyranium OreKeyÿc3The Same ItemIncrease Max Life 4%Level Requirement +4(Capped at 60%)Key
 LINE	R	Any Ring/AmuletTyranium OreStamina Potionÿc3The Same ItemReplenish Life +20Level Requirement +4Stamina Potion(Capped at 1000)
 LINE	R	Any Ring/AmuletBlackmoorÿc3The Same Item5% Faster Cast RateLevel Requirement +4(Capped at 120%)
-LINE	R	Any Ring/AmuletBlackmoorKeyÿc3The Same Item3 Mana After Each KillLevel Requirement +4(Capped at 60)Key
-LINE	R	Any Ring/AmuletBlackmoorStamina Potionÿc3The Same Item +2% to Summon LifeLevel Requirement +4Stamina Potion(Capped at 30)
+LINE	R	Any Ring/AmuletBlackmoorKeyÿc3The Same Item +3 Mana After Each KillLevel Requirement +4(Capped at 60)Key
+LINE	R	Any Ring/AmuletBlackmoorStamina Potionÿc3The Same Item +2% to Summon LifeLevel Requirement +4Stamina Potion(Capped at 30%)
 LINE	R	Any Ring/AmuletHoly Symbolÿc3The Same ItemAll Resistances +4Level Requirement +4(Capped at 100)
 LINE	R	Any Ring/AmuletHoly SymbolKeyÿc3The Same Item5% Faster Hit RecoveryLevel Requirement +4(Capped at 120%)Key
 LINE	R	Any Ring/AmuletHoly SymbolStamina Potionÿc3The Same ItemDamage Reduced By 3Level Requirement +4Stamina Potion(Capped at 45)
@@ -657,7 +658,7 @@ LINE	R	Any Weapon/ArmorHorn(2 Tinkering points)ÿc3The Same ItemAdds 5-10 Li
 LINE	R	Any Weapon/ArmorSpleen(2 Tinkering points)ÿc3The Same ItemAdds 5-10 Cold Damage 0.2 Sec Duration
 LINE	R	Any Weapon/ArmorTail(2 Tinkering points)ÿc3The Same ItemAdds 5-10 Magic Damage
 LINE	R	Any Weapon/ArmorJawbone(2 Tinkering points)ÿc3The Same ItemReplenish Life +20
-LINE	R	Any Weapon/ArmorScalp(2 Tinkering points)ÿc3The Same ItemRegenerate Mana 2%(Capped at 400)
+LINE	R	Any Weapon/ArmorScalp(2 Tinkering points)ÿc3The Same ItemRegenerate Mana 4%
 LINE	R	Any Weapon/ArmorQuill(3 Tinkering points)ÿc3The Same Item +2 to Max Damage
 PAGE	bas	Base Upgrade	Modify
 ENTRY	Base Upgrade	
@@ -919,8 +920,8 @@ ENTRY	Secret Recipe 38
 BLOCK	0			
 LINE	C	IngredientsResult
 LINE	R	Any Weapon (excluding runewords)Holy SymbolElixirAncient Scroll 38ÿc3The Same ItemSlain Monsters Rest In Peace
-LINE	R	Any Weapon/Armor (excluding runewords)Holy SymbolI RuneAncient Scroll 38ÿc3The Same ItemRemoves Slain Monsters Rest In Peace
-LINE	R	Any Weapon/Armor (excluding runewords)Forging HammerU RuneAncient Scroll 38ÿc3The Same ItemRemoves Knockback
+LINE	R	Any Weapon/Armor (excluding runewords)Holy SymbolAncient Scroll 38ÿc3The Same ItemRemoves Slain Monsters Rest In Peace
+LINE	R	Any Weapon/Armor (excluding runewords)Forging HammerAncient Scroll 38ÿc3The Same ItemRemoves Knockback
 ENTRY	Secret Recipe 39	
 BLOCK	0			
 LINE	C	IngredientsResult
@@ -976,6 +977,6 @@ ENTRY	Secret Recipe 50
 BLOCK	0			
 LINE	C	IngredientsResult
 LINE	R	Any Weapon with Level Req PenaltyMaple LeafPerfect GemAncient Scroll 50ÿc3The Same ItemRemoves Level Req Penalty by 1Ancient Scroll 50
-LINE	R	Any Armor/Ring/Amulet with Level Req PenaltyMaple LeafSa RuneAncient Scroll 50ÿc3The Same ItemRemoves Level Req Penalty by 2Ancient Scroll 50
+LINE	R	Any Armor/Ring/Amulet with Level Req PenaltyMaple LeafPerfect GemAncient Scroll 50ÿc3The Same ItemRemoves Level Req Penalty by 2Ancient Scroll 50
 BLOCK	0			
 LINE	T	CAUTION If you applied D-Stoning before making a Runeword, you need to remove the runes before removing the penalty added by such D-Stoning, or you'll lose the materials for nothing. If you applied D-Stoning after making a Runeword, you don't need to remove the runes. D-Stoning applied after making a Runeword is lost when you remove the runes. The penalty added by that D-Stoning is also removed at that time.

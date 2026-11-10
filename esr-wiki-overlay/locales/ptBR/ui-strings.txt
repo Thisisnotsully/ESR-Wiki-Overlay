@@ -327,3 +327,212 @@ Helms / Boots / Armor / Shields / Belts	Elmos / Botas / Armaduras / Escudos / Ci
 Helms / Boots / Armor / Shields / Belts:	Elmos / Botas / Armaduras / Escudos / Cintos:
 All Items	Todos os itens
 All Items:	Todos os itens:
+Tab	Aba
+Entry	Entrada
+Card	Ficha
+{0} results	{0} resultados
+1 result	1 resultado
+{0} of {1} entries here | {2} total	{0} de {1} entradas aqui | {2} no total
+Search names, stats, runes… (in English)	Buscar nomes, atributos, runas… (em português)
+Nothing has: {0}	Nada contém: {0}
+No card has all of: {0}	Nenhuma ficha contém tudo: {0}
+Nothing left without: {0}	Nada resta sem: {0}
+Type a word to look for: -word only leaves things out	Digite uma palavra para buscar: -palavra só exclui
+Did you mean	Você quis dizer
+Filters cleared	Filtros limpos
+Search cleared	Busca limpa
+Search suggestions	Sugestões de pesquisa
+Highlight a key	Destacar uma tecla
+Type the key	Digitar a tecla
+Clear search / close keyboard	Limpar a pesquisa / fechar o teclado
+Delete a character	Apagar um caractere
+Close keyboard	Fechar o teclado
+From the bottom row: suggestions	Da fileira de baixo: sugestões
+Pick a suggestion	Escolher uma sugestão
+Open the suggestion	Abrir a sugestão
+Close the suggestions	Fechar as sugestões
+Page through the suggestions	Passar as sugestões por páginas
+Show / hide keyboard	Mostrar / ocultar o teclado
+Leave the suggestions	Sair das sugestões
+{0}: open | {1}: close | {2}: page	{0}: abrir | {1}: fechar | {2}: página
+D-pad down: suggestions	Direcional para baixo: sugestões
+{0}: suggestions	{0}: sugestões
+Perk	Vantagem
+Campaign map	Mapa da campanha
+Act I	Ato I
+Act II	Ato II
+Act III	Ato III
+Act IV	Ato IV
+Act V	Ato V
+Special areas	Áreas especiais
+Ubers & portals	Ubers e portais
+Town	Cidade
+Outdoor area	Área externa
+Cave	Caverna
+Tomb	Tumba
+Dungeon	Masmorra
+Temple	Templo
+Tower	Torre
+Special area	Área especial
+WP	WP
+Waypoint	Ponto de passagem
+lvl {0}	nív. {0}
+L{0}	N{0}
+Monster level	Nível dos monstros
+Monsters	Monstros
+Official name: {0}	Nome oficial: {0}
+Quest items	Itens de missão
+Quest: {0}	Missão: {0}
+Heads up	Atenção
+Notes	Notas
+Getting there	Como chegar
+No town portal	Sem portal para a cidade
+Teleport is off here	Teleporte desativado aqui
+Teleport is limited here	Teleporte limitado aqui
+No teleport across the walls	Sem teleporte através das paredes
+No known way in	Nenhuma entrada conhecida
+Endgame zone	Zona de endgame
+(not confirmed yet)	(ainda não confirmado)
+Spoiler: click to show	Spoiler: clique para mostrar
+Spoiler: click to hide	Spoiler: clique para ocultar
+Click an area on the map to see its details.	Clique em uma área do mapa para ver os detalhes.
+Area	Área
+Opens {0}	Abre {0}
+Walk across	A pé
+Entrance	Entrada
+Portal	Portal
+Cube portal	Portal do cubo
+Next act	Próximo ato
+Hell lvl {0}	nív. {0} (Tormento)
+Monastery	Mosteiro
+Kurast	Kurast
+Worldstone Keep	Fortaleza da Pedra do Mundo
+Naraku depths	Profundezas de Naraku
+Skills	Habilidades
+Skill level:	Nível da habilidade:
+Character level:	Nível do personagem:
+Hard points:	Pontos investidos:
+Default	Padrão
+Skill tree	Árvore de habilidades
+Requires	Requer
+Procs on striking	Ativa efeitos ao acertar
+Procs on casting	Ativa efeitos ao lançar
+Yes	Sim
+No	Não
+At skill level {0}	No nível de habilidade {0}
+Synergies	Sinergias
+Granted by {0} items and recipes	Concedida por {0} itens e receitas
+Passive	Passiva
+Aura	Aura
+Item Skills	Habilidades de itens
+Amazonian Loop	Laço Amazônico
+Amazonian Pin	Pino Amazônico
+Amulet	Amuleto
+Anointment	Unção
+Assassin's Choker	Colar do Assassino
+Assassin's Jewel	Jóia do Assassino
+Auric Shields	Escudos áuricos
+Barbaric Knuckle	Nocaute Barbárico
+Belt	Cinto
+Body Armor	Proteção Corporal
+Boots	Botas
+Circlet	Diadema
+Cube recipe	Receita do cubo
+Death's Locket	Relíquia da Morte
+Druid's Seal	Selo do Druida
+Druidic Necklace	Colar Druídico
+Gloves	Luvas
+Grimoire	Grimório
+Hand to Hand	Arma de punho
+Helm	Capacete
+Holy Pendant	Pingente Sagrado
+It deals no weapon damage, and spells don’t count as strikes.	Não causa dano de arma, e as magias não contam como ataques.
+It hits with your weapon.	Atinge com a sua arma.
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	Atinge com a sua arma. No ESR, cada Golpe Sagrado desfere vários golpes, e cada golpe pode ativar efeitos.
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	Atinge com a sua arma. Diferente do jogo original, o ESR permite que os efeitos de ativação dos itens sejam disparados durante Furacão.
+It uses the attack animation, and only skills cast with the casting animation count.	Usa a animação de ataque, e só contam as habilidades conjuradas com a animação de conjuração.
+It uses the kick animation, and only skills cast with the casting animation count.	Usa a animação de chute, e só contam as habilidades conjuradas com a animação de conjuração.
+It uses the sequence animation, and only skills cast with the casting animation count.	Usa a animação de sequência, e só contam as habilidades conjuradas com a animação de conjuração.
+It uses the special animation, and only skills cast with the casting animation count.	Usa a animação especial, e só contam as habilidades conjuradas com a animação de conjuração.
+It uses the throw animation, and only skills cast with the casting animation count.	Usa a animação de lançamento, e só contam as habilidades conjuradas com a animação de conjuração.
+Its missiles carry your weapon damage.	Seus projéteis carregam o seu dano de arma.
+It’s cast with the casting animation.	É conjurada com a animação de conjuração.
+Level 1 Aura When Equipped	Aura de Nível 1 Quando Equipado
+Level 1-10 Aura When Equipped	Aura de Nível 1-10 Quando Equipado
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	Aura de Nível 1-2 Quando Equipado / Aura de Nível 3-5 Quando Equipado
+Level 1-5 Aura When Equipped	Aura de Nível 1-5 Quando Equipado
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	Aura de Nível 1-5 Quando Equipado / Aura de Nível 5-10 Quando Equipado / Aura de Nível 15-20 Quando Equipado
+Level 10 Aura When Equipped	Aura de Nível 10 Quando Equipado
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	Aura de Nível 10 Quando Equipado / Aura de Nível 20 Quando Equipado
+Level 10-15 Aura When Equipped	Aura de Nível 10-15 Quando Equipado
+Level 10-20 Aura When Equipped	Aura de Nível 10-20 Quando Equipado
+Level 10-25 Aura When Equipped	Aura de Nível 10-25 Quando Equipado
+Level 10-30 Aura When Equipped	Aura de Nível 10-30 Quando Equipado
+Level 15 Aura When Equipped	Aura de Nível 15 Quando Equipado
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	Aura de Nível 15 Quando Equipado / Aura de Nível 10 Quando Equipado
+Level 15-20 Aura When Equipped	Aura de Nível 15-20 Quando Equipado
+Level 15-30 Aura When Equipped	Aura de Nível 15-30 Quando Equipado
+Level 2-5 Aura When Equipped	Aura de Nível 2-5 Quando Equipado
+Level 2-8 Aura When Equipped	Aura de Nível 2-8 Quando Equipado
+Level 20 Aura When Equipped	Aura de Nível 20 Quando Equipado
+Level 20-30 Aura When Equipped	Aura de Nível 20-30 Quando Equipado
+Level 20-40 Aura When Equipped	Aura de Nível 20-40 Quando Equipado
+Level 25 Aura When Equipped	Aura de Nível 25 Quando Equipado
+Level 25-30 Aura When Equipped	Aura de Nível 25-30 Quando Equipado
+Level 25-50 Aura When Equipped	Aura de Nível 25-50 Quando Equipado
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	Aura de Nível 3-10 Quando Equipado / Aura de Nível 6-11 Quando Equipado
+Level 3-5 Aura When Equipped	Aura de Nível 3-5 Quando Equipado
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	Aura de Nível 3-5 Quando Equipado / Aura de Nível 5-10 Quando Equipado
+Level 30 Aura When Equipped	Aura de Nível 30 Quando Equipado
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	Aura de Nível 30 Quando Equipado / Aura de Nível 25 Quando Equipado
+Level 30-40 Aura When Equipped	Aura de Nível 30-40 Quando Equipado
+Level 30-50 Aura When Equipped	Aura de Nível 30-50 Quando Equipado
+Level 30-60 Aura When Equipped	Aura de Nível 30-60 Quando Equipado
+Level 4-7 Aura When Equipped	Aura de Nível 4-7 Quando Equipado
+Level 40 Aura When Equipped	Aura de Nível 40 Quando Equipado
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	Aura de Nível 40 Quando Equipado / Aura de Nível 30 Quando Equipado
+Level 40-80 Aura When Equipped	Aura de Nível 40-80 Quando Equipado
+Level 5 Aura When Equipped	Aura de Nível 5 Quando Equipado
+Level 5 Aura When Equipped / Level 10 Aura When Equipped	Aura de Nível 5 Quando Equipado / Aura de Nível 10 Quando Equipado
+Level 5-10 Aura When Equipped	Aura de Nível 5-10 Quando Equipado
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	Aura de Nível 5-10 Quando Equipado / Aura de Nível 10-15 Quando Equipado
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	Aura de Nível 5-10 Quando Equipado / Aura de Nível 10-20 Quando Equipado
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Aura de Nível 5-10 Quando Equipado / Aura de Nível 10-20 Quando Equipado / Aura de Nível 10-15 Quando Equipado
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	Aura de Nível 5-10 Quando Equipado / Aura de Nível 10-20 Quando Equipado / Aura de Nível 25-30 Quando Equipado
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	Aura de Nível 5-10 Quando Equipado / Aura de Nível 8-15 Quando Equipado
+Level 5-15 Aura When Equipped	Aura de Nível 5-15 Quando Equipado
+Level 5-20 Aura When Equipped	Aura de Nível 5-20 Quando Equipado
+Level 5-25 Aura When Equipped	Aura de Nível 5-25 Quando Equipado
+Level 50 Aura When Equipped	Aura de Nível 50 Quando Equipado
+Level 6-11 Aura When Equipped	Aura de Nível 6-11 Quando Equipado
+Level 6-12 Aura When Equipped	Aura de Nível 6-12 Quando Equipado
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	Aura de Nível 6-12 Quando Equipado / Aura de Nível 10-20 Quando Equipado
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Aura de Nível 6-12 Quando Equipado / Aura de Nível 10-20 Quando Equipado / Aura de Nível 10-15 Quando Equipado
+Level 60-100 Aura When Equipped	Aura de Nível 60-100 Quando Equipado
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	Aura de Nível 8 Quando Equipado / Aura de Nível 12 Quando Equipado
+Level 8-15 Aura When Equipped	Aura de Nível 8-15 Quando Equipado
+Magic prefix	Prefixo mágico
+Magic suffix	Sufixo mágico
+Necromancer's Stone	Pedra do Necromante
+Paladic Halo	Halo Paladino
+Pelt	Pelagem
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	Escolha um nível de habilidade e um nível de personagem para ver os valores que o jogo mostraria. Algumas habilidades escalam tanto com o nível do personagem quanto com o nível da habilidade.
+Primal Charm	Amuleto Primitivo
+Primal Helm	Elmo primitivo
+Ring	Anel
+Runeword	Palavra Rúnica
+Set item	Item de conjunto
+Shield	Escudo
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	Habilidades que não pertencem à árvore de nenhuma classe. Os itens as concedem como bônus de habilidade, como chance de conjurar, como cargas ou como auras, então qualquer classe pode usá-las.
+Sorcerer's Band	Anel do Feiticeiro
+Sorcerer's Talisman	Talismã do Feiticeiro
+Tyrael's Virtue_old	Virtude de Tyrael
+Unique	Único
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	Os valores partem do princípio de que não há itens nem pontos em outras habilidades. Os bônus de sinergias estão listados sob cada habilidade e não estão incluídos nos números aqui; abra uma habilidade para definir os pontos de sinergia e ver todos os níveis.
+Vessel of Souls	Vaso das Almas
+Voodoo Heads	Cabeças vodu
+Warlock Pendant	Pingente do Bruxo
+Warlock Sigil	Símbolo do Bruxo
+{0}: {1}	{0}: {1}
+{0}, {1}	{0}, {1}
+{0}. {1}	{0}. {1}

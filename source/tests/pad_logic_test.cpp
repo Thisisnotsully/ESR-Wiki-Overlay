@@ -119,12 +119,14 @@ static void Repeat() {
     s.down[a] = true;
     rep.Step(s, 1000, p, r);
     CHECK(p[down] && p[a]);
+    CHECK(!rep.IsRepeat(Button::Down));  // a fresh press
     rep.Step(s, 1100, p, r);
     CHECK(!p[down] && !p[a]);  // still inside the first delay
     rep.Step(s, 1000 + Repeater::kFirstDelay, p, r);
     CHECK(p[down] && !p[a]);  // the D-pad repeats, A does not
+    CHECK(rep.IsRepeat(Button::Down) && !rep.IsRepeat(Button::A));
     rep.Step(s, 1000 + Repeater::kFirstDelay + 20, p, r);
-    CHECK(!p[down]);
+    CHECK(!p[down] && !rep.IsRepeat(Button::Down));
     rep.Step(s, 1000 + Repeater::kFirstDelay + Repeater::kRepeat, p, r);
     CHECK(p[down]);
     s.down[down] = false;
@@ -246,7 +248,192 @@ void KeyboardLanguages() {
     CHECK(OskLayout(false, "jaJP")[1][0].ch == L'q');        // composed languages keep the English layout
 }
 
+// The suggestion list: the "Did you mean" heading and the no-match message are never picked.
+static void SuggestionSteps() {
+    // hit, hit, heading, hit, hit
+    const std::vector<bool> rows = {true, true, false, true, true};
+    CHECK(FirstPickable(rows) == 0);
+    CHECK(ListStep(rows, -1, 1).row == 0 && !ListStep(rows, -1, 1).leave);
+    CHECK(ListStep(rows, -1, -1).leave);
+    CHECK(ListStep(rows, 0, 1).row == 1);
+    CHECK(ListStep(rows, 1, 1).row == 3);   // over the heading
+    CHECK(ListStep(rows, 3, -1).row == 1);  // and back over it
+    CHECK(ListStep(rows, 4, 1).row == 4 && !ListStep(rows, 4, 1).leave);  // the bottom stays
+    CHECK(ListStep(rows, 0, -1).leave && ListStep(rows, 0, -1).row == -1);  // up from the top goes back
+    // pages: as far as they go, then the nearest pickable row back toward the start; never out of the list
+    CHECK(ListStep(rows, 0, 2).row == 1);   // row 2 is the heading
+    CHECK(ListStep(rows, 0, 3).row == 3);
+    CHECK(ListStep(rows, 0, 8).row == 4);   // stops at the end
+    CHECK(ListStep(rows, 4, -2).row == 3);  // row 2 is the heading: back toward the start
+    CHECK(ListStep(rows, 4, -8).row == 0 && !ListStep(rows, 4, -8).leave);
+    CHECK(ListStep(rows, 0, -8).row == 0 && !ListStep(rows, 0, -8).leave);  // a page up at the top stays
+    // only typo hits: the heading is the first row, so up from the first hit leaves
+    const std::vector<bool> typos = {false, true, true};
+    CHECK(FirstPickable(typos) == 1);
+    CHECK(ListStep(typos, -1, 1).row == 1);
+    CHECK(ListStep(typos, 1, -1).leave);
+    CHECK(ListStep(typos, 2, -5).row == 1);
+    // nothing matches: only the message row, nothing to pick
+    const std::vector<bool> message = {false};
+    CHECK(FirstPickable(message) == -1);
+    CHECK(ListStep(message, -1, 1).leave && ListStep(message, -1, 1).row == -1);
+    CHECK(FirstPickable({}) == -1);
+    CHECK(ListStep({}, -1, 1).leave);
+}
+
+static void SearchFocusMoves() {
+    FocusContext c;
+    c.keyboardOpen = true;
+    c.listPickable = true;
+    // keyboard -> list only from the bottom row
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Down, c) == SearchFocus::Keyboard);
+    c.atKeyboardBottom = true;
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Down, c) == SearchFocus::List);
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Up, c) == SearchFocus::Keyboard);
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Shortcut, c) == SearchFocus::List);
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Back, c) == SearchFocus::Keyboard);  // B is typing's own
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::KeyboardToggle, c) == SearchFocus::Page);
+    // no pickable rows: the bottom row wraps round as before
+    FocusContext empty = c;
+    empty.listPickable = false;
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Down, empty) == SearchFocus::Keyboard);
+    CHECK(NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Shortcut, empty) == SearchFocus::Keyboard);
+    // list -> keyboard: up from the top, B, View
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Up, c) == SearchFocus::List);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Down, c) == SearchFocus::List);
+    c.atListTop = true;
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Up, c) == SearchFocus::Keyboard);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Back, c) == SearchFocus::Keyboard);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Shortcut, c) == SearchFocus::Keyboard);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Pick, c) == SearchFocus::Page);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::KeyboardToggle, c) == SearchFocus::List);  // Y closes the keyboard
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Down, empty) == SearchFocus::Keyboard);    // the list went away
+    // keyboard closed: the list goes back to the page
+    FocusContext page;
+    page.listPickable = true;
+    page.atListTop = true;
+    CHECK(NextSearchFocus(SearchFocus::Page, SearchEvent::Shortcut, page) == SearchFocus::List);
+    CHECK(NextSearchFocus(SearchFocus::Page, SearchEvent::Down, page) == SearchFocus::Page);  // the D-pad stays the page's
+    CHECK(NextSearchFocus(SearchFocus::Page, SearchEvent::KeyboardToggle, page) == SearchFocus::Keyboard);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Up, page) == SearchFocus::Page);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::Back, page) == SearchFocus::Page);
+    CHECK(NextSearchFocus(SearchFocus::List, SearchEvent::KeyboardToggle, page) == SearchFocus::Keyboard);
+    page.listPickable = false;
+    CHECK(NextSearchFocus(SearchFocus::Page, SearchEvent::Shortcut, page) == SearchFocus::Page);
+}
+
+// The overlay's numbers at 1920x1080, 100% display scaling: a 1152x778 window, keyboard of five rows of 36 px keys.
+static PopupInput Popups1080(double dpiScale) {
+    const auto s = [&](int v) { return static_cast<int>(v * dpiScale + 0.5); };
+    PopupInput in;
+    in.clientWidth = s(1152) > 1920 ? 1920 : s(1152);
+    in.clientHeight = s(778) > 1080 ? 1080 : s(778);
+    in.edge = s(8);
+    in.gap = s(8);
+    in.belowGap = s(2);
+    in.floorTop = s(260);
+    in.keyboard = true;
+    in.keyboardLeft = s(16);
+    in.keyboardTop = s(228);
+    in.keyboardWidth = s(416);
+    in.keyRows = 5;
+    in.keyHeight = s(36);
+    in.minKeyHeight = s(26);
+    in.keyGap = s(4);
+    in.keyPad = s(8);
+    in.belowTop = s(226);
+    in.listLeft = s(16);
+    in.listWidth = s(560);
+    in.minSideWidth = s(360);
+    in.rowHeight = s(50);
+    in.chrome = s(29);
+    in.rows = 30;
+    return in;
+}
+
+static void PopupLayout() {
+    using Side = PopupPlace::Side;
+    // wide enough: beside the keyboard, from the tooltip floor down, never over the keyboard
+    PopupInput in = Popups1080(1.0);
+    PopupPlace p = PlacePopups(in);
+    CHECK(p.side == Side::Right);
+    CHECK(p.left >= in.keyboardLeft + in.keyboardWidth + in.gap);
+    CHECK(p.top >= in.floorTop);
+    CHECK(p.rows == 8);
+    CHECK(p.left + p.width <= in.clientWidth - in.edge);
+    CHECK(p.top + p.rows * in.rowHeight + in.chrome <= in.clientHeight - in.edge);
+    CHECK(p.keyHeight == in.keyHeight);
+    // 1080p at 150%: the window is clamped to the screen, the list still goes beside with at least four rows
+    in = Popups1080(1.5);
+    p = PlacePopups(in);
+    CHECK(p.side == Side::Right && p.rows >= 4);
+    // narrow: under the keyboard, below its bottom, with four rows guaranteed by shorter keys
+    in = Popups1080(1.5);
+    in.clientWidth = in.keyboardLeft + in.keyboardWidth + 200;
+    p = PlacePopups(in);
+    CHECK(p.side == Side::Below);
+    CHECK(p.top >= p.keyboardBottom);
+    CHECK(p.rows >= 4);
+    CHECK(p.top + p.rows * in.rowHeight + in.chrome <= in.clientHeight - in.edge);
+    CHECK(p.keyHeight <= in.keyHeight && p.keyHeight >= in.minKeyHeight);
+    CHECK(p.keyboardBottom - p.keyboardTop == KeyboardHeight(in.keyRows, p.keyHeight, in.keyGap, in.keyPad));
+    // narrow with plenty of height: the keys keep their size
+    in = Popups1080(1.0);
+    in.clientWidth = 600;
+    in.clientHeight = 1000;
+    p = PlacePopups(in);
+    CHECK(p.side == Side::Below && p.keyHeight == in.keyHeight && p.rows == 8);
+    // too short even with the shortest keys: as many rows as fit, still under the keyboard (never over it)
+    in = Popups1080(1.0);
+    in.clientWidth = 600;
+    in.clientHeight = 560;
+    p = PlacePopups(in);
+    CHECK(p.side == Side::Below && p.keyHeight == in.minKeyHeight && p.top >= p.keyboardBottom && p.rows >= 1);
+    // a short list asks for no more rows than it has
+    in = Popups1080(1.0);
+    in.rows = 2;
+    p = PlacePopups(in);
+    CHECK(p.rows == 2);
+    // room only on the left of the keyboard
+    in = Popups1080(1.0);
+    in.keyboardLeft = in.clientWidth - in.keyboardWidth - 16;
+    p = PlacePopups(in);
+    CHECK(p.side == Side::Left && p.left >= in.edge && p.left + p.width + in.gap <= in.keyboardLeft);
+    // keyboard geometry does not depend on the number of hits once there is at least one
+    in = Popups1080(1.5);
+    in.clientWidth = in.keyboardLeft + in.keyboardWidth + 200;
+    in.rows = 1;
+    const PopupPlace one = PlacePopups(in);
+    for (int hits : {2, 3, 4, 5, 8, 30}) {
+        in.rows = hits;
+        p = PlacePopups(in);
+        CHECK(p.side == one.side && p.keyHeight == one.keyHeight);
+        CHECK(p.keyboardTop == one.keyboardTop && p.keyboardBottom == one.keyboardBottom);
+    }
+    in = Popups1080(1.5);
+    in.rows = 1;
+    const PopupPlace oneSide = PlacePopups(in);
+    in.rows = 30;
+    p = PlacePopups(in);
+    CHECK(p.side == oneSide.side && p.keyHeight == oneSide.keyHeight && p.keyboardTop == oneSide.keyboardTop);
+    // no list showing: the keyboard keeps its full key height
+    in = Popups1080(1.5);
+    in.clientWidth = in.keyboardLeft + in.keyboardWidth + 200;
+    in.rows = 0;
+    p = PlacePopups(in);
+    CHECK(p.keyHeight == in.keyHeight);
+    CHECK(p.keyboardBottom - p.keyboardTop == KeyboardHeight(in.keyRows, in.keyHeight, in.keyGap, in.keyPad));
+    // no keyboard: under the search box
+    in = Popups1080(1.0);
+    in.keyboard = false;
+    p = PlacePopups(in);
+    CHECK(p.side == Side::Below && p.top == in.belowTop && p.left == in.listLeft && p.rows == 8);
+}
+
 int main() {
+    SuggestionSteps();
+    SearchFocusMoves();
+    PopupLayout();
     KeyboardLanguages();
     Smoothing();
     NumberSteps();

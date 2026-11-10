@@ -327,3 +327,212 @@ Helms / Boots / Armor / Shields / Belts	Шлемы / Сапоги / Доспех
 Helms / Boots / Armor / Shields / Belts:	Шлемы / Сапоги / Доспехи / Щиты / Пояса:
 All Items	Все предметы
 All Items:	Все предметы:
+Tab	Вкладка
+Entry	Запись
+Card	Карточка
+{0} results	Найдено: {0}
+1 result	Найдено: 1
+{0} of {1} entries here | {2} total	{0} из {1} записей здесь | {2} всего
+Search names, stats, runes… (in English)	Поиск по названиям, свойствам, рунам… (на русском)
+Nothing has: {0}	Нигде нет: {0}
+No card has all of: {0}	Ни одна карточка не содержит всё: {0}
+Nothing left without: {0}	Ничего не осталось без: {0}
+Type a word to look for: -word only leaves things out	Введите слово для поиска: -слово только исключает
+Did you mean	Возможно, вы имели в виду
+Filters cleared	Фильтры сброшены
+Search cleared	Поиск очищен
+Search suggestions	Подсказки поиска
+Highlight a key	Выбрать клавишу
+Type the key	Ввести символ
+Clear search / close keyboard	Очистить поиск / закрыть клавиатуру
+Delete a character	Удалить символ
+Close keyboard	Закрыть клавиатуру
+From the bottom row: suggestions	С нижнего ряда: подсказки
+Pick a suggestion	Выбрать подсказку
+Open the suggestion	Открыть подсказку
+Close the suggestions	Закрыть подсказки
+Page through the suggestions	Листать подсказки по страницам
+Show / hide keyboard	Показать / скрыть клавиатуру
+Leave the suggestions	Выйти из подсказок
+{0}: open | {1}: close | {2}: page	{0}: открыть | {1}: закрыть | {2}: листать
+D-pad down: suggestions	Крестовина вниз: подсказки
+{0}: suggestions	{0}: подсказки
+Perk	Талант
+Campaign map	Карта кампании
+Act I	Акт I
+Act II	Акт II
+Act III	Акт III
+Act IV	Акт IV
+Act V	Акт V
+Special areas	Особые зоны
+Ubers & portals	Уберы и порталы
+Town	Город
+Outdoor area	Открытая местность
+Cave	Пещера
+Tomb	Гробница
+Dungeon	Подземелье
+Temple	Храм
+Tower	Башня
+Special area	Особая зона
+WP	WP
+Waypoint	Путевая точка
+lvl {0}	ур. {0}
+L{0}	У{0}
+Monster level	Уровень монстров
+Monsters	Монстры
+Official name: {0}	Официальное название: {0}
+Quest items	Предметы заданий
+Quest: {0}	Задание: {0}
+Heads up	Внимание
+Notes	Примечания
+Getting there	Как добраться
+No town portal	Портал в город недоступен
+Teleport is off here	Телепортация здесь отключена
+Teleport is limited here	Телепортация здесь ограничена
+No teleport across the walls	Нельзя телепортироваться сквозь стены
+No known way in	Вход неизвестен
+Endgame zone	Зона эндгейма
+(not confirmed yet)	(ещё не подтверждено)
+Spoiler: click to show	Спойлер: нажмите, чтобы показать
+Spoiler: click to hide	Спойлер: нажмите, чтобы скрыть
+Click an area on the map to see its details.	Нажмите на зону на карте, чтобы увидеть подробности.
+Area	Зона
+Opens {0}	Открывает {0}
+Walk across	Пешком
+Entrance	Вход
+Portal	Портал
+Cube portal	Портал из куба
+Next act	Следующий акт
+Hell lvl {0}	ур. {0} (Ад)
+Monastery	Монастырь
+Kurast	Кураст
+Worldstone Keep	Убежище Камня Мира
+Naraku depths	Глубины Нараку
+Skills	Умения
+Skill level:	Уровень умения:
+Character level:	Уровень персонажа:
+Hard points:	Вложенные очки:
+Default	По умолчанию
+Skill tree	Ветка умений
+Requires	Требует
+Procs on striking	Вызывает эффекты при ударе
+Procs on casting	Вызывает эффекты при применении
+Yes	Да
+No	Нет
+At skill level {0}	На уровне умения {0}
+Synergies	Синергии
+Granted by {0} items and recipes	Дают предметы и рецепты: {0}
+Passive	Пассивное
+Aura	Аура
+Item Skills	Умения предмета
+Amazonian Loop	Амазонская петля
+Amazonian Pin	Амазонская булавка
+Amulet	Амулет
+Anointment	Помазание
+Assassin's Choker	Ожерелье Убийцы
+Assassin's Jewel	Драгоценность Убийцы
+Auric Shields	Щиты ауры
+Barbaric Knuckle	Барбарский кулак
+Belt	Пояс
+Body Armor	Нательная броня
+Boots	Сапоги
+Circlet	Цирклет
+Cube recipe	Рецепт куба
+Death's Locket	Смертельный медальон
+Druid's Seal	Печать Друида
+Druidic Necklace	Друидское Ожерелье
+Gloves	Перчатки
+Grimoire	гримуар
+Hand to Hand	Кастетное оружие
+Helm	Шлем
+Holy Pendant	Священный кулон
+It deals no weapon damage, and spells don’t count as strikes.	Оно не наносит урона от оружия, а заклинания не считаются ударами.
+It hits with your weapon.	Оно поражает вашим оружием.
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	Оно поражает вашим оружием. В ESR каждый Удар наносит несколько попаданий, и каждое попадание может вызвать эффект.
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	Оно поражает вашим оружием. В отличие от оригинальной игры, в ESR эффекты срабатывания предметов действуют во время Вихря.
+It uses the attack animation, and only skills cast with the casting animation count.	Использует анимацию атаки, и учитываются только умения, применяемые с анимацией применения.
+It uses the kick animation, and only skills cast with the casting animation count.	Использует анимацию удара ногой, и учитываются только умения, применяемые с анимацией применения.
+It uses the sequence animation, and only skills cast with the casting animation count.	Использует анимацию серии, и учитываются только умения, применяемые с анимацией применения.
+It uses the special animation, and only skills cast with the casting animation count.	Использует особую анимацию, и учитываются только умения, применяемые с анимацией применения.
+It uses the throw animation, and only skills cast with the casting animation count.	Использует анимацию броска, и учитываются только умения, применяемые с анимацией применения.
+Its missiles carry your weapon damage.	Его снаряды несут урон от вашего оружия.
+It’s cast with the casting animation.	Оно применяется с анимацией применения.
+Level 1 Aura When Equipped	Уровень 1 Аура при Ношении
+Level 1-10 Aura When Equipped	Уровень 1-10 Аура при Ношении
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	Уровень 1-2 Аура при Ношении / Уровень 3-5 Аура при Ношении
+Level 1-5 Aura When Equipped	Уровень 1-5 Аура при Ношении
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	Уровень 1-5 Аура при Ношении / Уровень 5-10 Аура при Ношении / Уровень 15-20 Аура при Ношении
+Level 10 Aura When Equipped	Уровень 10 Аура при Ношении
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	Уровень 10 Аура при Ношении / Уровень 20 Аура при Ношении
+Level 10-15 Aura When Equipped	Уровень 10-15 Аура при Ношении
+Level 10-20 Aura When Equipped	Уровень 10-20 Аура при Ношении
+Level 10-25 Aura When Equipped	Уровень 10-25 Аура при Ношении
+Level 10-30 Aura When Equipped	Уровень 10-30 Аура при Ношении
+Level 15 Aura When Equipped	Уровень 15 Аура при Ношении
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	Уровень 15 Аура при Ношении / Уровень 10 Аура при Ношении
+Level 15-20 Aura When Equipped	Уровень 15-20 Аура при Ношении
+Level 15-30 Aura When Equipped	Уровень 15-30 Аура при Ношении
+Level 2-5 Aura When Equipped	Уровень 2-5 Аура при Ношении
+Level 2-8 Aura When Equipped	Уровень 2-8 Аура при Ношении
+Level 20 Aura When Equipped	Уровень 20 Аура при Ношении
+Level 20-30 Aura When Equipped	Уровень 20-30 Аура при Ношении
+Level 20-40 Aura When Equipped	Уровень 20-40 Аура при Ношении
+Level 25 Aura When Equipped	Уровень 25 Аура при Ношении
+Level 25-30 Aura When Equipped	Уровень 25-30 Аура при Ношении
+Level 25-50 Aura When Equipped	Уровень 25-50 Аура при Ношении
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	Уровень 3-10 Аура при Ношении / Уровень 6-11 Аура при Ношении
+Level 3-5 Aura When Equipped	Уровень 3-5 Аура при Ношении
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	Уровень 3-5 Аура при Ношении / Уровень 5-10 Аура при Ношении
+Level 30 Aura When Equipped	Уровень 30 Аура при Ношении
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	Уровень 30 Аура при Ношении / Уровень 25 Аура при Ношении
+Level 30-40 Aura When Equipped	Уровень 30-40 Аура при Ношении
+Level 30-50 Aura When Equipped	Уровень 30-50 Аура при Ношении
+Level 30-60 Aura When Equipped	Уровень 30-60 Аура при Ношении
+Level 4-7 Aura When Equipped	Уровень 4-7 Аура при Ношении
+Level 40 Aura When Equipped	Уровень 40 Аура при Ношении
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	Уровень 40 Аура при Ношении / Уровень 30 Аура при Ношении
+Level 40-80 Aura When Equipped	Уровень 40-80 Аура при Ношении
+Level 5 Aura When Equipped	Уровень 5 Аура при Ношении
+Level 5 Aura When Equipped / Level 10 Aura When Equipped	Уровень 5 Аура при Ношении / Уровень 10 Аура при Ношении
+Level 5-10 Aura When Equipped	Уровень 5-10 Аура при Ношении
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	Уровень 5-10 Аура при Ношении / Уровень 10-15 Аура при Ношении
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	Уровень 5-10 Аура при Ношении / Уровень 10-20 Аура при Ношении
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Уровень 5-10 Аура при Ношении / Уровень 10-20 Аура при Ношении / Уровень 10-15 Аура при Ношении
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	Уровень 5-10 Аура при Ношении / Уровень 10-20 Аура при Ношении / Уровень 25-30 Аура при Ношении
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	Уровень 5-10 Аура при Ношении / Уровень 8-15 Аура при Ношении
+Level 5-15 Aura When Equipped	Уровень 5-15 Аура при Ношении
+Level 5-20 Aura When Equipped	Уровень 5-20 Аура при Ношении
+Level 5-25 Aura When Equipped	Уровень 5-25 Аура при Ношении
+Level 50 Aura When Equipped	Уровень 50 Аура при Ношении
+Level 6-11 Aura When Equipped	Уровень 6-11 Аура при Ношении
+Level 6-12 Aura When Equipped	Уровень 6-12 Аура при Ношении
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	Уровень 6-12 Аура при Ношении / Уровень 10-20 Аура при Ношении
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Уровень 6-12 Аура при Ношении / Уровень 10-20 Аура при Ношении / Уровень 10-15 Аура при Ношении
+Level 60-100 Aura When Equipped	Уровень 60-100 Аура при Ношении
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	Уровень 8 Аура при Ношении / Уровень 12 Аура при Ношении
+Level 8-15 Aura When Equipped	Уровень 8-15 Аура при Ношении
+Magic prefix	Магический префикс
+Magic suffix	Магический суффикс
+Necromancer's Stone	Камень Некроманта
+Paladic Halo	Паладинский Орел
+Pelt	Пелта
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	Выберите уровень умения и уровень персонажа, чтобы увидеть значения, которые показала бы игра. Некоторые умения растут как от уровня персонажа, так и от уровня умения.
+Primal Charm	Первобытный амулет
+Primal Helm	Первобытный шлем
+Ring	Кольцо
+Runeword	Рунное слово
+Set item	Предмет комплекта
+Shield	Щит
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	Умения, не входящие в дерево какого-либо класса. Предметы дают их как бонусы к умениям, как шанс применения, как заряды или как ауры, поэтому ими может пользоваться любой класс.
+Sorcerer's Band	Кольцо волшебника
+Sorcerer's Talisman	Талисман Чародея
+Tyrael's Virtue_old	Добродетель Тираэля
+Unique	Уникальный
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	Значения рассчитаны без предметов и без очков в других умениях. Бонусы от синергий перечислены под каждым умением и не включены в приведенные здесь числа; откройте умение, чтобы задать очки синергии и увидеть каждый уровень.
+Vessel of Souls	Сосуд Душ
+Voodoo Heads	Головы вуду
+Warlock Pendant	Кулон чернокнижника
+Warlock Sigil	Печать чернокнижника
+{0}: {1}	{0}: {1}
+{0}, {1}	{0}, {1}
+{0}. {1}	{0}. {1}

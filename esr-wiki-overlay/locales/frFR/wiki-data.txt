@@ -9,7 +9,7 @@ LINE	T	Ouvrez votre Kit de démarrage et votre Caisse d'armes avant de quitter l
 ENTRY	Mort, réinitialisation et annulation des choix	Bienvenue dans Eastern Sun Resurrected
 BLOCK	0						0
 LINE	T	Alt+clic sur un bouton + de l'écran de personnage pour réinitialiser, en consommant une utilisation d'un compteur limité ; rechargez-le en cubant 4 Pierres de dragon pour obtenir un Jeton d'absolution. Mourir coûte un peu d'expérience et d'or, mais aucun équipement, et ne coûte aucune expérience à l'intérieur de la zone d'un boss de carte. La plupart des premiers choix d'équipement peuvent être annulés : retirez n'importe quel élément d'un socket en transmutant l'objet avec une Clé (cela ne fonctionne pas pour les Gemwords, mais fonctionne pour les Runewords). Vous pouvez retirer un forgeage en transmutant l'objet avec 3 Potions de dégel.
-ENTRY	Progression dans la campagne	Difficulté normale
+ENTRY	Progression dans la campagne	Difficulté normale	campaignmap
 BLOCK	0						0
 LINE	T	ESR a modifié la disposition de la campagne pour la rendre plus fluide que Vanilla. Certaines zones demandent moins de niveaux avant de progresser, et certaines peuvent être entièrement contournées
 LINE	T	
@@ -55371,7 +55371,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	2
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Chaîne elfique	Normal elv	Armures	Normal	Armures	33
 FIELD	Défense	307-343
@@ -55604,7 +55604,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Chaîne d'Adamantite Drow	Exceptionnel xlv	Armures	Exceptional	Armures	58
 FIELD	Défense	524-572
@@ -55824,7 +55824,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Chaîne Sylvaine	Élite ylv	Armures	Elite	Armures	83
 FIELD	Défense	788-809
@@ -56071,7 +56071,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	4-12
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Bouclier Héraldique	Normal pa3	Boucliers auriques	Normal	Boucliers auriques	16
 FIELD	Défense	27-42
@@ -56084,7 +56084,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	6-18
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Bouclier Aerin	Normal pa4	Boucliers auriques	Normal	Boucliers auriques	20
 FIELD	Défense	43-61
@@ -56097,7 +56097,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	8-20
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Bouclier Couronne	Normal pa5	Boucliers auriques	Normal	Boucliers auriques	24
 FIELD	Défense	63-84
@@ -56110,7 +56110,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	8-24
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache	Normal pa2	Boucliers auriques	Normal	Boucliers auriques	8
 FIELD	Défense	13-25
@@ -56123,7 +56123,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	4-16
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Targe Akaran	Exceptionnel pa6	Boucliers auriques	Exceptional	Boucliers auriques	31
 FIELD	Défense	100-112
@@ -56136,7 +56136,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	24-32
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Bouclier Protecteur	Exceptionnel pa8	Boucliers auriques	Exceptional	Boucliers auriques	41
 FIELD	Défense	130-150
@@ -56149,7 +56149,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	36-48
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Bouclier doré	Exceptionnel pa9	Boucliers auriques	Exceptional	Boucliers auriques	45
 FIELD	Défense	151-175
@@ -56162,7 +56162,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	40-56
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Bouclier Royal	Exceptionnel paa	Boucliers auriques	Exceptional	Boucliers auriques	49
 FIELD	Défense	176-204
@@ -56175,7 +56175,7 @@ FIELD	Blocage %	4
 FIELD	Dégâts	48-64
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Akaran Rondache	Exceptionnel pa7	Boucliers auriques	Exceptional	Boucliers auriques	34
 FIELD	Défense	113-129
@@ -56188,7 +56188,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	30-40
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Targe sacrée	Élite pab	Boucliers auriques	Elite	Boucliers auriques	58
 FIELD	Défense	125-145
@@ -56201,7 +56201,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	44-140
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Bouclier de Kurast	Élite pad	Boucliers auriques	Elite	Boucliers auriques	66
 FIELD	Défense	171-199
@@ -56214,7 +56214,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	20-164
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Bouclier Zakarum	Élite pae	Boucliers auriques	Elite	Boucliers auriques	70
 FIELD	Défense	200-232
@@ -56227,7 +56227,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	92-92
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Bouclier Vortex	Élite paf	Boucliers auriques	Elite	Boucliers auriques	74
 FIELD	Défense	233-269
@@ -56240,7 +56240,7 @@ FIELD	Blocage %	4
 FIELD	Dégâts	10-174
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache sacrée	Élite pac	Boucliers auriques	Elite	Boucliers auriques	60
 FIELD	Défense	146-170
@@ -56253,7 +56253,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	70-116
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Toutes les résistances +(5 to 10) Points de bricolage : (25 to 35) Toutes les résistances +(8 to 15) Points de bricolage : (25 to 35) Toutes les résistances +(16 to 30) Points de bricolage : (25 to 35) Toutes les résistances +(25 to 35) Points de bricolage : (25 to 35) Toutes les résistances +(35 to 45) Points de bricolage : (25 to 35)
+FIELD	Automod	Toutes les résistances +(5 to 10)Toutes les résistances +(8 to 15)Toutes les résistances +(16 to 30)Toutes les résistances +(25 to 35)Toutes les résistances +(35 to 45)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Ceinture	Normal lbl	Ceinture	Normal	Ceinture	3
 FIELD	Défense	6-10
@@ -56331,7 +56331,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	2
 FIELD	Type de gemme	2
-FIELD	Automod	+(1 to 3) à la Force Points de bricolage : (25 to 35) +(4 to 6) à la Force Points de bricolage : (25 to 35) +(7 to 9) à la Force Points de bricolage : (25 to 35) +(10 to 15) à la Force Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 3) à la Force+(4 to 6) à la Force+(7 to 9) à la Force+(10 to 15) à la ForcePoints de bricolage : (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Ceinture en peau de démon	Exceptionnel zlb	Ceinture	Exceptional	Ceinture	31
 FIELD	Défense	75-95
@@ -56409,7 +56409,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	2
 FIELD	Type de gemme	2
-FIELD	Automod	+(1 to 3) à la Force Points de bricolage : (25 to 35) +(4 to 6) à la Force Points de bricolage : (25 to 35) +(7 to 9) à la Force Points de bricolage : (25 to 35) +(10 to 15) à la Force Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 3) à la Force+(4 to 6) à la Force+(7 to 9) à la Force+(10 to 15) à la ForcePoints de bricolage : (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Bande en chanvre	Élite alb	Ceinture	Elite	Ceinture	59
 FIELD	Défense	160-196
@@ -56487,7 +56487,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	2
 FIELD	Type de gemme	2
-FIELD	Automod	+(1 to 3) à la Force Points de bricolage : (25 to 35) +(4 to 6) à la Force Points de bricolage : (25 to 35) +(7 to 9) à la Force Points de bricolage : (25 to 35) +(10 to 15) à la Force Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 3) à la Force+(4 to 6) à la Force+(7 to 9) à la Force+(10 to 15) à la ForcePoints de bricolage : (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Ceinture en toile d'araignée	Élite ulc	Ceinture	Elite	Ceinture	59
 FIELD	Défense	160-196
@@ -57394,7 +57394,7 @@ FIELD	Blocage %	8
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compendium	Normal wa4	Grimoire	Normal	Grimoire	20
@@ -57408,7 +57408,7 @@ FIELD	Blocage %	10
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimoire	Normal wa5	Grimoire	Normal	Grimoire	24
@@ -57422,7 +57422,7 @@ FIELD	Blocage %	12
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Livre ancien	Normal wa1	Grimoire	Normal	Grimoire	4
@@ -57436,7 +57436,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tome	Normal wa2	Grimoire	Normal	Grimoire	8
@@ -57450,7 +57450,7 @@ FIELD	Blocage %	5
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Codex noir	Exceptionnel wa8	Grimoire	Exceptional	Grimoire	45
@@ -57464,7 +57464,7 @@ FIELD	Blocage %	8
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compendium possédé	Exceptionnel wa9	Grimoire	Exceptional	Grimoire	49
@@ -57478,7 +57478,7 @@ FIELD	Blocage %	10
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimoire possédé	Exceptionnel waa	Grimoire	Exceptional	Grimoire	54
@@ -57492,7 +57492,7 @@ FIELD	Blocage %	12
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Texte brûlé	Exceptionnel wa6	Grimoire	Exceptional	Grimoire	33
@@ -57506,7 +57506,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tome noir	Exceptionnel wa7	Grimoire	Exceptional	Grimoire	39
@@ -57520,7 +57520,7 @@ FIELD	Blocage %	5
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Codex occulte	Élite wad	Grimoire	Elite	Grimoire	66
@@ -57534,7 +57534,7 @@ FIELD	Blocage %	8
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compendium blasphématoire	Élite wae	Grimoire	Elite	Grimoire	81
@@ -57548,7 +57548,7 @@ FIELD	Blocage %	10
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimoire blasphématoire	Élite waf	Grimoire	Elite	Grimoire	85
@@ -57562,7 +57562,7 @@ FIELD	Blocage %	12
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Ouvrage oublié	Élite wab	Grimoire	Elite	Grimoire	59
@@ -57576,7 +57576,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tome occulte	Élite wac	Grimoire	Elite	Grimoire	67
@@ -57590,7 +57590,7 @@ FIELD	Blocage %	5
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Démoniste
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Casquette	Normal cap	Casque	Normal	Casque	1
@@ -57708,7 +57708,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(6 to 10)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(11 to 20)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(21 to 30)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(31 to 40)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(41 to 50)% Or supplémentaire des monstres Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5)% Or supplémentaire des monstres+(6 to 10)% Or supplémentaire des monstres+(11 to 20)% Or supplémentaire des monstres+(21 to 30)% Or supplémentaire des monstres+(31 to 40)% Or supplémentaire des monstres+(41 to 50)% Or supplémentaire des monstresPoints de bricolage : (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Casque de guerre	Exceptionnel xap	Casque	Exceptional	Casque	29
 FIELD	Défense	52-67
@@ -57825,7 +57825,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(6 to 10)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(11 to 20)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(21 to 30)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(31 to 40)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(41 to 50)% Or supplémentaire des monstres Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5)% Or supplémentaire des monstres+(6 to 10)% Or supplémentaire des monstres+(11 to 20)% Or supplémentaire des monstres+(21 to 30)% Or supplémentaire des monstres+(31 to 40)% Or supplémentaire des monstres+(41 to 50)% Or supplémentaire des monstresPoints de bricolage : (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Casque Ailé	Exceptionnel 4hm	Casque	Exceptional	Casque	48
 FIELD	Défense	105-138
@@ -57968,7 +57968,7 @@ FIELD	Blocage %	0
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(6 to 10)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(11 to 20)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(21 to 30)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(31 to 40)% Or supplémentaire des monstres Points de bricolage : (25 to 35) +(41 to 50)% Or supplémentaire des monstres Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5)% Or supplémentaire des monstres+(6 to 10)% Or supplémentaire des monstres+(11 to 20)% Or supplémentaire des monstres+(21 to 30)% Or supplémentaire des monstres+(31 to 40)% Or supplémentaire des monstres+(41 to 50)% Or supplémentaire des monstresPoints de bricolage : (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Shako	Élite uap	Casque	Elite	Casque	57
 FIELD	Défense	130-166
@@ -58652,7 +58652,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	12-20
 FIELD	Châsses	2
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Bouclier de Forteresse	Normal fts	Bouclier	Normal	Bouclier	31
 FIELD	Défense	48-72
@@ -58704,7 +58704,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	12-20
 FIELD	Châsses	2
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Défenseur	Exceptionnel xuc	Bouclier	Exceptional	Bouclier	29
 FIELD	Défense	60-75
@@ -58808,7 +58808,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	40-76
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Bouclier de réflexion	Exceptionnel xft	Bouclier	Exceptional	Bouclier	56
 FIELD	Défense	37-75
@@ -58938,7 +58938,7 @@ FIELD	Blocage %	4
 FIELD	Dégâts	70-122
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Bouclier Cérémonial	Élite yft	Bouclier	Elite	Bouclier	81
 FIELD	Défense	195-236
@@ -59055,7 +59055,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	70-122
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Attaquant subit des dégâts de (4 to 12) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (16 to 24) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (28 to 36) Points de bricolage : (25 to 35) Attaquant subit des dégâts de (40 to 80) Points de bricolage : (25 to 35)
+FIELD	Automod	Attaquant subit des dégâts de (4 to 12)Attaquant subit des dégâts de (16 to 24)Attaquant subit des dégâts de (28 to 36)Attaquant subit des dégâts de (40 to 80)Points de bricolage : (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Couronne Spirituelle	Normal eht	Couronne Spirituelle	Normal	Couronne Spirituelle	16
 FIELD	Défense	30-42
@@ -59107,7 +59107,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Tête de Déchireur	Normal ne3	Têtes vaudou	Normal	Têtes vaudou	16
@@ -59121,7 +59121,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Tête de Gargouille	Normal ne4	Têtes vaudou	Normal	Têtes vaudou	20
@@ -59135,7 +59135,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Tête de démon	Normal ne5	Têtes vaudou	Normal	Têtes vaudou	24
@@ -59149,7 +59149,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Tête de Zombie	Normal ne2	Têtes vaudou	Normal	Têtes vaudou	8
@@ -59163,7 +59163,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trophée Momifié	Exceptionnel ne6	Têtes vaudou	Exceptional	Têtes vaudou	31
@@ -59177,7 +59177,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Trophée de Sexton	Exceptionnel ne8	Têtes vaudou	Exceptional	Têtes vaudou	41
@@ -59191,7 +59191,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Trophée du Cantor	Exceptionnel ne9	Têtes vaudou	Exceptional	Têtes vaudou	45
@@ -59205,7 +59205,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Trophée de Hiérophante	Exceptionnel nea	Têtes vaudou	Exceptional	Têtes vaudou	49
@@ -59219,7 +59219,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Trophée de fétiche	Exceptionnel ne7	Têtes vaudou	Exceptional	Têtes vaudou	34
@@ -59233,7 +59233,7 @@ FIELD	Blocage %	1
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Crâne de serviteur	Élite neb	Têtes vaudou	Elite	Têtes vaudou	58
@@ -59247,7 +59247,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Crâne de Surveillant	Élite ned	Têtes vaudou	Elite	Têtes vaudou	66
@@ -59261,7 +59261,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Crâne de Succube	Élite nee	Têtes vaudou	Elite	Têtes vaudou	70
@@ -59275,7 +59275,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Crâne de Seigneur du Sang	Élite nef	Têtes vaudou	Elite	Têtes vaudou	74
@@ -59289,7 +59289,7 @@ FIELD	Blocage %	3
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Crâne de Spawn de l'Enfer	Élite neg	Têtes vaudou	Elite	Têtes vaudou	60
@@ -59303,7 +59303,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trophée de Hiérophante	Exceptionnel qna	Têtes vaudou	Exceptional	Têtes vaudou	49
@@ -59317,7 +59317,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	3
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Crâne de Succube	Élite qne	Têtes vaudou	Elite	Têtes vaudou	70
@@ -59331,7 +59331,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Crâne de Seigneur du Sang	Élite qnf	Têtes vaudou	Elite	Têtes vaudou	74
@@ -59345,7 +59345,7 @@ FIELD	Blocage %	2
 FIELD	Dégâts	0-0
 FIELD	Châsses	4
 FIELD	Type de gemme	2
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_armor_voodoo_head_demon_head
 ENTRY	Armes	506 objets	sortable	fiveacross
@@ -59360,7 +59360,7 @@ FIELD	Dext. req.	65
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arc de Cerf	Normal am1	Arc d'Amazone	Normal	Arc d'Amazone	18
 FIELD	Mains	2H
@@ -59374,7 +59374,7 @@ FIELD	Dext. req.	45
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	5
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arc à réflexe	Normal am2	Arc d'Amazone	Normal	Arc d'Amazone	27
 FIELD	Mains	2H
@@ -59388,7 +59388,7 @@ FIELD	Dext. req.	60
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arc Tuigan	Exceptionnel 9pb	Arc d'Amazone	Exceptional	Arc d'Amazone	58
 FIELD	Mains	2H
@@ -59401,7 +59401,7 @@ FIELD	Dext. req.	130
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arc en bois de frêne	Exceptionnel am6	Arc d'Amazone	Exceptional	Arc d'Amazone	43
 FIELD	Mains	2H
@@ -59415,7 +59415,7 @@ FIELD	Dext. req.	77
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	5
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arc Cérémonial	Exceptionnel am7	Arc d'Amazone	Exceptional	Arc d'Amazone	52
 FIELD	Mains	2H
@@ -59429,7 +59429,7 @@ FIELD	Dext. req.	110
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arc Elfe	Élite 0pb	Arc d'Amazone	Elite	Arc d'Amazone	83
 FIELD	Mains	2H
@@ -59442,7 +59442,7 @@ FIELD	Dext. req.	180
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arc matriarcal	Élite amb	Arc d'Amazone	Elite	Arc d'Amazone	68
 FIELD	Mains	2H
@@ -59456,7 +59456,7 @@ FIELD	Dext. req.	187
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	5
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Grand Arc de Matrone	Élite amc	Arc d'Amazone	Elite	Arc d'Amazone	77
 FIELD	Mains	2H
@@ -59470,7 +59470,7 @@ FIELD	Dext. req.	152
 FIELD	Bonus Force/Dext.	0/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35) +3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+2 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)+3 aux Compétences de Tir à l'Arc et d'Arbalète (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arc matriarcal mythique	Mythique m53	Arc d'Amazone	Mythic	Arc d'Amazone	96
 FIELD	Mains	2H
@@ -59527,7 +59527,7 @@ FIELD	Dext. req.	47
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 FIELD	À distance	6 to 22 (14.0 moy.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Javelot Cérémonial	Exceptionnel ama	Javeline d'Amazone	Exceptional	Javeline d'Amazone	49
@@ -59544,7 +59544,7 @@ FIELD	Dext. req.	109
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 FIELD	À distance	14 to 50 (32.0 moy.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Javelot Matriarcal	Élite amf	Javeline d'Amazone	Elite	Javeline d'Amazone	74
@@ -59561,7 +59561,7 @@ FIELD	Dext. req.	151
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 FIELD	À distance	25 to 64 (44.5 moy.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Javelot Mythique Matriarcal	Mythique m31	Javeline d'Amazone	Mythic	Javeline d'Amazone	96
@@ -59595,7 +59595,7 @@ FIELD	Dext. req.	40
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pique de la Demoiselle	Normal am4	Lance d'Amazone	Normal	Lance d'Amazone	27
 FIELD	Mains	2H
@@ -59611,7 +59611,7 @@ FIELD	Dext. req.	52
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lance Cérémonielle	Exceptionnel am8	Lance d'Amazone	Exceptional	Lance d'Amazone	43
 FIELD	Mains	2H
@@ -59626,7 +59626,7 @@ FIELD	Dext. req.	80
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pique Cérémonielle	Exceptionnel am9	Lance d'Amazone	Exceptional	Lance d'Amazone	52
 FIELD	Mains	2H
@@ -59642,7 +59642,7 @@ FIELD	Dext. req.	98
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Spear Matriarcale	Élite amd	Lance d'Amazone	Elite	Lance d'Amazone	68
 FIELD	Mains	2H
@@ -59658,7 +59658,7 @@ FIELD	Dext. req.	142
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pique Matriarcale	Élite ame	Lance d'Amazone	Elite	Lance d'Amazone	77
 FIELD	Mains	2H
@@ -59674,7 +59674,7 @@ FIELD	Dext. req.	149
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Pique Cérémonielle	Exceptionnel q78	Lance d'Amazone	Exceptional	Lance d'Amazone	52
 FIELD	Mains	2H
@@ -59690,7 +59690,7 @@ FIELD	Dext. req.	98
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Spear Matriarcale	Élite q81	Lance d'Amazone	Elite	Lance d'Amazone	68
 FIELD	Mains	2H
@@ -59705,7 +59705,7 @@ FIELD	Dext. req.	142
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +2 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35) +3 aux compétences de Javelot et de Lance (Amazon Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux compétences de Javelot et de Lance (Amazon Only)+2 aux compétences de Javelot et de Lance (Amazon Only)+3 aux compétences de Javelot et de Lance (Amazon Only)Points de bricolage : (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lance matriarcale mythique	Mythique m56	Lance d'Amazone	Mythic	Lance d'Amazone	96
 FIELD	Mains	2H
@@ -59753,7 +59753,7 @@ FIELD	Dext. req.	60
 FIELD	Bonus Force/Dext.	50/100
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Disciplines de l'Ombre (Assassin Only) Points de bricolage : (25 to 35) +2 aux Disciplines de l'Ombre (Assassin Only) Points de bricolage : (25 to 35) +3 aux Disciplines de l'Ombre (Assassin Only) Points de bricolage : (25 to 35) +1 aux Arts Martiaux (Assassin Only) Points de bricolage : (25 to 35) +2 aux Arts Martiaux (Assassin Only) Points de bricolage : (25 to 35) +3 aux Arts Martiaux (Assassin Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Disciplines de l'Ombre (Assassin Only)+2 aux Disciplines de l'Ombre (Assassin Only)+3 aux Disciplines de l'Ombre (Assassin Only)+1 aux Arts Martiaux (Assassin Only)+2 aux Arts Martiaux (Assassin Only)+3 aux Arts Martiaux (Assassin Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Assassin
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Wakizashi	Exceptionnel 9nn	Katana à une main d'Assassin	Exceptional	Katana à une main d'Assassin	58
@@ -59770,7 +59770,7 @@ FIELD	Dext. req.	90
 FIELD	Bonus Force/Dext.	75/100
 FIELD	Châsses	5
 FIELD	Type de gemme	0
-FIELD	Automod	+1 aux Disciplines de l'Ombre (Assassin Only) Points de bricolage : (25 to 35) +2 aux Disciplines de l'Ombre (Assassin Only) Points de bricolage : (25 to 35) +3 aux Disciplines de l'Ombre (Assassin Only) Points de bricolage : (25 to 35) +1 aux Arts Martiaux (Assassin Only) Points de bricolage : (25 to 35) +2 aux Arts Martiaux (Assassin Only) Points de bricolage : (25 to 35) +3 aux Arts Martiaux (Assassin Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Disciplines de l'Ombre (Assassin Only)+2 aux Disciplines de l'Ombre (Assassin Only)+3 aux Disciplines de l'Ombre (Assassin Only)+1 aux Arts Martiaux (Assassin Only)+2 aux Arts Martiaux (Assassin Only)+3 aux Arts Martiaux (Assassin Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Assassin
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Ninja-To	Normal njt	Katana à deux mains d'Assassin	Normal	Katana à deux mains d'Assassin	35
@@ -59787,7 +59787,7 @@ FIELD	Dext. req.	60
 FIELD	Bonus Force/Dext.	100/50
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	Dégâts réduits de (2 to 4) Dégâts magiques réduits de (2 to 4) Points de bricolage : (25 to 35) Dégâts réduits de (3 to 6) Dégâts magiques réduits de (3 to 6) Points de bricolage : (25 to 35) Dégâts réduits de (4 to 8) Dégâts magiques réduits de (4 to 8) Points de bricolage : (25 to 35) Dégâts réduits de (5 to 10) Dégâts magiques réduits de (5 to 10) Points de bricolage : (25 to 35) Dégâts réduits de (6 to 12) Dégâts magiques réduits de (6 to 12) Points de bricolage : (25 to 35) Dégâts réduits de (7 to 14) Dégâts magiques réduits de (7 to 14) Points de bricolage : (25 to 35)
+FIELD	Automod	Dégâts réduits de (2 to 4) Dégâts magiques réduits de (2 to 4)Dégâts réduits de (3 to 6) Dégâts magiques réduits de (3 to 6)Dégâts réduits de (4 to 8) Dégâts magiques réduits de (4 to 8)Dégâts réduits de (5 to 10) Dégâts magiques réduits de (5 to 10)Dégâts réduits de (6 to 12) Dégâts magiques réduits de (6 to 12)Dégâts réduits de (7 to 14) Dégâts magiques réduits de (7 to 14)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Assassin
 IMG	items_weapon_sword_katana
 BLOCK	1	Wakizashi	Exceptionnel 9nj	Katana à deux mains d'Assassin	Exceptional	Katana à deux mains d'Assassin	60
@@ -59804,7 +59804,7 @@ FIELD	Dext. req.	90
 FIELD	Bonus Force/Dext.	100/50
 FIELD	Châsses	5
 FIELD	Type de gemme	0
-FIELD	Automod	Dégâts réduits de (2 to 4) Dégâts magiques réduits de (2 to 4) Points de bricolage : (25 to 35) Dégâts réduits de (3 to 6) Dégâts magiques réduits de (3 to 6) Points de bricolage : (25 to 35) Dégâts réduits de (4 to 8) Dégâts magiques réduits de (4 to 8) Points de bricolage : (25 to 35) Dégâts réduits de (5 to 10) Dégâts magiques réduits de (5 to 10) Points de bricolage : (25 to 35) Dégâts réduits de (6 to 12) Dégâts magiques réduits de (6 to 12) Points de bricolage : (25 to 35) Dégâts réduits de (7 to 14) Dégâts magiques réduits de (7 to 14) Points de bricolage : (25 to 35)
+FIELD	Automod	Dégâts réduits de (2 to 4) Dégâts magiques réduits de (2 to 4)Dégâts réduits de (3 to 6) Dégâts magiques réduits de (3 to 6)Dégâts réduits de (4 to 8) Dégâts magiques réduits de (4 to 8)Dégâts réduits de (5 to 10) Dégâts magiques réduits de (5 to 10)Dégâts réduits de (6 to 12) Dégâts magiques réduits de (6 to 12)Dégâts réduits de (7 to 14) Dégâts magiques réduits de (7 to 14)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Assassin
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana	Élite 0nn	Katana à deux mains d'Assassin	Elite	Katana à deux mains d'Assassin	83
@@ -59821,7 +59821,7 @@ FIELD	Dext. req.	120
 FIELD	Bonus Force/Dext.	100/50
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	Dégâts réduits de (2 to 4) Dégâts magiques réduits de (2 to 4) Points de bricolage : (25 to 35) Dégâts réduits de (3 to 6) Dégâts magiques réduits de (3 to 6) Points de bricolage : (25 to 35) Dégâts réduits de (4 to 8) Dégâts magiques réduits de (4 to 8) Points de bricolage : (25 to 35) Dégâts réduits de (5 to 10) Dégâts magiques réduits de (5 to 10) Points de bricolage : (25 to 35) Dégâts réduits de (6 to 12) Dégâts magiques réduits de (6 to 12) Points de bricolage : (25 to 35) Dégâts réduits de (7 to 14) Dégâts magiques réduits de (7 to 14) Points de bricolage : (25 to 35)
+FIELD	Automod	Dégâts réduits de (2 to 4) Dégâts magiques réduits de (2 to 4)Dégâts réduits de (3 to 6) Dégâts magiques réduits de (3 to 6)Dégâts réduits de (4 to 8) Dégâts magiques réduits de (4 to 8)Dégâts réduits de (5 to 10) Dégâts magiques réduits de (5 to 10)Dégâts réduits de (6 to 12) Dégâts magiques réduits de (6 to 12)Dégâts réduits de (7 to 14) Dégâts magiques réduits de (7 to 14)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Assassin
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana mythique	Mythique m37	Katana à deux mains d'Assassin	Mythic	Katana à deux mains d'Assassin	96
@@ -60505,7 +60505,7 @@ FIELD	Dext. req.	60
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Barbare
 FIELD	À distance	7 to 29 (18.0 moy.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60523,7 +60523,7 @@ FIELD	Dext. req.	85
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Barbare
 FIELD	À distance	17 to 47 (32.0 moy.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60541,7 +60541,7 @@ FIELD	Dext. req.	100
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Barbare
 FIELD	À distance	29 to 63 (46.0 moy.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60559,7 +60559,7 @@ FIELD	Dext. req.	100
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Barbare
 FIELD	À distance	32 to 70 (51.0 moy.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -62323,7 +62323,7 @@ FIELD	Niv. requis	0
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	3 to 11 (7.0 moy.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum	Normal pil	Javelot	Normal	Javelot	10
@@ -62338,7 +62338,7 @@ FIELD	Dext. req.	45
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	5 to 17 (11.0 moy.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lance courte	Normal ssp	Javelot	Normal	Javelot	15
@@ -62355,7 +62355,7 @@ FIELD	Dext. req.	40
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	8 to 20 (14.0 moy.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Glaive	Normal glv	Javelot	Normal	Javelot	23
@@ -62372,7 +62372,7 @@ FIELD	Dext. req.	35
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	16 to 22 (19.0 moy.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Lance de jet	Normal tsp	Javelot	Normal	Javelot	29
@@ -62388,7 +62388,7 @@ FIELD	Dext. req.	65
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	8 to 24 (16.0 moy.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Javelot de guerre	Exceptionnel 9ja	Javelot	Exceptional	Javelot	32
@@ -62405,7 +62405,7 @@ FIELD	Dext. req.	25
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	12 to 26 (19.0 moy.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Grande Pilum	Exceptionnel 9pi	Javelot	Exceptional	Javelot	36
@@ -62421,7 +62421,7 @@ FIELD	Dext. req.	88
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	15 to 35 (25.0 moy.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Simbilan	Exceptionnel 9s9	Javelot	Exceptional	Javelot	40
@@ -62438,7 +62438,7 @@ FIELD	Dext. req.	80
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	24 to 46 (35.0 moy.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Spiculum	Exceptionnel 9gl	Javelot	Exceptional	Javelot	48
@@ -62455,7 +62455,7 @@ FIELD	Dext. req.	73
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	28 to 56 (42.0 moy.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Harpon	Exceptionnel 9ts	Javelot	Exceptional	Javelot	54
@@ -62472,7 +62472,7 @@ FIELD	Dext. req.	118
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	14 to 50 (32.0 moy.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Fragments Anciens	Élite 0ja	Javelot	Elite	Javelot	59
@@ -62489,7 +62489,7 @@ FIELD	Dext. req.	123
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	29 to 57 (43.0 moy.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Dire	Élite 0pi	Javelot	Elite	Javelot	62
@@ -62505,7 +62505,7 @@ FIELD	Dext. req.	112
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	27 to 67 (47.0 moy.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lance Élancée	Élite 0s9	Javelot	Elite	Javelot	65
@@ -62522,7 +62522,7 @@ FIELD	Dext. req.	95
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	36 to 64 (50.0 moy.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lance d'Ahab	Élite 0gl	Javelot	Elite	Javelot	73
@@ -62539,7 +62539,7 @@ FIELD	Dext. req.	137
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	36 to 72 (54.0 moy.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Chasseur de baleines	Élite 0ts	Javelot	Elite	Javelot	79
@@ -62556,7 +62556,7 @@ FIELD	Dext. req.	145
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	23 to 67 (45.0 moy.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Javelot Hyperion	Élite 7ja	Javelot	Elite	Javelot	59
@@ -62573,7 +62573,7 @@ FIELD	Dext. req.	123
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	29 to 57 (43.0 moy.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Stygien	Élite 7pi	Javelot	Elite	Javelot	62
@@ -62590,7 +62590,7 @@ FIELD	Dext. req.	112
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	27 to 67 (47.0 moy.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lance de Balrog	Élite 7s7	Javelot	Elite	Javelot	65
@@ -62607,7 +62607,7 @@ FIELD	Dext. req.	95
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	36 to 64 (50.0 moy.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lance Fantôme	Élite 7gl	Javelot	Elite	Javelot	73
@@ -62624,7 +62624,7 @@ FIELD	Dext. req.	137
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	36 to 72 (54.0 moy.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Harpon Ailé	Élite 7ts	Javelot	Elite	Javelot	79
@@ -62641,7 +62641,7 @@ FIELD	Dext. req.	145
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	23 to 67 (45.0 moy.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Fragments Anciens Mythiques	Mythique m33	Javelot	Mythic	Javelot	96
@@ -62675,7 +62675,7 @@ FIELD	Dext. req.	145
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	25 to 74 (49.5 moy.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Chasseur de Baleines Mythique	Mythique m32	Javelot	Mythic	Javelot	96
@@ -63325,7 +63325,7 @@ FIELD	Dext. req.	15
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Dague sacrificielle	Exceptionnel 9rd	Dague de Nécromancien	Exceptional	Dague de Nécromancien	58
@@ -63341,7 +63341,7 @@ FIELD	Dext. req.	30
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Dague Cérémonielle	Élite 0rd	Dague de Nécromancien	Elite	Dague de Nécromancien	83
@@ -63357,7 +63357,7 @@ FIELD	Dext. req.	50
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35) Ajoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de Poison Points de bricolage : (25 to 35)
+FIELD	Automod	Ajoute 8 Dégâts de Poison aux Attaques sur 2 secondes +(1 to 3)% aux Dégâts des Sorts de PoisonAjoute 15 Dégâts de Poison aux Attaques sur 2 secondes +(2 to 5)% aux Dégâts des Sorts de PoisonAjoute 30 Dégâts de Poison aux Attaques sur 2 secondes +(4 to 8)% aux Dégâts des Sorts de PoisonAjoute 60 Dégâts de Poison aux Attaques sur 2 secondes +(6 to 11)% aux Dégâts des Sorts de PoisonAjoute 90 Dégâts de Poison aux Attaques sur 2 secondes +(10 to 13)% aux Dégâts des Sorts de PoisonAjoute 120 Dégâts de Poison aux Attaques sur 2 secondes +(11 to 14)% aux Dégâts des Sorts de PoisonPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Nécromancien
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Dague Cérémonielle Mythique	Mythique m14	Dague de Nécromancien	Mythic	Dague de Nécromancien	96
@@ -63523,7 +63523,7 @@ FIELD	Niv. requis	0
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globe Sacré	Normal ob2	Orbe	Normal	Orbe	8
@@ -63537,7 +63537,7 @@ FIELD	Niv. requis	0
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Orbe Serrer	Normal ob4	Orbe	Normal	Orbe	17
@@ -63550,7 +63550,7 @@ FIELD	Niv. requis	13
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	La Pierre de Jared	Normal ob5	Orbe	Normal	Orbe	24
@@ -63565,7 +63565,7 @@ FIELD	Niv. requis	18
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Sphère Fumée	Normal ob3	Orbe	Normal	Orbe	12
@@ -63579,7 +63579,7 @@ FIELD	Niv. requis	8
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Orbe Lumineux	Exceptionnel ob6	Orbe	Exceptional	Orbe	29
@@ -63593,7 +63593,7 @@ FIELD	Niv. requis	24
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globe Cristallin	Exceptionnel ob7	Orbe	Exceptional	Orbe	35
@@ -63607,7 +63607,7 @@ FIELD	Niv. requis	27
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Boule Étincelante	Exceptionnel ob9	Orbe	Exceptional	Orbe	42
@@ -63621,7 +63621,7 @@ FIELD	Niv. requis	34
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Cristal tourbillonnant	Exceptionnel oba	Orbe	Exceptional	Orbe	49
@@ -63636,7 +63636,7 @@ FIELD	Niv. requis	37
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Sphère Nuageuse	Exceptionnel ob8	Orbe	Exceptional	Orbe	38
@@ -63650,7 +63650,7 @@ FIELD	Niv. requis	30
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Pierre Céleste	Élite obb	Orbe	Elite	Orbe	57
@@ -63664,7 +63664,7 @@ FIELD	Niv. requis	44
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Orbe Eldritch	Élite obc	Orbe	Elite	Orbe	62
@@ -63678,7 +63678,7 @@ FIELD	Niv. requis	50
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Orbe de Vortex	Élite obe	Orbe	Elite	Orbe	67
@@ -63692,7 +63692,7 @@ FIELD	Niv. requis	63
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Éclat Dimensionnel	Élite obf	Orbe	Elite	Orbe	74
@@ -63707,7 +63707,7 @@ FIELD	Niv. requis	66
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Cœur de démon	Élite obd	Orbe	Elite	Orbe	64
@@ -63720,7 +63720,7 @@ FIELD	Niv. requis	56
 FIELD	Bonus Force/Dext.	100/75
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Cristal tourbillonnant	Exceptionnel q83	Orbe	Exceptional	Orbe	49
@@ -63735,7 +63735,7 @@ FIELD	Niv. requis	37
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Orbe Eldritch	Élite q84	Orbe	Elite	Orbe	62
@@ -63749,7 +63749,7 @@ FIELD	Niv. requis	50
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Éclat Dimensionnel	Élite q85	Orbe	Elite	Orbe	74
@@ -63764,7 +63764,7 @@ FIELD	Niv. requis	66
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+(1 to 5) à la Vie Points de bricolage : (25 to 35) +(6 to 10) à la Vie Points de bricolage : (25 to 35) +(11 to 20) à la Vie Points de bricolage : (25 to 35) +(21 to 30) à la Vie Points de bricolage : (25 to 35) +(31 to 40) à la Vie Points de bricolage : (25 to 35) +(41 to 60) à la Vie Points de bricolage : (25 to 35) +(1 to 5) à la Mana Points de bricolage : (25 to 35) +(5 to 10) à la Mana Points de bricolage : (25 to 35) +(11 to 20) à la Mana Points de bricolage : (25 to 35) +(21 to 30) à la Mana Points de bricolage : (25 to 35) +(31 to 40) à la Mana Points de bricolage : (25 to 35) +(41 to 60) à la Mana Points de bricolage : (25 to 35) +(61 to 80) à la Mana Points de bricolage : (25 to 35)
+FIELD	Automod	+(1 to 5) à la Vie+(6 to 10) à la Vie+(11 to 20) à la Vie+(21 to 30) à la Vie+(31 to 40) à la Vie+(41 to 60) à la Vie+(1 to 5) à la Mana+(5 to 10) à la Mana+(11 to 20) à la Mana+(21 to 30) à la Mana+(31 to 40) à la Mana+(41 to 60) à la Mana+(61 to 80) à la ManaPoints de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Fragment Dimensionnel Mythique	Mythique m07	Orbe	Mythic	Orbe	96
@@ -64624,7 +64624,7 @@ FIELD	Dext. req.	18
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35)
+FIELD	Automod	Points de bricolage : (25 to 35)
 FIELD	À distance	7 to 8 (7.5 moy.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Fūma Shuriken	Exceptionnel fsk	Coup de poing	Exceptional	Coup de poing	45
@@ -64640,7 +64640,7 @@ FIELD	Dext. req.	55
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35)
+FIELD	Automod	Points de bricolage : (25 to 35)
 FIELD	À distance	22 to 23 (22.5 moy.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri	Élite kgk	Coup de poing	Elite	Coup de poing	70
@@ -64656,7 +64656,7 @@ FIELD	Dext. req.	160
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35)
+FIELD	Automod	Points de bricolage : (25 to 35)
 FIELD	À distance	45 to 46 (45.5 moy.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri mythique	Mythique m39	Coup de poing	Mythic	Coup de poing	96
@@ -64672,7 +64672,7 @@ FIELD	Dext. req.	160
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35) Points de bricolage : (25 to 35)
+FIELD	Automod	Points de bricolage : (25 to 35)
 FIELD	À distance	50 to 51 (50.5 moy.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Lame de Mana	Normal mnb	Lame de mana d'Ensorceleuse	Normal	Lame de mana d'Ensorceleuse	33
@@ -65334,7 +65334,7 @@ FIELD	Dext. req.	15
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Bâton Mystique	Élite 1ls	Bâton	Elite	Bâton	62
@@ -65350,7 +65350,7 @@ FIELD	Dext. req.	35
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bâton pétrifié	Élite 1cs	Bâton	Elite	Bâton	64
@@ -65367,7 +65367,7 @@ FIELD	Dext. req.	37
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Bâton de Mage	Élite 1bs	Bâton	Elite	Bâton	67
@@ -65384,7 +65384,7 @@ FIELD	Dext. req.	27
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bâton Arcanique	Élite 1ws	Bâton	Elite	Bâton	74
@@ -65400,7 +65400,7 @@ FIELD	Dext. req.	15
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Bâton de marche	Élite 6ss	Bâton	Elite	Bâton	57
@@ -65417,7 +65417,7 @@ FIELD	Dext. req.	15
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	2
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Stalagmite	Élite 6ls	Bâton	Elite	Bâton	62
@@ -65434,7 +65434,7 @@ FIELD	Dext. req.	35
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bâton Ancien	Élite 6cs	Bâton	Elite	Bâton	64
@@ -65451,7 +65451,7 @@ FIELD	Dext. req.	37
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Shillelagh	Élite 6bs	Bâton	Elite	Bâton	67
@@ -65468,7 +65468,7 @@ FIELD	Dext. req.	27
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bâton d'Archonte	Élite 6ws	Bâton	Elite	Bâton	74
@@ -65485,7 +65485,7 @@ FIELD	Dext. req.	15
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	1
-FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +1 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +2 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +3 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+1 aux Compétences de Feu (Sorceress Only)+2 aux Compétences de Feu (Sorceress Only)+3 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Feu (Sorceress Only)+1 aux Compétences de Foudre (Sorceress Only)+2 aux Compétences de Foudre (Sorceress Only)+3 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+1 aux Compétences de Froid (Sorceress Only)+2 aux Compétences de Froid (Sorceress Only)+3 aux Compétences de Froid (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Bâton mystique mythique	Mythique m50	Bâton	Mythic	Bâton	96
@@ -65501,7 +65501,7 @@ FIELD	Dext. req.	35
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	3
 FIELD	Type de gemme	1
-FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only)+5 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+5 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)+5 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bâton Pétrifié Mythique	Mythique m29	Bâton	Mythic	Bâton	96
@@ -65518,7 +65518,7 @@ FIELD	Dext. req.	41
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only)+5 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+5 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)+5 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Bâton de Mage Mythique	Mythique m36	Bâton	Mythic	Bâton	96
@@ -65535,7 +65535,7 @@ FIELD	Dext. req.	27
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	4
 FIELD	Type de gemme	1
-FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only)+5 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+5 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)+5 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bâton Arcane Mythique	Mythique m11	Bâton	Mythic	Bâton	96
@@ -65551,7 +65551,7 @@ FIELD	Dext. req.	15
 FIELD	Bonus Force/Dext.	100/0
 FIELD	Châsses	6
 FIELD	Type de gemme	0
-FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Feu (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Foudre (Sorceress Only) Points de bricolage : (25 to 35) +4 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35) +5 aux Compétences de Froid (Sorceress Only) Points de bricolage : (25 to 35)
+FIELD	Automod	+4 aux Compétences de Feu (Sorceress Only)+5 aux Compétences de Feu (Sorceress Only)+4 aux Compétences de Foudre (Sorceress Only)+5 aux Compétences de Foudre (Sorceress Only)+4 aux Compétences de Froid (Sorceress Only)+5 aux Compétences de Froid (Sorceress Only)Points de bricolage : (25 to 35)
 FIELD	Mod de bâton	Sorcière
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Épée courte	Normal ssd	Épée	Normal	Épée	1
@@ -66614,7 +66614,7 @@ FIELD	Dext. req.	25
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	6 to 16 (11.0 moy.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hache Équilibrée	Normal bal	Hache de lancer	Normal	Hache de lancer	21
@@ -66630,7 +66630,7 @@ FIELD	Dext. req.	57
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	9 to 21 (15.0 moy.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Francisca	Exceptionnel 9ta	Hache de lancer	Exceptional	Hache de lancer	36
@@ -66646,7 +66646,7 @@ FIELD	Dext. req.	80
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	15 to 39 (27.0 moy.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hurlbat	Exceptionnel 9b8	Hache de lancer	Exceptional	Hache de lancer	46
@@ -66663,7 +66663,7 @@ FIELD	Dext. req.	106
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	3
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	22 to 38 (30.0 moy.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Hache de lancer	Élite 0ta	Hache de lancer	Elite	Hache de lancer	62
@@ -66679,7 +66679,7 @@ FIELD	Dext. req.	108
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	40 to 59 (49.5 moy.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hache Équilibrée	Élite 0b6	Hache de lancer	Elite	Hache de lancer	71
@@ -66696,7 +66696,7 @@ FIELD	Dext. req.	122
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	24 to 62 (43.0 moy.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Hache Volante	Élite 7ta	Hache de lancer	Elite	Hache de lancer	62
@@ -66712,7 +66712,7 @@ FIELD	Dext. req.	108
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	40 to 59 (49.5 moy.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hache Ailée	Élite 7b8	Hache de lancer	Elite	Hache de lancer	71
@@ -66729,7 +66729,7 @@ FIELD	Dext. req.	122
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	24 to 62 (43.0 moy.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Hache Mythique Équilibrée	Mythique m26	Hache de lancer	Mythic	Hache de lancer	96
@@ -66746,7 +66746,7 @@ FIELD	Dext. req.	122
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	4
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	26 to 68 (47.0 moy.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Couteau de lancer	Normal tkf	Couteau de lancer	Normal	Couteau de lancer	4
@@ -66760,7 +66760,7 @@ FIELD	Dext. req.	21
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	4 to 12 (8.0 moy.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Couteau Équilibré	Normal bkf	Couteau de lancer	Normal	Couteau de lancer	17
@@ -66775,7 +66775,7 @@ FIELD	Dext. req.	51
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	5 to 15 (10.0 moy.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dart de bataille	Exceptionnel 9tk	Couteau de lancer	Exceptional	Couteau de lancer	31
@@ -66790,7 +66790,7 @@ FIELD	Dext. req.	52
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	11 to 35 (23.0 moy.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Dart de guerre	Exceptionnel 9bk	Couteau de lancer	Exceptional	Couteau de lancer	42
@@ -66806,7 +66806,7 @@ FIELD	Dext. req.	97
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	15 to 35 (25.0 moy.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dague de lancer	Élite 0tk	Couteau de lancer	Elite	Couteau de lancer	58
@@ -66821,7 +66821,7 @@ FIELD	Dext. req.	141
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	33 to 61 (47.0 moy.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Dague Équilibrée	Élite 0bk	Couteau de lancer	Elite	Couteau de lancer	67
@@ -66837,7 +66837,7 @@ FIELD	Dext. req.	142
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	25 to 60 (42.5 moy.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Couteau Volant	Élite 7tk	Couteau de lancer	Elite	Couteau de lancer	58
@@ -66853,7 +66853,7 @@ FIELD	Dext. req.	141
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	33 to 61 (47.0 moy.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Couteau Ailé	Élite 7bk	Couteau de lancer	Elite	Couteau de lancer	67
@@ -66869,7 +66869,7 @@ FIELD	Dext. req.	142
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	25 to 60 (42.5 moy.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dague Équilibrée Mythique	Mythique m08	Couteau de lancer	Mythic	Couteau de lancer	96
@@ -66885,7 +66885,7 @@ FIELD	Dext. req.	142
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	27 to 66 (46.5 moy.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dague Équilibrée Mythique	Mythique m27	Couteau de lancer	Mythic	Couteau de lancer	96
@@ -66901,7 +66901,7 @@ FIELD	Dext. req.	142
 FIELD	Bonus Force/Dext.	75/75
 FIELD	Châsses	2
 FIELD	Type de gemme	0
-FIELD	Automod	+5% Attaque Perçante Points de bricolage : (25 to 35) +10% Attaque Perçante Points de bricolage : (25 to 35) +15% Attaque Perçante Points de bricolage : (25 to 35) +20% Attaque Perçante Points de bricolage : (25 to 35) +25% Attaque Perçante Points de bricolage : (25 to 35)
+FIELD	Automod	+5% Attaque Perçante+10% Attaque Perçante+15% Attaque Perçante+20% Attaque Perçante+25% Attaque PerçantePoints de bricolage : (25 to 35)
 FIELD	À distance	28 to 66 (47.0 moy.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Lame du vide	Normal vob	Lame du vide	Normal	Lame du vide	23
@@ -111660,6 +111660,10 @@ LINE	T	ÿcNEnsemble de clés du Pandémonium (100 % de chances)
 LINE	T	ÿcNAutres objets/matériaux génériques
 LINE	H	ÿcHRécompenses (variante uber)
 LINE	T	ÿcNSi vous parvenez à tuer Lucion avec /players 8, il lâche son essence (Essence de Lucion). L'essence est une version plus puissante d'un Donut à emplacements.
+PAGE	specializations	Spécialisations	Endgame
+ENTRY	Spécialisations	Perks of the four specializations
+BLOCK	0						0
+LINE	T	The specializations need their data from the website. Open this tab once the plugin has loaded it.
 PAGE	weapon-mastery	Maîtrise des armes	Endgame
 ENTRY	Overview	
 BLOCK	0						0

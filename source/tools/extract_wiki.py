@@ -2725,6 +2725,8 @@ def main():
                     else "\tsortable" if entry.get("sortable") else "")
             if entry.get("fiveacross"):
                 flag += "\tfiveacross"
+            if spec["id"] == "welcome" and clean(entry["title"]) == "Campaign Progression":
+                flag += "\tcampaignmap"  # the interactive campaign map is drawn under this entry
             out.append(f"ENTRY\t{text_out(entry['title'])}\t{text_out(entry['subtitle'])}{flag}")
             for block in entry["blocks"]:
                 out.append(f"BLOCK\t{1 if block['item'] else 0}\t{text_out(block['title'])}\t{text_out(block['subtitle'])}"

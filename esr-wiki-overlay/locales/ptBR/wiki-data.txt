@@ -9,7 +9,7 @@ LINE	T	Abra seu Pacote Inicial e sua Caixa de Armas antes de sair da cidade. Ele
 ENTRY	Morte, redistribuição e desfazer escolhas	Bem-vindo ao Eastern Sun Resurrected
 BLOCK	0						0
 LINE	T	Faça Alt+clique em um botão + na tela do personagem para redistribuir pontos, gastando um uso de um contador limitado; recarregue-o combinando no cubo 4 Pedras do Dragão em um Token de Absolvição. Morrer custa um pouco de experiência e ouro, mas nenhum equipamento, e não custa experiência alguma dentro da área do chefe de um mapa. A maioria das escolhas iniciais de equipamento pode ser desfeita: remova qualquer coisa de um soquete transmutando o item com uma Chave (não funciona para Palavras de gemas, mas funciona para Palavras rúnicas). Você pode remover uma criação de Forja transmutando o item com 3 Poções de Desgelo.
-ENTRY	Progressão da campanha	Dificuldade Normal
+ENTRY	Progressão da campanha	Dificuldade Normal	campaignmap
 BLOCK	0						0
 LINE	T	ESR mudou o layout da campanha para torná-la mais enxuta que a Vanilla. Algumas áreas têm menos níveis antes de você avançar e algumas têm atalhos completos.
 LINE	T	
@@ -55371,7 +55371,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Cota de Malha Élfica	Normal elv	Armaduras	Normal	Armaduras	33
 FIELD	Defesa	307-343
@@ -55604,7 +55604,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Cota de Adamantita Drow	Excepcional xlv	Armaduras	Exceptional	Armaduras	58
 FIELD	Defesa	524-572
@@ -55824,7 +55824,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Corrente Silvestre	Elite ylv	Armaduras	Elite	Armaduras	83
 FIELD	Defesa	788-809
@@ -56071,7 +56071,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	4-12
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Escudo Heráldico	Normal pa3	Escudos áuricos	Normal	Escudos áuricos	16
 FIELD	Defesa	27-42
@@ -56084,7 +56084,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	6-18
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Escudo Aerin	Normal pa4	Escudos áuricos	Normal	Escudos áuricos	20
 FIELD	Defesa	43-61
@@ -56097,7 +56097,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	8-20
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Escudo de Coroa	Normal pa5	Escudos áuricos	Normal	Escudos áuricos	24
 FIELD	Defesa	63-84
@@ -56110,7 +56110,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	8-24
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache	Normal pa2	Escudos áuricos	Normal	Escudos áuricos	8
 FIELD	Defesa	13-25
@@ -56123,7 +56123,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	4-16
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Akaran Targe	Excepcional pa6	Escudos áuricos	Exceptional	Escudos áuricos	31
 FIELD	Defesa	100-112
@@ -56136,7 +56136,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	24-32
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Escudo Protetor	Excepcional pa8	Escudos áuricos	Exceptional	Escudos áuricos	41
 FIELD	Defesa	130-150
@@ -56149,7 +56149,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	36-48
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Escudo Dourado	Excepcional pa9	Escudos áuricos	Exceptional	Escudos áuricos	45
 FIELD	Defesa	151-175
@@ -56162,7 +56162,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	40-56
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Escudo Real	Excepcional paa	Escudos áuricos	Exceptional	Escudos áuricos	49
 FIELD	Defesa	176-204
@@ -56175,7 +56175,7 @@ FIELD	Bloqueio %	4
 FIELD	Dano	48-64
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Akaran Rondache	Excepcional pa7	Escudos áuricos	Exceptional	Escudos áuricos	34
 FIELD	Defesa	113-129
@@ -56188,7 +56188,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	30-40
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Targe Sagrada	Elite pab	Escudos áuricos	Elite	Escudos áuricos	58
 FIELD	Defesa	125-145
@@ -56201,7 +56201,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	44-140
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Escudo de Kurast	Elite pad	Escudos áuricos	Elite	Escudos áuricos	66
 FIELD	Defesa	171-199
@@ -56214,7 +56214,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	20-164
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Escudo Zakarum	Elite pae	Escudos áuricos	Elite	Escudos áuricos	70
 FIELD	Defesa	200-232
@@ -56227,7 +56227,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	92-92
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Escudo Vortex	Elite paf	Escudos áuricos	Elite	Escudos áuricos	74
 FIELD	Defesa	233-269
@@ -56240,7 +56240,7 @@ FIELD	Bloqueio %	4
 FIELD	Dano	10-174
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache Sagrada	Elite pac	Escudos áuricos	Elite	Escudos áuricos	60
 FIELD	Defesa	146-170
@@ -56253,7 +56253,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	70-116
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Todas as Resistências +(5 to 10) Pontos de modificação: (25 to 35) Todas as Resistências +(8 to 15) Pontos de modificação: (25 to 35) Todas as Resistências +(16 to 30) Pontos de modificação: (25 to 35) Todas as Resistências +(25 to 35) Pontos de modificação: (25 to 35) Todas as Resistências +(35 to 45) Pontos de modificação: (25 to 35)
+FIELD	Automod	Todas as Resistências +(5 to 10)Todas as Resistências +(8 to 15)Todas as Resistências +(16 to 30)Todas as Resistências +(25 to 35)Todas as Resistências +(35 to 45)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Cinta	Normal lbl	Cinto	Normal	Cinto	3
 FIELD	Defesa	6-10
@@ -56331,7 +56331,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	2
-FIELD	Automod	+(1 to 3) de Força Pontos de modificação: (25 to 35) +(4 to 6) de Força Pontos de modificação: (25 to 35) +(7 to 9) de Força Pontos de modificação: (25 to 35) +(10 to 15) de Força Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 3) de Força+(4 to 6) de Força+(7 to 9) de Força+(10 to 15) de ForçaPontos de modificação: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Cinto de Pele de Demônio	Excepcional zlb	Cinto	Exceptional	Cinto	31
 FIELD	Defesa	75-95
@@ -56409,7 +56409,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	2
-FIELD	Automod	+(1 to 3) de Força Pontos de modificação: (25 to 35) +(4 to 6) de Força Pontos de modificação: (25 to 35) +(7 to 9) de Força Pontos de modificação: (25 to 35) +(10 to 15) de Força Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 3) de Força+(4 to 6) de Força+(7 to 9) de Força+(10 to 15) de ForçaPontos de modificação: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Faixa de Cânhamo	Elite alb	Cinto	Elite	Cinto	59
 FIELD	Defesa	160-196
@@ -56487,7 +56487,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	2
-FIELD	Automod	+(1 to 3) de Força Pontos de modificação: (25 to 35) +(4 to 6) de Força Pontos de modificação: (25 to 35) +(7 to 9) de Força Pontos de modificação: (25 to 35) +(10 to 15) de Força Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 3) de Força+(4 to 6) de Força+(7 to 9) de Força+(10 to 15) de ForçaPontos de modificação: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Cinto de Teia de Aranha	Elite ulc	Cinto	Elite	Cinto	59
 FIELD	Defesa	160-196
@@ -57394,7 +57394,7 @@ FIELD	Bloqueio %	8
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compêndio	Normal wa4	Grimório	Normal	Grimório	20
@@ -57408,7 +57408,7 @@ FIELD	Bloqueio %	10
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimório	Normal wa5	Grimório	Normal	Grimório	24
@@ -57422,7 +57422,7 @@ FIELD	Bloqueio %	12
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Livro Antigo	Normal wa1	Grimório	Normal	Grimório	4
@@ -57436,7 +57436,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tomo	Normal wa2	Grimório	Normal	Grimório	8
@@ -57450,7 +57450,7 @@ FIELD	Bloqueio %	5
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Códice Sombrio	Excepcional wa8	Grimório	Exceptional	Grimório	45
@@ -57464,7 +57464,7 @@ FIELD	Bloqueio %	8
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compêndio Possuído	Excepcional wa9	Grimório	Exceptional	Grimório	49
@@ -57478,7 +57478,7 @@ FIELD	Bloqueio %	10
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimório Possuído	Excepcional waa	Grimório	Exceptional	Grimório	54
@@ -57492,7 +57492,7 @@ FIELD	Bloqueio %	12
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Texto Queimado	Excepcional wa6	Grimório	Exceptional	Grimório	33
@@ -57506,7 +57506,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tomo Antigo	Excepcional wa7	Grimório	Exceptional	Grimório	39
@@ -57520,7 +57520,7 @@ FIELD	Bloqueio %	5
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Códice Oculto	Elite wad	Grimório	Elite	Grimório	66
@@ -57534,7 +57534,7 @@ FIELD	Bloqueio %	8
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compêndio Blasfemo	Elite wae	Grimório	Elite	Grimório	81
@@ -57548,7 +57548,7 @@ FIELD	Bloqueio %	10
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimório Blasfemo	Elite waf	Grimório	Elite	Grimório	85
@@ -57562,7 +57562,7 @@ FIELD	Bloqueio %	12
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Volume Esquecido	Elite wab	Grimório	Elite	Grimório	59
@@ -57576,7 +57576,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tomo Oculto	Elite wac	Grimório	Elite	Grimório	67
@@ -57590,7 +57590,7 @@ FIELD	Bloqueio %	5
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bruxo
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Capacete	Normal cap	Capacete	Normal	Capacete	1
@@ -57708,7 +57708,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(6 to 10)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(11 to 20)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(21 to 30)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(31 to 40)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(41 to 50)% Ouro Extra de Monstros Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5)% Ouro Extra de Monstros+(6 to 10)% Ouro Extra de Monstros+(11 to 20)% Ouro Extra de Monstros+(21 to 30)% Ouro Extra de Monstros+(31 to 40)% Ouro Extra de Monstros+(41 to 50)% Ouro Extra de MonstrosPontos de modificação: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Capacete de Guerra	Excepcional xap	Capacete	Exceptional	Capacete	29
 FIELD	Defesa	52-67
@@ -57825,7 +57825,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(6 to 10)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(11 to 20)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(21 to 30)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(31 to 40)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(41 to 50)% Ouro Extra de Monstros Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5)% Ouro Extra de Monstros+(6 to 10)% Ouro Extra de Monstros+(11 to 20)% Ouro Extra de Monstros+(21 to 30)% Ouro Extra de Monstros+(31 to 40)% Ouro Extra de Monstros+(41 to 50)% Ouro Extra de MonstrosPontos de modificação: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Capacete Alado	Excepcional 4hm	Capacete	Exceptional	Capacete	48
 FIELD	Defesa	105-138
@@ -57968,7 +57968,7 @@ FIELD	Bloqueio %	0
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(6 to 10)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(11 to 20)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(21 to 30)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(31 to 40)% Ouro Extra de Monstros Pontos de modificação: (25 to 35) +(41 to 50)% Ouro Extra de Monstros Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5)% Ouro Extra de Monstros+(6 to 10)% Ouro Extra de Monstros+(11 to 20)% Ouro Extra de Monstros+(21 to 30)% Ouro Extra de Monstros+(31 to 40)% Ouro Extra de Monstros+(41 to 50)% Ouro Extra de MonstrosPontos de modificação: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Shako	Elite uap	Capacete	Elite	Capacete	57
 FIELD	Defesa	130-166
@@ -58652,7 +58652,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	12-20
 FIELD	Encaixes	2
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Escudo da Fortaleza	Normal fts	Escudo	Normal	Escudo	31
 FIELD	Defesa	48-72
@@ -58704,7 +58704,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	12-20
 FIELD	Encaixes	2
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Defensor	Excepcional xuc	Escudo	Exceptional	Escudo	29
 FIELD	Defesa	60-75
@@ -58808,7 +58808,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	40-76
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Escudo de Reflexão	Excepcional xft	Escudo	Exceptional	Escudo	56
 FIELD	Defesa	37-75
@@ -58938,7 +58938,7 @@ FIELD	Bloqueio %	4
 FIELD	Dano	70-122
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Escudo Cerimonial	Elite yft	Escudo	Elite	Escudo	81
 FIELD	Defesa	195-236
@@ -59055,7 +59055,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	70-122
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Atacante Recebe Dano de (4 to 12) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (16 to 24) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (28 to 36) Pontos de modificação: (25 to 35) Atacante Recebe Dano de (40 to 80) Pontos de modificação: (25 to 35)
+FIELD	Automod	Atacante Recebe Dano de (4 to 12)Atacante Recebe Dano de (16 to 24)Atacante Recebe Dano de (28 to 36)Atacante Recebe Dano de (40 to 80)Pontos de modificação: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Coroa Espiritual	Normal eht	Coroa Espiritual	Normal	Coroa Espiritual	16
 FIELD	Defesa	30-42
@@ -59107,7 +59107,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Cabeça do Desvendador	Normal ne3	Cabeças vodu	Normal	Cabeças vodu	16
@@ -59121,7 +59121,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Cabeça de Gargólia	Normal ne4	Cabeças vodu	Normal	Cabeças vodu	20
@@ -59135,7 +59135,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Cabeça de Demônio	Normal ne5	Cabeças vodu	Normal	Cabeças vodu	24
@@ -59149,7 +59149,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Cabeça de Zumbi	Normal ne2	Cabeças vodu	Normal	Cabeças vodu	8
@@ -59163,7 +59163,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Troféu Mumificado	Excepcional ne6	Cabeças vodu	Exceptional	Cabeças vodu	31
@@ -59177,7 +59177,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Troféu do Sacristão	Excepcional ne8	Cabeças vodu	Exceptional	Cabeças vodu	41
@@ -59191,7 +59191,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Troféu Cantor	Excepcional ne9	Cabeças vodu	Exceptional	Cabeças vodu	45
@@ -59205,7 +59205,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Troféu de Hierofante	Excepcional nea	Cabeças vodu	Exceptional	Cabeças vodu	49
@@ -59219,7 +59219,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Troféu de Fetiche	Excepcional ne7	Cabeças vodu	Exceptional	Cabeças vodu	34
@@ -59233,7 +59233,7 @@ FIELD	Bloqueio %	1
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Cráneo de Minion	Elite neb	Cabeças vodu	Elite	Cabeças vodu	58
@@ -59247,7 +59247,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Cráneo do Supervisor	Elite ned	Cabeças vodu	Elite	Cabeças vodu	66
@@ -59261,7 +59261,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Cráneo de Súcubo	Elite nee	Cabeças vodu	Elite	Cabeças vodu	70
@@ -59275,7 +59275,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Cráneo do Senhor do Sangue	Elite nef	Cabeças vodu	Elite	Cabeças vodu	74
@@ -59289,7 +59289,7 @@ FIELD	Bloqueio %	3
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Cráneo do Spawn do Inferno	Elite neg	Cabeças vodu	Elite	Cabeças vodu	60
@@ -59303,7 +59303,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Troféu de Hierofante	Excepcional qna	Cabeças vodu	Exceptional	Cabeças vodu	49
@@ -59317,7 +59317,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Cráneo de Súcubo	Elite qne	Cabeças vodu	Elite	Cabeças vodu	70
@@ -59331,7 +59331,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Cráneo do Senhor do Sangue	Elite qnf	Cabeças vodu	Elite	Cabeças vodu	74
@@ -59345,7 +59345,7 @@ FIELD	Bloqueio %	2
 FIELD	Dano	0-0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	2
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_armor_voodoo_head_demon_head
 ENTRY	Armas	506 itens	sortable	fiveacross
@@ -59360,7 +59360,7 @@ FIELD	Des. req.	65
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco de Cervo	Normal am1	Arco de Amazona	Normal	Arco de Amazona	18
 FIELD	Mãos	2H
@@ -59374,7 +59374,7 @@ FIELD	Des. req.	45
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco Reflexo	Normal am2	Arco de Amazona	Normal	Arco de Amazona	27
 FIELD	Mãos	2H
@@ -59388,7 +59388,7 @@ FIELD	Des. req.	60
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Tuigan	Excepcional 9pb	Arco de Amazona	Exceptional	Arco de Amazona	58
 FIELD	Mãos	2H
@@ -59401,7 +59401,7 @@ FIELD	Des. req.	130
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco de Madeira de Freixo	Excepcional am6	Arco de Amazona	Exceptional	Arco de Amazona	43
 FIELD	Mãos	2H
@@ -59415,7 +59415,7 @@ FIELD	Des. req.	77
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco Cerimonial	Excepcional am7	Arco de Amazona	Exceptional	Arco de Amazona	52
 FIELD	Mãos	2H
@@ -59429,7 +59429,7 @@ FIELD	Des. req.	110
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Élfico	Elite 0pb	Arco de Amazona	Elite	Arco de Amazona	83
 FIELD	Mãos	2H
@@ -59442,7 +59442,7 @@ FIELD	Des. req.	180
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco Matriarcal	Elite amb	Arco de Amazona	Elite	Arco de Amazona	68
 FIELD	Mãos	2H
@@ -59456,7 +59456,7 @@ FIELD	Des. req.	187
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco da Grande Matrona	Elite amc	Arco de Amazona	Elite	Arco de Amazona	77
 FIELD	Mãos	2H
@@ -59470,7 +59470,7 @@ FIELD	Des. req.	152
 FIELD	Bônus For/Des	0/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Arco e Besta (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Arco e Besta (Amazon Only)+2 para Habilidades de Arco e Besta (Amazon Only)+3 para Habilidades de Arco e Besta (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Matriarcal Mítico	Mítico m53	Arco de Amazona	Mythic	Arco de Amazona	96
 FIELD	Mãos	2H
@@ -59527,7 +59527,7 @@ FIELD	Des. req.	47
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	6 to 22 (14.0 méd.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Javelina Cerimonial	Excepcional ama	Dardo de Amazona	Exceptional	Dardo de Amazona	49
@@ -59544,7 +59544,7 @@ FIELD	Des. req.	109
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	14 to 50 (32.0 méd.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Javelina Matriarcal	Elite amf	Dardo de Amazona	Elite	Dardo de Amazona	74
@@ -59561,7 +59561,7 @@ FIELD	Des. req.	151
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	25 to 64 (44.5 méd.)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Javelina Matriarcal Mítica	Mítico m31	Dardo de Amazona	Mythic	Dardo de Amazona	96
@@ -59595,7 +59595,7 @@ FIELD	Des. req.	40
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lança da Donzela	Normal am4	Lança de Amazona	Normal	Lança de Amazona	27
 FIELD	Mãos	2H
@@ -59611,7 +59611,7 @@ FIELD	Des. req.	52
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lança Cerimonial	Excepcional am8	Lança de Amazona	Exceptional	Lança de Amazona	43
 FIELD	Mãos	2H
@@ -59626,7 +59626,7 @@ FIELD	Des. req.	80
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pique Cerimonial	Excepcional am9	Lança de Amazona	Exceptional	Lança de Amazona	52
 FIELD	Mãos	2H
@@ -59642,7 +59642,7 @@ FIELD	Des. req.	98
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lança Matriarcal	Elite amd	Lança de Amazona	Elite	Lança de Amazona	68
 FIELD	Mãos	2H
@@ -59658,7 +59658,7 @@ FIELD	Des. req.	142
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Pique Matriarcal	Elite ame	Lança de Amazona	Elite	Lança de Amazona	77
 FIELD	Mãos	2H
@@ -59674,7 +59674,7 @@ FIELD	Des. req.	149
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Pique Cerimonial	Excepcional q78	Lança de Amazona	Exceptional	Lança de Amazona	52
 FIELD	Mãos	2H
@@ -59690,7 +59690,7 @@ FIELD	Des. req.	98
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lança Matriarcal	Elite q81	Lança de Amazona	Elite	Lança de Amazona	68
 FIELD	Mãos	2H
@@ -59705,7 +59705,7 @@ FIELD	Des. req.	142
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Javelina e Lança (Amazon Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Javelina e Lança (Amazon Only)+2 para Habilidades de Javelina e Lança (Amazon Only)+3 para Habilidades de Javelina e Lança (Amazon Only)Pontos de modificação: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lança Matriarcal Mítica	Mítico m56	Lança de Amazona	Mythic	Lança de Amazona	96
 FIELD	Mãos	2H
@@ -59753,7 +59753,7 @@ FIELD	Des. req.	60
 FIELD	Bônus For/Des	50/100
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Disciplinas das Sombras (Assassin Only) Pontos de modificação: (25 to 35) +2 para Disciplinas das Sombras (Assassin Only) Pontos de modificação: (25 to 35) +3 para Disciplinas das Sombras (Assassin Only) Pontos de modificação: (25 to 35) +1 para Artes Marciais (Assassin Only) Pontos de modificação: (25 to 35) +2 para Artes Marciais (Assassin Only) Pontos de modificação: (25 to 35) +3 para Artes Marciais (Assassin Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Disciplinas das Sombras (Assassin Only)+2 para Disciplinas das Sombras (Assassin Only)+3 para Disciplinas das Sombras (Assassin Only)+1 para Artes Marciais (Assassin Only)+2 para Artes Marciais (Assassin Only)+3 para Artes Marciais (Assassin Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Assassino
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Wakizashi	Excepcional 9nn	Katana de uma mão da Assassina	Exceptional	Katana de uma mão da Assassina	58
@@ -59770,7 +59770,7 @@ FIELD	Des. req.	90
 FIELD	Bônus For/Des	75/100
 FIELD	Encaixes	5
 FIELD	Tipo de gema	0
-FIELD	Automod	+1 para Disciplinas das Sombras (Assassin Only) Pontos de modificação: (25 to 35) +2 para Disciplinas das Sombras (Assassin Only) Pontos de modificação: (25 to 35) +3 para Disciplinas das Sombras (Assassin Only) Pontos de modificação: (25 to 35) +1 para Artes Marciais (Assassin Only) Pontos de modificação: (25 to 35) +2 para Artes Marciais (Assassin Only) Pontos de modificação: (25 to 35) +3 para Artes Marciais (Assassin Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Disciplinas das Sombras (Assassin Only)+2 para Disciplinas das Sombras (Assassin Only)+3 para Disciplinas das Sombras (Assassin Only)+1 para Artes Marciais (Assassin Only)+2 para Artes Marciais (Assassin Only)+3 para Artes Marciais (Assassin Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Assassino
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Ninja-To	Normal njt	Katana de duas mãos da Assassina	Normal	Katana de duas mãos da Assassina	35
@@ -59787,7 +59787,7 @@ FIELD	Des. req.	60
 FIELD	Bônus For/Des	100/50
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Dano Reduzido em (2 to 4) Dano Mágico Reduzido em (2 to 4) Pontos de modificação: (25 to 35) Dano Reduzido em (3 to 6) Dano Mágico Reduzido em (3 to 6) Pontos de modificação: (25 to 35) Dano Reduzido em (4 to 8) Dano Mágico Reduzido em (4 to 8) Pontos de modificação: (25 to 35) Dano Reduzido em (5 to 10) Dano Mágico Reduzido em (5 to 10) Pontos de modificação: (25 to 35) Dano Reduzido em (6 to 12) Dano Mágico Reduzido em (6 to 12) Pontos de modificação: (25 to 35) Dano Reduzido em (7 to 14) Dano Mágico Reduzido em (7 to 14) Pontos de modificação: (25 to 35)
+FIELD	Automod	Dano Reduzido em (2 to 4) Dano Mágico Reduzido em (2 to 4)Dano Reduzido em (3 to 6) Dano Mágico Reduzido em (3 to 6)Dano Reduzido em (4 to 8) Dano Mágico Reduzido em (4 to 8)Dano Reduzido em (5 to 10) Dano Mágico Reduzido em (5 to 10)Dano Reduzido em (6 to 12) Dano Mágico Reduzido em (6 to 12)Dano Reduzido em (7 to 14) Dano Mágico Reduzido em (7 to 14)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Assassino
 IMG	items_weapon_sword_katana
 BLOCK	1	Wakizashi	Excepcional 9nj	Katana de duas mãos da Assassina	Exceptional	Katana de duas mãos da Assassina	60
@@ -59804,7 +59804,7 @@ FIELD	Des. req.	90
 FIELD	Bônus For/Des	100/50
 FIELD	Encaixes	5
 FIELD	Tipo de gema	0
-FIELD	Automod	Dano Reduzido em (2 to 4) Dano Mágico Reduzido em (2 to 4) Pontos de modificação: (25 to 35) Dano Reduzido em (3 to 6) Dano Mágico Reduzido em (3 to 6) Pontos de modificação: (25 to 35) Dano Reduzido em (4 to 8) Dano Mágico Reduzido em (4 to 8) Pontos de modificação: (25 to 35) Dano Reduzido em (5 to 10) Dano Mágico Reduzido em (5 to 10) Pontos de modificação: (25 to 35) Dano Reduzido em (6 to 12) Dano Mágico Reduzido em (6 to 12) Pontos de modificação: (25 to 35) Dano Reduzido em (7 to 14) Dano Mágico Reduzido em (7 to 14) Pontos de modificação: (25 to 35)
+FIELD	Automod	Dano Reduzido em (2 to 4) Dano Mágico Reduzido em (2 to 4)Dano Reduzido em (3 to 6) Dano Mágico Reduzido em (3 to 6)Dano Reduzido em (4 to 8) Dano Mágico Reduzido em (4 to 8)Dano Reduzido em (5 to 10) Dano Mágico Reduzido em (5 to 10)Dano Reduzido em (6 to 12) Dano Mágico Reduzido em (6 to 12)Dano Reduzido em (7 to 14) Dano Mágico Reduzido em (7 to 14)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Assassino
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana	Elite 0nn	Katana de duas mãos da Assassina	Elite	Katana de duas mãos da Assassina	83
@@ -59821,7 +59821,7 @@ FIELD	Des. req.	120
 FIELD	Bônus For/Des	100/50
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	Dano Reduzido em (2 to 4) Dano Mágico Reduzido em (2 to 4) Pontos de modificação: (25 to 35) Dano Reduzido em (3 to 6) Dano Mágico Reduzido em (3 to 6) Pontos de modificação: (25 to 35) Dano Reduzido em (4 to 8) Dano Mágico Reduzido em (4 to 8) Pontos de modificação: (25 to 35) Dano Reduzido em (5 to 10) Dano Mágico Reduzido em (5 to 10) Pontos de modificação: (25 to 35) Dano Reduzido em (6 to 12) Dano Mágico Reduzido em (6 to 12) Pontos de modificação: (25 to 35) Dano Reduzido em (7 to 14) Dano Mágico Reduzido em (7 to 14) Pontos de modificação: (25 to 35)
+FIELD	Automod	Dano Reduzido em (2 to 4) Dano Mágico Reduzido em (2 to 4)Dano Reduzido em (3 to 6) Dano Mágico Reduzido em (3 to 6)Dano Reduzido em (4 to 8) Dano Mágico Reduzido em (4 to 8)Dano Reduzido em (5 to 10) Dano Mágico Reduzido em (5 to 10)Dano Reduzido em (6 to 12) Dano Mágico Reduzido em (6 to 12)Dano Reduzido em (7 to 14) Dano Mágico Reduzido em (7 to 14)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Assassino
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana Mítica	Mítico m37	Katana de duas mãos da Assassina	Mythic	Katana de duas mãos da Assassina	96
@@ -60505,7 +60505,7 @@ FIELD	Des. req.	60
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bárbaro
 FIELD	Arma de longo alcance	7 to 29 (18.0 méd.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60523,7 +60523,7 @@ FIELD	Des. req.	85
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bárbaro
 FIELD	Arma de longo alcance	17 to 47 (32.0 méd.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60541,7 +60541,7 @@ FIELD	Des. req.	100
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bárbaro
 FIELD	Arma de longo alcance	29 to 63 (46.0 méd.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60559,7 +60559,7 @@ FIELD	Des. req.	100
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Bárbaro
 FIELD	Arma de longo alcance	32 to 70 (51.0 méd.)
 IMG	items_weapon_axe_barbarian_taxe
@@ -62323,7 +62323,7 @@ FIELD	Nív. req.	0
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	3 to 11 (7.0 méd.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum	Normal pil	Javelina	Normal	Javelina	10
@@ -62338,7 +62338,7 @@ FIELD	Des. req.	45
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	5 to 17 (11.0 méd.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lança Curta	Normal ssp	Javelina	Normal	Javelina	15
@@ -62355,7 +62355,7 @@ FIELD	Des. req.	40
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	8 to 20 (14.0 méd.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Glaive	Normal glv	Javelina	Normal	Javelina	23
@@ -62372,7 +62372,7 @@ FIELD	Des. req.	35
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	16 to 22 (19.0 méd.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Lança de Arremesso	Normal tsp	Javelina	Normal	Javelina	29
@@ -62388,7 +62388,7 @@ FIELD	Des. req.	65
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	8 to 24 (16.0 méd.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Javelina de Guerra	Excepcional 9ja	Javelina	Exceptional	Javelina	32
@@ -62405,7 +62405,7 @@ FIELD	Des. req.	25
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	12 to 26 (19.0 méd.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Grande Pilum	Excepcional 9pi	Javelina	Exceptional	Javelina	36
@@ -62421,7 +62421,7 @@ FIELD	Des. req.	88
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	15 to 35 (25.0 méd.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Simbilan	Excepcional 9s9	Javelina	Exceptional	Javelina	40
@@ -62438,7 +62438,7 @@ FIELD	Des. req.	80
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	24 to 46 (35.0 méd.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Spiculum	Excepcional 9gl	Javelina	Exceptional	Javelina	48
@@ -62455,7 +62455,7 @@ FIELD	Des. req.	73
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	28 to 56 (42.0 méd.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Harpoon	Excepcional 9ts	Javelina	Exceptional	Javelina	54
@@ -62472,7 +62472,7 @@ FIELD	Des. req.	118
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	14 to 50 (32.0 méd.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Fragmentos Antigos	Elite 0ja	Javelina	Elite	Javelina	59
@@ -62489,7 +62489,7 @@ FIELD	Des. req.	123
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	29 to 57 (43.0 méd.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Direto	Elite 0pi	Javelina	Elite	Javelina	62
@@ -62505,7 +62505,7 @@ FIELD	Des. req.	112
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	27 to 67 (47.0 méd.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lança Ágil	Elite 0s9	Javelina	Elite	Javelina	65
@@ -62522,7 +62522,7 @@ FIELD	Des. req.	95
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	36 to 64 (50.0 méd.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lança de Ahab	Elite 0gl	Javelina	Elite	Javelina	73
@@ -62539,7 +62539,7 @@ FIELD	Des. req.	137
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	36 to 72 (54.0 méd.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Caçador de Baleias	Elite 0ts	Javelina	Elite	Javelina	79
@@ -62556,7 +62556,7 @@ FIELD	Des. req.	145
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	23 to 67 (45.0 méd.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Javelina Hyperion	Elite 7ja	Javelina	Elite	Javelina	59
@@ -62573,7 +62573,7 @@ FIELD	Des. req.	123
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	29 to 57 (43.0 méd.)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Estigiano	Elite 7pi	Javelina	Elite	Javelina	62
@@ -62590,7 +62590,7 @@ FIELD	Des. req.	112
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	27 to 67 (47.0 méd.)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lança do Balrog	Elite 7s7	Javelina	Elite	Javelina	65
@@ -62607,7 +62607,7 @@ FIELD	Des. req.	95
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	36 to 64 (50.0 méd.)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lança Fantasma	Elite 7gl	Javelina	Elite	Javelina	73
@@ -62624,7 +62624,7 @@ FIELD	Des. req.	137
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	36 to 72 (54.0 méd.)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Harpoon Alado	Elite 7ts	Javelina	Elite	Javelina	79
@@ -62641,7 +62641,7 @@ FIELD	Des. req.	145
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	23 to 67 (45.0 méd.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Fragmentos Antigos Míticos	Mítico m33	Javelina	Mythic	Javelina	96
@@ -62675,7 +62675,7 @@ FIELD	Des. req.	145
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	25 to 74 (49.5 méd.)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Caçador de Baleias Mítico	Mítico m32	Javelina	Mythic	Javelina	96
@@ -63325,7 +63325,7 @@ FIELD	Des. req.	15
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Adaga Sacrificial	Excepcional 9rd	Adaga de Necromante	Exceptional	Adaga de Necromante	58
@@ -63341,7 +63341,7 @@ FIELD	Des. req.	30
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Adaga Cerimonial	Elite 0rd	Adaga de Necromante	Elite	Adaga de Necromante	83
@@ -63357,7 +63357,7 @@ FIELD	Des. req.	50
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35) Adiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de Veneno Pontos de modificação: (25 to 35)
+FIELD	Automod	Adiciona 8 Dano de Veneno aos Ataques por 2 segundos +(1 to 3)% de Dano de Feitiço de VenenoAdiciona 15 Dano de Veneno aos Ataques por 2 segundos +(2 to 5)% de Dano de Feitiço de VenenoAdiciona 30 Dano de Veneno aos Ataques por 2 segundos +(4 to 8)% de Dano de Feitiço de VenenoAdiciona 60 Dano de Veneno aos Ataques por 2 segundos +(6 to 11)% de Dano de Feitiço de VenenoAdiciona 90 Dano de Veneno aos Ataques por 2 segundos +(10 to 13)% de Dano de Feitiço de VenenoAdiciona 120 Dano de Veneno aos Ataques por 2 segundos +(11 to 14)% de Dano de Feitiço de VenenoPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Necromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Daga Cerimonial Mítica	Mítico m14	Adaga de Necromante	Mythic	Adaga de Necromante	96
@@ -63523,7 +63523,7 @@ FIELD	Nív. req.	0
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globo Sagrado	Normal ob2	Orbe	Normal	Orbe	8
@@ -63537,7 +63537,7 @@ FIELD	Nív. req.	0
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Orbe Apertado	Normal ob4	Orbe	Normal	Orbe	17
@@ -63550,7 +63550,7 @@ FIELD	Nív. req.	13
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Pedra de Jared	Normal ob5	Orbe	Normal	Orbe	24
@@ -63565,7 +63565,7 @@ FIELD	Nív. req.	18
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Esfera Defumada	Normal ob3	Orbe	Normal	Orbe	12
@@ -63579,7 +63579,7 @@ FIELD	Nív. req.	8
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Orbe Brilhante	Excepcional ob6	Orbe	Exceptional	Orbe	29
@@ -63593,7 +63593,7 @@ FIELD	Nív. req.	24
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globo Cristalino	Excepcional ob7	Orbe	Exceptional	Orbe	35
@@ -63607,7 +63607,7 @@ FIELD	Nív. req.	27
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Bola Cintilante	Excepcional ob9	Orbe	Exceptional	Orbe	42
@@ -63621,7 +63621,7 @@ FIELD	Nív. req.	34
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Cristal Giratório	Excepcional oba	Orbe	Exceptional	Orbe	49
@@ -63636,7 +63636,7 @@ FIELD	Nív. req.	37
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Esfera Nublada	Excepcional ob8	Orbe	Exceptional	Orbe	38
@@ -63650,7 +63650,7 @@ FIELD	Nív. req.	30
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Pedra Celestial	Elite obb	Orbe	Elite	Orbe	57
@@ -63664,7 +63664,7 @@ FIELD	Nív. req.	44
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Orbe Eldritch	Elite obc	Orbe	Elite	Orbe	62
@@ -63678,7 +63678,7 @@ FIELD	Nív. req.	50
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Orbe Vortex	Elite obe	Orbe	Elite	Orbe	67
@@ -63692,7 +63692,7 @@ FIELD	Nív. req.	63
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Fragmento Dimensional	Elite obf	Orbe	Elite	Orbe	74
@@ -63707,7 +63707,7 @@ FIELD	Nív. req.	66
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Coração de Demônio	Elite obd	Orbe	Elite	Orbe	64
@@ -63720,7 +63720,7 @@ FIELD	Nív. req.	56
 FIELD	Bônus For/Des	100/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Cristal Giratório	Excepcional q83	Orbe	Exceptional	Orbe	49
@@ -63735,7 +63735,7 @@ FIELD	Nív. req.	37
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Orbe Eldritch	Elite q84	Orbe	Elite	Orbe	62
@@ -63749,7 +63749,7 @@ FIELD	Nív. req.	50
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Fragmento Dimensional	Elite q85	Orbe	Elite	Orbe	74
@@ -63764,7 +63764,7 @@ FIELD	Nív. req.	66
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+(1 to 5) para Vida Pontos de modificação: (25 to 35) +(6 to 10) para Vida Pontos de modificação: (25 to 35) +(11 to 20) para Vida Pontos de modificação: (25 to 35) +(21 to 30) para Vida Pontos de modificação: (25 to 35) +(31 to 40) para Vida Pontos de modificação: (25 to 35) +(41 to 60) para Vida Pontos de modificação: (25 to 35) +(1 to 5) para Mana Pontos de modificação: (25 to 35) +(5 to 10) para Mana Pontos de modificação: (25 to 35) +(11 to 20) para Mana Pontos de modificação: (25 to 35) +(21 to 30) para Mana Pontos de modificação: (25 to 35) +(31 to 40) para Mana Pontos de modificação: (25 to 35) +(41 to 60) para Mana Pontos de modificação: (25 to 35) +(61 to 80) para Mana Pontos de modificação: (25 to 35)
+FIELD	Automod	+(1 to 5) para Vida+(6 to 10) para Vida+(11 to 20) para Vida+(21 to 30) para Vida+(31 to 40) para Vida+(41 to 60) para Vida+(1 to 5) para Mana+(5 to 10) para Mana+(11 to 20) para Mana+(21 to 30) para Mana+(31 to 40) para Mana+(41 to 60) para Mana+(61 to 80) para ManaPontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Fragmento Dimensional Mítico	Mítico m07	Orbe	Mythic	Orbe	96
@@ -64624,7 +64624,7 @@ FIELD	Des. req.	18
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35)
+FIELD	Automod	Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	7 to 8 (7.5 méd.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Fūma Shuriken	Excepcional fsk	Nocaute	Exceptional	Nocaute	45
@@ -64640,7 +64640,7 @@ FIELD	Des. req.	55
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35)
+FIELD	Automod	Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	22 to 23 (22.5 méd.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri	Elite kgk	Nocaute	Elite	Nocaute	70
@@ -64656,7 +64656,7 @@ FIELD	Des. req.	160
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35)
+FIELD	Automod	Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	45 to 46 (45.5 méd.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri Mítico	Mítico m39	Nocaute	Mythic	Nocaute	96
@@ -64672,7 +64672,7 @@ FIELD	Des. req.	160
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35) Pontos de modificação: (25 to 35)
+FIELD	Automod	Pontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	50 to 51 (50.5 méd.)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Lâmina de Mana	Normal mnb	Lâmina de mana da Feiticeira	Normal	Lâmina de mana da Feiticeira	33
@@ -65334,7 +65334,7 @@ FIELD	Des. req.	15
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Cajado Místico	Elite 1ls	Cajado	Elite	Cajado	62
@@ -65350,7 +65350,7 @@ FIELD	Des. req.	35
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Cajado Petrificado	Elite 1cs	Cajado	Elite	Cajado	64
@@ -65367,7 +65367,7 @@ FIELD	Des. req.	37
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Cajado de Mago	Elite 1bs	Cajado	Elite	Cajado	67
@@ -65384,7 +65384,7 @@ FIELD	Des. req.	27
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Cajado Arcano	Elite 1ws	Cajado	Elite	Cajado	74
@@ -65400,7 +65400,7 @@ FIELD	Des. req.	15
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Cajado	Elite 6ss	Cajado	Elite	Cajado	57
@@ -65417,7 +65417,7 @@ FIELD	Des. req.	15
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	2
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Estalagmite	Elite 6ls	Cajado	Elite	Cajado	62
@@ -65434,7 +65434,7 @@ FIELD	Des. req.	35
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Cajado Ancião	Elite 6cs	Cajado	Elite	Cajado	64
@@ -65451,7 +65451,7 @@ FIELD	Des. req.	37
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Shillelagh	Elite 6bs	Cajado	Elite	Cajado	67
@@ -65468,7 +65468,7 @@ FIELD	Des. req.	27
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Cajado Arconte	Elite 6ws	Cajado	Elite	Cajado	74
@@ -65485,7 +65485,7 @@ FIELD	Des. req.	15
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	1
-FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +1 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +2 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +3 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+1 para Habilidades de Fogo (Sorceress Only)+2 para Habilidades de Fogo (Sorceress Only)+3 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Fogo (Sorceress Only)+1 para Habilidades de Raio (Sorceress Only)+2 para Habilidades de Raio (Sorceress Only)+3 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+1 para Habilidades de Frio (Sorceress Only)+2 para Habilidades de Frio (Sorceress Only)+3 para Habilidades de Frio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Cajado Místico Mítico	Mítico m50	Cajado	Mythic	Cajado	96
@@ -65501,7 +65501,7 @@ FIELD	Des. req.	35
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	3
 FIELD	Tipo de gema	1
-FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only)+5 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+5 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)+5 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Cajado Petrificado Mítico	Mítico m29	Cajado	Mythic	Cajado	96
@@ -65518,7 +65518,7 @@ FIELD	Des. req.	41
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only)+5 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+5 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)+5 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Cajado Mágico Mítico	Mítico m36	Cajado	Mythic	Cajado	96
@@ -65535,7 +65535,7 @@ FIELD	Des. req.	27
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	4
 FIELD	Tipo de gema	1
-FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only)+5 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+5 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)+5 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Cajado Arcano Mítico	Mítico m11	Cajado	Mythic	Cajado	96
@@ -65551,7 +65551,7 @@ FIELD	Des. req.	15
 FIELD	Bônus For/Des	100/0
 FIELD	Encaixes	6
 FIELD	Tipo de gema	0
-FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Fogo (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Raio (Sorceress Only) Pontos de modificação: (25 to 35) +4 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35) +5 para Habilidades de Frio (Sorceress Only) Pontos de modificação: (25 to 35)
+FIELD	Automod	+4 para Habilidades de Fogo (Sorceress Only)+5 para Habilidades de Fogo (Sorceress Only)+4 para Habilidades de Raio (Sorceress Only)+5 para Habilidades de Raio (Sorceress Only)+4 para Habilidades de Frio (Sorceress Only)+5 para Habilidades de Frio (Sorceress Only)Pontos de modificação: (25 to 35)
 FIELD	Mod de cajado	Maga
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Espada Curta	Normal ssd	Espada	Normal	Espada	1
@@ -66614,7 +66614,7 @@ FIELD	Des. req.	25
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	6 to 16 (11.0 méd.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Machado Balanceado	Normal bal	Machado de Arremesso	Normal	Machado de Arremesso	21
@@ -66630,7 +66630,7 @@ FIELD	Des. req.	57
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	9 to 21 (15.0 méd.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Francisca	Excepcional 9ta	Machado de Arremesso	Exceptional	Machado de Arremesso	36
@@ -66646,7 +66646,7 @@ FIELD	Des. req.	80
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	15 to 39 (27.0 méd.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hurlbat	Excepcional 9b8	Machado de Arremesso	Exceptional	Machado de Arremesso	46
@@ -66663,7 +66663,7 @@ FIELD	Des. req.	106
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	3
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	22 to 38 (30.0 méd.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Machado de Arremesso	Elite 0ta	Machado de Arremesso	Elite	Machado de Arremesso	62
@@ -66679,7 +66679,7 @@ FIELD	Des. req.	108
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	40 to 59 (49.5 méd.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Machado Equilibrado	Elite 0b6	Machado de Arremesso	Elite	Machado de Arremesso	71
@@ -66696,7 +66696,7 @@ FIELD	Des. req.	122
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	24 to 62 (43.0 méd.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Machado Voador	Elite 7ta	Machado de Arremesso	Elite	Machado de Arremesso	62
@@ -66712,7 +66712,7 @@ FIELD	Des. req.	108
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	40 to 59 (49.5 méd.)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Machado Alado	Elite 7b8	Machado de Arremesso	Elite	Machado de Arremesso	71
@@ -66729,7 +66729,7 @@ FIELD	Des. req.	122
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	24 to 62 (43.0 méd.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Machado Mítico Equilibrado	Mítico m26	Machado de Arremesso	Mythic	Machado de Arremesso	96
@@ -66746,7 +66746,7 @@ FIELD	Des. req.	122
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	4
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	26 to 68 (47.0 méd.)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Faca de Arremesso	Normal tkf	Faca de Arremesso	Normal	Faca de Arremesso	4
@@ -66760,7 +66760,7 @@ FIELD	Des. req.	21
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	4 to 12 (8.0 méd.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Faca Equilibrada	Normal bkf	Faca de Arremesso	Normal	Faca de Arremesso	17
@@ -66775,7 +66775,7 @@ FIELD	Des. req.	51
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	5 to 15 (10.0 méd.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dardo de Batalha	Excepcional 9tk	Faca de Arremesso	Exceptional	Faca de Arremesso	31
@@ -66790,7 +66790,7 @@ FIELD	Des. req.	52
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	11 to 35 (23.0 méd.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Dardo de Guerra	Excepcional 9bk	Faca de Arremesso	Exceptional	Faca de Arremesso	42
@@ -66806,7 +66806,7 @@ FIELD	Des. req.	97
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	15 to 35 (25.0 méd.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Adaga Lançadora	Elite 0tk	Faca de Arremesso	Elite	Faca de Arremesso	58
@@ -66821,7 +66821,7 @@ FIELD	Des. req.	141
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	33 to 61 (47.0 méd.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Adaga Equilibrada	Elite 0bk	Faca de Arremesso	Elite	Faca de Arremesso	67
@@ -66837,7 +66837,7 @@ FIELD	Des. req.	142
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	25 to 60 (42.5 méd.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Faca Voadora	Elite 7tk	Faca de Arremesso	Elite	Faca de Arremesso	58
@@ -66853,7 +66853,7 @@ FIELD	Des. req.	141
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	33 to 61 (47.0 méd.)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Faca Alada	Elite 7bk	Faca de Arremesso	Elite	Faca de Arremesso	67
@@ -66869,7 +66869,7 @@ FIELD	Des. req.	142
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	25 to 60 (42.5 méd.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Adaga Mítica Equilibrada	Mítico m08	Faca de Arremesso	Mythic	Faca de Arremesso	96
@@ -66885,7 +66885,7 @@ FIELD	Des. req.	142
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	27 to 66 (46.5 méd.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Adaga Mítica Equilibrada	Mítico m27	Faca de Arremesso	Mythic	Faca de Arremesso	96
@@ -66901,7 +66901,7 @@ FIELD	Des. req.	142
 FIELD	Bônus For/Des	75/75
 FIELD	Encaixes	2
 FIELD	Tipo de gema	0
-FIELD	Automod	+5% Ataque Perfurante Pontos de modificação: (25 to 35) +10% Ataque Perfurante Pontos de modificação: (25 to 35) +15% Ataque Perfurante Pontos de modificação: (25 to 35) +20% Ataque Perfurante Pontos de modificação: (25 to 35) +25% Ataque Perfurante Pontos de modificação: (25 to 35)
+FIELD	Automod	+5% Ataque Perfurante+10% Ataque Perfurante+15% Ataque Perfurante+20% Ataque Perfurante+25% Ataque PerfurantePontos de modificação: (25 to 35)
 FIELD	Arma de longo alcance	28 to 66 (47.0 méd.)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Lâmina do Vazio	Normal vob	Lâmina do vazio	Normal	Lâmina do vazio	23
@@ -111660,6 +111660,10 @@ LINE	T	ÿcNConjunto da Chave do Pandemonium (100% de chance)
 LINE	T	ÿcNOutros itens/materiais genéricos
 LINE	H	ÿcHRecompensas (variante über)
 LINE	T	ÿcNSe você conseguir matar Lucion com /players 8, ele soltará sua essência (Essência de Lucion). A essência é uma versão mais poderosa de uma Rosquinha com Soquete.
+PAGE	specializations	Especializações	Endgame
+ENTRY	Especializações	Perks of the four specializations
+BLOCK	0						0
+LINE	T	The specializations need their data from the website. Open this tab once the plugin has loaded it.
 PAGE	weapon-mastery	Maestria em armas	Endgame
 ENTRY	Overview	
 BLOCK	0						0

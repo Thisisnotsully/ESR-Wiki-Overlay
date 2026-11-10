@@ -63,6 +63,55 @@ int Span(const std::string& attrs, const char* name, int fallback) {
     return std::stoi(attrs.substr(digits, k - digits));
 }
 
+constexpr char kSep = '\x1e';  // separates the entries of a value that has several
+
+// The Automod cell with the website's tiers kept (the Python twin is automod_text). Tiers are separated by <br><br>, the
+// lines of a tier by <br>. One tier: its lines joined by a space. Several tiers that all have two or more lines and the
+// same last line: one entry per tier (its lines but the last, joined by a space), then the shared line once. Tiers that
+// are all the same single line: that line. Anything else: one entry per tier, nothing merged.
+std::string AutomodText(const std::string& cell) {
+    std::vector<std::vector<std::string>> tiers;
+    std::vector<std::string> current;
+    for (const std::string& piece : SplitBr(cell)) {
+        const std::string line = TextOf(piece);
+        if (!line.empty()) {
+            current.push_back(line);
+        } else if (!current.empty()) {
+            tiers.push_back(std::move(current));
+            current.clear();
+        }
+    }
+    if (!current.empty()) tiers.push_back(std::move(current));
+    const auto join = [](const std::vector<std::string>& lines, std::size_t count) {
+        std::string out;
+        for (std::size_t i = 0; i < count; ++i) out += (i > 0 ? " " : "") + lines[i];
+        return out;
+    };
+    if (tiers.empty()) return std::string();
+    if (tiers.size() == 1) return join(tiers[0], tiers[0].size());
+    bool same = true, shared = true;
+    for (const auto& tier : tiers) {
+        if (tier != tiers[0]) same = false;
+        if (tier.size() < 2 || tier.back() != tiers[0].back()) shared = false;
+    }
+    if (same && tiers[0].size() == 1) return tiers[0][0];
+    std::string out;
+    for (const auto& tier : tiers) {
+        if (!out.empty()) out += kSep;
+        out += shared ? join(tier, tier.size() - 1) : join(tier, tier.size());
+    }
+    if (shared) out += std::string(1, kSep) + tiers[0].back();
+    return out;
+}
+
+// The text of each cell of a row; the Automod column (the one before the last, whatever the language calls it) keeps its tiers.
+std::vector<std::string> CellTexts(const std::vector<std::string>& headers, const std::vector<std::string>& row) {
+    const std::size_t automodAt = headers.size() >= 2 ? headers.size() - 2 : headers.size();
+    std::vector<std::string> text;
+    for (std::size_t i = 0; i < row.size(); ++i) text.push_back(i == automodAt ? AutomodText(row[i]) : TextOf(row[i]));
+    return text;
+}
+
 std::vector<Section> ParseSections(const std::string& html, bool weapons) {
     std::vector<Section> sections;
     Section* current = nullptr;
@@ -117,14 +166,11 @@ std::vector<Section> ParseSections(const std::string& html, bool weapons) {
             }
         }
         if (row[0].empty() && !current->items.empty()) {
-            std::vector<std::string> text;
-            for (const std::string& cell : row) text.push_back(TextOf(cell));
-            current->items.back().rows.push_back(std::move(text));
+            current->items.back().rows.push_back(CellTexts(current->headers, row));
             continue;
         }
         Item item;
-        std::vector<std::string> first;
-        for (const std::string& cell : row) first.push_back(TextOf(cell));
+        std::vector<std::string> first = CellTexts(current->headers, row);
         if (weapons) {
             const std::vector<std::string> pieces = SplitBr(row[0]);
             item.name = TextOf(pieces[0]);
@@ -161,6 +207,9 @@ Art ReadArt(const std::string& text) {
 
 // re.sub(r"_lod\b", "", clean(value))
 std::string OutText(const std::string& value) {
+    // Clean() treats the entry separator as white space, so the entries are cleaned one by one.
+    const std::size_t cut = value.find(kSep);
+    if (cut != std::string::npos) return OutText(value.substr(0, cut)) + kSep + OutText(value.substr(cut + 1));
     const std::string cleaned = Clean(value);
     std::string out;
     for (std::size_t i = 0; i < cleaned.size();) {

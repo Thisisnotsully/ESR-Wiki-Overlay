@@ -327,3 +327,212 @@ Helms / Boots / Armor / Shields / Belts	투구 / 장화 / 방어구 / 방패 / �
 Helms / Boots / Armor / Shields / Belts:	투구 / 장화 / 방어구 / 방패 / 허리띠:
 All Items	모든 아이템
 All Items:	모든 아이템:
+Tab	탭
+Entry	항목
+Card	카드
+{0} results	결과 {0}개
+1 result	결과 1개
+{0} of {1} entries here | {2} total	{0} / {1} 항목 여기 | 총 {2} 항목
+Search names, stats, runes… (in English)	이름, 능력치, 룬 검색… (한국어)
+Nothing has: {0}	어디에도 없음: {0}
+No card has all of: {0}	모두 포함한 카드 없음: {0}
+Nothing left without: {0}	제외하면 남는 항목 없음: {0}
+Type a word to look for: -word only leaves things out	찾을 단어를 입력하세요: -단어는 제외만 합니다
+Did you mean	혹시 이것을 찾으셨나요
+Filters cleared	필터 초기화됨
+Search cleared	검색어 지워짐
+Search suggestions	검색 추천
+Highlight a key	키 선택
+Type the key	키 입력
+Clear search / close keyboard	검색 지우기 / 키보드 닫기
+Delete a character	한 글자 삭제
+Close keyboard	키보드 닫기
+From the bottom row: suggestions	맨 아래 줄에서: 추천 목록
+Pick a suggestion	추천 항목 선택
+Open the suggestion	추천 항목 열기
+Close the suggestions	추천 목록 닫기
+Page through the suggestions	추천 목록 페이지 넘기기
+Show / hide keyboard	키보드 표시 / 숨기기
+Leave the suggestions	추천 목록 나가기
+{0}: open | {1}: close | {2}: page	{0}: 열기 | {1}: 닫기 | {2}: 페이지
+D-pad down: suggestions	방향 버튼 아래: 추천 목록
+{0}: suggestions	{0}: 추천 목록
+Perk	특성
+Campaign map	캠페인 지도
+Act I	액트 I
+Act II	액트 II
+Act III	액트 III
+Act IV	액트 IV
+Act V	액트 V
+Special areas	특수 지역
+Ubers & portals	우버 및 포털
+Town	마을
+Outdoor area	야외 지역
+Cave	동굴
+Tomb	무덤
+Dungeon	던전
+Temple	신전
+Tower	탑
+Special area	특수 지역
+WP	WP
+Waypoint	웨이포인트
+lvl {0}	레벨 {0}
+L{0}	{0}층
+Monster level	몬스터 레벨
+Monsters	몬스터
+Official name: {0}	공식 명칭: {0}
+Quest items	퀘스트 아이템
+Quest: {0}	퀘스트: {0}
+Heads up	주의
+Notes	메모
+Getting there	가는 방법
+No town portal	마을 차원문 사용 불가
+Teleport is off here	여기서는 순간이동 불가
+Teleport is limited here	여기서는 순간이동 제한
+No teleport across the walls	벽 너머로 순간이동 불가
+No known way in	알려진 입구 없음
+Endgame zone	엔드게임 지역
+(not confirmed yet)	(미확인)
+Spoiler: click to show	스포일러: 클릭하여 보기
+Spoiler: click to hide	스포일러: 클릭하여 숨기기
+Click an area on the map to see its details.	지도에서 지역을 클릭하면 자세한 정보가 표시됩니다.
+Area	지역
+Opens {0}	{0} 열기
+Walk across	도보
+Entrance	입구
+Portal	포털
+Cube portal	큐브 포털
+Next act	다음 액트
+Hell lvl {0}	지옥 레벨 {0}
+Monastery	수도원
+Kurast	쿠라스트
+Worldstone Keep	세계석 성채
+Naraku depths	나락 심층부
+Skills	기술
+Skill level:	기술 레벨:
+Character level:	캐릭터 레벨:
+Hard points:	투자 포인트:
+Default	기본값
+Skill tree	기술 트리
+Requires	필요 기술
+Procs on striking	적중 시 효과 발동
+Procs on casting	시전 시 효과 발동
+Yes	예
+No	아니요
+At skill level {0}	기술 레벨 {0}일 때
+Synergies	시너지
+Granted by {0} items and recipes	{0}개의 아이템 및 제작법으로 부여
+Passive	지속 효과
+Aura	오라
+Item Skills	아이템 기술
+Amazonian Loop	아마존의 루프
+Amazonian Pin	아마존 핀
+Amulet	아뮬렛
+Anointment	축성
+Assassin's Choker	암살자의 목걸이
+Assassin's Jewel	암살자의 보석
+Auric Shields	오라 방패
+Barbaric Knuckle	야만적인 너클
+Belt	벨트
+Body Armor	갑옷
+Boots	부츠
+Circlet	서클릿
+Cube recipe	큐브 조합법
+Death's Locket	죽음의 로켓
+Druid's Seal	드루이드의 인장
+Druidic Necklace	드루이드 목걸이
+Gloves	장갑
+Grimoire	마법서
+Hand to Hand	격투 무기
+Helm	투구
+Holy Pendant	신성한 펜던트
+It deals no weapon damage, and spells don’t count as strikes.	무기 피해를 주지 않으며, 마법은 적중으로 계산되지 않습니다.
+It hits with your weapon.	무기로 적중합니다.
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	무기로 적중합니다. ESR에서는 강타가 한 번에 여러 번 적중하며, 각 적중마다 효과가 발동할 수 있습니다.
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	무기로 적중합니다. 원작과 달리 ESR에서는 회오리 바람 중에도 아이템 발동 효과가 작동합니다.
+It uses the attack animation, and only skills cast with the casting animation count.	공격 애니메이션을 사용하며, 시전 애니메이션으로 시전하는 기술만 해당됩니다.
+It uses the kick animation, and only skills cast with the casting animation count.	차기 애니메이션을 사용하며, 시전 애니메이션으로 시전하는 기술만 해당됩니다.
+It uses the sequence animation, and only skills cast with the casting animation count.	연속 동작 애니메이션을 사용하며, 시전 애니메이션으로 시전하는 기술만 해당됩니다.
+It uses the special animation, and only skills cast with the casting animation count.	특수 애니메이션을 사용하며, 시전 애니메이션으로 시전하는 기술만 해당됩니다.
+It uses the throw animation, and only skills cast with the casting animation count.	던지기 애니메이션을 사용하며, 시전 애니메이션으로 시전하는 기술만 해당됩니다.
+Its missiles carry your weapon damage.	투사체에 무기 피해가 적용됩니다.
+It’s cast with the casting animation.	시전 애니메이션으로 시전됩니다.
+Level 1 Aura When Equipped	장착 시 1 오라
+Level 1-10 Aura When Equipped	장착 시 1-10 오라
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	장착 시 1-2 오라 / 장착 시 3-5 오라
+Level 1-5 Aura When Equipped	장착 시 1-5 오라
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	장착 시 1-5 오라 / 장착 시 5-10 오라 / 장착 시 15-20 오라
+Level 10 Aura When Equipped	장착 시 10 오라
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	장착 시 10 오라 / 장착 시 20 오라
+Level 10-15 Aura When Equipped	장착 시 10-15 오라
+Level 10-20 Aura When Equipped	장착 시 10-20 오라
+Level 10-25 Aura When Equipped	장착 시 10-25 오라
+Level 10-30 Aura When Equipped	장착 시 10-30 오라
+Level 15 Aura When Equipped	장착 시 15 오라
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	장착 시 15 오라 / 장착 시 10 오라
+Level 15-20 Aura When Equipped	장착 시 15-20 오라
+Level 15-30 Aura When Equipped	장착 시 15-30 오라
+Level 2-5 Aura When Equipped	장착 시 2-5 오라
+Level 2-8 Aura When Equipped	장착 시 2-8 오라
+Level 20 Aura When Equipped	장착 시 20 오라
+Level 20-30 Aura When Equipped	장착 시 20-30 오라
+Level 20-40 Aura When Equipped	장착 시 20-40 오라
+Level 25 Aura When Equipped	장착 시 25 오라
+Level 25-30 Aura When Equipped	장착 시 25-30 오라
+Level 25-50 Aura When Equipped	장착 시 25-50 오라
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	장착 시 3-10 오라 / 장착 시 6-11 오라
+Level 3-5 Aura When Equipped	장착 시 3-5 오라
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	장착 시 3-5 오라 / 장착 시 5-10 오라
+Level 30 Aura When Equipped	장착 시 30 오라
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	장착 시 30 오라 / 장착 시 25 오라
+Level 30-40 Aura When Equipped	장착 시 30-40 오라
+Level 30-50 Aura When Equipped	장착 시 30-50 오라
+Level 30-60 Aura When Equipped	장착 시 30-60 오라
+Level 4-7 Aura When Equipped	장착 시 4-7 오라
+Level 40 Aura When Equipped	장착 시 40 오라
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	장착 시 40 오라 / 장착 시 30 오라
+Level 40-80 Aura When Equipped	장착 시 40-80 오라
+Level 5 Aura When Equipped	장착 시 5 오라
+Level 5 Aura When Equipped / Level 10 Aura When Equipped	장착 시 5 오라 / 장착 시 10 오라
+Level 5-10 Aura When Equipped	장착 시 5-10 오라
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	장착 시 5-10 오라 / 장착 시 10-15 오라
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	장착 시 5-10 오라 / 장착 시 10-20 오라
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	장착 시 5-10 오라 / 장착 시 10-20 오라 / 장착 시 10-15 오라
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	장착 시 5-10 오라 / 장착 시 10-20 오라 / 장착 시 25-30 오라
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	장착 시 5-10 오라 / 장착 시 8-15 오라
+Level 5-15 Aura When Equipped	장착 시 5-15 오라
+Level 5-20 Aura When Equipped	장착 시 5-20 오라
+Level 5-25 Aura When Equipped	장착 시 5-25 오라
+Level 50 Aura When Equipped	장착 시 50 오라
+Level 6-11 Aura When Equipped	장착 시 6-11 오라
+Level 6-12 Aura When Equipped	장착 시 6-12 오라
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	장착 시 6-12 오라 / 장착 시 10-20 오라
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	장착 시 6-12 오라 / 장착 시 10-20 오라 / 장착 시 10-15 오라
+Level 60-100 Aura When Equipped	장착 시 60-100 오라
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	장착 시 8 오라 / 장착 시 12 오라
+Level 8-15 Aura When Equipped	장착 시 8-15 오라
+Magic prefix	마법 접두사
+Magic suffix	마법 접미사
+Necromancer's Stone	강령술사의 돌
+Paladic Halo	팔라딘의 후광
+Pelt	펠트
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	기술 레벨과 캐릭터 레벨을 선택하면 게임에서 표시될 수치를 볼 수 있습니다. 일부 기술은 기술 레벨뿐 아니라 캐릭터 레벨에 따라서도 강해집니다.
+Primal Charm	원시 부적
+Primal Helm	원시 투구
+Ring	반지
+Runeword	룬어
+Set item	세트 아이템
+Shield	방패
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	직업 트리에 속하지 않는 기술입니다. 아이템이 기술 보너스, 시전 확률, 충전량 또는 오라로 부여하므로 어떤 직업이든 사용할 수 있습니다.
+Sorcerer's Band	마법사의 반지
+Sorcerer's Talisman	마법사의 부적
+Tyrael's Virtue_old	타이렐의 미덕
+Unique	고유
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	수치는 아이템이 없고 다른 기술에 투자한 포인트가 없다고 가정한 값입니다. 시너지 보너스는 각 기술 아래에 표시되며 여기 수치에는 포함되지 않습니다. 기술을 열어 시너지 포인트를 설정하고 모든 레벨을 확인하세요.
+Vessel of Souls	영혼의 그릇
+Voodoo Heads	부두 머리
+Warlock Pendant	흑마법사의 펜던트
+Warlock Sigil	흑마법사의 인장
+{0}: {1}	{0}: {1}
+{0}, {1}	{0}, {1}
+{0}. {1}	{0}. {1}

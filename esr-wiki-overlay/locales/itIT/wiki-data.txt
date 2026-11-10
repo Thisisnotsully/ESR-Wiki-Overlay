@@ -9,7 +9,7 @@ LINE	T	Apri il tuo Pacchetto Iniziale e la Cassa delle Armi prima di lasciare la
 ENTRY	Morte, riassegnazione e annullare le scelte	Benvenuto in Eastern Sun Resurrected
 BLOCK	0						0
 LINE	T	Fai Alt+clic su un pulsante + nella schermata del personaggio per riassegnare i punti, consumando un uso di un contatore limitato; ricaricalo combinando nel cubo 4 Pietre del Drago in un Token di Assoluzione. Morire costa un po' di esperienza e di oro ma nessun equipaggiamento, e non costa alcuna esperienza all'interno dell'area del boss di una mappa. La maggior parte delle scelte iniziali sull'equipaggiamento si può annullare: rimuovi qualsiasi cosa da un castone trasmutando l'oggetto con una Chiave (non funziona per le Parole di gemme, ma funziona per le Parole runiche). Puoi rimuovere una creazione di Forgiatura trasmutando l'oggetto con 3 Pozioni di disgelo.
-ENTRY	Progressione della campagna	Difficoltà Normale
+ENTRY	Progressione della campagna	Difficoltà Normale	campaignmap
 BLOCK	0						0
 LINE	T	ESR ha modificato la struttura della campagna per renderla più snella rispetto a Vanilla. Alcune aree hanno meno livelli prima di poter proseguire e altre hanno del tutto scorciatoie.
 LINE	T	
@@ -55371,7 +55371,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Catena Elfica	Normale elv	Armature	Normal	Armature	33
 FIELD	Difesa	307-343
@@ -55604,7 +55604,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Catena di Adamantite Drow	Eccezionale xlv	Armature	Exceptional	Armature	58
 FIELD	Difesa	524-572
@@ -55824,7 +55824,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_armor_spiked_armor
 BLOCK	1	Catena Silvana	Élite ylv	Armature	Elite	Armature	83
 FIELD	Difesa	788-809
@@ -56071,7 +56071,7 @@ FIELD	Parata %	1
 FIELD	Danni	4-12
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Scudo Araldico	Normale pa3	Scudi aurici	Normal	Scudi aurici	16
 FIELD	Difesa	27-42
@@ -56084,7 +56084,7 @@ FIELD	Parata %	2
 FIELD	Danni	6-18
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Scudo di Aerin	Normale pa4	Scudi aurici	Normal	Scudi aurici	20
 FIELD	Difesa	43-61
@@ -56097,7 +56097,7 @@ FIELD	Parata %	2
 FIELD	Danni	8-20
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Scudo a Corona	Normale pa5	Scudi aurici	Normal	Scudi aurici	24
 FIELD	Difesa	63-84
@@ -56110,7 +56110,7 @@ FIELD	Parata %	3
 FIELD	Danni	8-24
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache	Normale pa2	Scudi aurici	Normal	Scudi aurici	8
 FIELD	Difesa	13-25
@@ -56123,7 +56123,7 @@ FIELD	Parata %	2
 FIELD	Danni	4-16
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Scudo Akaran	Eccezionale pa6	Scudi aurici	Exceptional	Scudi aurici	31
 FIELD	Difesa	100-112
@@ -56136,7 +56136,7 @@ FIELD	Parata %	2
 FIELD	Danni	24-32
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Scudo Protettore	Eccezionale pa8	Scudi aurici	Exceptional	Scudi aurici	41
 FIELD	Difesa	130-150
@@ -56149,7 +56149,7 @@ FIELD	Parata %	3
 FIELD	Danni	36-48
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Scudo Dorato	Eccezionale pa9	Scudi aurici	Exceptional	Scudi aurici	45
 FIELD	Difesa	151-175
@@ -56162,7 +56162,7 @@ FIELD	Parata %	3
 FIELD	Danni	40-56
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Scudo Reale	Eccezionale paa	Scudi aurici	Exceptional	Scudi aurici	49
 FIELD	Difesa	176-204
@@ -56175,7 +56175,7 @@ FIELD	Parata %	4
 FIELD	Danni	48-64
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Akaran Rondache	Eccezionale pa7	Scudi aurici	Exceptional	Scudi aurici	34
 FIELD	Difesa	113-129
@@ -56188,7 +56188,7 @@ FIELD	Parata %	2
 FIELD	Danni	30-40
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Scudo Sacro	Élite pab	Scudi aurici	Elite	Scudi aurici	58
 FIELD	Difesa	125-145
@@ -56201,7 +56201,7 @@ FIELD	Parata %	2
 FIELD	Danni	44-140
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_targe
 BLOCK	1	Scudo di Kurast	Élite pad	Scudi aurici	Elite	Scudi aurici	66
 FIELD	Difesa	171-199
@@ -56214,7 +56214,7 @@ FIELD	Parata %	3
 FIELD	Danni	20-164
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_heraldic_shield
 BLOCK	1	Scudo Zakarum	Élite pae	Scudi aurici	Elite	Scudi aurici	70
 FIELD	Difesa	200-232
@@ -56227,7 +56227,7 @@ FIELD	Parata %	3
 FIELD	Danni	92-92
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_aerin_shield
 BLOCK	1	Scudo Vortice	Élite paf	Scudi aurici	Elite	Scudi aurici	74
 FIELD	Difesa	233-269
@@ -56240,7 +56240,7 @@ FIELD	Parata %	4
 FIELD	Danni	10-174
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_crown_shield
 BLOCK	1	Rondache Sacra	Élite pac	Scudi aurici	Elite	Scudi aurici	60
 FIELD	Difesa	146-170
@@ -56253,7 +56253,7 @@ FIELD	Parata %	3
 FIELD	Danni	70-116
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Tutte le Resistenze +(5 to 10) Punti modificatore: (25 to 35) Tutte le Resistenze +(8 to 15) Punti modificatore: (25 to 35) Tutte le Resistenze +(16 to 30) Punti modificatore: (25 to 35) Tutte le Resistenze +(25 to 35) Punti modificatore: (25 to 35) Tutte le Resistenze +(35 to 45) Punti modificatore: (25 to 35)
+FIELD	Automod	Tutte le Resistenze +(5 to 10)Tutte le Resistenze +(8 to 15)Tutte le Resistenze +(16 to 30)Tutte le Resistenze +(25 to 35)Tutte le Resistenze +(35 to 45)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_rondache
 BLOCK	1	Cintura	Normale lbl	Cintura	Normal	Cintura	3
 FIELD	Difesa	6-10
@@ -56331,7 +56331,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	2
-FIELD	Automod	+(1 to 3) alla Forza Punti modificatore: (25 to 35) +(4 to 6) alla Forza Punti modificatore: (25 to 35) +(7 to 9) alla Forza Punti modificatore: (25 to 35) +(10 to 15) alla Forza Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 3) alla Forza+(4 to 6) alla Forza+(7 to 9) alla Forza+(10 to 15) alla ForzaPunti modificatore: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Cintura di Pelle di Demone	Eccezionale zlb	Cintura	Exceptional	Cintura	31
 FIELD	Difesa	75-95
@@ -56409,7 +56409,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	2
-FIELD	Automod	+(1 to 3) alla Forza Punti modificatore: (25 to 35) +(4 to 6) alla Forza Punti modificatore: (25 to 35) +(7 to 9) alla Forza Punti modificatore: (25 to 35) +(10 to 15) alla Forza Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 3) alla Forza+(4 to 6) alla Forza+(7 to 9) alla Forza+(10 to 15) alla ForzaPunti modificatore: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Fascia di Canapa	Élite alb	Cintura	Elite	Cintura	59
 FIELD	Difesa	160-196
@@ -56487,7 +56487,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	2
-FIELD	Automod	+(1 to 3) alla Forza Punti modificatore: (25 to 35) +(4 to 6) alla Forza Punti modificatore: (25 to 35) +(7 to 9) alla Forza Punti modificatore: (25 to 35) +(10 to 15) alla Forza Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 3) alla Forza+(4 to 6) alla Forza+(7 to 9) alla Forza+(10 to 15) alla ForzaPunti modificatore: (25 to 35)
 IMG	items_armor_belt_muscle_wrap
 BLOCK	1	Cintura Ragnatela	Élite ulc	Cintura	Elite	Cintura	59
 FIELD	Difesa	160-196
@@ -57394,7 +57394,7 @@ FIELD	Parata %	8
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compendio	Normale wa4	Grimorio	Normal	Grimorio	20
@@ -57408,7 +57408,7 @@ FIELD	Parata %	10
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimorio	Normale wa5	Grimorio	Normal	Grimorio	24
@@ -57422,7 +57422,7 @@ FIELD	Parata %	12
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Vecchio Libro	Normale wa1	Grimorio	Normal	Grimorio	4
@@ -57436,7 +57436,7 @@ FIELD	Parata %	3
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tomo	Normale wa2	Grimorio	Normal	Grimorio	8
@@ -57450,7 +57450,7 @@ FIELD	Parata %	5
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Codex Oscuro	Eccezionale wa8	Grimorio	Exceptional	Grimorio	45
@@ -57464,7 +57464,7 @@ FIELD	Parata %	8
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compendio Posseduto	Eccezionale wa9	Grimorio	Exceptional	Grimorio	49
@@ -57478,7 +57478,7 @@ FIELD	Parata %	10
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimorio Posseduto	Eccezionale waa	Grimorio	Exceptional	Grimorio	54
@@ -57492,7 +57492,7 @@ FIELD	Parata %	12
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Testo Bruciato	Eccezionale wa6	Grimorio	Exceptional	Grimorio	33
@@ -57506,7 +57506,7 @@ FIELD	Parata %	3
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tomo Oscuro	Eccezionale wa7	Grimorio	Exceptional	Grimorio	39
@@ -57520,7 +57520,7 @@ FIELD	Parata %	5
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Codex Occulto	Élite wad	Grimorio	Elite	Grimorio	66
@@ -57534,7 +57534,7 @@ FIELD	Parata %	8
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_codex
 BLOCK	1	Compendio Blasfemo	Élite wae	Grimorio	Elite	Grimorio	81
@@ -57548,7 +57548,7 @@ FIELD	Parata %	10
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_compendium
 BLOCK	1	Grimorio Blasfemo	Élite waf	Grimorio	Elite	Grimorio	85
@@ -57562,7 +57562,7 @@ FIELD	Parata %	12
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_grimoire
 BLOCK	1	Volume Dimenticato	Élite wab	Grimorio	Elite	Grimorio	59
@@ -57576,7 +57576,7 @@ FIELD	Parata %	3
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_oldbook
 BLOCK	1	Tomo Occulto	Élite wac	Grimorio	Elite	Grimorio	67
@@ -57590,7 +57590,7 @@ FIELD	Parata %	5
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Stregone
 IMG	items_armor_grimoires_tome_book
 BLOCK	1	Cappello	Normale cap	Elmo	Normal	Elmo	1
@@ -57708,7 +57708,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(6 to 10)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(11 to 20)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(21 to 30)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(31 to 40)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(41 to 50)% Oro Extra dai Mostri Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5)% Oro Extra dai Mostri+(6 to 10)% Oro Extra dai Mostri+(11 to 20)% Oro Extra dai Mostri+(21 to 30)% Oro Extra dai Mostri+(31 to 40)% Oro Extra dai Mostri+(41 to 50)% Oro Extra dai MostriPunti modificatore: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Elmo da guerra	Eccezionale xap	Elmo	Exceptional	Elmo	29
 FIELD	Difesa	52-67
@@ -57825,7 +57825,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(6 to 10)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(11 to 20)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(21 to 30)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(31 to 40)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(41 to 50)% Oro Extra dai Mostri Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5)% Oro Extra dai Mostri+(6 to 10)% Oro Extra dai Mostri+(11 to 20)% Oro Extra dai Mostri+(21 to 30)% Oro Extra dai Mostri+(31 to 40)% Oro Extra dai Mostri+(41 to 50)% Oro Extra dai MostriPunti modificatore: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Elmo Alato	Eccezionale 4hm	Elmo	Exceptional	Elmo	48
 FIELD	Difesa	105-138
@@ -57968,7 +57968,7 @@ FIELD	Parata %	0
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(6 to 10)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(11 to 20)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(21 to 30)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(31 to 40)% Oro Extra dai Mostri Punti modificatore: (25 to 35) +(41 to 50)% Oro Extra dai Mostri Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5)% Oro Extra dai Mostri+(6 to 10)% Oro Extra dai Mostri+(11 to 20)% Oro Extra dai Mostri+(21 to 30)% Oro Extra dai Mostri+(31 to 40)% Oro Extra dai Mostri+(41 to 50)% Oro Extra dai MostriPunti modificatore: (25 to 35)
 IMG	items_armor_helmet_crown_of_thieves
 BLOCK	1	Shako	Élite uap	Elmo	Elite	Elmo	57
 FIELD	Difesa	130-166
@@ -58652,7 +58652,7 @@ FIELD	Parata %	1
 FIELD	Danni	12-20
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Scudo della Fortezza	Normale fts	Scudo	Normal	Scudo	31
 FIELD	Difesa	48-72
@@ -58704,7 +58704,7 @@ FIELD	Parata %	2
 FIELD	Danni	12-20
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Difensore	Eccezionale xuc	Scudo	Exceptional	Scudo	29
 FIELD	Difesa	60-75
@@ -58808,7 +58808,7 @@ FIELD	Parata %	1
 FIELD	Danni	40-76
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Scudo di Riflesso	Eccezionale xft	Scudo	Exceptional	Scudo	56
 FIELD	Difesa	37-75
@@ -58938,7 +58938,7 @@ FIELD	Parata %	4
 FIELD	Danni	70-122
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Scudo Cerimoniale	Élite yft	Scudo	Elite	Scudo	81
 FIELD	Difesa	195-236
@@ -59055,7 +59055,7 @@ FIELD	Parata %	2
 FIELD	Danni	70-122
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	L'attaccante subisce danni di (4 to 12) Punti modificatore: (25 to 35) L'attaccante subisce danni di (16 to 24) Punti modificatore: (25 to 35) L'attaccante subisce danni di (28 to 36) Punti modificatore: (25 to 35) L'attaccante subisce danni di (40 to 80) Punti modificatore: (25 to 35)
+FIELD	Automod	L'attaccante subisce danni di (4 to 12)L'attaccante subisce danni di (16 to 24)L'attaccante subisce danni di (28 to 36)L'attaccante subisce danni di (40 to 80)Punti modificatore: (25 to 35)
 IMG	items_armor_shield_spiked_shield
 BLOCK	1	Corona Spirituale	Normale eht	Corona Spirituale	Normal	Corona Spirituale	16
 FIELD	Difesa	30-42
@@ -59107,7 +59107,7 @@ FIELD	Parata %	1
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Testa dello Svelatore	Normale ne3	Teste voodoo	Normal	Teste voodoo	16
@@ -59121,7 +59121,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Testa di Gargoyle	Normale ne4	Teste voodoo	Normal	Teste voodoo	20
@@ -59135,7 +59135,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Testa di Demone	Normale ne5	Teste voodoo	Normal	Teste voodoo	24
@@ -59149,7 +59149,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Testa di Zombie	Normale ne2	Teste voodoo	Normal	Teste voodoo	8
@@ -59163,7 +59163,7 @@ FIELD	Parata %	1
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trofeo Mummificato	Eccezionale ne6	Teste voodoo	Exceptional	Teste voodoo	31
@@ -59177,7 +59177,7 @@ FIELD	Parata %	1
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Trofeo del Sesto	Eccezionale ne8	Teste voodoo	Exceptional	Teste voodoo	41
@@ -59191,7 +59191,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Trofeo del Cantore	Eccezionale ne9	Teste voodoo	Exceptional	Teste voodoo	45
@@ -59205,7 +59205,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Trofeo dell'Hierofante	Eccezionale nea	Teste voodoo	Exceptional	Teste voodoo	49
@@ -59219,7 +59219,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Trofeo Fetish	Eccezionale ne7	Teste voodoo	Exceptional	Teste voodoo	34
@@ -59233,7 +59233,7 @@ FIELD	Parata %	1
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Teschio del Minion	Élite neb	Teste voodoo	Elite	Teste voodoo	58
@@ -59247,7 +59247,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_preserved_head
 BLOCK	1	Teschio del Sorvegliante	Élite ned	Teste voodoo	Elite	Teste voodoo	66
@@ -59261,7 +59261,7 @@ FIELD	Parata %	3
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_unraveller_head
 BLOCK	1	Teschio della Succube	Élite nee	Teste voodoo	Elite	Teste voodoo	70
@@ -59275,7 +59275,7 @@ FIELD	Parata %	3
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Teschio del Signore del Sangue	Élite nef	Teste voodoo	Elite	Teste voodoo	74
@@ -59289,7 +59289,7 @@ FIELD	Parata %	3
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Teschio dei Maligni	Élite neg	Teste voodoo	Elite	Teste voodoo	60
@@ -59303,7 +59303,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_zombie_head
 BLOCK	1	Trofeo dell'Hierofante	Eccezionale qna	Teste voodoo	Exceptional	Teste voodoo	49
@@ -59317,7 +59317,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_gargoyle_head
 BLOCK	1	Teschio della Succube	Élite qne	Teste voodoo	Elite	Teste voodoo	70
@@ -59331,7 +59331,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_demon_head
 BLOCK	1	Teschio del Signore del Sangue	Élite qnf	Teste voodoo	Elite	Teste voodoo	74
@@ -59345,7 +59345,7 @@ FIELD	Parata %	2
 FIELD	Danni	0-0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	2
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_armor_voodoo_head_demon_head
 ENTRY	Armi	506 oggetti	sortable	fiveacross
@@ -59360,7 +59360,7 @@ FIELD	Des. req.	65
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco del Cervo	Normale am1	Arco dell'Amazzone	Normal	Arco dell'Amazzone	18
 FIELD	Mani	2H
@@ -59374,7 +59374,7 @@ FIELD	Des. req.	45
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	5
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco Riflesso	Normale am2	Arco dell'Amazzone	Normal	Arco dell'Amazzone	27
 FIELD	Mani	2H
@@ -59388,7 +59388,7 @@ FIELD	Des. req.	60
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Tuigan	Eccezionale 9pb	Arco dell'Amazzone	Exceptional	Arco dell'Amazzone	58
 FIELD	Mani	2H
@@ -59401,7 +59401,7 @@ FIELD	Des. req.	130
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco di Legno di Frassino	Eccezionale am6	Arco dell'Amazzone	Exceptional	Arco dell'Amazzone	43
 FIELD	Mani	2H
@@ -59415,7 +59415,7 @@ FIELD	Des. req.	77
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	5
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco Cerimoniale	Eccezionale am7	Arco dell'Amazzone	Exceptional	Arco dell'Amazzone	52
 FIELD	Mani	2H
@@ -59429,7 +59429,7 @@ FIELD	Des. req.	110
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco Elfico	Élite 0pb	Arco dell'Amazzone	Elite	Arco dell'Amazzone	83
 FIELD	Mani	2H
@@ -59442,7 +59442,7 @@ FIELD	Des. req.	180
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_pullspite
 BLOCK	1	Arco Matriarcale	Élite amb	Arco dell'Amazzone	Elite	Arco dell'Amazzone	68
 FIELD	Mani	2H
@@ -59456,7 +59456,7 @@ FIELD	Des. req.	187
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	5
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_stag_bow
 BLOCK	1	Arco della Grande Matrona	Élite amc	Arco dell'Amazzone	Elite	Arco dell'Amazzone	77
 FIELD	Mani	2H
@@ -59470,7 +59470,7 @@ FIELD	Des. req.	152
 FIELD	Bonus For/Des	0/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +2 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35) +3 a Punteggi e Abilità con Archi e Balestre (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+2 a Punteggi e Abilità con Archi e Balestre (Amazon Only)+3 a Punteggi e Abilità con Archi e Balestre (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_bow_reflex_bow
 BLOCK	1	Arco matriarcale mitico	Mitico m53	Arco dell'Amazzone	Mythic	Arco dell'Amazzone	96
 FIELD	Mani	2H
@@ -59527,7 +59527,7 @@ FIELD	Des. req.	47
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	6 to 22 (14.0 media)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Giavellotto Cerimoniale	Eccezionale ama	Giavellotto dell'Amazzone	Exceptional	Giavellotto dell'Amazzone	49
@@ -59544,7 +59544,7 @@ FIELD	Des. req.	109
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	14 to 50 (32.0 media)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Lancia Matriarcale	Élite amf	Giavellotto dell'Amazzone	Elite	Giavellotto dell'Amazzone	74
@@ -59561,7 +59561,7 @@ FIELD	Des. req.	151
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	25 to 64 (44.5 media)
 IMG	items_weapon_javelin_maiden_javelin
 BLOCK	1	Lancia Matriarcale Mitica	Mitico m31	Giavellotto dell'Amazzone	Mythic	Giavellotto dell'Amazzone	96
@@ -59595,7 +59595,7 @@ FIELD	Des. req.	40
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Punta della Vergine	Normale am4	Lancia dell'Amazzone	Normal	Lancia dell'Amazzone	27
 FIELD	Mani	2H
@@ -59611,7 +59611,7 @@ FIELD	Des. req.	52
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lancia Cerimoniale	Eccezionale am8	Lancia dell'Amazzone	Exceptional	Lancia dell'Amazzone	43
 FIELD	Mani	2H
@@ -59626,7 +59626,7 @@ FIELD	Des. req.	80
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Punta Cerimoniale	Eccezionale am9	Lancia dell'Amazzone	Exceptional	Lancia dell'Amazzone	52
 FIELD	Mani	2H
@@ -59642,7 +59642,7 @@ FIELD	Des. req.	98
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Lancia Matriarcale	Élite amd	Lancia dell'Amazzone	Elite	Lancia dell'Amazzone	68
 FIELD	Mani	2H
@@ -59658,7 +59658,7 @@ FIELD	Des. req.	142
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Punta Matriarcale	Élite ame	Lancia dell'Amazzone	Elite	Lancia dell'Amazzone	77
 FIELD	Mani	2H
@@ -59674,7 +59674,7 @@ FIELD	Des. req.	149
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_pike
 BLOCK	1	Punta Cerimoniale	Eccezionale q78	Lancia dell'Amazzone	Exceptional	Lancia dell'Amazzone	52
 FIELD	Mani	2H
@@ -59690,7 +59690,7 @@ FIELD	Des. req.	98
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lancia Matriarcale	Élite q81	Lancia dell'Amazzone	Elite	Lancia dell'Amazzone	68
 FIELD	Mani	2H
@@ -59705,7 +59705,7 @@ FIELD	Des. req.	142
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +2 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35) +3 a abilità di Giavellotto e Lancia (Amazon Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a abilità di Giavellotto e Lancia (Amazon Only)+2 a abilità di Giavellotto e Lancia (Amazon Only)+3 a abilità di Giavellotto e Lancia (Amazon Only)Punti modificatore: (25 to 35)
 IMG	items_weapon_spear_maiden_spear
 BLOCK	1	Lancia matriarcale mitica	Mitico m56	Lancia dell'Amazzone	Mythic	Lancia dell'Amazzone	96
 FIELD	Mani	2H
@@ -59753,7 +59753,7 @@ FIELD	Des. req.	60
 FIELD	Bonus For/Des	50/100
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Discipline delle Ombre (Assassin Only) Punti modificatore: (25 to 35) +2 a Discipline delle Ombre (Assassin Only) Punti modificatore: (25 to 35) +3 a Discipline delle Ombre (Assassin Only) Punti modificatore: (25 to 35) +1 a Arti Marziali (Assassin Only) Punti modificatore: (25 to 35) +2 a Arti Marziali (Assassin Only) Punti modificatore: (25 to 35) +3 a Arti Marziali (Assassin Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Discipline delle Ombre (Assassin Only)+2 a Discipline delle Ombre (Assassin Only)+3 a Discipline delle Ombre (Assassin Only)+1 a Arti Marziali (Assassin Only)+2 a Arti Marziali (Assassin Only)+3 a Arti Marziali (Assassin Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Assassino
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Wakizashi	Eccezionale 9nn	Katana a una mano dell'Assassina	Exceptional	Katana a una mano dell'Assassina	58
@@ -59770,7 +59770,7 @@ FIELD	Des. req.	90
 FIELD	Bonus For/Des	75/100
 FIELD	Incastonature	5
 FIELD	Tipo di gemma	0
-FIELD	Automod	+1 a Discipline delle Ombre (Assassin Only) Punti modificatore: (25 to 35) +2 a Discipline delle Ombre (Assassin Only) Punti modificatore: (25 to 35) +3 a Discipline delle Ombre (Assassin Only) Punti modificatore: (25 to 35) +1 a Arti Marziali (Assassin Only) Punti modificatore: (25 to 35) +2 a Arti Marziali (Assassin Only) Punti modificatore: (25 to 35) +3 a Arti Marziali (Assassin Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Discipline delle Ombre (Assassin Only)+2 a Discipline delle Ombre (Assassin Only)+3 a Discipline delle Ombre (Assassin Only)+1 a Arti Marziali (Assassin Only)+2 a Arti Marziali (Assassin Only)+3 a Arti Marziali (Assassin Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Assassino
 IMG	items_weapon_sword_short_sword
 BLOCK	1	Ninja-To	Normale njt	Katana a due mani dell'Assassina	Normal	Katana a due mani dell'Assassina	35
@@ -59787,7 +59787,7 @@ FIELD	Des. req.	60
 FIELD	Bonus For/Des	100/50
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	Danno Ridotto del (2 to 4) Danno Magico Ridotto del (2 to 4) Punti modificatore: (25 to 35) Danno Ridotto del (3 to 6) Danno Magico Ridotto del (3 to 6) Punti modificatore: (25 to 35) Danno Ridotto del (4 to 8) Danno Magico Ridotto del (4 to 8) Punti modificatore: (25 to 35) Danno Ridotto del (5 to 10) Danno Magico Ridotto del (5 to 10) Punti modificatore: (25 to 35) Danno Ridotto del (6 to 12) Danno Magico Ridotto del (6 to 12) Punti modificatore: (25 to 35) Danno Ridotto del (7 to 14) Danno Magico Ridotto del (7 to 14) Punti modificatore: (25 to 35)
+FIELD	Automod	Danno Ridotto del (2 to 4) Danno Magico Ridotto del (2 to 4)Danno Ridotto del (3 to 6) Danno Magico Ridotto del (3 to 6)Danno Ridotto del (4 to 8) Danno Magico Ridotto del (4 to 8)Danno Ridotto del (5 to 10) Danno Magico Ridotto del (5 to 10)Danno Ridotto del (6 to 12) Danno Magico Ridotto del (6 to 12)Danno Ridotto del (7 to 14) Danno Magico Ridotto del (7 to 14)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Assassino
 IMG	items_weapon_sword_katana
 BLOCK	1	Wakizashi	Eccezionale 9nj	Katana a due mani dell'Assassina	Exceptional	Katana a due mani dell'Assassina	60
@@ -59804,7 +59804,7 @@ FIELD	Des. req.	90
 FIELD	Bonus For/Des	100/50
 FIELD	Incastonature	5
 FIELD	Tipo di gemma	0
-FIELD	Automod	Danno Ridotto del (2 to 4) Danno Magico Ridotto del (2 to 4) Punti modificatore: (25 to 35) Danno Ridotto del (3 to 6) Danno Magico Ridotto del (3 to 6) Punti modificatore: (25 to 35) Danno Ridotto del (4 to 8) Danno Magico Ridotto del (4 to 8) Punti modificatore: (25 to 35) Danno Ridotto del (5 to 10) Danno Magico Ridotto del (5 to 10) Punti modificatore: (25 to 35) Danno Ridotto del (6 to 12) Danno Magico Ridotto del (6 to 12) Punti modificatore: (25 to 35) Danno Ridotto del (7 to 14) Danno Magico Ridotto del (7 to 14) Punti modificatore: (25 to 35)
+FIELD	Automod	Danno Ridotto del (2 to 4) Danno Magico Ridotto del (2 to 4)Danno Ridotto del (3 to 6) Danno Magico Ridotto del (3 to 6)Danno Ridotto del (4 to 8) Danno Magico Ridotto del (4 to 8)Danno Ridotto del (5 to 10) Danno Magico Ridotto del (5 to 10)Danno Ridotto del (6 to 12) Danno Magico Ridotto del (6 to 12)Danno Ridotto del (7 to 14) Danno Magico Ridotto del (7 to 14)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Assassino
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana	Élite 0nn	Katana a due mani dell'Assassina	Elite	Katana a due mani dell'Assassina	83
@@ -59821,7 +59821,7 @@ FIELD	Des. req.	120
 FIELD	Bonus For/Des	100/50
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	Danno Ridotto del (2 to 4) Danno Magico Ridotto del (2 to 4) Punti modificatore: (25 to 35) Danno Ridotto del (3 to 6) Danno Magico Ridotto del (3 to 6) Punti modificatore: (25 to 35) Danno Ridotto del (4 to 8) Danno Magico Ridotto del (4 to 8) Punti modificatore: (25 to 35) Danno Ridotto del (5 to 10) Danno Magico Ridotto del (5 to 10) Punti modificatore: (25 to 35) Danno Ridotto del (6 to 12) Danno Magico Ridotto del (6 to 12) Punti modificatore: (25 to 35) Danno Ridotto del (7 to 14) Danno Magico Ridotto del (7 to 14) Punti modificatore: (25 to 35)
+FIELD	Automod	Danno Ridotto del (2 to 4) Danno Magico Ridotto del (2 to 4)Danno Ridotto del (3 to 6) Danno Magico Ridotto del (3 to 6)Danno Ridotto del (4 to 8) Danno Magico Ridotto del (4 to 8)Danno Ridotto del (5 to 10) Danno Magico Ridotto del (5 to 10)Danno Ridotto del (6 to 12) Danno Magico Ridotto del (6 to 12)Danno Ridotto del (7 to 14) Danno Magico Ridotto del (7 to 14)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Assassino
 IMG	items_weapon_sword_katana
 BLOCK	1	Katana Mitico	Mitico m37	Katana a due mani dell'Assassina	Mythic	Katana a due mani dell'Assassina	96
@@ -60505,7 +60505,7 @@ FIELD	Des. req.	60
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Barbaro
 FIELD	Arma a distanza	7 to 29 (18.0 media)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60523,7 +60523,7 @@ FIELD	Des. req.	85
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Barbaro
 FIELD	Arma a distanza	17 to 47 (32.0 media)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60541,7 +60541,7 @@ FIELD	Des. req.	100
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Barbaro
 FIELD	Arma a distanza	29 to 63 (46.0 media)
 IMG	items_weapon_axe_barbarian_taxe
@@ -60559,7 +60559,7 @@ FIELD	Des. req.	100
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Barbaro
 FIELD	Arma a distanza	32 to 70 (51.0 media)
 IMG	items_weapon_axe_barbarian_taxe
@@ -62323,7 +62323,7 @@ FIELD	Liv. req.	0
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	3 to 11 (7.0 media)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum	Normale pil	Giavellotto	Normal	Giavellotto	10
@@ -62338,7 +62338,7 @@ FIELD	Des. req.	45
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	5 to 17 (11.0 media)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lancia Corta	Normale ssp	Giavellotto	Normal	Giavellotto	15
@@ -62355,7 +62355,7 @@ FIELD	Des. req.	40
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	8 to 20 (14.0 media)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Glaive	Normale glv	Giavellotto	Normal	Giavellotto	23
@@ -62372,7 +62372,7 @@ FIELD	Des. req.	35
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	16 to 22 (19.0 media)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Lancia da lancio	Normale tsp	Giavellotto	Normal	Giavellotto	29
@@ -62388,7 +62388,7 @@ FIELD	Des. req.	65
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	8 to 24 (16.0 media)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Giavellotto da Guerra	Eccezionale 9ja	Giavellotto	Exceptional	Giavellotto	32
@@ -62405,7 +62405,7 @@ FIELD	Des. req.	25
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	12 to 26 (19.0 media)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Grande Pilum	Eccezionale 9pi	Giavellotto	Exceptional	Giavellotto	36
@@ -62421,7 +62421,7 @@ FIELD	Des. req.	88
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	15 to 35 (25.0 media)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Simbilan	Eccezionale 9s9	Giavellotto	Exceptional	Giavellotto	40
@@ -62438,7 +62438,7 @@ FIELD	Des. req.	80
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	24 to 46 (35.0 media)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Spiculum	Eccezionale 9gl	Giavellotto	Exceptional	Giavellotto	48
@@ -62455,7 +62455,7 @@ FIELD	Des. req.	73
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	28 to 56 (42.0 media)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Arpione	Eccezionale 9ts	Giavellotto	Exceptional	Giavellotto	54
@@ -62472,7 +62472,7 @@ FIELD	Des. req.	118
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	14 to 50 (32.0 media)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Schegge Antiche	Élite 0ja	Giavellotto	Elite	Giavellotto	59
@@ -62489,7 +62489,7 @@ FIELD	Des. req.	123
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	29 to 57 (43.0 media)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Dire	Élite 0pi	Giavellotto	Elite	Giavellotto	62
@@ -62505,7 +62505,7 @@ FIELD	Des. req.	112
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	27 to 67 (47.0 media)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lancia Snodabile	Élite 0s9	Giavellotto	Elite	Giavellotto	65
@@ -62522,7 +62522,7 @@ FIELD	Des. req.	95
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	36 to 64 (50.0 media)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lancia di Ahab	Élite 0gl	Giavellotto	Elite	Giavellotto	73
@@ -62539,7 +62539,7 @@ FIELD	Des. req.	137
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	36 to 72 (54.0 media)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Cacciatore di Balene	Élite 0ts	Giavellotto	Elite	Giavellotto	79
@@ -62556,7 +62556,7 @@ FIELD	Des. req.	145
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	23 to 67 (45.0 media)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Giavellotto Hyperion	Élite 7ja	Giavellotto	Elite	Giavellotto	59
@@ -62573,7 +62573,7 @@ FIELD	Des. req.	123
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	29 to 57 (43.0 media)
 IMG	items_weapon_javelin_javelin
 BLOCK	1	Pilum Stigiano	Élite 7pi	Giavellotto	Elite	Giavellotto	62
@@ -62590,7 +62590,7 @@ FIELD	Des. req.	112
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	27 to 67 (47.0 media)
 IMG	items_weapon_javelin_pilum
 BLOCK	1	Lancia del Balrog	Élite 7s7	Giavellotto	Elite	Giavellotto	65
@@ -62607,7 +62607,7 @@ FIELD	Des. req.	95
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	36 to 64 (50.0 media)
 IMG	items_weapon_javelin_short_spear
 BLOCK	1	Lancia Fantasma	Élite 7gl	Giavellotto	Elite	Giavellotto	73
@@ -62624,7 +62624,7 @@ FIELD	Des. req.	137
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	36 to 72 (54.0 media)
 IMG	items_weapon_javelin_glaive
 BLOCK	1	Arpione Alato	Élite 7ts	Giavellotto	Elite	Giavellotto	79
@@ -62641,7 +62641,7 @@ FIELD	Des. req.	145
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	23 to 67 (45.0 media)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Frammenti Antichi Mitici	Mitico m33	Giavellotto	Mythic	Giavellotto	96
@@ -62675,7 +62675,7 @@ FIELD	Des. req.	145
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	25 to 74 (49.5 media)
 IMG	items_weapon_javelin_throwing_spear
 BLOCK	1	Cacciatore di Balene Mitico	Mitico m32	Giavellotto	Mythic	Giavellotto	96
@@ -63325,7 +63325,7 @@ FIELD	Des. req.	15
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Pugnale Sacrificale	Eccezionale 9rd	Pugnale del Negromante	Exceptional	Pugnale del Negromante	58
@@ -63341,7 +63341,7 @@ FIELD	Des. req.	30
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Pugnale Cerimoniale	Élite 0rd	Pugnale del Negromante	Elite	Pugnale del Negromante	83
@@ -63357,7 +63357,7 @@ FIELD	Des. req.	50
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35) Aggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di Veleno Punti modificatore: (25 to 35)
+FIELD	Automod	Aggiunge 8 Danno da Veleno agli Attacchi per 2 secondi +(1 to 3)% al Danno da Incantesimi di VelenoAggiunge 15 Danno da Veleno agli Attacchi per 2 secondi +(2 to 5)% al Danno da Incantesimi di VelenoAggiunge 30 Danno da Veleno agli Attacchi per 2 secondi +(4 to 8)% al Danno da Incantesimi di VelenoAggiunge 60 Danno da Veleno agli Attacchi per 2 secondi +(6 to 11)% al Danno da Incantesimi di VelenoAggiunge 90 Danno da Veleno agli Attacchi per 2 secondi +(10 to 13)% al Danno da Incantesimi di VelenoAggiunge 120 Danno da Veleno agli Attacchi per 2 secondi +(11 to 14)% al Danno da Incantesimi di VelenoPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Negromante
 IMG	items_weapon_knife_ceremonial_dagger
 BLOCK	1	Daga Cerimoniale Mitica	Mitico m14	Pugnale del Negromante	Mythic	Pugnale del Negromante	96
@@ -63523,7 +63523,7 @@ FIELD	Liv. req.	0
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globo Sacro	Normale ob2	Orbe	Normal	Orbe	8
@@ -63537,7 +63537,7 @@ FIELD	Liv. req.	0
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Sfera Chiuso	Normale ob4	Orbe	Normal	Orbe	17
@@ -63550,7 +63550,7 @@ FIELD	Liv. req.	13
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	La Pietra di Jared	Normale ob5	Orbe	Normal	Orbe	24
@@ -63565,7 +63565,7 @@ FIELD	Liv. req.	18
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Sfera Affumicata	Normale ob3	Orbe	Normal	Orbe	12
@@ -63579,7 +63579,7 @@ FIELD	Liv. req.	8
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Orbe Luminoso	Eccezionale ob6	Orbe	Exceptional	Orbe	29
@@ -63593,7 +63593,7 @@ FIELD	Liv. req.	24
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Globo Cristallino	Eccezionale ob7	Orbe	Exceptional	Orbe	35
@@ -63607,7 +63607,7 @@ FIELD	Liv. req.	27
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Sfera Scintillante	Eccezionale ob9	Orbe	Exceptional	Orbe	42
@@ -63621,7 +63621,7 @@ FIELD	Liv. req.	34
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Cristallo Vorticoso	Eccezionale oba	Orbe	Exceptional	Orbe	49
@@ -63636,7 +63636,7 @@ FIELD	Liv. req.	37
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Sfera Nuvolosa	Eccezionale ob8	Orbe	Exceptional	Orbe	38
@@ -63650,7 +63650,7 @@ FIELD	Liv. req.	30
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Pietra Celestiale	Élite obb	Orbe	Elite	Orbe	57
@@ -63664,7 +63664,7 @@ FIELD	Liv. req.	44
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_eagle_orb
 BLOCK	1	Sfera Eldritch	Élite obc	Orbe	Elite	Orbe	62
@@ -63678,7 +63678,7 @@ FIELD	Liv. req.	50
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Vortice Orb	Élite obe	Orbe	Elite	Orbe	67
@@ -63692,7 +63692,7 @@ FIELD	Liv. req.	63
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_clasped_orb
 BLOCK	1	Frammento Dimensionale	Élite obf	Orbe	Elite	Orbe	74
@@ -63707,7 +63707,7 @@ FIELD	Liv. req.	66
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Cuore di Demone	Élite obd	Orbe	Elite	Orbe	64
@@ -63720,7 +63720,7 @@ FIELD	Liv. req.	56
 FIELD	Bonus For/Des	100/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_smoked_sphere
 BLOCK	1	Cristallo Vorticoso	Eccezionale q83	Orbe	Exceptional	Orbe	49
@@ -63735,7 +63735,7 @@ FIELD	Liv. req.	37
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Sfera Eldritch	Élite q84	Orbe	Elite	Orbe	62
@@ -63749,7 +63749,7 @@ FIELD	Liv. req.	50
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_sacred_globe
 BLOCK	1	Frammento Dimensionale	Élite q85	Orbe	Elite	Orbe	74
@@ -63764,7 +63764,7 @@ FIELD	Liv. req.	66
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+(1 to 5) alla Vita Punti modificatore: (25 to 35) +(6 to 10) alla Vita Punti modificatore: (25 to 35) +(11 to 20) alla Vita Punti modificatore: (25 to 35) +(21 to 30) alla Vita Punti modificatore: (25 to 35) +(31 to 40) alla Vita Punti modificatore: (25 to 35) +(41 to 60) alla Vita Punti modificatore: (25 to 35) +(1 to 5) a Mana Punti modificatore: (25 to 35) +(5 to 10) a Mana Punti modificatore: (25 to 35) +(11 to 20) a Mana Punti modificatore: (25 to 35) +(21 to 30) a Mana Punti modificatore: (25 to 35) +(31 to 40) a Mana Punti modificatore: (25 to 35) +(41 to 60) a Mana Punti modificatore: (25 to 35) +(61 to 80) a Mana Punti modificatore: (25 to 35)
+FIELD	Automod	+(1 to 5) alla Vita+(6 to 10) alla Vita+(11 to 20) alla Vita+(21 to 30) alla Vita+(31 to 40) alla Vita+(41 to 60) alla Vita+(1 to 5) a Mana+(5 to 10) a Mana+(11 to 20) a Mana+(21 to 30) a Mana+(31 to 40) a Mana+(41 to 60) a Mana+(61 to 80) a ManaPunti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_orb_dragon_stone
 BLOCK	1	Shard Dimensionale Mitico	Mitico m07	Orbe	Mythic	Orbe	96
@@ -64624,7 +64624,7 @@ FIELD	Des. req.	18
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35)
+FIELD	Automod	Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	7 to 8 (7.5 media)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Fūma Shuriken	Eccezionale fsk	Dito	Exceptional	Dito	45
@@ -64640,7 +64640,7 @@ FIELD	Des. req.	55
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35)
+FIELD	Automod	Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	22 to 23 (22.5 media)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Kagekiri	Élite kgk	Dito	Elite	Dito	70
@@ -64656,7 +64656,7 @@ FIELD	Des. req.	160
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35)
+FIELD	Automod	Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	45 to 46 (45.5 media)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Mitico Kagekiri	Mitico m39	Dito	Mythic	Dito	96
@@ -64672,7 +64672,7 @@ FIELD	Des. req.	160
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35) Punti modificatore: (25 to 35)
+FIELD	Automod	Punti modificatore: (25 to 35)
 FIELD	Arma a distanza	50 to 51 (50.5 media)
 IMG	items_weapon_knife_shuriken
 BLOCK	1	Lama del Mana	Normale mnb	Lama di mana dell'Incantatrice	Normal	Lama di mana dell'Incantatrice	33
@@ -65334,7 +65334,7 @@ FIELD	Des. req.	15
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Bastone Mistico	Élite 1ls	Bastone	Elite	Bastone	62
@@ -65350,7 +65350,7 @@ FIELD	Des. req.	35
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bastone Pietrificato	Élite 1cs	Bastone	Elite	Bastone	64
@@ -65367,7 +65367,7 @@ FIELD	Des. req.	37
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Bastone da Mago	Élite 1bs	Bastone	Elite	Bastone	67
@@ -65384,7 +65384,7 @@ FIELD	Des. req.	27
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bastone Arcano	Élite 1ws	Bastone	Elite	Bastone	74
@@ -65400,7 +65400,7 @@ FIELD	Des. req.	15
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Bastone da Passeggio	Élite 6ss	Bastone	Elite	Bastone	57
@@ -65417,7 +65417,7 @@ FIELD	Des. req.	15
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_short_staff
 BLOCK	1	Stalagmite	Élite 6ls	Bastone	Elite	Bastone	62
@@ -65434,7 +65434,7 @@ FIELD	Des. req.	35
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bastone Anziano	Élite 6cs	Bastone	Elite	Bastone	64
@@ -65451,7 +65451,7 @@ FIELD	Des. req.	37
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Shillelagh	Élite 6bs	Bastone	Elite	Bastone	67
@@ -65468,7 +65468,7 @@ FIELD	Des. req.	27
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bastone dell'Archon	Élite 6ws	Bastone	Elite	Bastone	74
@@ -65485,7 +65485,7 @@ FIELD	Des. req.	15
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	1
-FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +1 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +2 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +3 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+1 a Abilità di Fuoco (Sorceress Only)+2 a Abilità di Fuoco (Sorceress Only)+3 a Abilità di Fuoco (Sorceress Only)+4 a Abilità di Fuoco (Sorceress Only)+1 a Abilità Fulmine (Sorceress Only)+2 a Abilità Fulmine (Sorceress Only)+3 a Abilità Fulmine (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+1 a Abilità di Gelo (Sorceress Only)+2 a Abilità di Gelo (Sorceress Only)+3 a Abilità di Gelo (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Bastone mistico mitico	Mitico m50	Bastone	Mythic	Bastone	96
@@ -65501,7 +65501,7 @@ FIELD	Des. req.	35
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	1
-FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only)+5 a Abilità di Fuoco (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+5 a Abilità Fulmine (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)+5 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_long_staff
 BLOCK	1	Bastone Pietrificato Mitico	Mitico m29	Bastone	Mythic	Bastone	96
@@ -65518,7 +65518,7 @@ FIELD	Des. req.	41
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only)+5 a Abilità di Fuoco (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+5 a Abilità Fulmine (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)+5 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_gnarled_staff
 BLOCK	1	Bastone Magico Mitico	Mitico m36	Bastone	Mythic	Bastone	96
@@ -65535,7 +65535,7 @@ FIELD	Des. req.	27
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	1
-FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only)+5 a Abilità di Fuoco (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+5 a Abilità Fulmine (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)+5 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_battle_staff
 BLOCK	1	Bastone Arcano Mitico	Mitico m11	Bastone	Mythic	Bastone	96
@@ -65551,7 +65551,7 @@ FIELD	Des. req.	15
 FIELD	Bonus For/Des	100/0
 FIELD	Incastonature	6
 FIELD	Tipo di gemma	0
-FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Fuoco (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità Fulmine (Sorceress Only) Punti modificatore: (25 to 35) +4 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35) +5 a Abilità di Gelo (Sorceress Only) Punti modificatore: (25 to 35)
+FIELD	Automod	+4 a Abilità di Fuoco (Sorceress Only)+5 a Abilità di Fuoco (Sorceress Only)+4 a Abilità Fulmine (Sorceress Only)+5 a Abilità Fulmine (Sorceress Only)+4 a Abilità di Gelo (Sorceress Only)+5 a Abilità di Gelo (Sorceress Only)Punti modificatore: (25 to 35)
 FIELD	Mod del bastone	Incantatrice
 IMG	items_weapon_staff_war_staff
 BLOCK	1	Spada Corta	Normale ssd	Spada	Normal	Spada	1
@@ -66614,7 +66614,7 @@ FIELD	Des. req.	25
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	6 to 16 (11.0 media)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Ascia Bilanciata	Normale bal	Ascia da lancio	Normal	Ascia da lancio	21
@@ -66630,7 +66630,7 @@ FIELD	Des. req.	57
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	9 to 21 (15.0 media)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Francisca	Eccezionale 9ta	Ascia da lancio	Exceptional	Ascia da lancio	36
@@ -66646,7 +66646,7 @@ FIELD	Des. req.	80
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	15 to 39 (27.0 media)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Hurlbat	Eccezionale 9b8	Ascia da lancio	Exceptional	Ascia da lancio	46
@@ -66663,7 +66663,7 @@ FIELD	Des. req.	106
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	3
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	22 to 38 (30.0 media)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Ascia da lancio	Élite 0ta	Ascia da lancio	Elite	Ascia da lancio	62
@@ -66679,7 +66679,7 @@ FIELD	Des. req.	108
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	40 to 59 (49.5 media)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Ascia Bilanciata	Élite 0b6	Ascia da lancio	Elite	Ascia da lancio	71
@@ -66696,7 +66696,7 @@ FIELD	Des. req.	122
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	24 to 62 (43.0 media)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Ascia Volante	Élite 7ta	Ascia da lancio	Elite	Ascia da lancio	62
@@ -66712,7 +66712,7 @@ FIELD	Des. req.	108
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	40 to 59 (49.5 media)
 IMG	items_weapon_axe_throwing_axe
 BLOCK	1	Ascia Alata	Élite 7b8	Ascia da lancio	Elite	Ascia da lancio	71
@@ -66729,7 +66729,7 @@ FIELD	Des. req.	122
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	24 to 62 (43.0 media)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Ascia Bilanciata Mitica	Mitico m26	Ascia da lancio	Mythic	Ascia da lancio	96
@@ -66746,7 +66746,7 @@ FIELD	Des. req.	122
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	4
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	26 to 68 (47.0 media)
 IMG	items_weapon_axe_balanced_axe
 BLOCK	1	Coltello da lancio	Normale tkf	Coltello da lancio	Normal	Coltello da lancio	4
@@ -66760,7 +66760,7 @@ FIELD	Des. req.	21
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	4 to 12 (8.0 media)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Coltello Bilanciato	Normale bkf	Coltello da lancio	Normal	Coltello da lancio	17
@@ -66775,7 +66775,7 @@ FIELD	Des. req.	51
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	5 to 15 (10.0 media)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Dardo da Battaglia	Eccezionale 9tk	Coltello da lancio	Exceptional	Coltello da lancio	31
@@ -66790,7 +66790,7 @@ FIELD	Des. req.	52
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	11 to 35 (23.0 media)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Dardo di Guerra	Eccezionale 9bk	Coltello da lancio	Exceptional	Coltello da lancio	42
@@ -66806,7 +66806,7 @@ FIELD	Des. req.	97
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	15 to 35 (25.0 media)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Pugnale da lancio	Élite 0tk	Coltello da lancio	Elite	Coltello da lancio	58
@@ -66821,7 +66821,7 @@ FIELD	Des. req.	141
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	33 to 61 (47.0 media)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Pugnale Bilanciato	Élite 0bk	Coltello da lancio	Elite	Coltello da lancio	67
@@ -66837,7 +66837,7 @@ FIELD	Des. req.	142
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	25 to 60 (42.5 media)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Coltello Volante	Élite 7tk	Coltello da lancio	Elite	Coltello da lancio	58
@@ -66853,7 +66853,7 @@ FIELD	Des. req.	141
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	33 to 61 (47.0 media)
 IMG	items_weapon_knife_throwing_knife
 BLOCK	1	Coltello Alato	Élite 7bk	Coltello da lancio	Elite	Coltello da lancio	67
@@ -66869,7 +66869,7 @@ FIELD	Des. req.	142
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	25 to 60 (42.5 media)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Pugnale Bilanciato Mitico	Mitico m08	Coltello da lancio	Mythic	Coltello da lancio	96
@@ -66885,7 +66885,7 @@ FIELD	Des. req.	142
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	27 to 66 (46.5 media)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Pugnale Bilanciato Mitico	Mitico m27	Coltello da lancio	Mythic	Coltello da lancio	96
@@ -66901,7 +66901,7 @@ FIELD	Des. req.	142
 FIELD	Bonus For/Des	75/75
 FIELD	Incastonature	2
 FIELD	Tipo di gemma	0
-FIELD	Automod	+5% Attacco Perforante Punti modificatore: (25 to 35) +10% Attacco Perforante Punti modificatore: (25 to 35) +15% Attacco Perforante Punti modificatore: (25 to 35) +20% Attacco Perforante Punti modificatore: (25 to 35) +25% Attacco Perforante Punti modificatore: (25 to 35)
+FIELD	Automod	+5% Attacco Perforante+10% Attacco Perforante+15% Attacco Perforante+20% Attacco Perforante+25% Attacco PerforantePunti modificatore: (25 to 35)
 FIELD	Arma a distanza	28 to 66 (47.0 media)
 IMG	items_weapon_knife_balanced_knife
 BLOCK	1	Lama del vuoto	Normale vob	Lama del vuoto	Normal	Lama del vuoto	23
@@ -111660,6 +111660,10 @@ LINE	T	ÿcNSet di chiavi del Pandemonio (100% di probabilità)
 LINE	T	ÿcNAltri oggetti/materiali generici
 LINE	H	ÿcHRicompense (variante uber)
 LINE	T	ÿcNSe riesci a uccidere Lucion con /players 8, lascerà cadere la sua essenza (Essenza di Lucion). L'essenza è una versione più potente di una Ciambella Socket.
+PAGE	specializations	Specializzazioni	Endgame
+ENTRY	Specializzazioni	Perks of the four specializations
+BLOCK	0						0
+LINE	T	The specializations need their data from the website. Open this tab once the plugin has loaded it.
 PAGE	weapon-mastery	Maestria nelle armi	Endgame
 ENTRY	Overview	
 BLOCK	0						0

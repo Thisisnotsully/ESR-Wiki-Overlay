@@ -327,3 +327,210 @@ Helms / Boots / Armor / Shields / Belts	Helme / Stiefel / Rüstungen / Schilde /
 Helms / Boots / Armor / Shields / Belts:	Helme / Stiefel / Rüstungen / Schilde / Gürtel:
 All Items	Alle Gegenstände
 All Items:	Alle Gegenstände:
+Tab	Reiter
+Entry	Eintrag
+Card	Karte
+{0} results	{0} Treffer
+1 result	1 Treffer
+{0} of {1} entries here | {2} total	{0} von {1} Einträgen hier | {2} gesamt
+Search names, stats, runes… (in English)	Namen, Werte, Runen suchen… (auf Deutsch)
+Nothing has: {0}	Nirgends vorhanden: {0}
+No card has all of: {0}	Keine Karte enthält alles von: {0}
+Nothing left without: {0}	Nichts übrig ohne: {0}
+Type a word to look for: -word only leaves things out	Gib ein Suchwort ein: -Wort schließt nur aus
+Did you mean	Meintest du
+Filters cleared	Filter zurückgesetzt
+Search cleared	Suche geleert
+Search suggestions	Suchvorschläge
+Highlight a key	Taste markieren
+Type the key	Taste eingeben
+Clear search / close keyboard	Suche leeren / Tastatur schließen
+Delete a character	Ein Zeichen löschen
+Close keyboard	Tastatur schließen
+From the bottom row: suggestions	Aus der untersten Reihe: Vorschläge
+Pick a suggestion	Vorschlag wählen
+Open the suggestion	Vorschlag öffnen
+Close the suggestions	Vorschläge schließen
+Page through the suggestions	Durch die Vorschläge blättern
+Show / hide keyboard	Tastatur ein- / ausblenden
+Leave the suggestions	Vorschläge verlassen
+{0}: open | {1}: close | {2}: page	{0}: öffnen | {1}: schließen | {2}: blättern
+D-pad down: suggestions	Steuerkreuz unten: Vorschläge
+{0}: suggestions	{0}: Vorschläge
+Perk	Talent
+Campaign map	Kampagnenkarte
+Act I	Akt I
+Act II	Akt II
+Act III	Akt III
+Act IV	Akt IV
+Act V	Akt V
+Special areas	Besondere Gebiete
+Ubers & portals	Uber & Portale
+Town	Stadt
+Outdoor area	Außengebiet
+Cave	Höhle
+Tomb	Grabmal
+Dungeon	Verlies
+Temple	Tempel
+Tower	Turm
+Special area	Besonderes Gebiet
+WP	WP
+Waypoint	Wegpunkt
+lvl {0}	St. {0}
+L{0}	E{0}
+Monster level	Monsterstufe
+Monsters	Monster
+Official name: {0}	Offizieller Name: {0}
+Quest items	Questgegenstände
+Quest: {0}	Quest: {0}
+Heads up	Achtung
+Notes	Hinweise
+Getting there	So kommst du hin
+No town portal	Kein Stadtportal
+Teleport is off here	Teleport ist hier nicht möglich
+Teleport is limited here	Teleport ist hier eingeschränkt
+No teleport across the walls	Kein Teleport durch die Wände
+No known way in	Kein bekannter Zugang
+Endgame zone	Endgame-Zone
+(not confirmed yet)	(noch nicht bestätigt)
+Spoiler: click to show	Spoiler: zum Anzeigen klicken
+Spoiler: click to hide	Spoiler: zum Ausblenden klicken
+Click an area on the map to see its details.	Klicke auf ein Gebiet der Karte, um seine Einzelheiten zu sehen.
+Area	Gebiet
+Opens {0}	Öffnet {0}
+Walk across	Zu Fuß
+Entrance	Eingang
+Portal	Portal
+Cube portal	Würfelportal
+Next act	Nächster Akt
+Hell lvl {0}	Hölle St. {0}
+Monastery	Kloster
+Kurast	Kurast
+Worldstone Keep	Weltstein-Tempel
+Naraku depths	Tiefen von Naraku
+Skills	Fertigkeiten
+Skill level:	Fertigkeitsstufe:
+Character level:	Charakterstufe:
+Hard points:	Investierte Punkte:
+Default	Standard
+Skill tree	Fertigkeitenbaum
+Requires	Erfordert
+Procs on striking	Löst Effekte bei Treffer aus
+Procs on casting	Löst Effekte beim Wirken aus
+Yes	Ja
+No	Nein
+At skill level {0}	Auf Fertigkeitsstufe {0}
+Synergies	Synergien
+Granted by {0} items and recipes	Gewährt von {0} Gegenständen und Rezepten
+Passive	Passiv
+Aura	Aura
+Item Skills	Gegenstandsfertigkeiten
+Amazonian Loop	Amazonenring
+Amazonian Pin	Amazonen-Pin
+Amulet	Amulett
+Anointment	Salbung
+Assassin's Choker	Assassinenhalsband
+Assassin's Jewel	Assassinenjuwel
+Auric Shields	Aurenschilde
+Barbaric Knuckle	Barbarischer Knöchel
+Belt	Gürtel
+Body Armor	Körperrüstung
+Boots	Stiefel
+Circlet	Krone
+Crescent Moon	Mondsichel
+Cube recipe	Würfelrezept
+Death's Locket	Todesanhänger
+Druid's Seal	Druiden-Siegel
+Druidic Necklace	Druidenhalskette
+Gloves	Handschuhe
+Hand to Hand	Faustwaffe
+Holy Pendant	Heiliges Amulett
+It deals no weapon damage, and spells don’t count as strikes.	Sie verursacht keinen Waffenschaden, und Zauber zählen nicht als Treffer.
+It hits with your weapon.	Sie trifft mit deiner Waffe.
+It hits with your weapon. In ESR each Smite lands several hits, and each hit can proc.	Sie trifft mit deiner Waffe. In ESR landet jedes Zerschmettern mehrere Treffer, und jeder Treffer kann auslösen.
+It hits with your weapon. Unlike vanilla, ESR lets item procs fire during Whirlwind.	Sie trifft mit deiner Waffe. Anders als im Originalspiel lässt ESR die Auslöseeffekte von Gegenständen während Wirbelwind zu.
+It uses the attack animation, and only skills cast with the casting animation count.	Sie nutzt die Angriffsanimation, und nur Fertigkeiten, die mit der Zauberanimation gewirkt werden, zählen.
+It uses the kick animation, and only skills cast with the casting animation count.	Sie nutzt die Trittanimation, und nur Fertigkeiten, die mit der Zauberanimation gewirkt werden, zählen.
+It uses the sequence animation, and only skills cast with the casting animation count.	Sie nutzt die Sequenzanimation, und nur Fertigkeiten, die mit der Zauberanimation gewirkt werden, zählen.
+It uses the special animation, and only skills cast with the casting animation count.	Sie nutzt die Spezialanimation, und nur Fertigkeiten, die mit der Zauberanimation gewirkt werden, zählen.
+It uses the throw animation, and only skills cast with the casting animation count.	Sie nutzt die Wurfanimation, und nur Fertigkeiten, die mit der Zauberanimation gewirkt werden, zählen.
+Its missiles carry your weapon damage.	Ihre Geschosse tragen deinen Waffenschaden.
+It’s cast with the casting animation.	Sie wird mit der Zauberanimation gewirkt.
+Level 1 Aura When Equipped	Stufe 1 Aura beim Anlegen
+Level 1-10 Aura When Equipped	Stufe 1-10 Aura beim Anlegen
+Level 1-2 Aura When Equipped / Level 3-5 Aura When Equipped	Stufe 1-2 Aura beim Anlegen / Stufe 3-5 Aura beim Anlegen
+Level 1-5 Aura When Equipped	Stufe 1-5 Aura beim Anlegen
+Level 1-5 Aura When Equipped / Level 5-10 Aura When Equipped / Level 15-20 Aura When Equipped	Stufe 1-5 Aura beim Anlegen / Stufe 5-10 Aura beim Anlegen / Stufe 15-20 Aura beim Anlegen
+Level 10 Aura When Equipped	Stufe 10 Aura beim Anlegen
+Level 10 Aura When Equipped / Level 20 Aura When Equipped	Stufe 10 Aura beim Anlegen / Stufe 20 Aura beim Anlegen
+Level 10-15 Aura When Equipped	Stufe 10-15 Aura beim Anlegen
+Level 10-20 Aura When Equipped	Stufe 10-20 Aura beim Anlegen
+Level 10-25 Aura When Equipped	Stufe 10-25 Aura beim Anlegen
+Level 10-30 Aura When Equipped	Stufe 10-30 Aura beim Anlegen
+Level 15 Aura When Equipped	Stufe 15 Aura beim Anlegen
+Level 15 Aura When Equipped / Level 10 Aura When Equipped	Stufe 15 Aura beim Anlegen / Stufe 10 Aura beim Anlegen
+Level 15-20 Aura When Equipped	Stufe 15-20 Aura beim Anlegen
+Level 15-30 Aura When Equipped	Stufe 15-30 Aura beim Anlegen
+Level 2-5 Aura When Equipped	Stufe 2-5 Aura beim Anlegen
+Level 2-8 Aura When Equipped	Stufe 2-8 Aura beim Anlegen
+Level 20 Aura When Equipped	Stufe 20 Aura beim Anlegen
+Level 20-30 Aura When Equipped	Stufe 20-30 Aura beim Anlegen
+Level 20-40 Aura When Equipped	Stufe 20-40 Aura beim Anlegen
+Level 25 Aura When Equipped	Stufe 25 Aura beim Anlegen
+Level 25-30 Aura When Equipped	Stufe 25-30 Aura beim Anlegen
+Level 25-50 Aura When Equipped	Stufe 25-50 Aura beim Anlegen
+Level 3-10 Aura When Equipped / Level 6-11 Aura When Equipped	Stufe 3-10 Aura beim Anlegen / Stufe 6-11 Aura beim Anlegen
+Level 3-5 Aura When Equipped	Stufe 3-5 Aura beim Anlegen
+Level 3-5 Aura When Equipped / Level 5-10 Aura When Equipped	Stufe 3-5 Aura beim Anlegen / Stufe 5-10 Aura beim Anlegen
+Level 30 Aura When Equipped	Stufe 30 Aura beim Anlegen
+Level 30 Aura When Equipped / Level 25 Aura When Equipped	Stufe 30 Aura beim Anlegen / Stufe 25 Aura beim Anlegen
+Level 30-40 Aura When Equipped	Stufe 30-40 Aura beim Anlegen
+Level 30-50 Aura When Equipped	Stufe 30-50 Aura beim Anlegen
+Level 30-60 Aura When Equipped	Stufe 30-60 Aura beim Anlegen
+Level 4-7 Aura When Equipped	Stufe 4-7 Aura beim Anlegen
+Level 40 Aura When Equipped	Stufe 40 Aura beim Anlegen
+Level 40 Aura When Equipped / Level 30 Aura When Equipped	Stufe 40 Aura beim Anlegen / Stufe 30 Aura beim Anlegen
+Level 40-80 Aura When Equipped	Stufe 40-80 Aura beim Anlegen
+Level 5 Aura When Equipped	Stufe 5 Aura beim Anlegen
+Level 5 Aura When Equipped / Level 10 Aura When Equipped	Stufe 5 Aura beim Anlegen / Stufe 10 Aura beim Anlegen
+Level 5-10 Aura When Equipped	Stufe 5-10 Aura beim Anlegen
+Level 5-10 Aura When Equipped / Level 10-15 Aura When Equipped	Stufe 5-10 Aura beim Anlegen / Stufe 10-15 Aura beim Anlegen
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped	Stufe 5-10 Aura beim Anlegen / Stufe 10-20 Aura beim Anlegen
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Stufe 5-10 Aura beim Anlegen / Stufe 10-20 Aura beim Anlegen / Stufe 10-15 Aura beim Anlegen
+Level 5-10 Aura When Equipped / Level 10-20 Aura When Equipped / Level 25-30 Aura When Equipped	Stufe 5-10 Aura beim Anlegen / Stufe 10-20 Aura beim Anlegen / Stufe 25-30 Aura beim Anlegen
+Level 5-10 Aura When Equipped / Level 8-15 Aura When Equipped	Stufe 5-10 Aura beim Anlegen / Stufe 8-15 Aura beim Anlegen
+Level 5-15 Aura When Equipped	Stufe 5-15 Aura beim Anlegen
+Level 5-20 Aura When Equipped	Stufe 5-20 Aura beim Anlegen
+Level 5-25 Aura When Equipped	Stufe 5-25 Aura beim Anlegen
+Level 50 Aura When Equipped	Stufe 50 Aura beim Anlegen
+Level 6-11 Aura When Equipped	Stufe 6-11 Aura beim Anlegen
+Level 6-12 Aura When Equipped	Stufe 6-12 Aura beim Anlegen
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped	Stufe 6-12 Aura beim Anlegen / Stufe 10-20 Aura beim Anlegen
+Level 6-12 Aura When Equipped / Level 10-20 Aura When Equipped / Level 10-15 Aura When Equipped	Stufe 6-12 Aura beim Anlegen / Stufe 10-20 Aura beim Anlegen / Stufe 10-15 Aura beim Anlegen
+Level 60-100 Aura When Equipped	Stufe 60-100 Aura beim Anlegen
+Level 8 Aura When Equipped / Level 12 Aura When Equipped	Stufe 8 Aura beim Anlegen / Stufe 12 Aura beim Anlegen
+Level 8-15 Aura When Equipped	Stufe 8-15 Aura beim Anlegen
+Magic prefix	Magisches Präfix
+Magic suffix	Magisches Suffix
+Necromancer's Stone	Nekromantenstein
+Paladic Halo	Paladins-Halo
+Pelt	Schild
+Pick a skill level and character level to see the values the game would show. Some skills scale with character level as well as skill level.	Wähle eine Fertigkeitsstufe und eine Charakterstufe, um die Werte zu sehen, die das Spiel anzeigen würde. Manche Fertigkeiten skalieren sowohl mit der Charakterstufe als auch mit der Fertigkeitsstufe.
+Primal Charm	Urzauber
+Primal Helm	Urhelm
+Runeword	Runenwort
+Set item	Set-Gegenstand
+Shield	Schild
+Skills that don't belong to a class tree. Items grant them as oskills, as a chance to cast, as charges or as auras, so any class can use them.	Fertigkeiten, die zu keinem Klassenbaum gehören. Gegenstände gewähren sie als Fertigkeitsboni, als Chance zu wirken, als Ladungen oder als Auren, sodass jede Klasse sie nutzen kann.
+Sorcerer's Band	Zaubererband
+Sorcerer's Talisman	Zauberer-Talisman
+Tyrael's Virtue_old	Tyraels Tugend
+Unique	Einzigartig
+Values assume no items and no points in other skills. Bonuses from synergies are listed under each skill and are not included in the numbers here; open a skill to set synergy points and see every level.	Die Werte gehen von keinen Gegenständen und keinen Punkten in anderen Fertigkeiten aus. Boni durch Synergien stehen unter jeder Fertigkeit und sind in den Zahlen hier nicht enthalten; öffne eine Fertigkeit, um Synergiepunkte zu setzen und jede Stufe zu sehen.
+Vessel of Souls	Seelengefäß
+Voodoo Heads	Voodoo-Köpfe
+Warlock Pendant	Amulett des Hexenmeisters
+Warlock Sigil	Siegel des Hexenmeisters
+{0}: {1}	{0}: {1}
+{0}, {1}	{0}, {1}
+{0}. {1}	{0}. {1}

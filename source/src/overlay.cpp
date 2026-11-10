@@ -37,12 +37,15 @@
 #include "cursor_art.hpp"
 #include "gamepad.hpp"
 #include "pad_logic.hpp"
+#include "search_index.hpp"
+#include "skills_page.hpp"
 #include <cstdio>
 #include <cwchar>
 #include <cwctype>
 #include <map>
 
 #include "wiki_model.hpp"
+#include "campaign_labels.hpp"
 
 namespace esrwiki {
 static std::string NarrowForLog(const std::wstring& text) {
@@ -145,9 +148,19 @@ constexpr UINT kMsgOpen = WM_APP + 3;
 constexpr UINT kMsgReload = WM_APP + 4;  // swap in a new database (see Overlay::ReplaceDatabase)
 constexpr UINT_PTR kTimerFocus = 1;
 constexpr UINT_PTR kTimerHandoff = 2;
+constexpr UINT_PTR kTimerFlash = 4;         // ends the frame round the card a search jump arrived at
 constexpr UINT_PTR kTimerPad = 3;           // polls the controller while the wiki is showing
+constexpr UINT_PTR kTimerSuggest = 5;       // looks the search suggestions up once the typing stops
+constexpr UINT_PTR kTimerNote = 6;          // ends a note under the search box ("Filters cleared")
 constexpr UINT kPadInterval = 16;
 constexpr UINT kMsgOpenOsk = WM_APP + 12;   // the search box was clicked while a controller is in use
+constexpr UINT kMsgSpecData = WM_APP + 13;  // new Specializations data is waiting (see Overlay::SetSpecializationsData)
+constexpr UINT kMsgCampaignData = WM_APP + 14;  // new Campaign Progression map data is waiting (Overlay::SetCampaignData)
+constexpr UINT kMsgMapsData = WM_APP + 15;  // a new official Maps page is waiting (Overlay::SetMapsPageData)
+constexpr UINT kMsgSkillsData = WM_APP + 16;  // new Skills page data is waiting (Overlay::SetSkillsData)
+// The sources of the search index's extra records (search::Index::SetExtra): each is replaced on its own.
+constexpr int kExtraPerks = 0;  // the Specializations board's perks (overlay_spec.inc)
+constexpr int kExtraAreas = 1;  // the Campaign Progression map's areas (overlay_campaign.inc)
 constexpr UINT kHandoffPollMs = 8;
 constexpr ULONGLONG kHandoffTimeoutMs = 600;
 // Foreground window to return to, handed from one overlay to the other when switching panels.
@@ -186,6 +199,7 @@ constexpr COLORREF kGold = RGB(224, 182, 96);  // headers and accents: launcher 
 constexpr COLORREF kHeaderGold = RGB(208, 166, 82);  // tab titles, category titles and section headings
 constexpr COLORREF kText = RGB(244, 236, 220);
 constexpr COLORREF kDim = RGB(168, 152, 124);
+constexpr COLORREF kSnippetText = RGB(206, 192, 166);  // the card text under a search suggestion, and its messages
 constexpr COLORREF kBody = RGB(228, 218, 198);
 
 std::wstring Wide(const std::string& utf8) {
@@ -249,12 +263,12 @@ struct PageView {
     BlockSort sort = BlockSort::Default;
 };
 
-// A filter or sort button above the detail pane.
-enum class ChipKind { Socket, Sort, Tier, Family };
+// A filter or sort button above the detail pane. Picker: a control of the Skills page's picker strip (overlay_skills.inc).
+enum class ChipKind { Socket, Sort, Tier, Family, Picker };
 struct Chip {
     RECT rect{};
     ChipKind kind = ChipKind::Socket;
-    std::size_t value = 0;  // socket count or BlockSort
+    std::size_t value = 0;  // socket count or BlockSort; Picker: field * 3 + part (0 minus, 1 value, 2 plus)
     std::string text;       // tier or family name for those filters
 };
 
@@ -418,15 +432,80 @@ COLORREF KanjiLabelColor(const std::wstring& label, COLORREF fallback) {
 // One piece of a line: plain text in the line's colour, or a rune name in its own colour.
 struct RunePiece { std::wstring text; COLORREF color; bool named; bool colored = false; bool highlight = false; bool continues = false; };
 
-// The search text being highlighted, lower-case; empty when nothing is searched.
-std::wstring gHighlight;
+// The search terms being highlighted (the query's required words and "phrases", never its -excluded ones); empty when
+// nothing is searched. `key` is the query as typed, for the measure cache.
+struct SearchHighlight {
+    esrwiki::text::ParsedQuery terms;
+    std::wstring key;
+    bool empty() const { return key.empty(); }
+    void clear() {
+        terms = esrwiki::text::ParsedQuery{};
+        key.clear();
+    }
+};
+SearchHighlight gHighlight;
 constexpr COLORREF kHighlightFill = RGB(104, 74, 20);
 
-std::wstring LowerWide(std::wstring s) {
-    for (wchar_t& c : s) {
-        if (c >= L'A' && c <= L'Z') c = static_cast<wchar_t>(c + 32);
+void SetHighlight(const std::string& query) {
+    gHighlight.clear();
+    esrwiki::text::ParsedQuery parsed = esrwiki::search::Parse(query);
+    if (!parsed.HasRequired()) return;
+    parsed.terms.erase(std::remove_if(parsed.terms.begin(), parsed.terms.end(),
+                                      [](const esrwiki::text::QueryTerm& term) { return term.excluded; }),
+                       parsed.terms.end());
+    gHighlight.terms = std::move(parsed);
+    gHighlight.key = Wide(query);
+}
+
+// Where the highlighted terms are in `line`, as [start, end) UTF-16 positions, sorted and not overlapping. The line is
+// matched as the filter matches it (text::SearchText: folded, separators as spaces), one code point for one, so the
+// positions found map straight back onto the line.
+std::vector<std::pair<std::size_t, std::size_t>> HighlightRanges(const std::wstring& line) {
+    std::vector<std::pair<std::size_t, std::size_t>> ranges;
+    if (gHighlight.empty() || line.empty()) return ranges;
+    std::u32string points;
+    std::vector<std::size_t> unitOf;  // the UTF-16 position of each code point, then line.size()
+    points.reserve(line.size());
+    unitOf.reserve(line.size() + 1);
+    for (std::size_t i = 0; i < line.size();) {
+        unitOf.push_back(i);
+        const unsigned int unit = static_cast<unsigned int>(line[i]);
+        const unsigned int low = i + 1 < line.size() ? static_cast<unsigned int>(line[i + 1]) : 0u;
+        if (unit >= 0xD800u && unit <= 0xDBFFu && low >= 0xDC00u && low <= 0xDFFFu) {
+            points.push_back(static_cast<char32_t>(0x10000u + ((unit - 0xD800u) << 10) + (low - 0xDC00u)));
+            i += 2;
+        } else {
+            points.push_back(static_cast<char32_t>(unit));
+            ++i;
+        }
     }
-    return s;
+    unitOf.push_back(line.size());
+    const std::u32string searchable = esrwiki::text::SearchText(points);
+    for (const esrwiki::text::QueryTerm& term : gHighlight.terms.terms) {
+        std::size_t from = 0;
+        while (from < searchable.size()) {
+            std::size_t length = 0;
+            const std::size_t at = esrwiki::text::FindTerm(searchable, term, from, &length);
+            if (at == std::u32string::npos || at >= points.size() || length == 0) break;
+            const std::size_t end = std::min(at + length, points.size());
+            ranges.emplace_back(unitOf[at], unitOf[end]);
+            from = end;
+        }
+    }
+    if (ranges.size() > 1) {
+        std::sort(ranges.begin(), ranges.end());
+        std::vector<std::pair<std::size_t, std::size_t>> merged;
+        for (const auto& range : ranges) {
+            if (!merged.empty() && range.first <= merged.back().second) merged.back().second = std::max(merged.back().second, range.second);
+            else merged.push_back(range);
+        }
+        ranges.swap(merged);
+    }
+    return ranges;
+}
+
+bool HasHighlight(const std::wstring& line) {
+    return !gHighlight.empty() && !HighlightRanges(line).empty();
 }
 
 // Splits pieces at each search match so the matched part is drawn on a highlight. Rune-name
@@ -439,23 +518,18 @@ std::vector<RunePiece> HighlightPieces(const std::vector<RunePiece>& input) {
             out.push_back(piece);
             continue;
         }
-        const std::wstring lower = LowerWide(piece.text);
         // A part that starts right after a letter continues that word, so it cannot start a new line.
         auto add = [&](std::size_t start, std::size_t length, bool mark) {
             const bool continues = start == 0 ? piece.continues : piece.text[start - 1] != L' ';
             out.push_back({piece.text.substr(start, length), piece.color, false, piece.colored, mark, continues});
         };
         std::size_t pos = 0;
-        while (pos < piece.text.size()) {
-            const std::size_t hit = lower.find(gHighlight, pos);
-            if (hit == std::wstring::npos) {
-                add(pos, piece.text.size() - pos, false);
-                break;
-            }
-            if (hit > pos) add(pos, hit - pos, false);
-            add(hit, gHighlight.size(), true);
-            pos = hit + gHighlight.size();
+        for (const auto& range : HighlightRanges(piece.text)) {
+            if (range.first > pos) add(pos, range.first - pos, false);
+            add(range.first, range.second - range.first, true);
+            pos = range.second;
         }
+        if (pos < piece.text.size()) add(pos, piece.text.size() - pos, false);
     }
     return out;
 }
@@ -667,7 +741,7 @@ std::vector<RunePiece> LinePieces(const std::string& text, COLORREF base) {
 void Text(HDC dc, const std::wstring& text, RECT rect, COLORREF color, HFONT font, UINT format) {
     std::vector<RunePiece> pieces;
     const bool runes = FindRuneNames(text, pieces);
-    if (runes || (!gHighlight.empty() && LowerWide(text).find(gHighlight) != std::wstring::npos)) {
+    if (runes || HasHighlight(text)) {
         if (!runes) {
             // FindRuneNames may leave its own plain pieces behind when it finds no rune names.
             pieces.clear();
@@ -705,7 +779,17 @@ std::unordered_map<MeasureKey, int, MeasureKeyHash> gMeasureCache;
 int MeasureHeightUncached(HDC dc, const std::wstring& text, int width, HFONT font) {
     if (text.empty()) return 0;
     std::vector<RunePiece> pieces;
-    if (FindRuneNames(text, pieces)) return LayoutPieces(dc, pieces, kBody, Rect(0, 0, width, 0), font, DT_LEFT, false);
+    const bool runes = FindRuneNames(text, pieces);
+    // Text with the search term in it is drawn piece by piece (Text), which wraps a little differently from DrawText, so
+    // it is measured the same way; otherwise a line the drawing wraps would not have the room it needs.
+    const bool marked = HasHighlight(text);
+    if (runes || marked) {
+        if (!runes) {
+            pieces.clear();
+            pieces.push_back({text, kBody, false, false, false});
+        }
+        return LayoutPieces(dc, pieces, kBody, Rect(0, 0, width, 0), font, DT_LEFT, false);
+    }
     RECT measured = Rect(0, 0, width, 0);
     const HFONT previous = static_cast<HFONT>(SelectObject(dc, font));
     DrawTextW(dc, text.c_str(), static_cast<int>(text.size()), &measured,
@@ -728,7 +812,8 @@ int NaturalWidth(HDC dc, const std::wstring& text, HFONT font) {
 // Height that `text` needs when wrapped to `width` in `font`, remembered for repeat measures.
 int MeasureHeight(HDC dc, const std::wstring& text, int width, HFONT font) {
     if (text.empty()) return 0;
-    const MeasureKey key{std::hash<std::wstring>{}(text), width, font};
+    // The search term is part of the key: the same text measures differently with a match in it.
+    const MeasureKey key{std::hash<std::wstring>{}(text) ^ (std::hash<std::wstring>{}(gHighlight.key) * 0x9E3779B1u), width, font};
     const auto cached = gMeasureCache.find(key);
     if (cached != gMeasureCache.end()) return cached->second;
     const int height = MeasureHeightUncached(dc, text, width, font);
@@ -1166,6 +1251,55 @@ struct CalcOption {
     std::string key;  // the weapon type, for the type lists
 };
 
+// One tab of the Campaign Progression map laid out in pixels from the graph's top left (overlay_campaign.inc). Made again
+// when the data, the tab, the scale, the fonts or the language change.
+struct CampaignGraph {
+    std::shared_ptr<const campaign::Data> data;  // what it was made for
+    int tab = -1;
+    int scaleKey = 0;  // the scale * 1000
+    HFONT font = nullptr;
+    std::string lang;
+    double scale = 1;
+    int width = 0, height = 0;
+    int padX = 0, padY = 0;  // the text's inset in its backing pill
+    struct Dot {
+        campaign::Point at;
+        int area = 0;
+        bool ghost = false;
+        std::wstring member;  // a dungeon level's short label ("L3"), right of its dot
+        RECT memberBox{};     // its backed box (empty when there is none)
+        campaign::MarkerSlot marks;  // where its boss / quest item / caveat marks go
+        int markCount = 0;
+    };
+    struct Label {
+        RECT box{};               // the backing pill; the text is inset by padX / padY
+        std::wstring name, info;  // the name (one line where it fits) and, for a ghost, "-> Act II"
+        int nameHeight = 0;
+        int area = 0;              // the station's first area
+        int first = 0, last = 0;   // its dots (indices into dots)
+        bool stack = false, ghost = false;
+        bool smallFont = false;    // a stack's common name, in the small font
+    };
+    struct Line {
+        std::vector<campaign::Point> points;
+        campaign::EdgeKind kind = campaign::EdgeKind::Passage;
+        bool arrow = false;
+        int fromDot = -1, toDot = -1;
+        std::wstring via;          // shown only while the edge or one of its ends is hovered or selected
+        campaign::Point viaAt;
+    };
+    struct Region {
+        RECT box{}, caption{};     // caption: the backed box at the region's top left
+        std::wstring label;
+    };
+    std::vector<campaign::Node> nodes;
+    std::vector<campaign::Neighbours> neighbours;
+    std::vector<Dot> dots;  // one per node
+    std::vector<Label> labels;  // one per station
+    std::vector<Line> lines;
+    std::vector<Region> regions;
+};
+
 struct OverlayState {
     std::function<bool(unsigned int)> isCloseKey;  // see Overlay::SetCloseKey
     const Database* database = nullptr;
@@ -1194,6 +1328,8 @@ struct OverlayState {
     HFONT fontSmall = nullptr;
     HFONT fontBold = nullptr;
     HFONT fontTitle = nullptr;
+    HFONT fontSnippet = nullptr;      // the card text under a search suggestion (9 pt), and its matched words (bold)
+    HFONT fontSnippetBold = nullptr;
     HBRUSH searchBrush = nullptr;
     HBRUSH backgroundBrush = nullptr;
     bool firstPainted = false;   // false until the current show has painted once
@@ -1205,6 +1341,7 @@ struct OverlayState {
     int bodyLine = 16;     // line heights in pixels for the current fonts
     int smallLine = 14;
     int boldLine = 18;
+    int snippetLine = 15;
     int width = 0;
     int height = 0;
     // Entry list geometry, set by ComputeLayout. EnsurePages splits the filtered entries into list pages,
@@ -1257,7 +1394,7 @@ struct OverlayState {
     bool padActive = false;    // a controller was the last thing used; the mouse or keyboard switches it off
     // Cards: item tiles in the detail pane; Chips: the filter and sort buttons above them; Calc: the calculator's fields;
     // Switches: header buttons
-    enum class PadZone { Tabs, List, Cards, Switches, Chips, Calc };
+    enum class PadZone { Tabs, List, Cards, Switches, Chips, Calc, Spec, Campaign };
     PadZone padZone = PadZone::Tabs;
     std::size_t padChip = 0;   // the filter or sort button the D-pad highlights (an index into layout.chips)
     int calcPadKind = 0;       // the calculator field the D-pad highlights: 0 drop-down, 1 number
@@ -1283,6 +1420,18 @@ struct OverlayState {
     int helpWidth = 0;
     esrwiki::pad::Kind helpDrawnKind = esrwiki::pad::Kind::None;
     int helpDrawnWidth = 0, helpDrawnHeight = 0;
+    int helpDrawnContext = -1;  // the SearchFocus the help list was drawn for
+    int helpSyncedContext = -1; // and the one PadTick last asked the help window for
+    // The suggestion list has the controller's focus: the D-pad picks a row, A opens it, B closes the list.
+    bool suggestPadFocus = false;
+    esrwiki::pad::PopupPlace popupPlace;  // where the keyboard and the suggestion list go (PlanSearchPopups)
+    int oskUnits = 20, oskUnit = 12, oskBoxWidth = 0;  // the keyboard's widest row in half keys, a half key, its width
+    esrwiki::pad::SearchFocus PadSearchFocus() const;
+    esrwiki::pad::FocusContext PadFocusContext() const;
+    void PadSetSearchFocus(esrwiki::pad::SearchFocus next);
+    void PadSuggestStep(int delta, bool repeat = false);
+    bool PadSuggestShortcut();
+    void PlanSearchPopups();
     void PadSync();
     void PadTick();
     void PadDirection(int dx, int dy);
@@ -1306,6 +1455,7 @@ struct OverlayState {
     void PadEnterChips(int fromX);
     void PadValidateZone();
     void PadEnterCalc();
+    void PadEnterSpec();
     void CalcPadMove(int dx, int dy);
     void CalcPadConfirm();
     bool CalcPadClear();
@@ -1361,6 +1511,207 @@ struct OverlayState {
     void CalcChoose(int field, const CalcOption& option);
     int RenderCalculator(HDC dc, int top, int scroll, bool draw);
 
+    // The Specializations page. specPending is handed over by Overlay::SetSpecializationsData from another thread; the
+    // rest belongs to the UI thread.
+    std::mutex specLock;
+    std::shared_ptr<const spec::Data> specPending;
+    std::shared_ptr<const spec::Data> specData;
+    int specTab = -1;          // the shown tab; -1 is the page's own default
+    int specHoverTab = -1;     // the tab and the perk under the pointer
+    int specHoverPerk = -1;
+    RECT specHoverRect{};
+    int specPadKind = 1;       // what the D-pad highlights: 0 a tab, 1 a perk
+    int specPadIndex = 0;
+    struct SpecHit { RECT rect; int kind; int index; };  // kind: 0 tab, 1 perk (of the shown tab)
+    std::vector<SpecHit> specHits;
+    bool SpecActive() const;
+    int SpecShownTab() const;
+    void SpecSelectTab(int index);
+    bool SpecClick(int x, int y);
+    bool SpecMove(int x, int y);
+    void SpecPadMove(int dx, int dy);
+    void SpecPadConfirm();
+    void SpecPadReveal();
+    bool SpecPadRect(RECT& out) const;
+    void DrawSpecTooltip(HDC dc);
+    int RenderSpecializations(HDC dc, int top, int scroll, bool draw);
+    // Search on the board (overlay_spec.inc): the perks are records of the search index (SetExtra), rebuilt when the data,
+    // the database or the language change; the in-page filter keeps the board while a perk matches and dims the others.
+    bool AdoptSpecData();      // takes specPending (UI thread only); true when the data changed
+    void ApplySpecData();      // kMsgSpecData: adopts it and looks the search text up again
+    int SpecPageIndex() const; // the database page of the board, or -1
+    std::vector<esrwiki::search::ExtraRecord> SpecSearchRecords() const;
+    const std::vector<std::vector<char>>& SpecMatches();  // per tab, per perk: matches the search text (empty: no text)
+    std::vector<std::size_t> FilterPage(std::size_t index);  // FilterEntries, keeping the board's page while a perk matches
+    bool SpecFlashing() const;
+    std::shared_ptr<const spec::Data> specIndexed;  // the data the index's perk records were made from
+    const Database* specIndexedFor = nullptr;       // and the database (for the page and its title)
+    std::vector<std::vector<char>> specMatch;
+    std::size_t specMatchCount = 0;
+    bool specMatchValid = false;
+    std::string specMatchQuery;                     // what specMatch was made for
+    std::shared_ptr<const spec::Data> specMatchData;
+    const Database* specMatchDb = nullptr;
+    int specFlashTab = -1;     // the perk a search jump arrived at, framed until specFlashUntil (and its tooltip shown)
+    int specFlashPerk = -1;
+    ULONGLONG specFlashUntil = 0;
+
+    // The Campaign Progression map (overlay_campaign.inc), under the text of that Welcome entry. campaignPending is handed
+    // over by Overlay::SetCampaignData from another thread; the rest belongs to the UI thread.
+    std::mutex campaignLock;
+    std::shared_ptr<const campaign::Data> campaignPending;
+    std::shared_ptr<const campaign::Data> campaignData;
+    int campaignTab = 0;            // the shown tab (an index into campaignData->tabs)
+    int campaignSelected = 0;       // the area whose details show under the map (0: none)
+    int campaignHoverKind = -1;     // what the pointer is on (a CampaignHit kind, -1: nothing) and its value
+    int campaignHover = 0;
+    RECT campaignHoverRect{};
+    bool campaignSpoilers = false;  // the selected area's spoiler notes are shown
+    int campaignPadIndex = 0;       // the area the D-pad highlights (an index into campaignSpots)
+    bool campaignPadFollow = false; // after the next layout, the highlight goes to the selected area
+    bool campaignPadRevealNext = false;  // after the next layout, the highlight is scrolled into view
+    bool campaignReveal = false;    // after the next layout, the selected area is scrolled into view
+    int campaignFlashArea = 0;      // the area a search jump arrived at, ringed until campaignFlashUntil
+    ULONGLONG campaignFlashUntil = 0;
+    // kind: 0 tab (value: its index), 1 area (dot, label or card; value: area id), 2 link chip (area id), 3 spoilers, 4 close,
+    // 5 an edge with a "via" caption (value: index into campaignGraph.lines; hit-tested along the line, not listed here)
+    struct CampaignHit { RECT rect; int kind; int value; };
+    std::vector<CampaignHit> campaignHits;  // client coordinates, from the last paint
+    // The shown tab's areas (dots in node order, or cards) from the last layout, relative to the top of the entry.
+    struct CampaignSpot { int area; RECT rect; };
+    std::vector<CampaignSpot> campaignSpots;
+    CampaignGraph campaignGraph;
+    POINT campaignGraphAt{};          // the graph's top left in client coordinates, from the last paint
+    bool campaignGraphShown = false;  // the last paint drew a graph tab (its edges can be hovered)
+    std::shared_ptr<const campaign::Data> campaignIndexed;  // the data the index's area records were made from
+    const Database* campaignIndexedFor = nullptr;
+    std::vector<int> campaignMatch;  // the areas matching the search text (sorted ids)
+    bool campaignMatchValid = false;
+    std::string campaignMatchQuery;
+    std::shared_ptr<const campaign::Data> campaignMatchData;
+    const Database* campaignMatchDb = nullptr;
+    static bool IsCampaignEntry(const Entry& entry);
+    bool AdoptCampaignData();
+    void ApplyCampaignData();
+    std::string CampaignLang() const;  // the data language of the names ("enUS" for English)
+    bool CampaignShowing() const;      // the map's entry is the one in the detail pane, and there is data
+    int CampaignPageIndex() const;
+    int CampaignEntryIndex(const Page& page) const;
+    bool CampaignOnTab(int tabIndex, int areaId) const;
+    int CampaignTabOf(int areaId) const;
+    bool CampaignFlashing() const;
+    void CampaignSelectTab(int index);
+    void CampaignShowArea(int areaId, bool flash);
+    void CampaignPick(int areaId);
+    bool CampaignEscape();
+    std::vector<esrwiki::search::ExtraRecord> CampaignSearchRecords() const;
+    const std::vector<int>& CampaignMatches();
+    int CampaignAreaOfHit(const esrwiki::search::Hit& hit) const;
+    void CampaignLayoutGraph(HDC dc, int tabIndex, double s);
+    int RenderCampaign(HDC dc, Gdiplus::Graphics* graphics, int left, int paneW, int y, bool draw);
+    int RenderCampaignLegend(HDC dc, Gdiplus::Graphics* graphics, int left, int paneW, int y, bool draw);
+    int RenderCampaignGraph(HDC dc, Gdiplus::Graphics* graphics, int left, int paneW, int y, bool draw, const std::vector<int>& matches);
+    int RenderCampaignCards(HDC dc, Gdiplus::Graphics* graphics, int left, int paneW, int y, bool draw, const std::vector<int>& matches);
+    int RenderCampaignDetails(HDC dc, int left, int paneW, int y, bool draw);
+    int CampaignDetailBody(HDC dc, const campaign::Area& area, int x, int bodyW, int y, bool draw);
+    std::vector<std::wstring> CampaignCaveats(const campaign::Area& area) const;
+    void CampaignApplyReveal(int total, int visible);
+    bool CampaignMove(int x, int y);
+    bool CampaignClick(int x, int y);
+    void DrawCampaignTooltip(HDC dc);
+    void PadEnterCampaign();
+    bool CampaignPadRect(RECT& out) const;
+    void CampaignPadReveal();
+    void CampaignPadMove(int dx, int dy);
+    void CampaignPadConfirm();
+    bool CampaignPadBack();
+    bool CampaignPadStepTab(int direction);
+    // The official Maps page on the map (overlay_campaign_live.inc): the Special areas cards and the teleport caveats in
+    // the website's wording. mapsPending is handed over by Overlay::SetMapsPageData from another thread.
+    std::mutex mapsLock;
+    std::shared_ptr<const campaign::LiveMaps> mapsPending;
+    std::shared_ptr<const campaign::LiveMaps> mapsData;
+    bool AdoptMapsData();   // takes mapsPending (UI thread only); true when the data changed
+    void ApplyMapsData();   // kMsgMapsData: adopts it and repaints
+    std::wstring CampaignLiveCardEntry(const campaign::Tab& tab, const campaign::Area& area) const;
+    bool CampaignLiveTeleport(const campaign::Area& area, std::vector<std::wstring>& out) const;
+    bool CampaignLiveHidesNote(const campaign::Tab& tab, const campaign::Note& note) const;
+    int RenderCampaignLiveNotes(HDC dc, const campaign::Tab& tab, int left, int paneW, int y, bool draw);
+
+    // The Skills page (overlay_skills.inc). skillsPending is handed over by Overlay::SetSkillsData from another thread; the
+    // rest belongs to the UI thread. skillsEngine and skillsLayout point into skillsData, so they are declared after it.
+    std::mutex skillsLock;
+    std::shared_ptr<const skills::Data> skillsPending;
+    std::shared_ptr<const skills::Data> skillsData;
+    std::unique_ptr<skills::Engine> skillsEngine;
+    skills::PageLayout skillsLayout;   // where the page's blocks came from, and the cards' faces
+    skills::Picker skillsPicker;       // skill level, character level, hard points (kept while the plugin runs)
+    bool skillsPickerSet = false;
+    int skillsHold = 0;                // Left/Right presses in a row on a picker value, for the step size
+    ULONGLONG skillsHoldAt = 0;
+    bool SkillsActive() const;
+    bool AdoptSkillsData();            // takes skillsPending (UI thread only); true when there was new data
+    void ApplySkillsData();            // kMsgSkillsData: adopts it and shows the page made from it
+    void PrepareSkillsPage();          // puts the page into the database shown (or takes it out without data)
+    void SkillsPickerChanged();
+    bool SkillsStep(int field, int delta);
+    bool SkillsPadStep(int field, int dx);
+    bool SkillsWheel(int x, int y, int steps);
+    std::wstring SkillsPickerValue(int field) const;
+    int BuildSkillsControls(HDC dc, const PageView& view);
+    const std::vector<skills::CardFace>* SkillFaces(const Entry& entry) const;
+    int RenderSkillTiles(HDC dc, const Entry& entry, const std::vector<std::size_t>& order, std::size_t begin,
+                         std::size_t end, int left, int width_, int y, bool draw);
+
+    // Search suggestions (overlay_suggest.inc): the dropdown under the search box and the jump to the card picked.
+    esrwiki::search::Index searchIndex;
+    const Database* searchIndexFor = nullptr;  // the database the index was built from
+    std::vector<esrwiki::search::Hit> suggest;
+    std::string suggestQuery;
+    int suggestSel = -1;       // the row picked with the keys (-1: none)
+    int suggestHover = -1;     // the row under the pointer
+    bool suggestOpen = false;
+    bool suggestMute = false;  // set while the program itself changes the search text
+    bool suggestDirty = false; // the text changed and the list is waiting for kTimerSuggest
+    std::wstring suggestMessage;  // what the list says when nothing is found ("Nothing has: ...")
+    int suggestDivider = -1;   // the first typo hit, which gets a "Did you mean" row above it (-1: none)
+    std::wstring searchNote;   // a note in place of the list's counter, until searchNoteUntil
+    ULONGLONG searchNoteUntil = 0;
+    int wheelRemainder = 0;    // wheel movement short of a whole notch (precision touchpads send small steps)
+    RECT suggestRect{};
+    std::vector<RECT> suggestRows;  // the rows showing, from the last paint
+    std::vector<int> suggestRowIndex;  // which suggestion each of them is
+    int suggestScroll = 0;     // the first suggestion showing
+    int suggestVisible = 8;    // how many rows showed
+    bool jumpPending = false;  // a jump is waiting for its card to be laid out
+    std::size_t jumpEntry = 0;
+    int jumpBlock = -1;
+    int flashBlock = -1;       // the card framed after a jump, until flashUntil
+    ULONGLONG flashUntil = 0;
+    struct BlockSpan { int block; int top; int bottom; };  // a card's place in the entry, from the last layout (relative to bodyTop)
+    std::vector<BlockSpan> blockSpans;
+    int bodyTop = 0;           // the top of the entry's content in the detail pane, for those places
+    void EnsureSearchIndex();
+    void UpdateSuggest();
+    void ScheduleSuggest();
+    void FlushSuggest();
+    bool ReopenSuggest();
+    int SuggestDisplayCount() const;
+    int SuggestDisplayRow(int hitIndex) const;
+    int SuggestHitOfRow(int row) const;
+    std::vector<bool> SuggestPickRows() const;
+    void ShowSearchNote(const std::wstring& note);
+    void CloseSuggest();
+    void DrawSuggest(HDC dc);
+    bool SuggestClick(int x, int y);
+    bool SuggestMove(int x, int y);
+    bool SuggestKey(WPARAM key);
+    bool SuggestWheel(int x, int y, int steps);
+    void SuggestReveal();
+    void JumpTo(const esrwiki::search::Hit& hit);
+    void ApplyJump(int total, int visible);
+    void DrawJumpFlash(HDC dc);
+
     const Page& CurrentPage() const { return database->pages[pageIndex]; }
     PageView& CurrentView() { return views[pageIndex]; }
     int S(int value) const { return MulDiv(value, dpi, 96); }
@@ -1368,7 +1719,7 @@ struct OverlayState {
     int RuneRows(std::size_t count, const TileStyle& style) const;
     TileStyle MakeTileStyle(int width_, bool compact, bool fiveAcross = false) const;
 
-    HFONT MakeFont(int points, int weight) const;
+    HFONT MakeFont(int points, int weight, double minScale = 0.0) const;
     void CreateFonts();
     void ApplyFonts();
     Layout ComputeLayout();
@@ -1485,8 +1836,9 @@ TileStyle OverlayState::MakeTileStyle(int width_, bool compact, bool fiveAcross)
     return style;
 }
 
-HFONT OverlayState::MakeFont(int points, int weight) const {
-    const int pixelHeight = -static_cast<int>(std::lround(points * uiScale * dpi / 72.0));
+// `minScale` keeps a font from shrinking below its size at that scale when the window is small.
+HFONT OverlayState::MakeFont(int points, int weight, double minScale) const {
+    const int pixelHeight = -static_cast<int>(std::lround(points * std::max(uiScale, minScale) * dpi / 72.0));
     return CreateFontW(pixelHeight, 0, 0, 0, weight, FALSE, FALSE, FALSE, DEFAULT_CHARSET, OUT_DEFAULT_PRECIS,
                        CLIP_DEFAULT_PRECIS, CLEARTYPE_QUALITY, DEFAULT_PITCH | FF_DONTCARE, L"Segoe UI");
 }
@@ -1501,7 +1853,7 @@ void OverlayState::CreateFonts() {
 
 // Rebuilds the fonts for the current uiScale and re-measures their line heights.
 void OverlayState::ApplyFonts() {
-    for (HFONT* font : {&fontBody, &fontSmall, &fontBold, &fontTitle}) {
+    for (HFONT* font : {&fontBody, &fontSmall, &fontBold, &fontTitle, &fontSnippet, &fontSnippetBold}) {
         if (*font != nullptr) {
             DeleteObject(*font);
             *font = nullptr;
@@ -1513,12 +1865,15 @@ void OverlayState::ApplyFonts() {
     fontSmall = MakeFont(8, FW_NORMAL);
     fontBold = MakeFont(10, FW_SEMIBOLD);
     fontTitle = MakeFont(13, FW_SEMIBOLD);
+    fontSnippet = MakeFont(9, FW_NORMAL, 1.0);  // never below 9 pt at the display's scaling
+    fontSnippetBold = MakeFont(9, FW_BOLD, 1.0);
 
     const HDC screen = GetDC(nullptr);
     bodyLine = LineHeight(screen, fontBody);
     smallLine = LineHeight(screen, fontSmall);
     boldLine = LineHeight(screen, fontBold);
     titleLine = LineHeight(screen, fontTitle);
+    snippetLine = std::max(LineHeight(screen, fontSnippet), LineHeight(screen, fontSnippetBold));
     ReleaseDC(nullptr, screen);
     if (IsWindow(search)) SendMessageW(search, WM_SETFONT, reinterpret_cast<WPARAM>(fontBody), TRUE);
 }
@@ -1851,14 +2206,43 @@ bool OverlayState::StepWithinEntry(int direction) {
     return true;
 }
 
-// The search box passes Enter to the overlay as the next match, and Shift+Enter as the previous.
+// The search box passes Enter to the overlay as the next match, and Shift+Enter as the previous (while the suggestions
+// are open the message loop gives Enter to them first, see SuggestKey).
 WNDPROC gSearchProc = nullptr;
+
+// The grey hint in the empty search box. Drawn here rather than with EM_SETCUEBANNER, which needs version 6 of the common
+// controls (the game process does not load them).
+void DrawSearchPlaceholder(HWND hwnd) {
+    if (GetWindowTextLengthW(hwnd) != 0) return;
+    const std::wstring hint = UiText(L"Search names, stats, runes\u2026 (in English)");
+    RECT client{};
+    GetClientRect(hwnd, &client);
+    const HDC dc = GetDC(hwnd);
+    if (dc == nullptr) return;
+    HideCaret(hwnd);
+    const HFONT font = reinterpret_cast<HFONT>(SendMessageW(hwnd, WM_GETFONT, 0, 0));
+    const HGDIOBJ previous = font != nullptr ? SelectObject(dc, font) : nullptr;
+    SetBkMode(dc, TRANSPARENT);
+    SetTextColor(dc, RGB(128, 114, 92));
+    client.left += 2;  // past the caret
+    DrawTextW(dc, hint.c_str(), static_cast<int>(hint.size()), &client, DT_LEFT | DT_SINGLELINE | DT_VCENTER | DT_END_ELLIPSIS | DT_NOPREFIX);
+    if (previous != nullptr) SelectObject(dc, previous);
+    ReleaseDC(hwnd, dc);
+    ShowCaret(hwnd);
+}
 
 LRESULT CALLBACK SearchEditProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
     if (message == WM_LBUTTONDOWN) {  // a click on the search box with the controller cursor opens the on-screen keyboard
         auto* owner = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
         if (owner != nullptr && owner->padActive) PostMessageW(GetParent(hwnd), kMsgOpenOsk, 0, 0);
+        else if (owner != nullptr) owner->ReopenSuggest();  // a click on the box brings the suggestions back
     }
+    if (message == WM_PAINT) {
+        const LRESULT result = CallWindowProcW(gSearchProc, hwnd, message, wParam, lParam);
+        DrawSearchPlaceholder(hwnd);
+        return result;
+    }
+    if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_TAB) return 0;  // Tab picks suggestions, never a tab character
     if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_RETURN) {
         if (message == WM_KEYDOWN) {
             auto* self = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
@@ -1898,13 +2282,13 @@ void OverlayState::Refilter() {
         pendingPage = pageIndex;
         pendingSelect = selectedEntry;
     }
-    gHighlight = LowerWide(Wide(query));
-    filtered = FilterEntries(CurrentPage(), query);
+    SetHighlight(query);
+    filtered = FilterPage(pageIndex);
     pagesDirty = true;
     tabMatches.assign(database->pages.size(), 0);
     totalMatches = 0;
     for (std::size_t i = 0; i < database->pages.size(); ++i) {
-        tabMatches[i] = i == pageIndex ? filtered.size() : FilterEntries(database->pages[i], query).size();
+        tabMatches[i] = i == pageIndex ? filtered.size() : FilterPage(i).size();
         totalMatches += tabMatches[i];
     }
     PageView& view = CurrentView();
@@ -1932,6 +2316,10 @@ void OverlayState::SetPage(std::size_t index) {
     pageIndex = index;
     calcOpen = -1;
     calcNumFocus = -1;
+    specHoverTab = specHoverPerk = -1;
+    campaignHoverKind = -1;
+    campaignHover = 0;
+    suggestOpen = false;
     Refilter();
 }
 
@@ -2059,6 +2447,7 @@ void OverlayState::FinishHandoff() {
 }
 
 void OverlayState::Hide() {
+    wheelRemainder = 0;
     if (handingOff) {
         KillTimer(window, kTimerHandoff);
         handingOff = false;
@@ -2068,6 +2457,7 @@ void OverlayState::Hide() {
     firstPainted = false;
     EndDrag();
     ClearHover();
+    suggestOpen = false;
     ShowBlocker(false);
     ShowWindow(window, SW_HIDE);
     PadSync();
@@ -2093,11 +2483,36 @@ void OverlayState::ApplyPendingDatabase() {
     arrangeKey = ArrangeKey{};
     ownedDb = std::move(next);
     database = ownedDb.get();
+    PrepareSkillsPage();  // the Skills page is not in the wiki data: it is made from the skills data (overlay_skills.inc)
+    searchIndexFor = nullptr;  // the index belongs to the old data
+    const bool suggestWasOpen = suggestOpen;
+    suggest.clear();
+    suggestQuery.clear();
+    suggestOpen = false;
+    suggestSel = suggestHover = -1;
+    jumpPending = false;
+    flashBlock = -1;
+    specFlashPerk = -1;
+    specMatchValid = false;
+    specIndexedFor = nullptr;  // the perk records name the old data's page
+    campaignMatchValid = false;
+    campaignIndexedFor = nullptr;  // the area records name the old data's page and entry
+    campaignHits.clear();
+    campaignSpots.clear();
+    campaignHoverKind = -1;
+    campaignHover = 0;
     views.assign(database->pages.size(), PageView{});
     if (pageIndex >= database->pages.size()) pageIndex = 0;
     hasPendingSelect = false;
     FitToGame();  // the tab layout depends on the pages
     Refilter();
+    EnsureSearchIndex();  // built now, not on the next key typed
+    if (!query.empty()) {
+        // The old suggestions point into the old data: look the text up again in the new one, and keep the list showing
+        // if it was.
+        UpdateSuggest();
+        if (!suggestWasOpen) suggestOpen = false;
+    }
     InvalidateRect(window, nullptr, FALSE);
 }
 
@@ -2207,10 +2622,13 @@ void OverlayState::HandleMove(int x, int y) {
         }
         return;
     }
+    if (SuggestMove(x, y)) return;
     if (!Inside(layout.detail, x, y)) {
         ClearHover();
         return;
     }
+    if (SpecMove(x, y)) return;  // the Specializations page has its own hover
+    if (CampaignMove(x, y)) return;  // so has the Campaign Progression map
     for (const DetailHit& hit : detailHits) {
         if (!Inside(hit.rect, x, y)) continue;
         // Same target: keep the tooltip where it is and do not repaint on every pixel of movement.
@@ -2227,6 +2645,15 @@ void OverlayState::HandleMove(int x, int y) {
 }
 
 void OverlayState::ClearHover() {
+    if (specHoverTab >= 0 || specHoverPerk >= 0) {
+        specHoverTab = specHoverPerk = -1;
+        InvalidateRect(window, nullptr, FALSE);
+    }
+    if (campaignHoverKind >= 0) {
+        campaignHoverKind = -1;
+        campaignHover = 0;
+        InvalidateRect(window, nullptr, FALSE);
+    }
     if (hover.block == nullptr) return;
     hover = Hover{};
     InvalidateRect(window, nullptr, FALSE);
@@ -2265,7 +2692,21 @@ void OverlayState::DrawTooltip(HDC dc) {
         rows.push_back({Wide(heading), headingColor, fontBold});
         if (!block.subtitle.empty()) rows.push_back({Wide(block.subtitle), kDim, fontSmall});
         for (const Field& field : block.fields) {
-            rows.push_back({UiDataText(Wide(field.label)) + L": " + Wide(field.value), kBody, fontBody});
+            // A value of several entries (the data separates them with \x1e, e.g. one Automod entry per tier) is shown
+            // one entry per line, the continuation lines indented under the label.
+            const std::wstring label = UiDataText(Wide(field.label)) + L": ";
+            std::size_t start = 0;
+            bool first = true;
+            while (true) {
+                const std::size_t cut = field.value.find('\x1e', start);
+                std::string piece = field.value.substr(start, cut == std::string::npos ? std::string::npos : cut - start);
+                while (!piece.empty() && piece.back() == ' ') piece.pop_back();
+                if (!piece.empty() || first)
+                    rows.push_back({(first ? label : std::wstring(L"    ")) + Wide(piece), kBody, fontBody});
+                first = false;
+                if (cut == std::string::npos) break;
+                start = cut + 1;
+            }
         }
         for (const Line& line : block.lines) {
             std::string plain;
@@ -2303,7 +2744,11 @@ void OverlayState::DrawTooltip(HDC dc) {
     GetClientRect(window, &client);
     // Start at the normal width and widen only when the text would run past the bottom of the
     // window (long weapon gemwords), so most tips keep their usual shape.
-    const int availableHeight = static_cast<int>(client.bottom) - S(16);
+    // A tooltip stays below the search box, its buttons and the tabs: those are windows or controls drawn over the tip.
+    int minTop = S(8);
+    for (const RECT* above : {&layout.search, &layout.clearQuery, &layout.matchPrev, &layout.matchNext})
+        minTop = std::max(minTop, static_cast<int>(above->bottom) + S(6));
+    const int availableHeight = static_cast<int>(client.bottom) - minTop - S(8);
     const int maxTipWidth = std::max(S(340), static_cast<int>(client.right) - S(16));
     int tipWidth = S(340);
     std::vector<int> heights;
@@ -2313,7 +2758,10 @@ void OverlayState::DrawTooltip(HDC dc) {
     // follow only if the text does not fit the bottom of the window at that width.
     int widest = 0;
     for (const TipRow& row : rows) widest = std::max(widest, NaturalWidth(dc, row.text, row.font));
-    const int fitWidth = std::min(std::max(widest + S(24), S(160)), maxTipWidth);
+    // A few pixels of spare width: text drawn in pieces (a search match, colour codes) can come out slightly wider than
+    // DrawText measured it, and with no spare room its last word wrapped onto a line the tip had no height for.
+    // No wider than 640 (scaled): a very long line wraps instead of stretching the tip across the whole window.
+    const int fitWidth = std::min(std::max(widest + S(24) + S(8), S(160)), std::min(maxTipWidth, S(640)));
     std::vector<int> widths{fitWidth};
     for (const int candidate : {S(340), S(420), S(520), S(640)}) {
         if (candidate > fitWidth) widths.push_back(candidate);
@@ -2375,7 +2823,7 @@ void OverlayState::DrawTooltip(HDC dc) {
     }
     int top = target.top;
     if (top + totalHeight > client.bottom - S(8)) top = client.bottom - totalHeight - S(8);
-    top = std::max(S(8), top);
+    top = std::max(minTop, top);
 
     // Long items are clipped to the window rather than pushed off screen.
     const int visibleHeight = std::min(totalHeight, static_cast<int>(client.bottom) - top - S(8));
@@ -2397,12 +2845,21 @@ void OverlayState::DrawTooltip(HDC dc) {
 }
 
 void OverlayState::QueryChanged() {
+    const bool wasEmpty = query.empty();
     Refilter();
+    ScheduleSuggest();  // the list is looked up once the typing stops (kTimerSuggest)
+    // The box repaints whole when it empties or fills, so the placeholder comes back or goes completely.
+    if (wasEmpty != query.empty() && IsWindow(search)) InvalidateRect(search, nullptr, TRUE);
     InvalidateRect(window, nullptr, FALSE);
 }
 
 // A filter or sort button was pressed, by the mouse or the controller.
 void OverlayState::ApplyChip(const Chip& chip) {
+    if (chip.kind == ChipKind::Picker) {  // the Skills page's - and + buttons; the scroll position stays
+        const std::size_t part = chip.value % 3;
+        if (part != 1) SkillsStep(static_cast<int>(chip.value / 3), part == 0 ? -1 : 1);
+        return;
+    }
     PageView& view = CurrentView();
     switch (chip.kind) {
         case ChipKind::Socket: view.socketFilter = chip.value; break;
@@ -2413,6 +2870,7 @@ void OverlayState::ApplyChip(const Chip& chip) {
         }
         case ChipKind::Tier: view.tierFilter = chip.text; break;
         case ChipKind::Family: view.familyFilter = chip.text; break;
+        case ChipKind::Picker: break;  // handled above
     }
     view.detailScroll = 0;
     InvalidateRect(window, nullptr, FALSE);
@@ -2420,6 +2878,7 @@ void OverlayState::ApplyChip(const Chip& chip) {
 
 void OverlayState::HandleClick(int x, int y) {
     PageView& view = CurrentView();
+    if (SuggestClick(x, y)) return;  // the suggestions are on top of everything else
     if (oskOpen) {
         if (OskClick(x, y)) return;
         if (!Inside(layout.search, x, y)) CloseOsk();  // a click anywhere else puts the keyboard away
@@ -2438,6 +2897,12 @@ void OverlayState::HandleClick(int x, int y) {
         StepMatch(1);
         return;
     }
+    if (Inside(SearchBoxRect(layout), x, y)) {  // the frame round the text: focus the box and bring the suggestions back
+        SetFocus(search);
+        ReopenSuggest();
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
     if (layout.scrollable && Inside(layout.scrollTrack, x, y)) {
         if (Inside(layout.scrollThumb, x, y)) {
             dragging = true;
@@ -2452,6 +2917,8 @@ void OverlayState::HandleClick(int x, int y) {
         return;
     }
     if (CalcClick(x, y)) return;
+    if (SpecClick(x, y)) return;
+    if (CampaignClick(x, y)) return;
     for (const Chip& chip : layout.chips) {
         if (!Inside(chip.rect, x, y)) continue;
         ApplyChip(chip);
@@ -2489,10 +2956,19 @@ void OverlayState::HandleClick(int x, int y) {
 
 void OverlayState::HandleWheel(int x, int y, int delta) {
     PageView& view = CurrentView();
-    const int steps = delta / WHEEL_DELTA;
+    // Precision touchpads send many small deltas: they add up to whole notches instead of each rounding to none.
+    if ((wheelRemainder > 0 && delta < 0) || (wheelRemainder < 0 && delta > 0)) wheelRemainder = 0;  // turned back
+    wheelRemainder += delta;
+    const int steps = wheelRemainder / WHEEL_DELTA;
+    wheelRemainder -= steps * WHEEL_DELTA;
+    if (steps == 0) return;
+    if (SuggestWheel(x, y, steps)) return;
+    if (SkillsWheel(x, y, steps)) return;  // over a Skills picker control: changes its value
     if (Inside(layout.detail, x, y)) {
         if (CalcWheel(x, y, steps)) return;
         view.detailScroll = std::max(0, view.detailScroll - steps * S(60));  // 60 px a notch (was 40, 50% faster)
+        campaignHoverKind = -1;  // the area under a still pointer changed: no tooltip at the old place until the pointer moves
+        campaignHover = 0;
     } else if (x < layout.detail.left && y >= layout.search.top && !filtered.empty()) {
         // Wheel down selects the next entry, wheel up the previous one.
         const long long target = static_cast<long long>(view.selected) - steps;
@@ -2583,6 +3059,7 @@ void OverlayState::PadSync() {
 void OverlayState::PadMouseUsed() {
     if (!padActive) return;
     padActive = false;
+    suggestPadFocus = false;
     drive.Stop();  // the stick lets go of the pointer and the cursor comes back
     CloseOsk();
     PadModeChanged();
@@ -2609,6 +3086,7 @@ void OverlayState::PadTick() {
         drive.Stop();
         if (padActive) {
             padActive = false;
+            PadSetSearchFocus(esrwiki::pad::SearchFocus::Page);  // the list focus (and its pick) goes with the pad
             CloseOsk();
             PadModeChanged();
         }
@@ -2647,13 +3125,63 @@ void OverlayState::PadTick() {
         return;
     }
     bool changed = false;
-    if (oskOpen) {
+    using esrwiki::pad::SearchEvent;
+    using esrwiki::pad::SearchFocus;
+    FlushSuggest();  // never act on a list that is about to be replaced
+    if (suggestPadFocus && esrwiki::pad::FirstPickable(SuggestPickRows()) < 0) {  // the list went away (a tab change, a jump)
+        PadSetSearchFocus(oskOpen ? SearchFocus::Keyboard : SearchFocus::Page);
+        changed = true;
+    }
+    if (press(Button::Back) && PadSuggestShortcut()) {
+        // View (Share / Create): into the search suggestions (they come back for the text typed if they were closed),
+        // or out of them again.
+        changed = true;
+    } else if (suggestPadFocus) {
+        // The suggestion list has the focus: up / down pick a row (the "Did you mean" heading is skipped), up from the first
+        // row goes back to the keyboard (or the page), LB / RB turn a page of rows, A opens the row, B closes the list and Y
+        // shows or hides the keyboard.
+        const bool any = press(Button::Down) || press(Button::Up) || press(Button::RB) || press(Button::LB) ||
+                         press(Button::A) || press(Button::B) || press(Button::Y);
+        const int pageRows = std::max(1, suggestVisible);
+        if (press(Button::Down)) {
+            PadSuggestStep(1);
+        } else if (press(Button::Up)) {
+            PadSuggestStep(-1, padRepeat.IsRepeat(Button::Up));  // a held Up stops at the first row
+        } else if (press(Button::RB)) {
+            PadSuggestStep(pageRows);
+        } else if (press(Button::LB)) {
+            PadSuggestStep(-pageRows);
+        } else if (press(Button::A)) {
+            if (now < padMouseUntil) {
+                PadClickAtCursor();
+            } else if (suggestSel >= 0 && static_cast<std::size_t>(suggestSel) < suggest.size()) {
+                const esrwiki::search::Hit hit = suggest[static_cast<std::size_t>(suggestSel)];  // copied: the jump rebuilds the list
+                suggestPadFocus = esrwiki::pad::NextSearchFocus(SearchFocus::List, SearchEvent::Pick, PadFocusContext()) == SearchFocus::List;
+                CloseOsk();
+                JumpTo(hit);
+            }
+        } else if (press(Button::B)) {  // the list closes; the focus goes back to the keyboard or the page
+            PadSetSearchFocus(esrwiki::pad::NextSearchFocus(SearchFocus::List, SearchEvent::Back, PadFocusContext()));
+            CloseSuggest();
+        } else if (press(Button::Y)) {
+            const SearchFocus next = esrwiki::pad::NextSearchFocus(SearchFocus::List, SearchEvent::KeyboardToggle, PadFocusContext());
+            if (oskOpen) CloseOsk();
+            else OpenOsk();
+            PadSetSearchFocus(next);
+        }
+        if (any) changed = true;
+    } else if (oskOpen) {
         int dx = 0, dy = 0;
         if (press(Button::Left)) dx = -1;
         if (press(Button::Right)) dx = 1;
         if (press(Button::Up)) dy = -1;
         if (press(Button::Down)) dy = 1;
+        // LB / RB open the previous / next tab, as with the keyboard put away (the suggestions have their own focus now:
+        // D-pad down from the bottom row, or View).
+        if (press(Button::LB)) { PadStepTab(-1); changed = true; }
+        if (press(Button::RB)) { PadStepTab(1); changed = true; }
         if (dx != 0 || dy != 0) {
+            if (suggestSel >= 0) { suggestSel = -1; changed = true; }
             padMouseUntil = 0;
             if (padCursorMoved) {  // start from the key under the cursor
                 padCursorMoved = false;
@@ -2667,12 +3195,29 @@ void OverlayState::PadTick() {
                     }
                 }
             }
-            esrwiki::pad::OskMove(oskRows, oskRow, oskCol, dx, dy);
+            bool intoList = false;
+            const bool bottomDown = dy > 0 && dx == 0 && oskRow == static_cast<int>(oskRows.size()) - 1;
+            if (bottomDown && padRepeat.IsRepeat(Button::Down) && PadFocusContext().listPickable) {
+                intoList = true;  // a held Down stops at the bottom row: only a fresh press crosses into the list
+            } else if (bottomDown) {
+                // Down from the bottom row: into the suggestions when they have a row to open (the list comes back for
+                // the text typed if B closed it); otherwise round to the top row as before.
+                if (!query.empty()) ReopenSuggest();
+                const SearchFocus next = esrwiki::pad::NextSearchFocus(SearchFocus::Keyboard, SearchEvent::Down, PadFocusContext());
+                if (next == SearchFocus::List) {
+                    PadSetSearchFocus(next);
+                    intoList = true;
+                }
+            }
+            if (!intoList) esrwiki::pad::OskMove(oskRows, oskRow, oskCol, dx, dy);
             changed = true;
         }
         if (press(Button::A)) {
-            if (now < padMouseUntil) PadClickAtCursor();
-            else PressOskKey(oskRow, oskCol);
+            if (now < padMouseUntil) {
+                PadClickAtCursor();
+            } else {
+                PressOskKey(oskRow, oskCol);
+            }
             changed = true;
         }
         if (press(Button::Y)) CloseOsk();
@@ -2703,8 +3248,9 @@ void OverlayState::PadTick() {
                 QueryChanged();
             }
         }
-        if (press(Button::LB)) PadStepTab(-1);
-        if (press(Button::RB)) PadStepTab(1);
+        // LB / RB: the previous / next tab; on the Campaign Progression map, the map's tabs.
+        if (press(Button::LB) && !CampaignPadStepTab(-1)) PadStepTab(-1);
+        if (press(Button::RB) && !CampaignPadStepTab(1)) PadStepTab(1);
         if (press(Button::R3) && !switches.empty()) {
             const SwitchButton& other = switches[0];
             if (!other.current && (!other.available || other.available())) {
@@ -2714,6 +3260,12 @@ void OverlayState::PadTick() {
         }
     }
     if (released[static_cast<int>(Button::A)] && dragging) EndDrag();
+    // The help list follows the focus (page, keyboard, suggestions).
+    const int helpContext = static_cast<int>(PadSearchFocus());
+    if (helpContext != helpSyncedContext) {
+        helpSyncedContext = helpContext;
+        SyncHelp();
+    }
 
     // Left stick: the cursor. The cursor thread moves the pointer (see CursorThread), a millisecond at a time and eased,
     // so it glides; this poll only hands the stick over. Speed grows with the push, so small pushes are precise.
@@ -2762,6 +3314,73 @@ void OverlayState::PadStepTab(int direction) {
     SetPage(next);
     tabFocus = next;
     InvalidateRect(window, nullptr, FALSE);
+}
+
+// Where the controller's focus is while searching (see esrwiki::pad::NextSearchFocus).
+esrwiki::pad::SearchFocus OverlayState::PadSearchFocus() const {
+    if (suggestPadFocus) return esrwiki::pad::SearchFocus::List;
+    return oskOpen ? esrwiki::pad::SearchFocus::Keyboard : esrwiki::pad::SearchFocus::Page;
+}
+
+esrwiki::pad::FocusContext OverlayState::PadFocusContext() const {
+    esrwiki::pad::FocusContext c;
+    c.keyboardOpen = oskOpen;
+    c.atKeyboardBottom = oskOpen && !oskRows.empty() && oskRow == static_cast<int>(oskRows.size()) - 1;
+    const std::vector<bool> rows = SuggestPickRows();
+    c.listPickable = esrwiki::pad::FirstPickable(rows) >= 0;
+    const int current = suggestSel >= 0 ? SuggestDisplayRow(suggestSel) : -1;
+    c.atListTop = esrwiki::pad::ListStep(rows, current, -1).leave;
+    return c;
+}
+
+// Gives the suggestion list the focus (its first row picked), or takes the focus back from it to the keyboard (on its
+// bottom row, next to the list) or the page.
+void OverlayState::PadSetSearchFocus(esrwiki::pad::SearchFocus next) {
+    const bool toList = next == esrwiki::pad::SearchFocus::List;
+    if (toList && !suggestPadFocus) {
+        suggestSel = SuggestHitOfRow(esrwiki::pad::FirstPickable(SuggestPickRows()));
+        padMouseUntil = 0;  // A opens the row; it does not click at the cursor
+    } else if (!toList && suggestPadFocus) {
+        suggestSel = -1;
+        if (oskOpen && !oskRows.empty()) {
+            oskRow = static_cast<int>(oskRows.size()) - 1;
+            oskCol = std::clamp(oskCol, 0, static_cast<int>(oskRows.back().size()) - 1);
+        }
+    }
+    suggestPadFocus = toList;
+    suggestHover = -1;
+    SuggestReveal();
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+// D-pad up / down (one row) and LB / RB (a page of rows) in the suggestion list. Up from the first row leaves it.
+void OverlayState::PadSuggestStep(int delta, bool repeat) {
+    const std::vector<bool> rows = SuggestPickRows();
+    const int current = suggestSel >= 0 ? SuggestDisplayRow(suggestSel) : -1;
+    const esrwiki::pad::ListStepResult step = esrwiki::pad::ListStep(rows, current, delta);
+    if (step.leave) {
+        if (repeat) return;  // an auto-repeat does not carry the focus out of the list
+        esrwiki::pad::FocusContext c = PadFocusContext();
+        c.atListTop = true;
+        PadSetSearchFocus(esrwiki::pad::NextSearchFocus(esrwiki::pad::SearchFocus::List, esrwiki::pad::SearchEvent::Up, c));
+        return;
+    }
+    if (step.row >= 0) suggestSel = SuggestHitOfRow(step.row);
+    suggestHover = -1;
+    SuggestReveal();
+    InvalidateRect(window, nullptr, FALSE);
+}
+
+// View (Share / Create): into the suggestion list for the text typed (it comes back if it was closed), or out of it.
+// True when the focus moved.
+bool OverlayState::PadSuggestShortcut() {
+    if (!suggestPadFocus && !query.empty()) ReopenSuggest();
+    const esrwiki::pad::SearchFocus next =
+        esrwiki::pad::NextSearchFocus(PadSearchFocus(), esrwiki::pad::SearchEvent::Shortcut, PadFocusContext());
+    const bool toList = next == esrwiki::pad::SearchFocus::List;
+    if (toList == suggestPadFocus) return false;
+    PadSetSearchFocus(next);
+    return true;
 }
 
 void OverlayState::OpenOsk() {
@@ -2827,7 +3446,8 @@ bool OverlayState::OskClick(int x, int y) {
 // The bright frame round what the D-pad has highlighted.
 void OverlayState::DrawPadFocus(HDC dc) {
     // The detail pane's zones are framed after the pane is drawn: DrawCardFocus a card, DrawDetailFocus a button or field.
-    if (!padActive || oskOpen || padZone == PadZone::Cards || padZone == PadZone::Chips || padZone == PadZone::Calc) return;
+    if (!padActive || oskOpen || suggestPadFocus || padZone == PadZone::Cards || padZone == PadZone::Chips ||
+        padZone == PadZone::Calc || padZone == PadZone::Spec || padZone == PadZone::Campaign) return;
     const COLORREF focus = RGB(255, 240, 180);
     RECT target{};
     if (padZone == PadZone::Switches) {
@@ -2850,19 +3470,23 @@ void OverlayState::DrawPadFocus(HDC dc) {
 // The focus frame for the filter and sort buttons and the calculator's fields. They are inside the detail pane, so this
 // runs after the pane is drawn, with this paint's positions.
 void OverlayState::DrawDetailFocus(HDC dc) {
-    if (!padActive || oskOpen) return;
+    if (!padActive || oskOpen || suggestPadFocus) return;
     RECT target{};
     if (padZone == PadZone::Chips) {
         if (padChip >= layout.chips.size()) return;
         target = layout.chips[padChip].rect;
     } else if (padZone == PadZone::Calc) {
         if (!CalcPadRect(target)) return;
+    } else if (padZone == PadZone::Spec) {
+        if (!SpecPadRect(target)) return;
+    } else if (padZone == PadZone::Campaign) {
+        if (!CampaignPadRect(target)) return;
     } else {
         return;
     }
     const COLORREF focus = RGB(255, 240, 180);
     const int saved = SaveDC(dc);
-    if (padZone == PadZone::Calc) IntersectClipRect(dc, layout.detail.left + 1, clipTop, layout.detail.right - S(18), clipBottom);
+    if (padZone == PadZone::Calc || padZone == PadZone::Spec || padZone == PadZone::Campaign) IntersectClipRect(dc, layout.detail.left + 1, clipTop, layout.detail.right - S(18), clipBottom);
     else IntersectClipRect(dc, layout.detail.left, layout.detail.top, layout.detail.right, layout.detail.bottom);
     for (int grow : {S(1), S(2)}) {
         FrameColor(dc, Rect(target.left - grow, target.top - grow, target.right + grow, target.bottom + grow), focus);
@@ -2873,7 +3497,7 @@ void OverlayState::DrawDetailFocus(HDC dc) {
 // The item card the D-pad highlights: its frame, and its tooltip beside it. It runs after the detail pane is drawn, so
 // it uses this paint's positions. A card that has scrolled out of view gives the focus to a card that is showing.
 void OverlayState::DrawCardFocus(HDC dc) {
-    if (!padActive || oskOpen || padZone != PadZone::Cards) {
+    if (!padActive || oskOpen || suggestPadFocus || padZone != PadZone::Cards) {  // the list's rows are not under a card tooltip
         if (hover.block != nullptr && hover.block == padCardBlock) ClearHover();
         return;
     }
@@ -3018,6 +3642,8 @@ void OverlayState::PadEnterChips(int fromX) {
 void OverlayState::PadValidateZone() {
     if (padZone == PadZone::Chips && layout.chips.empty()) padZone = PadZone::List;
     if (padZone == PadZone::Calc && (!CalcActive() || calcHits.empty())) padZone = PadZone::List;
+    if (padZone == PadZone::Spec && (!SpecActive() || specHits.empty())) padZone = PadZone::List;
+    if (padZone == PadZone::Campaign && (!CampaignShowing() || campaignSpots.empty())) padZone = PadZone::List;
     if (padZone == PadZone::Chips && padChip >= layout.chips.size()) padChip = layout.chips.size() - 1;
 }
 
@@ -3080,6 +3706,27 @@ void OverlayState::PadFocusFromCursor() {
                 padZone = PadZone::Calc;
                 calcPadKind = hit.kind;
                 calcPadId = hit.index;
+                return;
+            }
+        }
+    }
+    if (SpecActive() && Inside(layout.detail, x, y) && y >= clipTop) {
+        for (const SpecHit& hit : specHits) {
+            if (Inside(hit.rect, x, y)) {
+                padZone = PadZone::Spec;
+                specPadKind = hit.kind;
+                specPadIndex = hit.index;
+                return;
+            }
+        }
+    }
+    if (CampaignShowing() && Inside(layout.detail, x, y) && y >= clipTop) {
+        const int shift = bodyTop - CurrentView().detailScroll;
+        for (std::size_t i = 0; i < campaignSpots.size(); ++i) {
+            const RECT& r = campaignSpots[i].rect;
+            if (x >= r.left && x < r.right && y >= r.top + shift && y < r.bottom + shift) {
+                padZone = PadZone::Campaign;
+                campaignPadIndex = static_cast<int>(i);
                 return;
             }
         }
@@ -3150,6 +3797,8 @@ void OverlayState::PadDirection(int dx, int dy) {
             }
         } else if (dx > 0) {
             if (CalcActive() && !calcHits.empty()) PadEnterCalc();  // the calculator's fields
+            else if (SpecActive() && !specHits.empty()) PadEnterSpec();  // the specialization board
+            else if (CampaignShowing() && !campaignSpots.empty()) PadEnterCampaign();  // the Campaign Progression map
             else if (!cardHits.empty()) PadEnterCards();            // right from the categories: into the items
             else if (!layout.chips.empty() && pageStarts.size() <= 1) {  // nothing showing: the filter and sort buttons
                 padZone = PadZone::Chips;
@@ -3163,6 +3812,12 @@ void OverlayState::PadDirection(int dx, int dy) {
         PadCardMove(dx, dy);
         break;
     case PadZone::Chips: {
+        // A Skills picker value: Left and Right change it (Up and Down move on as usual).
+        if (dx != 0 && dy == 0 && padChip < layout.chips.size() && layout.chips[padChip].kind == ChipKind::Picker &&
+            layout.chips[padChip].value % 3 == 1) {
+            // At the lowest or highest value nothing changes, and the pad moves on as for any other button.
+            if (SkillsPadStep(static_cast<int>(layout.chips[padChip].value / 3), dx)) break;
+        }
         std::vector<esrwiki::pad::Box> boxes;
         for (const Chip& chip : layout.chips) boxes.push_back({chip.rect.left, chip.rect.top, chip.rect.right, chip.rect.bottom});
         const int next = esrwiki::pad::Neighbor(boxes, static_cast<int>(padChip), dx, dy);
@@ -3173,6 +3828,12 @@ void OverlayState::PadDirection(int dx, int dy) {
     }
     case PadZone::Calc:
         CalcPadMove(dx, dy);
+        break;
+    case PadZone::Spec:
+        SpecPadMove(dx, dy);
+        break;
+    case PadZone::Campaign:
+        CampaignPadMove(dx, dy);
         break;
     }
     InvalidateRect(window, nullptr, FALSE);
@@ -3196,6 +3857,16 @@ void OverlayState::PadConfirm(ULONGLONG now) {
         InvalidateRect(window, nullptr, FALSE);
         return;
     }
+    if (padZone == PadZone::Spec) {
+        SpecPadConfirm();
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
+    if (padZone == PadZone::Campaign) {
+        CampaignPadConfirm();
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
     if (padZone == PadZone::Switches) {  // a header button: A opens that panel
         if (padSwitch < switches.size() && !switches[padSwitch].current &&
             (!switches[padSwitch].available || switches[padSwitch].available())) {
@@ -3212,8 +3883,10 @@ void OverlayState::PadBack() {
     if (padZone == PadZone::Cards) {
         PadLeaveCards();
         padZone = PadZone::List;
-    } else if (padZone == PadZone::Chips) {
+    } else if (padZone == PadZone::Chips || padZone == PadZone::Spec) {
         padZone = PadZone::List;
+    } else if (padZone == PadZone::Campaign) {
+        if (!CampaignPadBack()) padZone = PadZone::List;  // the details close first
     } else if (padZone == PadZone::Calc) {
         if (!CalcPadBack()) padZone = PadZone::List;  // an open list closes first
     } else if (padZone == PadZone::List || padZone == PadZone::Switches) {
@@ -3229,32 +3902,24 @@ void OverlayState::DrawOsk(HDC dc) {
     if (!oskOpen) return;
     // The keyboard is not page text: the search highlight must not mark its keys (typing "a" would light up the "a" key).
     struct HighlightOff {
-        std::wstring saved;
+        SearchHighlight saved;
         HighlightOff() : saved(gHighlight) { gHighlight.clear(); }
         ~HighlightOff() { gHighlight = saved; }
     } highlightOff;
-    if (oskRows.empty()) oskRows = esrwiki::pad::OskLayout(oskAccents, gKeyboardLocale);
-    int units = 20;  // the widest row, in half-key units (20 unless the language's letters need more)
-    for (const auto& row : oskRows) {
-        int total = 0;
-        for (const esrwiki::pad::OskKey& key : row) total += key.span;
-        units = std::max(units, total);
-    }
+    // The size and place come from PlanSearchPopups (overlay_suggest.inc): the keys get shorter when the suggestion list
+    // needs the room under the keyboard.
+    PlanSearchPopups();
+    const int units = oskUnits;  // the widest row, in half-key units (20 unless the language's letters need more)
     const int gap = S(4);
     const int pad = S(8);
-    const int unit = std::max(S(12), static_cast<int>(S(17) * uiScale));
-    const int keyHeight = std::max(S(32), bodyLine + S(16));
+    const int unit = oskUnit;
+    const int keyHeight = popupPlace.keyHeight;
     const int innerWidth = units * unit;
-    const int listWidth = listRightX - listLeftX;
-    const int boxWidth = std::max(innerWidth + 2 * pad, listWidth);
+    const int boxWidth = oskBoxWidth;
     const int rowsCount = static_cast<int>(oskRows.size());
-    const int boxHeight = 2 * pad + rowsCount * keyHeight + (rowsCount - 1) * gap;
-    RECT client{};
-    GetClientRect(window, &client);
     const int left = layout.search.left;
-    int top = layout.search.bottom + gap;
-    if (top + boxHeight > client.bottom - S(8)) top = std::max(S(8), static_cast<int>(client.bottom) - S(8) - boxHeight);
-    oskRect = Rect(left, top, left + boxWidth, top + boxHeight);
+    const int top = popupPlace.keyboardTop;
+    oskRect = Rect(left, top, left + boxWidth, popupPlace.keyboardBottom);
     DropShadow(dc, oskRect, S(3));
     FillPanel(dc, oskRect, RGB(10, 7, 4), 238);
     FrameColor(dc, oskRect, kGold);
@@ -3270,7 +3935,7 @@ void OverlayState::DrawOsk(HDC dc) {
             const esrwiki::pad::OskKey& key = keys[static_cast<std::size_t>(c)];
             const RECT rect = Rect(rowLeft + cumulative * unit, y, rowLeft + (cumulative + key.span) * unit - gap, y + keyHeight);
             cumulative += key.span;
-            const bool focus = padActive && r == oskRow && c == oskCol;
+            const bool focus = padActive && !suggestPadFocus && r == oskRow && c == oskCol;
             FillPanel(dc, rect, focus ? kSelected : kPanel, 235);
             FrameColor(dc, rect, focus ? kGold : kBorder);
             if (focus) FrameColor(dc, Rect(rect.left - 1, rect.top - 1, rect.right + 1, rect.bottom + 1), RGB(255, 240, 180));
@@ -3292,12 +3957,10 @@ float OverlayState::HelpIconWidth(const std::string& folder, const char* name, f
     return iconHeight * static_cast<float>(img->GetWidth()) / static_cast<float>(img->GetHeight());
 }
 
-// The help list and how big it is: its rows, and a window size that fits them (no more room than the text and sprites need).
-HelpMetrics OverlayState::MeasureHelp(esrwiki::pad::Kind kind) {
-    using esrwiki::pad::Kind;
-    HelpMetrics m;
-    const bool sony = kind == Kind::PlayStation;
-    m.picture = FindImage(sony ? "controller_playstation" : "controller_xbox") != nullptr;
+// The help rows for where the controller's focus is: the page, the on-screen keyboard, or the search suggestions.
+static std::vector<HelpRow> HelpRowsFor(esrwiki::pad::Kind kind, esrwiki::pad::SearchFocus focus) {
+    using esrwiki::pad::SearchFocus;
+    const bool sony = kind == esrwiki::pad::Kind::PlayStation;
     const wchar_t* a = sony ? L"Cross" : L"A";
     const wchar_t* b = sony ? L"Circle" : L"B";
     const wchar_t* x = sony ? L"Square" : L"X";
@@ -3305,17 +3968,59 @@ HelpMetrics OverlayState::MeasureHelp(esrwiki::pad::Kind kind) {
     const wchar_t* shoulder = sony ? L"L1 / R1" : L"LB / RB";
     const wchar_t* trig = sony ? L"L2 / R2" : L"LT / RT";
     const wchar_t* start = sony ? L"Options" : L"Menu";
-    m.rows = {{L"D-pad", L"Highlight", "dpad", nullptr},
-              {a, L"Select", "buttonbottom", nullptr},
-              {b, L"Back", "buttonright", nullptr},
-              {y, L"Search", "buttontop", nullptr},
-              {x, L"Clear search", "buttonleft", nullptr},
-              {shoulder, L"Previous / next tab", "bumperleft", "bumperright"},
-              {trig, L"Scroll up / down fast", "triggerleft", "triggerright"},
-              {L"Right stick", L"Scroll", "stickright", nullptr},
-              {L"Left stick", L"Move cursor (A clicks)", "stickleft", nullptr},
-              {L"R3", L"Switch panel", "stickrightbutton", nullptr},
-              {start, L"Close", "buttonstart", nullptr}};
+    const wchar_t* view = sony ? L"Share / Create" : L"View";
+    if (focus == SearchFocus::List) {
+        return {{L"D-pad up / down", L"Pick a suggestion", "dpadup", "dpaddown"},
+                {a, L"Open the suggestion", "buttonbottom", nullptr},
+                {b, L"Close the suggestions", "buttonright", nullptr},
+                {shoulder, L"Page through the suggestions", "bumperleft", "bumperright"},
+                {y, L"Show / hide keyboard", "buttontop", nullptr},
+                {view, L"Leave the suggestions", "buttonselect", nullptr},
+                {start, L"Close", "buttonstart", nullptr}};
+    }
+    if (focus == SearchFocus::Keyboard) {
+        return {{L"D-pad", L"Highlight a key", "dpad", nullptr},
+                {L"D-pad down", L"From the bottom row: suggestions", "dpaddown", nullptr},
+                {a, L"Type the key", "buttonbottom", nullptr},
+                {b, L"Clear search / close keyboard", "buttonright", nullptr},
+                {x, L"Delete a character", "buttonleft", nullptr},
+                {y, L"Close keyboard", "buttontop", nullptr},
+                {view, L"Search suggestions", "buttonselect", nullptr},
+                {shoulder, L"Previous / next tab", "bumperleft", "bumperright"},
+                {L"Left stick", L"Move cursor (A clicks)", "stickleft", nullptr},
+                {start, L"Close", "buttonstart", nullptr}};
+    }
+    return {{L"D-pad", L"Highlight", "dpad", nullptr},
+            {a, L"Select", "buttonbottom", nullptr},
+            {b, L"Back", "buttonright", nullptr},
+            {y, L"Search", "buttontop", nullptr},
+            {x, L"Clear search", "buttonleft", nullptr},
+            {view, L"Search suggestions", "buttonselect", nullptr},
+            {shoulder, L"Previous / next tab", "bumperleft", "bumperright"},
+            {trig, L"Scroll up / down fast", "triggerleft", "triggerright"},
+            {L"Right stick", L"Scroll", "stickright", nullptr},
+            {L"Left stick", L"Move cursor (A clicks)", "stickleft", nullptr},
+            {L"R3", L"Switch panel", "stickrightbutton", nullptr},
+            {start, L"Close", "buttonstart", nullptr}};
+}
+
+// The help list and how big it is: its rows, and a window size that fits them (no more room than the text and sprites need).
+HelpMetrics OverlayState::MeasureHelp(esrwiki::pad::Kind kind) {
+    using esrwiki::pad::Kind;
+    using esrwiki::pad::SearchFocus;
+    HelpMetrics m;
+    const bool sony = kind == Kind::PlayStation;
+    m.picture = FindImage(sony ? "controller_playstation" : "controller_xbox") != nullptr;
+    m.rows = HelpRowsFor(kind, PadSearchFocus());
+    // The window is sized for the largest of the three lists, so it does not change size as the focus moves.
+    std::vector<HelpRow> allRows;
+    for (SearchFocus focus : {SearchFocus::Page, SearchFocus::Keyboard, SearchFocus::List}) {
+        const std::vector<HelpRow> rows = HelpRowsFor(kind, focus);
+        allRows.insert(allRows.end(), rows.begin(), rows.end());
+    }
+    std::size_t mostRows = 0;
+    for (SearchFocus focus : {SearchFocus::Page, SearchFocus::Keyboard, SearchFocus::List})
+        mostRows = std::max(mostRows, HelpRowsFor(kind, focus).size());
     m.heading = UiText(sony ? L"PlayStation controller" : L"Xbox controller");
     m.inset = static_cast<float>(S(10));
     m.size = static_cast<float>(std::max(12.0, S(15) * uiScale));
@@ -3323,7 +4028,7 @@ HelpMetrics OverlayState::MeasureHelp(esrwiki::pad::Kind kind) {
     m.iconHeight = m.size * 2.0f;
     m.gap = static_cast<float>(S(6));
     const std::string folder = sony ? "ps4" : "xbox";
-    for (const HelpRow& row : m.rows) {
+    for (const HelpRow& row : allRows) {
         const float group = HelpIconWidth(folder, row.icon1, m.iconHeight) +
                             (row.icon2 != nullptr ? m.gap + HelpIconWidth(folder, row.icon2, m.iconHeight) : 0.0f);
         m.iconColumn = std::max(m.iconColumn, group);
@@ -3342,12 +4047,12 @@ HelpMetrics OverlayState::MeasureHelp(esrwiki::pad::Kind kind) {
         return box.Width;
     };
     float right = m.inset + measure(m.heading, bold);
-    for (const HelpRow& row : m.rows) {
+    for (const HelpRow& row : allRows) {
         const float widest = std::max(measure(UiText(row.button), bold), measure(UiText(row.action), font));
         right = std::max(right, m.textX + widest);
     }
     m.width = static_cast<int>(std::ceil(right + m.inset));
-    m.height = static_cast<int>(std::ceil(m.inset + m.size * 2.0f + m.line * static_cast<float>(m.rows.size()) + m.inset));
+    m.height = static_cast<int>(std::ceil(m.inset + m.size * 2.0f + m.line * static_cast<float>(mostRows) + m.inset));
     return m;
 }
 
@@ -3373,7 +4078,9 @@ void OverlayState::RenderHelp() {
     const int w = area.right - area.left;
     const int h = area.bottom - area.top;
     if (w <= 4 || h <= 4) return;
-    if (helpDrawnKind == padKind && helpDrawnWidth == w && helpDrawnHeight == h) return;
+    const int context = static_cast<int>(PadSearchFocus());
+    if (helpDrawnKind == padKind && helpDrawnWidth == w && helpDrawnHeight == h && helpDrawnContext == context) return;
+    helpDrawnContext = context;
     helpDrawnKind = padKind;
     helpDrawnWidth = w;
     helpDrawnHeight = h;
@@ -3475,9 +4182,10 @@ void OverlayState::PaintList(HDC dc) {
     std::wstring countText = UiFormat(L"{0} of {1} entries", {std::to_wstring(filtered.size()), std::to_wstring(page.entries.size())});
     if (!query.empty()) {
         const std::wstring position = filtered.empty() ? L"0" : std::to_wstring(view.selected + 1);
-        countText = UiFormat(L"{0} of {1} here | {2} total", {position, std::to_wstring(filtered.size()), std::to_wstring(totalMatches)});
+        countText = UiFormat(L"{0} of {1} entries here | {2} total", {position, std::to_wstring(filtered.size()), std::to_wstring(totalMatches)});
     }
-    Text(dc, countText, layout.count, kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER);
+    const bool noting = !searchNote.empty() && GetTickCount64() < searchNoteUntil;  // "Filters cleared" after a jump, for a moment
+    Text(dc, noting ? searchNote : countText, layout.count, noting ? kGold : kDim, fontSmall, DT_LEFT | DT_SINGLELINE | DT_VCENTER | DT_END_ELLIPSIS);
     if (!query.empty()) {
         CornerShadow(dc, layout.matchPrev, S(2));
         FillPanel(dc, layout.matchPrev, kPanel, 200);
@@ -3554,6 +4262,7 @@ static std::vector<std::string> DistinctFamilies(const Entry& entry) {
 // wrap onto another line when a row is full.
 int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     layout.chips.clear();
+    if (SkillsActive()) return BuildSkillsControls(dc, view);  // the picker strip (overlay_skills.inc)
     // Class Crafting has no filters or sorts: its cards stay in the order the page gives them.
     if (CurrentPage().id == "class-crafting") return layout.detail.top + S(12);
     const bool runes = HasRuneBlocks(entry) || entry.socketSort;  // gemwords have a Sockets filter but no runes
@@ -3752,6 +4461,7 @@ int OverlayState::RenderTiles(HDC dc, Gdiplus::Graphics* graphics, const Entry& 
             const int tileLeft = left + static_cast<int>(c) * (style.tileWidth + style.gap);
             const RECT tile = Rect(tileLeft, y, tileLeft + style.tileWidth, y + rowHeight);
             if (!draw && !query.empty() && BlockMatches(block, query)) matchTops.push_back(y - matchBase);
+            if (!draw) blockSpans.push_back({static_cast<int>(index), y - matchBase, y + rowHeight - matchBase});
             const bool onScreen = tile.bottom > clipTop && tile.top < clipBottom;
             if (draw && onScreen) {
                 CornerShadow(dc, tile, S(2));
@@ -3850,6 +4560,7 @@ int OverlayState::RenderWideTiles(HDC dc, Gdiplus::Graphics* graphics, const Ent
         const int cardHeight = pad + nameHeight + pad + artBox + pad;
         const int rowHeight = std::max(cardHeight, sideHeight);
 
+        if (!draw) blockSpans.push_back({static_cast<int>(order[i]), y - matchBase, y + rowHeight - matchBase});
         const RECT tile = Rect(left, y, left + tileWidth, y + rowHeight);
         const RECT column = Rect(sideLeft, y, sideLeft + sideWidth, y + rowHeight);
         const bool onScreen = tile.bottom > clipTop && tile.top < clipBottom;
@@ -4158,7 +4869,9 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
         COLORREF unused = base;
         PlainText(line.text, plain, unused, base);
         const std::wstring wide = Wide(plain);
-        const int h = MeasureHeight(dc, wide, width_, font);
+        const int h = HasColorCodes(line.text)
+                          ? LayoutPieces(dc, LinePieces(line.text, base), base, Rect(0, 0, width_, 0), font, DT_LEFT, false)
+                          : MeasureHeight(dc, wide, width_, font);
         if (draw) {
             const RECT box = Rect(left, y, left + width_, y + h);
             if (HasColorCodes(line.text)) LayoutPieces(dc, LinePieces(line.text, base), base, box, font, DT_LEFT, true);
@@ -4176,8 +4889,10 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
 // content right edge leaves room for the scrollbar.
 int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std::size_t>& order, bool headers,
                                int top, int scroll, bool compact, bool draw) {
-    if (!draw) matchTops.clear();
+    if (!draw) { matchTops.clear(); blockSpans.clear(); campaignSpots.clear(); }
+    else campaignHits.clear();
     if (CalcActive()) return RenderCalculator(dc, top, scroll, draw);
+    if (SpecActive()) return RenderSpecializations(dc, top, scroll, draw);
     const RECT area = layout.detail;
     const int left = area.left + S(16);
     const int width_ = area.right - S(22) - left;
@@ -4206,7 +4921,10 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
     }
     y += S(4);
 
-    if (order.empty()) {
+    // The Campaign Progression entry: the map is drawn under its text (and stays when the text does not match a search
+    // that an area matches).
+    const bool campaignHere = CurrentPage().id == "welcome" && IsCampaignEntry(entry);
+    if (order.empty() && !(campaignHere && campaignData)) {
         // Tall enough for the font's full line, so the text is not cut off at the bottom.
         const int noMatchHeight = std::max(S(24), bodyLine + S(6));
         if (draw) Text(dc, UiText(L"Nothing matches this filter"), Rect(left, y, left + width_, y + noMatchHeight), kDim, fontBody,
@@ -4225,7 +4943,9 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
                 y += S(12);
             }
             if (!draw && !query.empty() && BlockMatches(first, query)) matchTops.push_back(y - matchBase);
+            const int guideTop = y;
             y = RenderGuideBlock(dc, graphics, first, left, width_, y, draw);
+            if (!draw) blockSpans.push_back({static_cast<int>(order[i]), guideTop - matchBase, y - matchBase});
             y += S(6);
             firstBlock = false;
             ++i;
@@ -4233,7 +4953,8 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
         }
 
         if (headers && !first.section.empty()) {
-            const std::wstring header = UiText(Wide(first.section));
+            // A skill tree's title comes from the skills data, already in the language.
+            const std::wstring header = SkillsActive() ? UiDataText(Wide(first.section)) : UiText(Wide(first.section));
             const int h = MeasureHeight(dc, header, width_, fontBold);
             if (draw) Text(dc, header, Rect(left, y, left + width_, y + h), greenNames ? CodeColor('2') : kHeaderGold, fontBold, DT_LEFT | DT_WORDBREAK);
             y += h + S(2);
@@ -4248,11 +4969,13 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
             if (headers && candidate.section != first.section) break;
             ++end;
         }
-        y = RenderTiles(dc, graphics, entry, order, i, end, left, width_, y, compact || entry.compact, draw);
+        y = SkillsActive() ? RenderSkillTiles(dc, entry, order, i, end, left, width_, y, draw)
+                           : RenderTiles(dc, graphics, entry, order, i, end, left, width_, y, compact || entry.compact, draw);
         y += S(6);
         firstBlock = false;
         i = end;
     }
+    if (campaignHere) y = RenderCampaign(dc, graphics, left, width_, y, draw);
     return y - origin;
 }
 
@@ -4270,7 +4993,9 @@ int OverlayState::RenderSplitBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
         COLORREF unused = kBody;
         PlainText(line.text, plain, unused, kBody);
         const std::wstring wide = Wide(plain);
-        const int h = MeasureHeight(dc, wide, width, font);
+        const int h = HasColorCodes(line.text)
+                          ? LayoutPieces(dc, LinePieces(line.text, kBody), kBody, Rect(0, 0, width, 0), font, DT_CENTER, false)
+                          : MeasureHeight(dc, wide, width, font);
         if (paint) {
             const RECT box = Rect(x, top, x + width, top + h);
             if (HasColorCodes(line.text)) LayoutPieces(dc, LinePieces(line.text, kBody), kBody, box, font, DT_CENTER, true);
@@ -4337,6 +5062,11 @@ int OverlayState::RenderSplitBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
 }
 
 #include "overlay_calc.inc"
+#include "overlay_spec.inc"
+#include "overlay_skills.inc"
+#include "overlay_campaign.inc"
+#include "overlay_campaign_live.inc"
+#include "overlay_suggest.inc"
 #include "overlay_switch.inc"
 
 std::vector<std::size_t> OverlayState::ArrangedOrder(const Entry& entry, std::size_t entryIndex,
@@ -4443,12 +5173,17 @@ void OverlayState::Paint(HDC target) {
         rowSortNow = ResolveBlockSort(entry, view.sort);
         splitNow = entry.splitLayout;
         splitTitleNow = entry.title + " Ascendancy";
-        const bool headers = !entry.sortable && !(HasRuneBlocks(entry) && view.sort == BlockSort::Name);
+        // Sorted by name, the Skills page's cards leave their trees, so the tree titles go too.
+        const bool headers = !entry.sortable && !(HasRuneBlocks(entry) && view.sort == BlockSort::Name) &&
+                             !(SkillsActive() && view.sort == BlockSort::Name);
         const int visible = layout.detail.bottom - top - S(10);
         const int total = RenderDetail(dc, entry, order, headers, top, 0, page.compact, false);
         view.detailScroll = std::clamp(view.detailScroll, 0, std::max(0, total - visible));
         scrollTotal = total;
         scrollVisible = visible;
+        bodyTop = top;
+        ApplyJump(total, visible);
+        CampaignApplyReveal(total, visible);
 
         // Draw the cards onto a copy of the frame, then copy back only the detail band. A DC clip
         // is not reliable here: once GDI+ has drawn art into the DC, later card backgrounds ignore
@@ -4466,13 +5201,18 @@ void OverlayState::Paint(HDC target) {
         DeleteDC(detailDc);
         DrawScrollbar(dc, top, visible, total, view.detailScroll);
     } else {
+        layout.chips.clear();  // no controls are built here, so the last ones must not stay clickable
         Text(dc, UiText(L"Nothing selected"), layout.detail, kDim, fontBody, DT_CENTER | DT_SINGLELINE | DT_VCENTER);
     }
 
     DrawOsk(dc);
     DrawCardFocus(dc);
     DrawDetailFocus(dc);
+    DrawJumpFlash(dc);
+    DrawSuggest(dc);
     DrawTooltip(dc);
+    DrawSpecTooltip(dc);
+    DrawCampaignTooltip(dc);
     BitBlt(target, 0, 0, clientWidth, clientHeight, dc, 0, 0, SRCCOPY);
     SelectObject(dc, previousBitmap);
     DeleteObject(bitmap);
@@ -4502,6 +5242,18 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         return 0;
     case kMsgReload:
         self->ApplyPendingDatabase();
+        return 0;
+    case kMsgSpecData:
+        self->ApplySpecData();
+        return 0;
+    case kMsgCampaignData:
+        self->ApplyCampaignData();
+        return 0;
+    case kMsgMapsData:
+        self->ApplyMapsData();
+        return 0;
+    case kMsgSkillsData:
+        self->ApplySkillsData();
         return 0;
     case kMsgShutdown:
         if (IsWindow(self->blocker)) DestroyWindow(self->blocker);
@@ -4537,6 +5289,21 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         if (wParam == kTimerFocus) self->SyncVisibility();
         else if (wParam == kTimerHandoff) self->HandoffTick();
         else if (wParam == kTimerPad) self->PadTick();
+        else if (wParam == kTimerFlash) {
+            KillTimer(window, kTimerFlash);
+            self->flashBlock = -1;
+            self->specFlashPerk = -1;
+            self->campaignFlashArea = 0;
+            InvalidateRect(window, nullptr, FALSE);
+        } else if (wParam == kTimerSuggest) {
+            KillTimer(window, kTimerSuggest);
+            if (IsWindowVisible(window)) self->FlushSuggest();
+            else self->suggestDirty = false;  // hidden: ReopenSuggest looks the text up when it is needed
+        } else if (wParam == kTimerNote) {
+            KillTimer(window, kTimerNote);
+            self->searchNote.clear();
+            InvalidateRect(window, nullptr, FALSE);
+        }
         return 0;
     case WM_MOUSEMOVE: {
         // A move the left stick made is not the mouse; the stick moves the pointer on the cursor thread, so a move soon after
@@ -4752,6 +5519,8 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     self->CreateFonts();
     self->searchBrush = CreateSolidBrush(kSearchFill);
     self->backgroundBrush = CreateSolidBrush(kBackground);
+    self->AdoptSkillsData();    // given before Start: the Skills page is there from the first paint
+    self->PrepareSkillsPage();
     self->views.assign(self->database->pages.size(), PageView{});
 
     self->window = CreateWindowExW(WS_EX_TOOLWINDOW | WS_EX_LAYERED, self->windowClassName.c_str(), self->title.c_str(),
@@ -4798,6 +5567,7 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     self->Refilter();
     self->started = true;
     SetEvent(self->ready);
+    self->EnsureSearchIndex();  // the suggestions' index, built when the data loads rather than on the first key typed
 
     MSG message{};
     while (GetMessageW(&message, nullptr, 0, 0) > 0) {
@@ -4809,8 +5579,18 @@ DWORD WINAPI UiThread(LPVOID parameter) {
             continue;
         }
         if (message.message == WM_KEYDOWN && IsWindowVisible(self->window)) {
+            if ((message.wParam == VK_ESCAPE || message.wParam == VK_UP || message.wParam == VK_DOWN || message.wParam == VK_RETURN ||
+                 message.wParam == VK_NEXT || message.wParam == VK_PRIOR || message.wParam == VK_TAB) &&
+                self->SuggestKey(message.wParam)) {
+                continue;  // the suggestions list took it (continue: no WM_CHAR, so Tab and Enter type nothing)
+            }
+            if (message.wParam == VK_F3) {  // F3 / Shift+F3: the next / previous match on the page, list open or not
+                self->CloseSuggest();
+                self->StepMatch((GetKeyState(VK_SHIFT) & 0x8000) ? -1 : 1);
+                continue;
+            }
             if (message.wParam == VK_ESCAPE) {
-                self->Hide();
+                if (!self->CampaignEscape()) self->Hide();  // the map's area details close first
                 continue;
             }
             if (message.wParam == VK_UP || message.wParam == VK_DOWN || message.wParam == VK_NEXT ||
@@ -4831,6 +5611,8 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     if (self->fontSmall) DeleteObject(self->fontSmall);
     if (self->fontBold) DeleteObject(self->fontBold);
     if (self->fontTitle) DeleteObject(self->fontTitle);
+    if (self->fontSnippet) DeleteObject(self->fontSnippet);
+    if (self->fontSnippetBold) DeleteObject(self->fontSnippetBold);
     self->gamepad.Stop();
     if (self->helpWindow != nullptr) DestroyWindow(self->helpWindow);
     UnregisterClassW(self->helpClassName.c_str(), helpClass.hInstance);

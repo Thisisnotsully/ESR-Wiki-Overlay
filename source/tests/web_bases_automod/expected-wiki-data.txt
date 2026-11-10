@@ -1,0 +1,2066 @@
+PAGE	gemwords	Gemwords	Wiki
+PAGE	item-bases	Item Bases	Wiki
+ENTRY	Armor	208 items	sortable	fiveacross
+BLOCK	1	Clean Two	ca1	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit AHit BHit CTinkering Points: (25 to 35)
+BLOCK	1	Clean Three	ca2	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A More AHit B More BTinkering Points: (25 to 35)
+BLOCK	1	Degenerate	ca3	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Tinkering Points: (25 to 35)
+BLOCK	1	Single	ca4	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A Tinkering Points: (25 to 35)
+BLOCK	1	Plain	ca5	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Tinkering Points: (25 to 35)
+BLOCK	1	Different Last	ca6	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A Tail AHit B Tail B
+BLOCK	1	Short Tier	ca7	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A Tinkering Points: (25 to 35)Tinkering Points: (25 to 35)
+BLOCK	1	Empty	ca8	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+BLOCK	1	Filler 0	fa0	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 0
+BLOCK	1	Filler 1	fa1	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 1
+BLOCK	1	Filler 2	fa2	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 2
+BLOCK	1	Filler 3	fa3	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 3
+BLOCK	1	Filler 4	fa4	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 4
+BLOCK	1	Filler 5	fa5	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 5
+BLOCK	1	Filler 6	fa6	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 6
+BLOCK	1	Filler 7	fa7	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 7
+BLOCK	1	Filler 8	fa8	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 8
+BLOCK	1	Filler 9	fa9	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 9
+BLOCK	1	Filler 10	fa10	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 10
+BLOCK	1	Filler 11	fa11	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 11
+BLOCK	1	Filler 12	fa12	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 12
+BLOCK	1	Filler 13	fa13	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 13
+BLOCK	1	Filler 14	fa14	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 14
+BLOCK	1	Filler 15	fa15	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 15
+BLOCK	1	Filler 16	fa16	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 16
+BLOCK	1	Filler 17	fa17	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 17
+BLOCK	1	Filler 18	fa18	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 18
+BLOCK	1	Filler 19	fa19	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 19
+BLOCK	1	Filler 20	fa20	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 20
+BLOCK	1	Filler 21	fa21	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 21
+BLOCK	1	Filler 22	fa22	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 22
+BLOCK	1	Filler 23	fa23	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 23
+BLOCK	1	Filler 24	fa24	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 24
+BLOCK	1	Filler 25	fa25	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 25
+BLOCK	1	Filler 26	fa26	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 26
+BLOCK	1	Filler 27	fa27	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 27
+BLOCK	1	Filler 28	fa28	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 28
+BLOCK	1	Filler 29	fa29	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 29
+BLOCK	1	Filler 30	fa30	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 30
+BLOCK	1	Filler 31	fa31	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 31
+BLOCK	1	Filler 32	fa32	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 32
+BLOCK	1	Filler 33	fa33	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 33
+BLOCK	1	Filler 34	fa34	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 34
+BLOCK	1	Filler 35	fa35	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 35
+BLOCK	1	Filler 36	fa36	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 36
+BLOCK	1	Filler 37	fa37	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 37
+BLOCK	1	Filler 38	fa38	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 38
+BLOCK	1	Filler 39	fa39	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 39
+BLOCK	1	Filler 40	fa40	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 40
+BLOCK	1	Filler 41	fa41	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 41
+BLOCK	1	Filler 42	fa42	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 42
+BLOCK	1	Filler 43	fa43	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 43
+BLOCK	1	Filler 44	fa44	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 44
+BLOCK	1	Filler 45	fa45	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 45
+BLOCK	1	Filler 46	fa46	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 46
+BLOCK	1	Filler 47	fa47	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 47
+BLOCK	1	Filler 48	fa48	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 48
+BLOCK	1	Filler 49	fa49	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 49
+BLOCK	1	Filler 50	fa50	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 50
+BLOCK	1	Filler 51	fa51	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 51
+BLOCK	1	Filler 52	fa52	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 52
+BLOCK	1	Filler 53	fa53	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 53
+BLOCK	1	Filler 54	fa54	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 54
+BLOCK	1	Filler 55	fa55	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 55
+BLOCK	1	Filler 56	fa56	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 56
+BLOCK	1	Filler 57	fa57	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 57
+BLOCK	1	Filler 58	fa58	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 58
+BLOCK	1	Filler 59	fa59	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 59
+BLOCK	1	Filler 60	fa60	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 60
+BLOCK	1	Filler 61	fa61	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 61
+BLOCK	1	Filler 62	fa62	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 62
+BLOCK	1	Filler 63	fa63	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 63
+BLOCK	1	Filler 64	fa64	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 64
+BLOCK	1	Filler 65	fa65	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 65
+BLOCK	1	Filler 66	fa66	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 66
+BLOCK	1	Filler 67	fa67	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 67
+BLOCK	1	Filler 68	fa68	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 68
+BLOCK	1	Filler 69	fa69	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 69
+BLOCK	1	Filler 70	fa70	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 70
+BLOCK	1	Filler 71	fa71	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 71
+BLOCK	1	Filler 72	fa72	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 72
+BLOCK	1	Filler 73	fa73	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 73
+BLOCK	1	Filler 74	fa74	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 74
+BLOCK	1	Filler 75	fa75	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 75
+BLOCK	1	Filler 76	fa76	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 76
+BLOCK	1	Filler 77	fa77	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 77
+BLOCK	1	Filler 78	fa78	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 78
+BLOCK	1	Filler 79	fa79	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 79
+BLOCK	1	Filler 80	fa80	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 80
+BLOCK	1	Filler 81	fa81	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 81
+BLOCK	1	Filler 82	fa82	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 82
+BLOCK	1	Filler 83	fa83	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 83
+BLOCK	1	Filler 84	fa84	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 84
+BLOCK	1	Filler 85	fa85	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 85
+BLOCK	1	Filler 86	fa86	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 86
+BLOCK	1	Filler 87	fa87	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 87
+BLOCK	1	Filler 88	fa88	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 88
+BLOCK	1	Filler 89	fa89	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 89
+BLOCK	1	Filler 90	fa90	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 90
+BLOCK	1	Filler 91	fa91	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 91
+BLOCK	1	Filler 92	fa92	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 92
+BLOCK	1	Filler 93	fa93	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 93
+BLOCK	1	Filler 94	fa94	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 94
+BLOCK	1	Filler 95	fa95	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 95
+BLOCK	1	Filler 96	fa96	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 96
+BLOCK	1	Filler 97	fa97	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 97
+BLOCK	1	Filler 98	fa98	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 98
+BLOCK	1	Filler 99	fa99	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 99
+BLOCK	1	Filler 100	fa100	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 100
+BLOCK	1	Filler 101	fa101	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 101
+BLOCK	1	Filler 102	fa102	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 102
+BLOCK	1	Filler 103	fa103	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 103
+BLOCK	1	Filler 104	fa104	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 104
+BLOCK	1	Filler 105	fa105	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 105
+BLOCK	1	Filler 106	fa106	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 106
+BLOCK	1	Filler 107	fa107	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 107
+BLOCK	1	Filler 108	fa108	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 108
+BLOCK	1	Filler 109	fa109	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 109
+BLOCK	1	Filler 110	fa110	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 110
+BLOCK	1	Filler 111	fa111	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 111
+BLOCK	1	Filler 112	fa112	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 112
+BLOCK	1	Filler 113	fa113	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 113
+BLOCK	1	Filler 114	fa114	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 114
+BLOCK	1	Filler 115	fa115	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 115
+BLOCK	1	Filler 116	fa116	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 116
+BLOCK	1	Filler 117	fa117	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 117
+BLOCK	1	Filler 118	fa118	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 118
+BLOCK	1	Filler 119	fa119	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 119
+BLOCK	1	Filler 120	fa120	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 120
+BLOCK	1	Filler 121	fa121	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 121
+BLOCK	1	Filler 122	fa122	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 122
+BLOCK	1	Filler 123	fa123	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 123
+BLOCK	1	Filler 124	fa124	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 124
+BLOCK	1	Filler 125	fa125	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 125
+BLOCK	1	Filler 126	fa126	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 126
+BLOCK	1	Filler 127	fa127	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 127
+BLOCK	1	Filler 128	fa128	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 128
+BLOCK	1	Filler 129	fa129	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 129
+BLOCK	1	Filler 130	fa130	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 130
+BLOCK	1	Filler 131	fa131	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 131
+BLOCK	1	Filler 132	fa132	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 132
+BLOCK	1	Filler 133	fa133	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 133
+BLOCK	1	Filler 134	fa134	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 134
+BLOCK	1	Filler 135	fa135	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 135
+BLOCK	1	Filler 136	fa136	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 136
+BLOCK	1	Filler 137	fa137	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 137
+BLOCK	1	Filler 138	fa138	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 138
+BLOCK	1	Filler 139	fa139	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 139
+BLOCK	1	Filler 140	fa140	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 140
+BLOCK	1	Filler 141	fa141	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 141
+BLOCK	1	Filler 142	fa142	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 142
+BLOCK	1	Filler 143	fa143	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 143
+BLOCK	1	Filler 144	fa144	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 144
+BLOCK	1	Filler 145	fa145	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 145
+BLOCK	1	Filler 146	fa146	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 146
+BLOCK	1	Filler 147	fa147	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 147
+BLOCK	1	Filler 148	fa148	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 148
+BLOCK	1	Filler 149	fa149	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 149
+BLOCK	1	Filler 150	fa150	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 150
+BLOCK	1	Filler 151	fa151	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 151
+BLOCK	1	Filler 152	fa152	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 152
+BLOCK	1	Filler 153	fa153	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 153
+BLOCK	1	Filler 154	fa154	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 154
+BLOCK	1	Filler 155	fa155	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 155
+BLOCK	1	Filler 156	fa156	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 156
+BLOCK	1	Filler 157	fa157	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 157
+BLOCK	1	Filler 158	fa158	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 158
+BLOCK	1	Filler 159	fa159	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 159
+BLOCK	1	Filler 160	fa160	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 160
+BLOCK	1	Filler 161	fa161	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 161
+BLOCK	1	Filler 162	fa162	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 162
+BLOCK	1	Filler 163	fa163	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 163
+BLOCK	1	Filler 164	fa164	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 164
+BLOCK	1	Filler 165	fa165	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 165
+BLOCK	1	Filler 166	fa166	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 166
+BLOCK	1	Filler 167	fa167	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 167
+BLOCK	1	Filler 168	fa168	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 168
+BLOCK	1	Filler 169	fa169	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 169
+BLOCK	1	Filler 170	fa170	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 170
+BLOCK	1	Filler 171	fa171	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 171
+BLOCK	1	Filler 172	fa172	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 172
+BLOCK	1	Filler 173	fa173	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 173
+BLOCK	1	Filler 174	fa174	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 174
+BLOCK	1	Filler 175	fa175	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 175
+BLOCK	1	Filler 176	fa176	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 176
+BLOCK	1	Filler 177	fa177	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 177
+BLOCK	1	Filler 178	fa178	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 178
+BLOCK	1	Filler 179	fa179	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 179
+BLOCK	1	Filler 180	fa180	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 180
+BLOCK	1	Filler 181	fa181	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 181
+BLOCK	1	Filler 182	fa182	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 182
+BLOCK	1	Filler 183	fa183	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 183
+BLOCK	1	Filler 184	fa184	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 184
+BLOCK	1	Filler 185	fa185	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 185
+BLOCK	1	Filler 186	fa186	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 186
+BLOCK	1	Filler 187	fa187	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 187
+BLOCK	1	Filler 188	fa188	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 188
+BLOCK	1	Filler 189	fa189	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 189
+BLOCK	1	Filler 190	fa190	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 190
+BLOCK	1	Filler 191	fa191	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 191
+BLOCK	1	Filler 192	fa192	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 192
+BLOCK	1	Filler 193	fa193	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 193
+BLOCK	1	Filler 194	fa194	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 194
+BLOCK	1	Filler 195	fa195	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 195
+BLOCK	1	Filler 196	fa196	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 196
+BLOCK	1	Filler 197	fa197	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 197
+BLOCK	1	Filler 198	fa198	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 198
+BLOCK	1	Filler 199	fa199	Armor		Armor	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 199
+ENTRY	Weapons	308 items	sortable	fiveacross
+BLOCK	1	Clean Two	ca1	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit AHit BHit CTinkering Points: (25 to 35)
+BLOCK	1	Clean Three	ca2	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A More AHit B More BTinkering Points: (25 to 35)
+BLOCK	1	Degenerate	ca3	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Tinkering Points: (25 to 35)
+BLOCK	1	Single	ca4	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A Tinkering Points: (25 to 35)
+BLOCK	1	Plain	ca5	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Tinkering Points: (25 to 35)
+BLOCK	1	Different Last	ca6	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A Tail AHit B Tail B
+BLOCK	1	Short Tier	ca7	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Hit A Tinkering Points: (25 to 35)Tinkering Points: (25 to 35)
+BLOCK	1	Empty	ca8	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+BLOCK	1	Filler 0	fw0	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 0
+BLOCK	1	Filler 1	fw1	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 1
+BLOCK	1	Filler 2	fw2	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 2
+BLOCK	1	Filler 3	fw3	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 3
+BLOCK	1	Filler 4	fw4	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 4
+BLOCK	1	Filler 5	fw5	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 5
+BLOCK	1	Filler 6	fw6	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 6
+BLOCK	1	Filler 7	fw7	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 7
+BLOCK	1	Filler 8	fw8	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 8
+BLOCK	1	Filler 9	fw9	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 9
+BLOCK	1	Filler 10	fw10	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 10
+BLOCK	1	Filler 11	fw11	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 11
+BLOCK	1	Filler 12	fw12	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 12
+BLOCK	1	Filler 13	fw13	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 13
+BLOCK	1	Filler 14	fw14	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 14
+BLOCK	1	Filler 15	fw15	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 15
+BLOCK	1	Filler 16	fw16	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 16
+BLOCK	1	Filler 17	fw17	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 17
+BLOCK	1	Filler 18	fw18	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 18
+BLOCK	1	Filler 19	fw19	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 19
+BLOCK	1	Filler 20	fw20	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 20
+BLOCK	1	Filler 21	fw21	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 21
+BLOCK	1	Filler 22	fw22	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 22
+BLOCK	1	Filler 23	fw23	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 23
+BLOCK	1	Filler 24	fw24	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 24
+BLOCK	1	Filler 25	fw25	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 25
+BLOCK	1	Filler 26	fw26	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 26
+BLOCK	1	Filler 27	fw27	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 27
+BLOCK	1	Filler 28	fw28	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 28
+BLOCK	1	Filler 29	fw29	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 29
+BLOCK	1	Filler 30	fw30	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 30
+BLOCK	1	Filler 31	fw31	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 31
+BLOCK	1	Filler 32	fw32	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 32
+BLOCK	1	Filler 33	fw33	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 33
+BLOCK	1	Filler 34	fw34	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 34
+BLOCK	1	Filler 35	fw35	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 35
+BLOCK	1	Filler 36	fw36	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 36
+BLOCK	1	Filler 37	fw37	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 37
+BLOCK	1	Filler 38	fw38	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 38
+BLOCK	1	Filler 39	fw39	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 39
+BLOCK	1	Filler 40	fw40	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 40
+BLOCK	1	Filler 41	fw41	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 41
+BLOCK	1	Filler 42	fw42	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 42
+BLOCK	1	Filler 43	fw43	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 43
+BLOCK	1	Filler 44	fw44	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 44
+BLOCK	1	Filler 45	fw45	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 45
+BLOCK	1	Filler 46	fw46	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 46
+BLOCK	1	Filler 47	fw47	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 47
+BLOCK	1	Filler 48	fw48	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 48
+BLOCK	1	Filler 49	fw49	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 49
+BLOCK	1	Filler 50	fw50	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 50
+BLOCK	1	Filler 51	fw51	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 51
+BLOCK	1	Filler 52	fw52	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 52
+BLOCK	1	Filler 53	fw53	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 53
+BLOCK	1	Filler 54	fw54	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 54
+BLOCK	1	Filler 55	fw55	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 55
+BLOCK	1	Filler 56	fw56	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 56
+BLOCK	1	Filler 57	fw57	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 57
+BLOCK	1	Filler 58	fw58	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 58
+BLOCK	1	Filler 59	fw59	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 59
+BLOCK	1	Filler 60	fw60	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 60
+BLOCK	1	Filler 61	fw61	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 61
+BLOCK	1	Filler 62	fw62	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 62
+BLOCK	1	Filler 63	fw63	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 63
+BLOCK	1	Filler 64	fw64	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 64
+BLOCK	1	Filler 65	fw65	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 65
+BLOCK	1	Filler 66	fw66	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 66
+BLOCK	1	Filler 67	fw67	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 67
+BLOCK	1	Filler 68	fw68	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 68
+BLOCK	1	Filler 69	fw69	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 69
+BLOCK	1	Filler 70	fw70	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 70
+BLOCK	1	Filler 71	fw71	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 71
+BLOCK	1	Filler 72	fw72	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 72
+BLOCK	1	Filler 73	fw73	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 73
+BLOCK	1	Filler 74	fw74	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 74
+BLOCK	1	Filler 75	fw75	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 75
+BLOCK	1	Filler 76	fw76	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 76
+BLOCK	1	Filler 77	fw77	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 77
+BLOCK	1	Filler 78	fw78	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 78
+BLOCK	1	Filler 79	fw79	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 79
+BLOCK	1	Filler 80	fw80	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 80
+BLOCK	1	Filler 81	fw81	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 81
+BLOCK	1	Filler 82	fw82	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 82
+BLOCK	1	Filler 83	fw83	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 83
+BLOCK	1	Filler 84	fw84	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 84
+BLOCK	1	Filler 85	fw85	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 85
+BLOCK	1	Filler 86	fw86	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 86
+BLOCK	1	Filler 87	fw87	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 87
+BLOCK	1	Filler 88	fw88	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 88
+BLOCK	1	Filler 89	fw89	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 89
+BLOCK	1	Filler 90	fw90	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 90
+BLOCK	1	Filler 91	fw91	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 91
+BLOCK	1	Filler 92	fw92	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 92
+BLOCK	1	Filler 93	fw93	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 93
+BLOCK	1	Filler 94	fw94	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 94
+BLOCK	1	Filler 95	fw95	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 95
+BLOCK	1	Filler 96	fw96	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 96
+BLOCK	1	Filler 97	fw97	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 97
+BLOCK	1	Filler 98	fw98	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 98
+BLOCK	1	Filler 99	fw99	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 99
+BLOCK	1	Filler 100	fw100	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 100
+BLOCK	1	Filler 101	fw101	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 101
+BLOCK	1	Filler 102	fw102	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 102
+BLOCK	1	Filler 103	fw103	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 103
+BLOCK	1	Filler 104	fw104	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 104
+BLOCK	1	Filler 105	fw105	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 105
+BLOCK	1	Filler 106	fw106	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 106
+BLOCK	1	Filler 107	fw107	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 107
+BLOCK	1	Filler 108	fw108	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 108
+BLOCK	1	Filler 109	fw109	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 109
+BLOCK	1	Filler 110	fw110	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 110
+BLOCK	1	Filler 111	fw111	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 111
+BLOCK	1	Filler 112	fw112	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 112
+BLOCK	1	Filler 113	fw113	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 113
+BLOCK	1	Filler 114	fw114	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 114
+BLOCK	1	Filler 115	fw115	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 115
+BLOCK	1	Filler 116	fw116	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 116
+BLOCK	1	Filler 117	fw117	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 117
+BLOCK	1	Filler 118	fw118	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 118
+BLOCK	1	Filler 119	fw119	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 119
+BLOCK	1	Filler 120	fw120	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 120
+BLOCK	1	Filler 121	fw121	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 121
+BLOCK	1	Filler 122	fw122	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 122
+BLOCK	1	Filler 123	fw123	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 123
+BLOCK	1	Filler 124	fw124	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 124
+BLOCK	1	Filler 125	fw125	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 125
+BLOCK	1	Filler 126	fw126	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 126
+BLOCK	1	Filler 127	fw127	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 127
+BLOCK	1	Filler 128	fw128	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 128
+BLOCK	1	Filler 129	fw129	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 129
+BLOCK	1	Filler 130	fw130	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 130
+BLOCK	1	Filler 131	fw131	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 131
+BLOCK	1	Filler 132	fw132	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 132
+BLOCK	1	Filler 133	fw133	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 133
+BLOCK	1	Filler 134	fw134	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 134
+BLOCK	1	Filler 135	fw135	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 135
+BLOCK	1	Filler 136	fw136	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 136
+BLOCK	1	Filler 137	fw137	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 137
+BLOCK	1	Filler 138	fw138	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 138
+BLOCK	1	Filler 139	fw139	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 139
+BLOCK	1	Filler 140	fw140	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 140
+BLOCK	1	Filler 141	fw141	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 141
+BLOCK	1	Filler 142	fw142	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 142
+BLOCK	1	Filler 143	fw143	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 143
+BLOCK	1	Filler 144	fw144	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 144
+BLOCK	1	Filler 145	fw145	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 145
+BLOCK	1	Filler 146	fw146	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 146
+BLOCK	1	Filler 147	fw147	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 147
+BLOCK	1	Filler 148	fw148	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 148
+BLOCK	1	Filler 149	fw149	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 149
+BLOCK	1	Filler 150	fw150	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 150
+BLOCK	1	Filler 151	fw151	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 151
+BLOCK	1	Filler 152	fw152	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 152
+BLOCK	1	Filler 153	fw153	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 153
+BLOCK	1	Filler 154	fw154	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 154
+BLOCK	1	Filler 155	fw155	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 155
+BLOCK	1	Filler 156	fw156	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 156
+BLOCK	1	Filler 157	fw157	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 157
+BLOCK	1	Filler 158	fw158	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 158
+BLOCK	1	Filler 159	fw159	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 159
+BLOCK	1	Filler 160	fw160	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 160
+BLOCK	1	Filler 161	fw161	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 161
+BLOCK	1	Filler 162	fw162	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 162
+BLOCK	1	Filler 163	fw163	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 163
+BLOCK	1	Filler 164	fw164	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 164
+BLOCK	1	Filler 165	fw165	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 165
+BLOCK	1	Filler 166	fw166	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 166
+BLOCK	1	Filler 167	fw167	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 167
+BLOCK	1	Filler 168	fw168	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 168
+BLOCK	1	Filler 169	fw169	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 169
+BLOCK	1	Filler 170	fw170	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 170
+BLOCK	1	Filler 171	fw171	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 171
+BLOCK	1	Filler 172	fw172	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 172
+BLOCK	1	Filler 173	fw173	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 173
+BLOCK	1	Filler 174	fw174	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 174
+BLOCK	1	Filler 175	fw175	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 175
+BLOCK	1	Filler 176	fw176	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 176
+BLOCK	1	Filler 177	fw177	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 177
+BLOCK	1	Filler 178	fw178	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 178
+BLOCK	1	Filler 179	fw179	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 179
+BLOCK	1	Filler 180	fw180	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 180
+BLOCK	1	Filler 181	fw181	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 181
+BLOCK	1	Filler 182	fw182	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 182
+BLOCK	1	Filler 183	fw183	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 183
+BLOCK	1	Filler 184	fw184	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 184
+BLOCK	1	Filler 185	fw185	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 185
+BLOCK	1	Filler 186	fw186	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 186
+BLOCK	1	Filler 187	fw187	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 187
+BLOCK	1	Filler 188	fw188	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 188
+BLOCK	1	Filler 189	fw189	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 189
+BLOCK	1	Filler 190	fw190	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 190
+BLOCK	1	Filler 191	fw191	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 191
+BLOCK	1	Filler 192	fw192	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 192
+BLOCK	1	Filler 193	fw193	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 193
+BLOCK	1	Filler 194	fw194	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 194
+BLOCK	1	Filler 195	fw195	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 195
+BLOCK	1	Filler 196	fw196	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 196
+BLOCK	1	Filler 197	fw197	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 197
+BLOCK	1	Filler 198	fw198	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 198
+BLOCK	1	Filler 199	fw199	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 199
+BLOCK	1	Filler 200	fw200	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 200
+BLOCK	1	Filler 201	fw201	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 201
+BLOCK	1	Filler 202	fw202	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 202
+BLOCK	1	Filler 203	fw203	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 203
+BLOCK	1	Filler 204	fw204	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 204
+BLOCK	1	Filler 205	fw205	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 205
+BLOCK	1	Filler 206	fw206	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 206
+BLOCK	1	Filler 207	fw207	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 207
+BLOCK	1	Filler 208	fw208	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 208
+BLOCK	1	Filler 209	fw209	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 209
+BLOCK	1	Filler 210	fw210	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 210
+BLOCK	1	Filler 211	fw211	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 211
+BLOCK	1	Filler 212	fw212	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 212
+BLOCK	1	Filler 213	fw213	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 213
+BLOCK	1	Filler 214	fw214	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 214
+BLOCK	1	Filler 215	fw215	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 215
+BLOCK	1	Filler 216	fw216	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 216
+BLOCK	1	Filler 217	fw217	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 217
+BLOCK	1	Filler 218	fw218	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 218
+BLOCK	1	Filler 219	fw219	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 219
+BLOCK	1	Filler 220	fw220	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 220
+BLOCK	1	Filler 221	fw221	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 221
+BLOCK	1	Filler 222	fw222	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 222
+BLOCK	1	Filler 223	fw223	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 223
+BLOCK	1	Filler 224	fw224	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 224
+BLOCK	1	Filler 225	fw225	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 225
+BLOCK	1	Filler 226	fw226	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 226
+BLOCK	1	Filler 227	fw227	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 227
+BLOCK	1	Filler 228	fw228	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 228
+BLOCK	1	Filler 229	fw229	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 229
+BLOCK	1	Filler 230	fw230	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 230
+BLOCK	1	Filler 231	fw231	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 231
+BLOCK	1	Filler 232	fw232	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 232
+BLOCK	1	Filler 233	fw233	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 233
+BLOCK	1	Filler 234	fw234	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 234
+BLOCK	1	Filler 235	fw235	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 235
+BLOCK	1	Filler 236	fw236	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 236
+BLOCK	1	Filler 237	fw237	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 237
+BLOCK	1	Filler 238	fw238	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 238
+BLOCK	1	Filler 239	fw239	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 239
+BLOCK	1	Filler 240	fw240	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 240
+BLOCK	1	Filler 241	fw241	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 241
+BLOCK	1	Filler 242	fw242	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 242
+BLOCK	1	Filler 243	fw243	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 243
+BLOCK	1	Filler 244	fw244	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 244
+BLOCK	1	Filler 245	fw245	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 245
+BLOCK	1	Filler 246	fw246	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 246
+BLOCK	1	Filler 247	fw247	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 247
+BLOCK	1	Filler 248	fw248	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 248
+BLOCK	1	Filler 249	fw249	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 249
+BLOCK	1	Filler 250	fw250	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 250
+BLOCK	1	Filler 251	fw251	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 251
+BLOCK	1	Filler 252	fw252	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 252
+BLOCK	1	Filler 253	fw253	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 253
+BLOCK	1	Filler 254	fw254	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 254
+BLOCK	1	Filler 255	fw255	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 255
+BLOCK	1	Filler 256	fw256	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 256
+BLOCK	1	Filler 257	fw257	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 257
+BLOCK	1	Filler 258	fw258	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 258
+BLOCK	1	Filler 259	fw259	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 259
+BLOCK	1	Filler 260	fw260	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 260
+BLOCK	1	Filler 261	fw261	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 261
+BLOCK	1	Filler 262	fw262	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 262
+BLOCK	1	Filler 263	fw263	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 263
+BLOCK	1	Filler 264	fw264	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 264
+BLOCK	1	Filler 265	fw265	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 265
+BLOCK	1	Filler 266	fw266	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 266
+BLOCK	1	Filler 267	fw267	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 267
+BLOCK	1	Filler 268	fw268	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 268
+BLOCK	1	Filler 269	fw269	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 269
+BLOCK	1	Filler 270	fw270	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 270
+BLOCK	1	Filler 271	fw271	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 271
+BLOCK	1	Filler 272	fw272	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 272
+BLOCK	1	Filler 273	fw273	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 273
+BLOCK	1	Filler 274	fw274	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 274
+BLOCK	1	Filler 275	fw275	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 275
+BLOCK	1	Filler 276	fw276	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 276
+BLOCK	1	Filler 277	fw277	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 277
+BLOCK	1	Filler 278	fw278	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 278
+BLOCK	1	Filler 279	fw279	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 279
+BLOCK	1	Filler 280	fw280	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 280
+BLOCK	1	Filler 281	fw281	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 281
+BLOCK	1	Filler 282	fw282	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 282
+BLOCK	1	Filler 283	fw283	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 283
+BLOCK	1	Filler 284	fw284	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 284
+BLOCK	1	Filler 285	fw285	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 285
+BLOCK	1	Filler 286	fw286	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 286
+BLOCK	1	Filler 287	fw287	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 287
+BLOCK	1	Filler 288	fw288	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 288
+BLOCK	1	Filler 289	fw289	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 289
+BLOCK	1	Filler 290	fw290	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 290
+BLOCK	1	Filler 291	fw291	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 291
+BLOCK	1	Filler 292	fw292	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 292
+BLOCK	1	Filler 293	fw293	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 293
+BLOCK	1	Filler 294	fw294	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 294
+BLOCK	1	Filler 295	fw295	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 295
+BLOCK	1	Filler 296	fw296	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 296
+BLOCK	1	Filler 297	fw297	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 297
+BLOCK	1	Filler 298	fw298	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 298
+BLOCK	1	Filler 299	fw299	Sword		Sword	1
+FIELD	Qlvl	1
+FIELD	Gem Type	2
+FIELD	Automod	Filler 299

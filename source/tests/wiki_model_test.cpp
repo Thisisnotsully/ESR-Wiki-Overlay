@@ -179,7 +179,7 @@ void TestGeneratedData(const std::string& path) {
     esrwiki::Database db;
     std::string error;
     Check(esrwiki::ParseDatabase(text, db, error), ("generated data parses: " + error).c_str());
-    Check(db.pages.size() == 17, "17 pages");
+    Check(db.pages.size() == 18, "18 pages");
     auto find = [&](const char* id) -> const esrwiki::Page* {
         for (const auto& page : db.pages)
             if (page.id == id) return &page;
@@ -187,7 +187,7 @@ void TestGeneratedData(const std::string& path) {
     };
     struct Expect { const char* id; std::size_t entries; std::size_t blocks; };
     const Expect expected[] = {
-        {"runes", 4, 95},      {"runewords", 8, 474}, {"set-items", 10, 346},
+        {"runes", 4, 95},      {"runewords", 8, 474}, {"set-items", 10, 342},
         {"uniques", 13, 1106}, {"gemwords", 8, 1408},
     };
     for (const Expect& e : expected) {
@@ -229,6 +229,28 @@ void TestGeneratedData(const std::string& path) {
     }
     const esrwiki::Page* runewords = find("runewords");
     if (runewords != nullptr) Check(esrwiki::FilterEntries(*runewords, "").size() == 8, "runewords has 8 categories");
+    // The Campaign Progression map is drawn under the one Welcome entry flagged "campaignmap", in English and in every
+    // translated copy (data/locales/<code>/wiki-data.txt beside data/wiki-data.txt), whatever the entry is called there.
+    {
+        const auto flagged = [](const esrwiki::Database& data) {
+            int count = 0;
+            for (const auto& page : data.pages)
+                for (const auto& entry : page.entries)
+                    if (entry.campaignMap) count += page.id == "welcome" ? 1 : 100;
+            return count;
+        };
+        Check(flagged(db) == 1, "one Welcome entry has the campaign map");
+        const std::size_t slash = path.find_last_of("/\\");
+        const std::string dir = slash == std::string::npos ? std::string(".") : path.substr(0, slash);
+        for (const char* code : {"deDE", "esES", "esMX", "frFR", "itIT", "jaJP", "koKR", "plPL", "ptBR", "ruRU", "zhCN", "zhTW"}) {
+            const std::string localized = ReadFile(dir + "/locales/" + code + "/wiki-data.txt");
+            if (localized.empty()) continue;
+            esrwiki::Database ldb;
+            std::string lerror;
+            Check(esrwiki::ParseDatabase(localized, ldb, lerror) && flagged(ldb) == 1,
+                  (std::string("the campaign map entry is flagged in ") + code).c_str());
+        }
+    }
     const esrwiki::Page* runes = find("runes");
     if (runes != nullptr) {
         Check(runes->entries.size() >= 3 && runes->entries[0].title == "Kanji Runes", "runes start with Kanji");

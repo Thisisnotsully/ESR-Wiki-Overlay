@@ -66,3 +66,67 @@ Diablo II: Resurrected and its artwork are the property of Blizzard Entertainmen
 Eastern Sun Resurrected data, layouts and artwork belong to the Eastern Sun
 Resurrected project. This project only reads them to build its reference pages and
 does not claim ownership of them.
+
+## d2r-esr-runeword-browser
+
+The campaign map data (`campaign-map.txt`, built by `overlay/tools/build_campaign.py`) ports the curated campaign
+facts of d2r-esr-runeword-browser (https://github.com/istvan-panczel/d2r-esr-runeword-browser): the area links,
+bosses, quest steps, caveats, the hand-placed act grids and their route hints, and the edge routing idea of its
+map geometry. The note texts were reworded. Its license is reproduced below.
+
+```
+MIT License
+
+Copyright (c) 2025 István Pánczél
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+
+---
+
+## esr-docs (skills data generator)
+
+The Skills tab data is produced by code vendored from esr-docs (https://github.com/dotsyzygy/esr-docs, `overlay/tools/esr-docs/`), used under the MIT License:
+
+```
+MIT License
+
+Copyright (c) 2026 Syzygy (dotsyzygy)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+src/skill_calc.hpp/.cpp are a C++ port of esr-docs site/assets/skill-calc.js and are covered by the same notice.

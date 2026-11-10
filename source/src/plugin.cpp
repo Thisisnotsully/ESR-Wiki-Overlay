@@ -19,6 +19,7 @@
 #include <string>
 
 #include "cube_updater.hpp"
+#include "skills_data.hpp"
 #include "locale_live.hpp"
 #include "web_pages_updater.hpp"
 #include "debug_log.hpp"
@@ -36,6 +37,7 @@
 #include "web_mastery_live.hpp"
 #include "web_words_live.hpp"
 #include "web_uniques_live.hpp"
+#include "campaign_live.hpp"
 #include "overlay.hpp"
 #include "wiki_model.hpp"
 #include "input_block.hpp"
@@ -50,7 +52,7 @@ constexpr D2RL::PluginInfo EsrOverlayPluginInfo {
     .abiVersion = D2RL_PLUGIN_ABI_VERSION,
     .id = "esr-wiki-overlay",
     .name = "ESR Wiki Overlay",
-    .version = "1.6.0",
+    .version = "1.7.0",
     .author = "Sully",
     .description = "Read-only ESR wiki reference overlay. Open it with the eswiki command, or a key bound in the controls.",
     .flags = D2RL::PluginFlags::Client,
@@ -83,6 +85,9 @@ esrwiki::WebPagesUpdater webMasteryUpdater;         // keeps the Weapon Mastery 
 esrwiki::WebPagesUpdater webAffixesUpdater;        // keeps the Item Affixes page in step with the website
 esrwiki::WebPagesUpdater webLocalizedUpdater;      // keeps the localized wiki in step with the localized website pages
 esrwiki::WebPagesUpdater webIasUpdater;            // keeps the IAS calculator data in step with the website
+esrwiki::WebPagesUpdater webSpecUpdater;           // keeps the Specializations board in step with the website
+esrwiki::WebPagesUpdater webMapsUpdater;           // keeps the campaign map's Special areas and teleport text in step with the website
+std::shared_ptr<const esrwiki::campaign::Data> campaignMapData;  // the Campaign Progression map once it loaded (set before webMapsUpdater starts)
 std::mutex webDataMutex;                           // the website updates build on liveWikiData one after another
 std::string liveWikiData;                          // the shipped wiki data with every website page merged in so far
 // Which panel was opened most recently; the wiki key, the console command and the pause-menu button reopen it (the main wiki until another was used).
@@ -533,6 +538,8 @@ void Release() noexcept {
     webLocalizedUpdater.Stop();
     webMasteryUpdater.Stop();
     webIasUpdater.Stop();
+    webSpecUpdater.Stop();
+    webMapsUpdater.Stop();
     {
         std::lock_guard<std::mutex> lock(webDataMutex);
         cubeReady = false;
@@ -588,6 +595,32 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
                           (localizedMain ? "translated file" : "English file") + "; UI strings loaded: " + std::to_string(uiStringCount));
         overlay = std::make_unique<esrwiki::Overlay>();
         overlay->SetCloseKey(matchesOpenKey);
+        // The Skills tab (skills_page.hpp): locales\<code>\skills-data.json in the loader's language, else the English
+        // skills-data.json. Read before the window starts, so the tab is there from the first paint (about 1 MB, parsed in
+        // some 15 ms). Without usable data the tab is left out.
+        try {
+            const std::wstring englishSkills = dataDir + L"\\skills-data.json";
+            const std::wstring localizedSkills = mainLocale.empty() ? std::wstring()
+                : dataDir + L"\\locales\\" + std::wstring(mainLocale.begin(), mainLocale.end()) + L"\\skills-data.json";
+            const bool localized = !localizedSkills.empty() && std::ifstream(localizedSkills).good();
+            const std::wstring skillsPath = localized ? localizedSkills : englishSkills;
+            const std::string skillsJson = std::ifstream(skillsPath).good() ? ReadWholeFile(skillsPath) : std::string();
+            auto skillsData = std::make_shared<esrwiki::skills::Data>();
+            std::string skillsError;
+            if (skillsJson.empty()) {
+                plugin->LogWarn("ESR Wiki Skills tab left out: skills-data.json was not found or is empty");
+            } else if (!esrwiki::skills::Parse(skillsJson, *skillsData, skillsError)) {
+                const std::string message = "ESR Wiki Skills tab left out: skills-data.json cannot be used: " + skillsError;
+                plugin->LogWarn(message.c_str());
+            } else {
+                esrwiki::DebugLog("Skills tab: " + std::string(localized ? "translated" : "English") + " skills-data.json, " +
+                                  std::to_string(skillsData->skills.size()) + " skills");
+                overlay->SetSkillsData(std::move(skillsData));
+            }
+        } catch (const std::exception& skillsFailure) {
+            const std::string message = std::string("ESR Wiki Skills tab left out: ") + skillsFailure.what();
+            plugin->LogWarn(message.c_str());
+        }
         if (!overlay->Start(*database, dataDir, esrwiki::UiText(L"ESR Wiki"), L"main",
                             {{esrwiki::UiText(L"Cube Recipes"), [] {
                                   lastPanel = LastPanel::Cube;
@@ -1049,6 +1082,148 @@ D2RL_PLUGIN_EXPORT auto D2RLoaderLoadPlugin(const D2RL::PluginContext* plugin) n
             };
             iasConfig.log = log;
             webIasUpdater.Start(std::move(iasConfig));
+        } catch (const std::exception& error) {
+            const std::string message = std::string("ESR Wiki website updates unavailable: ") + error.what();
+            plugin->LogError(message.c_str());
+        }
+
+        // The Specializations board. Like the calculator it has no wiki text of its own: the page that shipped (a saved copy
+        // in the loader's language when there is one) shows at once, then the website's page in that language replaces it.
+        try {
+            const auto log = [](const std::string& message) {
+                if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+            };
+            const std::wstring code(mainLocale.begin(), mainLocale.end());
+            const auto readIfThere = [](const std::wstring& path) {
+                std::ifstream file(path, std::ios::binary);
+                std::ostringstream content;
+                if (file) content << file.rdbuf();
+                return content.str();
+            };
+            {
+                auto shipped = std::make_shared<esrwiki::spec::Data>();
+                std::string why;
+                bool specShipped = false;
+                if (!mainLocale.empty())
+                    specShipped = esrwiki::spec::Parse(readIfThere(dataDir + L"\\locales\\" + code + L"\\specializations.htm"), *shipped, why);
+                if (!specShipped) specShipped = esrwiki::spec::Parse(readIfThere(dataDir + L"\\specializations.htm"), *shipped, why);
+                if (specShipped) {
+                    overlay->SetSpecializationsData(shipped);
+                    esrwiki::DebugLog("Specializations: shipped page loaded");
+                } else {
+                    log("ESR Wiki specializations: the shipped page cannot be used: " + why);
+                }
+            }
+            esrwiki::WebPagesConfig specConfig;
+            specConfig.cacheDir = dataDir;
+            specConfig.siteUrl = kSiteUrl;
+            specConfig.pageNames.push_back(mainLocale.empty() ? std::string(esrwiki::spec::kPageName)
+                                                              : mainLocale + "/" + esrwiki::spec::kPageName);
+            specConfig.cachePrefix = L"spec-web-" + (code.empty() ? std::wstring(L"en") : code) + L"-";
+            specConfig.optOutFile = esrwiki::kLiveUpdatesOffFile;
+            specConfig.userAgent = L"ESR-Wiki-Overlay/1.7 (website specializations)";
+            specConfig.logPrefix = "ESR Wiki website specializations: ";
+            specConfig.use = [](const std::vector<std::string>& pages, std::string& error) {
+                auto fresh = std::make_shared<esrwiki::spec::Data>();
+                if (!esrwiki::spec::Parse(pages[0], *fresh, error)) return false;
+                if (overlay != nullptr) overlay->SetSpecializationsData(fresh);
+                return true;
+            };
+            specConfig.log = log;
+            webSpecUpdater.Start(std::move(specConfig));
+        } catch (const std::exception& error) {
+            const std::string message = std::string("ESR Wiki website updates unavailable: ") + error.what();
+            plugin->LogError(message.c_str());
+        }
+
+        // The Campaign Progression map, drawn under that entry of the Welcome page: one shipped file for every language (it
+        // has the area names in all of them). Without it, or when it cannot be read, the entry shows its text only.
+        try {
+            const std::wstring mapPath = dataDir + L"\\" + std::wstring(esrwiki::campaign::kFileName, esrwiki::campaign::kFileName +
+                                                                        std::strlen(esrwiki::campaign::kFileName));
+            std::ifstream file(mapPath, std::ios::binary);
+            const bool opened = file.is_open();
+            std::ostringstream content;
+            if (opened) content << file.rdbuf();
+            auto map = std::make_shared<esrwiki::campaign::Data>();
+            std::string why;
+            if (!opened) {
+                plugin->LogError("ESR Wiki campaign map: campaign-map.txt is missing next to the plugin, the map is not shown");
+            } else if (!esrwiki::campaign::Parse(content.str(), *map, why)) {
+                const std::string message = "ESR Wiki campaign map: campaign-map.txt cannot be used (" + why + "), the map is not shown";
+                plugin->LogError(message.c_str());
+            } else {
+                esrwiki::DebugLog("campaign map: " + std::to_string(map->areas.size()) + " areas, " + std::to_string(map->tabs.size()) + " tabs");
+                overlay->SetCampaignData(map);
+                campaignMapData = map;  // the official Maps page is matched to it (below)
+            }
+        } catch (const std::exception& failure) {
+            const std::string message = std::string("ESR Wiki campaign map unavailable: ") + failure.what();
+            plugin->LogError(message.c_str());
+        }
+
+        // The official Maps page on the campaign map: the Special areas cards and the teleport caveats in the website's
+        // wording and in the loader's language. Like the Specializations board: the copy that shipped (locales\<code>\maps.htm,
+        // else the English maps.htm) shows at once, then the website's page in that language replaces it. The English copy
+        // is also the reference that matches a translated row to its area by position when its name does not match.
+        try {
+            if (campaignMapData) {
+                const auto log = [](const std::string& message) {
+                    if (pluginContext != nullptr) pluginContext->LogInfo(message.c_str());
+                };
+                const std::wstring code(mainLocale.begin(), mainLocale.end());
+                const auto readIfThere = [](const std::wstring& path) {
+                    std::ifstream file(path, std::ios::binary);
+                    std::ostringstream content;
+                    if (file) content << file.rdbuf();
+                    return content.str();
+                };
+                auto english = std::make_shared<esrwiki::mapspage::Page>();
+                std::string why;
+                if (!esrwiki::mapspage::Parse(readIfThere(dataDir + L"\\maps.htm"), *english, why)) {
+                    log("ESR Wiki website maps: the shipped English page cannot be used: " + why);
+                    english.reset();
+                }
+                const std::shared_ptr<const esrwiki::campaign::Data> mapData = campaignMapData;
+                const std::shared_ptr<const esrwiki::mapspage::Page> reference = english;
+                {
+                    esrwiki::mapspage::Page shipped;
+                    bool mapsShipped = false;
+                    if (!mainLocale.empty())
+                        mapsShipped = esrwiki::mapspage::Parse(readIfThere(dataDir + L"\\locales\\" + code + L"\\maps.htm"), shipped, why);
+                    if (!mapsShipped && reference) {
+                        shipped = *reference;
+                        mapsShipped = true;
+                    }
+                    if (mapsShipped) {
+                        auto live = std::make_shared<const esrwiki::campaign::LiveMaps>(
+                            esrwiki::campaign::MatchMapsPage(*mapData, shipped, reference.get()));
+                        esrwiki::DebugLog("Maps page: shipped page loaded, " + std::to_string(live->cardOf.size()) + " areas with a card, " +
+                                          std::to_string(live->teleportOf.size()) + " with a teleport row, " +
+                                          std::to_string(live->unmatchedCards.size() + live->unmatchedTeleport.size()) + " rows unmatched");
+                        overlay->SetMapsPageData(std::move(live));
+                    }
+                }
+                esrwiki::WebPagesConfig mapsConfig;
+                mapsConfig.cacheDir = dataDir;
+                mapsConfig.siteUrl = kSiteUrl;
+                mapsConfig.pageNames.push_back(mainLocale.empty() ? std::string(esrwiki::campaign::kMapsSitePage)
+                                                                  : mainLocale + "/" + esrwiki::campaign::kMapsSitePage);
+                mapsConfig.cachePrefix = L"maps-web-" + (code.empty() ? std::wstring(L"en") : code) + L"-";
+                mapsConfig.optOutFile = esrwiki::kLiveUpdatesOffFile;
+                mapsConfig.userAgent = L"ESR-Wiki-Overlay/1.7 (website maps)";
+                mapsConfig.logPrefix = "ESR Wiki website maps: ";
+                mapsConfig.use = [mapData, reference](const std::vector<std::string>& pages, std::string& error) {
+                    esrwiki::mapspage::Page page;
+                    if (!esrwiki::mapspage::Parse(pages[0], page, error)) return false;
+                    auto live = std::make_shared<const esrwiki::campaign::LiveMaps>(
+                        esrwiki::campaign::MatchMapsPage(*mapData, page, reference.get()));
+                    if (overlay != nullptr) overlay->SetMapsPageData(std::move(live));
+                    return true;
+                };
+                mapsConfig.log = log;
+                webMapsUpdater.Start(std::move(mapsConfig));
+            }
         } catch (const std::exception& error) {
             const std::string message = std::string("ESR Wiki website updates unavailable: ") + error.what();
             plugin->LogError(message.c_str());

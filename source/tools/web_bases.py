@@ -38,6 +38,43 @@ def text_of(cell):
     return clean(re.sub(r"<[^>]+>", " ", cell))
 
 
+SEP = "\x1e"  # separates the entries of a value that has several (the data's line separator inside one cell)
+
+
+def automod_text(cell):
+    """The Automod cell with the website's tiers kept. The website writes tiers separated by <br><br>, the lines of a
+    tier by <br>, and every tier ends with the same shared line ("Tinkering Points: (25 to 35)"). One tier: its lines
+    joined by a space. Several tiers that all have two or more lines and the same last line: one entry per tier (its
+    lines but the last, joined by a space), then the shared line once. Tiers that are all the same single line: that
+    line. Anything else: one entry per tier, nothing merged. Entries are separated by SEP."""
+    tiers, current = [], []
+    for piece in re.split(r"<br\s*/?>", cell, flags=re.I):
+        line = text_of(piece)
+        if line:
+            current.append(line)
+        elif current:
+            tiers.append(current)
+            current = []
+    if current:
+        tiers.append(current)
+    if not tiers:
+        return ""
+    if len(tiers) == 1:
+        return " ".join(tiers[0])
+    if all(t == tiers[0] for t in tiers) and len(tiers[0]) == 1:
+        return tiers[0][0]
+    if all(len(t) >= 2 for t in tiers) and len({t[-1] for t in tiers}) == 1:
+        return SEP.join([" ".join(t[:-1]) for t in tiers] + [tiers[0][-1]])
+    return SEP.join(" ".join(t) for t in tiers)
+
+
+def cell_texts(headers, row):
+    """The text of each cell of a row; the Automod column (always the one before the last, whatever the language
+    calls it) keeps its tiers."""
+    at = len(headers) - 2
+    return [automod_text(c) if i == at else text_of(c) for i, c in enumerate(row)]
+
+
 def parse_sections(html, kind):
     """[{title, headers, items: [{name, code, rows}]}] for the tables of the page, in page order."""
     sections, current, pending, held = [], None, [], []
@@ -78,17 +115,17 @@ def parse_sections(html, kind):
             else:
                 row.append("")
         if row[0] == "" and current["items"]:
-            current["items"][-1]["rows"].append([text_of(c) for c in row])
+            current["items"][-1]["rows"].append(cell_texts(current["headers"], row))
             continue
         if kind == "weapons":
             pieces = re.split(r"<br\s*/?>", row[0], flags=re.I)
             name = text_of(pieces[0])
             code = text_of(pieces[1]) if len(pieces) > 1 else ""
-            first = [text_of(c) for c in row]
+            first = cell_texts(current["headers"], row)
             first[0] = (name + " " + code).strip()
         else:
             name, code = text_of(row[0]), text_of(row[1])
-            first = [text_of(c) for c in row]
+            first = cell_texts(current["headers"], row)
         current["items"].append({"name": name, "code": code, "rows": [first]})
     return [s for s in sections if s["headers"] and s["items"]]
 
@@ -106,7 +143,8 @@ def read_art(text):
 
 
 def out_text(value):
-    return re.sub(r"_lod\b", "", clean(value))
+    # clean() would treat the entry separator as white space, so the entries are cleaned one by one
+    return SEP.join(re.sub(r"_lod\b", "", clean(part)) for part in value.split(SEP))
 
 
 def identity_by_code(sections):

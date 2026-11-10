@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include "wiki_model.hpp"
+#include "text_fold.hpp"
 #include "debug_log.hpp"
 
 #include <algorithm>
@@ -33,27 +34,63 @@ std::string AsciiLower(std::string value) {
     return value;
 }
 
-bool Contains(const std::string& haystack, const std::string& lowerNeedle) {
-    return AsciiLower(haystack).find(lowerNeedle) != std::string::npos;
-}
-
-bool BlockContains(const Block& block, const std::string& needle) {
-    if (Contains(block.title, needle) || Contains(block.subtitle, needle) || Contains(block.section, needle))
-        return true;
-    if (Contains(block.tag, needle)) return true;
-    for (const Field& field : block.fields) {
-        if (Contains(field.label, needle) || Contains(field.value, needle)) return true;
+std::string PlainText(const std::string& piece) {
+    std::string plain;  // colour codes are not text
+    for (std::size_t i = 0; i < piece.size(); ++i) {
+        if (piece.compare(i, kColorPrefixLength, kColorPrefix) == 0 && i + kColorPrefixLength < piece.size()) {
+            i += kColorPrefixLength;
+            continue;
+        }
+        plain += piece[i] == '\x1f' || piece[i] == '\n' ? ' ' : piece[i];
     }
-    for (const Line& line : block.lines) {
-        if (Contains(line.text, needle)) return true;
-    }
-    for (const RuneIcon& rune : block.runes) {
-        if (Contains(rune.label, needle)) return true;
-    }
-    return false;
+    return plain;
 }
 
 }  // namespace
+
+std::vector<std::string> BlockSearchLines(const Block& block) {
+    std::vector<std::string> lines;
+    const auto add = [&](const std::string& piece) {
+        std::string plain = PlainText(piece);
+        if (!plain.empty()) lines.push_back(std::move(plain));
+    };
+    add(block.subtitle);
+    add(block.section);
+    for (const Field& field : block.fields) add(field.label + ": " + field.value);
+    if (!block.runes.empty()) {
+        std::string runes;
+        for (const RuneIcon& rune : block.runes) runes += (runes.empty() ? "" : " ") + rune.label;
+        add(runes);
+    }
+    for (const Line& line : block.lines) add(line.text);
+    add(block.note);
+    add(block.tag);
+    return lines;
+}
+
+const std::string& BlockSearchText(const Block& block) {
+    if (block.foldedReady) return block.foldedText;
+    std::string all = text::SearchTextUtf8(PlainText(block.title));
+    for (const std::string& line : BlockSearchLines(block)) {
+        all += '\n';
+        all += text::SearchTextUtf8(line);
+    }
+    block.foldedText = std::move(all);
+    block.foldedReady = true;
+    return block.foldedText;
+}
+
+bool BlockMatches(const Block& block, const text::ParsedQuery& query) {
+    return text::Matches(query, BlockSearchText(block));
+}
+
+std::string EntrySearchText(const Entry& entry) {
+    return text::SearchTextUtf8(PlainText(entry.title)) + "\n" + text::SearchTextUtf8(PlainText(entry.subtitle));
+}
+
+bool EntryTextMatches(const Entry& entry, const text::ParsedQuery& query) {
+    return text::Matches(query, EntrySearchText(entry));
+}
 
 std::size_t Database::entryCount() const {
     std::size_t total = 0;
@@ -122,6 +159,7 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
                 if (fields[flag] == "socketsort") entry.socketSort = true;
                 if (fields[flag] == "split") entry.splitLayout = 1;
                 if (fields[flag] == "splitflip") entry.splitLayout = 2;
+                if (fields[flag] == "campaignmap") entry.campaignMap = true;
             }
             if (entry.title.empty()) return fail("ENTRY needs a title");
             out.pages.back().entries.push_back(std::move(entry));
@@ -192,13 +230,13 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
 }
 
 std::vector<std::size_t> FilterEntries(const Page& page, const std::string& query) {
-    const std::string needle = AsciiLower(query);
+    const text::ParsedQuery parsed = text::ParseQuery(query);
     std::vector<std::size_t> matches;
     for (std::size_t index = 0; index < page.entries.size(); ++index) {
         const Entry& entry = page.entries[index];
-        bool matched = needle.empty() || Contains(entry.title, needle) || Contains(entry.subtitle, needle);
+        bool matched = parsed.empty() || EntryTextMatches(entry, parsed);
         for (std::size_t i = 0; !matched && i < entry.blocks.size(); ++i) {
-            matched = BlockContains(entry.blocks[i], needle);
+            matched = BlockMatches(entry.blocks[i], parsed);
         }
         if (matched) matches.push_back(index);
     }
@@ -239,7 +277,7 @@ std::vector<std::size_t> SocketCounts(const Entry& entry) {
 }
 
 bool BlockMatches(const Block& block, const std::string& query) {
-    return BlockContains(block, AsciiLower(query));
+    return BlockMatches(block, text::ParseQuery(query));
 }
 
 bool IsRowSort(BlockSort sort) {
@@ -343,15 +381,18 @@ static std::vector<std::string> LowerTitles(const std::vector<Block>& blocks) {
 std::vector<std::size_t> ArrangeBlocks(const Entry& entry, std::size_t socketFilter, const std::string& tierFilter,
                                        const std::string& familyFilter, BlockSort sort, const std::string& query) {
     sort = ResolveBlockSort(entry, sort);
-    const std::string needle = AsciiLower(query);
-    const bool wholeEntry = needle.empty() || Contains(entry.title, needle) || Contains(entry.subtitle, needle);
+    const text::ParsedQuery parsed = text::ParseQuery(query);
+    const bool wholeEntry = parsed.empty() || EntryTextMatches(entry, parsed);
+    text::ParsedQuery excludedOnly;  // with the whole entry kept, a block still drops out for an excluded term
+    for (const text::QueryTerm& term : parsed.terms)
+        if (term.excluded) excludedOnly.terms.push_back(term);
     std::vector<std::size_t> order;
     for (std::size_t i = 0; i < entry.blocks.size(); ++i) {
         const Block& block = entry.blocks[i];
         if (socketFilter != 0 && BlockSocketCount(block) != socketFilter) continue;
         if (!tierFilter.empty() && block.tier != tierFilter) continue;
         if (!familyFilter.empty() && block.family != familyFilter) continue;
-        if (!wholeEntry && !BlockContains(block, needle)) continue;
+        if (!BlockMatches(block, wholeEntry ? excludedOnly : parsed)) continue;
         order.push_back(i);
     }
 
