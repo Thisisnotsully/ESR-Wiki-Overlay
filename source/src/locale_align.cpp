@@ -1,5 +1,7 @@
 #include "locale_align.hpp"
 
+#include "text_fold.hpp"
+
 #include <algorithm>
 #include <cstring>
 #include <map>
@@ -292,6 +294,135 @@ unsigned PieceIndex(const std::string& s) {
 bool WordByte(char c) { return std::isalnum(static_cast<unsigned char>(c)) != 0 || static_cast<unsigned char>(c) >= 0x80; }
 bool Letter(char c) { return (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'); }
 
+// The digits of a number, "5-10" and "(5 to 10)" both "5,10": what tells which number of a text is which in its translation.
+std::string NumberValue(const std::string& number) {
+    std::string out;
+    bool inDigits = false;
+    for (const char ch : number) {
+        const bool isDigit = std::isdigit(static_cast<unsigned char>(ch)) != 0;
+        if (isDigit || (ch == '.' && inDigits)) {
+            out += ch;
+            inDigits = true;
+        } else {
+            if (inDigits) out += ',';
+            inDigits = false;
+        }
+    }
+    while (!out.empty() && out.back() == ',') out.pop_back();
+    return out;
+}
+
+// What stands around the '#' at `at` of a text with its numbers replaced: 1 = a percent sign follows, 2 = the word before
+// is "level" in one of the website's languages. A chance and a level keep their marks in every language.
+unsigned NumberMarks(const std::string& shape, std::size_t at) {
+    unsigned marks = 0;
+    std::size_t after = at + 1;
+    while (after < shape.size() && shape[after] == ' ') ++after;
+    if (after < shape.size() && (shape[after] == '%' || shape.compare(after, 3, "\xEF\xBC\x85") == 0)) marks |= 1;  // '%' or the full-width one
+    std::size_t end = at;
+    while (end > 0 && (shape[end - 1] == ' ' || shape[end - 1] == '+' || shape[end - 1] == '-' || shape[end - 1] == ':' || shape[end - 1] == '(')) --end;
+    std::size_t begin = end;
+    while (begin > 0 && shape[begin - 1] != ' ' && shape[begin - 1] != '#' && end - begin < 24) --begin;
+    // the word before the number, folded: capitals and accents are dropped, so "N<I acute>VEL" is "nivel" and the capital Russian abbreviation is the small one
+    const std::string word = esrwiki::text::FoldUtf8(shape.substr(begin, end - begin));
+    static const char* kLevel[] = {
+        "level", "lvl", "niveau", "nivel", "livello", "stufe", "poziom",
+        "\xE3\x83\xAC\xE3\x83\x99\xE3\x83\xAB",  // Japanese
+        "\xEB\xA0\x88\xEB\xB2\xA8",                  // Korean
+        "\xE7\xAD\x89\xE7\xBA\xA7", "\xE7\xAD\x89\xE7\xB4\x9A",  // Chinese (before the number)
+        "\xD1\x83\xD1\x80\xD0\xBE\xD0\xB2"};  // Russian
+    for (const char* level : kLevel)
+        if (word.find(level) != std::string::npos) { marks |= 2; break; }
+    // Abbreviations are short enough to sit inside other words ("lv" in "wolves"): only a whole word counts.
+    static const char* kAbbreviation[] = {"lv", "liv.", "niv.", "poz.", "\xD1\x83\xD1\x80."};
+    const auto isLetterByte = [](unsigned char ch) { return std::isalpha(ch) != 0 || ch >= 0x80; };
+    for (const char* abbreviation : kAbbreviation) {
+        const std::size_t length = std::strlen(abbreviation);
+        for (std::size_t at2 = word.find(abbreviation); at2 != std::string::npos; at2 = word.find(abbreviation, at2 + 1)) {
+            const bool startsWord = at2 == 0 || !isLetterByte(static_cast<unsigned char>(word[at2 - 1]));
+            const bool endsWord = at2 + length >= word.size() || !isLetterByte(static_cast<unsigned char>(word[at2 + length]));
+            if (startsWord && endsWord) { marks |= 2; break; }
+        }
+        if (marks & 2) break;
+    }
+    // Chinese puts the word after the number as well ("7" and the level character, with or without a space)
+    if (after < shape.size() && (shape.compare(after, 3, "\xE7\xBA\xA7") == 0 || shape.compare(after, 3, "\xE7\xB4\x9A") == 0)) marks |= 2;
+    return marks;
+}
+
+// Which English number each number of the localized text shows: roles[k] is the English number behind the k-th
+// localized one. Returns how sure that is: 3 = the values say so, 2 = the marks around the numbers say so (the website
+// gives other values, or the same value twice), 1 = the order, which agrees with the values and the marks as far as
+// they go, 0 = nothing does (the roles are then the order and must not be used for more than one number).
+int InferRoles(const std::string& englishShape, const std::vector<std::string>& english, const std::string& localizedShape,
+               const std::vector<std::string>& localized, std::vector<std::size_t>& roles) {
+    const std::size_t count = english.size();
+    roles.resize(count);
+    for (std::size_t k = 0; k < count; ++k) roles[k] = k;
+    if (localized.size() != count) return 0;
+    if (count <= 1) return 3;
+    std::vector<std::size_t> atA, atB;
+    for (std::size_t p = 0; p < englishShape.size(); ++p)
+        if (englishShape[p] == '#') atA.push_back(p);
+    for (std::size_t p = 0; p < localizedShape.size(); ++p)
+        if (localizedShape[p] == '#') atB.push_back(p);
+    if (atA.size() != count || atB.size() != count) return 0;
+    std::vector<unsigned> marksA(count), marksB(count);
+    std::vector<std::string> valueA(count), valueB(count);
+    for (std::size_t k = 0; k < count; ++k) {
+        marksA[k] = NumberMarks(englishShape, atA[k]);
+        marksB[k] = NumberMarks(localizedShape, atB[k]);
+        valueA[k] = NumberValue(english[k]);
+        valueB[k] = NumberValue(localized[k]);
+    }
+    {   // by value; numbers of the same value told apart by their marks, else taken in order
+        std::vector<char> used(count, 0);
+        std::vector<std::size_t> byValue(count);
+        bool ok = true, guessed = false;
+        for (std::size_t k = 0; k < count && ok; ++k) {
+            std::size_t first = count, firstMarked = count, candidates = 0, marked = 0;
+            for (std::size_t j = 0; j < count; ++j) {
+                if (used[j] || valueA[j] != valueB[k]) continue;
+                ++candidates;
+                if (first == count) first = j;
+                if (marksA[j] == marksB[k]) { ++marked; if (firstMarked == count) firstMarked = j; }
+            }
+            if (candidates == 0) { ok = false; break; }
+            const std::size_t pick = firstMarked != count ? firstMarked : first;
+            if (candidates > 1 && marked != 1) guessed = true;
+            byValue[k] = pick;
+            used[pick] = 1;
+        }
+        if (ok) {
+            roles = byValue;
+            return guessed ? 1 : 3;
+        }
+    }
+    {   // by marks, when every English number has marks of its own
+        bool distinct = true;
+        for (std::size_t j = 0; j < count && distinct; ++j)
+            for (std::size_t q = j + 1; q < count; ++q)
+                if (marksA[j] == marksA[q]) { distinct = false; break; }
+        if (distinct) {
+            std::vector<std::size_t> byMarks(count);
+            std::vector<char> used(count, 0);
+            bool ok = true;
+            for (std::size_t k = 0; k < count && ok; ++k) {
+                ok = false;
+                for (std::size_t j = 0; j < count; ++j)
+                    if (!used[j] && marksA[j] == marksB[k]) { byMarks[k] = j; used[j] = 1; ok = true; break; }
+            }
+            if (ok) {
+                roles = byMarks;
+                return 2;
+            }
+        }
+    }
+    for (std::size_t k = 0; k < count; ++k)  // the order, when the marks do not contradict it
+        if (marksA[k] != marksB[k]) return 0;
+    return 1;
+}
+
 }  // namespace
 
 std::vector<TextNode> ExtractTextNodes(const std::string& html) {
@@ -301,6 +432,19 @@ std::vector<TextNode> ExtractTextNodes(const std::string& html) {
 }
 
 namespace {
+// Whether two nodes can be the same text: the same tag path, and the same numbers in any order, or no numbers on one side
+// (Japanese writes "2H" as a word, and word order moves numbers within a sentence).
+bool NodesAgree(const TextNode& x, const TextNode& y) {
+    if (x.key == y.key) return true;
+    const std::size_t px = x.key.find('|'), py = y.key.find('|');
+    if (px == std::string::npos || py == std::string::npos || x.key.compare(0, px, y.key, 0, py) != 0 || px != py) return false;
+    std::string sx = x.key.substr(px + 1), sy = y.key.substr(py + 1);
+    if (sx.empty() || sy.empty()) return true;
+    std::sort(sx.begin(), sx.end());
+    std::sort(sy.begin(), sy.end());
+    return sx == sy;
+}
+
 // Localized pages are not always in the English order (sets and runewords are sorted by the localized names), so a
 // sequential walk loses its place. Windows of consecutive nodes whose tag paths and numbers form a pattern that
 // occurs exactly once in each page tie a block of one page to the same block of the other wherever it sits; each
@@ -366,19 +510,9 @@ std::vector<std::pair<std::string, std::string>> AlignNodes(const std::vector<Te
         // A node agrees when its tag path matches and its numbers match in any order, or when one side has none (Japanese
         // writes "2H" as 両手, and word order moves numbers within a sentence); only a different set of numbers is a
         // disagreement.
-        auto agrees = [](const TextNode& x, const TextNode& y) {
-            if (x.key == y.key) return true;
-            const std::size_t px = x.key.find('|'), py = y.key.find('|');
-            if (px == std::string::npos || py == std::string::npos || x.key.compare(0, px, y.key, 0, py) != 0 || px != py) return false;
-            std::string sx = x.key.substr(px + 1), sy = y.key.substr(py + 1);
-            if (sx.empty() || sy.empty()) return true;
-            std::sort(sx.begin(), sx.end());
-            std::sort(sy.begin(), sy.end());
-            return sx == sy;
-        };
         std::size_t disagree = 0;
         for (std::size_t i = 0; i < a.size(); ++i)
-            if (!agrees(a[i], b[i])) ++disagree;
+            if (!NodesAgree(a[i], b[i])) ++disagree;
         if (disagree * 100 > a.size() * 3) {
             auto anchored = AnchoredPairs(a, b);
             std::vector<std::pair<std::string, std::string>> walked = AlignNodesSequential(a, b);
@@ -398,7 +532,7 @@ std::vector<std::pair<std::string, std::string>> AlignNodes(const std::vector<Te
 std::vector<std::pair<std::string, std::string>> AlignNodesSequential(const std::vector<TextNode>& a, const std::vector<TextNode>& b) {
     std::vector<std::pair<std::string, std::string>> pairs;
     const std::size_t n = a.size(), m = b.size();
-    constexpr std::size_t kWindow = 4, kLook = 60;
+    constexpr std::size_t kWindow = 4, kLook = 60, kSkip = 16;  // kSkip: the longest skip on the shorter side of an uneven resync
     const auto match = [&](std::size_t i, std::size_t j) {
         for (std::size_t k = 0; k < kWindow; ++k)
             if (i + k >= n || j + k >= m || a[i + k].key != b[j + k].key) return false;
@@ -413,10 +547,128 @@ std::vector<std::pair<std::string, std::string>> AlignNodesSequential(const std:
             const std::size_t tries[3][2] = {{0, d}, {d, 0}, {d, d}};
             for (const auto& t : tries)
                 if (match(i + t[0], j + t[1])) { di = t[0]; dj = t[1]; found = true; break; }
+            // A different skip on each side: the localized page joins two lines of one text into one node (the Chinese
+            // unique armors, 13 nodes fewer than the English page), so the walk resumes one node apart.
+            for (std::size_t s = 1; s < d && s < kSkip && !found; ++s) {
+                if (match(i + d, j + s)) { di = d; dj = s; found = true; }
+                else if (match(i + s, j + d)) { di = s; dj = d; found = true; }
+            }
         }
         if (!found) { ++i; ++j; continue; }
-        if (di == dj)
-            for (std::size_t k = 0; k < di; ++k) pairs.emplace_back(a[i + k].text, b[j + k].text);
+        // The nodes skipped on both sides pair by position only where they can be the same text. A pair whose tag
+        // paths differ is two different texts: the walk has slipped there (the Chinese unique armors join two lines of
+        // a description into one node, and a plain zip then gave Stormshield the name of its base, "Monarch"). Numbers
+        // that differ do not prove a slip (a language may write "10 million" as "1000" and a word), but a text without
+        // numbers proves nothing by itself either, one item name being like any other: it pairs only when the pairs
+        // beside it share their tag paths too. When nothing is sure, the text keeps no translation rather than a
+        // wrong one.
+        const auto samePlace = [&](std::size_t x, std::size_t y) {
+            return a[x].key.compare(0, a[x].key.find('|'), b[y].key, 0, b[y].key.find('|')) == 0 && a[x].key.find('|') == b[y].key.find('|');
+        };
+        const auto numbered = [](const TextNode& node) { const std::size_t bar = node.key.find('|'); return bar != std::string::npos && bar + 1 < node.key.size(); };
+        if (di == dj) {
+            std::vector<char> place(di, 0);
+            for (std::size_t k = 0; k < di; ++k) place[k] = samePlace(i + k, j + k) ? 1 : 0;
+            const auto digitsAgree = [](const TextNode& x, const TextNode& y) {
+                const std::size_t barX = x.key.find('|'), barY = y.key.find('|');
+                if (barX == std::string::npos || barY == std::string::npos) return true;  // no digits part: nothing to disagree about
+                std::string dx = x.key.substr(barX + 1), dy = y.key.substr(barY + 1);
+                std::sort(dx.begin(), dx.end());
+                std::sort(dy.begin(), dy.end());
+                return dx.empty() || dy.empty() || dx == dy;
+            };
+            for (std::size_t k = 0; k < di; ++k) {
+                // the pairs on either side share their tag paths, or are the matched nodes around the skip
+                const bool neighbours = (k == 0 || place[k - 1]) && (k + 1 == di || place[k + 1]);
+                // a node the website marks up differently ("U Rune" in bold in one page, in a cell of its own in the
+                // other) between two pairs that agree is still the same text
+                const bool keep = place[k] ? (numbered(a[i + k]) && numbered(b[j + k])) || neighbours : neighbours && digitsAgree(a[i + k], b[j + k]);
+                if (keep) pairs.emplace_back(a[i + k].text, b[j + k].text);
+            }
+        } else {
+            // Skipped unevenly (one page splits a text the other keeps whole, or orders the lines of a description
+            // its own way): a node still pairs with the one node of the other side that has its tag path and numbers,
+            // when no other node of the skip has them.
+            std::unordered_map<std::string, std::pair<std::size_t, std::size_t>> countA, countB;  // key: how many, the last one
+            for (std::size_t k = 0; k < di; ++k)
+                if (numbered(a[i + k])) { auto& c = countA[a[i + k].key]; ++c.first; c.second = i + k; }
+            for (std::size_t k = 0; k < dj; ++k)
+                if (numbered(b[j + k])) { auto& c = countB[b[j + k].key]; ++c.first; c.second = j + k; }
+            std::vector<char> usedA(di, 0), usedB(dj, 0);
+            for (std::size_t k = 0; k < di; ++k) {
+                const auto inA = countA.find(a[i + k].key);
+                if (inA == countA.end() || inA->second.first != 1) continue;
+                const auto inB = countB.find(a[i + k].key);
+                if (inB == countB.end() || inB->second.first != 1) continue;
+                pairs.emplace_back(a[i + k].text, b[inB->second.second].text);
+                usedA[k] = 1;
+                usedB[inB->second.second - j] = 1;
+            }
+            // Two or three lines on one side that are one node on the other (the same tag path, and the same numbers
+            // between them): the first line takes the whole text, the others keep theirs.
+            const auto sortedDigits = [](const TextNode& node) {
+                const std::size_t bar = node.key.find('|');
+                std::string d = bar == std::string::npos ? std::string() : node.key.substr(bar + 1);
+                std::sort(d.begin(), d.end());
+                return d;
+            };
+            const auto pathOf = [](const TextNode& node) { return node.key.substr(0, node.key.find('|')); };
+            const auto joined = [&](const std::vector<TextNode>& side, std::size_t from, std::size_t count, std::size_t end, std::vector<char>& usedSide,
+                                    const std::vector<TextNode>& other, std::size_t otherFrom, std::size_t otherEnd, std::vector<char>& usedOther, bool englishSide) {
+                for (std::size_t k = from; k + count <= end; ++k) {
+                    bool onePath = true;
+                    std::string d;
+                    for (std::size_t q = k; q < k + count; ++q) {
+                        if (pathOf(side[q]) != pathOf(side[k]) || usedSide[q - from]) onePath = false;
+                        d += sortedDigits(side[q]);
+                    }
+                    std::sort(d.begin(), d.end());
+                    if (!onePath || d.empty()) continue;
+                    std::size_t hits = 0, at = 0;
+                    for (std::size_t q = otherFrom; q < otherEnd; ++q)
+                        if (pathOf(other[q]) == pathOf(side[k]) && sortedDigits(other[q]) == d) { ++hits; at = q; }
+                    if (hits != 1 || usedOther[at - otherFrom]) continue;
+                    for (std::size_t q = k; q < k + count; ++q) usedSide[q - from] = 1;
+                    usedOther[at - otherFrom] = 1;
+                    if (englishSide) {
+                        pairs.emplace_back(side[k].text, other[at].text);
+                        // The lines after the first are inside that translation: consumed, with no text of their own.
+                        for (std::size_t q = k + 1; q < k + count; ++q) pairs.emplace_back(side[q].text, std::string());
+                    }
+                    else {
+                        std::string whole;
+                        for (std::size_t q = k; q < k + count; ++q) whole += (q > k ? " " : "") + side[q].text;
+                        pairs.emplace_back(other[at].text, whole);
+                    }
+                    k += count - 1;
+                }
+            };
+            for (std::size_t lines = 2; lines <= 3; ++lines) {
+                if (di > dj) joined(a, i, lines, i + di, usedA, b, j, j + dj, usedB, true);
+                else joined(b, j, lines, j + dj, usedB, a, i, i + di, usedA, false);
+            }
+            // Two or three English lines left over against one localized node of the same tag path, where the website
+            // writes its own order and drops the numbers ("Affected enemies cannot heal" and "This effect resets to 0
+            // after kill, maxing out after 5 seconds" are one sentence without digits): the line with the node's digits
+            // takes the text and the others are consumed.
+            if (di > dj) {
+                std::vector<std::size_t> freeA, freeB;
+                for (std::size_t k = 0; k < di; ++k) if (!usedA[k]) freeA.push_back(k);
+                for (std::size_t k = 0; k < dj; ++k) if (!usedB[k]) freeB.push_back(k);
+                if (freeA.size() >= 2 && freeA.size() <= 3 && freeB.size() == 1) {
+                    const TextNode& target = b[j + freeB[0]];
+                    bool onePath = true;
+                    std::size_t pick = di, hits = 0;
+                    for (const std::size_t k : freeA) {
+                        if (pathOf(a[i + k]) != pathOf(target)) onePath = false;
+                        if (sortedDigits(a[i + k]) == sortedDigits(target)) { pick = k; ++hits; }
+                    }
+                    if (onePath && hits == 1) {
+                        for (const std::size_t k : freeA) pairs.emplace_back(a[i + k].text, k == pick ? target.text : std::string());
+                    }
+                }
+            }
+        }
         i += di;
         j += dj;
     }
@@ -480,6 +732,7 @@ void Translator::AddPage(const std::string& englishHtml, const std::string& loca
         if (pair.first == pair.second) {
             // kept as a known piece: a word the site does not translate ("Suffixes", "Charge") still covers its place in a joined text
             if (pair.first.size() >= 2 && pair.first.size() <= 40 && HasLetter(pair.first)) identity_.insert(pair.first);
+            ++identityVotes_[pair.first];
             continue;
         }
         auto found = seen_.find(pair.first);
@@ -542,6 +795,7 @@ void Translator::DeriveNames() {
                 const std::vector<std::string> words = SplitWords(english);
                 if (words.size() < keyWords + 1 || words.size() > 5) continue;
                 const std::string key = fromEnd ? JoinWords(words, words.size() - keyWords, words.size()) : JoinWords(words, 0, keyWords);
+                if (exact_.at(english).empty()) continue;
                 Member member{fromEnd ? JoinWords(words, 0, words.size() - keyWords) : JoinWords(words, keyWords, words.size()), SplitWords(exact_.at(english))};
                 groups[key].push_back(std::move(member));
             }
@@ -608,16 +862,53 @@ void Translator::Finish() {
     pieces_.clear();
     std::unordered_map<std::string, Choice> patterns;
     std::vector<std::string> patternOrder;
+    // Which English number each '#' of a localized shape shows, as every pair of texts with these two shapes tells it.
+    struct RoleEvidence {
+        std::vector<std::size_t> roles;
+        int quality = 0;
+        int votes = 0;
+    };
+    std::unordered_map<std::string, std::vector<RoleEvidence>> evidence;  // English shape '\n' localized shape
+    const auto rolesFor = [&](const std::string& englishShape, const std::string& localizedShape, std::size_t count, Template& target) {
+        target.roles.clear();
+        if (count == 0) return true;
+        const auto found = evidence.find(englishShape + "\n" + localizedShape);
+        if (found == evidence.end()) return false;
+        const RoleEvidence* best = nullptr;
+        for (const RoleEvidence& e : found->second)
+            if (best == nullptr || e.quality > best->quality || (e.quality == best->quality && e.votes > best->votes)) best = &e;
+        if (best == nullptr || best->roles.size() != count || (best->quality == 0 && count > 1)) return false;
+        target.roles = best->roles;
+        return true;
+    };
+    std::vector<std::pair<std::string, Template>> newPieces;
     for (const std::string& english : order_) {
         const auto& values = seen_.at(english).values;
-        const auto best = std::max_element(values.begin(), values.end(), [](const auto& l, const auto& r) { return l.second < r.second; });
-        exact_[english] = best->first;
+        // A translation of nothing marks a line the website joins into the line before it. Any real translation wins
+        // over it, so only a text that was never anything but a continuation line is left without one.
+        const auto best = std::max_element(values.begin(), values.end(), [](const auto& l, const auto& r) {
+            if (l.first.empty() != r.first.empty()) return l.first.empty();
+            return l.second < r.second;
+        });
+        if (best->first.empty()) { exact_[english] = std::string(); continue; }
+        const auto votes = identityVotes_.find(english);
+        // the site leaves the text as it is more often than it gives any one translation: it stays as it is
+        const std::string& chosen = votes != identityVotes_.end() && votes->second > best->second ? english : best->first;
+        exact_[english] = chosen;
         std::vector<std::string> a, b;
-        const std::string ta = ReplaceNumbers(english, &a), tb = ReplaceNumbers(best->first, &b);
-        if (a.size() == b.size() && ta.size() >= 2 && HasLetter(ta)) {
-            auto& list = pieces_[PieceIndex(ta)];
-            if (std::none_of(list.begin(), list.end(), [&](const auto& p) { return p.first == ta; })) list.emplace_back(ta, tb);
+        const std::string ta = ReplaceNumbers(english, &a), tb = ReplaceNumbers(chosen, &b);
+        if (a.size() == b.size() && static_cast<std::size_t>(std::count(ta.begin(), ta.end(), '#')) == a.size() &&
+            static_cast<std::size_t>(std::count(tb.begin(), tb.end(), '#')) == b.size()) {
+            std::vector<std::size_t> roles;
+            const int quality = InferRoles(ta, a, tb, b, roles);
+            auto& list = evidence[ta + "\n" + tb];
+            auto same = std::find_if(list.begin(), list.end(), [&](const RoleEvidence& e) { return e.roles == roles && e.quality == quality; });
+            if (same == list.end()) list.push_back(RoleEvidence{roles, quality, 1});
+            else ++same->votes;
         }
+        if (a.size() == b.size() && ta.size() >= 2 && HasLetter(ta) &&
+            std::none_of(newPieces.begin(), newPieces.end(), [&](const auto& p) { return p.first == ta; }))
+            newPieces.emplace_back(ta, Template{tb, {}});
         if (a.empty() || a.size() != b.size()) continue;
         auto found = patterns.find(ta);
         if (found == patterns.end()) { patternOrder.push_back(ta); found = patterns.emplace(ta, Choice{}).first; }
@@ -626,18 +917,29 @@ void Translator::Finish() {
         if (it == v.end()) v.emplace_back(tb, 1);
         else ++it->second;
     }
+    for (auto& piece : newPieces) {
+        const std::size_t count = static_cast<std::size_t>(std::count(piece.first.begin(), piece.first.end(), '#'));
+        if (!rolesFor(piece.first, piece.second.text, count, piece.second)) continue;  // which number goes where is unknown
+        pieces_[PieceIndex(piece.first)].push_back(std::move(piece));
+    }
     for (const std::string& same : identity_) {
         const std::string ta = ReplaceNumbers(same, nullptr);
         if (ta.size() < 2 || !HasLetter(ta)) continue;
         auto& list = pieces_[PieceIndex(ta)];
-        if (std::none_of(list.begin(), list.end(), [&](const auto& p) { return p.first == ta; })) list.emplace_back(ta, ta);
+        if (std::none_of(list.begin(), list.end(), [&](const auto& p) { return p.first == ta; })) {
+            Template keep{ta, {}};
+            for (std::size_t k = 0; k < static_cast<std::size_t>(std::count(ta.begin(), ta.end(), '#')); ++k) keep.roles.push_back(k);
+            list.emplace_back(ta, keep);
+        }
     }
     for (auto& entry : pieces_)
         std::stable_sort(entry.second.begin(), entry.second.end(), [](const auto& l, const auto& r) { return l.first.size() > r.first.size(); });
     for (const std::string& key : patternOrder) {
         const auto& v = patterns.at(key).values;
         const auto best = std::max_element(v.begin(), v.end(), [](const auto& l, const auto& r) { return l.second < r.second; });
-        pattern_[key] = best->first;
+        Template chosenTemplate{best->first, {}};
+        const std::size_t count = static_cast<std::size_t>(std::count(key.begin(), key.end(), '#'));
+        if (rolesFor(key, best->first, count, chosenTemplate)) pattern_[key] = chosenTemplate;
     }
     DeriveNames();
     const auto lower = [](std::string s) {
@@ -646,7 +948,8 @@ void Translator::Finish() {
     };
     lowerExact_.clear();
     lowerPattern_.clear();
-    for (const auto& e : exact_) lowerExact_.emplace(lower(e.first), e.second);
+    for (const auto& e : exact_)
+        if (!e.second.empty()) lowerExact_.emplace(lower(e.first), e.second);
     for (const auto& e : pattern_) lowerPattern_.emplace(lower(e.first), e.second);
 }
 
@@ -681,6 +984,7 @@ bool Translator::TranslateCell(std::string& cell, bool allowFallback) const {
         }
     }
     const auto exact = exact_.find(core);
+    if (exact != exact_.end() && exact->second.empty()) return false;  // a continuation line: only a LINE of its own is dropped, by Translate
     if (exact != exact_.end()) {
         if (!allowFallback && fallback_.count(core)) return false;
         cell = pre + exact->second + post;
@@ -728,16 +1032,17 @@ bool Translator::TranslateCell(std::string& cell, bool allowFallback) const {
             return s;
         };
         auto found = pattern_.find(shape);
-        const std::string* patternText = found != pattern_.end() ? &found->second : nullptr;
+        const Template* patternText = found != pattern_.end() ? &found->second : nullptr;
         if (patternText == nullptr) {
             const auto low = lowerPattern_.find(lowered(shape));
             if (low != lowerPattern_.end()) patternText = &low->second;
         }
-        if (patternText != nullptr && static_cast<std::size_t>(std::count(patternText->begin(), patternText->end(), '#')) == numbers.size()) {
+        if (patternText != nullptr && patternText->roles.size() == numbers.size() &&
+            static_cast<std::size_t>(std::count(patternText->text.begin(), patternText->text.end(), '#')) == numbers.size()) {
             std::string out;
             std::size_t used = 0;
-            for (const char c : *patternText) {
-                if (c == '#') out += numbers[used++];
+            for (const char c : patternText->text) {
+                if (c == '#') out += numbers[patternText->roles[used++]];  // each number where the language puts it
                 else out += c;
             }
             cell = pre + out + post;
@@ -783,13 +1088,15 @@ bool Translator::TranslatePieces(const std::string& core, std::string& out) cons
     std::vector<std::string> numbers;
     const std::string shape = ReplaceNumbers(core, &numbers);
     std::string result;
+    std::vector<std::size_t> roles;  // for each '#' of the result, the number of `core` it shows
+    std::size_t consumed = 0;        // the numbers of `core` before position i
     bool hit = false;
     for (std::size_t i = 0; i < shape.size();) {
         const bool atWordStart = i == 0 || !WordByte(shape[i - 1]) || !WordByte(shape[i]);  // a piece may start with '+' or '(' right after a word
         if (atWordStart && i + 1 < shape.size()) {
             const auto list = pieces_.find(PieceIndex(shape.substr(i, 2)));
             if (list != pieces_.end()) {
-                const std::pair<std::string, std::string>* best = nullptr;
+                const std::pair<std::string, Template>* best = nullptr;
                 for (const auto& piece : list->second) {
                     if (shape.compare(i, piece.first.size(), piece.first) != 0) continue;
                     const std::size_t end = i + piece.first.size();
@@ -798,7 +1105,9 @@ bool Translator::TranslatePieces(const std::string& core, std::string& out) cons
                     break;  // longest first
                 }
                 if (best != nullptr) {
-                    result += best->second;
+                    result += best->second.text;
+                    for (const std::size_t role : best->second.roles) roles.push_back(consumed + role);
+                    consumed += static_cast<std::size_t>(std::count(best->first.begin(), best->first.end(), '#'));
                     i += best->first.size();
                     hit = true;
                     continue;
@@ -806,18 +1115,19 @@ bool Translator::TranslatePieces(const std::string& core, std::string& out) cons
             }
         }
         if (Letter(shape[i])) return false;  // a word the website has no text for
+        if (shape[i] == '#') roles.push_back(consumed++);
         result += shape[i++];
     }
-    if (!hit) return false;
+    if (!hit || consumed != numbers.size()) return false;
     std::size_t used = 0;
     out.clear();
     for (const char c : result) {
         if (c == '#') {
-            if (used >= numbers.size()) return false;
-            out += numbers[used++];
+            if (used >= roles.size() || roles[used] >= numbers.size()) return false;
+            out += numbers[roles[used++]];
         } else out += c;
     }
-    return used == numbers.size();
+    return used == roles.size();
 }
 
 std::string Translator::Translate(const std::string& wikiData, TranslateStats* stats) const {
@@ -826,11 +1136,22 @@ std::string Translator::Translate(const std::string& wikiData, TranslateStats* s
     out.reserve(wikiData.size());
     std::size_t lineStart = 0;
     bool first = true;
+    std::string previousType;  // the type of the record written last
     while (lineStart <= wikiData.size()) {
         std::size_t lineEnd = wikiData.find('\n', lineStart);
         if (lineEnd == std::string::npos) lineEnd = wikiData.size();
         std::vector<std::string> fields = SplitOn(wikiData.substr(lineStart, lineEnd - lineStart), '\t');
         const std::string& type = fields[0];
+        // A line the website joins into the line before it ("... Max Stack: 20" in one text, two lines in English) has
+        // been translated with that line: it is dropped, but only right after another LINE, so a block keeps its lines.
+        if (type == "LINE" && previousType == "LINE" && fields.size() >= 3) {
+            const auto consumed = exact_.find(StripCodes(fields[2]));
+            if (consumed != exact_.end() && consumed->second.empty()) {
+                if (lineEnd >= wikiData.size()) break;
+                lineStart = lineEnd + 1;
+                continue;
+            }
+        }
         if (type == "LINE" || type == "FIELD" || type == "BLOCK" || type == "ENTRY" || type == "TAG" || type == "NOTE" || type == "RUNE") {
             for (std::size_t i = 1; i < fields.size(); ++i) {
                 if (type == "BLOCK" && i == 5) continue;  // the tier is a key the overlay looks for
@@ -864,6 +1185,7 @@ std::string Translator::Translate(const std::string& wikiData, TranslateStats* s
         }
         if (!first) out += '\n';
         first = false;
+        previousType = type;
         for (std::size_t i = 0; i < fields.size(); ++i) out += (i > 0 ? "\t" : "") + fields[i];
         if (lineEnd >= wikiData.size()) break;
         lineStart = lineEnd + 1;

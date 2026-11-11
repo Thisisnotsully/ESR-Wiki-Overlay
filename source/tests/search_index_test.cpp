@@ -466,6 +466,31 @@ int main(int argc, char** argv) {
         }
     }
 
+    // Socketable-bonus group labels (Label lines, item kinds) are not card text: not searched, not shown in snippets.
+    {
+        Database ldb;
+        Page words;
+        words.id = "runewords";
+        words.title = "Runewords";
+        Entry entry;
+        entry.title = "Weapons";
+        Block card = Card("Plain Word", {"+5 Strength"});
+        card.lines.push_back(Line{LineKind::Label, "Staff / Wand / Orb"});
+        card.lines.push_back(Line{LineKind::Stat, "+9 Vitality"});
+        entry.blocks.push_back(card);
+        words.entries.push_back(entry);
+        ldb.pages = {words};
+        search::Index lindex;
+        lindex.Build(ldb);
+        Check(lindex.Query(ldb, "wand", 0).empty(), "a group label line is not searched");
+        Check(!lindex.Query(ldb, "vitality", 0).empty(), "the lines around it still are");
+        Check(!FilterEntries(ldb.pages[0], "vitality").empty() && FilterEntries(ldb.pages[0], "staff").empty(),
+              "the page filter ignores group labels");
+        Check(ArrangeBlocks(ldb.pages[0].entries[0], 0, "", "", BlockSort::Default, "orb").empty(), "block filter ignores group labels");
+        for (const std::string& line : BlockSearchLines(ldb.pages[0].entries[0].blocks[0]))
+            Check(line.find("Staff") == std::string::npos, "BlockSearchLines has no label");
+    }
+
     if (failures == 0) std::cout << "search_index tests passed\n";
     return failures == 0 ? 0 : 1;
 }

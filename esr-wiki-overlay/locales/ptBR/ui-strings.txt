@@ -536,3 +536,21 @@ Warlock Sigil	Símbolo do Bruxo
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Valores
+Items {0}	Itens {0}
+About	Sobre
+Max all	Tudo no máximo
+Reset	Redefinir
+Req {0}	Nív. req. {0}
+Max {0}	Máx. {0}
+Mana {0}	Mana {0}
+Mana {0} ({1} per level)	Mana {0} ({1} por nível)
+All levels	Todos os níveis
+Lvl {0}	Nív. {0}
+Hard points only: +skills from items do not count.	Somente pontos investidos: +habilidades de itens não contam.
+Receives bonuses from	Recebe bônus de
+At level {0}	No nível {0}
+* beyond what a character can reach	* além do que um personagem pode alcançar
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Níveis de habilidade acima de {0} são marcados com *: nenhum personagem pode alcançá-los, mas os valores ainda são calculados.
+No item grants this skill.	Nenhum item concede esta habilidade.
+{0} ({1})	{0} ({1})

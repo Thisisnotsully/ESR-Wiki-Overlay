@@ -1,0 +1,473 @@
+absolute zero	skill_other_42
+abyss	skill_war_58
+amplify damage	skill_nec_0
+amplify damage aura	skill_other_0
+apocalypse	skill_war_56
+arcane poison nova	skill_other_80
+arrow hit skill	skill_other_12
+axe proc	skill_other_70
+battle command	skill_bar_58
+battle orders	skill_bar_46
+berserk	skill_bar_52
+berserk fury	skill_bar_68
+bind demon	skill_war_18
+black magic	skill_war_66
+blade nova	skill_ass_18
+blade warp	skill_war_34
+blades of ice	skill_ass_52
+blades of ice discharge	skill_other_70
+blaze	skill_sor_20
+blessed aim	skill_pal_24
+blessed hammer	skill_pal_32
+blessed hammer weapon damage	skill_other_32
+blink strike	skill_other_42
+blizzard	skill_sor_46
+blizzard cannon	skill_other_6
+blood boil	skill_war_14
+blood empowerment	skill_other_42
+blood golem	skill_nec_38
+blood oath	skill_war_4
+bloodraven charge raven	skill_other_96
+bloody spear	skill_other_54
+bone armor	skill_nec_4
+bone mastery	skill_nec_24
+bone prison	skill_nec_44
+bone spear	skill_nec_36
+bone spirit	skill_nec_54
+bone wall	skill_other_24
+bone wave	skill_nec_2
+broadhead	skill_other_88
+buckshot	skill_other_56
+burst of speed	skill_ass_36
+call of the ancients	skill_bar_6
+call of the wild	skill_dru_4
+cataclysm	skill_dru_50
+celestial empowerment	skill_other_54
+chain lightning djinn	skill_other_64
+charge	skill_pal_22
+charged claws	skill_dru_66
+claws of thunder	skill_ass_58
+claws of thunder discharge	skill_other_70
+clay golem	skill_nec_18
+cleansing	skill_pal_38
+cleave	skill_war_36
+cloak of shadows	skill_ass_24
+cloak of shadows aura	skill_other_24
+cold arrow	skill_ama_10
+cold blast	skill_ass_0
+cold brand	skill_other_70
+cold damage aura	skill_other_70
+cold enchant	skill_other_78
+cold enhanced arrow	skill_other_70
+cold enhanced axe	skill_other_70
+cold flash	skill_other_42
+cold mastery	skill_other_58
+cold pierce aura	skill_other_70
+cold surge	skill_other_70
+cold wave	skill_ass_68
+combat mastery	skill_bar_2
+command mastery	skill_ass_72
+concentrate	skill_bar_36
+concentrate proc	skill_other_36
+concentration	skill_pal_34
+conduit	skill_sor_34
+conduit proc	skill_other_34
+conflagrate	skill_sor_78
+confuse	skill_nec_30
+consume	skill_war_16
+contagion	skill_dru_64
+conviction	skill_pal_56
+corpse explosion	skill_nec_16
+corrupted poison nova	skill_other_80
+critical strike	skill_ama_6
+crucify	skill_pal_30
+cyclone armor	skill_dru_40
+dance of death	skill_ama_62
+death mark	skill_war_6
+death ritual	skill_other_96
+death sentry	skill_ass_16
+death sentry physical	skill_other_16
+death web	skill_other_42
+decrepify	skill_nec_42
+defiance	skill_pal_16
+delerium change	skill_other_2
+demonic mastery	skill_war_0
+devastating overwhelm	skill_other_70
+devastating shock wave	skill_other_42
+dim vision	skill_nec_10
+divinity	skill_pal_60
+djinn slayer attunement	skill_other_106
+dodge	skill_ama_14
+dragon blade	skill_ass_70
+dragon breath	skill_other_94
+dragon fury	skill_ass_46
+dragon fury discharge	skill_other_84
+dragon tail	skill_ass_48
+dragon talon	skill_ass_42
+drain soul	skill_other_96
+eagle eye	skill_ama_60
+eagle eye aura	skill_other_60
+echoing strike	skill_war_30
+eldritch blast	skill_war_28
+eldritch mastery	skill_war_68
+elemental form	skill_dru_36
+elemental fury	skill_sor_18
+elemental nova	skill_sor_24
+elemental surge	skill_other_112
+emberquake	skill_other_58
+empowered enchant cold	skill_other_76
+empowered enchant fire	skill_other_76
+empowered enchant lightning	skill_other_76
+empowered enchant magic	skill_other_76
+empowered enchant physical	skill_other_76
+empowered enchant poison	skill_other_76
+enchant	skill_sor_32
+energy shield	skill_sor_44
+energy shield aura	skill_other_44
+engorge	skill_war_12
+enhanced entropy	skill_war_54
+eternal winter	skill_other_34
+execute	skill_ass_54
+execute discharge	skill_other_84
+exploding arrow	skill_ama_20
+fade	skill_ass_30
+fanatic swing	skill_sor_62
+fanaticism	skill_pal_52
+fend	skill_ama_48
+feral mastery	skill_dru_14
+feral rage	skill_dru_54
+ferocious bite	skill_dru_2
+find rejuvenation	skill_bar_10
+find treasure	skill_bar_32
+fire armor	skill_sor_28
+fire ball	skill_sor_22
+fire bolt	skill_sor_0
+fire brand	skill_other_70
+fire cascade	skill_other_52
+fire claws	skill_dru_26
+fire damage aura	skill_other_70
+fire enhanced arrow	skill_other_70
+fire enhanced axe	skill_other_70
+fire enhanced fury	skill_other_30
+fire flash	skill_other_42
+fire golem	skill_nec_56
+fire mastery	skill_other_50
+fire pierce aura	skill_other_70
+fire surge	skill_other_70
+fire swarm	skill_other_64
+fire whirlwind	skill_other_104
+firestorm	skill_dru_32
+fist of the heavens	skill_pal_50
+fist of the heavens weapon damage	skill_other_50
+fists of fire	skill_ass_44
+fists of fire discharge	skill_other_70
+flame rift	skill_other_46
+flame wave	skill_war_50
+flameburst	skill_dru_34
+flurry of shurikens	skill_ass_10
+freezing arrow	skill_ama_50
+freezing claws	skill_dru_62
+freezing claws proc	skill_other_62
+frenzy	skill_bar_42
+frost javelin	skill_ama_28
+frozen blast	skill_dru_68
+fury	skill_dru_30
+fury of creation	skill_other_26
+glacial focus	skill_sor_58
+glacial inferno	skill_other_94
+glacial spike	skill_sor_38
+gluttony	skill_war_64
+golem mastery	skill_nec_26
+hailstorm	skill_ama_36
+harpoon ballista	skill_other_88
+hatchet flurry	skill_bar_28
+headhunter elemental damage	skill_other_6
+headhunter health	skill_other_6
+headhunter physical damage	skill_other_6
+headhunter resistances	skill_other_6
+headhunter skills	skill_other_6
+headhunter speed	skill_other_6
+headhunter stats	skill_other_6
+heat death	skill_other_42
+heaven gate	skill_other_102
+hell pendulum	skill_other_60
+hellfire lance	skill_war_60
+hells gate	skill_nec_64
+hex bane	skill_war_24
+hex purge	skill_war_32
+hex siphon	skill_war_26
+holy armor	skill_pal_42
+holy bolt	skill_pal_10
+holy bolt weapon damage	skill_other_10
+holy fire	skill_pal_12
+holy freeze	skill_pal_36
+holy rain	skill_pal_62
+holy shock	skill_pal_44
+holy ward	skill_pal_66
+howl	skill_bar_8
+hurricane	skill_dru_48
+hydra baal's vile whisper	skill_other_52
+hypothermia	skill_other_112
+iaigiri	skill_ass_64
+ice blink	skill_other_46
+ice bolt	skill_sor_6
+ice explosion	skill_other_70
+ice fangs	skill_ass_66
+immolation arrow	skill_ama_42
+incinerate	skill_other_44
+incinerate proc	skill_other_44
+inferno fury	skill_ama_16
+inner sight	skill_ama_4
+iron golem	skill_nec_48
+iron maiden	skill_nec_20
+iron salvo	skill_other_92
+iron skin	skill_bar_38
+judgement	skill_pal_70
+judgement proc	skill_other_70
+leap	skill_bar_12
+leap attack	skill_bar_34
+legendary arrow	skill_ama_64
+levitate	skill_war_20
+life tap	skill_nec_32
+lightning arrow	skill_ama_30
+lightning brand	skill_other_70
+lightning cascade	skill_other_112
+lightning damage aura	skill_other_70
+lightning enhanced arrow	skill_other_70
+lightning enhanced axe	skill_other_70
+lightning enhanced leap attack	skill_other_86
+lightning flash	skill_other_42
+lightning fury	skill_ama_58
+lightning hydra	skill_sor_52
+lightning mastery	skill_other_54
+lightning pierce aura	skill_other_70
+lightning sentry	skill_ass_12
+lightning strafe	skill_other_48
+lightning surge	skill_other_70
+lightning warp	skill_other_46
+long shot	skill_other_30
+lothar wrath	skill_other_64
+lower resist	skill_nec_50
+lower resist aura	skill_other_50
+luck of the ancients	skill_bar_10
+lycanthropy	skill_dru_52
+maelstrom cascade	skill_ama_56
+maelstrom cascade proc	skill_other_56
+magic arrow	skill_ama_0
+magic brand	skill_other_70
+magic enhanced arrow	skill_other_70
+magic enhanced axe	skill_other_70
+magic mastery	skill_other_58
+magic surge	skill_other_70
+mana shards	skill_other_74
+marrow walking	skill_other_70
+maul	skill_dru_56
+meditation	skill_pal_48
+meteor sentry	skill_ass_14
+meteor shower	skill_sor_42
+miasma bolt	skill_war_46
+miasma chains	skill_war_52
+might	skill_pal_4
+mind blast	skill_ass_34
+mirrored blades	skill_war_38
+mjolnir chaos lightning	skill_other_6
+molten focus	skill_sor_50
+monkey king leap	skill_other_62
+monkey king slam	skill_other_62
+monsoon	skill_dru_46
+moonstorm	skill_other_106
+multiple shot	skill_ama_12
+multiple shot ballista	skill_other_48
+mythical decrepify	skill_other_42
+natural resistance	skill_bar_54
+nightfall	skill_other_46
+nova	skill_bar_70
+omnipotence	skill_sor_72
+orb of the mist	skill_other_60
+orb of winter	skill_sor_56
+overload	skill_other_42
+overseer volley	skill_other_86
+overwhelm	skill_bar_0
+penetrate	skill_ama_34
+permafrost	skill_sor_16
+permafrost storm	skill_other_54
+petrify	skill_ama_70
+phantom hatchets	skill_bar_66
+phoenix strike	skill_ass_56
+phoenix strike cold discharge	skill_other_56
+phoenix strike discharge	skill_other_56
+pierce	skill_ama_54
+pierce flesh and bone	skill_nec_60
+plague javelin	skill_ama_38
+plasma rain	skill_bar_16
+plasma swarm	skill_other_72
+poison arrow	skill_ama_2
+poison enhanced arrow	skill_other_70
+poison enhanced axe	skill_other_70
+poison explosion	skill_nec_34
+poison mastery	skill_other_58
+poison nova	skill_nec_52
+poison sentry	skill_other_66
+poison surge	skill_other_70
+poison weapon	skill_nec_14
+power of athulua	skill_ama_68
+power overwhelming	skill_sor_70
+prayer	skill_pal_6
+precision mastery	skill_bar_18
+primal savagery	skill_dru_58
+prismatic shot	skill_other_40
+psychic hammer	skill_ass_22
+psychic ward	skill_war_22
+pulverize	skill_other_84
+pyre javelin	skill_ama_18
+rabies	skill_dru_24
+raging gale	skill_sor_68
+rain of fire	skill_sor_40
+rain of stars	skill_other_56
+raise kornac	skill_other_82
+raise skeletal mage	skill_nec_28
+raise skeleton	skill_nec_8
+raven	skill_dru_0
+reap souls	skill_nec_62
+reap souls proc	skill_other_62
+reap thunder	skill_other_98
+redemption	skill_pal_54
+release pressure	skill_other_58
+resist cold	skill_pal_18
+resist fire	skill_pal_8
+resist lightning	skill_pal_28
+ricochet javelin	skill_other_94
+rift shot	skill_other_90
+righteous fire	skill_other_100
+rupture of stars	skill_other_80
+sacrificial offering	skill_nec_40
+salvation	skill_pal_58
+sanctuary	skill_pal_46
+sandstorm	skill_dru_60
+scorch	skill_sor_76
+scorch weapon damage	skill_other_76
+scosglen resonance	skill_other_96
+seeking flames	skill_war_42
+shackles	skill_other_42
+shade armor	skill_ass_60
+shadow dance	skill_other_42
+shadow descent	skill_other_86
+shadow master	skill_ass_32
+shadow warrior	skill_ass_38
+sharpened focus	skill_ama_22
+shiver armor	skill_sor_48
+shock armor	skill_sor_8
+shock wave	skill_dru_28
+shock web	skill_ass_2
+shocking leap attack	skill_other_86
+shout	skill_bar_24
+shout aura	skill_other_24
+shout of the ancients	skill_bar_62
+shuriken	skill_ass_4
+shuriken trap	skill_ass_62
+sigil death	skill_war_48
+sigil lethargy	skill_war_40
+sigil rancor	skill_war_44
+singularity	skill_other_94
+skeleton mastery	skill_nec_6
+slow teleport	skill_other_46
+smite	skill_pal_2
+soul reaper mastery	skill_nec_68
+soul shiver	skill_sor_2
+soul tide	skill_other_64
+spearstorm	skill_ama_26
+spectral maim	skill_other_84
+spell mastery	skill_other_58
+spike nova cold	skill_other_70
+spike nova fire	skill_other_70
+spike nova lightning	skill_other_70
+spike nova magic	skill_other_70
+spike nova poison	skill_other_70
+spike nova proc	skill_other_70
+spirit of nature	skill_dru_10
+spirit of nature mastery	skill_other_70
+spiritstorm	skill_other_94
+splintering javelin	skill_ama_8
+stampede	skill_bar_64
+starfall	skill_other_56
+static field	skill_sor_12
+static focus	skill_sor_54
+storm nexus	skill_sor_74
+storm of the old gods	skill_bar_72
+stormshield chain lightning	skill_other_64
+strafe	skill_ama_40
+strength of the ancients	skill_bar_60
+stun	skill_bar_26
+summon abyss knight	skill_war_62
+summon defiler	skill_war_10
+summon dire wolf	skill_dru_12
+summon goatman	skill_war_2
+summon grizzly	skill_dru_18
+summon holy defender	skill_pal_68
+summon resist	skill_nec_46
+summon skeleton king	skill_nec_58
+summon spirit wolf	skill_dru_6
+summon tainted	skill_war_8
+super nova	skill_other_70
+super teleport	skill_other_46
+sway	skill_ama_46
+taunt	skill_bar_22
+telekinesis	skill_sor_14
+teleport	skill_sor_36
+terror	skill_nec_22
+thor hammer chain lightning	skill_other_64
+thorns	skill_pal_14
+thunder star	skill_other_112
+thunder strike	skill_bar_4
+thunderclaws	skill_dru_8
+tiger strike	skill_ass_40
+time lapse	skill_other_70
+time stop	skill_sor_60
+tornado shot	skill_ama_48
+travel to the underworld	skill_other_44
+trinity	skill_pal_64
+triumvirate orb	skill_other_60
+twin fangs	skill_dru_16
+twinkle	skill_other_94
+twister	skill_dru_42
+typhoon	skill_other_102
+umbral flight	skill_other_46
+undead frenzy	skill_nec_66
+underworld empowerment	skill_other_82
+valkyrie	skill_ama_52
+valkyrie mastery	skill_ama_44
+vengeance	skill_pal_40
+vengeful spirit	skill_other_64
+venom	skill_ass_28
+venom veil	skill_other_46
+vigor	skill_pal_26
+vigor of the ancients	skill_bar_30
+viperfork charge	skill_other_110
+volcano	skill_dru_44
+wake of destruction sentry	skill_ass_8
+war cry	skill_bar_56
+warm up	skill_other_70
+warpath	skill_bar_14
+weaken	skill_nec_12
+weaken aura	skill_other_12
+weapon block	skill_ass_26
+weapon mastery	skill_ass_20
+werebear	skill_dru_22
+werewolf	skill_dru_20
+whirlpool	skill_dru_38
+whirlpool proc	skill_other_38
+whirlwind	skill_bar_50
+widowmaker	skill_other_96
+wild airs of the elements	skill_other_40
+wind brand	skill_other_70
+wind mastery	skill_other_58
+wind surge	skill_other_70
+wind walk	skill_other_46
+winged embrace	skill_other_64
+wisdom of athulua	skill_ama_66
+word of god	skill_other_112
+wraithstep damage	skill_other_96
+wrath of the ancients	skill_bar_40
+wyrm wrap chain lightning	skill_other_64
+zap	skill_sor_26
+zeal	skill_pal_20

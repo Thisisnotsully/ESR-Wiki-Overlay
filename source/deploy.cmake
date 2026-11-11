@@ -81,6 +81,13 @@ if(NOT _result EQUAL 0)
   message(WARNING "ESR Wiki overlay: could not copy skills-data.json to ${_dest_data}.")
 endif()
 
+# The Skills tab's icon names (skill key -> images\skill_<class>_<n>.png; tools/build_skill_icons.py writes it).
+file(COPY_FILE "${SRC_DATA}/skill-icons.txt" "${_dest_data}/skill-icons.txt"
+     RESULT _result ONLY_IF_DIFFERENT)
+if(NOT _result EQUAL 0)
+  message(WARNING "ESR Wiki overlay: could not copy skill-icons.txt to ${_dest_data}.")
+endif()
+
 # The Campaign Progression map's data (one file for every language; tools/build_campaign.py writes it).
 file(COPY_FILE "${SRC_DATA}/campaign-map.txt" "${_dest_data}/campaign-map.txt"
      RESULT _result ONLY_IF_DIFFERENT)

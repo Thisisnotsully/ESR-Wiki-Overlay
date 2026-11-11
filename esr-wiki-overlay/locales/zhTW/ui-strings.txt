@@ -536,3 +536,21 @@ Warlock Sigil	術士印記
 {0}: {1}	{0}：{1}
 {0}, {1}	{0}、{1}
 {0}. {1}	{0}。{1}
+Values	數值
+Items {0}	物品 {0}
+About	說明
+Max all	全部最大
+Reset	重設
+Req {0}	需求 {0}
+Max {0}	最大 {0}
+Mana {0}	法力 {0}
+Mana {0} ({1} per level)	法力 {0}（每級 {1}）
+All levels	所有等級
+Lvl {0}	等級 {0}
+Hard points only: +skills from items do not count.	僅限投入點數：物品提供的 +技能不計入。
+Receives bonuses from	獲得來自以下的加成
+At level {0}	等級 {0} 時
+* beyond what a character can reach	* 超出角色可達到的範圍
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	高於 {0} 的技能等級標有 *：任何角色都無法達到，但數值仍會計算。
+No item grants this skill.	沒有物品提供此技能。
+{0} ({1})	{0}（{1}）

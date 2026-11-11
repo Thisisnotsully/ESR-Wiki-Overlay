@@ -535,3 +535,21 @@ Warlock Sigil	ウォーロックの印章
 {0}: {1}	{0}：{1}
 {0}, {1}	{0}、{1}
 {0}. {1}	{0}。{1}
+Values	数値
+Items {0}	アイテム {0}
+About	概要
+Max all	すべて最大
+Reset	リセット
+Req {0}	必要Lv {0}
+Max {0}	最大 {0}
+Mana {0}	マナ {0}
+Mana {0} ({1} per level)	マナ {0}（レベルごとに {1}）
+All levels	全レベル
+Lvl {0}	Lv {0}
+Hard points only: +skills from items do not count.	割り振りポイントのみ: アイテムによる+スキルは含まれません。
+Receives bonuses from	以下のボーナスを受け取ります
+At level {0}	レベル {0} 時
+* beyond what a character can reach	* キャラクターが到達できない範囲
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	{0} を超えるスキルレベルには * が付いています: どのキャラクターも到達できませんが、数値は計算されます。
+No item grants this skill.	このスキルを付与するアイテムはありません。
+{0} ({1})	{0}（{1}）

@@ -520,3 +520,21 @@ Warlock Sigil	Sceau du démoniste
 {0}: {1}	{0} : {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Valeurs
+Items {0}	Objets {0}
+About	À propos
+Max all	Tout au max
+Reset	Réinitialiser
+Req {0}	Niv. req. {0}
+Max {0}	Max {0}
+Mana {0}	Mana {0}
+Mana {0} ({1} per level)	Mana {0} ({1} par niveau)
+All levels	Tous les niveaux
+Lvl {0}	Niv. {0}
+Hard points only: +skills from items do not count.	Points investis uniquement : les +compétences des objets ne comptent pas.
+Receives bonuses from	Reçoit des bonus de
+At level {0}	Au niveau {0}
+* beyond what a character can reach	* au-delà de ce qu'un personnage peut atteindre
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Les niveaux de compétence au-delà de {0} sont marqués d'un * : aucun personnage ne peut les atteindre, mais les valeurs sont tout de même calculées.
+No item grants this skill.	Aucun objet n'accorde cette compétence.
+{0} ({1})	{0} ({1})

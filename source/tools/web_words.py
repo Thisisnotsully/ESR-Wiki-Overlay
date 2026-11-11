@@ -11,8 +11,14 @@ picture goes with which runeword, and which icon goes with a rune or gem. Standa
 Anything that goes wrong leaves wiki-data.txt untouched and exits 1. The C++ twin is src/web_words_live.cpp; change
 both together (tests/web_words_live_test.cpp checks that they agree).
 
-How the pages are read:
-  * each recipe is a table row (class recipeRow) of six cells: the name with its sockets, the runes or gems, the allowed
+How the pages are read (two layouts):
+  * since November 2026 each recipe is a table row (class recipeRow) of five cells: the name with its sockets and
+    required level ("Req Lvl: 2"), the runes or gems, the allowed items, the word's own bonuses and its socketable
+    bonuses. The socketable bonuses are plain lines, or groups (div class="rws-group") of a label (div class="rws-label",
+    the item kinds they apply to) and its lines. Every card shows the bonuses under the page's own "Bonuses" heading,
+    then the socketable bonuses under its "Socketable Bonuses" heading, each group's label as a LINE L (a small dim
+    sub-heading) over its lines. The required level is the website's; without one it is worked out as below
+  * the older layout (still read, for saved pages): each recipe is a table row (class recipeRow) of six cells: the name with its sockets, the runes or gems, the allowed
     items, and three columns of stat lines (Weapons / Gloves, Helms / Boots, Armor / Shields / Belts)
   * a blank line in a stat column starts a new group of lines. Group by group, columns that read the same are shown
     once, otherwise each column's group is shown under the website's own label (equal neighbours share a label)
@@ -32,6 +38,9 @@ OUTER_COLOR = "#908858"
 RUNEWORD_MIN = 300
 GEMWORD_MIN = 500
 LABELS = ("Weapons / Gloves", "Helms / Boots", "Armor / Shields / Belts")
+NEW_LABELS = ("Bonuses", "Socketable Bonuses")  # the five-cell layout's headings, when the page has none
+GROUP_MARK = 'class="rws-group"'
+LABEL_MARK = 'class="rws-label"'
 
 CATEGORIES = ("Weapons", "Torso", "Boots", "Gloves", "Helms", "Shields", "Belts", "Charms", "Other")
 ARMOR_TOKENS = {"Body Armor": ("Torso",), "Helm": ("Helms",), "Pelt": ("Helms",), "Any Shield": ("Shields",),
@@ -215,10 +224,49 @@ def level_of(levels, name, uncoloured):
 
 # ---- the recipe pages --------------------------------------------------------------------------------------------------
 
+def joined_text(html_text):
+    """The text of a piece of HTML with the tags removed (not replaced by spaces: "<span>Orb</span>, " is "Orb, ")."""
+    return clean(re.sub(r"<[^>]+>", "", html_text))
+
+
+def socketable_groups(cell):
+    """[(label, [(code, text)])] of the five-cell layout's last cell: one group per div class="rws-group" (its label
+    div, then its lines), or a single group with an empty label when the cell has plain lines."""
+    starts = [m.start() for m in re.finditer(re.escape(GROUP_MARK), cell, re.I | re.A)]
+    if not starts:
+        lines = [(c, t) for c, t in property_lines(cell, dash=False) if c is not GAP]
+        return [("", lines)] if lines else []
+    groups = []
+    for n, start in enumerate(starts):
+        open_end = cell.find(">", start)
+        if open_end == -1:
+            break
+        end = len(cell)
+        if n + 1 < len(starts):                    # the next group starts at the "<" of its div
+            end = cell.rfind("<", 0, starts[n + 1])
+            if end == -1:
+                end = starts[n + 1]
+        body = cell[open_end + 1:end]
+        label = ""
+        mark = re.search(re.escape(LABEL_MARK), body, re.I | re.A)
+        if mark:
+            label_open = body.find(">", mark.start())
+            close = re.compile(r"</div>", re.I | re.A).search(body, label_open + 1) if label_open != -1 else None
+            label_close = close.start() if close else -1
+            if label_close != -1:
+                label = joined_text(body[label_open + 1:label_close])
+                body = body[label_close + 6:]
+        lines = [(c, t) for c, t in property_lines(body, dash=False) if c is not GAP]
+        if label or lines:
+            groups.append((label, lines))
+    return groups
+
+
 def parse_rows(text):
-    """[{name, sockets, ingredients: [(text, uncoloured)], allowed: [..], excluded: [..], groups: [[group]]}], labels"""
-    labels = list(LABELS)
-    head = re.search(r"<tr[^>]*>((?:\s*<th[^>]*>.*?</th>){6})\s*</tr>", text, re.S | re.I)
+    """[{name, sockets, level, ingredients: [(text, uncoloured)], allowed: [..], excluded: [..], columns (six-cell layout)
+    or bonuses and socketables (five-cell layout)}], labels (the stat column headings of the page's layout)"""
+    labels = None
+    head = re.search(r"<tr[^>]*>((?:\s*<th[^>]*>.*?</th>){5,6})\s*</tr>", text, re.S | re.I)
     if head:
         cells = [clean(re.sub(r"<[^>]+>", " ", c)) for c in re.findall(r"<th[^>]*>(.*?)</th>", head.group(1), re.S | re.I)]
         if all(cells[3:]):
@@ -228,13 +276,15 @@ def parse_rows(text):
         if "recipeRow" not in attrs:
             continue
         cells = re.findall(r"<td[^>]*>(.*?)</td>", row, re.S | re.I)
-        if len(cells) != 6:
+        if len(cells) not in (5, 6):
             continue
         bold = re.search(r"<b>(.*?)</b>", cells[0], re.S | re.I)
         name = clean(re.sub(r"<[^>]+>", " ", bold.group(1))) if bold else ""
         sockets = re.search(r"\((\d+(?:-\d+)?)\s+[^()]+\)", clean(re.sub(r"<[^>]+>", " ", cells[0])))
         if not name or not sockets:
             continue
+        found = re.search(r"Req\s*Lvl:?\s*(\d+)", clean(re.sub(r"<[^>]+>", " ", cells[0])), re.I)
+        level = int(found.group(1)) if found else None
         ingredients = []
         for part in re.split(r"<br\s*/?>", cells[1], flags=re.I):
             label = clean(re.sub(r"<[^>]+>", " ", part))
@@ -254,6 +304,13 @@ def parse_rows(text):
                 excluded.append(label)
             else:
                 allowed.append(label)
+        if len(cells) == 5:
+            bonuses = [(c, t) for c, t in property_lines(cells[3], dash=False, gaps=True) if c is not GAP]
+            rows.append({"name": name, "sockets": sockets.group(1), "level": level, "ingredients": ingredients,
+                         "allowed": allowed, "excluded": excluded, "columns": None, "bonuses": bonuses,
+                         "socketables": socketable_groups(cells[4]),
+                         "en_name": name, "en_allowed": allowed, "en_ingredients": ingredients})
+            continue
         columns = []
         for cell in cells[3:]:
             groups, current = [], []
@@ -267,10 +324,12 @@ def parse_rows(text):
             if current:
                 groups.append(current)
             columns.append(groups)
-        rows.append({"name": name, "sockets": sockets.group(1), "ingredients": ingredients, "allowed": allowed,
-                     "excluded": excluded, "columns": columns,
+        rows.append({"name": name, "sockets": sockets.group(1), "level": level, "ingredients": ingredients,
+                     "allowed": allowed, "excluded": excluded, "columns": columns,
                      # identity (art, categories, levels): the English text when a translated page is read
                      "en_name": name, "en_allowed": allowed, "en_ingredients": ingredients})
+    if labels is None or len(labels) != (2 if rows and rows[0]["columns"] is None else 3):
+        labels = list(NEW_LABELS if rows and rows[0]["columns"] is None else LABELS)
     return rows, labels
 
 
@@ -344,6 +403,22 @@ def stat_lines(row, labels, heading, cat=None):
     return out
 
 
+def word_lines(row, labels):
+    """The five-cell layout's stat lines: the bonuses under the page's first heading, then the socketable bonuses under
+    its second, each group's label (when it has one) as a small dim sub-heading (LINE L) over its lines."""
+    out = []
+    if row["bonuses"]:
+        out.append("LINE\tS\t\u00ffc4%s" % labels[0])
+        out += ["LINE\tS\t\u00ffc%s%s" % (code, text) for code, text in row["bonuses"]]
+    if row["socketables"]:
+        out.append("LINE\tS\t\u00ffc4%s" % labels[1])
+        for label, lines in row["socketables"]:
+            if label:
+                out.append("LINE\tL\t%s" % label)
+            out += ["LINE\tS\t\u00ffc%s%s" % (code, text) for code, text in lines]
+    return out
+
+
 def gem_key(name, art):
     words = [art["alias"].get(w, w) for w in slug(name).split("_")]
     return "items_misc_gem_" + "_".join(words)
@@ -367,7 +442,9 @@ def build_page(kind, rows, labels, art, levels):
         names = [n for n, _ in row["en_ingredients"]]
         icons = [icon_of(n, u, art) for n, u in row["en_ingredients"]]
         level = 0
-        if runewords:
+        if row.get("level") is not None:          # the website's own required level (five-cell layout)
+            level = row["level"]
+        elif runewords:
             known = [level_of(levels, n, u) for n, u in row["en_ingredients"]]
             level = max([k for k in known if k is not None], default=0)
         word_image = art["word"].get((norm(row["en_name"]), ingredient_key(names))) if runewords else None
@@ -381,7 +458,10 @@ def build_page(kind, rows, labels, art, levels):
         tail.append("LINE\tS\tÿc7%s" % " + ".join(names))
         for cat in categories_of(row, first_only=False, art=art):
             img = runeword_image(row, cat, word_image, art) if runewords else (icons[0][0] if icons else None)
-            tail2 = tail + stat_lines(row, labels, "Rune Bonuses:" if runewords else None, cat)
+            if row["columns"] is None:
+                tail2 = tail + word_lines(row, labels)
+            else:
+                tail2 = tail + stat_lines(row, labels, "Rune Bonuses:" if runewords else None, cat)
             if level:
                 tail2.append("LINE\tS\tÿc5Required Level: %d" % level)
             tail2.append("LINE\tS\tÿc0%s" % allowed_text(row))
@@ -540,6 +620,8 @@ def main(argv):
             # the translated page does not list the recipes in the English order: pair them by socket count and rune names
             for row, ref in pair_recipes(rows, english, to_english):
                 row["en_name"], row["en_allowed"], row["en_ingredients"] = ref["name"], ref["allowed"], ref["ingredients"]
+                if row.get("level") is None:
+                    row["level"] = ref.get("level")
         if len(rows) < (RUNEWORD_MIN if kind == "runewords" else GEMWORD_MIN):
             raise SystemExit("only %d recipes found; the website page looks broken" % len(rows))
         levels = {}

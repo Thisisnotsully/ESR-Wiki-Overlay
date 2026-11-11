@@ -10,8 +10,10 @@
 
 namespace esrwiki {
 
-// The website pages each page is built from, in the order the builders expect them. The runewords' required level is
-// the highest level of the runes and gems they use, which the gems page gives.
+// The website pages each page is built from, in the order the builders expect them. The required level is the one the
+// recipe row gives ("Req Lvl", the five-cell layout since November 2026); a runeword row without one takes the highest
+// level of the runes and gems it uses, which the gems page gives. The five-cell layout's socketable bonus groups are
+// written as LINE L (the group's label, a small dim sub-heading) followed by the group's LINE S lines.
 inline constexpr const char* kWebRunewordsPageNames[2] = {"runewords.htm", "gems.htm"};
 inline constexpr const char* kWebGemwordsPageName = "gemwords.htm";
 

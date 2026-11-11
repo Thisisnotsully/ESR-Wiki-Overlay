@@ -536,3 +536,21 @@ Warlock Sigil	Sello del brujo
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Valores
+Items {0}	Objetos {0}
+About	Información
+Max all	Todo al máximo
+Reset	Restablecer
+Req {0}	Nv. req. {0}
+Max {0}	Máx. {0}
+Mana {0}	Maná {0}
+Mana {0} ({1} per level)	Maná {0} ({1} por nivel)
+All levels	Todos los niveles
+Lvl {0}	Nv. {0}
+Hard points only: +skills from items do not count.	Solo puntos invertidos: las +habilidades de objetos no cuentan.
+Receives bonuses from	Recibe bonificaciones de
+At level {0}	En el nivel {0}
+* beyond what a character can reach	* más allá de lo que un personaje puede alcanzar
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Los niveles de habilidad superiores a {0} están marcados con *: ningún personaje puede alcanzarlos, pero los valores se calculan igualmente.
+No item grants this skill.	Ningún objeto otorga esta habilidad.
+{0} ({1})	{0} ({1})

@@ -21,6 +21,9 @@ const char kColorLead[] = "\xC3\xBF" "c";  // the colour-code lead character, th
 const char kOuterColor[] = "#908858";       // the colour of the ingredient cell itself, not of a rune
 
 const char* const kLabels[3] = {"Weapons / Gloves", "Helms / Boots", "Armor / Shields / Belts"};
+const char* const kNewLabels[2] = {"Bonuses", "Socketable Bonuses"};  // the five-cell layout's headings, when the page has none
+const char kGroupMark[] = "class=\"rws-group\"";
+const char kLabelMark[] = "class=\"rws-label\"";
 const char* const kCategories[9] = {"Weapons", "Torso", "Boots", "Gloves", "Helms", "Shields", "Belts", "Charms", "Other"};
 
 // ---- Allowed items -> item categories ---------------------------------------------------------------------------------
@@ -161,11 +164,22 @@ int LevelOf(const Levels& levels, const std::string& name, bool uncoloured) {
 
 using Group = std::vector<Line>;
 
+// One group of the five-cell layout's socketable bonuses: the item kinds it applies to (empty when the cell has plain
+// lines) and its lines.
+struct LabelledGroup {
+    std::string label;
+    Group lines;
+};
+
 struct Row {
     std::string name, sockets;
+    int level = -1;                                          // the website's "Req Lvl", -1 when the row has none
     std::vector<std::pair<std::string, bool>> ingredients;  // text, written without a colour
     std::vector<std::string> allowed, excluded;
-    std::vector<std::vector<Group>> columns;
+    bool fiveCells = false;                                  // the layout since November 2026
+    std::vector<std::vector<Group>> columns;                 // six-cell layout: the three per-slot columns
+    Group bonuses;                                           // five-cell layout: the word's own bonuses
+    std::vector<LabelledGroup> socketables;                  // five-cell layout: the socketable bonuses
 };
 
 // The colours of the <font color=...> tags in `part` (re.findall(r"<font[^>]*color\s*=\s*\"?([#0-9A-Za-z]+)")).
@@ -217,8 +231,66 @@ bool FindSockets(const std::string& text, std::string& sockets) {
     return false;
 }
 
+// clean(re.sub(r"<[^>]+>", "", s)): the text with the tags removed, not replaced by spaces ("<span>Orb</span>, ").
+std::string JoinedText(const std::string& html) {
+    std::string out;
+    for (std::size_t i = 0; i < html.size();) {
+        if (html[i] == '<') {
+            const std::size_t end = html.find('>', i + 1);
+            if (end != std::string::npos && end > i + 1) {
+                i = end + 1;
+                continue;
+            }
+        }
+        out += html[i++];
+    }
+    return Clean(out);
+}
+
+Group WithoutGaps(const std::vector<Line>& lines) {
+    Group out;
+    for (const Line& line : lines) if (line.color != kGap) out.push_back(line);
+    return out;
+}
+
+// The five-cell layout's last cell: one group per div class="rws-group" (its label div, then its lines), or a single
+// group with an empty label when the cell has plain lines.
+std::vector<LabelledGroup> SocketableGroups(const std::string& cell) {
+    std::vector<LabelledGroup> groups;
+    std::vector<std::size_t> starts;
+    for (std::size_t at = FindCI(cell, kGroupMark); at != std::string::npos; at = FindCI(cell, kGroupMark, at + 1)) starts.push_back(at);
+    if (starts.empty()) {
+        Group lines = WithoutGaps(PropertyLines(cell, false));
+        if (!lines.empty()) groups.push_back({std::string(), std::move(lines)});
+        return groups;
+    }
+    for (std::size_t n = 0; n < starts.size(); ++n) {
+        const std::size_t openEnd = cell.find('>', starts[n]);
+        if (openEnd == std::string::npos) break;
+        std::size_t end = cell.size();
+        if (n + 1 < starts.size()) {  // the next group starts at the "<" of its div
+            end = starts[n + 1] == 0 ? std::string::npos : cell.rfind('<', starts[n + 1] - 1);
+            if (end == std::string::npos) end = starts[n + 1];
+        }
+        std::string body = end > openEnd ? cell.substr(openEnd + 1, end - openEnd - 1) : std::string();
+        LabelledGroup group;
+        const std::size_t mark = FindCI(body, kLabelMark);
+        if (mark != std::string::npos) {
+            const std::size_t labelOpen = body.find('>', mark);
+            const std::size_t labelClose = labelOpen == std::string::npos ? std::string::npos : FindCI(body, "</div>", labelOpen + 1);
+            if (labelClose != std::string::npos) {
+                group.label = JoinedText(body.substr(labelOpen + 1, labelClose - labelOpen - 1));
+                body = body.substr(labelClose + 6);
+            }
+        }
+        group.lines = WithoutGaps(PropertyLines(body, false));
+        if (!group.label.empty() || !group.lines.empty()) groups.push_back(std::move(group));
+    }
+    return groups;
+}
+
 std::vector<Row> ParseRows(const std::string& html, std::vector<std::string>& labels) {
-    labels.assign(kLabels, kLabels + 3);
+    labels.clear();
     std::vector<Row> rows;
     bool haveLabels = false;
     std::size_t at = 0;
@@ -234,10 +306,10 @@ std::vector<Row> ParseRows(const std::string& html, std::vector<std::string>& la
         const std::string row = html.substr(gt + 1, close - gt - 1);
         if (!haveLabels && FindCI(row, "<td") == std::string::npos) {
             const std::vector<Span> heads = Elements(row, "<th", "</th>");
-            if (heads.size() == 6) {
+            if (heads.size() == 5 || heads.size() == 6) {
                 std::vector<std::string> found;
                 bool all = true;
-                for (std::size_t i = 3; i < 6; ++i) {
+                for (std::size_t i = 3; i < heads.size(); ++i) {
                     found.push_back(TextOf(row.substr(heads[i].begin, heads[i].end - heads[i].begin)));
                     if (found.back().empty()) all = false;
                 }
@@ -248,7 +320,7 @@ std::vector<Row> ParseRows(const std::string& html, std::vector<std::string>& la
         if (FindCI(attrs, "recipeRow") == std::string::npos) continue;
         std::vector<std::string> cells;
         for (const Span& cell : Elements(row, "<td", "</td>")) cells.push_back(row.substr(cell.begin, cell.end - cell.begin));
-        if (cells.size() != 6) continue;
+        if (cells.size() != 5 && cells.size() != 6) continue;
         Row out;
         const std::size_t bold = FindCI(cells[0], "<b>");
         if (bold != std::string::npos) {
@@ -256,6 +328,11 @@ std::vector<Row> ParseRows(const std::string& html, std::vector<std::string>& la
             if (boldEnd != std::string::npos) out.name = TextOf(cells[0].substr(bold + 3, boldEnd - bold - 3));
         }
         if (out.name.empty() || !FindSockets(TextOf(cells[0]), out.sockets)) continue;
+        {
+            std::size_t levelAt = 0;
+            std::string level;
+            if (FindReqLvl(TextOf(cells[0]), levelAt, level) && !level.empty()) out.level = std::stoi(level);
+        }
         for (const std::string& part : SplitBr(cells[1])) {
             const std::string label = TextOf(part);
             if (label.empty()) continue;
@@ -269,6 +346,13 @@ std::vector<Row> ParseRows(const std::string& html, std::vector<std::string>& la
             if (label.empty()) continue;
             if (Lower(label).compare(0, 8, "excluded") == 0) inExcluded = true;
             else (inExcluded ? out.excluded : out.allowed).push_back(label);
+        }
+        if (cells.size() == 5) {
+            out.fiveCells = true;
+            out.bonuses = WithoutGaps(PropertyLines(cells[3], false, true));
+            out.socketables = SocketableGroups(cells[4]);
+            rows.push_back(std::move(out));
+            continue;
         }
         for (std::size_t c = 3; c < 6; ++c) {
             std::vector<Group> groups;
@@ -285,6 +369,11 @@ std::vector<Row> ParseRows(const std::string& html, std::vector<std::string>& la
             out.columns.push_back(std::move(groups));
         }
         rows.push_back(std::move(out));
+    }
+    const bool fiveCells = !rows.empty() && rows[0].fiveCells;
+    if (labels.size() != (fiveCells ? 2u : 3u)) {
+        if (fiveCells) labels.assign(kNewLabels, kNewLabels + 2);
+        else labels.assign(kLabels, kLabels + 3);
     }
     return rows;
 }
@@ -421,6 +510,22 @@ void StatLines(const Row& row, const std::vector<std::string>& labels, const cha
     }
 }
 
+// The five-cell layout's stat lines: the bonuses under the page's first heading, then the socketable bonuses under its
+// second, each group's label (when it has one) as a small dim sub-heading (LINE L) over its lines.
+void WordLines(const Row& row, const std::vector<std::string>& labels, std::vector<std::string>& out) {
+    if (!row.bonuses.empty()) {
+        out.push_back(LineOf('4', labels[0]));
+        for (const Line& line : row.bonuses) out.push_back(LineOf(line.color, line.text));
+    }
+    if (!row.socketables.empty()) {
+        out.push_back(LineOf('4', labels[1]));
+        for (const LabelledGroup& group : row.socketables) {
+            if (!group.label.empty()) out.push_back("LINE\tL\t" + group.label);
+            for (const Line& line : group.lines) out.push_back(LineOf(line.color, line.text));
+        }
+    }
+}
+
 std::vector<std::string> BuildPage(bool runewords, const std::vector<Row>& rows, const std::vector<std::string>& labels,
                                    const Art& art, const Levels& levels) {
     std::map<std::string, std::vector<std::vector<std::string>>> entries;
@@ -433,8 +538,10 @@ std::vector<std::string> BuildPage(bool runewords, const std::vector<Row>& rows,
         }
         int level = 0;
         std::string wordImage;
+        if (row.level >= 0) level = row.level;  // the website's own required level (five-cell layout)
         if (runewords) {
-            for (const auto& ingredient : row.ingredients) level = std::max(level, LevelOf(levels, ingredient.first, ingredient.second));
+            if (row.level < 0)
+                for (const auto& ingredient : row.ingredients) level = std::max(level, LevelOf(levels, ingredient.first, ingredient.second));
             const auto word = art.word.find({Norm(row.name), IngredientKey(names)});
             if (word != art.word.end()) wordImage = word->second;
         }
@@ -454,7 +561,8 @@ std::vector<std::string> BuildPage(bool runewords, const std::vector<Row>& rows,
             std::vector<std::string> block = head;
             if (!img.empty()) block.push_back("IMG\t" + img);
             block.insert(block.end(), tail.begin(), tail.end());
-            StatLines(row, labels, runewords ? "Rune Bonuses:" : nullptr, cat, block);
+            if (row.fiveCells) WordLines(row, labels, block);
+            else StatLines(row, labels, runewords ? "Rune Bonuses:" : nullptr, cat, block);
             if (level > 0) block.push_back(LineOf('5', "Required Level: " + std::to_string(level)));
             block.push_back(LineOf('0', AllowedText(row)));
             auto& cards = entries[cat];  // the website lists a few recipes twice, word for word

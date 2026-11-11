@@ -73,13 +73,13 @@ class ExtractionTests(unittest.TestCase):
     def test_header_and_page_order(self):
         self.assertEqual(self.text[0], "#ESRWIKI\t2")
         self.assertEqual(list(self.entries)[0], "welcome")
-        self.assertEqual(len(self.entries), 17)  # cube recipes moved to the cube overlay (with Forging and D-Stones); Endgame Maps, Weapon Mastery, Item Bases, Item Affixes and IAS Calculator added
+        self.assertEqual(len(self.entries), 18)  # cube recipes moved to the cube overlay (with Forging and D-Stones); Endgame Maps, Weapon Mastery, Item Bases, Item Affixes, IAS Calculator and Specializations (2026-11-09) added
 
     def test_category_and_block_counts(self):
         expected = {
             "runes": (4, 95),   # 94 website runes + the how-to note   # built from the website gems page
             "runewords": (8, 474),   # built from the website runewords page; a recipe on several item kinds has a card in each
-            "set-items": (10, 346),   # built from the website sets page: 269 pieces and 77 set cards
+            "set-items": (10, 342),   # built from the website sets page: 266 pieces and 76 set cards (the "_old" Tyrael's Sanctuary pieces and their set are left out since 2026-10-30)
             "uniques": (13, 1106),   # built from the website pages
             "gemwords": (8, 1408),   # built from the website gemwords page; a row has a card under each item kind it allows
         }
@@ -127,13 +127,18 @@ class ExtractionTests(unittest.TestCase):
             elif p[0] == "FIELD":
                 title["level"] = p[2]
         by = {(c["group"], c["name"]): c for c in cards}
-        # Same cells are shown once; the website's own labels are used.
+        # Same cells are shown once; the website's own labels are used, as written (since 2026-11-10 the site names the
+        # item types of each socket column: "Weapon (except Orb, Staff, Wand) / Gloves / ...", "Helm / Boots / Staff / ...").
         self.assertEqual(by[("Kanji Runes", "I Rune")]["lines"], [
-            "\u00ffc0Weapons / Gloves:", "\u00ffc3+15% Enhanced Damage",
-            "\u00ffc0Helms / Boots / Armor / Shields / Belts:", "\u00ffc3+30 Defense"])
+            "\u00ffc0Weapon (except Orb, Staff, Wand) / Gloves / Missile / Mythical Arcane Staff:", "\u00ffc3+15% Enhanced Damage",
+            "\u00ffc0Helm / Boots / Staff / Wand / Orb / Amulet / Ring / Charm / Any Shield / Body Armor / Belt:",
+            "\u00ffc3+30 Defense"])
+        self.assertEqual(by[("Kanji Runes", "U Rune")]["lines"][3::2], [
+            "\u00ffc0Helm / Boots / Staff / Wand / Orb / Amulet / Ring / Charm:", "\u00ffc0Any Shield / Body Armor / Belt:"])
         self.assertEqual(by[("Kanji Runes", "Shi Rune")]["lines"], ["\u00ffc0All Items:", "\u00ffc3+5 to Mana after each Kill"])
         self.assertEqual(by[("Kanji Runes", "Null Rune")]["lines"], [])                 # empty on the website
-        self.assertEqual(by[("Elemental Runes", "Moon Rune")]["lines"][0], "\u00ffc0Weapons / Gloves:")
+        self.assertEqual(by[("Elemental Runes", "Moon Rune")]["lines"][0],
+                         "\u00ffc0Weapon (except Orb, Staff, Wand) / Gloves / Missile / Mythical Arcane Staff:")
         self.assertEqual(by[("Kanji Runes", "I Rune")]["level"], "2")
         self.assertEqual(by[("LoD Runes", "Hel Rune")]["level"], "0")                    # as the website gives it
         # Ko is both a Kanji and a LoD rune, each with its own art.
@@ -177,9 +182,11 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(holy["head"][6], "Holy")                           # filter family = the gemword
         self.assertEqual(holy["runes"], [])                                 # gemword cards show no rune row
 
-    def test_runeword_rune_bonuses_follow_the_category(self):
+    def test_runeword_bonuses_and_socketable_groups(self):
+        """The website's five-cell layout: the word's own bonuses, then its socketable bonuses, in groups under the
+        website's label of the item kinds they apply to (LINE L). Every card of a recipe shows all of them."""
         page = cat = name = None
-        bonus = {}
+        cards = {}
         for l in self.text:
             p = l.split("\t")
             if p[0] == "PAGE":
@@ -188,16 +195,28 @@ class ExtractionTests(unittest.TestCase):
                 cat = p[1]
             elif p[0] == "BLOCK":
                 name = p[2]
-                if page == "runewords":
-                    bonus[(cat, name)] = None
-            elif p[0] == "LINE" and page == "runewords":
-                if p[2] == "\u00ffc4Rune Bonuses:":
-                    bonus[(cat, name)] = []
-                elif bonus.get((cat, name)) is not None and not p[2].startswith(("\u00ffc5", "\u00ffc0")):
-                    bonus[(cat, name)].append(p[2])
-        self.assertIsNone(bonus[("Charms", "Brandish")])                       # charms have no rune bonuses
-        self.assertIn("\u00ffc3+15% Enhanced Damage", bonus[("Weapons", "Brandish")])
-        self.assertEqual(bonus[("Belts", "Stone")], ["\u00ffc3+30 Defense", "\u00ffc3+5 to Mana after each Kill"])
+                if page in ("runewords", "gemwords"):
+                    cards.setdefault((page, cat, name), [])
+            elif p[0] == "LINE" and page in ("runewords", "gemwords"):
+                cards[(page, cat, name)].append((p[1], p[2]))
+        boar = cards[("runewords", "Weapons", "Boar")]
+        self.assertEqual(boar[2:], [
+            ("S", "\u00ffc4Bonuses"), ("S", "\u00ffc3+10 to Minimum Damage to Attacks"),
+            ("S", "\u00ffc3+20 to Maximum Damage to Attacks"), ("S", "\u00ffc3+15% Chance of Crushing Blow"),
+            ("S", "\u00ffc3+20 to Strength"), ("S", "\u00ffc4Socketable Bonuses"),
+            ("L", "Weapon (except Orb, Staff, Wand) / Missile / Mythical Arcane Staff"),
+            ("S", "\u00ffc3+15% Enhanced Damage"), ("L", "Staff / Wand / Orb"), ("S", "\u00ffc3+30 Defense"),
+            ("S", "\u00ffc5Required Level: 2"), ("S", "\u00ffc0Weapon, Missile")])
+        self.assertEqual(cards[("runewords", "Charms", "Brandish")], cards[("runewords", "Weapons", "Brandish")])
+        self.assertIn(("L", "Staff / Wand / Orb / Charm"), cards[("runewords", "Charms", "Brandish")])
+        melody = cards[("runewords", "Weapons", "Melody")]                         # plain socketable bonuses: no label
+        at = melody.index(("S", "\u00ffc4Socketable Bonuses"))
+        self.assertEqual(melody[at + 1], ("S", "\u00ffc3Adds 75 Poison Damage to Attacks over 2 Seconds"))
+        self.assertFalse(any(k == "L" for k, _ in melody))
+        self.assertIn(("S", "\u00ffc5Required Level: 14"), cards[("gemwords", "Weapons", "Holy")])  # the website's level
+        self.assertFalse(any(t == "\u00ffc4Rune Bonuses:" for c in cards.values() for _, t in c))
+        labels = sum(1 for c in cards.values() for k, _ in c if k == "L")
+        self.assertGreater(labels, 2000)
 
     def test_ias_calculator_tab(self):
         pages = [l.split("\t") for l in self.text if l.startswith("PAGE\t")]
@@ -236,7 +255,7 @@ class ExtractionTests(unittest.TestCase):
         entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
         self.assertEqual(entries, ["Generic", "Amazon", "Barbarian", "Necromancer", "Paladin",
                                    "Sorceress", "Assassin", "Druid", "Warlock", "Hireling"])
-        self.assertEqual(sum(1 for l in page if l == "LINE\tH\tSet bonus"), 77)
+        self.assertEqual(sum(1 for l in page if l == "LINE\tH\tSet bonus"), 76)  # the old Tyrael's Sanctuary set is left out
         self.assertIn("FIELD\tBase\tRing", page)
 
     def test_endgame_maps_page_follows_the_website(self):
@@ -264,9 +283,12 @@ class ExtractionTests(unittest.TestCase):
         entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
         self.assertEqual(entries, ["Corruption Outcomes", "Anointment Outcomes", "Sanctification Outcomes",
                                    "Standard of Heroes Outcomes"])
-        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 532)
+        # 966 since 2026-11-10: the website's Sanctification table lists its 217 outcomes for Any Amulet and Any Ring too
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 966)
         self.assertIn("BLOCK\t0\t\t\tWeapon\t\tWeapon\t0", page)
-        self.assertIn("BLOCK\t0\t\t\tAny Jewel\t\t\t0", page)
+        # several input kinds in Sanctification now, so each block carries its kind as the type filter
+        for kind in ("Any Amulet", "Any Ring", "Any Jewel"):
+            self.assertIn("BLOCK\t0\t\t\t%s\t\t%s\t0" % (kind, kind), page)
         self.assertIn("LINE\tR\t\u00ffc3Same Item: *** Upgraded ***; +(2 to 3)% Bonus to All Attributes", page)
 
     def test_skill_information_page_follows_the_website(self):
@@ -291,9 +313,11 @@ class ExtractionTests(unittest.TestCase):
                 break
         entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
         self.assertEqual(entries, ["Overview", "Tier 1", "Tier 2", "Tier 3", "Tier 4", "Completion"])
-        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 409)
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 411)  # 2026-11-10: two Tier 1 recipes added on the website
         self.assertIn("LINE\tR\t2x \u00ffcRHeart\u00ffcN\x1e\u00ffcRBrain\u00ffcN\x1e\u00ffcOTail\u00ffcN\x1e\u00ffcNQuill\u00ffcN\x1f+5% Chance to Cast Level 15 Thrown Axe on Striking\x1f350 Souls", page)
-        self.assertIn("LINE\tR\t\u00ffcPOrb of Anointment\u00ffcN (with 5 souls remaining)\x1f\u00ffcPWeapon Anointment Bonus\u00ffcN\x1f-5 Souls", page)
+        # 2026-11-10: the website words this outcome "Stores Weapon Anointment Bonus*" with a footnote after the cost
+        self.assertIn("LINE\tR\t\u00ffcPOrb of Anointment\u00ffcN (with 5 souls remaining)\x1fStores Weapon Anointment Bonus*\x1f"
+                      "-5 Souls *You need to transform the amulet into a weapon to get the bonus.", page)
 
     def test_weapon_mastery_page_follows_the_website(self):
         start = self.text.index("PAGE\tweapon-mastery\tWeapon Mastery\tEndgame")
@@ -305,8 +329,9 @@ class ExtractionTests(unittest.TestCase):
         entries = [l.split("\t")[1] for l in page if l.startswith("ENTRY\t")]
         self.assertEqual(entries[:2], ["Overview", "General Recipes"])
         self.assertIn("Stag Bow Variant", entries)
-        self.assertEqual(len(entries), 20)  # Overview, General Recipes and 18 specialization variants
-        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 31)  # 3 general rows, 28 skill rows
+        self.assertEqual(len(entries), 22)  # Overview, General Recipes and 20 specialization variants (2 Void Blade ones added 2026-11-10)
+        self.assertEqual(sum(1 for l in page if l.startswith("LINE\tR\t")), 33)  # 3 general rows, 30 skill rows
+        self.assertEqual(entries.count("Void Blade"), 2)
         self.assertIn("LINE\tR\t\u00ffcHAwakened Weapon Mastery Token\u00ffcN\x1e\u00ffcYSpider's Silk\u00ffcN\x1e"
                       "\u00ffcPAnvil Stone\u00ffcN\x1f\u00ffcOStrafe\u00ffcN\x1fTriples the number of targets", "\n".join(page))
 
@@ -340,8 +365,9 @@ class ExtractionTests(unittest.TestCase):
                 families[entry].add(block)
             elif page == "item-affixes" and parts[0] == "LINE" and parts[1] == "R" and tier in rows:
                 rows[tier] += 1
-        # 7890 / 15026 / 1428 rows on the website, less the charm and jewel tables it lists twice
-        self.assertEqual(rows, {"Prefix": 7890 - 353 - 453 - 87 - 3, "Suffix": 15026 - 331 - 954 - 222, "Superior": 1428 - 83})
+        # 7890 / 15219 / 2332 rows on the website (2026-11-10), less the charm and jewel tables it lists twice and the
+        # General, quiver and voib tables
+        self.assertEqual(rows, {"Prefix": 7890 - 353 - 453 - 87 - 3, "Suffix": 15219 - 331 - 964 - 228, "Superior": 2332 - 150})
         self.assertIn("Helm", families["Armor"])
         self.assertIn("Amazon Bow", families["Weapons"])
         self.assertTrue({"Ring", "Amulet", "Small Charm", "Jewel"} <= families["Other"])
@@ -668,6 +694,43 @@ def synthetic_pages():
     for i in range(300):
         weapons += row(["Filler %d<br>fw%d" % (i, i), "1", "2", "Filler %d" % i, ""])
     return armors + "</table></body></html>", weapons + "</table></body></html>"
+
+
+class WebWordsLayoutTests(unittest.TestCase):
+    """tools/web_words.py reads the website's five-cell layout and still reads the older six-cell one."""
+
+    @classmethod
+    def setUpClass(cls):
+        import web_words
+        cls.ww = web_words
+
+    def test_new_layout_rows(self):
+        for kind, count, groups in (("runewords", 409, 140), ("gemwords", 737, 482)):
+            with self.subTest(kind=kind):
+                text = (OVERLAY / "data" / "website-words" / (kind + ".htm")).read_text(encoding="utf-8")
+                rows, labels = self.ww.parse_rows(text)
+                self.assertEqual(len(rows), count)
+                self.assertEqual(labels, ["Bonuses", "Socketable Bonuses"])
+                self.assertEqual(sum(1 for r in rows if any(label for label, _ in r["socketables"])), groups)
+                self.assertTrue(all(r["level"] is not None for r in rows))
+        rows, _ = self.ww.parse_rows((OVERLAY / "data" / "website-words" / "runewords.htm").read_text(encoding="utf-8"))
+        boar = rows[0]
+        self.assertEqual((boar["name"], boar["sockets"], boar["level"]), ("Boar", "1", 2))
+        self.assertEqual(boar["socketables"], [
+            ("Weapon (except Orb, Staff, Wand) / Missile / Mythical Arcane Staff", [("3", "+15% Enhanced Damage")]),
+            ("Staff / Wand / Orb", [("3", "+30 Defense")])])
+
+    def test_old_layout_fixture(self):
+        """tests/web_words_old/ holds six-cell pages and what this tool writes from them; the C++ test builds the same bytes."""
+        folder = OVERLAY / "tests" / "web_words_old"
+        art = OVERLAY / "data" / "web-word-art.txt"
+        gems = OVERLAY / "data" / "website-runes" / "gems.htm"
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "wiki-data.txt"
+            target.write_text("PAGE\trunes\tRunes\tWiki\n", encoding="utf-8", newline="\n")
+            self.assertEqual(self.ww.main(["web_words.py", "runewords", str(folder / "runewords.htm"), str(gems), str(target), str(art)]), 0)
+            self.assertEqual(self.ww.main(["web_words.py", "gemwords", str(folder / "gemwords.htm"), str(target), str(art)]), 0)
+            self.assertEqual(target.read_text(encoding="utf-8"), (folder / "expected-wiki-data.txt").read_text(encoding="utf-8"))
 
 
 class AutomodTierTests(unittest.TestCase):

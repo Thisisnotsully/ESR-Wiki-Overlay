@@ -21,6 +21,7 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
     ias-calculator.html
     ias-calculator-data.js
     skills-data.json
+    skill-icons.txt
     images/*.png
     locales/<language>/ui-strings.txt, wiki-data.txt, cube-wiki-data.txt, skills-data.json   (one folder per language)
 ```
@@ -100,27 +101,44 @@ turns every website check off). The rest of the map's notes (quest steps, caveat
 ## Skills
 
 The Skills tab (after Kill Ledger) lists every skill: one entry per class (Amazon to Warlock) and one for Item Skills, the
-skills that items grant to any class. The cards are grouped by skill tree. Each card shows the skill's name, Passive or
-Aura when it is one, its required level and the skills it requires, and the first values at the chosen skill level. Hover
-a card (or highlight it with the controller) for everything: the description, whether it triggers "on striking" and "on
-casting" effects and why, the general lines, the values at the chosen level, the synergies, and every item and recipe
-that grants it (kind, name and what it gives).
+skills that items grant to any class. It is laid out like the Skills page of the ESR runeword browser. On the left are the
+class's three skill trees as tabs and the chosen tree as a grid: three columns, each skill a tile with its icon, its name
+and the level it needs (**Lvl N**), with lines from each skill to the skills that need it. Click a tile to see that skill
+on the right (the tree's first skill is shown at first). Item Skills has a list of the skills instead of a tree.
 
-The strip above the cards sets what the numbers are worked out for: **Skill level** (1-110), **Character level** (1-110;
-some skills scale with it) and **Hard points** (Default, or 0-20: the points put into the skill itself, which some
-skills use). Click - or +, or turn the mouse wheel over a value. With a controller, go up from the cards to the strip;
-Left / Right change the highlighted value (hold to go faster). The values stay while the game runs. Sort shows the cards
-by skill tree (the default) or A-Z.
+The right side shows the skill's icon and name, its class and tree, **Req** (the level it needs), **Max** (its highest
+level) and **Mana** (and how much more per level), Passive or Aura when it is one, the description, the skills it
+requires, whether it triggers "on striking" and "on casting" effects and why, the bonus it gives with a partner skill at
+20 levels each, and **Hard points only** when +skills from items do not count for it. Below that are three tabs:
+
+- **Values**: the **Skill level** (1-110; click - or +, turn the mouse wheel over the value, or pick 1, 20, 30, 50 or 110)
+  and the **Character level** (some skills scale with it). **Receives bonuses from** lists the skill's synergies, each with
+  a box for the points in that skill (**Max all** fills them, **Reset** empties them); the numbers below include them.
+  **At level N** has the lines that do not change with the level, then a table with each value at the chosen level (gold)
+  and at levels 1, 20, 30, 50 and 110. **All levels** adds a table of every level from 1 to 110. Levels marked * are beyond
+  what a character can reach; their numbers are still worked out.
+- **Items**: every item and recipe that grants the skill, grouped by kind (uniques, set items, runewords, affixes and so on)
+  with what each gives.
+- **About**: the notes on how the values are worked out.
+
+The right side scrolls on its own (mouse wheel over it); in a narrow window it goes under the tree and the whole pane
+scrolls. The chosen tree and skill of each class, the levels and the synergy points stay while the game runs. With a
+controller, go right from the class list into the tree: the D-pad moves between the tiles, LB / RB switch the tree, A
+shows the highlighted skill, Right from the last column goes into the details (the level boxes, the quick levels, the
+synergy boxes, the tabs), where Left / Right change the highlighted value (hold to go faster); B goes back to the tree.
 
 Skills are found by the normal search and the page filter: by name, description, class, tree, Passive, Aura and the names
-of the items that grant them. The values assume no items and no points in other skills; synergy bonuses are listed under
-each skill and are not included in the numbers. The data is `skills-data.json` in the plugin folder
+of the items that grant them. A search hit opens the skill in its tree (its tile is framed for a moment), and while you
+type, the tiles that do not match are dimmed; Enter steps through the matching skills. The values assume no items and no
+points in other skills, except the synergy points you set. The skill icons are `images\skill_*.png`, named in
+`skill-icons.txt` in the plugin folder. The data is `skills-data.json` in the plugin folder
 (`locales\<code>\skills-data.json` for the other languages); skill names, descriptions and values are in the game's
 language, while some item names and notes are still English. Without the file the tab is left out.
 
 ## What is new in 1.7.0
 
-- **New Skills tab** (after Kill Ledger): every class's skills and the item skills as cards with tooltips, grouped by skill tree, with a picker for skill level, character level and hard points that works the values out like the game. Searchable like the other tabs, usable with the controller, in all thirteen languages. See **Skills** above. The skill data and the formulas come from [esr-docs](https://github.com/dotsyzygy/esr-docs) by Syzygy (MIT).
+- **Welcome > What's worth looting?** ends with a link to the ESR loot filter editor (edit an existing filter or build one from scratch); click it with the mouse to open it in your browser. The sentence is in all thirteen languages.
+- **New Skills tab** (after Kill Ledger): every class's skill trees as on the ESR runeword browser's Skills page, with the tree's skills as tiles (icon, name, required level, prerequisite lines) and the chosen skill's details beside them: its facts, a Values tab that works the numbers out like the game for any skill level, character level and synergy points (with levels 1, 20, 30, 50 and 110 side by side, and every level on request), an Items tab with every item and recipe that grants it, and an About tab. The item skills have a list. Searchable like the other tabs, usable with the controller, in all thirteen languages. See **Skills** above. The skill data and the formulas come from [esr-docs](https://github.com/dotsyzygy/esr-docs) by Syzygy (MIT).
 - **New Specializations tab** (between Endgame Maps and Weapon Mastery): the website's Specializations page as a working perk board. Click a tab (Alchemist, Blacksmith, Jeweler, Archaeologist) to switch specialization; hover a perk (or highlight it with the controller) to see its tooltip, with its effect and respec cost. The explanation above the board, the tab names, the perks, their order and their wording all come from the website page, so changes to it arrive without a new plugin version. It refreshes like the other website pages (at game start and every six hours, in the game's language from the localized page; the last copy is kept in the plugin folder) (`live-updates-disabled.txt` turns every website check off). The board art (perk icons, background, glow) comes from the game's own files and is shipped in the plugin's `images` folder as `spec_*.png`. The tab is named in all thirteen languages with the website's own word for specializations.
 - **Campaign map** on Welcome > Campaign Progression: the act maps, the special areas and the uber portals, with a tooltip and a details panel for every area, searchable (an Area tag in the suggestions) and usable with the controller. See **Campaign map** above. The Special areas cards and the teleport restrictions follow the website's Maps page live, in the game language.
 - **Search suggestions.** Typing in the search box opens a dropdown of the best matches: tabs, entries, cards and the Specializations perks, each with a small Tab / Entry / Card / Perk tag, where it is (tab and entry, the entry name is kept when the space is short), the matching letters in gold and, for a match inside a card's text (a stat, a rune, a note), the line that matched in bold gold. The list is looked up a moment after you stop typing, says how many results it has, and when nothing matches it says why ("Nothing has: frost", "No card has all of: frost, poison"). Hits found only by a typo or by letters in order come last, under "Did you mean". Enter opens the top row (it is shaded) or the row you picked; see **Search** above for the keys. Picking a suggestion keeps the text you typed, so the list on the left and the dropdown always agree; only a typo hit puts the card's name in the box. Picking a tab keeps the search when that tab has matching entries, and clears it (with a note) when it has none. If a filter button (sockets, tier, weapon type) would hide the card you picked, the filters are reset and "Filters cleared" shows under the search box for a moment. With a controller the list has its own focus; see **Controller in the search** above. The page filter follows the same rules as the suggestions, and the search highlight inside cards marks every word of the search (a "phrase" as one run, never an excluded word).
@@ -143,55 +161,6 @@ language, while some item names and notes are still English. Without the file th
   - The help picture is `images\controller_playstation.png` or `images\controller_xbox.png` in the plugin folder; without those files a list of the buttons is drawn instead. A controller used through Steam Input or DS4Windows looks like an Xbox controller to Windows; a file `controller.txt` in the plugin folder containing `playstation` or `xbox` forces which help is shown.
 - The mouse cursor drawn over the wiki now follows the pointer every millisecond instead of about 64 times a second, so it keeps up with the game's own cursor.
 - The pause-menu ESR Wiki button now opens the panel you used last, like the wiki key and the `eswiki` command do. The first time it is the main wiki; after that, if you last used the Horadric Cube Recipes window, that is the one that opens. The page you were reading in each window is kept while the game runs.
-
-## What is new in 1.5.1
-
-- Charm runewords that also allow weapons or armor (Brandish, Machine, Hunt, Hades, Wisdom, Mist and others, 15 of the 33 on the Charms tab) now show their stats. Before, those cards showed only the name, runes and required level, because a charm card was filled only when all three website columns agreed and the columns a runeword does not use are empty. Charms now compare the filled columns; if those disagree nothing is shown, and charms still show no rune bonuses. The fix applies to English and to all twelve other languages, both in the shipped data and when the pages refresh from the website.
-
-## What is new in 1.5.0
-
-- **Thirteen languages.** The wiki and the Horadric Cube Recipes window now follow the game's language: English, German (deDE), Spanish (esES), Spanish Latin America (esMX), French (frFR), Italian (itIT), Portuguese (ptBR), Polish (plPL), Russian (ruRU), Korean (koKR), Japanese (jaJP), Simplified Chinese (zhCN) and Traditional Chinese (zhTW). The text comes from the matching language of the Eastern Sun Resurrected website, the same pages and counts as English, and refreshes the same way (at game start and every six hours; the last copies are kept in the plugin folder). The `locales` folder holds a shipped copy of every language for when the website cannot be reached.
-- Only the labels the website does not have (buttons, tab titles, the Welcome page, the IAS calculator wording, table labels) are written by hand. **These hand-written texts are first drafts and have not been reviewed by native speakers**; corrections are welcome.
-- **Not yet checked in the game:** Simplified Chinese, Traditional Chinese and Japanese. Selecting them crashed D2RLoader itself during our testing (the crash is inside D2RLoader.exe, not the overlay), so their layout, fonts and text could not be reviewed. Treat these three as unverified. The other nine non-English languages were checked in the game.
-- A few long runeword effect lines that have no counterpart on the website stay in English, and some Spanish, Portuguese, Polish and Italian tab titles may be wider than their tabs.
-- If the wiki shows English in a non-English game, check that `esr-wiki-overlay/locales/<language>/` exists in the plugin folder and that the log (`logs/esr-wiki-overlay.log`) does not say `UI strings loaded: 0`.
-
-## What is new in 1.4.0
-
-- The Runes page is now built from the Eastern Sun Resurrected website (the gems page) and refreshes the same way as the Uniques page: when the game starts and every six hours while it runs, with the last copy kept in the plugin folder. A file named `runes-live-disabled.txt` in the plugin folder turns the check off. Each rune shows the website's own item-kind labels and values; the "How to Acquire Elemental Runes" note stays at the end, and its recipe table follows the Cube Recipes page, so it updates too (the explanatory text above the table is fixed).
-- The Runewords and Gemwords pages are now built from the website's runewords and gemwords pages, and refresh the same way (at game start and every six hours; the last copies are kept in the plugin folder). Files named `runewords-live-disabled.txt` and `gemwords-live-disabled.txt` turn the checks off. A runeword's required level is the highest level of the runes it uses, read from the gems page. Gemword cards are one per website row. `web-word-art.txt` gives the cards their pictures.
-- The Item Bases page is now built from the website's armors and weapons pages and refreshes the same way (at game start and every six hours; the last copies are kept in the plugin folder). A file named `bases-live-disabled.txt` turns the check off. `web-base-art.txt` gives the items their pictures, tiers and weapon families.
-- New IAS Calculator tab (second row): the website's Frame Table as a working calculator. Pick class, form, skill and weapons, type your attack speed and cast rate, and see the frames, attacks per second and the breakpoint tables. Its data and constants refresh from the website like the other pages (a file named `ias-live-disabled.txt` turns the check off).
-- The Ascendancy tab now follows the website's Ascendancies page (introduction, challenges, gem recipes, tier stats and footnotes) and refreshes the same way as the other website pages. A file named `ascendancy-live-disabled.txt` turns the check off.
-- The Set Items tab now follows the website's Sets page (every piece's stats and bonuses, each set's partial and full bonus) and refreshes the same way as the other website pages. Pictures stay as before. A file named `sets-live-disabled.txt` turns the check off.
-- The Kill Ledger tab now follows the website's Kill Ledger page (overview, kill bonuses and boss bonuses) and refreshes the same way as the other website pages. A file named `kill-live-disabled.txt` turns the check off.
-- The Weapon Mastery tab now follows the website's Weapon Mastery page (overview, general recipes and every specialization variant) and refreshes the same way as the other website pages. A file named `mastery-live-disabled.txt` turns the check off.
-- The Vessel of Souls tab now follows the website's Vessel of Souls page and refreshes the same way as the other website pages. A file named `vessel-live-disabled.txt` turns the check off.
-- The Mercenary/O-Skill tab now follows the website's Skill Information page and refreshes the same way as the other website pages. A file named `skills-live-disabled.txt` turns the check off.
-- The Special Craft tab (corruptions, anointments, sanctifications, standard of heroes) now follows the website's Special Crafting Outcomes page and refreshes the same way as the other website pages. A file named `special-live-disabled.txt` turns the check off.
-- The Endgame Maps tab now follows the website's End Game Maps page (overview, every map boss's abilities and rewards) and refreshes the same way as the other website pages. Boss pictures stay as before. A file named `endgame-live-disabled.txt` turns the check off.
-- New Item Affixes tab: every prefix, suffix and quality affix from the website's prefixes, suffixes and quality pages, in three categories (Armor, Weapons, Other), each with an Affix filter (Prefix, Suffix, Superior) and a Type filter for the item type, like Uniques and Item Bases, with the website's levels, rarity, group and stats. It refreshes the same way as the other website pages (at game start and every six hours; the last copies are kept in the plugin folder). A file named `affixes-live-disabled.txt` turns the check off.
-- The D-Stones and Forging tabs are gone from the main wiki; both are still on the Cube Recipes window.
-- Cube recipe tables centre their text vertically, so a recipe with more inputs than results (or the reverse) no longer leaves the shorter side at the top of its row.
-
-## What is new in 1.3.0
-
-- The Uniques page is now built from the Eastern Sun Resurrected website (unique weapons, armors, others and mythicals), and refreshes like the cube recipes: when the game starts and every six hours while it runs, with the last copy kept in the plugin folder. A file named `uniques-live-disabled.txt` in the plugin folder turns the check off.
-- Unique cards can be sorted by Normal, Exceptional and Elite bases, and filtered by the website's weapon and armor categories.
-- Mythical cards show the full colours of their property lines.
-- Charms no longer show gamble or coupon tags.
-- The Cube Recipes and close buttons sit lower in the window frame.
-- New `web-unique-art.txt` in the plugin folder gives the Uniques page its images, tiers and weapon families.
-
-## What is new in 1.2.0
-
-- Runeword, unique and set description text now comes from the mod's own files.
-- The Runewords page lists every runeword in the mod; gemwords are on the Gemwords page only.
-- Rune tooltips show the rune's stat lines instead of the "Socketed in" line.
-- Unique cards that can be gambled show "Gamble Item:" with the base item and item level.
-- The overlay uses the game's own mouse cursor (a drawn copy of the gauntlet is the fallback).
-- The Hireling set items are rebuilt from the mod's setitems.txt: each piece shows its own base item and required level. Each set has its own header (laid out like the Warlock sets) in Normal, Nightmare, Hell order, with a difficulty filter.
-- Gemword cards and set item names were corrected against the mod files.
 
 ## Cube recipes follow the website
 The Horadric Cube Recipes window reads the recipes from the Cube Recipes page on easternsunresurrected.com when the

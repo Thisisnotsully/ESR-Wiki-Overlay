@@ -12,6 +12,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <windowsx.h>
+#include <shellapi.h>  // ShellExecuteW: a web link in the wiki text opens in the browser
 // GDI+ needs the COM types (IStream, PROPID) that objidl.h declares. Include it first.
 #include <objidl.h>
 #include <gdiplus.h>
@@ -25,6 +26,8 @@
 #include <cstdint>
 #include <cstring>
 #include <fstream>
+#include <functional>
+#include <iterator>
 #include <map>
 #include <memory>
 #include <string>
@@ -39,6 +42,7 @@
 #include "pad_logic.hpp"
 #include "search_index.hpp"
 #include "skills_page.hpp"
+#include "skills_tree.hpp"
 #include <cstdio>
 #include <cwchar>
 #include <cwctype>
@@ -263,12 +267,12 @@ struct PageView {
     BlockSort sort = BlockSort::Default;
 };
 
-// A filter or sort button above the detail pane. Picker: a control of the Skills page's picker strip (overlay_skills.inc).
-enum class ChipKind { Socket, Sort, Tier, Family, Picker };
+// A filter or sort button above the detail pane.
+enum class ChipKind { Socket, Sort, Tier, Family };
 struct Chip {
     RECT rect{};
     ChipKind kind = ChipKind::Socket;
-    std::size_t value = 0;  // socket count or BlockSort; Picker: field * 3 + part (0 minus, 1 value, 2 plus)
+    std::size_t value = 0;  // socket count or BlockSort
     std::string text;       // tier or family name for those filters
 };
 
@@ -1300,6 +1304,21 @@ struct CampaignGraph {
     std::vector<Region> regions;
 };
 
+namespace {
+
+// What a SkillsHit is (OverlayState::SkillsHit::kind).
+constexpr int kSkTab = 0;        // a tree tab (value: the tree's number)
+constexpr int kSkTile = 1;       // a tile of the tree (value: index into the tree's cells) or a row of the item list
+constexpr int kSkStep = 2;       // a - / value / + box (value: field * 3 + part; field 0 skill level, 1 character
+                                 // level, 2 + i synergy i of the Values table)
+constexpr int kSkQuick = 3;      // a quick skill level (value: the level)
+constexpr int kSkMaxAll = 4;
+constexpr int kSkReset = 5;
+constexpr int kSkSubTab = 6;     // Values / Items / About (value 0..2)
+constexpr int kSkAllLevels = 7;
+
+}  // namespace
+
 struct OverlayState {
     std::function<bool(unsigned int)> isCloseKey;  // see Overlay::SetCloseKey
     const Database* database = nullptr;
@@ -1394,7 +1413,7 @@ struct OverlayState {
     bool padActive = false;    // a controller was the last thing used; the mouse or keyboard switches it off
     // Cards: item tiles in the detail pane; Chips: the filter and sort buttons above them; Calc: the calculator's fields;
     // Switches: header buttons
-    enum class PadZone { Tabs, List, Cards, Switches, Chips, Calc, Spec, Campaign };
+    enum class PadZone { Tabs, List, Cards, Switches, Chips, Calc, Spec, Campaign, Skills };
     PadZone padZone = PadZone::Tabs;
     std::size_t padChip = 0;   // the filter or sort button the D-pad highlights (an index into layout.chips)
     int calcPadKind = 0;       // the calculator field the D-pad highlights: 0 drop-down, 1 number
@@ -1639,29 +1658,139 @@ struct OverlayState {
     int RenderCampaignLiveNotes(HDC dc, const campaign::Tab& tab, int left, int paneW, int y, bool draw);
 
     // The Skills page (overlay_skills.inc). skillsPending is handed over by Overlay::SetSkillsData from another thread; the
-    // rest belongs to the UI thread. skillsEngine and skillsLayout point into skillsData, so they are declared after it.
+    // rest belongs to the UI thread. skillsEngine, skillsLayout, skillsCache and skillsFlash point into skillsData, so they
+    // are declared after it (and reset whenever it changes).
     std::mutex skillsLock;
     std::shared_ptr<const skills::Data> skillsPending;
     std::shared_ptr<const skills::Data> skillsData;
     std::unique_ptr<skills::Engine> skillsEngine;
-    skills::PageLayout skillsLayout;   // where the page's blocks came from, and the cards' faces
-    skills::Picker skillsPicker;       // skill level, character level, hard points (kept while the plugin runs)
-    bool skillsPickerSet = false;
-    int skillsHold = 0;                // Left/Right presses in a row on a picker value, for the step size
+    skills::PageLayout skillsLayout;   // which skill each (hidden, searched) block of the page is
+    // What is chosen, kept while the plugin runs: per class the tree and the skill (its key; "" = the tree's first), the
+    // levels (0 until the data's defaults are taken) and the synergy points by skill id (Context::synergyPoints).
+    struct SkillsChoice { int tree = 0; std::string skill; };
+    std::map<std::string, SkillsChoice> skillsChoice;
+    int skillsLevel = 0;
+    int skillsCharacterLevel = 0;
+    std::map<std::string, int> skillsSynergy;
+    int skillsSubTab = 0;              // 0 Values, 1 Items, 2 About
+    bool skillsAllLevels = false;      // the Values table's every-level rows are showing
+    // The shown class's tree (or item list) and the selected skill's facts, values and sources, made again only when the
+    // class, the tree, the skill, the levels or the synergy points change (SkillsEnsure).
+    struct SkillsCache {
+        const skills::Data* data = nullptr;
+        std::string cls;
+        int tree = -1;
+        bool items = false;            // no trees (the item skills): a list
+        skills::TreeLayout grid;
+        std::vector<const skills::Skill*> list;
+        const skills::Skill* skill = nullptr;
+        int level = 0;
+        int characterLevel = 0;
+        std::map<std::string, int> synergy;
+        bool built = false;
+        skills::HeaderFacts facts;
+        skills::ValueTable table;
+        std::vector<skills::SourceGroup> sources;
+        bool allBuilt = false;
+        std::vector<std::vector<skills::ValueCell>> all;
+    };
+    SkillsCache skillsCache;
+    // kind: see kSkTab ... above; zone 0 the tree (or list), 1 the details. rect is cut to what shows,
+    // full is the whole box. Client coordinates, from the last paint.
+    struct SkillsHit { RECT rect; RECT full; int kind; int value; int zone; };
+    std::vector<SkillsHit> skillsHits;
+    int skillsHoverKind = -1;          // the box under the pointer
+    int skillsHoverValue = 0;
+    int skillsPadKind = -1;            // the box the D-pad highlights
+    int skillsPadValue = 0;
+    bool skillsPadFollow = false;      // after the next paint, the highlight goes to the selected tile
+    int skillsHold = 0;                // Left/Right presses in a row on a value, for the step size
     ULONGLONG skillsHoldAt = 0;
+    bool skillsWide = true;            // the last layout was split (tree left, details right)
+    int skillsDetailScroll = 0;        // split: the details panel's own scroll, its limit and its place on screen
+    int skillsDetailMax = 0;
+    RECT skillsDetailView{};
+    int skillsListScroll = 0;          // split: the item skills' list
+    int skillsListMax = 0;
+    RECT skillsListView{};
+    RECT skillsBarTrack[2]{};          // the scroll bars (0 the item list, 1 the details): the grab area, as last drawn
+    RECT skillsBarThumb[2]{};
+    int skillsBarTotal[2]{};
+    struct LinkHit {
+        RECT rect;
+        std::wstring url;
+    };
+    std::vector<LinkHit> linkHits;     // the web links drawn in the page's text, as last drawn
+    int linkHot = -1;                  // the link under the pointer, or -1
+    int LinkAt(int x, int y) const;
+    bool LinkClick(int x, int y);
+    int skillsBarDragging = -1;        // the bar being dragged by the mouse, or -1
+    int skillsBarStartY = 0;
+    int skillsBarStartScroll = 0;
+    bool skillsReveal = false;         // the selected tile is to be scrolled into view after the next layout
+    int skillsRevealTop = 0;
+    int skillsRevealBottom = 0;
+    int skillsTileTop = 0;             // the selected tile's place in the last layout
+    int skillsTileBottom = 0;
+    const skills::Skill* skillsFlash = nullptr;  // the tile a search jump arrived at, framed until skillsFlashUntil
+    ULONGLONG skillsFlashUntil = 0;
+    skills::IconMap skillsIcons;       // data\skill-icons.txt, read on first use
+    bool skillsIconsLoaded = false;
+    std::unordered_map<const skills::Skill*, bool> skillsLitMap;  // SkillsLit's answers for skillsLitQuery
+    std::string skillsLitQuery;
+    const Database* skillsLitDb = nullptr;
+    HDC skillsClipDc = nullptr;        // SkillsClipped's off-screen copy, kept while the client size stays
+    HBITMAP skillsClipBitmap = nullptr;
+    HGDIOBJ skillsClipPrevious = nullptr;
+    int skillsClipWidth = 0;
+    int skillsClipHeight = 0;
+    void ReleaseSkillsClip();
     bool SkillsActive() const;
     bool AdoptSkillsData();            // takes skillsPending (UI thread only); true when there was new data
     void ApplySkillsData();            // kMsgSkillsData: adopts it and shows the page made from it
     void PrepareSkillsPage();          // puts the page into the database shown (or takes it out without data)
-    void SkillsPickerChanged();
-    bool SkillsStep(int field, int delta);
-    bool SkillsPadStep(int field, int dx);
+    int SkillsShownEntry();
+    const skills::Class* SkillsShownClass();
+    const skills::Skill* SkillsTileSkill(int value) const;
+    int SkillsTileOf(const skills::Skill* skill) const;
+    const Block* SkillsBlockOf(const skills::Skill* skill);
+    bool SkillsLit(const skills::Skill* skill);
+    void SkillsEnsure(const skills::Class& cls);
+    skills::Context SkillsContext(const skills::Skill& skill) const;
+    void SkillsSelect(const skills::Skill& skill, bool flash);
+    void SkillsSelectTree(int tree);
+    void SkillsTakeJump();
+    bool SkillsStepMatch(int direction);
+    bool SkillsStepField(int field, int delta);
+    void SkillsActivate(int kind, int value);
+    Gdiplus::Bitmap* SkillsIcon(const skills::Skill& skill);
+    void SkillsDrawIcon(HDC dc, Gdiplus::Graphics* graphics, const skills::Skill& skill, const RECT& r);
+    void SkillsAddHit(const RECT& r, int kind, int value, int zone, const RECT& view);
+    bool SkillsHot(int kind, int value) const;
+    void SkillsBox(HDC dc, const RECT& r, const std::wstring& text, bool selected, bool hot, bool dimText, HFONT font);
+    void SkillsClipped(HDC dc, RECT clip, const std::function<void(HDC, Gdiplus::Graphics&)>& paint);
+    void SkillsScrollbar(HDC dc, const RECT& view, int total, int scroll, int bar);
+    bool SkillsBarDown(int x, int y);
+    void SkillsTileSize(int availH, int rows, int& tileH, bool& compact, bool& fits) const;
+    void SkillsBarDrag(int y);
+    int RenderSkills(HDC dc, const Entry& entry, int top, int scroll, bool draw);
+    void SkillsApplyReveal(int total, int visible);
+    int RenderSkillsTree(HDC dc, const skills::Class& cls, int x, int w, int y, bool wide, bool draw);
+    int SkillsDetails(HDC dc, Gdiplus::Graphics* graphics, const skills::Class& cls, int x, int w, int y, bool draw,
+                      const RECT& view);
+    bool SkillsMove(int x, int y);
+    bool SkillsClick(int x, int y);
     bool SkillsWheel(int x, int y, int steps);
-    std::wstring SkillsPickerValue(int field) const;
-    int BuildSkillsControls(HDC dc, const PageView& view);
-    const std::vector<skills::CardFace>* SkillFaces(const Entry& entry) const;
-    int RenderSkillTiles(HDC dc, const Entry& entry, const std::vector<std::size_t>& order, std::size_t begin,
-                         std::size_t end, int left, int width_, int y, bool draw);
+    bool SkillsPadFocusTile();
+    void PadEnterSkills();
+    const SkillsHit* SkillsPadHit() const;
+    bool SkillsPadRect(RECT& out) const;
+    void SkillsPadReveal();
+    void SkillsPadMove(int dx, int dy);
+    void SkillsPadConfirm();
+    bool SkillsPadBack();
+    bool SkillsPadStepTab(int direction);
+    void SkillsPadAfterPaint();
 
     // Search suggestions (overlay_suggest.inc): the dropdown under the search box and the jump to the card picked.
     esrwiki::search::Index searchIndex;
@@ -2186,6 +2315,7 @@ void OverlayState::StepMatch(int direction) {
 // Moves the open entry to its next matching block in the direction given, scrolling that block to the top of the
 // view. False when no match is left that way, so the caller moves on to another entry.
 bool OverlayState::StepWithinEntry(int direction) {
+    if (SkillsActive()) return SkillsStepMatch(direction);  // the next matching skill of the class (overlay_skills.inc)
     PageView& view = CurrentView();
     const int current = view.detailScroll;
     const int maxScroll = std::max(0, scrollTotal - scrollVisible);
@@ -2319,6 +2449,7 @@ void OverlayState::SetPage(std::size_t index) {
     specHoverTab = specHoverPerk = -1;
     campaignHoverKind = -1;
     campaignHover = 0;
+    skillsHoverKind = -1;
     suggestOpen = false;
     Refilter();
 }
@@ -2595,6 +2726,10 @@ void OverlayState::SyncVisibility() {
 }
 
 void OverlayState::EndDrag() {
+    if (skillsBarDragging >= 0) {
+        skillsBarDragging = -1;
+        ReleaseCapture();
+    }
     if (!dragging) return;
     dragging = false;
     ReleaseCapture();
@@ -2608,6 +2743,10 @@ void OverlayState::HandleMove(int x, int y) {
         track.hwndTrack = window;
         TrackMouseEvent(&track);
         trackingMouse = true;
+    }
+    if (skillsBarDragging >= 0) {
+        SkillsBarDrag(y);
+        return;
     }
     if (dragging) {
         const int trackHeight = layout.scrollTrack.bottom - layout.scrollTrack.top;
@@ -2627,8 +2766,16 @@ void OverlayState::HandleMove(int x, int y) {
         ClearHover();
         return;
     }
+    {
+        const int hotLink = LinkAt(x, y);
+        if (hotLink != linkHot) {
+            linkHot = hotLink;
+            InvalidateRect(window, nullptr, FALSE);
+        }
+    }
     if (SpecMove(x, y)) return;  // the Specializations page has its own hover
     if (CampaignMove(x, y)) return;  // so has the Campaign Progression map
+    if (SkillsMove(x, y)) return;    // and the Skills page (overlay_skills.inc)
     for (const DetailHit& hit : detailHits) {
         if (!Inside(hit.rect, x, y)) continue;
         // Same target: keep the tooltip where it is and do not repaint on every pixel of movement.
@@ -2654,6 +2801,10 @@ void OverlayState::ClearHover() {
         campaignHover = 0;
         InvalidateRect(window, nullptr, FALSE);
     }
+    if (skillsHoverKind >= 0) {
+        skillsHoverKind = -1;
+        InvalidateRect(window, nullptr, FALSE);
+    }
     if (hover.block == nullptr) return;
     hover = Hover{};
     InvalidateRect(window, nullptr, FALSE);
@@ -2675,7 +2826,7 @@ void OverlayState::DrawTooltip(HDC dc) {
             rows.push_back({UiFormat(L"{0} Rune", {socket}), block.runes[hover.rune].lod ? CodeColor('8') : kGold, fontBold});
             // The rune's own stat lines for this kind of item (Runes page), instead of a "Socketed in" line.
             const RuneIcon& rune = block.runes[hover.rune];
-            for (const Line& line : RuneBonusLines(*database, rune.label, rune.lod, hover.entry->title)) {
+            for (const Line& line : RuneBonusLines(*database, rune, *hover.entry, block)) {
                 std::string plain;
                 COLORREF color = kBody;
                 PlainText(line.text, plain, color, kBody);
@@ -2713,7 +2864,9 @@ void OverlayState::DrawTooltip(HDC dc) {
             COLORREF color = kBody;
             PlainText(line.text, plain, color, kBody);
             const bool isHeading = line.kind == LineKind::Heading;
-            rows.push_back({Wide(plain), isHeading ? kGold : color, isHeading ? fontBold : fontBody});
+            const bool isLabel = line.kind == LineKind::Label;  // a small dim sub-heading (socketable bonus group)
+            rows.push_back({Wide(plain), isHeading ? kGold : (isLabel ? kDim : color),
+                            isHeading ? fontBold : (isLabel ? fontSmall : fontBody)});
         }
     }
 
@@ -2855,11 +3008,6 @@ void OverlayState::QueryChanged() {
 
 // A filter or sort button was pressed, by the mouse or the controller.
 void OverlayState::ApplyChip(const Chip& chip) {
-    if (chip.kind == ChipKind::Picker) {  // the Skills page's - and + buttons; the scroll position stays
-        const std::size_t part = chip.value % 3;
-        if (part != 1) SkillsStep(static_cast<int>(chip.value / 3), part == 0 ? -1 : 1);
-        return;
-    }
     PageView& view = CurrentView();
     switch (chip.kind) {
         case ChipKind::Socket: view.socketFilter = chip.value; break;
@@ -2870,7 +3018,6 @@ void OverlayState::ApplyChip(const Chip& chip) {
         }
         case ChipKind::Tier: view.tierFilter = chip.text; break;
         case ChipKind::Family: view.familyFilter = chip.text; break;
-        case ChipKind::Picker: break;  // handled above
     }
     view.detailScroll = 0;
     InvalidateRect(window, nullptr, FALSE);
@@ -2919,6 +3066,8 @@ void OverlayState::HandleClick(int x, int y) {
     if (CalcClick(x, y)) return;
     if (SpecClick(x, y)) return;
     if (CampaignClick(x, y)) return;
+    if (LinkClick(x, y)) return;
+    if (SkillsClick(x, y)) return;
     for (const Chip& chip : layout.chips) {
         if (!Inside(chip.rect, x, y)) continue;
         ApplyChip(chip);
@@ -2963,7 +3112,7 @@ void OverlayState::HandleWheel(int x, int y, int delta) {
     wheelRemainder -= steps * WHEEL_DELTA;
     if (steps == 0) return;
     if (SuggestWheel(x, y, steps)) return;
-    if (SkillsWheel(x, y, steps)) return;  // over a Skills picker control: changes its value
+    if (SkillsWheel(x, y, steps)) return;  // the Skills page: a value under the pointer, or its own panels
     if (Inside(layout.detail, x, y)) {
         if (CalcWheel(x, y, steps)) return;
         view.detailScroll = std::max(0, view.detailScroll - steps * S(60));  // 60 px a notch (was 40, 50% faster)
@@ -3248,9 +3397,9 @@ void OverlayState::PadTick() {
                 QueryChanged();
             }
         }
-        // LB / RB: the previous / next tab; on the Campaign Progression map, the map's tabs.
-        if (press(Button::LB) && !CampaignPadStepTab(-1)) PadStepTab(-1);
-        if (press(Button::RB) && !CampaignPadStepTab(1)) PadStepTab(1);
+        // LB / RB: the previous / next tab; on the Campaign Progression map, the map's tabs; on the Skills page's boxes, its trees.
+        if (press(Button::LB) && !CampaignPadStepTab(-1) && !SkillsPadStepTab(-1)) PadStepTab(-1);
+        if (press(Button::RB) && !CampaignPadStepTab(1) && !SkillsPadStepTab(1)) PadStepTab(1);
         if (press(Button::R3) && !switches.empty()) {
             const SwitchButton& other = switches[0];
             if (!other.current && (!other.available || other.available())) {
@@ -3287,12 +3436,25 @@ void OverlayState::PadTick() {
         const int whole = static_cast<int>(padScrollCarry);
         padScrollCarry -= whole;
         if (whole != 0) {
-            PageView& view = CurrentView();
-            const int limit = std::max(0, scrollTotal - scrollVisible);
-            const int next = std::clamp(view.detailScroll + whole, 0, limit);
-            if (next != view.detailScroll) {
-                view.detailScroll = next;
-                changed = true;
+            if (SkillsActive() && skillsWide) {
+                // Split layout: the panels scroll on their own; the one the pad focus is in (the item list or the details).
+                const SkillsHit* focus = SkillsPadHit();
+                const bool inList = focus != nullptr && focus->zone == 0 && skillsCache.items;
+                int& panelScroll = inList ? skillsListScroll : skillsDetailScroll;
+                const int panelMax = inList ? skillsListMax : skillsDetailMax;
+                const int nextPanel = std::clamp(panelScroll + whole, 0, panelMax);
+                if (nextPanel != panelScroll) {
+                    panelScroll = nextPanel;
+                    changed = true;
+                }
+            } else {
+                PageView& view = CurrentView();
+                const int limit = std::max(0, scrollTotal - scrollVisible);
+                const int next = std::clamp(view.detailScroll + whole, 0, limit);
+                if (next != view.detailScroll) {
+                    view.detailScroll = next;
+                    changed = true;
+                }
             }
         }
     }
@@ -3447,7 +3609,7 @@ bool OverlayState::OskClick(int x, int y) {
 void OverlayState::DrawPadFocus(HDC dc) {
     // The detail pane's zones are framed after the pane is drawn: DrawCardFocus a card, DrawDetailFocus a button or field.
     if (!padActive || oskOpen || suggestPadFocus || padZone == PadZone::Cards || padZone == PadZone::Chips ||
-        padZone == PadZone::Calc || padZone == PadZone::Spec || padZone == PadZone::Campaign) return;
+        padZone == PadZone::Calc || padZone == PadZone::Spec || padZone == PadZone::Campaign || padZone == PadZone::Skills) return;
     const COLORREF focus = RGB(255, 240, 180);
     RECT target{};
     if (padZone == PadZone::Switches) {
@@ -3481,12 +3643,14 @@ void OverlayState::DrawDetailFocus(HDC dc) {
         if (!SpecPadRect(target)) return;
     } else if (padZone == PadZone::Campaign) {
         if (!CampaignPadRect(target)) return;
+    } else if (padZone == PadZone::Skills) {
+        if (!SkillsPadRect(target)) return;
     } else {
         return;
     }
     const COLORREF focus = RGB(255, 240, 180);
     const int saved = SaveDC(dc);
-    if (padZone == PadZone::Calc || padZone == PadZone::Spec || padZone == PadZone::Campaign) IntersectClipRect(dc, layout.detail.left + 1, clipTop, layout.detail.right - S(18), clipBottom);
+    if (padZone == PadZone::Calc || padZone == PadZone::Spec || padZone == PadZone::Campaign || padZone == PadZone::Skills) IntersectClipRect(dc, layout.detail.left + 1, clipTop, layout.detail.right - S(18), clipBottom);
     else IntersectClipRect(dc, layout.detail.left, layout.detail.top, layout.detail.right, layout.detail.bottom);
     for (int grow : {S(1), S(2)}) {
         FrameColor(dc, Rect(target.left - grow, target.top - grow, target.right + grow, target.bottom + grow), focus);
@@ -3644,6 +3808,7 @@ void OverlayState::PadValidateZone() {
     if (padZone == PadZone::Calc && (!CalcActive() || calcHits.empty())) padZone = PadZone::List;
     if (padZone == PadZone::Spec && (!SpecActive() || specHits.empty())) padZone = PadZone::List;
     if (padZone == PadZone::Campaign && (!CampaignShowing() || campaignSpots.empty())) padZone = PadZone::List;
+    if (padZone == PadZone::Skills && (!SkillsActive() || skillsHits.empty())) padZone = PadZone::List;
     if (padZone == PadZone::Chips && padChip >= layout.chips.size()) padChip = layout.chips.size() - 1;
 }
 
@@ -3716,6 +3881,16 @@ void OverlayState::PadFocusFromCursor() {
                 padZone = PadZone::Spec;
                 specPadKind = hit.kind;
                 specPadIndex = hit.index;
+                return;
+            }
+        }
+    }
+    if (SkillsActive() && Inside(layout.detail, x, y)) {
+        for (const SkillsHit& hit : skillsHits) {
+            if (Inside(hit.rect, x, y) && !(hit.kind == kSkStep && hit.value % 3 != 1)) {  // not a - or + button
+                padZone = PadZone::Skills;
+                skillsPadKind = hit.kind;
+                skillsPadValue = hit.value;
                 return;
             }
         }
@@ -3798,6 +3973,7 @@ void OverlayState::PadDirection(int dx, int dy) {
         } else if (dx > 0) {
             if (CalcActive() && !calcHits.empty()) PadEnterCalc();  // the calculator's fields
             else if (SpecActive() && !specHits.empty()) PadEnterSpec();  // the specialization board
+            else if (SkillsActive() && !skillsHits.empty()) PadEnterSkills();  // the skill tree
             else if (CampaignShowing() && !campaignSpots.empty()) PadEnterCampaign();  // the Campaign Progression map
             else if (!cardHits.empty()) PadEnterCards();            // right from the categories: into the items
             else if (!layout.chips.empty() && pageStarts.size() <= 1) {  // nothing showing: the filter and sort buttons
@@ -3812,12 +3988,6 @@ void OverlayState::PadDirection(int dx, int dy) {
         PadCardMove(dx, dy);
         break;
     case PadZone::Chips: {
-        // A Skills picker value: Left and Right change it (Up and Down move on as usual).
-        if (dx != 0 && dy == 0 && padChip < layout.chips.size() && layout.chips[padChip].kind == ChipKind::Picker &&
-            layout.chips[padChip].value % 3 == 1) {
-            // At the lowest or highest value nothing changes, and the pad moves on as for any other button.
-            if (SkillsPadStep(static_cast<int>(layout.chips[padChip].value / 3), dx)) break;
-        }
         std::vector<esrwiki::pad::Box> boxes;
         for (const Chip& chip : layout.chips) boxes.push_back({chip.rect.left, chip.rect.top, chip.rect.right, chip.rect.bottom});
         const int next = esrwiki::pad::Neighbor(boxes, static_cast<int>(padChip), dx, dy);
@@ -3834,6 +4004,9 @@ void OverlayState::PadDirection(int dx, int dy) {
         break;
     case PadZone::Campaign:
         CampaignPadMove(dx, dy);
+        break;
+    case PadZone::Skills:
+        SkillsPadMove(dx, dy);
         break;
     }
     InvalidateRect(window, nullptr, FALSE);
@@ -3867,6 +4040,11 @@ void OverlayState::PadConfirm(ULONGLONG now) {
         InvalidateRect(window, nullptr, FALSE);
         return;
     }
+    if (padZone == PadZone::Skills) {
+        SkillsPadConfirm();
+        InvalidateRect(window, nullptr, FALSE);
+        return;
+    }
     if (padZone == PadZone::Switches) {  // a header button: A opens that panel
         if (padSwitch < switches.size() && !switches[padSwitch].current &&
             (!switches[padSwitch].available || switches[padSwitch].available())) {
@@ -3885,6 +4063,8 @@ void OverlayState::PadBack() {
         padZone = PadZone::List;
     } else if (padZone == PadZone::Chips || padZone == PadZone::Spec) {
         padZone = PadZone::List;
+    } else if (padZone == PadZone::Skills) {
+        if (!SkillsPadBack()) padZone = PadZone::List;  // from the details, back to the tree first
     } else if (padZone == PadZone::Campaign) {
         if (!CampaignPadBack()) padZone = PadZone::List;  // the details close first
     } else if (padZone == PadZone::Calc) {
@@ -4262,7 +4442,7 @@ static std::vector<std::string> DistinctFamilies(const Entry& entry) {
 // wrap onto another line when a row is full.
 int OverlayState::BuildControls(HDC dc, const Entry& entry, PageView& view) {
     layout.chips.clear();
-    if (SkillsActive()) return BuildSkillsControls(dc, view);  // the picker strip (overlay_skills.inc)
+    if (SkillsActive()) return layout.detail.top + S(12);  // the Skills page has its own controls (overlay_skills.inc)
     // Class Crafting has no filters or sorts: its cards stay in the order the page gives them.
     if (CurrentPage().id == "class-crafting") return layout.detail.top + S(12);
     const bool runes = HasRuneBlocks(entry) || entry.socketSort;  // gemwords have a Sockets filter but no runes
@@ -4776,6 +4956,32 @@ int OverlayState::RenderTable(HDC dc, const std::vector<Line>& lines, std::size_
     return y + S(6);
 }
 
+// A line that is only a web address (https://...) is drawn as a link: a click opens it in the browser.
+static bool IsWebLink(const std::string& text) {
+    if (text.rfind("https://", 0) != 0 || text.size() < 12) return false;
+    for (const char c : text)
+        if (static_cast<unsigned char>(c) <= ' ') return false;
+    return true;
+}
+
+// The link under (x, y) in the page's text, or -1.
+int OverlayState::LinkAt(int x, int y) const {
+    if (!Inside(layout.detail, x, y) || y < clipTop || y >= clipBottom) return -1;
+    for (std::size_t i = 0; i < linkHits.size(); ++i)
+        if (Inside(linkHits[i].rect, x, y)) return static_cast<int>(i);
+    return -1;
+}
+
+bool OverlayState::LinkClick(int x, int y) {
+    const int index = LinkAt(x, y);
+    if (index < 0) return false;
+    const std::wstring url = linkHits[static_cast<std::size_t>(index)].url;
+    if (url.rfind(L"https://", 0) != 0) return true;  // only web addresses
+    DebugLog("opening link: " + Narrow(url));
+    ShellExecuteW(nullptr, L"open", url.c_str(), nullptr, nullptr, SW_SHOWNORMAL);
+    return true;
+}
+
 int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Block& block, int left, int width_,
                                    int y, bool draw) {
     if (splitNow != 0 && !block.images.empty()) return RenderSplitBlock(dc, graphics, block, left, width_, y, draw);
@@ -4862,13 +5068,29 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
             continue;
         }
         const bool heading = line.kind == LineKind::Heading;
+        const bool groupLabel = line.kind == LineKind::Label;  // a small dim sub-heading (socketable bonus group)
         if (heading) y += S(6);
-        const COLORREF base = heading ? kHeaderGold : kBody;
-        const HFONT font = heading ? fontBold : fontBody;
+        const COLORREF base = heading ? kHeaderGold : (groupLabel ? kDim : kBody);
+        const HFONT font = heading ? fontBold : (groupLabel ? fontSmall : fontBody);
         std::string plain;
         COLORREF unused = base;
         PlainText(line.text, plain, unused, base);
         const std::wstring wide = Wide(plain);
+        if (!heading && !groupLabel && IsWebLink(plain)) {
+            const int linkH = MeasureHeight(dc, wide, width_, font);
+            if (draw) {
+                const bool oneLine = linkH <= bodyLine + S(4);
+                const int textW = std::min(NaturalWidth(dc, wide, font), width_);
+                const bool hot = static_cast<int>(linkHits.size()) == linkHot;
+                const COLORREF linkColor = hot ? RGB(176, 214, 255) : RGB(122, 172, 236);
+                Text(dc, wide, Rect(left, y, left + width_, y + linkH), linkColor, font, DT_LEFT | DT_WORDBREAK);
+                if (oneLine) FillColor(dc, Rect(left, y + linkH - S(3), left + textW, y + linkH - S(3) + std::max(1, S(1))), linkColor);
+                linkHits.push_back({Rect(left, y, left + (oneLine ? textW : width_), y + linkH), wide});
+            }
+            y += linkH + S(5);
+            ++i;
+            continue;
+        }
         const int h = HasColorCodes(line.text)
                           ? LayoutPieces(dc, LinePieces(line.text, base), base, Rect(0, 0, width_, 0), font, DT_LEFT, false)
                           : MeasureHeight(dc, wide, width_, font);
@@ -4890,9 +5112,14 @@ int OverlayState::RenderGuideBlock(HDC dc, Gdiplus::Graphics* graphics, const Bl
 int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std::size_t>& order, bool headers,
                                int top, int scroll, bool compact, bool draw) {
     if (!draw) { matchTops.clear(); blockSpans.clear(); campaignSpots.clear(); }
-    else campaignHits.clear();
+    else {
+        campaignHits.clear();
+        linkHits.clear();
+        linkHot = -1;
+    }
     if (CalcActive()) return RenderCalculator(dc, top, scroll, draw);
     if (SpecActive()) return RenderSpecializations(dc, top, scroll, draw);
+    if (SkillsActive()) return RenderSkills(dc, entry, top, scroll, draw);
     const RECT area = layout.detail;
     const int left = area.left + S(16);
     const int width_ = area.right - S(22) - left;
@@ -4969,8 +5196,7 @@ int OverlayState::RenderDetail(HDC dc, const Entry& entry, const std::vector<std
             if (headers && candidate.section != first.section) break;
             ++end;
         }
-        y = SkillsActive() ? RenderSkillTiles(dc, entry, order, i, end, left, width_, y, draw)
-                           : RenderTiles(dc, graphics, entry, order, i, end, left, width_, y, compact || entry.compact, draw);
+        y = RenderTiles(dc, graphics, entry, order, i, end, left, width_, y, compact || entry.compact, draw);
         y += S(6);
         firstBlock = false;
         i = end;
@@ -5184,6 +5410,7 @@ void OverlayState::Paint(HDC target) {
         bodyTop = top;
         ApplyJump(total, visible);
         CampaignApplyReveal(total, visible);
+        SkillsApplyReveal(total, visible);
 
         // Draw the cards onto a copy of the frame, then copy back only the detail band. A DC clip
         // is not reliable here: once GDI+ has drawn art into the DC, later card backgrounds ignore
@@ -5213,6 +5440,7 @@ void OverlayState::Paint(HDC target) {
     DrawTooltip(dc);
     DrawSpecTooltip(dc);
     DrawCampaignTooltip(dc);
+    SkillsPadAfterPaint();
     BitBlt(target, 0, 0, clientWidth, clientHeight, dc, 0, 0, SRCCOPY);
     SelectObject(dc, previousBitmap);
     DeleteObject(bitmap);
@@ -5294,6 +5522,7 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
             self->flashBlock = -1;
             self->specFlashPerk = -1;
             self->campaignFlashArea = 0;
+            self->skillsFlash = nullptr;
             InvalidateRect(window, nullptr, FALSE);
         } else if (wParam == kTimerSuggest) {
             KillTimer(window, kTimerSuggest);
@@ -5323,7 +5552,7 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     }
     case WM_MOUSELEAVE:
         self->trackingMouse = false;
-        if (!self->dragging) self->ClearHover();
+        if (!self->dragging && self->skillsBarDragging < 0) self->ClearHover();
         return 0;
     case WM_LBUTTONDOWN:
         self->PadMouseUsed();
@@ -5334,6 +5563,7 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
         return 0;
     case WM_CAPTURECHANGED:
         self->dragging = false;
+        self->skillsBarDragging = -1;
         return 0;
     case WM_MOUSEWHEEL: {
         POINT point{GET_X_LPARAM(lParam), GET_Y_LPARAM(lParam)};
@@ -5604,6 +5834,7 @@ DWORD WINAPI UiThread(LPVOID parameter) {
     }
 
     self->ReleaseBackgroundCache();
+    self->ReleaseSkillsClip();
     self->images.clear();
     if (self->searchBrush) DeleteObject(self->searchBrush);
     if (self->backgroundBrush) DeleteObject(self->backgroundBrush);

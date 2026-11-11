@@ -536,3 +536,21 @@ Warlock Sigil	흑마법사의 인장
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	수치
+Items {0}	아이템 {0}
+About	정보
+Max all	모두 최대
+Reset	초기화
+Req {0}	요구 레벨 {0}
+Max {0}	최대 {0}
+Mana {0}	마나 {0}
+Mana {0} ({1} per level)	마나 {0} (레벨당 {1})
+All levels	모든 레벨
+Lvl {0}	레벨 {0}
+Hard points only: +skills from items do not count.	투자 포인트만: 아이템의 +기술은 포함되지 않습니다.
+Receives bonuses from	다음으로부터 보너스를 받습니다
+At level {0}	레벨 {0}에서
+* beyond what a character can reach	* 캐릭터가 도달할 수 없는 수준
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	{0}을(를) 넘는 기술 레벨에는 *가 표시됩니다: 어떤 캐릭터도 도달할 수 없지만 수치는 계산됩니다.
+No item grants this skill.	이 기술을 부여하는 아이템이 없습니다.
+{0} ({1})	{0} ({1})

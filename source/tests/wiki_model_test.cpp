@@ -81,6 +81,12 @@ void TestRejectsBadInput() {
     Check(!esrwiki::ParseDatabase("#ESRWIKI\t2\nPAGE\ta\tA\tG\nENTRY\tX\tY\nLINE\tQ\tbad\n", db, error),
           "bad line kind rejected");
     Check(!esrwiki::ParseDatabase("", db, error), "empty input rejected");
+    // LINE L: a small dim sub-heading (a runeword's socketable bonus group label).
+    Check(esrwiki::ParseDatabase("#ESRWIKI\t2\nPAGE\ta\tA\tG\nENTRY\tX\tY\nBLOCK\t1\tBoar\nLINE\tL\tStaff / Wand / Orb\n", db, error) &&
+              db.pages[0].entries[0].blocks[0].lines.size() == 1 &&
+              db.pages[0].entries[0].blocks[0].lines[0].kind == esrwiki::LineKind::Label &&
+              db.pages[0].entries[0].blocks[0].lines[0].text == "Staff / Wand / Orb",
+          "label line parsed");
 }
 
 void TestFilter() {
@@ -211,12 +217,202 @@ void TestGeneratedData(const std::string& path) {
         Check(lod.find("Dexterity") != std::string::npos, "LoD Ko bonus lines found");
         Check(kanji.find("Strength") != std::string::npos, "Kanji Ko bonus lines found");
         Check(esrwiki::RuneBonusLines(db, "Nonexistent", false, "Weapons").empty(), "unknown rune has no lines");
-        // The website's labels ("Weapons / Gloves", "Helms / Boots / Armor / Shields / Belts") pick the lines by item kind.
+        // The website's three socket columns (weapons, helms, shields) pick the lines by item kind, whatever their labels say.
         Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Gloves")).find("Enhanced Damage") != std::string::npos, "I rune on gloves");
         Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Torso")).find("+30 Defense") != std::string::npos, "I rune on armor");
         Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Torso")).find("Enhanced Damage") == std::string::npos, "I rune on armor has no weapon line");
-        Check(esrwiki::RuneBonusLines(db, "I", false, "Charms").empty(), "I rune on a charm has no lines");
+        // Since 2026-11-10 the website lists Charm in the helm column ("Helm / Boots / Staff / Wand / Orb / Amulet / Ring / Charm").
+        Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Charms")).find("+30 Defense") != std::string::npos, "I rune on a charm");
+        Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Charms")).find("Enhanced Damage") == std::string::npos, "I rune on a charm has no weapon line");
         Check(text_of(esrwiki::RuneBonusLines(db, "I", false, "Gloves")).find("Gloves:") == std::string::npos, "no section labels");
+        // U has three groups: helms take the middle one, shields the last.
+        Check(text_of(esrwiki::RuneBonusLines(db, "U", false, "Boots")).find("Faster Run/Walk") != std::string::npos, "U rune on boots");
+        Check(text_of(esrwiki::RuneBonusLines(db, "U", false, "Shields")).find("Chance of Blocking") != std::string::npos, "U rune on a shield");
+        Check(text_of(esrwiki::RuneBonusLines(db, "U", false, "Shields")).find("Faster Run/Walk") == std::string::npos, "U rune on a shield has no helm line");
+        Check(text_of(esrwiki::RuneBonusLines(db, "Shi", false, "Belts")).find("Mana after each Kill") != std::string::npos, "an All Items rune on a belt");
+    }
+    {
+        auto text_of = [](const std::vector<esrwiki::Line>& lines) {
+            std::string joined;
+            for (const auto& line : lines) joined += line.text + "|";
+            return joined;
+        };
+        // Translated data: translated labels (old and new website layout), rune titles and category titles. The rune is found
+        // by its art and the category by its cards' art; the groups by their place and the page's own labels.
+        const char* translated =
+            "#ESRWIKI\t2\n"
+            "PAGE\trunes\tRunen\tWiki\tcompact\n"
+            "ENTRY\tKanji-Runen\t\n"
+            "BLOCK\t1\tDie Rune\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_i_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Waffen / Handschuhe:\n"
+            "LINE\tS\t\xC3\xBF" "c3+15% Verbesserter Schaden\n"
+            "LINE\tS\t\xC3\xBF" "c0Helme / Stiefel / R\xC3\xBCstungen / Schilde / G\xC3\xBCrtel:\n"
+            "LINE\tS\t\xC3\xBF" "c3+30 Verteidigung\n"
+            "BLOCK\t1\tFu Rune\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_u_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Waffen / Handschuhe:\n"
+            "LINE\tS\t\xC3\xBF" "c3Untote\n"
+            "LINE\tS\t\xC3\xBF" "c0Helme / Stiefel:\n"
+            "LINE\tS\t\xC3\xBF" "c3Gang\n"
+            "LINE\tS\t\xC3\xBF" "c0R\xC3\xBCstungen / Schilde / G\xC3\xBCrtel:\n"
+            "LINE\tS\t\xC3\xBF" "c3Blockchance\n"
+            "BLOCK\t1\tRune Shi\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_shi_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Tous les objets :\n"
+            "LINE\tS\t\xC3\xBF" "c3Mana\n"
+            "ENTRY\tLoD-Runen\t\n"
+            "BLOCK\t1\tKo-Rune\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_ko_lod_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Waffe / Handschuhe / Fernkampf:\n"
+            "LINE\tS\t\xC3\xBF" "c3Geschicklichkeit\n"
+            "LINE\tS\t\xC3\xBF" "c0Helm / Stiefel / Zauber / Beliebiger Schild / K\xC3\xB6rperr\xC3\xBCstung / G\xC3\xBCrtel:\n"
+            "LINE\tS\t\xC3\xBF" "c3Leben\n"
+            "PAGE\trunewords\tRunenw\xC3\xB6rter\tWiki\n"
+            "ENTRY\tWaffen\t1\n"
+            "BLOCK\t1\tT\xC3\xB6" "dlich\t\t1 Sockel\t\t\t2\n"
+            "IMG\titems_weapon_polearm_scythe\n"
+            "RUNE\titems_misc_rune_i_rune\tI\n"
+            "ENTRY\tZauber\t1\n"
+            "BLOCK\t1\tGlut\t\t1 Sockel\t\t\t2\n"
+            "IMG\titems_misc_charm_small_charm\n"
+            "RUNE\titems_misc_rune_ko_rune\tKo\tlod\n"
+            "ENTRY\tSchilde\t1\n"
+            "BLOCK\t1\tWall\t\t1 Sockel\t\t\t2\n"
+            "IMG\titems_armor_shield_buckler\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n";
+        esrwiki::Database loc;
+        std::string locError;
+        Check(esrwiki::ParseDatabase(translated, loc, locError), "translated rune sample parses");
+        const esrwiki::Page& words = loc.pages[1];
+        const esrwiki::Entry& weapons = words.entries[0];
+        const esrwiki::Entry& charms = words.entries[1];
+        const esrwiki::Entry& shields = words.entries[2];
+        const std::string onWeapon = text_of(esrwiki::RuneBonusLines(loc, weapons.blocks[0].runes[0], weapons));
+        Check(onWeapon.find("Verbesserter Schaden") != std::string::npos && onWeapon.find("Verteidigung") == std::string::npos,
+              "translated: I rune on a weapon");
+        Check(onWeapon.find("Waffen") == std::string::npos, "translated: no section labels");
+        const std::string onShield = text_of(esrwiki::RuneBonusLines(loc, shields.blocks[0].runes[0], shields));
+        Check(onShield.find("Blockchance") != std::string::npos && onShield.find("Gang") == std::string::npos,
+              "translated: U rune on a shield takes the last group");
+        const std::string onCharm = text_of(esrwiki::RuneBonusLines(loc, charms.blocks[0].runes[0], charms));
+        Check(onCharm.find("Leben") != std::string::npos && onCharm.find("Geschicklichkeit") == std::string::npos,
+              "translated: the LoD Ko rune on a charm takes the helm group of the LoD card");
+        Check(text_of(esrwiki::RuneBonusLines(loc, "U", false, "Schilde")).find("Blockchance") != std::string::npos,
+              "translated category title by name");
+        Check(text_of(esrwiki::RuneBonusLines(loc, "Shi", false, "Zauber")).find("Mana") != std::string::npos,
+              "translated All Items label");
+    }
+    {
+        auto text_of = [](const std::vector<esrwiki::Line>& lines) {
+            std::string joined;
+            for (const auto& line : lines) joined += line.text + "|";
+            return joined;
+        };
+        // Per card: Staff, Wand and Orb art (or a Staff/Orb/Wand socketable group) take the helm column; a plain weapon does not.
+        const char* sample =
+            "#ESRWIKI\t2\n"
+            "PAGE\trunes\tRunes\tWiki\tcompact\n"
+            "ENTRY\tKanji Runes\t\n"
+            "BLOCK\t1\tU Rune\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_u_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Weapon (except Orb, Staff, Wand) / Gloves:\n"
+            "LINE\tS\t\xC3\xBF" "c3Undead\n"
+            "LINE\tS\t\xC3\xBF" "c0Helm / Boots / Staff / Wand / Orb / Charm:\n"
+            "LINE\tS\t\xC3\xBF" "c3Run\n"
+            "LINE\tS\t\xC3\xBF" "c0Any Shield / Body Armor / Belt:\n"
+            "LINE\tS\t\xC3\xBF" "c3Block\n"
+            "BLOCK\t1\tKo Rune\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_ko_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Weapon / Gloves:\n"
+            "LINE\tS\t\xC3\xBF" "c3Strength\n"
+            "ENTRY\tLoD Runes\t\n"
+            "BLOCK\t1\tI Rune\t\t\t\t\t0\n"
+            "IMG\titems_misc_rune_i_rune\n"
+            "LINE\tS\t\xC3\xBF" "c0Weapon:\n"
+            "LINE\tS\t\xC3\xBF" "c3Damage\n"
+            "PAGE\trunewords\tRunewords\tWiki\n"
+            "ENTRY\tWeapons\t1\n"
+            "BLOCK\t1\tSword\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_sword_long\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n"
+            "BLOCK\t1\tOrbCard\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_orb_eagle_orb\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n"
+            "BLOCK\t1\tStaffCard\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_staff_gnarled\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n"
+            "BLOCK\t1\tWandCard\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_wand_tomb\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n"
+            "BLOCK\t1\tGroupCard\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_sword_long\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n"
+            "LINE\tS\t\xC3\xBF" "c4Socketable Bonuses\n"
+            "LINE\tL\tstaff  / Wand\n"
+            "LINE\tS\t\xC3\xBF" "c3x\n"
+            "BLOCK\t1\tMixedCard\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_sword_long\n"
+            "RUNE\titems_misc_rune_u_rune\tU\n"
+            "LINE\tL\tStaff\n"
+            "LINE\tL\tGloves\n"
+            "BLOCK\t1\tKoCard\t\t1 Socket\t\t\t2\n"
+            "IMG\titems_weapon_sword_long\n"
+            "RUNE\titems_misc_rune_ko_rune\tKo\tlod\n"
+            "RUNE\titems_misc_rune_ko_rune\tKo\n";
+        esrwiki::Database cdb;
+        std::string cerror;
+        Check(esrwiki::ParseDatabase(sample, cdb, cerror), "per-card rune sample parses");
+        if (cdb.pages.size() == 2) {
+            const esrwiki::Entry& entry = cdb.pages[1].entries[0];
+            const auto onCard = [&](std::size_t i) { return text_of(esrwiki::RuneBonusLines(cdb, entry.blocks[i].runes[0], entry, entry.blocks[i])); };
+            Check(onCard(0).find("Undead") != std::string::npos && onCard(0).find("Run") == std::string::npos, "a sword takes the weapon column");
+            Check(onCard(1) == "\xC3\xBF" "c3Run|", "orb art takes the helm column");
+            Check(onCard(2) == "\xC3\xBF" "c3Run|", "staff art takes the helm column");
+            Check(onCard(3) == "\xC3\xBF" "c3Run|", "wand art takes the helm column");
+            Check(onCard(4) == "\xC3\xBF" "c3Run|", "a Staff / Wand socketable group takes the helm column");
+            Check(onCard(5).find("Undead") != std::string::npos, "groups of two columns fall back to the category");
+            // A LoD rune named like a Kanji rune never takes the Kanji card's lines.
+            Check(text_of(esrwiki::RuneBonusLines(cdb, entry.blocks[6].runes[0], entry, entry.blocks[6])).empty(),
+                  "LoD Ko without LoD art does not resolve to the Kanji card");
+            Check(text_of(esrwiki::RuneBonusLines(cdb, entry.blocks[6].runes[1], entry, entry.blocks[6])).find("Strength") != std::string::npos,
+                  "the Kanji Ko is still found by its plain art");
+            Check(text_of(esrwiki::RuneBonusLines(cdb, "I", true, "Weapons")).find("Damage") != std::string::npos,
+                  "a LoD rune with plain art in the LoD entry is found");
+        }
+        // The real data (English and German): the tooltip agrees with the card's Staff / Orb / Wand socketable group.
+        const std::size_t slash2 = path.find_last_of("/\\");
+        const std::string dir2 = slash2 == std::string::npos ? std::string(".") : path.substr(0, slash2);
+        esrwiki::Database dbs[2];
+        bool have[2] = {true, false};
+        dbs[0] = db;
+        {
+            std::string lerror2;
+            const std::string german = ReadFile(dir2 + "/locales/deDE/wiki-data.txt");
+            have[1] = !german.empty() && esrwiki::ParseDatabase(german, dbs[1], lerror2);
+        }
+        for (int d = 0; d < 2; ++d) {
+            if (!have[d]) continue;
+            const esrwiki::Page* words = nullptr;
+            for (const auto& page : dbs[d].pages)
+                if (page.id == "runewords") words = &page;
+            if (words == nullptr || words->entries.empty()) continue;
+            const esrwiki::Entry& weapons = words->entries[0];
+            int checked = 0;
+            for (const auto& card : weapons.blocks) {
+                const bool staffArt = !card.images.empty() && (card.images[0].rfind("items_weapon_orb_", 0) == 0 ||
+                                                               card.images[0].rfind("items_weapon_staff_", 0) == 0 ||
+                                                               card.images[0].rfind("items_weapon_wand_", 0) == 0);
+                if (!staffArt || card.runes.empty()) continue;
+                const esrwiki::RuneIcon& rune = card.runes[0];
+                const std::string tip = text_of(esrwiki::RuneBonusLines(dbs[d], rune, weapons, card));
+                const std::string helm = text_of(esrwiki::RuneBonusLines(dbs[d], rune.label, rune.lod, d == 0 ? "Helms" : words->entries[1].title));
+                if (d == 0) Check(tip == helm, ("staff/orb/wand card " + card.title + " takes the helm column").c_str());
+                else Check(!tip.empty() || helm.empty(), "German staff/orb/wand card has a tooltip");
+                ++checked;
+            }
+            Check(checked > 0, "the real data has staff/orb/wand runeword cards");
+        }
     }
     const esrwiki::Page* ascendancy = find("ascendancy");
     if (ascendancy != nullptr) {

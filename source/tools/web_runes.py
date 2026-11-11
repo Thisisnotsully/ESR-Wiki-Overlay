@@ -11,7 +11,8 @@ untouched and exits 1.
 
 How the page is read (the C++ twin is src/web_runes_live.cpp; change both together):
   * each rune is a table row with one wide cell "<name> Rune / Req Lvl: N", then a row of the three item-kind
-    labels, then a row of three property cells (one per label), lines split by <br>
+    labels (the website's socket columns, always weapons, helms, shields; their text with the tags removed, not
+    replaced by spaces), then a row of three property cells (one per label), lines split by <br>
   * runes are grouped by the colour of the name: none = LoD Runes, a #rrggbb colour = Elemental Runes, any
     named colour = Kanji Runes. The groups are shown in that page order: Kanji, LoD, Elemental
   * property cells that are the same are shown once: all three = "All Items", else the website's own labels
@@ -79,7 +80,9 @@ def parse_runes(text):
             runes.append(current)
             current = None
         else:
-            labels = [clean(re.sub(r"<[^>]+>", " ", c)) for c in cells]
+            # The tags are removed, not replaced by spaces: "<span>Weapon</span> (<span>except</span> <span>Orb</span>, " is
+            # "Weapon (except Orb, ", as the website shows it.
+            labels = [clean(re.sub(r"<[^>]+>", "", c)) for c in cells]
     return runes
 
 

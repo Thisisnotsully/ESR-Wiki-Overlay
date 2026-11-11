@@ -24,6 +24,7 @@ enum class LineKind : char {
     Stat = 'S',     // colored game text (D2 color codes), e.g. item stats
     Row = 'R',      // table row; cells are separated by U+001F
     Header = 'C',   // table header row, same cell format
+    Label = 'L',    // small dim sub-heading over the lines after it (a runeword's socketable bonus group: the item kinds)
 };
 
 struct Line {
@@ -164,10 +165,18 @@ struct ColorRun {
 std::vector<ColorRun> SplitColorCodes(const std::string& text);
 
 // The stat lines a rune gives when socketed in an item of the card category `entryTitle`
-// ("Weapons", "Helms", "Torso", "Shields", ...), taken from the Runes page: the "All Items" lines
-// plus the lines for that kind of item. `lod` picks the LoD copy of a name that exists in both
-// sets (Ko). Empty when the rune is not on the Runes page or gives nothing for that item.
+// ("Weapons", "Helms", "Torso", "Shields", ..., or the translated title of a Runewords category), taken from the Runes
+// page: the lines the website gives every item plus the lines of the socket column for that kind of item. The groups
+// are told apart by their order and the page's own labels, not by English words, so translated data works too. `lod`
+// picks the LoD copy of a name that exists in both sets (Ko). Empty when the rune is not on the Runes page or gives
+// nothing for that item.
 std::vector<Line> RuneBonusLines(const Database& db, const std::string& runeLabel, bool lod,
                                  const std::string& entryTitle);
+// The same for a rune icon of a card in `itemEntry` (a Runewords category): the rune is found by its art, the item kind
+// by the category's English title or else by its cards' art, so it needs no English text.
+std::vector<Line> RuneBonusLines(const Database& db, const RuneIcon& rune, const Entry& itemEntry);
+// The same for the hovered card `card` of `itemEntry`: Staff, Wand and Orb art take the helm column; else the card's own
+// socketable group labels (Label lines) when they name one Runes-page column; else as above.
+std::vector<Line> RuneBonusLines(const Database& db, const RuneIcon& rune, const Entry& itemEntry, const Block& card);
 
 }  // namespace esrwiki

@@ -56,6 +56,23 @@ bool SameLines(const std::vector<Line>& a, const std::vector<Line>& b) {
     return true;
 }
 
+// clean(re.sub(r"<[^>]+>", "", s)): the text with the tags removed, not replaced by spaces, so a label reads as the
+// website shows it ("<span>Weapon</span> (<span>except</span> <span>Orb</span>, " is "Weapon (except Orb, ").
+std::string JoinedText(const std::string& html) {
+    std::string out;
+    for (std::size_t i = 0; i < html.size();) {
+        if (html[i] == '<') {
+            const std::size_t end = html.find('>', i + 1);
+            if (end != std::string::npos && end > i + 1) {
+                i = end + 1;
+                continue;
+            }
+        }
+        out += html[i++];
+    }
+    return Clean(out);
+}
+
 std::vector<Rune> ParseRunes(const std::string& html) {
     std::vector<Rune> runes;
     Rune current;
@@ -93,7 +110,7 @@ std::vector<Rune> ParseRunes(const std::string& html) {
             have = false;
         } else {
             labels.clear();
-            for (const std::string& cell : cells) labels.push_back(TextOf(cell));
+            for (const std::string& cell : cells) labels.push_back(JoinedText(cell));
             haveLabels = true;
         }
     }

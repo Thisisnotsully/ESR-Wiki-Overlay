@@ -12,7 +12,7 @@ set(ESR_PLUGIN_SDK_INCLUDE "${CMAKE_CURRENT_SOURCE_DIR}/../../../PluginSDK-maste
 option(ESR_WIKI_BUILD_TESTS "Build the portable model tests and register them with CTest" ON)
 
 # Portable model: parser, search, paging, color codes. Builds on any host.
-add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/spec_data.cpp src/search_index.cpp src/text_fold.cpp src/locale_align.cpp src/locale_live.cpp src/campaign_data.cpp src/campaign_labels.cpp src/web_maps_page.cpp src/campaign_live.cpp src/skills_data.cpp src/skill_calc.cpp src/skills_page.cpp)
+add_library(esr_wiki_model STATIC src/wiki_model.cpp src/cube_live.cpp src/web_class_live.cpp src/web_uniques_live.cpp src/web_runes_live.cpp src/web_words_live.cpp src/web_bases_live.cpp src/web_affixes_live.cpp src/web_ascendancy_live.cpp src/web_sets_live.cpp src/web_endgame_live.cpp src/web_special_live.cpp src/web_skills_live.cpp src/web_vessel_live.cpp src/web_kill_live.cpp src/web_mastery_live.cpp src/ias_calc.cpp src/spec_data.cpp src/search_index.cpp src/text_fold.cpp src/locale_align.cpp src/locale_live.cpp src/campaign_data.cpp src/campaign_labels.cpp src/web_maps_page.cpp src/campaign_live.cpp src/skills_data.cpp src/skill_calc.cpp src/skills_page.cpp src/skills_tree.cpp)
 target_include_directories(esr_wiki_model PUBLIC src)
 if(NOT MSVC)
   target_compile_options(esr_wiki_model PRIVATE -Wall -Wextra -Werror)
@@ -85,7 +85,8 @@ if(ESR_WIKI_BUILD_TESTS)
                                        "${CMAKE_CURRENT_SOURCE_DIR}/data/website-words/gemwords.htm"
                                        "${CMAKE_CURRENT_SOURCE_DIR}/data/website-runes/gems.htm"
                                        "${CMAKE_CURRENT_SOURCE_DIR}/data/web-word-art.txt"
-                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt"
+                                       "${CMAKE_CURRENT_SOURCE_DIR}/tests/web_words_old")
 
   # The website item bases builder must give exactly what tools/web_bases.py writes (data/website-bases/).
   add_executable(web_bases_live_test tests/web_bases_live_test.cpp)
@@ -346,6 +347,18 @@ if(ESR_WIKI_BUILD_TESTS)
   endif()
   add_test(NAME skills_page
            COMMAND skills_page_test "${CMAKE_CURRENT_SOURCE_DIR}/data")
+
+  # The Skills tab's view model (src/skills_tree.hpp): tree grids, header facts, the Values table against
+  # Engine::Card in enUS / deDE / jaJP, item source groups, the icon map.
+  add_executable(skills_tree_test tests/skills_tree_test.cpp)
+  target_link_libraries(skills_tree_test PRIVATE esr_wiki_model)
+  if(NOT MSVC)
+    target_compile_options(skills_tree_test PRIVATE -Wall -Wextra -Werror)
+  else()
+    set_property(TARGET skills_tree_test PROPERTY MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  endif()
+  add_test(NAME skills_tree
+           COMMAND skills_tree_test "${CMAKE_CURRENT_SOURCE_DIR}/data")
 endif()
 
 # Win32 overlay and D2RLoader plugin (Windows only).
@@ -353,7 +366,7 @@ if(WIN32)
   enable_language(RC)
   add_library(esr_wiki_overlay SHARED src/plugin.cpp src/overlay.cpp src/cube_updater.cpp src/web_fetch.cpp src/web_pages_updater.cpp src/gamepad.cpp src/input_block.cpp src/plugin.rc)
   target_include_directories(esr_wiki_overlay PRIVATE "${ESR_PLUGIN_SDK_INCLUDE}")
-  target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32 winhttp hid)
+  target_link_libraries(esr_wiki_overlay PRIVATE esr_wiki_model user32 gdi32 gdiplus msimg32 winhttp hid shell32)
   set_target_properties(esr_wiki_overlay PROPERTIES OUTPUT_NAME "d2rl-esr-wiki-overlay" PREFIX "")
 
   # After each successful build, copy the DLL and data into the live mod (see deploy.cmake).
@@ -392,6 +405,7 @@ if(WIN32)
   install(FILES data/campaign-map.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(FILES data/website-maps/maps.htm DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(FILES data/skills-data.json DESTINATION d2rloader/plugins/esr-wiki-overlay)
+  install(FILES data/skill-icons.txt DESTINATION d2rloader/plugins/esr-wiki-overlay)
   install(DIRECTORY data/images/ DESTINATION d2rloader/plugins/esr-wiki-overlay/images)
   install(DIRECTORY data/locales/ DESTINATION d2rloader/plugins/esr-wiki-overlay/locales FILES_MATCHING PATTERN "*.txt" PATTERN "specializations.htm" PATTERN "maps.htm" PATTERN "skills-data.json")
 endif()

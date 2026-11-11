@@ -537,3 +537,21 @@ Warlock Sigil	Sigillo dello Stregone
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Valori
+Items {0}	Oggetti {0}
+About	Info
+Max all	Tutto al massimo
+Reset	Azzera
+Req {0}	Liv. rich. {0}
+Max {0}	Max {0}
+Mana {0}	Mana {0}
+Mana {0} ({1} per level)	Mana {0} ({1} per livello)
+All levels	Tutti i livelli
+Lvl {0}	Liv. {0}
+Hard points only: +skills from items do not count.	Solo punti investiti: le +abilità degli oggetti non contano.
+Receives bonuses from	Riceve bonus da
+At level {0}	Al livello {0}
+* beyond what a character can reach	* oltre ciò che un personaggio può raggiungere
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	I livelli di abilità oltre {0} sono segnati con *: nessun personaggio può raggiungerli, ma i valori vengono comunque calcolati.
+No item grants this skill.	Nessun oggetto conferisce questa abilità.
+{0} ({1})	{0} ({1})

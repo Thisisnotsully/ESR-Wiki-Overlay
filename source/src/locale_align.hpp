@@ -56,21 +56,32 @@ private:
     struct Choice {
         std::vector<std::pair<std::string, int>> values;  // in the order first seen
     };
+    // Localized text with its numbers replaced by '#'. Languages put the numbers of a sentence in another order (the
+    // Japanese "33% Chance to Cast Level 24 ..." names the level first and the chance last), so each '#' records which
+    // number of the English text it shows: roles[k] for the k-th '#'.
+    struct Template {
+        std::string text;
+        std::vector<std::size_t> roles;
+    };
     std::vector<std::string> order_;
     std::unordered_map<std::string, Choice> seen_;
     std::unordered_map<std::string, std::string> exact_;
-    std::unordered_map<std::string, std::string> pattern_;  // numbers replaced by '#'
+    std::unordered_map<std::string, Template> pattern_;  // numbers replaced by '#'
     // Every piece of text with numbers replaced by '#', for cells that join several pieces of the website: the longest
     // known piece is taken at each word start. Indexed by the first two bytes, longest first.
-    std::unordered_map<unsigned, std::vector<std::pair<std::string, std::string>>> pieces_;
+    std::unordered_map<unsigned, std::vector<std::pair<std::string, Template>>> pieces_;
     // Names the pages only carry inside a longer text, such as "Arcanist" in "Arcanist Ascendancy" and "Ascendance
     // Arcaniste": found by removing the words every text of such a group shares. Used for entry titles only.
     std::unordered_map<std::string, std::string> derived_;
     std::unordered_map<std::string, std::string> derivedLower_;  // the same, for names that come out in lower case ("du Ciel")
     void DeriveNames();
     std::unordered_map<std::string, std::string> lowerExact_;    // the same by lower-case English text (the builders change capitals: "(2 Items)")
-    std::unordered_map<std::string, std::string> lowerPattern_;
+    std::unordered_map<std::string, Template> lowerPattern_;
     std::unordered_set<std::string> identity_;  // short texts the localized page leaves exactly as the English page has them
+    // How often each English text was paired with itself. When the site leaves a word as it is more often than it
+    // translates it ("Orb" on the German runewords and gemwords pages), the stray translation of a misaligned node
+    // must not win.
+    std::unordered_map<std::string, int> identityVotes_;
     std::unordered_set<std::string> fallback_;  // text only AddFallback knows
     bool TranslateCell(std::string& cell, bool allowFallback = true) const;
     bool TranslatePieces(const std::string& core, std::string& out) const;

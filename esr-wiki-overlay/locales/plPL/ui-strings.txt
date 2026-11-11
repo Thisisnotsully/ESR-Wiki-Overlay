@@ -533,3 +533,21 @@ Warlock Sigil	Pieczęć Czarnoksiężnika
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Wartości
+Items {0}	Przedmioty {0}
+About	Informacje
+Max all	Wszystko maks.
+Reset	Resetuj
+Req {0}	Wym. poz. {0}
+Max {0}	Maks. {0}
+Mana {0}	Mana {0}
+Mana {0} ({1} per level)	Mana {0} ({1} na poziom)
+All levels	Wszystkie poziomy
+Lvl {0}	Poz. {0}
+Hard points only: +skills from items do not count.	Tylko wydane punkty: +umiejętności z przedmiotów się nie liczą.
+Receives bonuses from	Otrzymuje bonusy od
+At level {0}	Na poziomie {0}
+* beyond what a character can reach	* poza zasięgiem postaci
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Poziomy umiejętności powyżej {0} są oznaczone *: żadna postać ich nie osiągnie, ale wartości i tak są obliczane.
+No item grants this skill.	Żaden przedmiot nie daje tej umiejętności.
+{0} ({1})	{0} ({1})

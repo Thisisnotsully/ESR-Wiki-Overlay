@@ -534,3 +534,21 @@ Warlock Sigil	Siegel des Hexenmeisters
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Werte
+Items {0}	Gegenstände {0}
+About	Info
+Max all	Alle maximal
+Reset	Zurücksetzen
+Req {0}	Ben. Stufe {0}
+Max {0}	Max. {0}
+Mana {0}	Mana {0}
+Mana {0} ({1} per level)	Mana {0} ({1} pro Stufe)
+All levels	Alle Stufen
+Lvl {0}	Stufe {0}
+Hard points only: +skills from items do not count.	Nur investierte Punkte: +Fertigkeiten von Gegenständen zählen nicht.
+Receives bonuses from	Erhält Boni von
+At level {0}	Auf Stufe {0}
+* beyond what a character can reach	* jenseits dessen, was ein Charakter erreichen kann
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Fertigkeitsstufen über {0} sind mit * markiert: Kein Charakter kann sie erreichen, die Werte werden aber trotzdem berechnet.
+No item grants this skill.	Kein Gegenstand gewährt diese Fertigkeit.
+{0} ({1})	{0} ({1})

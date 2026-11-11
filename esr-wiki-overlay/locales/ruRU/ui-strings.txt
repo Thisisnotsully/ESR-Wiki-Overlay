@@ -536,3 +536,21 @@ Warlock Sigil	Печать чернокнижника
 {0}: {1}	{0}: {1}
 {0}, {1}	{0}, {1}
 {0}. {1}	{0}. {1}
+Values	Значения
+Items {0}	Предметы {0}
+About	Сведения
+Max all	Всё на максимум
+Reset	Сбросить
+Req {0}	Треб. ур. {0}
+Max {0}	Макс. {0}
+Mana {0}	Мана {0}
+Mana {0} ({1} per level)	Мана {0} ({1} за уровень)
+All levels	Все уровни
+Lvl {0}	Ур. {0}
+Hard points only: +skills from items do not count.	Только вложенные очки: +умения от предметов не учитываются.
+Receives bonuses from	Получает бонусы от
+At level {0}	На уровне {0}
+* beyond what a character can reach	* за пределами того, чего может достичь персонаж
+Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Уровни умения выше {0} отмечены *: ни один персонаж их не достигнет, но значения всё равно рассчитываются.
+No item grants this skill.	Ни один предмет не даёт это умение.
+{0} ({1})	{0} ({1})

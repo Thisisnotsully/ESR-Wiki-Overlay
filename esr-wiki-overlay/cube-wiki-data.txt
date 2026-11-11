@@ -534,7 +534,6 @@ ENTRY	D-Stone
 BLOCK	0			
 LINE	T	D-Stoning D-Stoning can also be applied to unforgeable items like Runeworded items. D-Stoning can't be removed, so please apply it carefully.
 LINE	T	D-Stoning Caps Every cap listed in the d-stoning section is a standalone cap specific for the purpose of dragon stoning. For example, if an item has 190% fire spell damage from affixes and the dragon stone cap is 200%, you can go above 200% as long as the dragon stone cap is respected (in this particular case, you can go as high as 390% fire spell damage, 190% from base and 200% from the d-stoning cap). The only exception to this rule is enhanced damage and enhanced defense that cannot go above 500% on any item.
-LINE	T	D-Stoning Runeworded Items D-Stoning applied to a white item ÿc1after making a Runeword is lostÿc0 when you remove the Runes. D-Stoning applied to a white item ÿc1before making a Runeword remainsÿc0 when you remove the Runes. (Please also see the caution of Secret Recipe 50.)
 LINE	T	Fail-Safe Features D-Stoning doesn't work if the target is elite and has +58 level req penalty or more. D-Stoning doesn't work if the target is exceptional and has +79 level req penalty or more. D-Stoning doesn't work if the target is normal or jewelry and has +99 level req penalty or more.
 LINE	T	Dragon Stone Cycling Dragon Stones can be transmuted to obtain its different forms that can be used for crafting. You can transmute 2 or 3 of the same type at the same time for faster cycling.
 LINE	C	IngredientsResult

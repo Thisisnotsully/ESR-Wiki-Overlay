@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <cctype>
 #include <sstream>
+#include <utility>
 
 namespace esrwiki {
 namespace {
@@ -62,7 +63,8 @@ std::vector<std::string> BlockSearchLines(const Block& block) {
         for (const RuneIcon& rune : block.runes) runes += (runes.empty() ? "" : " ") + rune.label;
         add(runes);
     }
-    for (const Line& line : block.lines) add(line.text);
+    for (const Line& line : block.lines)
+        if (line.kind != LineKind::Label) add(line.text);  // group labels (item kinds) are not card text
     add(block.note);
     add(block.tag);
     return lines;
@@ -215,7 +217,8 @@ bool ParseDatabase(const std::string& text, Database& out, std::string& error) {
             else if (kind == "S") lineKind = LineKind::Stat;
             else if (kind == "R") lineKind = LineKind::Row;
             else if (kind == "C") lineKind = LineKind::Header;
-            else if (kind != "T") return fail("LINE kind must be H, T, S, R or C");
+            else if (kind == "L") lineKind = LineKind::Label;
+            else if (kind != "T") return fail("LINE kind must be H, T, S, R, C or L");
             block.lines.push_back(Line{lineKind, fields[2]});
         } else {
             return fail("unknown record type");
@@ -473,49 +476,255 @@ std::vector<ColorRun> SplitColorCodes(const std::string& text) {
     return runs;
 }
 
-std::vector<Line> RuneBonusLines(const Database& db, const std::string& runeLabel, bool lod,
-                                 const std::string& entryTitle) {
-    std::vector<Line> out;
-    const std::string wanted = runeLabel + " Rune";
-    // The Runes page gives each rune's lines under the website's own item-kind labels ("Weapons / Gloves",
-    // "Helms / Boots", "Armor / Shields / Belts", "All Items"). Only the sections that name the card's item kind
-    // (or "All Items") are shown, without their labels; a kind the website gives no bonus for (charms) shows none.
-    std::string kind;  // the label word for this kind of item
-    if (entryTitle == "Torso") kind = "Armor";
-    else if (entryTitle == "Weapons" || entryTitle == "Gloves" || entryTitle == "Helms" || entryTitle == "Boots" ||
-             entryTitle == "Shields" || entryTitle == "Belts") kind = entryTitle;
-    auto keep = [&](const std::string& heading) {
-        if (heading == "All Items") return true;
-        if (kind.empty()) return false;
-        std::size_t start = 0;
-        for (;;) {
-            const std::size_t at = heading.find(" / ", start);
-            if (heading.substr(start, at == std::string::npos ? std::string::npos : at - start) == kind) return true;
-            if (at == std::string::npos) return false;
-            start = at + 3;
+namespace {
+
+// The Runes page gives each rune's lines in up to three groups, one per socket column of the website's table, always in
+// this order: weapons (and gloves), helms (boots, charms; on today's site also staffs, wands, orbs and jewellery), shields
+// (body armour, belts). Neighbouring columns with the same lines are one group under their joined labels, and one group
+// for all three columns is "All Items". The labels are the website's own words, translated on the localized pages, so the
+// groups are told apart by their place and by the page's own label text, never by English words.
+constexpr unsigned kAllRuneColumns = 7;  // bit c: column c
+
+// The column (0, 1 or 2) an item kind takes its rune bonus from, by the English card category; -1 when not one.
+int RuneColumnOfTitle(const std::string& title) {
+    if (title == "Weapons" || title == "Gloves") return 0;
+    if (title == "Helms" || title == "Boots" || title == "Charms") return 1;
+    if (title == "Torso" || title == "Shields" || title == "Belts") return 2;
+    return -1;
+}
+
+// The same by an item picture (image keys are not translated): -1 for a picture of no socketable kind.
+int RuneColumnOfImage(const std::string& key) {
+    auto starts = [&key](const char* prefix) { return key.rfind(prefix, 0) == 0; };
+    if (starts("items_weapon_") || starts("items_armor_glove")) return 0;
+    if (starts("items_armor_helm") || starts("items_armor_circlet") || starts("items_armor_boot") || starts("items_misc_charm"))
+        return 1;
+    if (starts("items_armor_armor") || starts("items_armor_shield") || starts("items_armor_belt")) return 2;
+    return -1;
+}
+
+// The column of the cards of `entry` (a Runewords category): its English title, else what most of its pictures show
+// (the translated data has translated titles).
+int RuneColumnOfEntry(const Entry& entry) {
+    const int byTitle = RuneColumnOfTitle(entry.title);
+    if (byTitle >= 0) return byTitle;
+    int votes[3] = {0, 0, 0};
+    for (const Block& block : entry.blocks)
+        for (const std::string& image : block.images) {
+            const int column = RuneColumnOfImage(image);
+            if (column >= 0) ++votes[column];
         }
-    };
-    for (const Page& page : db.pages) {
-        if (page.id != "runes") continue;
-        for (const Entry& entry : page.entries) {
-            if ((entry.title == "LoD Runes") != lod) continue;
-            for (const Block& block : entry.blocks) {
-                if (block.title != wanted) continue;
-                bool include = true;
-                for (const Line& line : block.lines) {
-                    std::string plain;
-                    for (const ColorRun& run : SplitColorCodes(line.text)) plain += run.text;
-                    if (!plain.empty() && plain.back() == ':' && line.text.compare(0, 4, "\xC3\xBF" "c0") == 0) {
-                        include = keep(plain.substr(0, plain.size() - 1));
-                        continue;
-                    }
-                    if (include) out.push_back(line);
-                }
-                return out;
-            }
+    int best = -1;
+    for (int c = 0; c < 3; ++c)
+        if (votes[c] > 0 && (best < 0 || votes[c] > votes[best])) best = c;
+    return best;
+}
+
+// A rune page group label line ("\xC3\xBF" "c0Helm / Boots:"): its text without the colon, else empty.
+std::string RuneGroupLabel(const Line& line) {
+    if (line.kind != LineKind::Stat || line.text.compare(0, 4, "\xC3\xBF" "c0") != 0) return std::string();
+    std::string plain;
+    for (const ColorRun& run : SplitColorCodes(line.text)) plain += run.text;
+    if (plain.empty() || plain.back() != ':') return std::string();
+    plain.pop_back();
+    while (!plain.empty() && plain.back() == ' ') plain.pop_back();  // "Tous les objets :"
+    return plain;
+}
+
+// The group labels of a rune block, in order.
+std::vector<std::string> RuneGroupLabels(const Block& block) {
+    std::vector<std::string> labels;
+    for (const Line& line : block.lines) {
+        std::string label = RuneGroupLabel(line);
+        if (!label.empty()) labels.push_back(std::move(label));
+    }
+    return labels;
+}
+
+// The page's three column labels, from the first rune with one group per column; empty when no rune has three.
+std::vector<std::string> RuneColumnLabels(const Page& page) {
+    for (const Entry& entry : page.entries)
+        for (const Block& block : entry.blocks) {
+            std::vector<std::string> labels = RuneGroupLabels(block);
+            if (labels.size() == 3 && labels[0] != labels[1] && labels[1] != labels[2]) return labels;
+        }
+    return {};
+}
+
+// The columns (bit masks) of each group of a rune: by the page's column labels when every group label is one column or
+// neighbouring columns joined with " / "; else by place: one group is every column (All Items), two are weapons and the
+// rest, three are one column each.
+std::vector<unsigned> RuneGroupColumns(const std::vector<std::string>& labels, const std::vector<std::string>& columns) {
+    std::vector<unsigned> masks;
+    if (columns.size() == 3) {
+        const std::pair<std::string, unsigned> spans[] = {
+            {columns[0], 1u}, {columns[1], 2u}, {columns[2], 4u}, {columns[0] + " / " + columns[1], 3u},
+            {columns[1] + " / " + columns[2], 6u}, {columns[0] + " / " + columns[1] + " / " + columns[2], 7u}};
+        for (const std::string& label : labels) {
+            unsigned mask = 0;
+            for (const auto& span : spans)
+                if (label == span.first) mask = span.second;
+            if (mask == 0) break;
+            masks.push_back(mask);
+        }
+        if (masks.size() == labels.size()) return masks;
+        masks.clear();
+    }
+    if (labels.size() == 1) return {kAllRuneColumns};
+    if (labels.size() == 2) return {1u, 6u};
+    for (std::size_t i = 0; i < labels.size(); ++i) masks.push_back(i < 3 ? 1u << i : 0u);
+    return masks;
+}
+
+// "Ko" -> "items_misc_rune_ko_rune", as the rune builders name the art.
+std::string RuneImageKey(const std::string& label) {
+    std::string slug;
+    bool gap = false;
+    for (char ch : label) {
+        const unsigned char c = static_cast<unsigned char>(ch);
+        if (std::isalnum(c) != 0 && c < 0x80) {
+            if (gap && !slug.empty()) slug += '_';
+            gap = false;
+            slug += static_cast<char>(std::tolower(c));
+        } else {
+            gap = true;
         }
     }
+    return "items_misc_rune_" + slug + "_rune";
+}
+
+bool HasImage(const Block& block, const std::string& key) {
+    return std::find(block.images.begin(), block.images.end(), key) != block.images.end();
+}
+
+// Lower case ASCII, single spaces, no edge spaces: labels compare by this.
+std::string NormalizeLabel(const std::string& text) {
+    std::string out;
+    for (char ch : text) {
+        const unsigned char c = static_cast<unsigned char>(ch);
+        if (c == ' ' || c == '\t') {
+            if (!out.empty() && out.back() != ' ') out += ' ';
+        } else {
+            out += c < 0x80 ? static_cast<char>(std::tolower(c)) : ch;
+        }
+    }
+    while (!out.empty() && out.back() == ' ') out.pop_back();
     return out;
+}
+
+// The " / " separated parts of a label, normalized.
+std::vector<std::string> LabelPieces(const std::string& label) {
+    std::vector<std::string> pieces;
+    std::size_t from = 0;
+    while (from <= label.size()) {
+        std::size_t to = label.find(" / ", from);
+        if (to == std::string::npos) to = label.size();
+        std::string piece = NormalizeLabel(label.substr(from, to - from));
+        if (!piece.empty()) pieces.push_back(std::move(piece));
+        from = to + 3;
+    }
+    return pieces;
+}
+
+// The column of one hovered card: the website puts Staff, Wand and Orb in the helm column, so their art says column 1;
+// else the card's own socketable group labels (Label lines) when they name exactly one of the Runes page's columns
+// (a label part equal to a part of a column label, compared as text, so any language the page labels agree with);
+// else the category rule.
+int RuneColumnOfCard(const Database& db, const Entry& entry, const Block& block) {
+    for (const std::string& image : block.images)
+        if (image.rfind("items_weapon_staff_", 0) == 0 || image.rfind("items_weapon_orb_", 0) == 0 ||
+            image.rfind("items_weapon_wand_", 0) == 0)
+            return 1;
+    for (const Page& page : db.pages) {
+        if (page.id != "runes") continue;
+        const std::vector<std::string> columns = RuneColumnLabels(page);
+        if (columns.size() != 3) break;
+        int matched = -1;
+        for (const Line& line : block.lines) {
+            if (line.kind != LineKind::Label) continue;
+            for (const std::string& piece : LabelPieces(line.text))
+                for (int c = 0; c < 3; ++c) {
+                    const std::vector<std::string> own = LabelPieces(columns[static_cast<std::size_t>(c)]);
+                    if (std::find(own.begin(), own.end(), piece) == own.end()) continue;
+                    if (matched >= 0 && matched != c) return RuneColumnOfEntry(entry);  // groups of several columns
+                    matched = c;
+                }
+        }
+        if (matched >= 0) return matched;
+        break;
+    }
+    return RuneColumnOfEntry(entry);
+}
+
+std::vector<Line> RuneBonusLinesForColumn(const Database& db, const std::string& imageKey, const std::string& runeLabel,
+                                          bool lod, int column) {
+    std::vector<Line> out;
+    // The art of a LoD rune whose name is a Kanji rune too is "<name>_lod_rune"; a runeword names the plain art.
+    std::vector<std::string> keys;
+    if (lod && imageKey.size() > 5 && imageKey.compare(imageKey.size() - 5, 5, "_rune") == 0)
+        keys.push_back(imageKey.substr(0, imageKey.size() - 5) + "_lod_rune");
+    keys.push_back(imageKey);
+    for (const Page& page : db.pages) {
+        if (page.id != "runes") continue;
+        const Block* found = nullptr;
+        for (std::size_t k = 0; k < keys.size() && found == nullptr; ++k) {
+            // A LoD rune named like a Kanji rune is found by its "_lod_" art only; the plain art would be the Kanji card.
+            // The LoD runes are the page's second entry.
+            const bool plainOfLod = lod && keys.size() > 1 && k + 1 == keys.size();
+            for (std::size_t e = 0; e < page.entries.size() && found == nullptr; ++e) {
+                if (plainOfLod && e != 1) continue;
+                for (const Block& block : page.entries[e].blocks)
+                    if (HasImage(block, keys[k])) { found = &block; break; }
+            }
+        }
+        if (found == nullptr) {  // data without rune art: the English card title
+            const std::string wanted = runeLabel + " Rune";
+            for (const Entry& entry : page.entries) {
+                if ((entry.title == "LoD Runes") != lod) continue;
+                for (const Block& block : entry.blocks)
+                    if (block.title == wanted) { found = &block; break; }
+                if (found != nullptr) break;
+            }
+        }
+        if (found == nullptr) return out;
+        const std::vector<unsigned> masks = RuneGroupColumns(RuneGroupLabels(*found), RuneColumnLabels(page));
+        const unsigned wantedMask = column >= 0 && column < 3 ? 1u << column : 0u;
+        std::size_t group = 0;
+        bool include = true;  // lines before the first label belong to every item
+        for (const Line& line : found->lines) {
+            if (!RuneGroupLabel(line).empty()) {
+                include = group < masks.size() && (masks[group] & wantedMask) != 0;
+                ++group;
+                continue;
+            }
+            if (include) out.push_back(line);
+        }
+        return out;
+    }
+    return out;
+}
+
+}  // namespace
+
+std::vector<Line> RuneBonusLines(const Database& db, const RuneIcon& rune, const Entry& itemEntry) {
+    return RuneBonusLinesForColumn(db, rune.imageKey, rune.label, rune.lod, RuneColumnOfEntry(itemEntry));
+}
+
+std::vector<Line> RuneBonusLines(const Database& db, const RuneIcon& rune, const Entry& itemEntry, const Block& card) {
+    return RuneBonusLinesForColumn(db, rune.imageKey, rune.label, rune.lod, RuneColumnOfCard(db, itemEntry, card));
+}
+
+std::vector<Line> RuneBonusLines(const Database& db, const std::string& runeLabel, bool lod,
+                                 const std::string& entryTitle) {
+    int column = RuneColumnOfTitle(entryTitle);
+    if (column < 0) {  // a translated category title: the Runewords entry of that name
+        for (const Page& page : db.pages) {
+            if (page.id != "runewords") continue;
+            for (const Entry& entry : page.entries)
+                if (entry.title == entryTitle) column = RuneColumnOfEntry(entry);
+        }
+    }
+    return RuneBonusLinesForColumn(db, RuneImageKey(runeLabel), runeLabel, lod, column);
 }
 
 }  // namespace esrwiki
