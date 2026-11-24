@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.7.0 (source)
+# ESR Wiki Overlay 1.8.0 (source)
 
 Source for the ESR Wiki overlay plugin for Diablo II Resurrected (Eastern Sun Resurrected),
 loaded by D2RLoader. It contains the C++ overlay, the Python tools that generate its data,
@@ -149,13 +149,17 @@ mod's tables. A file named `bases-live-disabled.txt` in the data folder turns th
 agree; `web_bases_live_test` checks that.
 
 ## Ascendancies from the website
-The Ascendancy tab is rebuilt from `ascendancies.htm` on the website: the introduction, the challenge texts, the gems that
-unlock each ascendancy, every tier's stats and the footnotes. `tools/web_ascendancy.py` does it at publish time
+The Ascendancy tab is rebuilt from `ascendancies.htm` on the website: the introduction, the five tier challenges (Tier 1
+is shown after the introduction, Tiers 2 to 5 under Higher Tier Challenges, with any extra box such as the Lich King
+bonus), every tier's stats and the footnotes. `tools/web_ascendancy.py` does it at publish time
 (`scripts/publish-overlay.ps1` downloads the page into data/website-ascendancy/; skip with -SkipWebsiteAscendancy), and
 `src/web_ascendancy_live.cpp` with `src/web_pages_updater.cpp` redo it in the game (cached next to the data). The layout
-is the existing one (Ascendancies, Higher Tier Challenges, one entry per ascendancy with its picture). The Orb of
-Creation table is not on the website, so it is kept from the existing page. A file named `ascendancy-live-disabled.txt` in
-the data folder turns the in-game check off. Both builders must agree; `web_ascendancy_live_test` checks that.
+is the existing one (Ascendancies, Higher Tier Challenges, one entry per ascendancy with its picture). The website no
+longer has gem recipes, so the Input/Output tables are only written when the page has them (an older page with the 15
+recipes still builds, `tests/web_ascendancy_old/`). The Orb of Creation table is not on the website, so it is kept from
+the existing page. Localized pages go through `locale_align.cpp` like the other pages. A file named
+`ascendancy-live-disabled.txt` in the data folder turns the in-game check off. Both builders must agree;
+`web_ascendancy_live_test` checks that.
 
 ## Set Items from the website
 The Set Items tab is rebuilt from `sets.htm` on the website: every set piece's name, base, levels, stats and item-count
@@ -265,6 +269,12 @@ localized website pages (`locale_align.cpp`, `locale_live.cpp`). `deploy.cmake` 
 navigation; tested by `tests/pad_logic_test.cpp`) and `src/gamepad.cpp` (XInput, and PlayStation controllers read from
 their HID device with the overlay's own handle, so nothing the game opened or registered is touched). The behaviour
 (focus zones, buttons, on-screen keyboard, the help picture beside the window) is in `overlay.cpp`, "Controller".
+
+`src/input_block.cpp` and `.hpp` keep the game from reacting to the controller while a wiki window is open (two call sites
+are redirected to small stubs; each is checked against the game build first). The same file is used by the ESR Filter
+Editor plugin, and each plugin recognises the other's stubs and chains onto them, so the order they load in does not
+matter. Keep the two copies identical apart from the namespace and the `kWindow` line, and change the stub code in both
+at once, or they stop recognising each other.
 
 ## Known limits
 

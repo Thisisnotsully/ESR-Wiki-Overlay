@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	アクト5ヘルでエンドゲームマップを単体でキューブに入れると、そのゾーンとボスが開きます。ティアは5段階あり、同じマップ3枚で次のティアにアップグレードされ、ランダム化の石で1枚をリロールできます。マップのボスは上位のマップ、神聖のオーブ、武器熟練トークン、キーをドロップします。パンデモニウムキー（恐怖、憎悪、破壊）はキューブで互いに変換でき、3体のウバーボスのいずれかへのポータルを開き、そのドロップをすべて合わせるとウバートリストラムが開きます。マップは神話ユニークの唯一の入手元で、特定のボス1体からしか出ないものもあります。
 ENTRY	アセンダンシー	バール後
 BLOCK	0						0
-LINE	T	アセンダンシーストーンは、サブクラス全体を付与するお守りです。ヘルの特殊スーパーユニーク5体（アクト1、2、3に各1体、アクト5に2体）を倒して元素のオーブを入手し、それらをキューブで合成して創造のオーブにし、色付きの傷ついた宝石と合成します。色の組み合わせであなたのアセンダンシーが決まります。以降のティアでは、エンドゲームの挑戦（ヘルのニヒラサク、1分以内にウバートリストラムのボス3体すべて、始原のソウルストーン、ティア5のマップボス）を任意の順序でこなして、ストーンをアップグレードします。ストーンは一度に1つしか装備できず、死亡するたびに再装備が必要です。
+LINE	T	アセンダンシーはサブクラス全体を付与します。ヘルの特殊スーパーユニーク5体（アクト1、2、3に各1体、アクト5に2体）を倒して元素のオーブを入手し、それらをキューブで合成して創造のオーブにします。オーブを消費するとアセンダンシーパネルが解放され、そこで好きなアセンダンシーを選べます。以降のティアは、エンドゲームの挑戦（ヘルのニヒラサク、1分以内にウバートリストラムのボス3体すべて、始原のソウルストーン、ティア5のマップボス）を任意の順序でこなすことで解放されます。
 ENTRY	腐敗と聖別	バール後
 BLOCK	0						0
 LINE	T	腐敗は、アイテムをワールドストーンの破片とキューブで合成し、もう一度合成してランダムな強力なボーナスを得ますが、アイテムがランダムなレアに変わることもあるため、失ってもよいものだけを腐敗させてください（アストロガの化石の心臓は失敗した腐敗の状態を消し、ボーナスは残るので、もう一度挑戦できます）。聖別は代わりに神聖のオーブを使い、そのランダムなボーナスでアイテムが壊れることはありません。どちらも強化の順序では鍛造とD-stoneの後に来て、主にテラーゾーンとエンドゲームマップから素材を得ます。
@@ -82,13 +82,14 @@ LINE	T	ユニークのお守りはお守りインベントリからのみ機能�
 PAGE	ascendancy	アセンダンシー	Wiki
 ENTRY	アセンダンシー	
 BLOCK	0						0
-LINE	T	アセンダンシー は、遊び方を形作る強力な特化で、固有のスキルとボーナスを与えます。 アセンダンシーは、いくつかの特別な戦いを終えた後にのみ入手できる 昇進の石 という特別なお守りによって付与されます。
+LINE	T	アセンダンシー は、遊び方を形作る強力な特化で、固有のスキルとボーナスを与えます。
 LINE	T	​
-LINE	T	昇進の石は、特定の試練を達成することでさらにアップグレードできます（つまり、さらに昇華できます）。その一部は非常に難しいエンドゲームコンテンツに結びついています。
+LINE	T	到達できるアセンダンシーのティアは5つあり、試練は前のものより難しくなりますが、ボーナスもより強力になります。
 LINE	T	​
-LINE	T	There are 5 ascendancy tiers you can attain, each challenge being harder than the previous one, but the bonuses being stronger as well. Ascendancy Stones cannot be shared to other characters. You can only have one ascendancy stone equipped at any time. Needless to say, each tier can only be achieved once. However, you can achieve them in any order.
+LINE	T	言うまでもなく、各ティアは一度しか達成できません。ただし、どの順番で達成しても構いません。
 LINE	T	​
-LINE	T	昇進の石は通常の手段では変更できません（堕落、聖別、カエデの葉への分解などはできません）。
+LINE	T	ティア1:
+LINE	T	次のアイテムを手に入れるには： アセンダンシー。まず、特別なスーパーユニーク5体を倒す必要があります （ヘル難易度） （サンクチュアリ各地に点在） 。そして各ボスが落とすエレメンタルオーブをトランスミュートして、次を入手します： 創造のオーブ. このオーブを消費するとアセンダンシーパネルが解放され、好きなアセンダンシーを選べます。
 LINE	T	​
 LINE	T	創造のオーブ / 素材の場所
 LINE	C	オーブアクト場所モンスター
@@ -104,16 +105,19 @@ LINE	T	アセンダンシーを強化するには、上位ティアの挑戦を�
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	ティア2:
-LINE	T	The second tier is achieved by killing Nihalthak in his domain on hell difficulty and transmuting the ascendancy stone with itself. You need to transmute it while you have the swirls active on your character.
+LINE	T	第2ティアは、ヘル難易度で自身の領域にいるニーラサックを倒すと達成されます。
 LINE	T	​
 LINE	T	ティア3:
-LINE	T	The third tier is achieved by killing all of Uber Tristram bosses within one minute of each other without dying and transmuting the ascendancy stone with a Maple Leaf. Even if you have the swirls active on your character after you killed the last boss, it will not work if it passed more than 1 minute since you killed the first one.
+LINE	T	第3ティアは、ウーバー・トリストラムのボスすべてを互いに1分以内に、死なずに倒し、.
 LINE	T	​
 LINE	T	ティア4:
-LINE	T	The fourth tier is achieved by collecting 10 Primordial Soulstones that drop from any endgame map boss. You can only transmute one Primordial Stone at a time with the Ascendancy Stone. Once you have captured 10 Primordial Soulstones in the Ascendancy Stone, you will be able to transmute it with 2 Maple Leaves to ascend to tier 4.
+LINE	T	第4ティアは、どのエンドゲームマップのボスからもドロップする原初のソウルストーンを10個集めると達成されます。10個そろった時点で、ティア4が自動的に解放されます。ソウルストーンはキャラクターに保存され、直接操作することはできません。進行状況はアセンダンシーパネルで確認できます。
 LINE	T	​
 LINE	T	ティア5:
-LINE	T	The fifth tier is achieved by killing any tier 5 map boss and transmuting the ascendancy stone with 3 Maple Leaves. You need to transmute it while you have the swirls active on your character.
+LINE	T	第5ティアは、ティア5マップのボスをいずれか倒すと達成されます。
+LINE	T	​
+LINE	T	リッチキングボーナス:
+LINE	T	/players 8 でリッチキングを倒すと追加ボーナスが解放され、ティア3と4のステータススケーリングボーナスが10%増加します。
 LINE	T	​
 ENTRY	Arcanist		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% エネルギーへのボーナスÿc0
 LINE	S	​
 LINE	S	ÿc4ティア3:ÿc0
 LINE	S	ÿc3速度 1%ごとにマナ 5ÿc1*ÿc3ÿc0
-LINE	S	ÿc3全ての速度に +30% 追加ÿc0
+LINE	S	ÿc330% すべての速度ÿc0
 LINE	S	​
 LINE	S	ÿc4ティア4:ÿc0
 LINE	S	ÿc3速度 25%ごとに命中時マナ 1ÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% の確率でヒット時にレベル 20 の 冷気強化矢 を発
 LINE	S	ÿc35% の確率でヒット時にレベル 20 の 雷の強化された矢 を発動するÿc0
 LINE	T	​
 LINE	T	ÿc1*速度の種類（ブロック、詠唱、移動、攻撃、回復）はそれぞれ別に数えます。たとえば全速度 +1% は、アセンダンシーのボーナスでは +5% として数えます。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc02 傷んだエメラルドÿc0ÿc02 傷ついたサファイアÿc0ÿc4アルカニストの昇華石ÿc0
 ENTRY	覚醒		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*しきい値は能力値の合計で判定されます（例：各能力値が250あれば全スキル +1 を得ます）。
 LINE	T	ÿc1**アニヒレーションは、6元素（火炎/冷気/雷/毒/物理/魔法）の壊滅的なノヴァで、画面全体が効果範囲のスキルです。ノヴァごとに武器ダメージの50%を各元素に変換して与えるほか、総能力値で増加する各属性の大きな呪文ダメージも与えます。敵をノックバックさせ、2秒間すべての耐性を25%下げます。毒のノヴァは武器ダメージを与えません。
 LINE	T	ÿc1**アニヒレーションは、現在のライフが30%未満のときにのみ発動します。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc01 傷ついたオブシディアンÿc0ÿc01 傷ついたサファイアÿc0ÿc01 傷んだエメラルドÿc0ÿc01 傷ついたルビーÿc0ÿc4覚醒した昇進の石ÿc0
 ENTRY	Battlemage		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc3全ての速度に +50% 追加ÿc0
 LINE	T	​
 LINE	T	ÿc1*総防御ボーナスは防具値全体に乗算されます。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc02 傷ついたサファイアÿc0ÿc02 傷ついたオブシディアンÿc0ÿc4バトルメイジの昇進石ÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc3近接攻撃時に25%の確率でレベル1のラヴェジを発動ÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*ラヴェジは小～中範囲のスキルで、範囲内のすべての敵に武器ダメージの150%を物理ダメージとして与え、2秒間物理耐性を30%下げます。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc04 傷ついたオブシディアンÿc0ÿc4バーサーカーの昇天石ÿc0
 ENTRY	Blademaster		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -253,7 +245,7 @@ LINE	S	ÿc3+25% デクスタリティへのボーナスÿc0
 LINE	S	​
 LINE	S	ÿc4ティア3:ÿc0
 LINE	S	ÿc3物理耐性 1%ごとに強化ダメージ 10%ÿc0
-LINE	S	ÿc3物理耐性 20%ÿc0
+LINE	S	ÿc320% 物理耐性ÿc0
 LINE	S	​
 LINE	S	ÿc4ティア4:ÿc0
 LINE	S	ÿc3物理耐性が1%増加するごとに、1%の物理ダメージをライフとして吸収するÿc0
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4ティア5:ÿc0
 LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc315% の確率でヒット時にレベル 20 の 投げ斧 を発動するÿc0
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc02 傷ついたオブシディアンÿc0ÿc02 傷んだエメラルドÿc0ÿc4ブレードマスターの昇天石ÿc0
 ENTRY	Bloodmage		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% の召喚ライフÿc0
 LINE	S	ÿc3最大ライフ 50% 増加ÿc0
 LINE	T	​
 LINE	T	ÿc1*ブラッドマジックとは、呪文の詠唱にライフを使うようになることです。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc01 傷ついたルビーÿc0ÿc01 傷ついたオブシディアンÿc0ÿc01 傷ついたサファイアÿc0ÿc4ブラッドメイジの昇進石ÿc0
 ENTRY	Ironbolt		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% の確率でヒット時にレベル 40 の 内なる視界 を発
 LINE	S	ÿc3鋭い集中 +25（全クラス）ÿc0
 LINE	T	​
 LINE	T	ÿc1*出血の持続時間はクロスボウのリロード速度のスケーリングと同じです。これはクロスボウを使っているかどうかに関係なく適用されます。アイアンボルトの出血は、他の出血源によって薄まることがあります（毒のインスタンスが互いに薄め合うのと同様です）。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc02 傷ついたオブシディアンÿc0ÿc02 傷ついたルビーÿc0ÿc4アイアンボルトの昇天石ÿc0
 ENTRY	Lifebreaker		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3魔法抵抗 +15%ÿc0
 LINE	S	ÿc3物理抵抗: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*ライフパクトは、毎秒最大ライフの25%を消費し、レベルごとに最大ライフを10%与える切り替え式スキルです。ライフパクトで死ぬことはありません。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc04 傷ついたルビーÿc0ÿc4ライフブレイカーのアセンダンシーストーンÿc0
 ENTRY	Mana Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc320% の確率で攻撃を受けた時にレベル 50 の 時間停止 を発動するÿc0
 LINE	S	ÿc3毒抵抗 +75%ÿc0
 LINE	S	ÿc3+20 の光の半径ÿc0
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc01 傷んだエメラルドÿc0ÿc01 傷ついたルビーÿc0ÿc01 傷ついたサファイアÿc0ÿc4マナウォーデンのアセンデンシーストーンÿc0
 ENTRY	Nomad		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc320% の確率で攻撃を受けた時にレベル 1 の 逃げる を発動するÿc0
 LINE	T	​
 LINE	T	ÿc1*スカリーは1秒間持続する強化で、回避 33%、基本走行/歩行速度 100%、攻撃の総最大物理ダメージ 25% を与え、持続中に最大ライフの10%を回復します。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc02 傷んだエメラルドÿc0ÿc02 傷ついたルビーÿc0ÿc4遊牧民の昇華石ÿc0
 ENTRY	Sharpshooter		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4ティア5:ÿc0
 LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc315% の確率でヒット時にレベル 20 の 矢 を発動するÿc0
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc04 傷んだエメラルドÿc0ÿc4シャープシューターのアセンデンシーストーンÿc0
 ENTRY	Soul Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc3+1の非ユニーク召喚制限ÿc0
 LINE	S	ÿc3ダメージ減少 50ÿc0
 LINE	S	ÿc3魔法ダメージが 50 減少ÿc0
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc02 傷ついたルビーÿc0ÿc02 傷ついたサファイアÿc0ÿc4ソウルウォーデンの昇天石ÿc0
 ENTRY	Stance Dancer		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 のキル後にマナを得るÿc0
 LINE	T	​
 LINE	T	ÿc1*操作のサブメニューで構え切り替えのホットキーを設定する必要があります。
 LINE	T	ÿc1**構えはいつでも切り替えられますが、順番は赤 -> 緑 -> 青 のみです。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc01 傷ついたオブシディアンÿc0ÿc01 傷んだエメラルドÿc0ÿc01 傷ついたサファイアÿc0ÿc4スタンスダンサーのアセンダンシーストーンÿc0
 ENTRY	Starborn		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% エネルギーへのボーナスÿc0
 LINE	S	​
 LINE	S	ÿc4ティア3:ÿc0
 LINE	S	ÿc3マナ 400ごとに敵の火炎・冷気・雷耐性 -1%ÿc0
-LINE	S	ÿc3+400 のマナÿc0
+LINE	S	ÿc3+400 マナÿc0
 LINE	S	​
 LINE	S	ÿc4ティア4:ÿc0
 LINE	S	ÿc3マナ5ごとに1のライフ再生を得るÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4ティア5:ÿc0
 LINE	S	ÿc3クラススキルレベル +3ÿc0
 LINE	S	ÿc3+1 の テレポートÿc0
 LINE	S	ÿc3すべてのスキルに +1 追加ÿc0
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc04 傷ついたサファイアÿc0ÿc4星生まれの昇天石ÿc0
 ENTRY	Worldshaper		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*耐性の種類ごとに別々にボーナスのしきい値を数えます。たとえば、火炎・冷気・雷耐性がそれぞれ10%あれば物理耐性1%を得ます。
 LINE	T	ÿc1**呪文ダメージとは火炎/冷気/雷/毒/魔法/物理の呪文ダメージのことで、攻撃の固定ダメージも上昇させます（物理呪文ダメージは攻撃の物理ダメージを上昇させません）。
 LINE	T	ÿc1***創造の怒りは中範囲の三重元素ノヴァスキルで、ノヴァごとに武器ダメージの50%を各元素に変換して与え、敵の元素耐性を30%下げます。
-LINE	T	​
-LINE	C	入力出力
-LINE	R	ÿc4創造のオーブÿc0ÿc01 傷ついたルビーÿc0ÿc01 傷ついたオブシディアンÿc0ÿc01 傷んだエメラルドÿc0ÿc4ワールドシェイパーの昇進石ÿc0
 PAGE	runes	ルーン	Wiki	compact
 ENTRY	漢字ルーン	
 BLOCK	1	I ルーン					0

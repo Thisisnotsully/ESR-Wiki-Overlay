@@ -236,9 +236,13 @@ class ExtractionTests(unittest.TestCase):
         self.assertEqual(len(entries), 17)
         text = "\n".join(page)
         self.assertIn("Orb of Creation / Material Locations", text)
-        self.assertIn("LINE\tC\tInput\x1fOutput", text)
-        self.assertIn("Soul Warden Ascendancy Stone", text)
-        self.assertEqual(text.count("LINE\tC\tInput\x1fOutput"), 15)
+        # the website dropped the gem recipes (the Orb of Creation unlocks the ascendancy panel): no recipe tables, no stones
+        self.assertNotIn("LINE\tC\tInput\x1fOutput", text)
+        self.assertNotIn("Ascendancy Stone", text)
+        self.assertIn("LINE\tT\tTier 1:", text)  # the Tier 1 challenge sits with the introduction
+        self.assertIn("LINE\tT\tLich King Bonus:", text)
+        self.assertIn("increases the tier 3 and 4 stat scaling bonuses by 10%", text)
+        self.assertIn("IMG\td2rloader_esr-wiki_wiki_soulwarden", text)
         self.assertIn("The second tier is achieved by killing Nihalthak", text)
         self.assertEqual(text.count("\u00ffc4Tier 1:\u00ffc0"), 15)
         self.assertEqual(text.count("\u00ffc4Tier 5:\u00ffc0"), 15)
@@ -365,9 +369,10 @@ class ExtractionTests(unittest.TestCase):
                 families[entry].add(block)
             elif page == "item-affixes" and parts[0] == "LINE" and parts[1] == "R" and tier in rows:
                 rows[tier] += 1
-        # 7890 / 15219 / 2332 rows on the website (2026-11-10), less the charm and jewel tables it lists twice and the
-        # General, quiver and voib tables
-        self.assertEqual(rows, {"Prefix": 7890 - 353 - 453 - 87 - 3, "Suffix": 15219 - 331 - 964 - 228, "Superior": 2332 - 150})
+        # 7890 / 15224 / 2332 rows on the website (2026-11-13), less the charm and jewel tables it lists twice and the
+        # General, quiver and voib tables. (The suffixes page grew by 5 rows since 2026-11-10: 4 of them are shown, the
+        # fifth is in one of the tables left out.)
+        self.assertEqual(rows, {"Prefix": 7890 - 353 - 453 - 87 - 3, "Suffix": 15224 - 331 - 964 - 228 - 1, "Superior": 2332 - 150})
         self.assertIn("Helm", families["Armor"])
         self.assertIn("Amazon Bow", families["Weapons"])
         self.assertTrue({"Ring", "Amulet", "Small Charm", "Jewel"} <= families["Other"])

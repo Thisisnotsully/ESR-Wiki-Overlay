@@ -675,9 +675,70 @@ std::vector<std::pair<std::string, std::string>> AlignNodesSequential(const std:
     return pairs;
 }
 
+// A sentence the website breaks into several text nodes ("... all of the bosses" / bold word / "within a minute" / "."),
+// which the builders put back together as one line. The nodes pair one by one, but nothing pairs the whole sentence,
+// and the localized pieces do not always match the English ones (the Japanese "3" for "third"). So each run of
+// nodes up to the first one that ends a sentence is also kept joined, on both sides. It is used only for a line
+// nothing else translated.
+namespace {
+bool EndsSentence(const std::string& s) {
+    return !s.empty() && (s.back() == '.' || s.back() == '!' || s.back() == '?' || s.back() == ':');
+}
+unsigned FirstCodepoint(const std::string& s) {
+    if (s.empty()) return 0;
+    const unsigned char c = static_cast<unsigned char>(s[0]);
+    if (c < 0x80) return c;
+    if ((c & 0xE0) == 0xC0 && s.size() >= 2) return ((c & 0x1Fu) << 6) | (static_cast<unsigned char>(s[1]) & 0x3Fu);
+    if ((c & 0xF0) == 0xE0 && s.size() >= 3)
+        return ((c & 0x0Fu) << 12) | ((static_cast<unsigned char>(s[1]) & 0x3Fu) << 6) | (static_cast<unsigned char>(s[2]) & 0x3Fu);
+    return 0x10000;
+}
+unsigned LastCodepoint(const std::string& s) {
+    if (s.empty()) return 0;
+    std::size_t i = s.size() - 1;
+    while (i > 0 && (static_cast<unsigned char>(s[i]) & 0xC0) == 0x80) --i;
+    return FirstCodepoint(s.substr(i));
+}
+// Chinese and Japanese text runs together without spaces; Korean and the rest of the alphabets keep them.
+bool NoSpaceScript(unsigned cp) { return (cp >= 0x3000 && cp <= 0x9FFF) || (cp >= 0xFF00 && cp <= 0xFFEF); }
+std::string JoinNodes(const std::vector<std::string>& nodes) {
+    std::string out;
+    for (const std::string& n : nodes) {
+        if (n.empty()) continue;
+        if (!out.empty()) {
+            const char first = n[0], last = out.back();
+            const bool tight = first == '.' || first == ',' || first == ';' || first == ':' || first == '!' || first == '?' || first == ')' ||
+                               last == '(' || NoSpaceScript(LastCodepoint(out)) || NoSpaceScript(FirstCodepoint(n));
+            if (!tight && last != ' ') out += ' ';
+        }
+        out += n;
+    }
+    return out;
+}
+}  // namespace
+
+void Translator::AddRuns(const std::vector<std::pair<std::string, std::string>>& aligned) {
+    const std::size_t maxNodes = 8, maxBytes = 1500;
+    for (std::size_t start = 0; start + 1 < aligned.size(); ++start) {
+        if (EndsSentence(aligned[start].first) || aligned[start].first.size() < 4) continue;
+        std::vector<std::string> en, loc;
+        for (std::size_t k = start; k < aligned.size() && k < start + maxNodes; ++k) {
+            en.push_back(aligned[k].first);
+            loc.push_back(aligned[k].second);
+            if (k > start && EndsSentence(aligned[k].first)) {
+                const std::string joinedEn = JoinNodes(en);
+                if (joinedEn.size() <= maxBytes && runs_.find(joinedEn) == runs_.end()) runs_.emplace(joinedEn, JoinNodes(loc));
+                break;
+            }
+        }
+    }
+}
+
 void Translator::AddPage(const std::string& englishHtml, const std::string& localizedHtml) {
     std::vector<std::pair<std::string, std::string>> all;
-    for (const auto& pair : AlignNodes(ExtractTextNodes(englishHtml), ExtractTextNodes(localizedHtml))) {
+    const auto aligned = AlignNodes(ExtractTextNodes(englishHtml), ExtractTextNodes(localizedHtml));
+    AddRuns(aligned);
+    for (const auto& pair : aligned) {
         all.push_back(pair);
         // The builders drop the punctuation the website puts around a text ("- The boss...", ", anointments...",
         // "[Hand to Hand 1]"), so the text without the punctuation both sides share is a pair as well.
@@ -1052,6 +1113,10 @@ bool Translator::TranslateCell(std::string& cell, bool allowFallback) const {
     {
         std::string joined;
         if (TranslatePieces(core, joined)) { cell = pre + joined + post; return true; }
+    }
+    {   // a sentence the website breaks into several text nodes (see AddRuns)
+        const auto run = runs_.find(core);
+        if (run != runs_.end()) { cell = pre + run->second + post; return true; }
     }
     // pieces joined by ", ", " / " or ": "
     std::vector<std::string> parts;

@@ -63,6 +63,8 @@ private:
         std::string text;
         std::vector<std::size_t> roles;
     };
+    void AddRuns(const std::vector<std::pair<std::string, std::string>>& aligned);
+    std::unordered_map<std::string, std::string> runs_;  // sentences of several website nodes, joined, English to localized
     std::vector<std::string> order_;
     std::unordered_map<std::string, Choice> seen_;
     std::unordered_map<std::string, std::string> exact_;

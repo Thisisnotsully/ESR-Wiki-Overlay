@@ -34,6 +34,7 @@ struct Recipe {
 struct ClassInfo {
     std::string image;
     Recipe recipe;
+    bool hasRecipe = false;  // a page without the gem recipes (the orb unlocks the ascendancy panel) has none
     std::string headers[6];
     std::vector<std::string> stats[6];
     std::vector<std::string> notes;
@@ -167,12 +168,13 @@ bool Parse(const std::string& html, std::string& intro, std::vector<std::pair<st
             recipes[stone.substr(0, stone.size() - suffix.size())] = std::move(recipe);
         }
     }
-    if (recipes.size() != kExpectedClasses) {
+    // since the Ascendancy Stone went, the page has no gem recipes at all; a page that still has them must have every one
+    if (!recipes.empty() && recipes.size() != kExpectedClasses) {
         return Fail(error, "expected " + std::to_string(kExpectedClasses) + " ascendancy recipes, found " + std::to_string(recipes.size()));
     }
 
-    // tiers 2 to 5
-    for (int number = 2; number <= 5; ++number) {
+    // tiers 2 to 5 (1 to 5 when the page has no recipes: the Tier 1 text is then the only account of how to start)
+    for (int number = recipes.empty() ? 1 : 2; number <= 5; ++number) {
         const std::size_t start = html.find("Tier " + std::to_string(number) + " Challenge");
         if (start == std::string::npos) return Fail(error, "the Tier " + std::to_string(number) + " challenge is missing");
         const std::size_t td = html.find("<td", start);
@@ -185,6 +187,28 @@ bool Parse(const std::string& html, std::string& intro, std::vector<std::pair<st
     // the ascendancies
     const std::size_t section = html.find("name=\"ascendancies\"");
     if (section == std::string::npos) return Fail(error, "the ascendancy list is missing");
+
+    // further boxes between the Tier 5 challenge and the list (the Lich King bonus): a heading, then the text
+    {
+        const std::size_t tier5 = html.find("Tier 5 Challenge");
+        std::size_t scan = tier5 == std::string::npos ? std::string::npos : html.find("</table>", tier5);
+        while (scan != std::string::npos && scan < section) {
+            const std::size_t open = html.find("<h3>", scan);
+            if (open == std::string::npos || open >= section) break;
+            const std::size_t close = html.find("</h3>", open);
+            if (close == std::string::npos) break;
+            scan = close + 5;
+            const std::string heading = html.substr(open + 4, close - open - 4);
+            if (heading.find('<') != std::string::npos) continue;
+            const std::size_t td = html.find("<td", scan);
+            const std::size_t gt = td == std::string::npos ? std::string::npos : html.find('>', td);
+            const std::size_t end = gt == std::string::npos ? std::string::npos : html.find("</td>", gt + 1);
+            if (end == std::string::npos || end >= section) break;
+            const std::string text = Plain(html.substr(gt + 1, end - gt - 1));
+            if (!text.empty()) challenges.emplace_back(Plain(heading) + ":", text);
+            scan = end + 5;
+        }
+    }
     std::vector<std::string> parts;
     std::size_t cursor = html.find(kDivMarker, section);
     while (cursor != std::string::npos) {
@@ -221,6 +245,10 @@ bool Parse(const std::string& html, std::string& intro, std::vector<std::pair<st
         if (src.size() < 5 || !EndsWith(src, ".png")) return Fail(error, "an ascendancy block could not be read");
         ClassInfo info;
         info.image = src.substr(0, src.size() - 4);
+        // a page saved by a browser names its pictures arcanist_-VYy.png: the name is what comes before the "_-"
+        const std::size_t saved = info.image.find("_-");
+        if (saved != std::string::npos && saved > 0 && info.image.find_first_not_of("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", saved + 2) == std::string::npos)
+            info.image.erase(saved);
         const std::string body = part.substr(bodyAt + bodyOpen.size(), bodyEnd - bodyAt - bodyOpen.size());
         const std::string tierOpen = "<font color=\"orange\">Tier ";
         std::size_t t = body.find(tierOpen);
@@ -244,17 +272,20 @@ bool Parse(const std::string& html, std::string& intro, std::vector<std::pair<st
             const std::string text = Plain(note);
             if (!text.empty()) info.notes.push_back(text);
         }
-        if (classes.count(title) || !recipes.count(title)) return Fail(error, "unexpected ascendancy " + title);
-        info.recipe = recipes[title];
+        if (classes.count(title) || (!recipes.empty() && !recipes.count(title))) return Fail(error, "unexpected ascendancy " + title);
+        if (!recipes.empty()) {
+            info.recipe = recipes[title];
+            info.hasRecipe = true;
+        }
         info.pictureFirst = nameAt < bodyAt;
         classes[title] = std::move(info);
     }
-    if (classes.size() != recipes.size()) return Fail(error, "the ascendancy list and the Tier 1 recipes disagree");
+    if (!recipes.empty() && classes.size() != recipes.size()) return Fail(error, "the ascendancy list and the Tier 1 recipes disagree");
     return true;
 }
 
 std::vector<std::string> IntroLines(const std::string& text) {
-    static const char* const ends[] = {"special encounters.", "endgame content.", "any order.", "etc.)."};
+    static const char* const ends[] = {"special encounters.", "endgame content.", "any order.", "etc.).", "and bonuses.", "stronger as well."};
     std::vector<std::pair<std::size_t, std::size_t>> hits;  // (start, end) of each sentence end, in order of position
     for (const char* end : ends) {
         std::size_t at = 0;
@@ -303,10 +334,11 @@ std::vector<std::string> ClassEntry(const std::string& title, const ClassInfo& i
         out.push_back(TextLine(kSpacer));
         for (const std::string& note : info.notes) out.push_back(TextLine(std::string(kRed) + note));
     }
-    // what goes in and what comes out, at the bottom
-    out.push_back(TextLine(kSpacer));
-    out.push_back(std::string("LINE\tC\tInput") + kSeparator + "Output");
-    out.push_back("LINE\tR\t" + inputs + kSeparator + kGold + info.recipe.output + kWhite);
+    if (info.hasRecipe) {  // what goes in and what comes out, at the bottom
+        out.push_back(TextLine(kSpacer));
+        out.push_back(std::string("LINE\tC\tInput") + kSeparator + "Output");
+        out.push_back("LINE\tR\t" + inputs + kSeparator + kGold + info.recipe.output + kWhite);
+    }
     return out;
 }
 
@@ -342,10 +374,19 @@ bool BuildWebAscendancyWikiData(const std::string& current, const std::string& p
 
     std::vector<std::string> result = {lines[begin], "ENTRY\tAscendancies\t", kBlockLine};
     for (const std::string& line : IntroLines(intro)) result.push_back(TextLine(line));
+    // the Tier 1 challenge goes with the introduction
+    const auto isTier1 = [](const std::pair<std::string, std::string>& c) { return c.first == "Tier 1:"; };
+    for (const auto& challenge : challenges) {
+        if (!isTier1(challenge)) continue;
+        result.push_back(TextLine(challenge.first));
+        result.push_back(TextLine(challenge.second));
+        result.push_back(TextLine(kSpacer));
+    }
     result.insert(result.end(), lines.begin() + static_cast<std::ptrdiff_t>(orb), lines.begin() + static_cast<std::ptrdiff_t>(orbEnd));
     result.push_back("ENTRY\tHigher Tier Challenges\t");
     result.push_back(kBlockLine);
     for (const auto& challenge : challenges) {
+        if (isTier1(challenge)) continue;
         result.push_back(TextLine(challenge.first));
         result.push_back(TextLine(challenge.second));
         result.push_back(TextLine(kSpacer));

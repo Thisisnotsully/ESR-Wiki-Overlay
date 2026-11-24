@@ -1230,7 +1230,7 @@ int OverlayState::SkillsDetails(HDC dc, Gdiplus::Graphics* graphics, const skill
             }
             bool beyond = false;
             for (const int level : table.levels) beyond = beyond || skills::BeyondReach(level);
-            if (beyond || skills::BeyondReach(skillsLevel)) y += paragraph(UiText(L"* beyond what a character can reach"), x, w, y, kDim, fontSmall) + S(4);
+            if (beyond || skills::BeyondReach(skillsLevel)) y += paragraph(UiText(L"*Maximum Skill Level"), x, w, y, kDim, fontSmall) + S(4);
             y += S(6);
 
             // All levels: every level from 1 to the cap, one row each.

@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	Combina en el cubo un Mapa de fin de juego solo en el Acto 5 Infierno para abrir su zona y su jefe. Hay 5 niveles; 3 mapas iguales mejoran al siguiente nivel, y una Piedra de aleatorización puede rerollear uno. Los jefes de mapa sueltan mapas superiores, Orbes de Unción, Tokens de Maestría con armas y llaves: las llaves del Pandemonium (Terror, Odio, Destrucción) se convierten entre sí en el cubo y abren un portal a uno de tres jefes uber, cuyos botines juntos abren la Tristram Uber. Los mapas son la única fuente de únicos míticos, algunos solo de un jefe concreto.
 ENTRY	Ascendencias	Después de Baal
 BLOCK	0						0
-LINE	T	Una Piedra de Ascendencia es un amuleto que otorga una subclase completa. Mata a 5 superúnicos especiales del Infierno (uno en cada uno de los Actos 1, 2 y 3, dos en el Acto 5) para obtener sus orbes elementales, combínalos en el cubo en un Orbe de Creación y luego combínalo con gemas Manchadas de colores: la combinación de colores elige tu ascendencia. Los niveles posteriores mejoran la piedra mediante desafíos de fin de juego (Nihlathak en Infierno, los 3 jefes de la Tristram Uber en un minuto, Piedras de Alma Primordiales, un jefe de mapa de nivel 5) hechos en cualquier orden. Solo puedes llevar una piedra a la vez y debes volver a equiparla tras cada muerte.
+LINE	T	Una Ascendencia otorga una subclase completa. Mata a 5 superúnicos especiales del Infierno (uno en cada uno de los Actos 1, 2 y 3, dos en el Acto 5) para obtener sus orbes elementales y combínalos en el cubo en un Orbe de Creación. Al consumir el orbe se desbloquea el panel de ascendencia, donde eliges tu ascendencia. Los niveles posteriores se desbloquean mediante desafíos de fin de juego (Nihlathak en Infierno, los 3 jefes de la Tristram Uber en un minuto, Piedras de Alma Primordiales, un jefe de mapa de nivel 5) hechos en cualquier orden.
 ENTRY	Corrupción y Unción	Después de Baal
 BLOCK	0						0
 LINE	T	La Corrupción combina en el cubo un objeto con un Fragmento de la Piedra del Mundo y luego otra vez para obtener una bonificación fuerte aleatoria, pero también puede convertir el objeto en un raro aleatorio, así que corrompe solo lo que puedas permitirte perder (el Corazón Petrificado de Astrogha elimina el estado de una mala corrupción conservando la bonificación, para que puedas intentarlo de nuevo). La Unción usa un Orbe de Unción en su lugar, y su bonificación aleatoria nunca puede arruinar el objeto. Ambas van después de la Forja y las Piedras D en el orden de mejoras, y ambas se alimentan sobre todo de zonas de terror y Mapas de fin de juego.
@@ -82,13 +82,14 @@ LINE	T	Los amuletos únicos solo funcionan desde el inventario de amuletos, y so
 PAGE	ascendancy	Ascendencias	Wiki
 ENTRY	Ascendencias	
 BLOCK	0						0
-LINE	T	Ascendencias son especializaciones poderosas que definen tu forma de jugar y otorgan habilidades y bonificaciones únicas. Las ascendencias se obtienen mediante un amuleto especial llamado Piedra de Ascendencia , que solo se consigue tras completar varios encuentros especiales.
+LINE	T	Ascendencias son especializaciones poderosas que definen tu forma de jugar y otorgan habilidades y bonificaciones únicas.
 LINE	T	​
-LINE	T	Las piedras de ascendencia se pueden seguir mejorando (es decir, puedes seguir ascendiendo) completando desafíos concretos, algunos ligados a contenido de fin de juego muy difícil.
+LINE	T	Hay 5 niveles de ascendencia; cada desafío es más difícil que el anterior, pero las bonificaciones también son más fuertes.
 LINE	T	​
-LINE	T	Hay 5 niveles de ascendencia; cada desafío es más difícil que el anterior, pero las bonificaciones también son más fuertes. Las piedras de ascendencia no se pueden compartir con otros personajes. Solo puedes llevar equipada una piedra de ascendencia a la vez. Ni que decir tiene que cada nivel solo se puede conseguir una vez. Sin embargo, puedes conseguirlos en cualquier orden.
+LINE	T	Ni que decir tiene que cada nivel solo se puede conseguir una vez. Sin embargo, puedes conseguirlos en cualquier orden.
 LINE	T	​
-LINE	T	Las piedras de ascendencia no se pueden modificar por los medios habituales (no se pueden corromper, ungir, deshacer en hojas de arce, etc.).
+LINE	T	Nivel 1:
+LINE	T	Para conseguir una Ascendencia, tienes que matar a 5 superúnicos especiales en dificultad Infierno repartidos por Santuario y transmutar los orbes elementales que suelta cada uno de ellos para obtener: Orbe de Creación. Después, el orbe se puede consumir para desbloquear el panel de ascendencia, donde puedes elegir la ascendencia que prefieras.
 LINE	T	​
 LINE	T	Orbe de Creación / Ubicaciones de materiales
 LINE	C	OrbeActoUbicaciónMonstruo
@@ -104,16 +105,19 @@ LINE	T	Para mejorar tu Ascendencia, consulta los Desafíos de nivel superior
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	Nivel 2:
-LINE	T	El segundo nivel se consigue matando a Nihlathak en su dominio en dificultad Infierno y transmutando la piedra de ascendencia consigo misma. Tienes que transmutarla mientras los remolinos estén activos en tu personaje.
+LINE	T	El segundo nivel se consigue matando a Nihlathak en sus dominios en dificultad Infierno.
 LINE	T	​
 LINE	T	Nivel 3:
-LINE	T	El tercer nivel se consigue matando a todos los jefes de Über Tristram con menos de un minuto de diferencia entre ellos y sin morir, y transmutando la piedra de ascendencia con una hoja de arce. Aunque los remolinos estén activos en tu personaje tras matar al último jefe, no funcionará si ha pasado más de 1 minuto desde que mataste al primero.
+LINE	T	El tercer nivel se consigue matando a todos los jefes de Über Tristram con menos de un minuto de diferencia entre ellos y sin morir,.
 LINE	T	​
 LINE	T	Nivel 4:
-LINE	T	El cuarto nivel se consigue reuniendo 10 Piedras del Alma Primordiales que sueltan los jefes de cualquier mapa de fin de juego. Solo puedes transmutar una Piedra Primordial a la vez con la Piedra de Ascendencia. Cuando hayas capturado 10 Piedras del Alma Primordiales en la Piedra de Ascendencia, podrás transmutarla con 2 hojas de arce para ascender al nivel 4.
+LINE	T	El cuarto nivel se consigue reuniendo 10 Piedras del Alma Primordiales que sueltan los jefes de cualquier mapa de fin de juego. Cuando hayas capturado 10 Piedras del Alma Primordiales, el nivel 4 se desbloqueará automáticamente. Ten en cuenta que las piedras del alma se guardan en tu personaje y no puedes interactuar con ellas. Puedes consultar tu progreso en el panel de ascendencia.
 LINE	T	​
 LINE	T	Nivel 5:
-LINE	T	El quinto nivel se consigue matando a cualquier jefe de un mapa de nivel 5 y transmutando la piedra de ascendencia con 3 hojas de arce. Tienes que transmutarla mientras los remolinos estén activos en tu personaje.
+LINE	T	El quinto nivel se consigue matando a cualquier jefe de un mapa de nivel 5.
+LINE	T	​
+LINE	T	Bonificación del Rey Lich:
+LINE	T	Matar al Rey Lich con /players 8 desbloquea una bonificación adicional que aumenta un 10 % las bonificaciones de escalado de atributos de los niveles 3 y 4.
 LINE	T	​
 ENTRY	Arcanista		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% Bonificación a la Energíaÿc0
 LINE	S	​
 LINE	S	ÿc4Nivel 3:ÿc0
 LINE	S	ÿc3Obtienes 5 de maná por cada 1 % de velocidadÿc1*ÿc3ÿc0
-LINE	S	ÿc3+30% a Todas las Velocidadesÿc0
+LINE	S	ÿc330% a todas las velocidadesÿc0
 LINE	S	​
 LINE	S	ÿc4Nivel 4:ÿc0
 LINE	S	ÿc3Obtienes 1 de maná al golpear por cada 25 % de velocidadÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% de probabilidad de lanzar Nivel 20 Flecha Mejorada de Frío al gol
 LINE	S	ÿc35% de probabilidad de lanzar Nivel 20 Flecha Mejorada de Rayo al golpearÿc0
 LINE	T	​
 LINE	T	ÿc1*Cada tipo de velocidad (bloqueo, lanzamiento, movimiento, ataque, recuperación) cuenta por separado. Por ejemplo, +1 % a todas las velocidades cuenta como +5 % para las bonificaciones de ascendencia.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc02 Esmeralda Manchadaÿc0ÿc02 Zafiro Manchadoÿc0ÿc4Piedra de Ascendencia de Arcanistaÿc0
 ENTRY	despertada		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*Los umbrales se cuentan sobre el total de puntos de atributos (por ejemplo, obtienes +1 a todas las habilidades si tienes 250 en cada atributo).
 LINE	T	ÿc1**Aniquilación es una devastadora nova de 6 elementos (fuego/frío/rayo/veneno/físico/magia), una habilidad que abarca toda la pantalla y que, por cada nova, inflige un 50 % del daño del arma convertido al elemento correspondiente, además de un daño de hechizo considerable de cada tipo que escala con el total de atributos. Repele a los enemigos y reduce todas sus resistencias un 25 % durante 2 segundos. La nova de veneno no inflige daño de arma.
 LINE	T	ÿc1**Aniquilación solo puede activarse cuando tu vida actual está por debajo del 30 %.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc01 Obsidiana Manchadaÿc0ÿc01 Zafiro Manchadoÿc0ÿc01 Esmeralda Manchadaÿc0ÿc01 Rubí Manchadoÿc0ÿc4Piedra de Ascendencia Despertadaÿc0
 ENTRY	Mago de batalla		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc3+50% a Todas las Velocidadesÿc0
 LINE	T	​
 LINE	T	ÿc1*La bonificación de defensa total es multiplicativa con todo tu valor de armadura.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc02 Zafiro Manchadoÿc0ÿc02 Obsidiana Manchadaÿc0ÿc4Piedra de Ascendencia de Batalladorÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc325 % de probabilidad de lanzar Devastación de nivel 1 en un ataque cuerpo a cuerpoÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*Devastación es una habilidad de área pequeña a media que inflige un 150 % del daño del arma como daño físico a todos los enemigos afectados y reduce su resistencia física un 30 % durante 2 segundos.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc04 Obsidiana Manchadaÿc0ÿc4Piedra de Ascendencia Berserkerÿc0
 ENTRY	Maestro de la hoja		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -253,7 +245,7 @@ LINE	S	ÿc3+25% Bonificación a Destrezaÿc0
 LINE	S	​
 LINE	S	ÿc4Nivel 3:ÿc0
 LINE	S	ÿc3Obtienes un 10 % de daño mejorado por cada 1 % de resistencia físicaÿc0
-LINE	S	ÿc320 % de resistencia físicaÿc0
+LINE	S	ÿc320% de resistencia físicaÿc0
 LINE	S	​
 LINE	S	ÿc4Nivel 4:ÿc0
 LINE	S	ÿc3Gana un 1% de Daño Físico Robado como Vida por cada 1% de Resistencia Físicaÿc0
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4Nivel 5:ÿc0
 LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc315% de probabilidad de lanzar Nivel 20 Hacha arrojadiza al golpearÿc0
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc02 Obsidiana Manchadaÿc0ÿc02 Esmeralda Manchadaÿc0ÿc4Piedra de Ascendencia Maestro de Espadasÿc0
 ENTRY	Mago de sangre		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% a Vida de Invocaciónÿc0
 LINE	S	ÿc3Vida máxima aumentada un 50 %ÿc0
 LINE	T	​
 LINE	T	ÿc1*Magia de sangre significa que ahora usas vida para lanzar hechizos.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc01 Rubí Manchadoÿc0ÿc01 Obsidiana Manchadaÿc0ÿc01 Zafiro Manchadoÿc0ÿc4Piedra de Ascendencia de Hechicero de Sangreÿc0
 ENTRY	Virote de hierro		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% de probabilidad de lanzar Nivel 40 Visión Interna al golpearÿc0
 LINE	S	ÿc3+25 a Enfoque Afilado (todas las clases)ÿc0
 LINE	T	​
 LINE	T	ÿc1*La duración del sangrado es igual al escalado de la velocidad de recarga de la ballesta. Esto se aplica tanto si usas ballesta como si no. El sangrado de Virote de hierro puede diluirse con otras fuentes de sangrado (igual que las instancias de veneno se diluyen entre sí).
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc02 Obsidiana Manchadaÿc0ÿc02 Rubí Manchadoÿc0ÿc4Piedra de Ascendencia de Ironboltÿc0
 ENTRY	Rompevidas		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3Resistencia mágica +15%ÿc0
 LINE	S	ÿc3Resistencia Física: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Pacto de Vida es una habilidad activable que drena un 25 % de tu vida máxima cada segundo y otorga un 10 % de vida máxima por nivel. Pacto de Vida no puede matarte.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc04 Rubí Manchadoÿc0ÿc4Piedra de Ascendencia Rompevidasÿc0
 ENTRY	Guardián de maná		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc320% de probabilidad de lanzar Nivel 50 Detener el Tiempo al ser golpeadoÿc0
 LINE	S	ÿc3Resistencia a Veneno +75%ÿc0
 LINE	S	ÿc3+20 a Radio de Luzÿc0
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc01 Esmeralda Manchadaÿc0ÿc01 Rubí Manchadoÿc0ÿc01 Zafiro Manchadoÿc0ÿc4Piedra de Ascendencia del Guardián de Manáÿc0
 ENTRY	Nómada		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc320% de probabilidad de lanzar Nivel 1 Escabullirse al ser golpeadoÿc0
 LINE	T	​
 LINE	T	ÿc1*Escabullirse es una mejora de 1 segundo de duración que otorga un 33 % de esquiva, un 100 % de velocidad base de carrera/paso, un 25 % de daño físico máximo total a los ataques y regenera un 10 % de la vida máxima durante su duración.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc02 Esmeralda Manchadaÿc0ÿc02 Rubí Manchadoÿc0ÿc4Piedra de Ascendencia Nómadaÿc0
 ENTRY	Tirador de élite		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4Nivel 5:ÿc0
 LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc315% de probabilidad de lanzar Nivel 20 Flecha al golpearÿc0
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc04 Esmeralda Manchadaÿc0ÿc4Piedra de Ascendencia Tirador Precisoÿc0
 ENTRY	Guardián de almas		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc3+1 al Límite de Invocaciones No Únicasÿc0
 LINE	S	ÿc3Daño Reducido en 50ÿc0
 LINE	S	ÿc3Daño Mágico Reducido en 50ÿc0
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc02 Rubí Manchadoÿc0ÿc02 Zafiro Manchadoÿc0ÿc4Piedra de Ascendencia del Guardián del Almaÿc0
 ENTRY	Danzarín de posturas		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 a Maná después de cada Muerteÿc0
 LINE	T	​
 LINE	T	ÿc1*Tienes que asignar una tecla para cambiar de postura en el submenú de controles.
 LINE	T	ÿc1**Puedes cambiar de postura cuando quieras, pero las posturas solo rotan en este orden: roja -> verde -> azul.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc01 Obsidiana Manchadaÿc0ÿc01 Esmeralda Manchadaÿc0ÿc01 Zafiro Manchadoÿc0ÿc4Piedra de Ascendencia Danza de Posturaÿc0
 ENTRY	Nacido de las estrellas		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% Bonificación a la Energíaÿc0
 LINE	S	​
 LINE	S	ÿc4Nivel 3:ÿc0
 LINE	S	ÿc3Obtienes -1 % a las resistencias al fuego, al frío y al rayo del enemigo por cada 400 de manáÿc0
-LINE	S	ÿc3+400 a Manáÿc0
+LINE	S	ÿc3+400 a manáÿc0
 LINE	S	​
 LINE	S	ÿc4Nivel 4:ÿc0
 LINE	S	ÿc3Gana 1 Reponer Vida por cada 5 Manáÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4Nivel 5:ÿc0
 LINE	S	ÿc3+3 a los niveles de habilidades de claseÿc0
 LINE	S	ÿc3+1 a Teletransporteÿc0
 LINE	S	ÿc3+1 a Todas las Habilidadesÿc0
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc04 Zafiro Manchadoÿc0ÿc4Piedra de Ascendencia Nacida de las Estrellasÿc0
 ENTRY	Moldeador de mundos		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*Cada tipo de resistencia cuenta por separado para los umbrales de bonificación. Por ejemplo, obtienes un 1 % de resistencia física si tienes un 10 % de resistencia al fuego, al frío y al rayo cada una.
 LINE	T	ÿc1**El daño de hechizos es el daño de hechizos de fuego/frío/rayo/veneno/mágicos/físicos y aumenta el daño fijo de los ataques (excepto el daño de hechizos físicos, que no aumenta el daño físico de los ataques).
 LINE	T	ÿc1***Furia de la Creación es una triple nova elemental de área media; cada nova inflige un 50 % del daño del arma convertido al elemento correspondiente y reduce las resistencias elementales de los enemigos un 30 %.
-LINE	T	​
-LINE	C	EntradaSalida
-LINE	R	ÿc4Orbe de Creaciónÿc0ÿc01 Rubí Manchadoÿc0ÿc01 Obsidiana Manchadaÿc0ÿc01 Esmeralda Manchadaÿc0ÿc4Piedra de Ascendencia Modeladora del Mundoÿc0
 PAGE	runes	Runas	Wiki	compact
 ENTRY	Runas kanji	
 BLOCK	1	I Runa					0

@@ -550,7 +550,13 @@ Lvl {0}	Ур. {0}
 Hard points only: +skills from items do not count.	Только вложенные очки: +умения от предметов не учитываются.
 Receives bonuses from	Получает бонусы от
 At level {0}	На уровне {0}
-* beyond what a character can reach	* за пределами того, чего может достичь персонаж
+*Maximum Skill Level	*Максимальный уровень умения
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Уровни умения выше {0} отмечены *: ни один персонаж их не достигнет, но значения всё равно рассчитываются.
 No item grants this skill.	Ни один предмет не даёт это умение.
 {0} ({1})	{0} ({1})
+Search tips	Советы по поиску
+Several words: a card must have all of them.	Несколько слов: в карточке должны быть все.
+"Quoted words": an exact phrase.	"Слова в кавычках": точная фраза.
+-word: leaves out cards that have it.	-слово: исключает карточки, где оно есть.
+Names, stats, runes and notes are searched. Small typos still match.	Ищутся названия, характеристики, руны и заметки. Небольшие опечатки тоже находятся.
+Enter opens the top suggestion.	Enter открывает первую подсказку.

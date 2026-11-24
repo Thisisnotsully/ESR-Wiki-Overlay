@@ -23,7 +23,7 @@ RED, BLUE, GOLD, WHITE = "ÿc1", "ÿc3", "ÿc4", "ÿc0"
 SPACER = "​"
 SEPARATOR = "\x1f"  # between table cells
 BREAK = "\x1e"  # between the lines of one cell
-SENTENCE_ENDS = re.compile(r"special encounters\.|endgame content\.|any order\.|etc\.\)\.")
+SENTENCE_ENDS = re.compile(r"special encounters\.|endgame content\.|any order\.|etc\.\)\.|and bonuses\.|stronger as well\.")
 EXPECTED_CLASSES = 15
 # the translated page's wording: the intro, the challenge headings, the tier labels and the stone and class names
 FRENCH = {"intro": "sont de puissantes spécialisations", "challenge": "Défi du palier %d", "tier": "Palier %d",
@@ -107,7 +107,9 @@ def parse(html, english_html=None):
                 if text:
                     inputs.append((text, 'color="orange"' in piece))
             recipes[match.group(1)] = {"input": inputs, "output": plain(cells[1])}
-    if len(recipes) != EXPECTED_CLASSES:
+    # since the Ascendancy Stone went, the page has no gem recipes at all (the orb unlocks the ascendancy panel); a page
+    # that still has them (a translation not yet updated) must have every one
+    if recipes and len(recipes) != EXPECTED_CLASSES:
         raise SystemExit("expected %d ascendancy recipes, found %d" % (EXPECTED_CLASSES, len(recipes)))
     # the translated stone names do not always match the translated class names: the French stone in each Tier 1 row is
     # the one the English page has in the same row, and the English row names its class
@@ -116,19 +118,30 @@ def parse(html, english_html=None):
         if english_html is None:
             raise SystemExit("a translated ascendancy page needs the English page")
         english_order = tier1_recipe_order(english_html)
-        if len(english_order) != len(ordered):
+        if not english_order:
+            ordered = []  # the English page has no recipes any more: the translation shows none either
+            recipes = {}
+        elif len(english_order) != len(ordered):
             raise SystemExit("the English page has %d Tier 1 rows, this one %d" % (len(english_order), len(ordered)))
         english_blocks = re.findall(r'<font color="orange" size="4">(.*?) Ascendancy</font>', english_html, flags=re.S)
         by_english_class = {plain_class: ordered[row] for row, (plain_class, _, _) in enumerate(english_order)}
 
     # tiers 2 to 5
     challenges = []
-    for number in range(2, 6):
+    for number in range(1 if not recipes else 2, 6):
         start = challenge_at(html, number)
         if start < 0:
             raise SystemExit("the Tier %d challenge is missing" % number)
         cell = re.search(r"<td[^>]*>(.*?)</td>", html[start:], flags=re.S)
         challenges.append(((FRENCH["tier"] % number if LABELS["french"] else "Tier %d" % number) + ":", plain(cell.group(1))))
+    # further boxes between the Tier 5 challenge and the ascendancy list (the Lich King bonus): heading, then text
+    after = challenge_at(html, 5)
+    list_at = html.find('name="ascendancies"')
+    after = html.find("</table>", after) if after >= 0 else -1
+    if after >= 0 and list_at > after:
+        for heading, body in re.findall(r"<h3>\s*([^<]+?)\s*</h3>\s*<table.*?<td[^>]*>(.*?)</td>", html[after:list_at], flags=re.S):
+            if plain(body):
+                challenges.append((plain(heading) + ":", plain(body)))
 
     # the ascendancies
     section = html.find('name="ascendancies"')
@@ -139,7 +152,8 @@ def parse(html, english_html=None):
     for part in parts:
         name = (FRENCH["class"].search(part) if LABELS["french"] else
                 re.search(r'<font color="orange" size="4">(.*?) Ascendancy</font>', part, flags=re.S))
-        image = re.search(r'<img src="[^"]*?([A-Za-z0-9_]+)\.png"', part)
+        # a page saved by a browser names its pictures arcanist_-VYy.png: the name is what comes before the "_-"
+        image = re.search(r'<img src="[^"]*?([A-Za-z0-9_]+?)(?:_-[A-Za-z0-9]+)?\.png"', part)
         body = re.search(r'<font face="arial,helvetica" size="-1" style="width: 100%">(.*?)</font>\s*</div>', part, flags=re.S)
         if not (name and image and body):
             raise SystemExit("an ascendancy block could not be read")
@@ -156,19 +170,19 @@ def parse(html, english_html=None):
         if LABELS["french"]:
             if len(classes) >= len(english_blocks):
                 raise SystemExit("unexpected ascendancy %s" % title)
-            recipe = by_english_class[plain(english_blocks[len(classes)])]
+            recipe = by_english_class[plain(english_blocks[len(classes)])] if recipes else None
         else:
-            if title in classes or title not in recipes:
+            if title in classes or (recipes and title not in recipes):
                 raise SystemExit("unexpected ascendancy %s" % title)
-            recipe = recipes[title]
+            recipe = recipes.get(title)
         # the website puts the tiers on one side and the name with the picture on the other, alternating
         picture_first = part.find('<font color="orange" size="4">') < part.find('style="width: 100%"')
         classes[title] = {"image": image.group(1), "tiers": tiers, "notes": notes, "recipe": recipe,
                           "picture_first": picture_first}
     if LABELS["french"]:
         if len(classes) != len(english_blocks):
-            raise SystemExit("the ascendancy list and the Tier 1 recipes disagree")
-    elif set(classes) != set(recipes):
+            raise SystemExit("the ascendancy list and the English list disagree")
+    elif recipes and set(classes) != set(recipes):
         raise SystemExit("the ascendancy list and the Tier 1 recipes disagree")
     return intro, challenges, classes
 
@@ -196,7 +210,6 @@ def stat_line(text):
 
 def class_entry(title, info):
     recipe = info["recipe"]
-    inputs = BREAK.join((GOLD if orange else WHITE) + text + WHITE for text, orange in recipe["input"])
     out = ["ENTRY\t%s\t\t%s" % (title, "splitflip" if info["picture_first"] else "split"), "BLOCK\t0\t\t\t\t\t\t0",
            "IMG\t%s%s" % (KEY_PREFIX, info["image"])]
     for number in range(1, 6):
@@ -212,10 +225,11 @@ def class_entry(title, info):
         out.append(text_line(SPACER))
         for note in info["notes"]:
             out.append(text_line(RED + note))
-    # what goes in and what comes out, at the bottom
-    out.append(text_line(SPACER))
-    out.append("LINE\tC\tInput" + SEPARATOR + "Output")
-    out.append("LINE\tR\t" + inputs + SEPARATOR + GOLD + recipe["output"] + WHITE)
+    if recipe is not None:  # what goes in and what comes out, at the bottom (a page that still has the gem recipes)
+        inputs = BREAK.join((GOLD if orange else WHITE) + text + WHITE for text, orange in recipe["input"])
+        out.append(text_line(SPACER))
+        out.append("LINE\tC\tInput" + SEPARATOR + "Output")
+        out.append("LINE\tR\t" + inputs + SEPARATOR + GOLD + recipe["output"] + WHITE)
     return out
 
 
@@ -229,9 +243,12 @@ def page_lines(old, intro, challenges, classes):
     kept = old[orb_at:next_entry]
     out = [old[0], "ENTRY\tAscendancies\t", "BLOCK\t0\t\t\t\t\t\t0"]
     out += [text_line(t) for t in intro_lines(intro)]
+    first = [c for c in challenges if re.match(r"(Tier|Palier) 1:", c[0])]  # the Tier 1 challenge goes with the introduction
+    for header, text in first:
+        out += [text_line(header), text_line(text), text_line(SPACER)]
     out += kept
     out += ["ENTRY\tHigher Tier Challenges\t", "BLOCK\t0\t\t\t\t\t\t0"]
-    for header, text in challenges:
+    for header, text in [c for c in challenges if c not in first]:
         out += [text_line(header), text_line(text), text_line(SPACER)]
     for title in sorted(classes, key=str.lower):
         out += class_entry(title, classes[title])

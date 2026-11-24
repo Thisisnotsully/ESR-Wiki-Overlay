@@ -1,4 +1,4 @@
-# ESR Wiki Overlay 1.7.0
+# ESR Wiki Overlay 1.8.0
 
 A read-only in-game wiki overlay for Eastern Sun Resurrected (ESR) on Diablo II
 Resurrected, loaded by D2RLoader. It has two windows: the ESR Wiki and Horadric Cube Recipes.
@@ -33,7 +33,7 @@ Eastern_Sun_Resurrected/d2rloader/plugins/
 
 ## Search
 
-The search box finds text in the language of the wiki data (the empty box says which). Case and accents do not matter
+The search box finds text in the language of the wiki data. While the box is empty, hover it with the mouse (or highlight it with the controller) to see the search tips. Case and accents do not matter
 (`cafe` finds Café). The list on the left keeps the entries that match, the cards in an entry are narrowed to the matching
 ones, and the matching words are highlighted.
 
@@ -135,6 +135,14 @@ points in other skills, except the synergy points you set. The skill icons are `
 (`locales\<code>\skills-data.json` for the other languages); skill names, descriptions and values are in the game's
 language, while some item names and notes are still English. Without the file the tab is left out.
 
+## What is new in 1.8.0
+
+- **Skills tab layout:** the skill trees and the chosen skill's details now sit side by side at 1080p and other smaller screens (they used to stack, leaving the details at the bottom). The tiles are more compact where they need to be, every skill name uses the same smaller text so long names wrap evenly, long tab titles fit, and the middle scroll bar can be dragged with the mouse. The footnote now reads "*Maximum Skill Level" in every language.
+- **Search tips:** the grey hint inside the empty search box is gone. Hover the empty box (or highlight it with the controller, or open the on-screen keyboard) and a small tooltip lists what the search can do: several words, "quoted words", -word to leave a card out, what is searched, small typos, and Enter for the top suggestion. It is translated into every language and appears only while the box is empty.
+- **Ascendancies:** the tab follows the website's new Ascendancy page. Ascendancies are unlocked with the Orb of Creation and chosen in the ascendancy panel; the gem recipes and Ascendancy Stones are gone from the page. The tier challenges (Tier 1 to Tier 5, the Lich King bonus) and every ascendancy's stats are shown as the website has them, in all thirteen languages. The Welcome tab's Ascendancies line says the same. The in-game update keeps working with both the new page and the older recipe page.
+- **Localized sentences in pieces:** a sentence that the website's localized page breaks into several pieces, such as the Japanese tier challenge lines, is now translated as a whole instead of staying in English.
+- **Works with the ESR Filter Editor:** both plugins hold the game's controller back while their window is open, and both can be installed in either load order. Before, whichever loaded second could not install its block.
+
 ## What is new in 1.7.0
 
 - **Welcome > What's worth looting?** ends with a link to the ESR loot filter editor (edit an existing filter or build one from scratch); click it with the mouse to open it in your browser. The sentence is in all thirteen languages.
@@ -149,18 +157,6 @@ language, while some item names and notes are still English. Without the file th
 - The wiki ignores the controller while it is open, so the game no longer reacts to the buttons you press in it.
 - The mouse wheel scrolls 50% faster, and the window is smaller at 1080p so it no longer fills the screen. Precision touchpads scroll too: their small steps add up instead of being dropped.
 - **Item Bases, Automod tooltip:** an Automod value with several tiers shows one tier per line, indented under the label; when every tier ends with the same line (the shared Tinkering Points line), that line is shown once at the end instead of after every tier.
-
-## What is new in 1.6.0
-
-- **Game controller support.** The wiki can be used with a PlayStation controller (DualShock 4, DualSense) or an Xbox controller; it notices the controller by itself and the on-screen help appears to the right of the wiki, matching the controller in use. Using the mouse or keyboard hides it again. Controls (PlayStation names in brackets):
-  - D-pad: highlight a tab (it only opens when you press A (Cross)). Pressing down with no tab below continues into the categories list on the left; up from the first category goes back to the tabs. In the list, up and down pick an entry and left and right turn the list page.
-  - LB / RB (L1 / R1): open the previous / next tab at once. R3: switch between the wiki and the Horadric Cube Recipes window. Start (Options): close the wiki.
-  - Right stick: scroll the entry. RT / LT (R2 / L2): scroll down / up much faster.
-  - Y (Triangle): the on-screen keyboard appears under the search box and the search takes focus. A types the highlighted key, X (Square) clears the search, B (Circle) or Y or the Done key puts the keyboard away without closing the wiki. (In 1.7.0 the keyboard's Square and Circle changed, see above; with the keyboard closed, X (Square) still clears the search.) The keyboard has a second page for accented letters.
-  - Left stick: moves a cursor over the wiki (for the item tooltips and filter buttons); while it was the last thing moved, A (Cross) clicks at the cursor. Clicking the search box with it opens the keyboard.
-  - The help picture is `images\controller_playstation.png` or `images\controller_xbox.png` in the plugin folder; without those files a list of the buttons is drawn instead. A controller used through Steam Input or DS4Windows looks like an Xbox controller to Windows; a file `controller.txt` in the plugin folder containing `playstation` or `xbox` forces which help is shown.
-- The mouse cursor drawn over the wiki now follows the pointer every millisecond instead of about 64 times a second, so it keeps up with the game's own cursor.
-- The pause-menu ESR Wiki button now opens the panel you used last, like the wiki key and the `eswiki` command do. The first time it is the main wiki; after that, if you last used the Horadric Cube Recipes window, that is the one that opens. The page you were reading in each window is kept while the game runs.
 
 ## Cube recipes follow the website
 The Horadric Cube Recipes window reads the recipes from the Cube Recipes page on easternsunresurrected.com when the

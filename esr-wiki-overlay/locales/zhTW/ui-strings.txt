@@ -550,7 +550,13 @@ Lvl {0}	等級 {0}
 Hard points only: +skills from items do not count.	僅限投入點數：物品提供的 +技能不計入。
 Receives bonuses from	獲得來自以下的加成
 At level {0}	等級 {0} 時
-* beyond what a character can reach	* 超出角色可達到的範圍
+*Maximum Skill Level	*最大技能等級
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	高於 {0} 的技能等級標有 *：任何角色都無法達到，但數值仍會計算。
 No item grants this skill.	沒有物品提供此技能。
 {0} ({1})	{0}（{1}）
+Search tips	搜尋提示
+Several words: a card must have all of them.	多個詞：卡片必須包含全部詞。
+"Quoted words": an exact phrase.	"引號內的詞"：精確片語。
+-word: leaves out cards that have it.	-詞：排除含有該詞的卡片。
+Names, stats, runes and notes are searched. Small typos still match.	會搜尋名稱、屬性、符文和備註，輕微拼字錯誤也能比對。
+Enter opens the top suggestion.	按 Enter 開啟第一則建議。

@@ -548,7 +548,13 @@ Lvl {0}	Stufe {0}
 Hard points only: +skills from items do not count.	Nur investierte Punkte: +Fertigkeiten von Gegenständen zählen nicht.
 Receives bonuses from	Erhält Boni von
 At level {0}	Auf Stufe {0}
-* beyond what a character can reach	* jenseits dessen, was ein Charakter erreichen kann
+*Maximum Skill Level	*Maximale Fertigkeitsstufe
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Fertigkeitsstufen über {0} sind mit * markiert: Kein Charakter kann sie erreichen, die Werte werden aber trotzdem berechnet.
 No item grants this skill.	Kein Gegenstand gewährt diese Fertigkeit.
 {0} ({1})	{0} ({1})
+Search tips	Suchtipps
+Several words: a card must have all of them.	Mehrere Wörter: Eine Karte muss alle enthalten.
+"Quoted words": an exact phrase.	"Wörter in Anführungszeichen": eine genaue Wortfolge.
+-word: leaves out cards that have it.	-Wort: schließt Karten aus, die es enthalten.
+Names, stats, runes and notes are searched. Small typos still match.	Durchsucht werden Namen, Werte, Runen und Hinweise. Kleine Tippfehler werden trotzdem gefunden.
+Enter opens the top suggestion.	Enter öffnet den obersten Vorschlag.

@@ -14,6 +14,9 @@
 #include "debug_log.hpp"
 
 namespace esrwiki::inputblock {
+
+// The only line that differs between the editor's copy of this file and the wiki's (besides the namespace).
+constexpr const char* kWindow = "the wiki";
 namespace {
 
 // Offsets from the game's main module (D2RLoader.exe in the loader process; base 0x140000000 when checked).
@@ -43,6 +46,12 @@ constexpr std::size_t kAxisSlotBlock = 0x48;      // address of EsrBlockAxis
 constexpr std::size_t kAxisSlotResume = 0x50;     // address of the dispatcher + 5
 constexpr std::size_t kStubSize = 0x1000;
 
+// A second plugin with this same file (the ESR Wiki and the Filter Editor both have it) finds the other's stub at
+// the call site instead of the game's bytes. It then chains: its own stub goes in front and passes on to the other
+// stub, so the controller is held back while either window is open, whatever order the plugins loaded in. Stub
+// pages are never freed, so a stub that another one passes on to stays valid; it passes everything through once its
+// plugin removes its block.
+
 struct Patch {
     std::uint8_t* site = nullptr;
     unsigned char original[5] = {};
@@ -70,7 +79,7 @@ bool WikiOpen() noexcept {
 extern "C" bool EsrBlockPress(unsigned int pressed) noexcept {
     try {
         if (!gActive.load() || pressed == 0 || !WikiOpen()) return false;
-        if (gPressesBlocked.fetch_add(1) == 0) DebugLog("controller press blocked while the wiki is open (first one)");
+        if (gPressesBlocked.fetch_add(1) == 0) DebugLog(std::string("controller press blocked while ") + kWindow + " is open (first one)");
         return true;
     } catch (...) {
         return false;
@@ -82,7 +91,7 @@ extern "C" bool EsrBlockAxis(unsigned int kind) noexcept {
     try {
         if (!gActive.load() || !WikiOpen()) return false;
         if (gAxesBlocked.fetch_add(1) == 0)
-            DebugLog("controller stick zeroed while the wiki is open (first one, kind " + std::to_string(kind) + ")");
+            DebugLog(std::string("controller stick zeroed while ") + kWindow + " is open (first one, kind " + std::to_string(kind) + ")");
         return true;
     } catch (...) {
         return false;
@@ -155,8 +164,7 @@ bool Rewrite(std::uint8_t* site, const unsigned char* bytes) {
 //   ret                      dropped: return to the caller without touching the game
 // pass:
 //   jmp  [rip+slotHandler]   the original handler, with the stack exactly as it was on entry
-void WriteButtonStub(std::uint8_t* stub) {
-    const unsigned char code[] = {
+constexpr unsigned char kButtonStubCode[] = {
         0x48, 0x83, 0xEC, 0x38,                    // 0x00 sub rsp,0x38
         0x48, 0x89, 0x4C, 0x24, 0x20,              // 0x04 mov [rsp+0x20],rcx
         0x48, 0x89, 0x54, 0x24, 0x28,              // 0x09 mov [rsp+0x28],rdx
@@ -170,8 +178,10 @@ void WriteButtonStub(std::uint8_t* stub) {
         0xC3,                                      // 0x29 ret
         0xFF, 0x25, 0x00, 0x00, 0x00, 0x00,        // 0x2A jmp [rip+slotHandler] (fixed below)
     };
-    static_assert(sizeof(code) <= kButtonSlotBlock, "button stub overlaps its slots");
-    std::memcpy(stub, code, sizeof(code));
+static_assert(sizeof(kButtonStubCode) <= kButtonSlotBlock, "button stub overlaps its slots");
+
+void WriteButtonStub(std::uint8_t* stub) {
+    std::memcpy(stub, kButtonStubCode, sizeof(kButtonStubCode));
     PutInt32(stub + 0x13, static_cast<std::int32_t>(kButtonSlotBlock - 0x17));
     PutInt32(stub + 0x2C, static_cast<std::int32_t>(kButtonSlotHandler - 0x30));
 }
@@ -182,7 +192,7 @@ void WriteButtonStub(std::uint8_t* stub) {
 //   mov  [rsp+0x20],rcx
 //   movups [rsp+0x30],xmm1
 //   movups [rsp+0x40],xmm2
-//   call [rip+slotBlock]     EsrBlockAxis(kind): true while the wiki is open
+//   call [rip+slotBlock]     EsrBlockAxis(kind): true while the window is open
 //   mov  rcx,[rsp+0x20]
 //   movups xmm1,[rsp+0x30]
 //   movups xmm2,[rsp+0x40]
@@ -194,8 +204,7 @@ void WriteButtonStub(std::uint8_t* stub) {
 // run:
 //   push rbx / push rbp / push r14   the dispatcher's own first five bytes, run here
 //   jmp  [rip+slotResume]    the dispatcher at +5
-void WriteAxisStub(std::uint8_t* stub) {
-    const unsigned char code[] = {
+constexpr unsigned char kAxisStubCode[] = {
         0x48, 0x83, 0xEC, 0x58,                    // 0x00 sub rsp,0x58
         0x48, 0x89, 0x4C, 0x24, 0x20,              // 0x04 mov [rsp+0x20],rcx
         0x0F, 0x11, 0x4C, 0x24, 0x30,              // 0x09 movups [rsp+0x30],xmm1
@@ -212,20 +221,63 @@ void WriteAxisStub(std::uint8_t* stub) {
         0x40, 0x53, 0x55, 0x41, 0x56,              // 0x36 push rbx / push rbp / push r14
         0xFF, 0x25, 0x00, 0x00, 0x00, 0x00,        // 0x3B jmp [rip+slotResume] (fixed below)
     };
-    static_assert(sizeof(code) <= kAxisSlotBlock, "axis stub overlaps its slots");
-    static_assert(sizeof(kAxisStolen) == 5, "the stolen bytes must be exactly the patched span");
-    std::memcpy(stub, code, sizeof(code));
+static_assert(sizeof(kAxisStubCode) <= kAxisSlotBlock, "axis stub overlaps its slots");
+static_assert(sizeof(kAxisStolen) == 5, "the stolen bytes must be exactly the patched span");
+constexpr std::size_t kAxisStolenAt = 0x36;  // where the stub runs the dispatcher's first five bytes
+
+// `chained`: the stub passes on to another plugin's axis stub, which runs the five bytes itself, so they are NOPs here.
+void WriteAxisStub(std::uint8_t* stub, bool chained) {
+    std::memcpy(stub, kAxisStubCode, sizeof(kAxisStubCode));
+    if (chained) std::memset(stub + kAxisStolenAt, 0x90, sizeof(kAxisStolen));
     PutInt32(stub + 0x15, static_cast<std::int32_t>(kAxisSlotBlock - 0x19));
     PutInt32(stub + 0x3D, static_cast<std::int32_t>(kAxisSlotResume - 0x41));
+}
+
+// The target of the rel32 call or jmp at `site`.
+std::uint8_t* BranchTarget(std::uint8_t* site) {
+    std::int32_t rel = 0;
+    std::memcpy(&rel, site + 1, 4);
+    return site + 5 + rel;
+}
+
+bool Committed(const std::uint8_t* at) {
+    MEMORY_BASIC_INFORMATION info{};
+    return VirtualQuery(at, &info, sizeof(info)) != 0 && info.State == MEM_COMMIT;
+}
+
+// True when `at` is a button stub written by this file, in this plugin or another one (the wiki's stub of the same
+// code counts, including the one in wiki builds from before chaining existed).
+bool IsButtonStub(const std::uint8_t* at) {
+    if (!Committed(at)) return false;
+    unsigned char expected[sizeof(kButtonStubCode)];
+    WriteButtonStub(expected);
+    return SameBytes(at, expected, sizeof(expected));
+}
+
+// True when `at` is an axis stub written by this file, plain or chained.
+bool IsAxisStub(const std::uint8_t* at) {
+    if (!Committed(at)) return false;
+    unsigned char expected[sizeof(kAxisStubCode)];
+    WriteAxisStub(expected, false);
+    if (SameBytes(at, expected, sizeof(expected))) return true;
+    WriteAxisStub(expected, true);
+    return SameBytes(at, expected, sizeof(expected));
 }
 
 bool InstallButtons(std::uint8_t* base) {
     std::uint8_t* site = base + kCallSiteRva;
     std::uint8_t* handler = base + kHandlerRva;
+    // Where the call goes now: the game's handler, or another plugin's stub to chain onto.
+    std::uint8_t* next = handler;
     if (!SameBytes(site, kOriginalCall, sizeof(kOriginalCall))) {
-        DebugLog("controller block: the button call site does not match this game build (found " + Hex(site, 5) +
-                 "); buttons not blocked");
-        return false;
+        if (site[0] == 0xE8 && IsButtonStub(BranchTarget(site))) {
+            next = BranchTarget(site);
+            DebugLog("controller block: another plugin holds the button call; chaining onto it");
+        } else {
+            DebugLog("controller block: the button call site does not match this game build (found " + Hex(site, 5) +
+                     "); buttons not blocked");
+            return false;
+        }
     }
     if (!SameBytes(handler, kHandlerPrologue, sizeof(kHandlerPrologue))) {
         DebugLog("controller block: the key handler does not match this game build (found " + Hex(handler, 21) +
@@ -239,10 +291,10 @@ bool InstallButtons(std::uint8_t* base) {
     }
     WriteButtonStub(stub);
     PutPointer(stub, kButtonSlotBlock, reinterpret_cast<const void*>(&EsrBlockPress));
-    PutPointer(stub, kButtonSlotHandler, handler);
+    PutPointer(stub, kButtonSlotHandler, next);
 
     gButtons.site = site;
-    std::memcpy(gButtons.original, kOriginalCall, 5);
+    std::memcpy(gButtons.original, site, 5);  // the game's call, or the other plugin's
     gButtons.patched[0] = 0xE8;  // call rel32 to the stub
     PutInt32(gButtons.patched + 1, static_cast<std::int32_t>(reinterpret_cast<std::uintptr_t>(stub) -
                                                               reinterpret_cast<std::uintptr_t>(site + 5)));
@@ -256,22 +308,31 @@ bool InstallButtons(std::uint8_t* base) {
 
 bool InstallAxes(std::uint8_t* base) {
     std::uint8_t* site = base + kAxisRva;
+    // Where the dispatcher's entry goes now: the game's code, or another plugin's stub to chain onto. Either way the
+    // rest of the witness after the first five bytes must be the game's.
+    std::uint8_t* chainTo = nullptr;
     if (!SameBytes(site, kAxisPrologue, sizeof(kAxisPrologue))) {
-        DebugLog("controller block: the stick dispatcher does not match this game build (found " + Hex(site, 27) +
-                 "); sticks not blocked");
-        return false;
+        const bool restIsGame = SameBytes(site + 5, kAxisPrologue + 5, sizeof(kAxisPrologue) - 5);
+        if (restIsGame && site[0] == 0xE9 && IsAxisStub(BranchTarget(site))) {
+            chainTo = BranchTarget(site);
+            DebugLog("controller block: another plugin holds the stick dispatcher; chaining onto it");
+        } else {
+            DebugLog("controller block: the stick dispatcher does not match this game build (found " + Hex(site, 27) +
+                     "); sticks not blocked");
+            return false;
+        }
     }
     std::uint8_t* stub = AllocateNear(site + 5);
     if (stub == nullptr) {
         DebugLog("controller block: no memory near the game for the stick stub; sticks not blocked");
         return false;
     }
-    WriteAxisStub(stub);
+    WriteAxisStub(stub, chainTo != nullptr);
     PutPointer(stub, kAxisSlotBlock, reinterpret_cast<const void*>(&EsrBlockAxis));
-    PutPointer(stub, kAxisSlotResume, site + 5);
+    PutPointer(stub, kAxisSlotResume, chainTo != nullptr ? chainTo : site + 5);
 
     gAxes.site = site;
-    std::memcpy(gAxes.original, kAxisStolen, 5);
+    std::memcpy(gAxes.original, site, 5);  // the game's first bytes, or the other plugin's jmp
     gAxes.patched[0] = 0xE9;  // jmp rel32 to the stub
     PutInt32(gAxes.patched + 1, static_cast<std::int32_t>(reinterpret_cast<std::uintptr_t>(stub) -
                                                            reinterpret_cast<std::uintptr_t>(site + 5)));
@@ -312,7 +373,7 @@ bool Install(std::function<bool()> isWikiOpen) {
 
     gActive.store(true);
     DebugLog(std::string("controller block installed: buttons ") + (buttons ? "yes" : "no") + ", sticks " +
-             (axes ? "yes" : "no") + "; both are held back only while the wiki is open");
+             (axes ? "yes" : "no") + "; both are held back only while " + kWindow + " is open");
     return true;
 }
 

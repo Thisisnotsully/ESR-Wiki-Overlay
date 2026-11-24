@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	在第 5 幕地獄中單獨把一張終局地圖放進方塊合成，即可開啟它的區域和首領。共有 5 階；3 張相同的地圖可升級到下一階，隨機化石頭可以重擲其中一張。地圖首領會掉落更高階的地圖、祝福之球、武器專精徽章和鑰匙——萬魔殿鑰匙（恐懼、仇恨、毀滅）可以在方塊中互相轉化，並開啟通往三個烏伯首領之一的傳送門，它們的掉落合在一起可開啟烏伯崔斯特拉姆。地圖是神話暗金的唯一來源，有些只來自某一個特定首領。
 ENTRY	進階職業	巴爾之後
 BLOCK	0						0
-LINE	T	進階石是授予整個子職業的護符。擊殺 5 個地獄特殊超級暗金（第 1、2、3 幕各一個，第 5 幕兩個）取得它們的元素之球，將這些球在方塊中合成為創造之球，再與彩色的瑕疵寶石合成——顏色組合決定你的進階職業。之後的階段透過終局挑戰（地獄中的尼哈拉克、一分鐘內擊殺全部 3 個烏伯崔斯特拉姆首領、原初靈魂石、一個五階地圖首領）以任意順序完成來升級進階石。你一次只能配戴一塊石頭，每次死亡後都必須重新裝備。
+LINE	T	進階會授予整個子職業。擊殺 5 個地獄特殊超級暗金（第 1、2、3 幕各一個，第 5 幕兩個）取得它們的元素之球，將這些球在方塊中合成為創造之球。消耗該球即可解鎖進階面板，在其中選擇你的進階職業。之後的階段透過終局挑戰（地獄中的尼哈拉克、一分鐘內擊殺全部 3 個烏伯崔斯特拉姆首領、原初靈魂石、一個五階地圖首領）解鎖，可以任意順序完成。
 ENTRY	腐化與祝福	巴爾之後
 BLOCK	0						0
 LINE	T	腐化先把物品與世界石碎片在方塊中合成，再次合成以獲得隨機的強力加成——但它也可能把物品變成隨機稀有物品，所以只腐化你承受得起失去的東西（阿斯特羅哈的石化心臟可清除失敗腐化的狀態並保留加成，讓你可以再試一次）。祝福則改用祝福之球，其隨機加成永遠不會毀掉物品。兩者在升級順序中都排在鍛造和龍石強化之後，並且主要由恐懼地帶和終局地圖提供。
@@ -82,13 +82,14 @@ LINE	T	暗金護符只有在護符欄中才會生效，而且每種主要護符�
 PAGE	ascendancy	進階職業	Wiki
 ENTRY	進階職業	
 BLOCK	0						0
-LINE	T	進階職業 是能塑造你玩法的強大專精，會給予獨特的技能與加成。 昇華是透過一個名為 統治之石 的特殊護身符給予，而它只有在完成數場特殊戰鬥後才能取得。
+LINE	T	進階職業 是能塑造你玩法的強大專精，會給予獨特的技能與加成。
 LINE	T	​
-LINE	T	統治之石可以透過完成特定挑戰進一步升級（也就是繼續昇華），其中一些挑戰與非常困難的終局內容有關。
+LINE	T	昇華共有 5 個階層，每個挑戰都比前一個更難，但加成也更強。
 LINE	T	​
-LINE	T	昇華共有 5 個階層，每個挑戰都比前一個更難，但加成也更強。 統治之石 無法與其他角色共用。同一時間只能裝備一顆統治之石。 不用說，每個階層都只能達成一次。不過你可以依任意順序達成。
+LINE	T	不用說，每個階層都只能達成一次。不過你可以依任意順序達成。
 LINE	T	​
-LINE	T	統治之石無法以一般方式修改（無法墮落、受膏、拆解成楓葉等）。
+LINE	T	第 1 階層:
+LINE	T	若要取得 昇華，你需要擊殺 5 個特殊的超級精英 （地獄難度） ，牠們散布在庇護之地各處， 並轉化牠們各自掉落的元素寶珠，以取得 創造之球. 之後即可消耗創造之球來解鎖昇華面板，並在其中選擇你喜歡的昇華。
 LINE	T	​
 LINE	T	創造之球 / 材料位置
 LINE	C	法球幕位置怪物
@@ -104,16 +105,19 @@ LINE	T	要升級你的進階職業，請參閱高階挑戰
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	第 2 階層:
-LINE	T	在地獄難度擊殺尼拉塞克領域中的尼拉塞克，並把統治之石與其自身轉化，即可達成第二階層。 必須在角色身上的漩渦效果仍在時進行轉化。
+LINE	T	在地獄難度下，於尼拉塞克的領域中擊殺他，即可達成第二階層。
 LINE	T	​
 LINE	T	第 3 階層:
-LINE	T	擊殺超級崔斯特姆的所有頭目 （彼此間隔不超過一分鐘，且不能死亡）， 並把統治之石與楓葉一起轉化，即可達成第三階層。 即使擊殺最後一個頭目後角色身上仍有漩渦效果，若距離擊殺第一個頭目已超過 1 分鐘，也不會成功。
+LINE	T	擊殺超級崔斯特姆的所有頭目 （彼此間隔不超過一分鐘，且不能死亡），.
 LINE	T	​
 LINE	T	第 4 階層:
-LINE	T	The fourth tier is achieved by collecting 10 Primordial Soulstones that drop from any endgame map boss. You can only transmute one Primordial Stone at a time with the Ascendancy Stone. Once you have captured 10 Primordial Soulstones in the Ascendancy Stone, you will be able to transmute it with 2 Maple Leaves to ascend to tier 4.
+LINE	T	收集 10 顆從任何終局地圖頭目身上掉落的 原始靈魂石 ，即可達成第四階層。收集滿 10 顆原始靈魂石後，第 4 階層會自動解鎖。請注意，靈魂石會儲存在你的角色身上，你無法與它們互動。你可以在昇華面板中查看進度。
 LINE	T	​
 LINE	T	第 5 階層:
-LINE	T	擊殺任何第 5 階層地圖的頭目，並把統治之石與 3 片楓葉一起轉化，即可達成第五階層。 必須在角色身上的漩渦效果仍在時進行轉化。
+LINE	T	擊殺任何第 5 階層地圖的頭目，即可達成第五階層。
+LINE	T	​
+LINE	T	巫妖王加成:
+LINE	T	在 /players 8 難度下擊殺巫妖王，會解鎖額外加成，使第 3 與第 4 階層的屬性成長加成提高 10%。
 LINE	T	​
 ENTRY	Arcanist		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% 能量加成ÿc0
 LINE	S	​
 LINE	S	ÿc4第 3 階層:ÿc0
 LINE	S	ÿc3每 1% 速度，獲得 5 點法力ÿc1*ÿc3ÿc0
-LINE	S	ÿc3+30% 所有速度提升ÿc0
+LINE	S	ÿc330% 所有速度ÿc0
 LINE	S	​
 LINE	S	ÿc4第 4 階層:ÿc0
 LINE	S	ÿc3每 25% 速度，獲得擊中時 1 點法力ÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% 機率在攻擊時施放等級 20 寒冷增強箭ÿc0
 LINE	S	ÿc35% 機率在攻擊時施放等級 20 閃電增強箭矢ÿc0
 LINE	T	​
 LINE	T	ÿc1*每種速度（格擋、施法、移動、攻擊、恢復）分別計算。例如 +1% 所有速度，在昇華加成中算作 +5%。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc02 瑕疵綠寶石ÿc0ÿc02 瑕疵藍寶石ÿc0ÿc4秘法師崛起石ÿc0
 ENTRY	覺醒		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*門檻依屬性總點數計算（例如每項屬性都達到 250 時，就能獲得 +1 所有技能）。
 LINE	T	ÿc1**毀滅是一種毀天滅地的 6 元素新星（火焰/冰寒/閃電/毒素/物理/魔法），作用範圍涵蓋整個畫面，每道新星會造成轉換為對應元素的 50% 武器傷害，並造成會隨屬性總點數提升的各類型可觀法術傷害。它會擊退敵人，並在 2 秒內降低其所有抗性 25%。毒素新星不會造成武器傷害。
 LINE	T	ÿc1**毀滅只有在你目前生命低於 30% 時才能觸發。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵藍寶石ÿc0ÿc01 瑕疵綠寶石ÿc0ÿc01 瑕疵紅寶石ÿc0ÿc4覺醒的升華石ÿc0
 ENTRY	Battlemage		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc3+50% 所有速度提升ÿc0
 LINE	T	​
 LINE	T	ÿc1*總防禦加成會與你的全部護甲值相乘。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc02 瑕疵藍寶石ÿc0ÿc02 瑕疵黑曜石ÿc0ÿc4戰鬥法師升華石ÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc3近戰攻擊時有 25% 機率施放 1 級蹂躪ÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*蹂躪是小到中等範圍的技能，對所有受影響的敵人造成 150% 武器傷害的物理傷害，並在 2 秒內使其物理抗性降低 30%。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc04 瑕疵黑曜石ÿc0ÿc4狂戰士的崛起石ÿc0
 ENTRY	Blademaster		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4第 5 階層:ÿc0
 LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc315% 機率在攻擊時施放等級 20 投擲斧ÿc0
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc02 瑕疵黑曜石ÿc0ÿc02 瑕疵綠寶石ÿc0ÿc4劍術大師崇拜之石ÿc0
 ENTRY	Bloodmage		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% 召喚生命ÿc0
 LINE	S	ÿc3最大生命提高 50%ÿc0
 LINE	T	​
 LINE	T	ÿc1*血魔法表示你現在改用生命來施放法術。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc01 瑕疵紅寶石ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵藍寶石ÿc0ÿc4血法師的昇華石ÿc0
 ENTRY	Ironbolt		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% 機率在攻擊時施放等級 40 內視ÿc0
 LINE	S	ÿc3+25 銳化專注（所有職業）ÿc0
 LINE	T	​
 LINE	T	ÿc1*流血持續時間等同於十字弓裝填速度的比例。無論你是否使用十字弓都適用。鐵弩的流血可能會被其他流血來源稀釋（類似毒素效果會互相稀釋）。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc02 瑕疵黑曜石ÿc0ÿc02 瑕疵紅寶石ÿc0ÿc4鐵矛升華石ÿc0
 ENTRY	Lifebreaker		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3魔法抗性 +15%ÿc0
 LINE	S	ÿc3物理抗性: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*生命契約是一個可切換的技能，每秒吸取你最大生命的 25%，並每級給予 10% 最大生命。生命契約不會讓你死亡。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc04 瑕疵紅寶石ÿc0ÿc4生命破壞者崇高石ÿc0
 ENTRY	Mana Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc320% 機率在受到攻擊時施放等級 50 時間停止ÿc0
 LINE	S	ÿc3毒素抗性 +75%ÿc0
 LINE	S	ÿc3+20 的光照半徑ÿc0
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc01 瑕疵綠寶石ÿc0ÿc01 瑕疵紅寶石ÿc0ÿc01 瑕疵藍寶石ÿc0ÿc4法力守護者崇高石ÿc0
 ENTRY	Nomad		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc320% 機率在受到攻擊時施放等級 1 奔跑ÿc0
 LINE	T	​
 LINE	T	ÿc1*疾竄是持續 1 秒的增益效果，提供 33% 閃避、100% 基礎跑步/行走速度、25% 攻擊的總最大物理傷害，並在持續期間回復 10% 最大生命。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc02 瑕疵綠寶石ÿc0ÿc02 瑕疵紅寶石ÿc0ÿc4遊牧者的崛起石ÿc0
 ENTRY	Sharpshooter		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4第 5 階層:ÿc0
 LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc315% 機率在攻擊時施放等級 20 箭頭ÿc0
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc04 瑕疵綠寶石ÿc0ÿc4神射手升華石ÿc0
 ENTRY	Soul Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc3+1 到非獨特召喚限制ÿc0
 LINE	S	ÿc3減少傷害 50ÿc0
 LINE	S	ÿc3魔法傷害減少 50ÿc0
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc02 瑕疵紅寶石ÿc0ÿc02 瑕疵藍寶石ÿc0ÿc4靈魂守護者崇高之石ÿc0
 ENTRY	Stance Dancer		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3每次擊殺後 +50 生命法力ÿc0
 LINE	T	​
 LINE	T	ÿc1*你必須在操作子選單中設定切換架式的快捷鍵。
 LINE	T	ÿc1**你可以隨時切換架式，但架式只會依以下順序循環：紅 -> 綠 -> 藍。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵綠寶石ÿc0ÿc01 瑕疵藍寶石ÿc0ÿc4姿態舞者的超越石ÿc0
 ENTRY	Starborn		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% 能量加成ÿc0
 LINE	S	​
 LINE	S	ÿc4第 3 階層:ÿc0
 LINE	S	ÿc3每 400 點法力，獲得 -1% 敵人的火焰、冰寒與閃電抗性ÿc0
-LINE	S	ÿc3+400 生命法力ÿc0
+LINE	S	ÿc3+400 法力ÿc0
 LINE	S	​
 LINE	S	ÿc4第 4 階層:ÿc0
 LINE	S	ÿc3每5點法力獲得1點生命回復ÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4第 5 階層:ÿc0
 LINE	S	ÿc3+3 職業技能等級ÿc0
 LINE	S	ÿc3+1 到 傳送ÿc0
 LINE	S	ÿc3+1 到所有技能ÿc0
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc04 瑕疵藍寶石ÿc0ÿc4星之出生的升華石ÿc0
 ENTRY	Worldshaper		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*每種抗性分別計入加成門檻。例如，火焰、冰寒與閃電抗性各有 10% 時，你就能獲得 1% 物理抗性。
 LINE	T	ÿc1**法術傷害指火焰/冰寒/閃電/毒素/魔法/物理法術傷害，並會提高攻擊的固定傷害（物理法術傷害除外，它不會提高攻擊的物理傷害）。
 LINE	T	ÿc1***創造之怒是一個中等範圍的三重元素新星技能，每道新星造成轉換為對應元素的 50% 武器傷害，並使敵人的元素抗性降低 30%。
-LINE	T	​
-LINE	C	輸入輸出
-LINE	R	ÿc4創造之球ÿc0ÿc01 瑕疵紅寶石ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵綠寶石ÿc0ÿc4世界塑造者的升華石ÿc0
 PAGE	runes	符文	Wiki	compact
 ENTRY	漢字符文	
 BLOCK	1	I 符文					0

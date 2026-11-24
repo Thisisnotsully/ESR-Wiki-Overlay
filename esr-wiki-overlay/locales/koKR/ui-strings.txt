@@ -550,7 +550,13 @@ Lvl {0}	레벨 {0}
 Hard points only: +skills from items do not count.	투자 포인트만: 아이템의 +기술은 포함되지 않습니다.
 Receives bonuses from	다음으로부터 보너스를 받습니다
 At level {0}	레벨 {0}에서
-* beyond what a character can reach	* 캐릭터가 도달할 수 없는 수준
+*Maximum Skill Level	*최대 기술 레벨
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	{0}을(를) 넘는 기술 레벨에는 *가 표시됩니다: 어떤 캐릭터도 도달할 수 없지만 수치는 계산됩니다.
 No item grants this skill.	이 기술을 부여하는 아이템이 없습니다.
 {0} ({1})	{0} ({1})
+Search tips	검색 팁
+Several words: a card must have all of them.	여러 단어: 모두 포함한 카드만 표시됩니다.
+"Quoted words": an exact phrase.	"따옴표": 정확히 일치하는 문구.
+-word: leaves out cards that have it.	-단어: 해당 단어가 있는 카드를 제외합니다.
+Names, stats, runes and notes are searched. Small typos still match.	이름, 능력치, 룬, 메모를 검색합니다. 작은 오타도 찾아 줍니다.
+Enter opens the top suggestion.	Enter로 맨 위 제안을 엽니다.

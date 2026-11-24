@@ -546,7 +546,13 @@ Lvl {0}	等级 {0}
 Hard points only: +skills from items do not count.	仅限投入点数：物品提供的 +技能不计入。
 Receives bonuses from	可从以下获得加成效果
 At level {0}	等级 {0} 时
-* beyond what a character can reach	* 超出角色可达到的范围
+*Maximum Skill Level	*最大技能等级
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	高于 {0} 的技能等级标有 *：任何角色都无法达到，但数值仍会计算。
 No item grants this skill.	没有物品提供此技能。
 {0} ({1})	{0}（{1}）
+Search tips	搜索提示
+Several words: a card must have all of them.	多个词：卡片必须包含全部词。
+"Quoted words": an exact phrase.	"引号内的词"：精确短语。
+-word: leaves out cards that have it.	-词：排除含有该词的卡片。
+Names, stats, runes and notes are searched. Small typos still match.	会搜索名称、属性、符文和备注，轻微拼写错误也能匹配。
+Enter opens the top suggestion.	按 Enter 打开第一条建议。

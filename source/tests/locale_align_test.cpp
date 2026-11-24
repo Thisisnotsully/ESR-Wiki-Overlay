@@ -49,6 +49,16 @@ int main(int argc, char** argv) {
         CHECK(pairs.size() == 20);
         CHECK(!pairs.empty() && pairs.back().first == "Word 19" && pairs.back().second == "Mot 19");
     }
+    // a sentence the website breaks into several nodes stays whole in the wiki data; the Japanese puts a digit where the
+    // English has a word ("third" / "3"), so the pieces alone cannot translate it
+    {
+        Translator t;
+        t.AddPage("<p>The third tier is reached by killing all bosses <b>within a minute</b> of each other</p><span>.</span><p>Other</p>",
+                  "<p>\xE7\xAC\xAC" "3\xE3\x83\x86\xE3\x82\xA3\xE3\x82\xA2\xE3\x81\xAF\xE3\x80\x81\xE5\x85\xA8\xE3\x81\xA6\xE3\x82\x92 <b>1\xE5\x88\x86\xE4\xBB\xA5\xE5\x86\x85</b>\xE3\x81\xAB\xE5\x80\x92\xE3\x81\x97</p><span>.</span><p>\xE4\xBB\x96</p>");
+        t.Finish();
+        const std::string out = t.Translate("LINE\tT\tThe third tier is reached by killing all bosses within a minute of each other.\n");
+        CHECK(out == "LINE\tT\t\xE7\xAC\xAC" "3\xE3\x83\x86\xE3\x82\xA3\xE3\x82\xA2\xE3\x81\xAF\xE3\x80\x81\xE5\x85\xA8\xE3\x81\xA6\xE3\x82\x92" "1\xE5\x88\x86\xE4\xBB\xA5\xE5\x86\x85\xE3\x81\xAB\xE5\x80\x92\xE3\x81\x97.\n");
+    }
     // translating wiki data: exact, numbers, pieces, colour codes, the tier column stays
     {
         Translator t;

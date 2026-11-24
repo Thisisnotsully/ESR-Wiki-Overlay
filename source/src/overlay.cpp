@@ -1428,6 +1428,7 @@ struct OverlayState {
     CursorDrive drive;            // the left stick and the cursor flags, shared with the cursor thread
     double padScrollCarry = 0;
     bool oskOpen = false;
+    bool searchHover = false;  // the pointer is over the search box (the search tips show while it is empty)
     bool oskAccents = false;
     int oskRow = 1, oskCol = 0;
     esrwiki::pad::OskRows oskRows;
@@ -1931,6 +1932,7 @@ struct OverlayState {
     void EnsureBackgroundCache(HDC target, int width, int height);
     void ReleaseBackgroundCache();
     void DrawTooltip(HDC dc);
+    void DrawSearchHelp(HDC dc);
     Gdiplus::Bitmap* FindImage(const std::string& key);
 };
 
@@ -2340,37 +2342,28 @@ bool OverlayState::StepWithinEntry(int direction) {
 // are open the message loop gives Enter to them first, see SuggestKey).
 WNDPROC gSearchProc = nullptr;
 
-// The grey hint in the empty search box. Drawn here rather than with EM_SETCUEBANNER, which needs version 6 of the common
-// controls (the game process does not load them).
-void DrawSearchPlaceholder(HWND hwnd) {
-    if (GetWindowTextLengthW(hwnd) != 0) return;
-    const std::wstring hint = UiText(L"Search names, stats, runes\u2026 (in English)");
-    RECT client{};
-    GetClientRect(hwnd, &client);
-    const HDC dc = GetDC(hwnd);
-    if (dc == nullptr) return;
-    HideCaret(hwnd);
-    const HFONT font = reinterpret_cast<HFONT>(SendMessageW(hwnd, WM_GETFONT, 0, 0));
-    const HGDIOBJ previous = font != nullptr ? SelectObject(dc, font) : nullptr;
-    SetBkMode(dc, TRANSPARENT);
-    SetTextColor(dc, RGB(128, 114, 92));
-    client.left += 2;  // past the caret
-    DrawTextW(dc, hint.c_str(), static_cast<int>(hint.size()), &client, DT_LEFT | DT_SINGLELINE | DT_VCENTER | DT_END_ELLIPSIS | DT_NOPREFIX);
-    if (previous != nullptr) SelectObject(dc, previous);
-    ReleaseDC(hwnd, dc);
-    ShowCaret(hwnd);
-}
-
 LRESULT CALLBACK SearchEditProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
     if (message == WM_LBUTTONDOWN) {  // a click on the search box with the controller cursor opens the on-screen keyboard
         auto* owner = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
         if (owner != nullptr && owner->padActive) PostMessageW(GetParent(hwnd), kMsgOpenOsk, 0, 0);
         else if (owner != nullptr) owner->ReopenSuggest();  // a click on the box brings the suggestions back
     }
-    if (message == WM_PAINT) {
-        const LRESULT result = CallWindowProcW(gSearchProc, hwnd, message, wParam, lParam);
-        DrawSearchPlaceholder(hwnd);
-        return result;
+    if (message == WM_MOUSEMOVE || message == WM_MOUSELEAVE) {  // the search tips show while the pointer is over the box
+        auto* owner = reinterpret_cast<OverlayState*>(GetWindowLongPtrW(GetParent(hwnd), GWLP_USERDATA));
+        if (owner != nullptr) {
+            const bool over = message == WM_MOUSEMOVE;
+            if (over) {
+                TRACKMOUSEEVENT track{};
+                track.cbSize = sizeof(track);
+                track.dwFlags = TME_LEAVE;
+                track.hwndTrack = hwnd;
+                TrackMouseEvent(&track);
+            }
+            if (owner->searchHover != over) {
+                owner->searchHover = over;
+                InvalidateRect(owner->window, nullptr, FALSE);
+            }
+        }
     }
     if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_TAB) return 0;  // Tab picks suggestions, never a tab character
     if ((message == WM_KEYDOWN || message == WM_CHAR) && wParam == VK_RETURN) {
@@ -2744,6 +2737,13 @@ void OverlayState::HandleMove(int x, int y) {
         TrackMouseEvent(&track);
         trackingMouse = true;
     }
+    {
+        const bool overSearch = Inside(SearchBoxRect(layout), x, y);  // the frame round the box (the box itself is its own window)
+        if (overSearch != searchHover) {
+            searchHover = overSearch;
+            InvalidateRect(window, nullptr, FALSE);
+        }
+    }
     if (skillsBarDragging >= 0) {
         SkillsBarDrag(y);
         return;
@@ -2997,12 +2997,51 @@ void OverlayState::DrawTooltip(HDC dc) {
     RestoreDC(dc, saved);
 }
 
+// What the search understands, in a tip beside the empty search box: while the pointer is over it, or the controller's
+// keyboard is open for it. Gone as soon as there is text.
+void OverlayState::DrawSearchHelp(HDC dc) {
+    if (!query.empty() || !IsWindow(search)) return;
+    if (!searchHover && !(padActive && oskOpen)) return;
+    struct TipRow { std::wstring text; COLORREF color; HFONT font; };
+    const std::vector<TipRow> rows = {
+        {UiText(L"Search tips"), kGold, fontBold},
+        {UiText(L"Several words: a card must have all of them."), kBody, fontBody},
+        {UiText(L"\"Quoted words\": an exact phrase."), kBody, fontBody},
+        {UiText(L"-word: leaves out cards that have it."), kBody, fontBody},
+        {UiText(L"Names, stats, runes and notes are searched. Small typos still match."), kBody, fontBody},
+        {UiText(L"Enter opens the top suggestion."), kDim, fontSmall},
+    };
+    RECT client{};
+    GetClientRect(window, &client);
+    const RECT box0 = SearchBoxRect(layout);
+    const int cursorRight = std::max(gCursorDrawWidth.load() - gCursorHotX.load(), 0) + S(6);
+    const int left = static_cast<int>(box0.right) + cursorRight;
+    const int tipWidth = std::min(S(400), static_cast<int>(client.right) - left - S(8));
+    if (tipWidth < S(200)) return;
+    const int inner = tipWidth - S(24);
+    const int gap = S(4);
+    std::vector<int> heights;
+    int total = S(16);
+    for (const TipRow& row : rows) {
+        heights.push_back(MeasureHeight(dc, row.text, inner, row.font));
+        total += heights.back() + gap;
+    }
+    int top = static_cast<int>(box0.top);
+    if (top + total > client.bottom - S(8)) top = static_cast<int>(client.bottom) - total - S(8);
+    const RECT box = Rect(left, top, left + tipWidth, top + total);
+    CornerShadow(dc, box, S(2));
+    FillPanel(dc, box, RGB(10, 7, 4), 214);
+    FrameColor(dc, box, kGold);
+    int y = top + S(8);
+    for (std::size_t i = 0; i < rows.size(); ++i) {
+        Text(dc, rows[i].text, Rect(left + S(12), y, left + S(12) + inner, y + heights[i]), rows[i].color, rows[i].font, DT_LEFT | DT_WORDBREAK | DT_NOPREFIX);
+        y += heights[i] + gap;
+    }
+}
+
 void OverlayState::QueryChanged() {
-    const bool wasEmpty = query.empty();
     Refilter();
     ScheduleSuggest();  // the list is looked up once the typing stops (kTimerSuggest)
-    // The box repaints whole when it empties or fills, so the placeholder comes back or goes completely.
-    if (wasEmpty != query.empty() && IsWindow(search)) InvalidateRect(search, nullptr, TRUE);
     InvalidateRect(window, nullptr, FALSE);
 }
 
@@ -5438,6 +5477,7 @@ void OverlayState::Paint(HDC target) {
     DrawJumpFlash(dc);
     DrawSuggest(dc);
     DrawTooltip(dc);
+    DrawSearchHelp(dc);
     DrawSpecTooltip(dc);
     DrawCampaignTooltip(dc);
     SkillsPadAfterPaint();
@@ -5552,6 +5592,10 @@ LRESULT CALLBACK WindowProc(HWND window, UINT message, WPARAM wParam, LPARAM lPa
     }
     case WM_MOUSELEAVE:
         self->trackingMouse = false;
+        if (self->searchHover) {
+            self->searchHover = false;
+            InvalidateRect(window, nullptr, FALSE);
+        }
         if (!self->dragging && self->skillsBarDragging < 0) self->ClearHover();
         return 0;
     case WM_LBUTTONDOWN:

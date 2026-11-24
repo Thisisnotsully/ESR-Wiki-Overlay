@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	Cube an Endgame Map alone in Act 5 Hell to open its zone and boss. There are 5 tiers; 3 of the same map upgrade to the next tier, and a Randomizing Stone can reroll one. Map bosses drop higher maps, Orbs of Anointment, Weapon Mastery Tokens, and keys -- Pandemonium keys (Terror, Hate, Destruction) convert into each other in the cube and open a portal to one of three uber bosses, whose drops together open Uber Tristram. Maps are the only source of mythical uniques, some from one specific boss only.
 ENTRY	Ascendancies	After Baal
 BLOCK	0						0
-LINE	T	An Ascendancy Stone is a charm that grants a whole subclass. Kill 5 special Hell superuniques (one each in Acts 1, 2 and 3, two in Act 5) for their elemental orbs, cube those into an Orb of Creation, then cube it with colored Blemished gems -- the color combination picks your ascendancy. Later tiers upgrade the stone through endgame challenges (Nihlathak on Hell, all 3 Uber Tristram bosses in one minute, Primordial Soulstones, a tier-5 map boss) done in any order. You can wear only one stone at a time, and must re-equip it after every death.
+LINE	T	An Ascendancy grants a whole subclass. Kill 5 special Hell superuniques (one each in Acts 1, 2 and 3, two in Act 5) for their elemental orbs and cube those into an Orb of Creation. Consuming the orb unlocks the ascendancy panel, where you choose your ascendancy. Later tiers are unlocked through endgame challenges (Nihlathak on Hell, all 3 Uber Tristram bosses in one minute, Primordial Soulstones, a tier-5 map boss), done in any order.
 ENTRY	Corruption and Anointment	After Baal
 BLOCK	0						0
 LINE	T	Corruption cubes an item with a Worldstone Shard, then cubes it again for a random strong bonus -- but it can also turn the item into a random rare, so only corrupt what you can afford to lose (Astrogha's Petrified Heart clears a bad corruption's status, keeping the bonus, so you can try again). Anointment uses an Orb of Anointment instead, and its random bonus can never brick the item. Both come after Forging and D-stoning in the upgrade order, and both are fed primarily by terror zones and Endgame Maps.
@@ -82,13 +82,14 @@ LINE	T	Unique charms only work from the charm inventory, and only one of each ma
 PAGE	ascendancy	Ascendancy	Wiki
 ENTRY	Ascendancies	
 BLOCK	0						0
-LINE	T	Ascendancies are powerful specializations that shape how you play, granting unique skills and bonuses. Ascendancies are granted through a special charm called the Ascendancy Stone that can only be obtained after completing several special encounters.
+LINE	T	Ascendancies are powerful specializations that shape how you play, granting unique skills and bonuses.
 LINE	T	​
-LINE	T	Ascendancy stones can be further upgraded (meaning you can further ascend) by completing specific challenges, some of which are tied to very hard endgame content.
+LINE	T	There are 5 ascendancy tiers you can attain, each challenge being harder than the previous one, but the bonuses being stronger as well.
 LINE	T	​
-LINE	T	There are 5 ascendancy tiers you can attain, each challenge being harder than the previous one, but the bonuses being stronger as well. Ascendancy Stones cannot be shared to other characters. You can only have one ascendancy stone equipped at any time. Needless to say, each tier can only be achieved once. However, you can achieve them in any order.
+LINE	T	Needless to say, each tier can only be achieved once. However, you can achieve them in any order.
 LINE	T	​
-LINE	T	Ascendancy stones cannot be modified by regular means (they cannot be corrupted, anointed, broken down for maple leaves etc.).
+LINE	T	Tier 1:
+LINE	T	In order to get an Ascendancy, you need to kill 5 special superuniques on hell difficulty scattered around Sanctuary and transmute the elemental orbs each of them drop to obtain the Orb of Creation. The orb can then be consumed to unlock the ascendancy panel, where you can choose an ascendancy of your liking.
 LINE	T	​
 LINE	T	Orb of Creation / Material Locations
 LINE	C	OrbActLocationMonster
@@ -104,16 +105,19 @@ LINE	T	To upgrade your Ascendancy refer to the Higher Tier Challenges
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	Tier 2:
-LINE	T	The second tier is achieved by killing Nihalthak in his domain on hell difficulty and transmuting the ascendancy stone with itself. You need to transmute it while you have the swirls active on your character.
+LINE	T	The second tier is achieved by killing Nihalthak in his domain on hell difficulty.
 LINE	T	​
 LINE	T	Tier 3:
-LINE	T	The third tier is achieved by killing all of Uber Tristram bosses within one minute of each other without dying and transmuting the ascendancy stone with a Maple Leaf. Even if you have the swirls active on your character after you killed the last boss, it will not work if it passed more than 1 minute since you killed the first one.
+LINE	T	The third tier is achieved by killing all of Uber Tristram bosses within one minute of each other without dying.
 LINE	T	​
 LINE	T	Tier 4:
-LINE	T	The fourth tier is achieved by collecting 10 Primordial Soulstones that drop from any endgame map boss. You can only transmute one Primordial Stone at a time with the Ascendancy Stone. Once you have captured 10 Primordial Soulstones in the Ascendancy Stone, you will be able to transmute it with 2 Maple Leaves to ascend to tier 4.
+LINE	T	The fourth tier is achieved by collecting 10 Primordial Soulstones that drop from any endgame map boss. Once you have captured 10 Primordial Soulstones, the tier 4 will be unlocked automatically. Note that the soulstones are stored on your character and you can't interact with them. You can check your progress in the ascendancy panel.
 LINE	T	​
 LINE	T	Tier 5:
-LINE	T	The fifth tier is achieved by killing any tier 5 map boss and transmuting the ascendancy stone with 3 Maple Leaves. You need to transmute it while you have the swirls active on your character.
+LINE	T	The fifth tier is achieved by killing any tier 5 map boss.
+LINE	T	​
+LINE	T	Lich King Bonus:
+LINE	T	Killing the Lich King on /players 8 difficulty unlocks an additional bonus that increases the tier 3 and 4 stat scaling bonuses by 10%.
 LINE	T	​
 ENTRY	Arcanist		split
 BLOCK	0						0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% Chance to Cast Level 20 Cold Enhanced Arrow on Strikingÿc0
 LINE	S	ÿc35% Chance to Cast Level 20 Lightning Enhanced Arrow on Strikingÿc0
 LINE	T	​
 LINE	T	ÿc1*Each type of speed (block, cast, move, attack, recovery) is counted separately. E.g. +1% to All Speeds counts as +5% to ascendancy bonuses.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc02 Blemished Emeraldÿc0ÿc02 Blemished Sapphireÿc0ÿc4Arcanist Ascendancy Stoneÿc0
 ENTRY	Awakened		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*Breakpoints are reached for total number of attributes (e.g. you gain +1 to All Skills if you have 250 of each attribute).
 LINE	T	ÿc1**Annihilation is a devastating 6 elemental nova (F/C/L/P/Phys/Magic), entire screen area of effect skill that deals 50% weapon damage converted to each respective element per nova as well as significant spell damage of each damage type which gets scaled by total attributes, knockbacks enemies and lowers all of their resistances by 25% for 2 seconds. The poison nova does not deal weapon damage.
 LINE	T	ÿc1**Annihilation can proc only when you are below 30% current life.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc01 Blemished Obsidianÿc0ÿc01 Blemished Sapphireÿc0ÿc01 Blemished Emeraldÿc0ÿc01 Blemished Rubyÿc0ÿc4Awakened Ascendancy Stoneÿc0
 ENTRY	Battlemage		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc3+50% to All Speedsÿc0
 LINE	T	​
 LINE	T	ÿc1*Total Defense Bonus is multiplicative with your entire armor value.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc02 Blemished Sapphireÿc0ÿc02 Blemished Obsidianÿc0ÿc4Battlemage Ascendancy Stoneÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc325% Chance to Cast Level 1 Ravage on Melee Attackÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*Ravage is a small-to-medium area of effect skill that deals 150% weapon damage as physical to all enemies affected and lowers their physical resist by 30% for 2 seconds.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc04 Blemished Obsidianÿc0ÿc4Berserker Ascendancy Stoneÿc0
 ENTRY	Blademaster		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4Tier 5:ÿc0
 LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc315% Chance to Cast Level 20 Thrown Axe on Strikingÿc0
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc02 Blemished Obsidianÿc0ÿc02 Blemished Emeraldÿc0ÿc4Blademaster Ascendancy Stoneÿc0
 ENTRY	Bloodmage		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% to Summon Lifeÿc0
 LINE	S	ÿc350% Increased Maximum Lifeÿc0
 LINE	T	​
 LINE	T	ÿc1*Blood Magic means you use life to cast spells now.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc01 Blemished Rubyÿc0ÿc01 Blemished Obsidianÿc0ÿc01 Blemished Sapphireÿc0ÿc4Bloodmage Ascendancy Stoneÿc0
 ENTRY	Ironbolt		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% Chance to Cast Level 40 Inner Sight on Strikingÿc0
 LINE	S	ÿc3+25 To Sharpened Focus (All Classes)ÿc0
 LINE	T	​
 LINE	T	ÿc1*Bleed length is equal to the crossbow reload speed scaling. This still applies regardless if you use a crossbow or not. The bleed granted by ironbolt can still be dilluted by other bleed sources (similar to how poison instances dillute each other).
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc02 Blemished Obsidianÿc0ÿc02 Blemished Rubyÿc0ÿc4Ironbolt Ascendancy Stoneÿc0
 ENTRY	Lifebreaker		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3Magic Resist +15%ÿc0
 LINE	S	ÿc3Physical Resist: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Life Pact is a toggleable skill that drains 25% of your maximum health every second and that grants 10% maximum health per level. Life Pact cannot kill you.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc04 Blemished Rubyÿc0ÿc4Lifebreaker Ascendancy Stoneÿc0
 ENTRY	Mana Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc320% Chance to Cast Level 50 Time Stop when Struckÿc0
 LINE	S	ÿc3Poison Resist +75%ÿc0
 LINE	S	ÿc3+20 to Light Radiusÿc0
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc01 Blemished Emeraldÿc0ÿc01 Blemished Rubyÿc0ÿc01 Blemished Sapphireÿc0ÿc4Mana Warden Ascendancy Stoneÿc0
 ENTRY	Nomad		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc320% Chance to Cast Level 1 Scurry when Struckÿc0
 LINE	T	​
 LINE	T	ÿc1*Scurry is a 1 second duration buff that grants 33% dodge, 100% Base Run/Walk speed, 25% total maximum physical damage to attacks and regenerates 10% of maximum life over its duration.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc02 Blemished Emeraldÿc0ÿc02 Blemished Rubyÿc0ÿc4Nomad Ascendancy Stoneÿc0
 ENTRY	Sharpshooter		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4Tier 5:ÿc0
 LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc315% Chance to Cast Level 20 Arrow on Strikingÿc0
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc04 Blemished Emeraldÿc0ÿc4Sharpshooter Ascendancy Stoneÿc0
 ENTRY	Soul Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc3+1 to Non-Unique Summons Limitÿc0
 LINE	S	ÿc3Damage Reduced by 50ÿc0
 LINE	S	ÿc3Magic Damage Reduced by 50ÿc0
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc02 Blemished Rubyÿc0ÿc02 Blemished Sapphireÿc0ÿc4Soul Warden Ascendancy Stoneÿc0
 ENTRY	Stance Dancer		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 to Mana after each Killÿc0
 LINE	T	​
 LINE	T	ÿc1*You need to set a hotkey for stance dancing in the controls submenu.
 LINE	T	ÿc1**You can change the stance at will, but stances will only cycle in the following order: Red -> Green -> Blue.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc01 Blemished Obsidianÿc0ÿc01 Blemished Emeraldÿc0ÿc01 Blemished Sapphireÿc0ÿc4Stance Dancer Ascendancy Stoneÿc0
 ENTRY	Starborn		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -555,9 +520,6 @@ LINE	S	ÿc4Tier 5:ÿc0
 LINE	S	ÿc3+3 to Class Skill Levelsÿc0
 LINE	S	ÿc3+1 to Teleportÿc0
 LINE	S	ÿc3+1 to All Skillsÿc0
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc04 Blemished Sapphireÿc0ÿc4Starborn Ascendancy Stoneÿc0
 ENTRY	Worldshaper		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*Each resist type counts separately towards bonus breakpoints. For example, you get 1% physical resist if you have 10% fire/cold/lightning resistance each.
 LINE	T	ÿc1**Spell Damage is fire/cold/lightning/poison/magic/physical Spell Damage and it increases flat damage to attacks (except physical spell damage which does not increase physical damage to attacks).
 LINE	T	ÿc1***Fury of Creation is a medium area of effect triple elemental nova skill, each nova dealing 50% weapon damage converted to the respective element and reducing elemental resistances of enemies by 30%.
-LINE	T	​
-LINE	C	InputOutput
-LINE	R	ÿc4Orb of Creationÿc0ÿc01 Blemished Rubyÿc0ÿc01 Blemished Obsidianÿc0ÿc01 Blemished Emeraldÿc0ÿc4Worldshaper Ascendancy Stoneÿc0
 PAGE	runes	Runes	Wiki	compact
 ENTRY	Kanji Runes	
 BLOCK	1	I Rune					0

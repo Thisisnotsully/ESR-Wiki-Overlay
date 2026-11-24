@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.29)
-project(ESRWikiOverlay VERSION 1.7.0 LANGUAGES CXX)
+project(ESRWikiOverlay VERSION 1.8.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -126,7 +126,8 @@ if(ESR_WIKI_BUILD_TESTS)
   endif()
   add_test(NAME web_ascendancy_live
            COMMAND web_ascendancy_live_test "${CMAKE_CURRENT_SOURCE_DIR}/data/website-ascendancy/ascendancies.htm"
-                                            "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt")
+                                            "${CMAKE_CURRENT_SOURCE_DIR}/data/wiki-data.txt"
+                                            "${CMAKE_CURRENT_SOURCE_DIR}/tests/web_ascendancy_old/ascendancies.htm")
 
   # The website sets builder must give exactly what tools/web_sets.py writes (data/website-sets/).
   add_executable(web_sets_live_test tests/web_sets_live_test.cpp)

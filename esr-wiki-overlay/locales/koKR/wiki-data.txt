@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	5막 지옥에서 엔드게임 지도를 단독으로 큐브에서 조합하면 그 구역과 보스가 열립니다. 단계는 5가지이며, 같은 지도 3장은 다음 단계로 업그레이드되고, 무작위의 돌로 하나를 재굴림할 수 있습니다. 지도 보스는 상위 지도, 성수의 구슬, 무기 숙련 토큰, 열쇠를 떨어뜨립니다. 판데모니엄 열쇠(공포, 증오, 파괴)는 큐브에서 서로 변환되며 세 우버 보스 중 하나로 가는 차원문을 열고, 그 드롭을 모두 모으면 우버 트리스트럼이 열립니다. 지도는 신화 유니크의 유일한 출처이며, 일부는 특정 보스 한 명에게서만 나옵니다.
 ENTRY	전직	바알 이후
 BLOCK	0						0
-LINE	T	전직석은 하위 직업 전체를 부여하는 부적입니다. 지옥의 특수 슈퍼유니크 5마리(1, 2, 3막에서 각 1마리, 5막에서 2마리)를 처치해 원소 구슬을 얻고, 이를 큐브에서 조합해 창조의 구슬로 만든 뒤, 색깔별 흠집이 있는 보석과 조합하세요. 색 조합이 전직을 결정합니다. 이후 단계는 엔드게임 도전(지옥의 니할락, 1분 안에 우버 트리스트럼 보스 3마리 모두, 태초의 영혼석, 5단계 지도 보스)을 어떤 순서로든 완수해 전직석을 업그레이드합니다. 한 번에 전직석 하나만 착용할 수 있고, 죽을 때마다 다시 장착해야 합니다.
+LINE	T	전직은 하위 직업 전체를 부여합니다. 지옥의 특수 슈퍼유니크 5마리(1, 2, 3막에서 각 1마리, 5막에서 2마리)를 처치해 원소 구슬을 얻고, 이를 큐브에서 조합해 창조의 구슬로 만드세요. 구슬을 소모하면 전직 창이 열리며, 그곳에서 원하는 전직을 선택합니다. 이후 단계는 엔드게임 도전(지옥의 니할락, 1분 안에 우버 트리스트럼 보스 3마리 모두, 태초의 영혼석, 5단계 지도 보스)을 어떤 순서로든 완수하면 해금됩니다.
 ENTRY	타락과 성유	바알 이후
 BLOCK	0						0
 LINE	T	타락은 아이템을 세계석 조각과 큐브에서 조합한 뒤 다시 조합하여 무작위 강력한 보너스를 얻지만, 아이템이 무작위 희귀로 변할 수도 있으므로 잃어도 되는 것만 타락시키세요(아스트로가의 석화된 심장은 나쁜 타락의 상태를 지우고 보너스는 유지하므로 다시 시도할 수 있습니다). 성유는 대신 성수의 구슬을 사용하며, 무작위 보너스로 아이템이 망가지는 일은 없습니다. 둘 다 강화 순서에서 단조와 D-스톤 뒤에 오며, 주로 공포 구역과 엔드게임 지도로 재료를 얻습니다.
@@ -82,13 +82,14 @@ LINE	T	유니크 부적은 부적 인벤토리에서만 작동하며, 주요 부
 PAGE	ascendancy	전직	Wiki
 ENTRY	전직	
 BLOCK	0						0
-LINE	T	전직 은(는) 플레이 방식을 결정하는 강력한 특화로, 고유한 기술과 보너스를 부여합니다. 승천은 여러 특별한 전투를 완료한 뒤에만 얻을 수 있는 승천의 돌 (이)라는 특별한 부적을 통해 부여됩니다.
+LINE	T	전직 은(는) 플레이 방식을 결정하는 강력한 특화로, 고유한 기술과 보너스를 부여합니다.
 LINE	T	​
-LINE	T	승천의 돌은 특정 도전을 완료해 더 업그레이드할 수 있으며(즉, 더 높이 승천할 수 있으며), 일부 도전은 매우 어려운 엔드게임 콘텐츠와 연결되어 있습니다.
+LINE	T	승천 티어는 5단계이며, 도전은 이전보다 어려워지지만 보너스도 그만큼 강해집니다.
 LINE	T	​
-LINE	T	승천 티어는 5단계이며, 도전은 이전보다 어려워지지만 보너스도 그만큼 강해집니다. 승천의 돌은 다른 캐릭터와 공유할 수 없습니다. 한 번에 하나의 승천의 돌만 착용할 수 있습니다. 말할 필요도 없이 각 티어는 한 번만 달성할 수 있습니다. 하지만 순서는 상관없습니다.
+LINE	T	말할 필요도 없이 각 티어는 한 번만 달성할 수 있습니다. 하지만 순서는 상관없습니다.
 LINE	T	​
-LINE	T	승천의 돌은 일반적인 방법으로 수정할 수 없습니다(타락, 성유 부여, 단풍잎으로 분해 등이 불가능합니다).
+LINE	T	티어 1:
+LINE	T	다음 아이템을 얻으려면: 전직. 먼저 특별한 슈퍼 유니크 5마리를 처치해야 합니다 (지옥 난이도) (성역 곳곳에 흩어져 있음) . 그리고 각각이 떨어뜨리는 원소 구슬을 변환해 다음을 얻습니다: 창조의 구슬. 이후 이 구슬을 소모하면 승천 패널이 해제되며, 그곳에서 원하는 승천을 선택할 수 있습니다.
 LINE	T	​
 LINE	T	창조의 구슬 / 재료 위치
 LINE	C	구슬막위치괴물
@@ -104,16 +105,19 @@ LINE	T	전직을 업그레이드하려면 상위 단계 도전 과제를 참고�
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	티어 2:
-LINE	T	두 번째 티어는 지옥 난이도에서 니흘라탁의 영역에 있는 니흘라탁을 처치하고 승천의 돌을 그 자체와 변환하면 달성됩니다. 캐릭터에 소용돌이가 활성화된 동안 변환해야 합니다.
+LINE	T	두 번째 티어는 지옥 난이도에서 니흘라탁을 그의 영역에서 처치하면 달성됩니다.
 LINE	T	​
 LINE	T	티어 3:
-LINE	T	The third tier is achieved by killing all of Uber Tristram bosses within one minute of each other without dying and transmuting the ascendancy stone with a Maple Leaf. Even if you have the swirls active on your character after you killed the last boss, it will not work if it passed more than 1 minute since you killed the first one.
+LINE	T	세 번째 티어는 우버 트리스트램의 모든 보스를 서로 1분 이내에, 죽지 않고 처치한 뒤.
 LINE	T	​
 LINE	T	티어 4:
-LINE	T	The fourth tier is achieved by collecting 10 Primordial Soulstones that drop from any endgame map boss. You can only transmute one Primordial Stone at a time with the Ascendancy Stone. Once you have captured 10 Primordial Soulstones in the Ascendancy Stone, you will be able to transmute it with 2 Maple Leaves to ascend to tier 4.
+LINE	T	네 번째 티어는 모든 엔드게임 지도 보스에게서 드롭되는 원초적 영혼석 10개를 모으면 달성됩니다. 10개를 모두 모으는 즉시 티어 4이(가) 자동으로 해제됩니다. 영혼석은 캐릭터에 저장되며 직접 상호작용할 수 없습니다. 진행 상황은 승천 패널에서 확인할 수 있습니다.
 LINE	T	​
 LINE	T	티어 5:
-LINE	T	다섯 번째 티어는 아무 티어 5 지도 보스를 처치하고 승천의 돌을 단풍잎 3개와 변환하면 달성됩니다. 캐릭터에 소용돌이가 활성화된 동안 변환해야 합니다.
+LINE	T	다섯 번째 티어는 티어 5 지도의 보스를 아무나 처치하면 달성됩니다.
+LINE	T	​
+LINE	T	리치 왕 보너스:
+LINE	T	/players 8에서 리치 왕을 처치하면 추가 보너스가 해제되어 티어 3 및 4의 능력치 성장 보너스가 10% 증가합니다.
 LINE	T	​
 ENTRY	비전술사		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% 에너지 보너스ÿc0
 LINE	S	​
 LINE	S	ÿc4티어 3:ÿc0
 LINE	S	ÿc3속도 1%마다 마나 5 획득ÿc1*ÿc3ÿc0
-LINE	S	ÿc3모든 속도에 +30% 추가ÿc0
+LINE	S	ÿc3모든 속도 +30%ÿc0
 LINE	S	​
 LINE	S	ÿc4티어 4:ÿc0
 LINE	S	ÿc3속도 25%마다 타격 시 마나 1 획득ÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% 확률로 적중 시 레벨 20 냉기 강화 화살를 시전합�
 LINE	S	ÿc35% 확률로 적중 시 레벨 20 번개 강화 화살를 시전합니다.ÿc0
 LINE	T	​
 LINE	T	ÿc1*속도의 종류(막기, 시전, 이동, 공격, 회복)는 각각 따로 계산합니다. 예를 들어 모든 속도 +1%는 승천 보너스에서 +5%로 계산됩니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc02 흠이 있는 에메랄드ÿc0ÿc02 흠이 있는 사파이어ÿc0ÿc4마법사 상승석ÿc0
 ENTRY	각성		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*기준은 능력치의 총합으로 계산합니다(예: 각 능력치가 250이면 모든 기술 +1을 얻습니다).
 LINE	T	ÿc1**전멸은 6원소(화염/냉기/번개/독/물리/마법)의 파괴적인 회오리로, 화면 전체가 효과 범위인 기술입니다. 회오리마다 무기 피해의 50%를 각 원소로 변환해 주고, 총 능력치에 따라 증가하는 각 피해 유형의 상당한 주문 피해도 줍니다. 적을 밀쳐내고 2초 동안 모든 저항을 25% 낮춥니다. 독 회오리는 무기 피해를 주지 않습니다.
 LINE	T	ÿc1**전멸은 현재 생명력이 30% 미만일 때만 발동합니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc01 흠이 있는 흑요석ÿc0ÿc01 흠이 있는 사파이어ÿc0ÿc01 흠이 있는 에메랄드ÿc0ÿc01 흠이 있는 루비ÿc0ÿc4각성한 상승의 돌ÿc0
 ENTRY	전투 마법사		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc3모든 속도에 +50% 추가ÿc0
 LINE	T	​
 LINE	T	ÿc1*총 방어력 보너스는 전체 방어구 수치에 곱연산으로 적용됩니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc02 흠이 있는 사파이어ÿc0ÿc02 흠이 있는 흑요석ÿc0ÿc4전투 마법사 상승석ÿc0
 ENTRY	광전사		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc3근접 공격 시 25% 확률로 레벨 1 유린 시전ÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*유린은 소~중간 범위의 기술로, 영향을 받는 모든 적에게 무기 피해의 150%를 물리 피해로 주고 2초 동안 물리 저항을 30% 낮춥니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc04 흠이 있는 흑요석ÿc0ÿc4광전사 상승석ÿc0
 ENTRY	검의 달인		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4티어 5:ÿc0
 LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc315% 확률로 적중 시 레벨 20 던진 도끼를 시전합니다.ÿc0
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc02 흠이 있는 흑요석ÿc0ÿc02 흠이 있는 에메랄드ÿc0ÿc4검술사 상승의 돌ÿc0
 ENTRY	피의 마법사		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% 소환 생명력ÿc0
 LINE	S	ÿc3최대 생명력 50% 증가ÿc0
 LINE	T	​
 LINE	T	ÿc1*피의 마법은 이제 생명력으로 주문을 시전한다는 뜻입니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc01 흠이 있는 루비ÿc0ÿc01 흠이 있는 흑요석ÿc0ÿc01 흠이 있는 사파이어ÿc0ÿc4피의 마법사 상승석ÿc0
 ENTRY	강철 볼트		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% 확률로 적중 시 레벨 40 내면의 통찰를 시전합니다
 LINE	S	ÿc3날카로운 집중 +25 (모든 직업)ÿc0
 LINE	T	​
 LINE	T	ÿc1*출혈 지속 시간은 석궁 재장전 속도 비율과 같습니다. 석궁 사용 여부와 관계없이 적용됩니다. 강철 볼트의 출혈은 다른 출혈 효과에 의해 희석될 수 있습니다(독 효과끼리 서로 희석되는 것과 비슷합니다).
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc02 흠이 있는 흑요석ÿc0ÿc02 흠이 있는 루비ÿc0ÿc4철제 화살촉 상승석ÿc0
 ENTRY	생명 파괴자		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3마법 저항 +15%ÿc0
 LINE	S	ÿc3물리 저항: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*생명 계약은 매초 최대 생명력의 25%를 소모하고 레벨당 최대 생명력을 10% 부여하는 전환형 기술입니다. 생명 계약으로는 죽지 않습니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc04 흠이 있는 루비ÿc0ÿc4생명파괴자 상승석ÿc0
 ENTRY	마나 수호자		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc3맞았을 때 20% 확률로 레벨 50 시간 정지를 시전합니다.ÿc0
 LINE	S	ÿc3독 저항 +75%ÿc0
 LINE	S	ÿc3+20의 빛 반경ÿc0
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc01 흠이 있는 에메랄드ÿc0ÿc01 흠이 있는 루비ÿc0ÿc01 흠이 있는 사파이어ÿc0ÿc4마나 수호자 상승석ÿc0
 ENTRY	유랑자		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc3맞았을 때 20% 확률로 레벨 1 서두르다를 시전합니다.ÿc0
 LINE	T	​
 LINE	T	ÿc1*종종걸음은 1초 동안 지속되는 강화 효과로, 회피 33%, 기본 달리기/걷기 속도 100%, 공격의 총 최대 물리 피해 25%를 주고 지속 시간 동안 최대 생명력의 10%를 재생합니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc02 흠이 있는 에메랄드ÿc0ÿc02 흠이 있는 루비ÿc0ÿc4유목민의 상승석ÿc0
 ENTRY	명사수		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4티어 5:ÿc0
 LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc315% 확률로 적중 시 레벨 20 화살를 시전합니다.ÿc0
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc04 흠이 있는 에메랄드ÿc0ÿc4명사수 상승석ÿc0
 ENTRY	영혼 수호자		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc3+1 비고유 소환 제한ÿc0
 LINE	S	ÿc350 만큼 피해 감소ÿc0
 LINE	S	ÿc3마법 피해 감소 50ÿc0
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc02 흠이 있는 루비ÿc0ÿc02 흠이 있는 사파이어ÿc0ÿc4영혼 수호자 상승석ÿc0
 ENTRY	자세의 무희		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50의 처치 후 마나 회복ÿc0
 LINE	T	​
 LINE	T	ÿc1*조작 하위 메뉴에서 자세 전환 단축키를 지정해야 합니다.
 LINE	T	ÿc1**자세는 언제든 바꿀 수 있지만, 순서는 빨강 -> 초록 -> 파랑으로만 순환합니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc01 흠이 있는 흑요석ÿc0ÿc01 흠이 있는 에메랄드ÿc0ÿc01 흠이 있는 사파이어ÿc0ÿc4자세 무용수 상승의 돌ÿc0
 ENTRY	별의 자손		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% 에너지 보너스ÿc0
 LINE	S	​
 LINE	S	ÿc4티어 3:ÿc0
 LINE	S	ÿc3마나 400마다 적의 화염, 냉기, 번개 저항 -1% 획득ÿc0
-LINE	S	ÿc3+400의 마나ÿc0
+LINE	S	ÿc3마나 +400ÿc0
 LINE	S	​
 LINE	S	ÿc4티어 4:ÿc0
 LINE	S	ÿc3마나 5당 생명력 회복 1 증가ÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4티어 5:ÿc0
 LINE	S	ÿc3직업 기술 레벨 +3ÿc0
 LINE	S	ÿc3+1 to 텔레포트ÿc0
 LINE	S	ÿc3모든 기술에 +1 추가ÿc0
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc04 흠이 있는 사파이어ÿc0ÿc4별의 탄생 상승석ÿc0
 ENTRY	세계 조형자		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*저항 종류마다 따로 보너스 기준에 계산됩니다. 예를 들어 화염, 냉기, 번개 저항이 각각 10%면 물리 저항 1%를 얻습니다.
 LINE	T	ÿc1**주문 피해란 화염/냉기/번개/독/마법/물리 주문 피해를 말하며, 공격의 고정 피해도 높입니다(물리 주문 피해는 공격의 물리 피해를 높이지 않습니다).
 LINE	T	ÿc1***창조의 분노는 중간 범위의 삼중 원소 회오리 기술로, 회오리마다 무기 피해의 50%를 각 원소로 변환해 주고 적의 원소 저항을 30% 낮춥니다.
-LINE	T	​
-LINE	C	입력출력
-LINE	R	ÿc4창조의 구슬ÿc0ÿc01 흠이 있는 루비ÿc0ÿc01 흠이 있는 흑요석ÿc0ÿc01 흠이 있는 에메랄드ÿc0ÿc4세계를 형성하는 자의 상승석ÿc0
 PAGE	runes	룬	Wiki	compact
 ENTRY	한자 룬	
 BLOCK	1	I 룬					0

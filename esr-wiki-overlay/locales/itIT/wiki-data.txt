@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	Combina nel cubo una Mappa Endgame da sola nell'Atto 5 Inferno per aprire la sua zona e il suo boss. Ci sono 5 gradi; 3 mappe uguali migliorano al grado successivo e una Pietra di Randomizzazione può rilanciarne una. I boss delle mappe rilasciano mappe superiori, Orbi di Unzione, Token di Maestria nelle armi e chiavi: le chiavi del Pandemonio (Terrore, Odio, Distruzione) si convertono l'una nell'altra nel cubo e aprono un portale verso uno dei tre uber boss, i cui drop insieme aprono Uber Tristram. Le mappe sono l'unica fonte di unici mitici, alcuni provenienti da un solo boss specifico.
 ENTRY	Ascendenze	Dopo Baal
 BLOCK	0						0
-LINE	T	Una Pietra dell'Ascendenza è un talismano che concede un'intera sottoclasse. Uccidi 5 superunici speciali dell'Inferno (uno ciascuno negli Atti 1, 2 e 3, due nell'Atto 5) per i loro orbi elementali, combinali nel cubo in un Orbo della Creazione, poi combinalo con gemme Macchiate colorate: la combinazione di colori sceglie la tua ascendenza. I gradi successivi migliorano la pietra tramite sfide di fine gioco (Nihlathak all'Inferno, tutti e 3 i boss di Uber Tristram in un minuto, Pietre dell'Anima Primordiali, un boss di mappa di grado 5) svolte in qualsiasi ordine. Puoi indossare una sola pietra alla volta e devi riequipaggiarla dopo ogni morte.
+LINE	T	Un'Ascendenza concede un'intera sottoclasse. Uccidi 5 superunici speciali dell'Inferno (uno ciascuno negli Atti 1, 2 e 3, due nell'Atto 5) per i loro orbi elementali e combinali nel cubo in un Orbo della Creazione. Consumare l'orbo sblocca il pannello dell'ascendenza, dove scegli la tua ascendenza. I gradi successivi si sbloccano tramite sfide di fine gioco (Nihlathak all'Inferno, tutti e 3 i boss di Uber Tristram in un minuto, Pietre dell'Anima Primordiali, un boss di mappa di grado 5) svolte in qualsiasi ordine.
 ENTRY	Corruzione e Unzione	Dopo Baal
 BLOCK	0						0
 LINE	T	La Corruzione combina nel cubo un oggetto con un Frammento della Pietra del Mondo, poi lo combina di nuovo per un bonus forte casuale, ma può anche trasformare l'oggetto in un raro casuale, quindi corrompi solo ciò che puoi permetterti di perdere (il Cuore Pietrificato di Astrogha cancella lo stato di una cattiva corruzione, mantenendo il bonus, così puoi riprovare). L'Unzione usa invece un Orbo di Unzione e il suo bonus casuale non può mai rovinare l'oggetto. Entrambe vengono dopo Forgiatura e D-stoning nell'ordine dei potenziamenti, ed entrambe sono alimentate soprattutto dalle zone del terrore e dalle Mappe Endgame.
@@ -82,13 +82,14 @@ LINE	T	I talismani unici funzionano solo dall'inventario dei talismani, e conta 
 PAGE	ascendancy	Ascendenze	Wiki
 ENTRY	Ascendenze	
 BLOCK	0						0
-LINE	T	Ascendenze sono potenti specializzazioni che definiscono il tuo stile di gioco, conferendo abilità e bonus unici. Le ascendenze vengono conferite da uno speciale charm chiamato Pietra di Ascendenza , ottenibile solo dopo aver completato diversi scontri speciali.
+LINE	T	Ascendenze sono potenti specializzazioni che definiscono il tuo stile di gioco, conferendo abilità e bonus unici.
 LINE	T	​
-LINE	T	Le pietre di ascendenza si possono potenziare ulteriormente (cioè puoi ascendere ancora) completando sfide specifiche, alcune legate a contenuti di fine gioco molto difficili.
+LINE	T	Ci sono 5 livelli di ascendenza; ogni sfida è più difficile della precedente, ma anche i bonus sono più forti.
 LINE	T	​
-LINE	T	Ci sono 5 livelli di ascendenza; ogni sfida è più difficile della precedente, ma anche i bonus sono più forti. Le pietre di ascendenza non possono essere condivise con altri personaggi. Puoi avere equipaggiata una sola pietra di ascendenza alla volta. Inutile dire che ogni livello si può ottenere una sola volta. Puoi però ottenerli in qualsiasi ordine.
+LINE	T	Inutile dire che ogni livello si può ottenere una sola volta. Puoi però ottenerli in qualsiasi ordine.
 LINE	T	​
-LINE	T	Le pietre di ascendenza non si possono modificare con i mezzi consueti (non si possono corrompere, ungere, scomporre in foglie d'acero ecc.).
+LINE	T	Livello 1:
+LINE	T	Per ottenere una Ascendenza, devi uccidere 5 super unici speciali a difficoltà Inferno sparsi per Santuario e trasmutare le sfere elementali che ognuno di loro lascia cadere per ottenere: Orbe della Creazione. Consumando poi l'orbe si sblocca il pannello dell'ascendenza, dove puoi scegliere l'ascendenza che preferisci.
 LINE	T	​
 LINE	T	Orbo della Creazione / Luoghi dei materiali
 LINE	C	OrbeAttoPosizioneMostro
@@ -104,16 +105,19 @@ LINE	T	Per potenziare la tua Ascendenza consulta le Sfide di livello superiore
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	Livello 2:
-LINE	T	Il secondo livello si ottiene uccidendo Nihlathak nel suo dominio a difficoltà Inferno e trasmutando la pietra di ascendenza con se stessa. Devi trasmutarla mentre i vortici sono attivi sul tuo personaggio.
+LINE	T	Il secondo livello si ottiene uccidendo Nihlathak nel suo dominio a difficoltà Inferno.
 LINE	T	​
 LINE	T	Livello 3:
-LINE	T	Il terzo livello si ottiene uccidendo tutti i boss di Uber Tristram a meno di un minuto l'uno dall'altro e senza morire, e trasmutando la pietra di ascendenza con una foglia d'acero. Anche se i vortici sono attivi sul tuo personaggio dopo aver ucciso l'ultimo boss, non funzionerà se è passato più di 1 minuto da quando hai ucciso il primo.
+LINE	T	Il terzo livello si ottiene uccidendo tutti i boss di Uber Tristram a meno di un minuto l'uno dall'altro e senza morire,.
 LINE	T	​
 LINE	T	Livello 4:
-LINE	T	Il quarto livello si ottiene raccogliendo 10 Pietre dell'Anima Primordiali che cadono dai boss di qualsiasi mappa di fine gioco. Puoi trasmutare una sola Pietra Primordiale alla volta con la Pietra di Ascendenza. Dopo aver catturato 10 Pietre dell'Anima Primordiali nella Pietra di Ascendenza, potrai trasmutarla con 2 foglie d'acero per ascendere al livello 4.
+LINE	T	Il quarto livello si ottiene raccogliendo 10 Pietre dell'Anima Primordiali che cadono da qualsiasi boss delle mappe di fine gioco. Una volta catturate 10 Pietre dell'Anima Primordiali, il livello 4 si sblocca automaticamente. Nota che le pietre dell'anima sono conservate sul tuo personaggio e non puoi interagire con esse. Puoi controllare i tuoi progressi nel pannello dell'ascendenza.
 LINE	T	​
 LINE	T	Livello 5:
-LINE	T	Il quinto livello si ottiene uccidendo un qualsiasi boss di una mappa di livello 5 e trasmutando la pietra di ascendenza con 3 foglie d'acero. Devi trasmutarla mentre i vortici sono attivi sul tuo personaggio.
+LINE	T	Il quinto livello si ottiene uccidendo qualsiasi boss di una mappa di livello 5.
+LINE	T	​
+LINE	T	Bonus del Re Lich:
+LINE	T	Uccidere il Re Lich con /players 8 sblocca un bonus aggiuntivo che aumenta del 10% i bonus di scalabilità delle statistiche dei livelli 3 e 4.
 LINE	T	​
 ENTRY	Arcanista		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% Bonus all'Energiaÿc0
 LINE	S	​
 LINE	S	ÿc4Livello 3:ÿc0
 LINE	S	ÿc3Ottieni 5 mana ogni 1% di velocitàÿc1*ÿc3ÿc0
-LINE	S	ÿc3+30% a tutte le velocitàÿc0
+LINE	S	ÿc330% a tutte le velocitàÿc0
 LINE	S	​
 LINE	S	ÿc4Livello 4:ÿc0
 LINE	S	ÿc3Ottieni 1 mana all'impatto ogni 25% di velocitàÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% possibilità di lanciare livello 20 Freccia Potenziata dal Freddo 
 LINE	S	ÿc35% possibilità di lanciare livello 20 Freccia Potenziata dal Fulmine all'impattoÿc0
 LINE	T	​
 LINE	T	ÿc1*Ogni tipo di velocità (parata, lancio, movimento, attacco, ripresa) conta separatamente. Per esempio, +1% a tutte le velocità conta come +5% per i bonus di ascendenza.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc02 Smeraldo Macchiatoÿc0ÿc02 Zaffiro Imperfettoÿc0ÿc4Pietra di Ascendenza Arcanistaÿc0
 ENTRY	risvegliato		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*Le soglie si calcolano sul totale dei punti attributo (per esempio ottieni +1 a tutte le abilità se hai 250 in ogni attributo).
 LINE	T	ÿc1**Annientamento è una devastante nova di 6 elementi (fuoco/freddo/fulmine/veleno/fisico/magia), un'abilità che copre l'intero schermo e che, per ogni nova, infligge il 50% dei danni dell'arma convertiti nell'elemento corrispondente, oltre a consistenti danni da incantesimo di ogni tipo che scalano con il totale degli attributi. Respinge i nemici e riduce tutte le loro resistenze del 25% per 2 secondi. La nova di veleno non infligge danni dell'arma.
 LINE	T	ÿc1**Annientamento può attivarsi solo quando la tua vita attuale è inferiore al 30%.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc01 Obsidiana Macchiataÿc0ÿc01 Zaffiro Imperfettoÿc0ÿc01 Smeraldo Macchiatoÿc0ÿc01 Rubino Macchiatoÿc0ÿc4Pietra di Ascendenza Risvegliataÿc0
 ENTRY	Mago da battaglia		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc3+50% a tutte le velocitàÿc0
 LINE	T	​
 LINE	T	ÿc1*Il bonus alla difesa totale è moltiplicativo con l'intero valore della tua armatura.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc02 Zaffiro Imperfettoÿc0ÿc02 Obsidiana Macchiataÿc0ÿc4Pietra di Ascendenza del Battlemageÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc325% di probabilità di lanciare Devastazione di livello 1 con un attacco in mischiaÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*Devastazione è un'abilità ad area da piccola a media che infligge il 150% dei danni dell'arma come danni fisici a tutti i nemici colpiti e ne riduce la resistenza fisica del 30% per 2 secondi.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc04 Obsidiana Macchiataÿc0ÿc4Pietra dell'Ascendenza Berserkerÿc0
 ENTRY	Maestro di lama		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -253,7 +245,7 @@ LINE	S	ÿc3+25% Bonus alla Destrezzaÿc0
 LINE	S	​
 LINE	S	ÿc4Livello 3:ÿc0
 LINE	S	ÿc3Ottieni il 10% di danni migliorati ogni 1% di resistenza fisicaÿc0
-LINE	S	ÿc320% di resistenza fisicaÿc0
+LINE	S	ÿc320% Resistenza Fisicaÿc0
 LINE	S	​
 LINE	S	ÿc4Livello 4:ÿc0
 LINE	S	ÿc3Guadagna l'1% del Danno Fisico Assorbito come Vita per ogni 1% di Resistenza Fisicaÿc0
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4Livello 5:ÿc0
 LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc315% possibilità di lanciare livello 20 Ascia Lanciata all'impattoÿc0
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc02 Obsidiana Macchiataÿc0ÿc02 Smeraldo Macchiatoÿc0ÿc4Pietra di Ascendenza Maestro delle Lameÿc0
 ENTRY	Mago del sangue		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% alla Vita del Summonÿc0
 LINE	S	ÿc3Vita massima aumentata del 50%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Magia del sangue significa che ora usi la vita per lanciare incantesimi.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc01 Rubino Macchiatoÿc0ÿc01 Obsidiana Macchiataÿc0ÿc01 Zaffiro Imperfettoÿc0ÿc4Pietra dell'Ascendenza del Sangueÿc0
 ENTRY	Dardo di ferro		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% possibilità di lanciare livello 40 Vista Interiore all'impattoÿc
 LINE	S	ÿc3+25 a Mira Affilata (tutte le classi)ÿc0
 LINE	T	​
 LINE	T	ÿc1*La durata del sanguinamento è pari alla scalabilità della velocità di ricarica della balestra. Vale sia che tu usi una balestra sia che non la usi. Il sanguinamento di Dardo di ferro può essere diluito da altre fonti di sanguinamento (come le istanze di veleno si diluiscono a vicenda).
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc02 Obsidiana Macchiataÿc0ÿc02 Rubino Macchiatoÿc0ÿc4Pietra di Ascesa Ironboltÿc0
 ENTRY	Spezzavita		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3Resistenza Magica +15%ÿc0
 LINE	S	ÿc3Resistenza Fisica: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Patto della Vita è un'abilità attivabile che prosciuga ogni secondo il 25% della tua vita massima e conferisce il 10% di vita massima per livello. Patto della Vita non può ucciderti.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc04 Rubino Macchiatoÿc0ÿc4Pietra di Ascendenza Frangivitaÿc0
 ENTRY	Custode del mana		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc320% possibilità di lanciare livello 50 Fermare il Tempo quando colpitoÿc0
 LINE	S	ÿc3Resistenza al Veleno +75%ÿc0
 LINE	S	ÿc3+20 al Raggio di Luceÿc0
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc01 Smeraldo Macchiatoÿc0ÿc01 Rubino Macchiatoÿc0ÿc01 Zaffiro Imperfettoÿc0ÿc4Pietra di Ascendenza del Custode di Manaÿc0
 ENTRY	Nomade		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc320% possibilità di lanciare livello 1 Scappare quando colpitoÿc0
 LINE	T	​
 LINE	T	ÿc1*Sgattaiolata è un potenziamento di 1 secondo che conferisce il 33% di schivata, il 100% della velocità base di corsa/camminata, il 25% di danni fisici massimi totali agli attacchi e rigenera il 10% della vita massima nel corso della durata.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc02 Smeraldo Macchiatoÿc0ÿc02 Rubino Macchiatoÿc0ÿc4Pietra di Ascendenza Nomadeÿc0
 ENTRY	Tiratore scelto		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4Livello 5:ÿc0
 LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc315% possibilità di lanciare livello 20 Freccia all'impattoÿc0
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc04 Smeraldo Macchiatoÿc0ÿc4Pietra di Ascendenza Tiratore Sceltoÿc0
 ENTRY	Custode delle anime		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc3+1 al Limite delle Invocazioni Non Unicheÿc0
 LINE	S	ÿc3Danno Ridotto del 50ÿc0
 LINE	S	ÿc3Danno Magico Ridotto del 50ÿc0
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc02 Rubino Macchiatoÿc0ÿc02 Zaffiro Imperfettoÿc0ÿc4Pietra di Ascesa del Custode dell'Animaÿc0
 ENTRY	Danzatore di posture		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 a Mana dopo ogni Uccisioneÿc0
 LINE	T	​
 LINE	T	ÿc1*Devi impostare un tasto per cambiare postura nel sottomenu dei controlli.
 LINE	T	ÿc1**Puoi cambiare postura quando vuoi, ma le posture ruotano solo in questo ordine: rossa -> verde -> blu.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc01 Obsidiana Macchiataÿc0ÿc01 Smeraldo Macchiatoÿc0ÿc01 Zaffiro Imperfettoÿc0ÿc4Pietra di Ascendenza Danza della Posizioneÿc0
 ENTRY	Nato dalle stelle		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% Bonus all'Energiaÿc0
 LINE	S	​
 LINE	S	ÿc4Livello 3:ÿc0
 LINE	S	ÿc3Ottieni -1% alle resistenze al fuoco, al freddo e al fulmine del nemico ogni 400 punti manaÿc0
-LINE	S	ÿc3+400 a Manaÿc0
+LINE	S	ÿc3+400 al Manaÿc0
 LINE	S	​
 LINE	S	ÿc4Livello 4:ÿc0
 LINE	S	ÿc3Guadagna 1 Rigenerazione Vita per ogni 5 Manaÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4Livello 5:ÿc0
 LINE	S	ÿc3+3 ai livelli delle abilità di classeÿc0
 LINE	S	ÿc3+1 a Teletrasportoÿc0
 LINE	S	ÿc3+1 a Tutte le Abilitàÿc0
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc04 Zaffiro Imperfettoÿc0ÿc4Pietra dell'Ascendenza Nata dalle Stelleÿc0
 ENTRY	Plasmatore di mondi		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*Ogni tipo di resistenza conta separatamente per le soglie dei bonus. Per esempio ottieni l'1% di resistenza fisica se hai il 10% di resistenza al fuoco, al freddo e al fulmine ciascuna.
 LINE	T	ÿc1**I danni degli incantesimi sono i danni degli incantesimi del fuoco/freddo/fulmine/veleno/magici/fisici e aumentano i danni fissi agli attacchi (tranne i danni degli incantesimi fisici, che non aumentano i danni fisici agli attacchi).
 LINE	T	ÿc1***Furia della Creazione è una tripla nova elementale ad area media; ogni nova infligge il 50% dei danni dell'arma convertiti nell'elemento corrispondente e riduce le resistenze elementali dei nemici del 30%.
-LINE	T	​
-LINE	C	IngressoRisultato
-LINE	R	ÿc4Orbe della Creazioneÿc0ÿc01 Rubino Macchiatoÿc0ÿc01 Obsidiana Macchiataÿc0ÿc01 Smeraldo Macchiatoÿc0ÿc4Pietra di Ascendenza del Modellatore del Mondoÿc0
 PAGE	runes	Rune	Wiki	compact
 ENTRY	Rune kanji	
 BLOCK	1	I Rune					0

@@ -549,7 +549,13 @@ Lvl {0}	Lv {0}
 Hard points only: +skills from items do not count.	割り振りポイントのみ: アイテムによる+スキルは含まれません。
 Receives bonuses from	以下のボーナスを受け取ります
 At level {0}	レベル {0} 時
-* beyond what a character can reach	* キャラクターが到達できない範囲
+*Maximum Skill Level	*最大スキルレベル
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	{0} を超えるスキルレベルには * が付いています: どのキャラクターも到達できませんが、数値は計算されます。
 No item grants this skill.	このスキルを付与するアイテムはありません。
 {0} ({1})	{0}（{1}）
+Search tips	検索のヒント
+Several words: a card must have all of them.	複数の単語：すべてを含むカードが対象です。
+"Quoted words": an exact phrase.	"引用符で囲んだ語"：完全に一致するフレーズ。
+-word: leaves out cards that have it.	-単語：その語を含むカードを除外します。
+Names, stats, runes and notes are searched. Small typos still match.	名前、ステータス、ルーン、メモを検索します。小さなタイプミスも一致します。
+Enter opens the top suggestion.	Enterで先頭の候補を開きます。

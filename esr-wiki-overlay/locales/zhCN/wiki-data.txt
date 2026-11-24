@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	在第 5 幕地狱中单独把一张终局地图放进魔盒合成，即可开启它的区域和首领。共有 5 阶；3 张相同的地图可升级到下一阶，随机石可以重洗其中一张。地图首领会掉落更高阶的地图、祝福宝珠、武器专精徽章和钥匙——万魔殿钥匙（恐惧、仇恨、毁灭）可以在魔盒中互相转化，并开启通往三个乌伯首领之一的传送门，它们的掉落合在一起可开启乌伯崔斯特拉姆。地图是神话暗金的唯一来源，有些只来自某一个特定首领。
 ENTRY	进阶职业	巴尔之后
 BLOCK	0						0
-LINE	T	进阶石是授予整个子职业的护符。击杀 5 个地狱特殊超级暗金（第 1、2、3 幕各一个，第 5 幕两个）获取它们的元素宝珠，将这些宝珠在魔盒中合成为创造宝珠，再与彩色的瑕疵宝石合成——颜色组合决定你的进阶职业。之后的阶段通过终局挑战（地狱中的尼哈拉克、一分钟内击杀全部 3 个乌伯崔斯特拉姆首领、原初灵魂石、一个五阶地图首领）以任意顺序完成来升级进阶石。你一次只能佩戴一块石头，每次死亡后都必须重新装备。
+LINE	T	进阶会授予整个子职业。击杀 5 个地狱特殊超级暗金（第 1、2、3 幕各一个，第 5 幕两个）获取它们的元素宝珠，将这些宝珠在魔盒中合成为创造宝珠。消耗该宝珠即可解锁进阶面板，在其中选择你的进阶职业。之后的阶段通过终局挑战（地狱中的尼哈拉克、一分钟内击杀全部 3 个乌伯崔斯特拉姆首领、原初灵魂石、一个五阶地图首领）解锁，可以任意顺序完成。
 ENTRY	腐化与祝福	巴尔之后
 BLOCK	0						0
 LINE	T	腐化先把物品与世界之石碎片在魔盒中合成，再次合成以获得随机的强力加成——但它也可能把物品变成随机稀有物品，所以只腐化你承受得起失去的东西（艾斯楚迦的石化之心可清除失败腐化的状态并保留加成，让你可以再试一次）。祝福则改用祝福宝珠，其随机加成永远不会毁掉物品。两者在升级顺序中都排在锻造和龙石强化之后，并且主要由恐惧地带和终局地图提供。
@@ -82,13 +82,14 @@ LINE	T	暗金护符只有在护符栏中才会生效，而且每种主要护符�
 PAGE	ascendancy	进阶职业	Wiki
 ENTRY	进阶职业	
 BLOCK	0						0
-LINE	T	进阶职业 是能塑造你玩法的强大专精，会给予独特的技能与加成。 升华是透过一个名为 升华之石 的特殊护身符给予，而它只有在完成数场特殊战斗后才能取得。
+LINE	T	进阶职业 是能塑造你玩法的强大专精，会给予独特的技能与加成。
 LINE	T	​
-LINE	T	统治之石可以透过完成特定挑战进一步升级（也就是继续升华），其中一些挑战与非常困难的终局内容有关。
+LINE	T	升华共有 5 个阶层，每个挑战都比前一个更难，但加成也更强。
 LINE	T	​
-LINE	T	升华共有 5 个阶层，每个挑战都比前一个更难，但加成也更强。 统治之石 无法与其他角色共用。同一时间只能装备一颗统治之石。 不用说，每个阶层都只能达成一次。不过你可以依任意顺序达成。
+LINE	T	不用说，每个阶层都只能达成一次。不过你可以依任意顺序达成。
 LINE	T	​
-LINE	T	统治之石无法以一般方式修改（无法堕落、受膏、拆解成枫叶等）。
+LINE	T	第 1 阶层:
+LINE	T	若要取得 升华，你需要击杀 5 个特殊的超级精英 （地狱难度） ，牠们散布在庇护之地各处， 并转化牠们各自掉落的元素宝珠，以取得 创造宝珠. 之后即可消耗创造宝珠来解锁升华面板，并在其中选择你喜欢的升华。
 LINE	T	​
 LINE	T	创造宝珠 / 材料位置
 LINE	C	法球章节位置怪物
@@ -104,16 +105,19 @@ LINE	T	要升级你的进阶职业，请参阅高阶挑战
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	第 2 阶层:
-LINE	T	在地狱难度击杀尼拉塞克领域中的尼拉塞克，并把统治之石与其自身转化，即可达成第二阶层。 必须在角色身上的漩涡效果仍在时进行转化。
+LINE	T	在地狱难度下，于尼拉塞克的领域中击杀他，即可达成第二阶层。
 LINE	T	​
 LINE	T	第 3 阶层:
-LINE	T	击杀超级崔斯特姆的所有头目 （彼此间隔不超过一分钟，且不能死亡）， 并把统治之石与枫叶一起转化，即可达成第三阶层。 即使击杀最后一个头目后角色身上仍有漩涡效果，若距离击杀第一个头目已超过 1 分钟，也不会成功。
+LINE	T	击杀超级崔斯特姆的所有头目 （彼此间隔不超过一分钟，且不能死亡），.
 LINE	T	​
 LINE	T	第 4 阶层:
-LINE	T	The fourth tier is achieved by collecting 10 Primordial Soulstones that drop from any endgame map boss. You can only transmute one Primordial Stone at a time with the Ascendancy Stone. Once you have captured 10 Primordial Soulstones in the Ascendancy Stone, you will be able to transmute it with 2 Maple Leaves to ascend to tier 4.
+LINE	T	收集 10 颗从任何终局地图头目身上掉落的 原始灵魂石 ，即可达成第四阶层。收集满 10 颗原始灵魂石后，第 4 阶层会自动解锁。请注意，灵魂石会储存在你的角色身上，你无法与它们互动。你可以在升华面板中查看进度。
 LINE	T	​
 LINE	T	第 5 阶层:
-LINE	T	击杀任何第 5 阶层地图的头目，并把统治之石与 3 片枫叶一起转化，即可达成第五阶层。 必须在角色身上的漩涡效果仍在时进行转化。
+LINE	T	击杀任何第 5 阶层地图的头目，即可达成第五阶层。
+LINE	T	​
+LINE	T	巫妖王加成:
+LINE	T	在 /players 8 难度下击杀巫妖王，会解锁额外加成，使第 3 与第 4 阶层的属性成长加成提高 10%。
 LINE	T	​
 ENTRY	Arcanist		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% 能量加成ÿc0
 LINE	S	​
 LINE	S	ÿc4第 3 阶层:ÿc0
 LINE	S	ÿc3每 1% 速度，获得 5 点法力ÿc1*ÿc3ÿc0
-LINE	S	ÿc3所有速度 +30%ÿc0
+LINE	S	ÿc330% 所有速度ÿc0
 LINE	S	​
 LINE	S	ÿc4第 4 阶层:ÿc0
 LINE	S	ÿc3每 25% 速度，获得击中时 1 点法力ÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc3击中时有 5% 机率施展等级 20 冰霜强化箭ÿc0
 LINE	S	ÿc3击中时有 5% 机率施展等级 20 闪电强化箭ÿc0
 LINE	T	​
 LINE	T	ÿc1*每种速度（格挡、施法、移动、攻击、恢复）分别计算。例如 +1% 所有速度，在升华加成中算作 +5%。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc02 瑕疵翡翠ÿc0ÿc02 瑕疵蓝宝石ÿc0ÿc4秘术师升华石ÿc0
 ENTRY	觉醒		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*门槛依属性总点数计算（例如每项属性都达到 250 时，就能获得 +1 所有技能）。
 LINE	T	ÿc1**毁灭是一种毁天灭地的 6 元素新星（火焰/冰寒/闪电/毒素/物理/魔法），作用范围涵盖整个画面，每道新星会造成转换为对应元素的 50% 武器伤害，并造成会随属性总点数提升的各类型可观法术伤害。它会击退敌人，并在 2 秒内降低其所有抗性 25%。毒素新星不会造成武器伤害。
 LINE	T	ÿc1**毁灭只有在你目前生命低于 30% 时才能触发。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵蓝宝石ÿc0ÿc01 瑕疵翡翠ÿc0ÿc01 瑕疵红宝石ÿc0ÿc4觉醒升华石ÿc0
 ENTRY	Battlemage		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3所有速度 +50%ÿc0
 LINE	T	​
 LINE	T	ÿc1*总防御加成会与你的全部护甲值相乘。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc02 瑕疵蓝宝石ÿc0ÿc02 瑕疵黑曜石ÿc0ÿc4战斗法师升华石ÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3近战攻击时有 25% 机率施放 1 级蹂躏ÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*蹂躏是小到中等范围的技能，对所有受影响的敌人造成 150% 武器伤害的物理伤害，并在 2 秒内使其物理抗性降低 30%。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc04 瑕疵黑曜石ÿc0ÿc4狂战士升华石ÿc0
 ENTRY	Blademaster		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4第 5 阶层:ÿc0
 LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3击中时有 15% 机率施展等级 20 投掷斧ÿc0
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc02 瑕疵黑曜石ÿc0ÿc02 瑕疵翡翠ÿc0ÿc4剑圣升华石ÿc0
 ENTRY	Bloodmage		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% 召唤生命ÿc0
 LINE	S	ÿc3最大生命提高 50%ÿc0
 LINE	T	​
 LINE	T	ÿc1*血魔法表示你现在改用生命来施放法术。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc01 瑕疵红宝石ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵蓝宝石ÿc0ÿc4血法师升华石ÿc0
 ENTRY	Ironbolt		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc3击中时有 2% 机率施展等级 40 心灵视野ÿc0
 LINE	S	ÿc3+25 锐化专注（所有职业）ÿc0
 LINE	T	​
 LINE	T	ÿc1*流血持续时间等同于十字弓装填速度的比例。无论你是否使用十字弓都适用。铁弩的流血可能会被其他流血来源稀释（类似毒素效果会互相稀释）。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc02 瑕疵黑曜石ÿc0ÿc02 瑕疵红宝石ÿc0ÿc4铁弩升华石ÿc0
 ENTRY	Lifebreaker		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3魔法抗性 +15%ÿc0
 LINE	S	ÿc3物理抗性：+15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*生命契约是一个可切换的技能，每秒吸取你最大生命的 25%，并每级给予 10% 最大生命。生命契约不会让你死亡。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc04 瑕疵红宝石ÿc0ÿc4生命破坏者升华石ÿc0
 ENTRY	Mana Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3被击中时有 20% 机率施展等级 50 时间静止ÿc0
 LINE	S	ÿc3毒素抗性 +75%ÿc0
 LINE	S	ÿc3+20 的光照半径ÿc0
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc01 瑕疵翡翠ÿc0ÿc01 瑕疵红宝石ÿc0ÿc01 瑕疵蓝宝石ÿc0ÿc4魔力守卫升华石ÿc0
 ENTRY	Nomad		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3被击中时有 20% 机率施展等级 1 疾行ÿc0
 LINE	T	​
 LINE	T	ÿc1*疾窜是持续 1 秒的增益效果，提供 33% 闪避、100% 基础跑步/行走速度、25% 攻击的总最大物理伤害，并在持续期间回复 10% 最大生命。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc02 瑕疵翡翠ÿc0ÿc02 瑕疵红宝石ÿc0ÿc4游牧升华石ÿc0
 ENTRY	Sharpshooter		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4第 5 阶层:ÿc0
 LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3击中时有 15% 机率施展等级 20 箭矢ÿc0
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc04 瑕疵翡翠ÿc0ÿc4神射手升华石ÿc0
 ENTRY	Soul Warden		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3+1 至非唯一召唤限制ÿc0
 LINE	S	ÿc3减少的伤害 50ÿc0
 LINE	S	ÿc3魔法伤害减少 50ÿc0
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc02 瑕疵红宝石ÿc0ÿc02 瑕疵蓝宝石ÿc0ÿc4灵魂守卫升华石ÿc0
 ENTRY	Stance Dancer		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3每次击杀后 +50 点法力ÿc0
 LINE	T	​
 LINE	T	ÿc1*你必须在操作子选单中设定切换架式的快捷键。
 LINE	T	ÿc1**你可以随时切换架式，但架式只会依以下顺序循环：红 -> 绿 -> 蓝。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵翡翠ÿc0ÿc01 瑕疵蓝宝石ÿc0ÿc4姿态舞者升华石ÿc0
 ENTRY	Starborn		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% 能量加成ÿc0
 LINE	S	​
 LINE	S	ÿc4第 3 阶层:ÿc0
 LINE	S	ÿc3每 400 点法力，获得 -1% 敌人的火焰、冰寒与闪电抗性ÿc0
-LINE	S	ÿc3+400 生命值ÿc0
+LINE	S	ÿc3+400 法力ÿc0
 LINE	S	​
 LINE	S	ÿc4第 4 阶层:ÿc0
 LINE	S	ÿc3每 5 点法力获得 1 点生命恢复ÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4第 5 阶层:ÿc0
 LINE	S	ÿc3+3 职业技能等级ÿc0
 LINE	S	ÿc3+1 到 传送ÿc0
 LINE	S	ÿc3+1 所有技能加成ÿc0
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc04 瑕疵蓝宝石ÿc0ÿc4星裔升华石ÿc0
 ENTRY	Worldshaper		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*每种抗性分别计入加成门槛。例如，火焰、冰寒与闪电抗性各有 10% 时，你就能获得 1% 物理抗性。
 LINE	T	ÿc1**法术伤害指火焰/冰寒/闪电/毒素/魔法/物理法术伤害，并会提高攻击的固定伤害（物理法术伤害除外，它不会提高攻击的物理伤害）。
 LINE	T	ÿc1***创造之怒是一个中等范围的三重元素新星技能，每道新星造成转换为对应元素的 50% 武器伤害，并使敌人的元素抗性降低 30%。
-LINE	T	​
-LINE	C	输入输出
-LINE	R	ÿc4创造宝珠ÿc0ÿc01 瑕疵红宝石ÿc0ÿc01 瑕疵黑曜石ÿc0ÿc01 瑕疵翡翠ÿc0ÿc4世界塑形者升华石ÿc0
 PAGE	runes	符文	Wiki	compact
 ENTRY	汉字符文	
 BLOCK	1	I 符文					0

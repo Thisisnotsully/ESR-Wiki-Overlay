@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	Połącz w kostce samą Mapę Endgame w Akcie 5 Piekło, aby otworzyć jej strefę i bossa. Są 5 stopni; 3 takie same mapy ulepszają się do następnego stopnia, a Kamień losowości może przelosować jedną. Bossowie map upuszczają wyższe mapy, Kule Namaszczenia, Tokeny Biegłości w broni i klucze — klucze Pandemonium (Terror, Nienawiść, Zniszczenie) zamieniają się nawzajem w kostce i otwierają portal do jednego z trzech uber bossów, których dropy razem otwierają Uber Tristram. Mapy to jedyne źródło mitycznych unikatów, niektóre tylko od jednego konkretnego bossa.
 ENTRY	Wniebowstąpienia	Po Baalu
 BLOCK	0						0
-LINE	T	Kamień Wniebowstąpienia to urok dający całą podklasę. Zabij 5 specjalnych superunikatów Piekła (po jednym w Aktach 1, 2 i 3, dwóch w Akcie 5) po ich kule żywiołów, połącz je w kostce w Kulę Stworzenia, a potem połącz ją z kolorowymi Zabrudzonymi klejnotami — kombinacja kolorów wybiera twoje wniebowstąpienie. Późniejsze stopnie ulepszają kamień przez wyzwania endgame (Nihlathak w Piekle, wszyscy 3 bossowie Uber Tristram w jedną minutę, Prastare Kamienie Dusz, boss mapy 5. stopnia) wykonywane w dowolnej kolejności. Możesz nosić tylko jeden kamień naraz i po każdej śmierci musisz go założyć ponownie.
+LINE	T	Wniebowstąpienie daje całą podklasę. Zabij 5 specjalnych superunikatów Piekła (po jednym w Aktach 1, 2 i 3, dwóch w Akcie 5) po ich kule żywiołów i połącz je w kostce w Kulę Stworzenia. Zużycie kuli odblokowuje panel wniebowstąpienia, w którym wybierasz swoje wniebowstąpienie. Późniejsze stopnie odblokowuje się przez wyzwania endgame (Nihlathak w Piekle, wszyscy 3 bossowie Uber Tristram w jedną minutę, Prastare Kamienie Dusz, boss mapy 5. stopnia) wykonywane w dowolnej kolejności.
 ENTRY	Zepsucie i Namaszczenie	Po Baalu
 BLOCK	0						0
 LINE	T	Zepsucie łączy w kostce przedmiot z Odłamkiem Kamienia Świata, a potem łączy go ponownie, by uzyskać losowy mocny bonus — ale może też zmienić przedmiot w losowy rzadki, więc psuj tylko to, co możesz stracić (Skamieniałe Serce Astroghy czyści status złego zepsucia, zachowując bonus, więc możesz spróbować jeszcze raz). Namaszczenie zamiast tego używa Kuli Namaszczenia, a jego losowy bonus nigdy nie może zniszczyć przedmiotu. Oba następują po Kuciu i D-stoningu w kolejności ulepszeń, a oba są zasilane głównie przez strefy terroru i Mapy Endgame.
@@ -82,13 +82,14 @@ LINE	T	Unikatowe uroki działają tylko z ekwipunku uroków, a liczy się tylko 
 PAGE	ascendancy	Wniebowstąpienia	Wiki
 ENTRY	Ascendencje	
 BLOCK	0						0
-LINE	T	Ascendencje to potężne specjalizacje, które kształtują twój styl gry, dając unikatowe umiejętności i premie. Wzniesienia nadaje specjalny urok o nazwie Kamień Władzy , który można zdobyć dopiero po ukończeniu kilku specjalnych starć.
+LINE	T	Ascendencje to potężne specjalizacje, które kształtują twój styl gry, dając unikatowe umiejętności i premie.
 LINE	T	​
-LINE	T	Kamienie wzniesienia można dalej ulepszać (czyli wznosić się wyżej), wykonując określone wyzwania, z których część wiąże się z bardzo trudną zawartością końcową.
+LINE	T	Istnieje 5 progów wzniesienia; każde wyzwanie jest trudniejsze od poprzedniego, ale premie też są silniejsze.
 LINE	T	​
-LINE	T	Istnieje 5 progów wzniesienia; każde wyzwanie jest trudniejsze od poprzedniego, ale premie też są silniejsze. Kamieni wzniesienia nie można dzielić z innymi postaciami. Naraz możesz mieć założony tylko jeden kamień wzniesienia. Rzecz jasna, każdy próg można osiągnąć tylko raz. Możesz je jednak zdobywać w dowolnej kolejności.
+LINE	T	Rzecz jasna, każdy próg można osiągnąć tylko raz. Możesz je jednak zdobywać w dowolnej kolejności.
 LINE	T	​
-LINE	T	Kamieni wzniesienia nie można modyfikować zwykłymi sposobami (nie można ich skazić, namaścić, rozłożyć na liście klonowe itp.).
+LINE	T	Próg 1:
+LINE	T	Aby zdobyć Ascendencja, musisz zabić 5 specjalnych superunikatów na poziomie trudności Piekło rozsianych po Sanktuarium i transmutować kule żywiołów, które upuszcza każdy z nich, aby otrzymać: Kula Stworzenia. Kulę można następnie zużyć, aby odblokować panel wzniesienia, w którym wybierzesz wzniesienie według własnego uznania.
 LINE	T	​
 LINE	T	Kula Stworzenia / Miejsca materiałów
 LINE	C	OrbAktLokalizacjaPotwór
@@ -104,16 +105,19 @@ LINE	T	Aby ulepszyć swoje Wniebowstąpienie, zobacz Wyzwania wyższego stopnia
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	Próg 2:
-LINE	T	Drugi próg osiągasz, zabijając Nihlathaka w jego domenie na poziomie Piekło i transmutując kamień wzniesienia z samym sobą. Musisz go transmutować, gdy wiry są aktywne na twojej postaci.
+LINE	T	Drugi próg osiągasz, zabijając Nihlathaka w jego domenie na poziomie trudności Piekło.
 LINE	T	​
 LINE	T	Próg 3:
-LINE	T	Trzeci próg osiągasz, zabijając wszystkich bossów Uber Tristram w odstępie nie większym niż minuta i bez śmierci, a następnie transmutując kamień wzniesienia z liściem klonowym. Nawet jeśli wiry są aktywne na twojej postaci po zabiciu ostatniego bossa, nie zadziała to, jeśli od zabicia pierwszego minęła ponad 1 minuta.
+LINE	T	Trzeci próg osiągasz, zabijając wszystkich bossów Uber Tristram w odstępie nie większym niż minuta i bez śmierci,.
 LINE	T	​
 LINE	T	Próg 4:
-LINE	T	Czwarty próg osiągasz, zbierając 10 Pierwotnych Kamieni Duszy , które wypadają z bossów dowolnych map końcowych. Z Kamieniem Władzy możesz transmutować tylko jeden Pierwotny Kamień naraz. Gdy uwięzisz w nim 10 Pierwotnych Kamieni Duszy, będziesz mógł transmutować go z 2 liśćmi klonowymi, aby wznieść się na próg 4.
+LINE	T	Czwarty próg osiągasz, zbierając 10 Pierwotnych Kamieni Duszy wypadających z bossów dowolnych map końcowych. Gdy zbierzesz 10 Pierwotnych Kamieni Duszy, próg 4 odblokuje się automatycznie. Pamiętaj, że kamienie duszy są przechowywane na twojej postaci i nie możesz wchodzić z nimi w interakcję. Postęp możesz sprawdzić w panelu wzniesienia.
 LINE	T	​
 LINE	T	Próg 5:
-LINE	T	Piąty próg osiągasz, zabijając dowolnego bossa mapy progu 5 i transmutując kamień wzniesienia z 3 liśćmi klonowymi. Musisz go transmutować, gdy wiry są aktywne na twojej postaci.
+LINE	T	Piąty próg osiągasz, zabijając dowolnego bossa mapy progu 5.
+LINE	T	​
+LINE	T	Premia Króla Lichów:
+LINE	T	Zabicie Króla Lichów na /players 8 odblokowuje dodatkową premię, która zwiększa premie skalowania statystyk progów 3 i 4 o 10%.
 LINE	T	​
 ENTRY	Arkanista		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% Bonus do Energiiÿc0
 LINE	S	​
 LINE	S	ÿc4Próg 3:ÿc0
 LINE	S	ÿc3Zyskujesz 5 many za każdy 1% szybkościÿc1*ÿc3ÿc0
-LINE	S	ÿc3+30% do Wszystkich Prędkościÿc0
+LINE	S	ÿc330% do Wszystkich Prędkościÿc0
 LINE	S	​
 LINE	S	ÿc4Próg 4:ÿc0
 LINE	S	ÿc3Zyskujesz 1 manę przy uderzeniu za każde 25% szybkościÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% szans na rzucenie poziomu 20 Strzała Wzmocniona Zimnem przy trafi
 LINE	S	ÿc35% szans na rzucenie poziomu 20 Strzała Wzmocniona Piorunem przy trafieniuÿc0
 LINE	T	​
 LINE	T	ÿc1*Każdy rodzaj szybkości (blok, rzucanie czarów, ruch, atak, regeneracja) liczy się osobno. Na przykład +1% do wszystkich szybkości liczy się jako +5% do premii wzniesienia.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc02 Zabrudzony Szmaragdÿc0ÿc02 Zabrudzony Szafirÿc0ÿc4Kamień Wzniesienia Arcanistyÿc0
 ENTRY	przebudzony		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*Progi liczy się dla łącznej liczby punktów atrybutów (np. zyskujesz +1 do wszystkich umiejętności, jeśli masz po 250 w każdym atrybucie).
 LINE	T	ÿc1**Anihilacja to niszczycielska nowa 6 żywiołów (ogień/zimno/błyskawice/trucizna/fizyczne/magia), umiejętność obejmująca cały ekran, która na każdą nowę zadaje 50% obrażeń broni przekształconych w odpowiedni żywioł oraz znaczne obrażenia zaklęć każdego rodzaju, skalujące się z łącznymi atrybutami. Odrzuca wrogów i obniża wszystkie ich odporności o 25% na 2 sekundy. Nowa trucizny nie zadaje obrażeń broni.
 LINE	T	ÿc1**Anihilacja może się aktywować tylko wtedy, gdy twoje obecne życie spadnie poniżej 30%.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc01 Zabrudzony Obsidianÿc0ÿc01 Zabrudzony Szafirÿc0ÿc01 Zabrudzony Szmaragdÿc0ÿc01 Zabrudzony Rubinÿc0ÿc4Obudzony Kamień Wzniesieniaÿc0
 ENTRY	Mag bitewny		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc3+50% do Wszystkich Prędkościÿc0
 LINE	T	​
 LINE	T	ÿc1*Premia do całkowitej obrony mnoży się z całą wartością twojego pancerza.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc02 Zabrudzony Szafirÿc0ÿc02 Zabrudzony Obsidianÿc0ÿc4Kamień Wstąpienia Wojownikaÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc325% szansy na rzucenie Spustoszenia poz. 1 przy ataku wręczÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*Spustoszenie to umiejętność o małym lub średnim obszarze działania, która zadaje 150% obrażeń broni jako obrażenia fizyczne wszystkim trafionym wrogom i obniża ich odporność fizyczną o 30% na 2 sekundy.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc04 Zabrudzony Obsidianÿc0ÿc4Kamień Wzniesienia Berserkeraÿc0
 ENTRY	Mistrz ostrzy		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -253,7 +245,7 @@ LINE	S	ÿc3+25% Bonus do Zręcznościÿc0
 LINE	S	​
 LINE	S	ÿc4Próg 3:ÿc0
 LINE	S	ÿc3Zyskujesz 10% zwiększonych obrażeń za każdy 1% odporności fizycznejÿc0
-LINE	S	ÿc320% odporności fizycznejÿc0
+LINE	S	ÿc320% Odporności na Obrażenia Fizyczneÿc0
 LINE	S	​
 LINE	S	ÿc4Próg 4:ÿc0
 LINE	S	ÿc3Zyskaj 1% obrażeń fizycznych pochłoniętych jako życie za każde 1% oporu fizycznegoÿc0
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4Próg 5:ÿc0
 LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc315% szans na rzucenie poziomu 20 Rzucona siekiera przy trafieniuÿc0
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc02 Zabrudzony Obsidianÿc0ÿc02 Zabrudzony Szmaragdÿc0ÿc4Kamień Wzniesienia Mistrza Ostrzyÿc0
 ENTRY	Mag krwi		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% do Życia Przywołaniaÿc0
 LINE	S	ÿc3Maksymalne życie zwiększone o 50%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Magia krwi oznacza, że teraz rzucasz zaklęcia, zużywając życie.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc01 Zabrudzony Rubinÿc0ÿc01 Zabrudzony Obsidianÿc0ÿc01 Zabrudzony Szafirÿc0ÿc4Kamień Wzniesienia Krwiÿc0
 ENTRY	Żelazny bełt		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% szans na rzucenie poziomu 40 Wewnętrzny Wzrok przy trafieniuÿc0
 LINE	S	ÿc3+25 do Ostrzonej Koncentracji (wszystkie klasy)ÿc0
 LINE	T	​
 LINE	T	ÿc1*Czas krwawienia odpowiada skalowaniu szybkości przeładowania kuszy. Działa to niezależnie od tego, czy używasz kuszy. Krwawienie Żelaznego bełtu może być rozcieńczane przez inne źródła krwawienia (podobnie jak instancje trucizny rozcieńczają się nawzajem).
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc02 Zabrudzony Obsidianÿc0ÿc02 Zabrudzony Rubinÿc0ÿc4Kamień Wzniesienia Żelaznego Bełtuÿc0
 ENTRY	Łamacz życia		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3Odporność na magię +15%ÿc0
 LINE	S	ÿc3Odpornność na fizyczne obrażenia: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Pakt Życia to przełączana umiejętność, która co sekundę wysysa 25% twojego maksymalnego życia i daje 10% maksymalnego życia na poziom. Pakt Życia nie może cię zabić.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc04 Zabrudzony Rubinÿc0ÿc4Kamień Wzniesienia Łamacza Życiaÿc0
 ENTRY	Strażnik many		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc320% Szansa na Rzucenie Poziomu 50 Zatrzymanie Czasu po Uderzeniuÿc0
 LINE	S	ÿc3Odpornność na truciznę +75%ÿc0
 LINE	S	ÿc3+20 do Promienia Światłaÿc0
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc01 Zabrudzony Szmaragdÿc0ÿc01 Zabrudzony Rubinÿc0ÿc01 Zabrudzony Szafirÿc0ÿc4Kamień Władcy Manyÿc0
 ENTRY	Nomada		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc320% Szansa na Rzucenie Poziomu 1 Biegnij po Uderzeniuÿc0
 LINE	T	​
 LINE	T	ÿc1*Pierzchnięcie to wzmocnienie trwające 1 sekundę, które daje 33% uniku, 100% bazowej szybkości biegu/chodu, 25% całkowitych maksymalnych obrażeń fizycznych ataków i odnawia 10% maksymalnego życia przez czas działania.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc02 Zabrudzony Szmaragdÿc0ÿc02 Zabrudzony Rubinÿc0ÿc4Kamień Wzniesienia Nomadyÿc0
 ENTRY	Strzelec wyborowy		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4Próg 5:ÿc0
 LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc315% szans na rzucenie poziomu 20 Strzała przy trafieniuÿc0
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc04 Zabrudzony Szmaragdÿc0ÿc4Kamień Wstąpienia Strzelcaÿc0
 ENTRY	Strażnik dusz		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc3+1 do limitu nieunikalnych przyzwańÿc0
 LINE	S	ÿc3Zredukowane obrażenia o 50ÿc0
 LINE	S	ÿc3Zredukowane obrażenia magiczne o 50ÿc0
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc02 Zabrudzony Rubinÿc0ÿc02 Zabrudzony Szafirÿc0ÿc4Kamień Władcy Duszÿc0
 ENTRY	Tancerz postaw		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 do Many po każdym zabójstwieÿc0
 LINE	T	​
 LINE	T	ÿc1*W podmenu sterowania musisz ustawić klawisz zmiany postawy.
 LINE	T	ÿc1**Postawę możesz zmieniać w dowolnej chwili, ale postawy zmieniają się tylko w tej kolejności: czerwona -> zielona -> niebieska.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc01 Zabrudzony Obsidianÿc0ÿc01 Zabrudzony Szmaragdÿc0ÿc01 Zabrudzony Szafirÿc0ÿc4Kamień Wzniesienia Tancerza Postawyÿc0
 ENTRY	Zrodzony z gwiazd		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -555,9 +520,6 @@ LINE	S	ÿc4Próg 5:ÿc0
 LINE	S	ÿc3+3 do poziomów umiejętności klasowychÿc0
 LINE	S	ÿc3+1 do Teleportacjaÿc0
 LINE	S	ÿc3+1 do Wszystkich Umiejętnościÿc0
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc04 Zabrudzony Szafirÿc0ÿc4Kamień Wstąpienia Urodzonych z Gwiazdÿc0
 ENTRY	Kształtujący świat		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*Każdy rodzaj odporności liczy się osobno do progów premii. Na przykład zyskujesz 1% odporności fizycznej, jeśli masz po 10% odporności na ogień, zimno i błyskawice.
 LINE	T	ÿc1**Obrażenia zaklęć to obrażenia zaklęć ognia/zimna/błyskawic/trucizny/magicznych/fizycznych; zwiększają one stałe obrażenia ataków (poza obrażeniami zaklęć fizycznych, które nie zwiększają obrażeń fizycznych ataków).
 LINE	T	ÿc1***Furia Stworzenia to potrójna nowa żywiołów o średnim obszarze działania; każda nowa zadaje 50% obrażeń broni przekształconych w odpowiedni żywioł i obniża odporności wrogów na żywioły o 30%.
-LINE	T	​
-LINE	C	WejścieWynik
-LINE	R	ÿc4Kula Stworzeniaÿc0ÿc01 Zabrudzony Rubinÿc0ÿc01 Zabrudzony Obsidianÿc0ÿc01 Zabrudzony Szmaragdÿc0ÿc4Kamień Władcy Świataÿc0
 PAGE	runes	Runy	Wiki	compact
 ENTRY	Runy kanji	
 BLOCK	1	I Runa					0

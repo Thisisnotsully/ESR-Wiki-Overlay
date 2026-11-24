@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	Kombiniere eine Endgame-Karte allein in Akt 5 Hölle im Würfel, um ihre Zone und ihren Boss zu öffnen. Es gibt 5 Stufen; 3 gleiche Karten werden zur nächsten Stufe aufgewertet, und ein Zufallsstein kann eine neu würfeln. Kartenbosse lassen höhere Karten, Salbungskugeln, Waffenbeherrschungs-Token und Schlüssel fallen – Pandemonium-Schlüssel (Schrecken, Hass, Zerstörung) wandeln sich im Würfel ineinander um und öffnen ein Portal zu einem von drei Über-Bossen, deren Beute zusammen Über-Tristram öffnet. Karten sind die einzige Quelle für mythische Unikate, manche nur von einem bestimmten Boss.
 ENTRY	Aszendenzen	Nach Baal
 BLOCK	0						0
-LINE	T	Ein Aszendenzstein ist ein Zauber, der eine ganze Unterklasse gewährt. Töte 5 spezielle Super-Unikate der Hölle (je eines in Akt 1, 2 und 3, zwei in Akt 5) für ihre Elementarkugeln, kombiniere diese im Würfel zu einer Kugel der Schöpfung und kombiniere sie dann mit farbigen Getrübten Edelsteinen – die Farbkombination bestimmt deine Aszendenz. Spätere Stufen werten den Stein durch Endgame-Herausforderungen auf (Nihlathak in der Hölle, alle 3 Über-Tristram-Bosse in einer Minute, Urseelensteine, ein Kartenboss der Stufe 5), die in beliebiger Reihenfolge erledigt werden. Du kannst nur einen Stein gleichzeitig tragen und musst ihn nach jedem Tod neu anlegen.
+LINE	T	Eine Aszendenz gewährt eine ganze Unterklasse. Töte 5 spezielle Super-Unikate der Hölle (je eines in Akt 1, 2 und 3, zwei in Akt 5) für ihre Elementarkugeln und kombiniere diese im Würfel zu einer Kugel der Schöpfung. Verbrauchst du die Kugel, schaltet sie das Aszendenz-Fenster frei, in dem du deine Aszendenz wählst. Spätere Stufen werden durch Endgame-Herausforderungen freigeschaltet (Nihlathak in der Hölle, alle 3 Über-Tristram-Bosse in einer Minute, Urseelensteine, ein Kartenboss der Stufe 5), die in beliebiger Reihenfolge erledigt werden.
 ENTRY	Verderbnis und Salbung	Nach Baal
 BLOCK	0						0
 LINE	T	Verderbnis kombiniert einen Gegenstand mit einem Weltsteinfragment und dann noch einmal für einen zufälligen starken Bonus – es kann den Gegenstand aber auch in ein zufälliges seltenes Item verwandeln, verderbe also nur, was du verlieren kannst (Astroghas Versteinertes Herz entfernt den Status einer schlechten Verderbnis und behält den Bonus, sodass du es erneut versuchen kannst). Salbung verwendet stattdessen eine Salbungskugel, und ihr zufälliger Bonus kann den Gegenstand nie unbrauchbar machen. Beide kommen in der Aufwertungsreihenfolge nach Schmieden und D-Steinen, und beide werden vor allem durch Terrorzonen und Endgame-Karten gespeist.
@@ -82,13 +82,14 @@ LINE	T	Einzigartige Zauber wirken nur aus dem Zauberinventar, und von jedem gro�
 PAGE	ascendancy	Aszendenzen	Wiki
 ENTRY	Aszendenzen	
 BLOCK	0						0
-LINE	T	Aszendenzen sind mächtige Spezialisierungen, die deine Spielweise prägen und einzigartige Fertigkeiten und Boni gewähren. Aufstiege werden durch einen besonderen Zauber gewährt, den Aufstiegstein , der erst nach mehreren besonderen Begegnungen erhältlich ist.
+LINE	T	Aszendenzen sind mächtige Spezialisierungen, die deine Spielweise prägen und einzigartige Fertigkeiten und Boni gewähren.
 LINE	T	​
-LINE	T	Aufstiegsteine können durch bestimmte Herausforderungen weiter aufgewertet werden (du kannst also weiter aufsteigen), von denen einige an sehr schwere Endgame-Inhalte gebunden sind.
+LINE	T	Es gibt 5 Aufstiegsstufen; jede Herausforderung ist schwerer als die vorherige, dafür sind auch die Boni stärker.
 LINE	T	​
-LINE	T	Es gibt 5 Aufstiegsstufen; jede Herausforderung ist schwerer als die vorherige, dafür sind auch die Boni stärker. Aufstiegsteine können nicht mit anderen Charakteren geteilt werden. Du kannst immer nur einen Aufstiegstein gleichzeitig ausgerüstet haben. Selbstverständlich kann jede Stufe nur einmal erreicht werden. Du kannst sie aber in beliebiger Reihenfolge erreichen.
+LINE	T	Selbstverständlich kann jede Stufe nur einmal erreicht werden. Du kannst sie aber in beliebiger Reihenfolge erreichen.
 LINE	T	​
-LINE	T	Aufstiegsteine können nicht auf normalem Weg verändert werden (sie können nicht verdorben, gesalbt, zu Ahornblättern zerlegt werden usw.).
+LINE	T	Stufe 1:
+LINE	T	Um einen Aszendenzzu erhalten, musst du 5 besondere Superunique-Monster auf Schwierigkeitsgrad Hölle , die überall in Sanktuario verstreut sind, töten und die Elementarkugeln, die jedes von ihnen fallen lässt, transmutieren, um Folgendes zu erhalten: Orb der Schöpfung. Der Orb kann dann verbraucht werden, um das Aufstiegsfenster freizuschalten, in dem du einen Aufstieg deiner Wahl auswählen kannst.
 LINE	T	​
 LINE	T	Kugel der Schöpfung / Materialfundorte
 LINE	C	OrbAktOrtMonster
@@ -104,16 +105,19 @@ LINE	T	Um deine Aszendenz aufzuwerten, siehe die Herausforderungen höherer Stuf
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	Stufe 2:
-LINE	T	Die zweite Stufe erreichst du, indem du Nihlathak in seinem Reich auf Hölle tötest und den Aufstiegstein mit sich selbst transmutierst. Du musst ihn transmutieren, während die Wirbel auf deinem Charakter aktiv sind.
+LINE	T	Die zweite Stufe erreichst du, indem du Nihlathak in seinem Reich auf Schwierigkeitsgrad Hölle tötest.
 LINE	T	​
 LINE	T	Stufe 3:
-LINE	T	Die dritte Stufe erreichst du, indem du alle Bosse des Über-Tristram innerhalb einer Minute nacheinander tötest, ohne zu sterben, und den Aufstiegstein mit einem Ahornblatt transmutierst. Selbst wenn die Wirbel nach dem Tod des letzten Bosses auf deinem Charakter aktiv sind, funktioniert es nicht, wenn seit dem Tod des ersten mehr als 1 Minute vergangen ist.
+LINE	T	Die dritte Stufe erreichst du, indem du alle Bosse des Über-Tristram innerhalb einer Minute nacheinander tötest, ohne zu sterben,.
 LINE	T	​
 LINE	T	Stufe 4:
-LINE	T	Die vierte Stufe erreichst du, indem du 10 Uralte Seelensteine sammelst, die von jedem Boss einer Endgame-Karte fallen. Du kannst immer nur einen Uralten Seelenstein auf einmal mit dem Aufstiegstein transmutieren. Sobald du 10 Uralte Seelensteine im Aufstiegstein eingefangen hast, kannst du ihn mit 2 Ahornblättern transmutieren, um auf Stufe 4 aufzusteigen.
+LINE	T	Die vierte Stufe erreichst du, indem du 10 Uralte Seelensteine sammelst, die jeder Endgame-Kartenboss fallen lassen kann. Sobald du 10 Uralte Seelensteine gesammelt hast, wird Stufe 4 automatisch freigeschaltet. Beachte, dass die Seelensteine auf deinem Charakter gespeichert werden und du nicht mit ihnen interagieren kannst. Deinen Fortschritt kannst du im Aufstiegsfenster einsehen.
 LINE	T	​
 LINE	T	Stufe 5:
-LINE	T	Die fünfte Stufe erreichst du, indem du einen beliebigen Boss einer Karte der Stufe 5 tötest und den Aufstiegstein mit 3 Ahornblättern transmutierst. Du musst ihn transmutieren, während die Wirbel auf deinem Charakter aktiv sind.
+LINE	T	Die fünfte Stufe erreichst du, indem du einen beliebigen Boss einer Karte der Stufe 5 tötest.
+LINE	T	​
+LINE	T	Lichkönig-Bonus:
+LINE	T	Wenn du den Lichkönig auf /players 8 tötest, schaltest du einen zusätzlichen Bonus frei, der die Werteskalierungs-Boni der Stufen 3 und 4 um 10 % erhöht.
 LINE	T	​
 ENTRY	Arkanist		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% Bonus auf Energieÿc0
 LINE	S	​
 LINE	S	ÿc4Stufe 3:ÿc0
 LINE	S	ÿc3Erhalte 5 Mana pro 1 % Tempoÿc1*ÿc3ÿc0
-LINE	S	ÿc3+30% zu allen Geschwindigkeitenÿc0
+LINE	S	ÿc330% zu allen Geschwindigkeitenÿc0
 LINE	S	​
 LINE	S	ÿc4Stufe 4:ÿc0
 LINE	S	ÿc3Erhalte 1 Mana beim Treffen pro 25 % Tempoÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% Chance, Level 20 Kälteverbesserter Pfeil beim Treffen zu wirkenÿ
 LINE	S	ÿc35% Chance, Level 20 Blitzverstärkter Pfeil beim Treffen zu wirkenÿc0
 LINE	T	​
 LINE	T	ÿc1*Jede Tempoart (Blocken, Zaubern, Bewegen, Angreifen, Erholung) zählt einzeln. +1 % auf alle Tempowerte zählt z. B. als +5 % für die Aufstiegsboni.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc02 Fehlerhafter Smaragdÿc0ÿc02 Fehlerhafter Saphirÿc0ÿc4Arkanist Aufstiegssteinÿc0
 ENTRY	erweckt		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*Die Schwellen gelten für die Gesamtzahl der Attributpunkte (z. B. erhältst du +1 auf alle Fertigkeiten, wenn du von jedem Attribut 250 hast).
 LINE	T	ÿc1**Vernichtung ist eine verheerende Nova aus 6 Elementen (Feuer/Kälte/Blitz/Gift/Physisch/Magie), eine Fertigkeit mit Wirkungsbereich über den ganzen Bildschirm, die pro Nova 50 % des Waffenschadens in das jeweilige Element umgewandelt verursacht, dazu erheblichen Zauberschaden jeder Schadensart, der mit den Gesamtattributen skaliert. Sie stößt Gegner zurück und senkt 2 Sekunden lang alle ihre Widerstände um 25 %. Die Giftnova verursacht keinen Waffenschaden.
 LINE	T	ÿc1**Vernichtung kann nur ausgelöst werden, wenn dein aktuelles Leben unter 30 % liegt.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc01 Befleckter Obsidianÿc0ÿc01 Fehlerhafter Saphirÿc0ÿc01 Fehlerhafter Smaragdÿc0ÿc01 Makelloser Rubinÿc0ÿc4Erwachter Aufstiegssteinÿc0
 ENTRY	Kampfmagier		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc3+50% zu allen Geschwindigkeitenÿc0
 LINE	T	​
 LINE	T	ÿc1*Der Gesamtverteidigungsbonus wirkt multiplikativ auf deinen gesamten Rüstungswert.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc02 Fehlerhafter Saphirÿc0ÿc02 Befleckter Obsidianÿc0ÿc4Kampfmagier Aufstiegssteinÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc325 % Chance, Level 1 Verwüstung beim Nahkampfangriff zu wirkenÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*Verwüstung ist eine Fertigkeit mit kleinem bis mittlerem Wirkungsbereich, die allen betroffenen Gegnern 150 % des Waffenschadens als physischen Schaden zufügt und 2 Sekunden lang ihren physischen Widerstand um 30 % senkt.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc04 Befleckter Obsidianÿc0ÿc4Berserker-Aufsichtssteinÿc0
 ENTRY	Klingenmeister		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -253,7 +245,7 @@ LINE	S	ÿc3+25% Bonus auf Geschicklichkeitÿc0
 LINE	S	​
 LINE	S	ÿc4Stufe 3:ÿc0
 LINE	S	ÿc3Erhalte 10 % verbesserten Schaden pro 1 % physischem Widerstandÿc0
-LINE	S	ÿc320 % physischer Widerstandÿc0
+LINE	S	ÿc320% Physischer Widerstandÿc0
 LINE	S	​
 LINE	S	ÿc4Stufe 4:ÿc0
 LINE	S	ÿc3Erhalte 1% physischen Schaden als Leben zurückgewonnen für jeden 1% physischen Widerstandÿc0
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4Stufe 5:ÿc0
 LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc315% Chance, Level 20 Geworfene Axt beim Treffen zu wirkenÿc0
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc02 Befleckter Obsidianÿc0ÿc02 Fehlerhafter Smaragdÿc0ÿc4Klingenmeister Aufstiegssteinÿc0
 ENTRY	Blutmagier		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% zu Beschwörung Lebenÿc0
 LINE	S	ÿc350 % erhöhtes maximales Lebenÿc0
 LINE	T	​
 LINE	T	ÿc1*Blutmagie bedeutet, dass du jetzt Leben zum Wirken von Zaubern verwendest.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc01 Makelloser Rubinÿc0ÿc01 Befleckter Obsidianÿc0ÿc01 Fehlerhafter Saphirÿc0ÿc4Blutmagier-Aufsichtssteinÿc0
 ENTRY	Eisenbolzen		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% Chance, Level 40 Innerer Blick beim Treffen zu wirkenÿc0
 LINE	S	ÿc3+25 auf Scharfer Fokus (alle Klassen)ÿc0
 LINE	T	​
 LINE	T	ÿc1*Die Blutungsdauer entspricht der Skalierung der Armbrust-Nachladegeschwindigkeit. Das gilt unabhängig davon, ob du eine Armbrust benutzt oder nicht. Die Blutung des Eisenbolzens kann durch andere Blutungsquellen verwässert werden (ähnlich wie sich Giftinstanzen gegenseitig verwässern).
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc02 Befleckter Obsidianÿc0ÿc02 Makelloser Rubinÿc0ÿc4Eisenbolzen Aufstiegsteinÿc0
 ENTRY	Lebensbrecher		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3Magieresistenz +15%ÿc0
 LINE	S	ÿc3Physischer Widerstand: +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Lebenspakt ist eine umschaltbare Fertigkeit, die jede Sekunde 25 % deines maximalen Lebens entzieht und pro Stufe 10 % maximales Leben gewährt. Lebenspakt kann dich nicht töten.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc04 Makelloser Rubinÿc0ÿc4Lebensbrecher Aufstiegssteinÿc0
 ENTRY	Manawächter		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc320% Chance, Level 50 Zeitstopp zu wirken, wenn getroffenÿc0
 LINE	S	ÿc3Giftwiderstand +75%ÿc0
 LINE	S	ÿc3+20 zu Lichtradiusÿc0
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc01 Fehlerhafter Smaragdÿc0ÿc01 Makelloser Rubinÿc0ÿc01 Fehlerhafter Saphirÿc0ÿc4Mana Warden Aufstiegssteinÿc0
 ENTRY	Nomade		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc320% Chance, Level 1 Husch zu wirken, wenn getroffenÿc0
 LINE	T	​
 LINE	T	ÿc1*Huschen ist ein Verstärkungseffekt von 1 Sekunde Dauer, der 33 % Ausweichen, 100 % Basis-Lauf-/Gehgeschwindigkeit und 25 % maximalen physischen Gesamtschaden für Angriffe gewährt und über seine Dauer 10 % des maximalen Lebens regeneriert.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc02 Fehlerhafter Smaragdÿc0ÿc02 Makelloser Rubinÿc0ÿc4Nomadenaufstieg-Steinÿc0
 ENTRY	Scharfschütze		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4Stufe 5:ÿc0
 LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc315% Chance, Level 20 Pfeil beim Treffen zu wirkenÿc0
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc04 Fehlerhafter Smaragdÿc0ÿc4Schärfeschütze Aufstiegssteinÿc0
 ENTRY	Seelenwächter		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc3+1 zu Nicht-Einzigartigen Beschwörungen Limitÿc0
 LINE	S	ÿc3Schaden reduziert um 50ÿc0
 LINE	S	ÿc3Magischer Schaden um 50 reduziertÿc0
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc02 Makelloser Rubinÿc0ÿc02 Fehlerhafter Saphirÿc0ÿc4Seelenwächter Aufstiegssteinÿc0
 ENTRY	Haltungstänzer		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 zu Mana nach jedem Killÿc0
 LINE	T	​
 LINE	T	ÿc1*Du musst im Untermenü Steuerung ein Tastenkürzel für den Haltungswechsel festlegen.
 LINE	T	ÿc1**Du kannst die Haltung jederzeit wechseln, aber die Haltungen wechseln nur in dieser Reihenfolge: Rot -> Grün -> Blau.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc01 Befleckter Obsidianÿc0ÿc01 Fehlerhafter Smaragdÿc0ÿc01 Fehlerhafter Saphirÿc0ÿc4Haltungstänzer Aufstiegsssteinÿc0
 ENTRY	Sternengeborener		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -555,9 +520,6 @@ LINE	S	ÿc4Stufe 5:ÿc0
 LINE	S	ÿc3+3 auf Klassenfertigkeitenÿc0
 LINE	S	ÿc3+1 zu Teleportierenÿc0
 LINE	S	ÿc3+1 zu allen Fähigkeitenÿc0
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc04 Fehlerhafter Saphirÿc0ÿc4Sterngeborene Aufstiegssstoneÿc0
 ENTRY	Weltenformer		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*Jede Widerstandsart zählt einzeln für die Bonusschwellen. Zum Beispiel erhältst du 1 % physischen Widerstand, wenn du je 10 % Feuer-, Kälte- und Blitzwiderstand hast.
 LINE	T	ÿc1**Zauberschaden ist Feuer-/Kälte-/Blitz-/Gift-/Magie-/physischer Zauberschaden und erhöht den festen Schaden für Angriffe (außer physischem Zauberschaden, der den physischen Schaden für Angriffe nicht erhöht).
 LINE	T	ÿc1***Wut der Schöpfung ist eine dreifache Elementar-Nova mit mittlerem Wirkungsbereich; jede Nova verursacht 50 % des Waffenschadens in das jeweilige Element umgewandelt und senkt die Elementarwiderstände der Gegner um 30 %.
-LINE	T	​
-LINE	C	EingabeAusgabe
-LINE	R	ÿc4Orb der Schöpfungÿc0ÿc01 Makelloser Rubinÿc0ÿc01 Befleckter Obsidianÿc0ÿc01 Fehlerhafter Smaragdÿc0ÿc4Weltenformer Aufstiegssteinÿc0
 PAGE	runes	Runen	Wiki	compact
 ENTRY	Kanji-Runen	
 BLOCK	1	I Rune					0

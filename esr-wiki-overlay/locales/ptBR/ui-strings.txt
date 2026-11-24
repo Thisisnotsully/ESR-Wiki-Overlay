@@ -550,7 +550,13 @@ Lvl {0}	Nív. {0}
 Hard points only: +skills from items do not count.	Somente pontos investidos: +habilidades de itens não contam.
 Receives bonuses from	Recebe bônus de
 At level {0}	No nível {0}
-* beyond what a character can reach	* além do que um personagem pode alcançar
+*Maximum Skill Level	*Nível máximo da habilidade
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	Níveis de habilidade acima de {0} são marcados com *: nenhum personagem pode alcançá-los, mas os valores ainda são calculados.
 No item grants this skill.	Nenhum item concede esta habilidade.
 {0} ({1})	{0} ({1})
+Search tips	Dicas de busca
+Several words: a card must have all of them.	Várias palavras: a ficha precisa ter todas.
+"Quoted words": an exact phrase.	"Palavras entre aspas": uma frase exata.
+-word: leaves out cards that have it.	-palavra: exclui as fichas que a contêm.
+Names, stats, runes and notes are searched. Small typos still match.	Busca em nomes, estatísticas, runas e notas. Pequenos erros de digitação também são encontrados.
+Enter opens the top suggestion.	Enter abre a primeira sugestão.

@@ -551,7 +551,13 @@ Lvl {0}	Liv. {0}
 Hard points only: +skills from items do not count.	Solo punti investiti: le +abilità degli oggetti non contano.
 Receives bonuses from	Riceve bonus da
 At level {0}	Al livello {0}
-* beyond what a character can reach	* oltre ciò che un personaggio può raggiungere
+*Maximum Skill Level	*Livello massimo abilità
 Skill levels above {0} are marked *: no character can reach them, but the numbers are still worked out.	I livelli di abilità oltre {0} sono segnati con *: nessun personaggio può raggiungerli, ma i valori vengono comunque calcolati.
 No item grants this skill.	Nessun oggetto conferisce questa abilità.
 {0} ({1})	{0} ({1})
+Search tips	Consigli di ricerca
+Several words: a card must have all of them.	Più parole: la scheda deve contenerle tutte.
+"Quoted words": an exact phrase.	"Parole tra virgolette": una frase esatta.
+-word: leaves out cards that have it.	-parola: esclude le schede che la contengono.
+Names, stats, runes and notes are searched. Small typos still match.	Si cercano nomi, statistiche, rune e note. Anche i piccoli errori di battitura trovano risultati.
+Enter opens the top suggestion.	Invio apre il primo suggerimento.

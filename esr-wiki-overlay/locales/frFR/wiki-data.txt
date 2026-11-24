@@ -72,7 +72,7 @@ BLOCK	0						0
 LINE	T	Cubez une Carte de fin de jeu seule dans l'Acte 5 Enfer pour ouvrir sa zone et son boss. Il existe 5 paliers ; 3 cartes identiques montent au palier suivant, et une Pierre de randomisation peut en relancer une. Les boss de carte font tomber des cartes de palier supérieur, des Orbes d'onction, des Jetons de maîtrise des armes et des clés. Les clés Pandémonium (Terreur, Haine, Destruction) se convertissent entre elles dans le cube et ouvrent un portail vers l'un des trois ubers boss, dont les butins réunis ouvrent Uber Tristram. Les cartes sont la seule source d'uniques mythiques, certains provenant d'un seul boss précis.
 ENTRY	Ascendances	Après Baal
 BLOCK	0						0
-LINE	T	Une Pierre d'ascendance est un charme qui accorde une sous-classe entière. Tuez 5 superuniques spéciaux de l'Enfer (un dans chacun des Actes 1, 2 et 3, deux dans l'Acte 5) pour leurs orbes élémentaires, cubez-les en un Orbe de création, puis cubez-le avec des gemmes Blemished de couleur : la combinaison de couleurs choisit votre ascendance. Les paliers suivants améliorent la pierre grâce aux défis de fin de jeu (Nihlathak en Enfer, les 3 boss d'Uber Tristram en une minute, Pierres d'âme primordiales, un boss de carte de palier 5), réalisés dans l'ordre souhaité. Vous ne pouvez porter qu'une pierre à la fois, et devez la rééquiper après chaque mort.
+LINE	T	Une ascendance accorde une sous-classe entière. Tuez 5 superuniques spéciaux de l'Enfer (un dans chacun des Actes 1, 2 et 3, deux dans l'Acte 5) pour leurs orbes élémentaires et cubez-les en un Orbe de création. Consommer l'orbe débloque le panneau d'ascendance, où vous choisissez votre ascendance. Les paliers suivants se débloquent grâce aux défis de fin de jeu (Nihlathak en Enfer, les 3 boss d'Uber Tristram en une minute, Pierres d'âme primordiales, un boss de carte de palier 5), réalisés dans l'ordre souhaité.
 ENTRY	Corruption et onction	Après Baal
 BLOCK	0						0
 LINE	T	La corruption cube un objet avec un Éclat de Pierre-Monde, puis le cube à nouveau pour obtenir un bonus fort aléatoire, mais elle peut aussi transformer l'objet en rare aléatoire. Ne corrompez donc que ce que vous pouvez vous permettre de perdre (le Cœur pétrifié d'Astrogha retire le statut d'une mauvaise corruption en conservant le bonus, ce qui vous permet de réessayer). L'Onction utilise à la place un Orbe d'onction, et son bonus aléatoire ne peut jamais détruire l'objet. Les deux viennent après le Forgeage et la Pierre-D dans l'ordre d'amélioration, et sont alimentés principalement par les zones de terreur et les Cartes de fin de jeu.
@@ -82,13 +82,14 @@ LINE	T	Les uniques charmes ne fonctionnent que depuis l'inventaire de charmes, e
 PAGE	ascendancy	Ascendance	Wiki
 ENTRY	Ascendances	
 BLOCK	0						0
-LINE	T	Ascendances sont de puissantes spécialisations qui façonnent votre façon de jouer en accordant des compétences et des bonus uniques. Les ascendances sont accordées par un charme spécial appelé Pierre d'Ascendance , qui ne s'obtient qu'après avoir terminé plusieurs rencontres spéciales.
+LINE	T	Ascendances sont de puissantes spécialisations qui façonnent votre façon de jouer en accordant des compétences et des bonus uniques.
 LINE	T	​
-LINE	T	Les pierres d'ascendance peuvent être encore améliorées (vous pouvez donc continuer à vous élever) en relevant des défis précis, dont certains sont liés à du contenu de fin de jeu très difficile.
+LINE	T	Il existe 5 paliers d'ascendance ; chaque défi est plus dur que le précédent, mais les bonus sont aussi plus puissants.
 LINE	T	​
-LINE	T	Il existe 5 paliers d'ascendance ; chaque défi est plus dur que le précédent, mais les bonus sont aussi plus puissants. Les pierres d'ascendance ne peuvent pas être partagées avec d'autres personnages. Vous ne pouvez avoir qu'une seule pierre d'ascendance équipée à la fois. Inutile de préciser que chaque palier ne s'obtient qu'une fois. Vous pouvez cependant les obtenir dans n'importe quel ordre.
+LINE	T	Inutile de préciser que chaque palier ne s'obtient qu'une fois. Vous pouvez cependant les obtenir dans n'importe quel ordre.
 LINE	T	​
-LINE	T	Les pierres d'ascendance ne peuvent pas être modifiées par les moyens habituels (elles ne peuvent pas être corrompues, ointes, démontées en feuilles d'érable, etc.).
+LINE	T	Palier 1:
+LINE	T	Pour obtenir une Ascendance, vous devez tuer 5 super-uniques spéciaux en difficulté Enfer répartis dans Sanctuaire et transmuter les orbes élémentaires que chacun d'eux lâche pour obtenir : Orbe de Création. L'orbe peut ensuite être consommé pour débloquer le panneau d'ascendance, où vous pouvez choisir l'ascendance de votre choix.
 LINE	T	​
 LINE	T	Orbe de Création / Emplacements des matériaux
 LINE	C	OrbeActeEmplacementMonstre
@@ -104,16 +105,19 @@ LINE	T	Pour améliorer votre Ascendance, reportez-vous aux Défis des paliers su
 ENTRY	Higher Tier Challenges	
 BLOCK	0						0
 LINE	T	Palier 2:
-LINE	T	Le deuxième palier s'obtient en tuant Nihlathak dans son domaine en difficulté Enfer, puis en transmutant la pierre d'ascendance avec elle-même. Vous devez la transmuter pendant que les tourbillons sont actifs sur votre personnage.
+LINE	T	Le deuxième palier s'obtient en tuant Nihlathak dans son domaine en difficulté Enfer.
 LINE	T	​
 LINE	T	Palier 3:
-LINE	T	Le troisième palier s'obtient en tuant tous les boss d'Uber Tristram à moins d'une minute d'intervalle et sans mourir, puis en transmutant la pierre d'ascendance avec une feuille d'érable. Même si les tourbillons sont actifs sur votre personnage après avoir tué le dernier boss, cela ne fonctionnera pas si plus d'1 minute s'est écoulée depuis la mort du premier.
+LINE	T	Le troisième palier s'obtient en tuant tous les boss d'Uber Tristram à moins d'une minute d'intervalle et sans mourir,.
 LINE	T	​
 LINE	T	Palier 4:
-LINE	T	Le quatrième palier s'obtient en récoltant 10 Pierres d'âme primordiales lâchées par n'importe quel boss de carte de fin de jeu. Vous ne pouvez transmuter qu'une Pierre primordiale à la fois avec la Pierre d'Ascendance. Une fois 10 Pierres d'âme primordiales capturées dans la Pierre d'Ascendance, vous pourrez la transmuter avec 2 feuilles d'érable pour atteindre le palier 4.
+LINE	T	Le quatrième palier s'obtient en récoltant 10 Pierres d'âme primordiales qui tombent de n'importe quel boss de carte de fin de jeu. Une fois que vous avez capturé 10 Pierres d'âme primordiales, le palier 4 se débloque automatiquement. Notez que les pierres d'âme sont stockées sur votre personnage et que vous ne pouvez pas interagir avec elles. Vous pouvez suivre votre progression dans le panneau d'ascendance.
 LINE	T	​
 LINE	T	Palier 5:
-LINE	T	Le cinquième palier s'obtient en tuant n'importe quel boss de carte de palier 5, puis en transmutant la pierre d'ascendance avec 3 feuilles d'érable. Vous devez la transmuter pendant que les tourbillons sont actifs sur votre personnage.
+LINE	T	Le cinquième palier s'obtient en tuant n'importe quel boss d'une carte de palier 5.
+LINE	T	​
+LINE	T	Bonus du Roi Liche:
+LINE	T	Tuer le Roi Liche en /players 8 débloque un bonus supplémentaire qui augmente de 10 % les bonus de progression des statistiques des paliers 3 et 4.
 LINE	T	​
 ENTRY	Arcaniste		split
 BLOCK	0						0
@@ -130,7 +134,7 @@ LINE	S	ÿc3+25% Bonus à l'Énergieÿc0
 LINE	S	​
 LINE	S	ÿc4Palier 3:ÿc0
 LINE	S	ÿc3Gagnez 5 de mana pour chaque 1 % de vitesseÿc1*ÿc3ÿc0
-LINE	S	ÿc3+30% à toutes les vitessesÿc0
+LINE	S	ÿc330% à toutes les vitessesÿc0
 LINE	S	​
 LINE	S	ÿc4Palier 4:ÿc0
 LINE	S	ÿc3Gagnez 1 de mana sur coup pour chaque 25 % de vitesseÿc1*ÿc3ÿc0
@@ -144,9 +148,6 @@ LINE	S	ÿc35% Chance de lancer le niveau 20 Flèche Améliorée de Froid lors d'
 LINE	S	ÿc35% Chance de lancer le niveau 20 Flèche Améliorée par la Foudre lors d'une frappeÿc0
 LINE	T	​
 LINE	T	ÿc1*Chaque type de vitesse (blocage, incantation, déplacement, attaque, récupération) compte séparément. Par exemple, +1 % à toutes les vitesses compte comme +5 % pour les bonus d'ascendance.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc02 Émeraude Blemieÿc0ÿc02 Saphir Blemieÿc0ÿc4Pierre d'Ascendance d'Arcanisteÿc0
 ENTRY	éveillé		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_awakened
@@ -176,9 +177,6 @@ LINE	T	​
 LINE	T	ÿc1*Les paliers se calculent sur le total des points d'attributs (par exemple, vous gagnez +1 à toutes les compétences si vous avez 250 dans chaque attribut).
 LINE	T	ÿc1**Annihilation est une nova dévastatrice de 6 éléments (feu/froid/foudre/poison/physique/magie), une compétence couvrant tout l'écran qui inflige, par nova, 50 % des dégâts de l'arme convertis dans l'élément correspondant, ainsi que d'importants dégâts de sort de chaque type qui augmentent avec le total des attributs. Elle repousse les ennemis et réduit toutes leurs résistances de 25 % pendant 2 secondes. La nova de poison n'inflige pas de dégâts d'arme.
 LINE	T	ÿc1**Annihilation ne peut se déclencher que lorsque votre vie actuelle est inférieure à 30 %.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc01 Obsidienne Blemieÿc0ÿc01 Saphir Blemieÿc0ÿc01 Émeraude Blemieÿc0ÿc01 Rubis Blemieÿc0ÿc4Pierre d'Ascendance Éveilléeÿc0
 ENTRY	Mage de bataille		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_battlemage
@@ -207,9 +205,6 @@ LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc3+50% à toutes les vitessesÿc0
 LINE	T	​
 LINE	T	ÿc1*Le bonus de défense totale est multiplicatif avec la valeur totale de votre armure.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc02 Saphir Blemieÿc0ÿc02 Obsidienne Blemieÿc0ÿc4Pierre d'Ascendance de Battlemageÿc0
 ENTRY	Berserker		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_berserker
@@ -235,9 +230,6 @@ LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc325 % de chances de lancer Ravage niveau 1 lors d'une attaque de mêléeÿc1**ÿc3ÿc0
 LINE	T	​
 LINE	T	ÿc1*Ravage est une compétence à zone d'effet petite à moyenne qui inflige 150 % des dégâts de l'arme en dégâts physiques à tous les ennemis touchés et réduit leur résistance physique de 30 % pendant 2 secondes.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc04 Obsidienne Blemieÿc0ÿc4Pierre d'Ascendance Berserkerÿc0
 ENTRY	Maître-lame		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_blademaster
@@ -253,7 +245,7 @@ LINE	S	ÿc3+25% Bonus à la Dextéritéÿc0
 LINE	S	​
 LINE	S	ÿc4Palier 3:ÿc0
 LINE	S	ÿc3Gagnez 10 % de dégâts améliorés pour chaque 1 % de résistance physiqueÿc0
-LINE	S	ÿc320 % de résistance physiqueÿc0
+LINE	S	ÿc320% de résistance physiqueÿc0
 LINE	S	​
 LINE	S	ÿc4Palier 4:ÿc0
 LINE	S	ÿc3Gagnez 1% de Dégâts Physiques Volés comme Vie pour chaque 1% de Résistance Physiqueÿc0
@@ -263,9 +255,6 @@ LINE	S	​
 LINE	S	ÿc4Palier 5:ÿc0
 LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc315% Chance de lancer le niveau 20 Hache de jet lors d'une frappeÿc0
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc02 Obsidienne Blemieÿc0ÿc02 Émeraude Blemieÿc0ÿc4Pierre d'Ascendance Maître des Lamesÿc0
 ENTRY	Mage de sang		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_bloodmage
@@ -298,9 +287,6 @@ LINE	S	ÿc3+25% à la Vie des Invocationsÿc0
 LINE	S	ÿc3Vie maximale augmentée de 50 %ÿc0
 LINE	T	​
 LINE	T	ÿc1*La magie du sang signifie que vous utilisez désormais votre vie pour lancer des sorts.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc01 Rubis Blemieÿc0ÿc01 Obsidienne Blemieÿc0ÿc01 Saphir Blemieÿc0ÿc4Pierre d'Ascendance de Sangmageÿc0
 ENTRY	Carreau de fer		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_ironbolt
@@ -331,9 +317,6 @@ LINE	S	ÿc32% Chance de lancer le niveau 40 Vision Intérieure lors d'une frappe
 LINE	S	ÿc3+25 à Concentration Aiguisée (toutes classes)ÿc0
 LINE	T	​
 LINE	T	ÿc1*La durée du saignement correspond à la progression de la vitesse de rechargement de l'arbalète. Cela s'applique que vous utilisiez une arbalète ou non. Le saignement de Carreau de fer peut être dilué par d'autres sources de saignement (comme les instances de poison se diluent entre elles).
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc02 Obsidienne Blemieÿc0ÿc02 Rubis Blemieÿc0ÿc4Pierre d'Ascendance Ironboltÿc0
 ENTRY	Briseur de vie		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_lifebreaker
@@ -362,9 +345,6 @@ LINE	S	ÿc3Résistance magique +15%ÿc0
 LINE	S	ÿc3Résistance Physique : +15%ÿc0
 LINE	T	​
 LINE	T	ÿc1*Pacte de Vie est une compétence activable qui draine 25 % de votre vie maximale chaque seconde et accorde 10 % de vie maximale par niveau. Pacte de Vie ne peut pas vous tuer.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc04 Rubis Blemieÿc0ÿc4Pierre d'Ascendance Briseur de Vieÿc0
 ENTRY	Gardien du mana		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_manawarden
@@ -396,9 +376,6 @@ LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc320% Chance de lancer le niveau 50 Arrêt du Temps lorsqu'il est frappéÿc0
 LINE	S	ÿc3Résistance au poison +75%ÿc0
 LINE	S	ÿc3+20 au Rayon de Lumièreÿc0
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc01 Émeraude Blemieÿc0ÿc01 Rubis Blemieÿc0ÿc01 Saphir Blemieÿc0ÿc4Pierre d'Ascendance de Gardien de Manaÿc0
 ENTRY	Nomade		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_nomad
@@ -426,9 +403,6 @@ LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc320% Chance de lancer le niveau 1 Se précipiter lorsqu'il est frappéÿc0
 LINE	T	​
 LINE	T	ÿc1*Détalage est un bonus d'une durée de 1 seconde qui accorde 33 % d'esquive, 100 % de vitesse de course/marche de base, 25 % de dégâts physiques maximaux totaux aux attaques et régénère 10 % de la vie maximale pendant sa durée.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc02 Émeraude Blemieÿc0ÿc02 Rubis Blemieÿc0ÿc4Pierre d'Ascendance Nomadeÿc0
 ENTRY	Tireur d'élite		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_sharpshooter
@@ -454,9 +428,6 @@ LINE	S	​
 LINE	S	ÿc4Palier 5:ÿc0
 LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc315% Chance de lancer le niveau 20 Flèche lors d'une frappeÿc0
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc04 Émeraude Blemieÿc0ÿc4Pierre d'Ascendance Tireur d'Éliteÿc0
 ENTRY	Gardien des âmes		splitflip
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_soulwarden
@@ -484,9 +455,6 @@ LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc3+1 à la Limite des Invocations Non-Uniqueÿc0
 LINE	S	ÿc3Dégâts réduits de 50ÿc0
 LINE	S	ÿc3Dégâts magiques réduits de 50ÿc0
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc02 Rubis Blemieÿc0ÿc02 Saphir Blemieÿc0ÿc4Pierre d'Ascendance Gardien des Âmesÿc0
 ENTRY	Danseur de postures		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_stancedancer
@@ -528,9 +496,6 @@ LINE	S	ÿc3+50 de Mana après chaque Killÿc0
 LINE	T	​
 LINE	T	ÿc1*Vous devez définir un raccourci pour changer de posture dans le sous-menu Commandes.
 LINE	T	ÿc1**Vous pouvez changer de posture quand vous voulez, mais les postures ne s'enchaînent que dans cet ordre : rouge -> vert -> bleu.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc01 Obsidienne Blemieÿc0ÿc01 Émeraude Blemieÿc0ÿc01 Saphir Blemieÿc0ÿc4Pierre d'Ascendance Danseur de Postureÿc0
 ENTRY	Né des étoiles		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_starborn
@@ -544,7 +509,7 @@ LINE	S	ÿc3+30% Bonus à l'Énergieÿc0
 LINE	S	​
 LINE	S	ÿc4Palier 3:ÿc0
 LINE	S	ÿc3Gagnez -1 % aux résistances au feu, au froid et à la foudre de l'ennemi pour chaque 400 points de manaÿc0
-LINE	S	ÿc3+400 à la Manaÿc0
+LINE	S	ÿc3+400 de manaÿc0
 LINE	S	​
 LINE	S	ÿc4Palier 4:ÿc0
 LINE	S	ÿc3Gagnez 1 Régénération de Vie pour chaque 5 Manaÿc0
@@ -555,9 +520,6 @@ LINE	S	ÿc4Palier 5:ÿc0
 LINE	S	ÿc3+3 aux niveaux des compétences de classeÿc0
 LINE	S	ÿc3+1 à Téléportationÿc0
 LINE	S	ÿc3+1 à toutes les compétencesÿc0
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc04 Saphir Blemieÿc0ÿc4Pierre d'Ascendance des Étoilesÿc0
 ENTRY	Façonneur de monde		split
 BLOCK	0						0
 IMG	d2rloader_esr-wiki_wiki_worldshaper
@@ -591,9 +553,6 @@ LINE	T	​
 LINE	T	ÿc1*Chaque type de résistance compte séparément pour les paliers de bonus. Par exemple, vous obtenez 1 % de résistance physique si vous avez 10 % de résistance au feu, au froid et à la foudre chacune.
 LINE	T	ÿc1**Les dégâts des sorts désignent les dégâts des sorts de feu/froid/foudre/poison/magiques/physiques et augmentent les dégâts fixes aux attaques (sauf les dégâts des sorts physiques, qui n'augmentent pas les dégâts physiques aux attaques).
 LINE	T	ÿc1***Fureur de la Création est une triple nova élémentaire à zone d'effet moyenne ; chaque nova inflige 50 % des dégâts de l'arme convertis dans l'élément correspondant et réduit les résistances élémentaires des ennemis de 30 %.
-LINE	T	​
-LINE	C	EntréeSortie
-LINE	R	ÿc4Orbe de Créationÿc0ÿc01 Rubis Blemieÿc0ÿc01 Obsidienne Blemieÿc0ÿc01 Émeraude Blemieÿc0ÿc4Pierre d'Ascendance Façonneuse du Mondeÿc0
 PAGE	runes	Runes	Wiki	compact
 ENTRY	Runes kanji	
 BLOCK	1	Rune I					0
